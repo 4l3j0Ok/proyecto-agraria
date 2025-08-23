@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using Microsoft.Data.SqlClient;
+using Microsoft.Data.Sqlite;
 using System.Diagnostics;
+using System.IO;
 
 namespace GestionAgraria
 {
@@ -13,36 +13,36 @@ namespace GestionAgraria
     {
         public static void ExecuteNonQuery(string query)
         {
-            using (SqlConnection connection = new SqlConnection(Config.sql_connection_string))
+            using (SqliteConnection connection = new SqliteConnection(Config.sql_connection_string))
             {
                 try
                 {
                     connection.Open();
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqliteCommand command = new SqliteCommand(query, connection))
                     {
                         command.ExecuteNonQuery();
                         Debug.WriteLine($"Consulta ejecutada correctamente: {query}");
                     }
                 }
-                catch (SqlException ex)
+                catch (SqliteException ex)
                 {
                     Debug.WriteLine($"Error al ejecutar la consulta: {ex.Message}");
                 }
             }
         }
 
-        public static SqlDataReader ExecuteReader(string query)
+        public static SqliteDataReader ExecuteReader(string query)
         {
-            SqlConnection connection = new SqlConnection(Config.sql_connection_string);
+            SqliteConnection connection = new SqliteConnection(Config.sql_connection_string);
             try
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
-                SqlDataReader reader = command.ExecuteReader();
+                SqliteCommand command = new SqliteCommand(query, connection);
+                SqliteDataReader reader = command.ExecuteReader();
                 Debug.WriteLine($"Consulta ejecutada correctamente: {query}");
                 return reader;
             }
-            catch (SqlException ex)
+            catch (SqliteException ex)
             {
                 Debug.WriteLine($"Error al ejecutar la consulta: {ex.Message}");
                 connection.Close();
@@ -51,96 +51,76 @@ namespace GestionAgraria
         }
         public static void CheckConnection()
         {
-            using (SqlConnection connection = new SqlConnection(Config.sql_connection_string))
+            using (SqliteConnection connection = new SqliteConnection(Config.sql_connection_string))
             {
                 try
                 {
                     Debug.WriteLine($"Intentando conectarse a la base de datos con el connection string {Config.sql_connection_string}");
                     connection.Open();
                 }
-                catch (SqlException ex)
+                catch (SqliteException ex)
                 {
                     Debug.WriteLine($"Error al conectarse a la base de datos: {ex.Message}");
                     throw new Exception("No se pudo establecer una conexión con la base de datos. Por favor, verifica la configuración.", ex);
                 }
             }
         }
-        public static void CreateDatabaseIfNotExists()
-        {
-            string createDbQuery = File.ReadAllText(".\\queries\\01-create-databases.sql");
-            Debug.WriteLine($"Ejecutando consulta para crear la base de datos: {createDbQuery}");
-            ExecuteNonQuery(createDbQuery);
-        }
 
         public static void CreateTablesIfNotExists()
         {
-            string createTablesQuery = File.ReadAllText(".\\queries\\02-create-tables.sql");
-            Debug.WriteLine($"Ejecutando consulta para crear las tablas: {createTablesQuery}");
-            ExecuteNonQuery(createTablesQuery);
+            Debug.WriteLine($"Ejecutando consulta para crear las tabla de usuarios: {Queries.createUsersTable}");
+            ExecuteNonQuery(Queries.createUsersTable);
+            Debug.WriteLine($"Ejecutando consulta para crear las tabla de entornos formativos: {Queries.createFormativeEnvironmentsTable}");
+            ExecuteNonQuery(Queries.createFormativeEnvironmentsTable);
         }
 
         public static Dictionary<string, string> CreateAdminUserIfNotExists()
         {
-            string query = "USE GestionAgraria; SELECT TOP 1 * FROM Usuarios;";
+            string query = "SELECT * FROM Users LIMIT 1;";
             Dictionary<string, string> user = new Dictionary<string, string>();
-            SqlDataReader sqlDataReader = ExecuteReader(query);
+            SqliteDataReader sqlDataReader = ExecuteReader(query);
             if (!sqlDataReader.HasRows)
             {
                 string username = "admin";
                 string password = Utils.GenerateRandomString(12);
-                query = File.ReadAllText(".\\queries\\04-insert-user.sql");
-                query = query.Replace(
-                    "{ DNI }",
-                    "00000000"
-                ).Replace(
-                    "{ nombre }",
-                    "Admin"
-                ).Replace(
-                    "{ apellido }",
-                    "Admin"
-                ).Replace(
-                    "{ tel }",
-                    "123456789"
-                ).Replace(
-                    "{ mail }",
-                    "admin@GestionAgraria.com"
-                ).Replace(
-                    "{ nombre_usuario }", username
-                )
-                .Replace(
-                    "{ contrasena }",
-                    password
-                ).Replace(
-                    "{ p_compra }",
-                    "w"
-                ).Replace(
-                    "{ p_venta }",
-                    "w"
-                ).Replace(
-                    "{ p_rrhh }",
-                    "w"
-                ).Replace(
-                    "{ p_contable }",
-                    "w"
-                );
+                query = Queries.insertUser(username: username, password: password, name: "Administrador", surname: "Sistema");
                 Debug.WriteLine(query);
                 ExecuteNonQuery(query);
                 user["username"] = username;
                 user["password"] = password;
             }
+            sqlDataReader.Close();
             return user;
         }
         public static string GetUserPassword(string username)
         {
             string password = "";
-            string query = File.ReadAllText(".\\queries\\05-select-user-password.sql");
-            query = query.Replace(
-                "{ nombre_usuario }",
-                username);
-            SqlDataReader reader = ExecuteReader(query);
+            string query = Queries.getUserPassword(username);
+            SqliteDataReader reader = ExecuteReader(query);
             if (reader.Read())
-                password = reader["contrasena"].ToString() ?? String.Empty;
+                password = reader["password"].ToString() ?? String.Empty;
+            reader.Close();
             return password;
         }
+    }
+    public static class Queries
+    {
+        public static string createUsersTable = @$"
+            CREATE TABLE IF NOT EXISTS Users (
+                username TEXT PRIMARY KEY,
+                password TEXT NOT NULL,
+                name TEXT NOT NULL,
+                surname TEXT NOT NULL
+            );";
+        public static string createFormativeEnvironmentsTable = @$"
+            CREATE TABLE IF NOT EXISTS FormativeEnvironments (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT NOT NULL
+            );";
+        public static string insertUser(string username, string password, string name, string surname) => @$"
+            INSERT INTO Users (username, password, name, surname)
+            VALUES ('{username}', '{password}', '{name}', '{surname}');";
+        public static string getUserPassword(string username) => @$"
+            SELECT password FROM Users WHERE username = '{username}';";
     }
 }

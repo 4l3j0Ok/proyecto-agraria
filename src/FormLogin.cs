@@ -26,7 +26,6 @@ namespace GestionAgraria
                     buttons: MessageBoxButtons.OK
                 );
             }
-            Database.CreateDatabaseIfNotExists();
             Database.CreateTablesIfNotExists();
             Dictionary<string, string> user = Database.CreateAdminUserIfNotExists();
             if (user.ContainsKey("username") && user.ContainsKey("password"))
