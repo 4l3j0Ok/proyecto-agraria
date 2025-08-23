@@ -41,18 +41,14 @@ namespace GestionAgraria
         {
             components = new Container();
             ComponentResourceManager resources = new ComponentResourceManager(typeof(FormPrincipal));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             imgList = new ImageList(components);
             tabUsuarios = new TabPage();
             tabEntornosFormativos = new TabPage();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             tabInicio = new TabPage();
             tableLayoutPanel1 = new TableLayoutPanel();
             pictureBox1 = new PictureBox();
             materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
             tcPrincipal = new ReaLTaiizor.Controls.MaterialTabControl();
-            tabEntornosFormativos.SuspendLayout();
             tabInicio.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
@@ -80,7 +76,6 @@ namespace GestionAgraria
             // 
             // tabEntornosFormativos
             // 
-            tabEntornosFormativos.Controls.Add(guna2Button1);
             tabEntornosFormativos.ImageKey = "environment.png";
             tabEntornosFormativos.Location = new Point(4, 24);
             tabEntornosFormativos.Name = "tabEntornosFormativos";
@@ -88,23 +83,6 @@ namespace GestionAgraria
             tabEntornosFormativos.TabIndex = 2;
             tabEntornosFormativos.Text = "Entornos Formativos";
             tabEntornosFormativos.UseVisualStyleBackColor = true;
-            // 
-            // guna2Button1
-            // 
-            guna2Button1.CustomizableEdges = customizableEdges1;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.FromArgb(255, 128, 128);
-            guna2Button1.Font = new Font("Segoe UI", 9F);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(3, 3);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button1.Size = new Size(180, 45);
-            guna2Button1.TabIndex = 0;
-            guna2Button1.Text = "guna2Button1";
             // 
             // tabInicio
             // 
@@ -189,7 +167,6 @@ namespace GestionAgraria
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión Agraria";
             Load += FormPrincipal_Load;
-            tabEntornosFormativos.ResumeLayout(false);
             tabInicio.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
@@ -207,6 +184,5 @@ namespace GestionAgraria
         private PictureBox pictureBox1;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
         private ReaLTaiizor.Controls.MaterialTabControl tcPrincipal;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
     }
 }
