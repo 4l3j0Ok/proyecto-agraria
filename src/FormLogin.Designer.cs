@@ -236,7 +236,7 @@ namespace GestionAgraria
             Padding = new Padding(0, 64, 0, 0);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión Agraria";
-            Load += FormPrincipal_Load;
+            Load += FormLogin_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

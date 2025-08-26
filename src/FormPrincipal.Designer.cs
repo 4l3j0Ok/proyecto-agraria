@@ -91,7 +91,7 @@ namespace GestionAgraria
             tabInicio.Location = new Point(4, 24);
             tabInicio.Name = "tabInicio";
             tabInicio.Padding = new Padding(3);
-            tabInicio.Size = new Size(929, 442);
+            tabInicio.Size = new Size(932, 442);
             tabInicio.TabIndex = 0;
             tabInicio.Text = "Inicio";
             tabInicio.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@ namespace GestionAgraria
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 76.4976959F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 23.5023041F));
-            tableLayoutPanel1.Size = new Size(923, 436);
+            tableLayoutPanel1.Size = new Size(926, 436);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // pictureBox1
@@ -119,7 +119,7 @@ namespace GestionAgraria
             pictureBox1.Location = new Point(20, 20);
             pictureBox1.Margin = new Padding(20);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(883, 293);
+            pictureBox1.Size = new Size(886, 293);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -134,7 +134,7 @@ namespace GestionAgraria
             materialLabel1.Location = new Point(3, 333);
             materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
-            materialLabel1.Size = new Size(917, 103);
+            materialLabel1.Size = new Size(920, 103);
             materialLabel1.TabIndex = 1;
             materialLabel1.Text = "Bienvenido a Gestión Agraria";
             materialLabel1.TextAlign = ContentAlignment.MiddleCenter;
@@ -147,12 +147,12 @@ namespace GestionAgraria
             tcPrincipal.Depth = 0;
             tcPrincipal.Dock = DockStyle.Fill;
             tcPrincipal.ImageList = imgList;
-            tcPrincipal.Location = new Point(3, 64);
+            tcPrincipal.Location = new Point(0, 64);
             tcPrincipal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             tcPrincipal.Multiline = true;
             tcPrincipal.Name = "tcPrincipal";
             tcPrincipal.SelectedIndex = 0;
-            tcPrincipal.Size = new Size(937, 470);
+            tcPrincipal.Size = new Size(940, 470);
             tcPrincipal.TabIndex = 0;
             tcPrincipal.SelectedIndexChanged += tcPrincipal_SelectedIndexChanged;
             // 
@@ -162,8 +162,10 @@ namespace GestionAgraria
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(943, 537);
             Controls.Add(tcPrincipal);
+            DrawerShowIconsWhenHidden = true;
             DrawerTabControl = tcPrincipal;
             Name = "FormPrincipal";
+            Padding = new Padding(0, 64, 3, 3);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión Agraria";
             Load += FormPrincipal_Load;

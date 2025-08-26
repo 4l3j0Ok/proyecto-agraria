@@ -49,22 +49,6 @@ namespace GestionAgraria
                 throw;
             }
         }
-        public static void CheckConnection()
-        {
-            using (SqliteConnection connection = new SqliteConnection(Config.sql_connection_string))
-            {
-                try
-                {
-                    Debug.WriteLine($"Intentando conectarse a la base de datos con el connection string {Config.sql_connection_string}");
-                    connection.Open();
-                }
-                catch (SqliteException ex)
-                {
-                    Debug.WriteLine($"Error al conectarse a la base de datos: {ex.Message}");
-                    throw new Exception("No se pudo establecer una conexión con la base de datos. Por favor, verifica la configuración.", ex);
-                }
-            }
-        }
 
         public static void CreateTablesIfNotExists()
         {
@@ -72,6 +56,13 @@ namespace GestionAgraria
             ExecuteNonQuery(Queries.createUsersTable);
             Debug.WriteLine($"Ejecutando consulta para crear las tabla de entornos formativos: {Queries.createFormativeEnvironmentsTable}");
             ExecuteNonQuery(Queries.createFormativeEnvironmentsTable);
+            // Insertar los roles default
+            foreach (KeyValuePair<string, string> role in Config.defaultRoles)
+            {
+                string query = Queries.insertRole(role.Key, role.Value);
+                Debug.WriteLine($"Ejecutando consulta para crear el rol {role.Value}: {query}");
+                ExecuteNonQuery(query);
+            }
         }
 
         public static Dictionary<string, string> CreateAdminUserIfNotExists()
@@ -83,7 +74,13 @@ namespace GestionAgraria
             {
                 string username = "admin";
                 string password = Utils.GenerateRandomString(12);
-                query = Queries.insertUser(username: username, password: password, name: "Administrador", surname: "Sistema");
+                query = Queries.insertUser(
+                    username: username,
+                    password: password,
+                    name: "Administrador",
+                    surname: "Sistema",
+                    roleId: 1
+                );
                 Debug.WriteLine(query);
                 ExecuteNonQuery(query);
                 user["username"] = username;
@@ -98,7 +95,7 @@ namespace GestionAgraria
             string query = Queries.getUserPassword(username);
             SqliteDataReader reader = ExecuteReader(query);
             if (reader.Read())
-                password = reader["password"].ToString() ?? String.Empty;
+                password = reader["password"].ToString() ?? "";
             reader.Close();
             return password;
         }
@@ -110,16 +107,25 @@ namespace GestionAgraria
                 username TEXT PRIMARY KEY,
                 password TEXT NOT NULL,
                 name TEXT NOT NULL,
-                surname TEXT NOT NULL
+                surname TEXT NOT NULL,
+                roleId TEXT NOT NULL
             );";
         public static string createFormativeEnvironmentsTable = @$"
             CREATE TABLE IF NOT EXISTS FormativeEnvironments (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                id TEXT PRIMARY KEY,
                 name TEXT NOT NULL
             );";
-        public static string insertUser(string username, string password, string name, string surname) => @$"
-            INSERT INTO Users (username, password, name, surname)
-            VALUES ('{username}', '{password}', '{name}', '{surname}');";
+        public static string createRolesTable = $@"
+            CREATE TABLE IF NOT EXISTS Roles (
+                id TEXT PRIMARY KEY,
+                name TEXT NOT NULL
+            );";
+        public static string insertUser(string username, string password, string name, string surname, int roleId) => @$"
+            INSERT INTO Users (username, password, name, surname, roleId)
+            VALUES ('{username}', '{password}', '{name}', '{surname}', {roleId});";
+        public static string insertRole(string id, string name) => @$"
+            INSERT INTO Roles (id, name)
+            VALUES ('{id}' , '{name}');";
         public static string getUserPassword(string username) => @$"
             SELECT password FROM Users WHERE username = '{username}';";
     }
