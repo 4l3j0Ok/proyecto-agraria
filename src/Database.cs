@@ -52,10 +52,8 @@ namespace GestionAgraria
 
         public static void CreateTablesIfNotExists()
         {
-            Debug.WriteLine($"Ejecutando consulta para crear las tabla de usuarios: {Queries.createUsersTable}");
-            ExecuteNonQuery(Queries.createUsersTable);
-            Debug.WriteLine($"Ejecutando consulta para crear las tabla de entornos formativos: {Queries.createFormativeEnvironmentsTable}");
-            ExecuteNonQuery(Queries.createFormativeEnvironmentsTable);
+            Debug.WriteLine($"Ejecutando consulta para crear las tabla de roles: {Queries.createRolesTable}");
+            ExecuteNonQuery(Queries.createRolesTable);
             // Insertar los roles default
             foreach (KeyValuePair<string, string> role in Config.defaultRoles)
             {
@@ -63,6 +61,10 @@ namespace GestionAgraria
                 Debug.WriteLine($"Ejecutando consulta para crear el rol {role.Value}: {query}");
                 ExecuteNonQuery(query);
             }
+            Debug.WriteLine($"Ejecutando consulta para crear las tabla de usuarios: {Queries.createUsersTable}");
+            ExecuteNonQuery(Queries.createUsersTable);
+            Debug.WriteLine($"Ejecutando consulta para crear las tabla de entornos formativos: {Queries.createFormativeEnvironmentsTable}");
+            ExecuteNonQuery(Queries.createFormativeEnvironmentsTable);
         }
 
         public static Dictionary<string, string> CreateAdminUserIfNotExists()
@@ -102,6 +104,11 @@ namespace GestionAgraria
     }
     public static class Queries
     {
+        public static string createRolesTable = $@"
+            CREATE TABLE IF NOT EXISTS Roles (
+                id TEXT PRIMARY KEY,
+                name TEXT NOT NULL
+            );";
         public static string createUsersTable = @$"
             CREATE TABLE IF NOT EXISTS Users (
                 username TEXT PRIMARY KEY,
@@ -112,11 +119,6 @@ namespace GestionAgraria
             );";
         public static string createFormativeEnvironmentsTable = @$"
             CREATE TABLE IF NOT EXISTS FormativeEnvironments (
-                id TEXT PRIMARY KEY,
-                name TEXT NOT NULL
-            );";
-        public static string createRolesTable = $@"
-            CREATE TABLE IF NOT EXISTS Roles (
                 id TEXT PRIMARY KEY,
                 name TEXT NOT NULL
             );";
