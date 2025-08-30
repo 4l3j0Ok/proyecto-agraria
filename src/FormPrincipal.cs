@@ -27,12 +27,14 @@ namespace GestionAgraria
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
+            this.Text = selectedTab.Text;
         }
 
         private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No tab is selected.");
-            this.Text = $"{Config.application_name} > {selectedTab.Text}";
+            TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
+            this.Text = selectedTab.Text;
         }
     }
 }
