@@ -97,7 +97,7 @@ namespace GestionAgraria
             btnLogin.TabIndex = 2;
             btnLogin.Text = "Iniciar sesión";
             btnLogin.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnLogin.UseAccentColor = false;
+            btnLogin.UseAccentColor = true;
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
             // 
@@ -232,11 +232,12 @@ namespace GestionAgraria
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(842, 487);
             Controls.Add(tableLayoutPanel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormLogin";
             Padding = new Padding(0, 64, 0, 0);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión Agraria";
-            Load += FormPrincipal_Load;
+            Load += FormLogin_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

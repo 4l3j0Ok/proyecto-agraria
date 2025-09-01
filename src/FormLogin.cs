@@ -1,6 +1,9 @@
-using System.Windows.Forms;
+using ReaLTaiizor.Colors;
 using ReaLTaiizor.Enum.Crown;
 using ReaLTaiizor.Forms;
+using ReaLTaiizor.Manager;
+using ReaLTaiizor.Util;
+using System.Windows.Forms;
 
 namespace GestionAgraria
 {
@@ -9,34 +12,20 @@ namespace GestionAgraria
         public FormLogin()
         {
             InitializeComponent();
-
+            ColorScheme.GetSkinManager().AddFormToManage(this);
         }
-        private void FormPrincipal_Load(object sender, EventArgs e)
+        private void FormLogin_Load(object sender, EventArgs e)
         {
-            try
-            {
-                Database.CheckConnection();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(
-                    text: ex.Message,
-                    caption: "Error de conexi�n",
-                    icon: MessageBoxIcon.Error,
-                    buttons: MessageBoxButtons.OK
-                );
-            }
-            Database.CreateDatabaseIfNotExists();
             Database.CreateTablesIfNotExists();
             Dictionary<string, string> user = Database.CreateAdminUserIfNotExists();
             if (user.ContainsKey("username") && user.ContainsKey("password"))
             {
                 MessageBox.Show(
-                    text: $"Se cre� el usuario administrador por defecto con los siguientes datos:\n" +
+                    text: $"Se creó el usuario administrador por defecto con los siguientes datos:\n" +
                             $"Usuario: {user["username"]}\n" +
-                            $"Contrase�a: {user["password"]}\n" +
-                            $"Por favor, anotalo para poder loguearte por primera vez.\n" +
-                            $"Posteriormente podras eliminarlo si as� lo deseas.",
+                            $"Contraseña: {user["password"]}\n" +
+                            $"Por favor, anótalo para poder loguearte por primera vez.\n" +
+                            $"Posteriormente podrás eliminarlo si así lo deseas.",
                     caption: "Usuario administrador creado",
                     buttons: MessageBoxButtons.OK,
                     icon: MessageBoxIcon.Warning
@@ -51,11 +40,12 @@ namespace GestionAgraria
             if (string.IsNullOrEmpty(dbPassword) || password != dbPassword)
             {
                 MessageBox.Show(
-                    text: "El usuario o contrase�a son inv�lidos",
-                    caption: "Error de inicio de sesi�n",
+                    text: "El usuario o contraseña son inválidos",
+                    caption: "Error de inicio de sesión",
                     buttons: MessageBoxButtons.OK,
                     icon: MessageBoxIcon.Error
                 );
+                return;
             }
             // Mostramos el formPrincipal
             FormPrincipal formPrincipal = new FormPrincipal();
