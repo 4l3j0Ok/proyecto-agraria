@@ -9,20 +9,10 @@ namespace GestionAgraria
 {
     public partial class FormLogin : MaterialForm
     {
-        public MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
         public FormLogin()
         {
             InitializeComponent();
-            materialSkinManager.EnforceBackcolorOnAllComponents = true;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new MaterialColorScheme(
-                primary: ColorScheme.primary,
-                darkPrimary: ColorScheme.primary,
-                lightPrimary: ColorScheme.primary,
-                accent: ColorScheme.accent,
-                textShade: MaterialTextShade.LIGHT
-            );
+            ColorScheme.GetSkinManager().AddFormToManage(this);
         }
         private void FormLogin_Load(object sender, EventArgs e)
         {

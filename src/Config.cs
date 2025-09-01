@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ReaLTaiizor.Util;
+using ReaLTaiizor.Manager;
+using ReaLTaiizor.Colors;
 
 namespace GestionAgraria
 {
@@ -23,9 +21,26 @@ namespace GestionAgraria
     }
     internal class ColorScheme
     {
-        public static int primary = 0x23631C;
-        public static int secondary = 0x50E340;
-        public static int background = 0xEEEEEE;
-        public static int accent = 0x44C136;
+        public static int primary = 0x396f04; // Color primario
+        public static int lightPrimary = 0x7dbd07; // Tono más claro del color primario
+        public static int darkPrimary = 0x234602; // Tono más oscuro del color primario
+        public static int accent = 0x7a3f00; // Color de acento
+        public static int background = 0xEEEEEE; // Color de fondo
+
+        public static MaterialSkinManager GetSkinManager()
+        {
+            MaterialSkinManager materialSkinManager;
+            materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new MaterialColorScheme(
+                primary: primary,
+                darkPrimary: darkPrimary,
+                lightPrimary: lightPrimary,
+                accent: accent,
+                textShade: MaterialTextShade.LIGHT
+            );
+            return materialSkinManager;
+        }
     }
 }
+

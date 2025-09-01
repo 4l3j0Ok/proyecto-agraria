@@ -102,6 +102,7 @@ namespace GestionAgraria
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = Color.FromArgb(238, 238, 238);
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
@@ -190,6 +191,7 @@ namespace GestionAgraria
             Controls.Add(tcPrincipal);
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = tcPrincipal;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión Agraria";

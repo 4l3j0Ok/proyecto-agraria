@@ -9,19 +9,9 @@ namespace GestionAgraria
 {
     public partial class FormPrincipal : MaterialForm
     {
-        public MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
         public FormPrincipal()
         {
-            materialSkinManager.EnforceBackcolorOnAllComponents = true;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new MaterialColorScheme(
-                primary: ColorScheme.primary,
-                darkPrimary: ColorScheme.primary,
-                lightPrimary: ColorScheme.primary,
-                accent: ColorScheme.accent,
-                textShade: MaterialTextShade.LIGHT
-            );
+            ColorScheme.GetSkinManager().AddFormToManage(this);
             InitializeComponent();
         }
 
