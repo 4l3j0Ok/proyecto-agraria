@@ -19,6 +19,7 @@ namespace GestionAgraria
         {
             TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
             this.Text = selectedTab.Text;
+            tsEFVegetables.BackColor = Color.White;
         }
 
         private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)

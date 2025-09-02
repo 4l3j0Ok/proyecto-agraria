@@ -56,11 +56,11 @@ namespace GestionAgraria
             panel1.Controls.Add(tbUsuario);
             panel1.Controls.Add(lblUsuario);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 257);
+            panel1.Location = new Point(0, 193);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(90, 0, 90, 0);
-            panel1.Size = new Size(684, 120);
+            panel1.Padding = new Padding(79, 0, 79, 0);
+            panel1.Size = new Size(598, 90);
             panel1.TabIndex = 6;
             // 
             // tbUsuario
@@ -75,12 +75,12 @@ namespace GestionAgraria
             tbUsuario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbUsuario.HideSelection = true;
             tbUsuario.LeadingIcon = null;
-            tbUsuario.Location = new Point(90, 19);
-            tbUsuario.Margin = new Padding(3, 4, 30, 4);
+            tbUsuario.Location = new Point(79, 19);
+            tbUsuario.Margin = new Padding(3, 3, 26, 3);
             tbUsuario.MaxLength = 32767;
             tbUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tbUsuario.Name = "tbUsuario";
-            tbUsuario.Padding = new Padding(10);
+            tbUsuario.Padding = new Padding(9, 8, 9, 8);
             tbUsuario.PasswordChar = '\0';
             tbUsuario.PrefixSuffixText = null;
             tbUsuario.ReadOnly = false;
@@ -89,7 +89,7 @@ namespace GestionAgraria
             tbUsuario.SelectionLength = 0;
             tbUsuario.SelectionStart = 0;
             tbUsuario.ShortcutsEnabled = true;
-            tbUsuario.Size = new Size(504, 48);
+            tbUsuario.Size = new Size(440, 48);
             tbUsuario.TabIndex = 0;
             tbUsuario.TabStop = false;
             tbUsuario.TextAlign = HorizontalAlignment.Left;
@@ -103,7 +103,7 @@ namespace GestionAgraria
             lblUsuario.Depth = 0;
             lblUsuario.Dock = DockStyle.Top;
             lblUsuario.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblUsuario.Location = new Point(90, 0);
+            lblUsuario.Location = new Point(79, 0);
             lblUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(55, 19);
@@ -115,11 +115,11 @@ namespace GestionAgraria
             panel2.Controls.Add(tbContrasena);
             panel2.Controls.Add(lblContrasenia);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 377);
+            panel2.Location = new Point(0, 283);
             panel2.Margin = new Padding(0);
             panel2.Name = "panel2";
-            panel2.Padding = new Padding(90, 0, 90, 0);
-            panel2.Size = new Size(684, 120);
+            panel2.Padding = new Padding(79, 0, 79, 0);
+            panel2.Size = new Size(598, 90);
             panel2.TabIndex = 7;
             // 
             // tbContrasena
@@ -134,8 +134,7 @@ namespace GestionAgraria
             tbContrasena.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbContrasena.HideSelection = true;
             tbContrasena.LeadingIcon = null;
-            tbContrasena.Location = new Point(90, 19);
-            tbContrasena.Margin = new Padding(3, 4, 3, 4);
+            tbContrasena.Location = new Point(79, 19);
             tbContrasena.MaxLength = 32767;
             tbContrasena.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tbContrasena.Name = "tbContrasena";
@@ -147,7 +146,7 @@ namespace GestionAgraria
             tbContrasena.SelectionLength = 0;
             tbContrasena.SelectionStart = 0;
             tbContrasena.ShortcutsEnabled = true;
-            tbContrasena.Size = new Size(504, 48);
+            tbContrasena.Size = new Size(440, 48);
             tbContrasena.TabIndex = 1;
             tbContrasena.TabStop = false;
             tbContrasena.TextAlign = HorizontalAlignment.Left;
@@ -161,7 +160,7 @@ namespace GestionAgraria
             lblContrasenia.Depth = 0;
             lblContrasenia.Dock = DockStyle.Top;
             lblContrasenia.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblContrasenia.Location = new Point(90, 0);
+            lblContrasenia.Location = new Point(79, 0);
             lblContrasenia.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblContrasenia.Name = "lblContrasenia";
             lblContrasenia.Size = new Size(82, 19);
@@ -178,17 +177,17 @@ namespace GestionAgraria
             btnLogin.HighEmphasis = true;
             btnLogin.Icon = null;
             btnLogin.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnLogin.Location = new Point(80, 567);
-            btnLogin.Margin = new Padding(80, 70, 80, 27);
+            btnLogin.Location = new Point(70, 425);
+            btnLogin.Margin = new Padding(70, 52, 70, 20);
             btnLogin.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnLogin.Name = "btnLogin";
             btnLogin.NoAccentTextColor = Color.Empty;
-            btnLogin.Padding = new Padding(20);
-            btnLogin.Size = new Size(524, 36);
+            btnLogin.Padding = new Padding(18, 15, 18, 15);
+            btnLogin.Size = new Size(458, 36);
             btnLogin.TabIndex = 2;
             btnLogin.Text = "Iniciar sesión";
             btnLogin.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnLogin.UseAccentColor = true;
+            btnLogin.UseAccentColor = false;
             btnLogin.UseVisualStyleBackColor = true;
             btnLogin.Click += btnLogin_Click;
             // 
@@ -196,10 +195,10 @@ namespace GestionAgraria
             // 
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = Properties.Resources.DiseñoSF;
-            pictureBox1.Location = new Point(34, 80);
-            pictureBox1.Margin = new Padding(34, 80, 34, 80);
+            pictureBox1.Location = new Point(30, 60);
+            pictureBox1.Margin = new Padding(30, 60, 30, 60);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(621, 600);
+            pictureBox1.Size = new Size(543, 450);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
@@ -212,12 +211,11 @@ namespace GestionAgraria
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 0);
             tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 85);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Location = new Point(0, 64);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1379, 760);
+            tableLayoutPanel1.Size = new Size(1207, 570);
             tableLayoutPanel1.TabIndex = 9;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -230,37 +228,38 @@ namespace GestionAgraria
             tableLayoutPanel2.Controls.Add(pictureBox2, 0, 0);
             tableLayoutPanel2.Controls.Add(panel1, 0, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(692, 3);
+            tableLayoutPanel2.Location = new Point(606, 2);
+            tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 4;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 90F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 90F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(684, 754);
+            tableLayoutPanel2.Size = new Size(598, 566);
             tableLayoutPanel2.TabIndex = 4;
             // 
             // pictureBox2
             // 
             pictureBox2.Dock = DockStyle.Bottom;
             pictureBox2.Image = Properties.Resources.EEA;
-            pictureBox2.Location = new Point(3, 72);
+            pictureBox2.Location = new Point(3, 55);
+            pictureBox2.Margin = new Padding(3, 2, 3, 2);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(678, 182);
+            pictureBox2.Size = new Size(592, 136);
             pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox2.TabIndex = 8;
             pictureBox2.TabStop = false;
             // 
             // FormLogin
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1379, 845);
+            ClientSize = new Size(1207, 634);
             Controls.Add(tableLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FormLogin";
-            Padding = new Padding(0, 85, 0, 0);
+            Padding = new Padding(0, 64, 0, 0);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión Agraria";
             Load += FormLogin_Load;
