@@ -57,5 +57,10 @@ namespace GestionAgraria
             if (tbUsuario.Text.Length > 0 && tbContrasena.Text.Length > 0)
                 btnLogin.Enabled = true;
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
