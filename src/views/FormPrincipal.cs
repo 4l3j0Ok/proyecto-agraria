@@ -1,4 +1,5 @@
-﻿using ReaLTaiizor.Colors;
+﻿using GestionAgraria.models;
+using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
@@ -9,8 +10,9 @@ namespace GestionAgraria
 {
     public partial class FormPrincipal : MaterialForm
     {
-        public FormPrincipal()
-        {
+        private readonly UserModel currentUser;
+        public FormPrincipal(UserModel currentUser) {
+            this.currentUser = currentUser;
             ColorScheme.GetSkinManager().AddFormToManage(this);
             InitializeComponent();
         }
@@ -19,7 +21,6 @@ namespace GestionAgraria
         {
             TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
             this.Text = selectedTab.Text;
-            tsEFVegetables.BackColor = Color.White;
         }
 
         private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)

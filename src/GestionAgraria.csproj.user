@@ -2,11 +2,19 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="FormLogin.cs">
+    <Compile Update="views\CustomMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormPrincipal.cs">
+    <Compile Update="views\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="views\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="views\FormPrincipal.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

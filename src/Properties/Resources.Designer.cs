@@ -63,9 +63,9 @@ namespace GestionAgraria.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Animales_removebg_preview {
+        internal static System.Drawing.Bitmap ea {
             get {
-                object obj = ResourceManager.GetObject("Animales-removebg-preview", resourceCulture);
+                object obj = ResourceManager.GetObject("ea", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,20 +73,19 @@ namespace GestionAgraria.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DiseñoSF {
+        internal static System.Drawing.Bitmap home {
             get {
-                object obj = ResourceManager.GetObject("DiseñoSF", resourceCulture);
+                object obj = ResourceManager.GetObject("home", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        ///   Busca una cadena traducida similar a .
         /// </summary>
-        internal static System.Drawing.Bitmap EEA {
+        internal static string String1 {
             get {
-                object obj = ResourceManager.GetObject("EEA", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
     }

@@ -42,13 +42,17 @@ namespace GestionAgraria
             pictureBox1 = new PictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            pictureBox2 = new PictureBox();
+            panel3 = new Panel();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
+            materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel3.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -194,7 +198,7 @@ namespace GestionAgraria
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Properties.Resources.DiseñoSF;
+            pictureBox1.Image = Properties.Resources.home;
             pictureBox1.Location = new Point(30, 60);
             pictureBox1.Margin = new Padding(30, 60, 30, 60);
             pictureBox1.Name = "pictureBox1";
@@ -225,8 +229,8 @@ namespace GestionAgraria
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(btnLogin, 0, 3);
             tableLayoutPanel2.Controls.Add(panel2, 0, 2);
-            tableLayoutPanel2.Controls.Add(pictureBox2, 0, 0);
             tableLayoutPanel2.Controls.Add(panel1, 0, 1);
+            tableLayoutPanel2.Controls.Add(panel3, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(606, 2);
             tableLayoutPanel2.Margin = new Padding(3, 2, 3, 2);
@@ -239,17 +243,59 @@ namespace GestionAgraria
             tableLayoutPanel2.Size = new Size(598, 566);
             tableLayoutPanel2.TabIndex = 4;
             // 
-            // pictureBox2
+            // panel3
             // 
-            pictureBox2.Dock = DockStyle.Bottom;
-            pictureBox2.Image = Properties.Resources.EEA;
-            pictureBox2.Location = new Point(3, 55);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(592, 136);
-            pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
-            pictureBox2.TabIndex = 8;
-            pictureBox2.TabStop = false;
+            panel3.Controls.Add(tableLayoutPanel3);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(3, 3);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(592, 187);
+            panel3.TabIndex = 8;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 1;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(materialLabel2, 0, 0);
+            tableLayoutPanel3.Controls.Add(materialLabel1, 0, 1);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(0, 0);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 2;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Size = new Size(592, 187);
+            tableLayoutPanel3.TabIndex = 0;
+            // 
+            // materialLabel2
+            // 
+            materialLabel2.Anchor = AnchorStyles.Bottom;
+            materialLabel2.AutoSize = true;
+            materialLabel2.Depth = 0;
+            materialLabel2.Font = new Font("Roboto", 48F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel2.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H3;
+            materialLabel2.Location = new Point(129, 35);
+            materialLabel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel2.Name = "materialLabel2";
+            materialLabel2.Size = new Size(333, 58);
+            materialLabel2.TabIndex = 12;
+            materialLabel2.Text = "Escuela Agraria";
+            materialLabel2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // materialLabel1
+            // 
+            materialLabel1.Anchor = AnchorStyles.Top;
+            materialLabel1.AutoSize = true;
+            materialLabel1.Depth = 0;
+            materialLabel1.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialLabel1.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            materialLabel1.Location = new Point(155, 93);
+            materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(281, 29);
+            materialLabel1.TabIndex = 11;
+            materialLabel1.Text = "Provincia de Buenos Aires";
+            materialLabel1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FormLogin
             // 
@@ -271,7 +317,9 @@ namespace GestionAgraria
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel3.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -286,6 +334,9 @@ namespace GestionAgraria
         private PictureBox pictureBox1;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
-        private PictureBox pictureBox2;
+        private Panel panel3;
+        private TableLayoutPanel tableLayoutPanel3;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
     }
 }

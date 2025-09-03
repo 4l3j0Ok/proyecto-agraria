@@ -10,13 +10,13 @@ namespace GestionAgraria
         public static string sql_connection_string = Environment.GetEnvironmentVariable("SQLITE_CONNECTION_STRING") ?? "Data Source=data.db";
         public static string sql_database_name = "GestionAgraria";
         public static string random_password_characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':,.<>?/~`";
-        public static Dictionary<string, string> defaultRoles = new Dictionary<string, string>
+        public static List<string> defaultRoles = new List<string>
         {
-            { "admin", "Administrador" },
-            { "director", "Director" },
-            { "jefe_area", "Jefe de Área" },
-            { "profesor", "Profesor" },
-            { "invitado", "Invitado" }
+            "admin",
+            "director",
+            "jefe_area",
+            "profesor",
+            "invitado"
         };
     }
     internal class ColorScheme

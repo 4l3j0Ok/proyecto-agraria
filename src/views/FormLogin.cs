@@ -4,6 +4,9 @@ using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System.Windows.Forms;
+using GestionAgraria.data;
+
+using GestionAgraria.models;
 
 namespace GestionAgraria
 {
@@ -16,14 +19,14 @@ namespace GestionAgraria
         }
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            Database.CreateTablesIfNotExists();
-            Dictionary<string, string> user = Database.CreateAdminUserIfNotExists();
-            if (user.ContainsKey("username") && user.ContainsKey("password"))
+            DbInitializer.CreateTablesIfNotExists();
+            UserModel? user = DbInitializer.CreateAdminUserIfNotExists();
+            if (user != null)
             {
                 MessageBox.Show(
                     text: $"Se creó el usuario administrador por defecto con los siguientes datos:\n" +
-                            $"Usuario: {user["username"]}\n" +
-                            $"Contraseña: {user["password"]}\n" +
+                            $"Usuario: {user.Username}\n" +
+                            $"Contraseña: {user.Password}\n" +
                             $"Por favor, anótalo para poder loguearte por primera vez.\n" +
                             $"Posteriormente podrás eliminarlo si así lo deseas.",
                     caption: "Usuario administrador creado",
@@ -36,19 +39,13 @@ namespace GestionAgraria
         {
             string username = tbUsuario.Text;
             string password = tbContrasena.Text;
-            string dbPassword = Database.GetUserPassword(username);
-            if (string.IsNullOrEmpty(dbPassword) || password != dbPassword)
+            UserModel? user = UserRepository.Get(username);
+            if (user == null || user.Password != password)
             {
-                MessageBox.Show(
-                    text: "El usuario o contraseña son inválidos",
-                    caption: "Error de inicio de sesión",
-                    buttons: MessageBoxButtons.OK,
-                    icon: MessageBoxIcon.Error
-                );
+                MessageBox.Show("Usuario o contraseña incorrectos.", "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            // Mostramos el formPrincipal
-            FormPrincipal formPrincipal = new FormPrincipal();
+            FormPrincipal formPrincipal = new FormPrincipal(currentUser: user);
             formPrincipal.Show();
             this.Hide();
         }
