@@ -19,7 +19,8 @@ namespace GestionAgraria.data
             );";
         public static string createUsersTable = @$"
             CREATE TABLE IF NOT EXISTS Users (
-                username TEXT PRIMARY KEY,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                username TEXT UNIQUE,
                 password TEXT NOT NULL,
                 name TEXT NOT NULL,
                 surname TEXT NOT NULL,

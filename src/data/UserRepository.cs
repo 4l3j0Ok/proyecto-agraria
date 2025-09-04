@@ -34,7 +34,7 @@ namespace GestionAgraria.data
         }
         public static UserModel? Get(string username)
         {
-            string query = "SELECT username, password, name, surname, roleId FROM Users WHERE username = @username";
+            string query = "SELECT id, username, password, name, surname, roleId, isActive FROM Users WHERE username = @username";
             var parameters = new Dictionary<string, object>
             {
                 { "@username", username }

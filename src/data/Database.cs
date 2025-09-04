@@ -42,7 +42,7 @@ namespace GestionAgraria.data
                     command.Parameters.AddWithValue(param.Key, param.Value);
             }
             Debug.WriteLine($"Ejecutando consulta: {command.CommandText}");
-            return command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            return command.ExecuteReader();
         }
     }
 }
