@@ -12,7 +12,7 @@ namespace GestionAgraria.data
         public static List<RoleModel> GetAll()
         {
             var roles = new List<RoleModel>();
-            string query = "SELECT id, name, description FROM Roles";
+            string query = "SELECT id, name FROM Roles";
 
             using var reader = Database.ExecuteReader(query);
             while (reader.Read())

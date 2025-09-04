@@ -11,11 +11,12 @@ namespace GestionAgraria.models
 {
     public class UserModel
     {
-        public int? Id { get; set; }
-        public string? Username { get; set; }
-        public string? Password { get; set; }
-        public string? Name { get; set; }
-        public string? Surname { get; set; }
-        public int? RoleId { get; set; }
+        public int? id { get; set; }
+        public string? username { get; set; }
+        public string? password { get; set; }
+        public string? name { get; set; }
+        public string? surname { get; set; }
+        public int? roleId { get; set; }
+        public int? isActive { get; set; } = 1;
     }
 }

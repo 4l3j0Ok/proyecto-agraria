@@ -1,4 +1,5 @@
-﻿using GestionAgraria.models;
+﻿using GestionAgraria.data;
+using GestionAgraria.models;
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
@@ -21,12 +22,18 @@ namespace GestionAgraria
         {
             TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
             this.Text = selectedTab.Text;
+            LoadUsersTable();
         }
 
         private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)
         {
             TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
             this.Text = selectedTab.Text;
+        }
+
+        private void LoadUsersTable()
+        {
+            List<UserModel> users = UserRepository.GetAll();
         }
     }
 }

@@ -25,8 +25,8 @@ namespace GestionAgraria
             {
                 MessageBox.Show(
                     text: $"Se creó el usuario administrador por defecto con los siguientes datos:\n" +
-                            $"Usuario: {user.Username}\n" +
-                            $"Contraseña: {user.Password}\n" +
+                            $"Usuario: {user.username}\n" +
+                            $"Contraseña: {user.password}\n" +
                             $"Por favor, anótalo para poder loguearte por primera vez.\n" +
                             $"Posteriormente podrás eliminarlo si así lo deseas.",
                     caption: "Usuario administrador creado",
@@ -40,7 +40,7 @@ namespace GestionAgraria
             string username = tbUsuario.Text;
             string password = tbContrasena.Text;
             UserModel? user = UserRepository.Get(username);
-            if (user == null || user.Password != password)
+            if (user == null || user.password != password)
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.", "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

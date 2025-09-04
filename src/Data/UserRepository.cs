@@ -14,18 +14,20 @@ namespace GestionAgraria.data
         public static List<UserModel> GetAll()
         {
             var users = new List<UserModel>();
-            string query = "SELECT username, password, name, surname, roleId FROM Users";
+            string query = "SELECT * FROM Users";
 
             using var reader = Database.ExecuteReader(query);
             while (reader.Read())
             {
                 users.Add(new UserModel
                 {
-                    Username = reader.GetString(0),
-                    Password = reader.GetString(1),
-                    Name = reader.GetString(2),
-                    Surname = reader.GetString(3),
-                    RoleId = reader.GetInt32(4)
+                    id = reader.GetInt32(reader.GetOrdinal("id")),
+                    username = reader.GetString(reader.GetOrdinal("username")),
+                    password = reader.GetString(reader.GetOrdinal("password")),
+                    name = reader.GetString(reader.GetOrdinal("name")),
+                    surname = reader.GetString(reader.GetOrdinal("surname")),
+                    roleId = reader.GetInt32(reader.GetOrdinal("roleId")),
+                    isActive = reader.GetInt32(reader.GetOrdinal("isActive"))
                 });
             }
             return users;
@@ -42,11 +44,13 @@ namespace GestionAgraria.data
             {
                 return new UserModel
                 {
-                    Username = reader.GetString(0),
-                    Password = reader.GetString(1),
-                    Name = reader.GetString(2),
-                    Surname = reader.GetString(3),
-                    RoleId = reader.GetInt32(4)
+                    id = reader.GetInt32(reader.GetOrdinal("id")),
+                    username = reader.GetString(reader.GetOrdinal("username")),
+                    password = reader.GetString(reader.GetOrdinal("password")),
+                    name = reader.GetString(reader.GetOrdinal("name")),
+                    surname = reader.GetString(reader.GetOrdinal("surname")),
+                    roleId = reader.GetInt32(reader.GetOrdinal("roleId")),
+                    isActive = reader.GetInt32(reader.GetOrdinal("isActive"))
                 };
             }
             return null;
@@ -59,14 +63,37 @@ namespace GestionAgraria.data
             VALUES (@username, @password, @name, @surname, @roleId);";
 
             var parameters = new Dictionary<string, object>
-        {
-            { "@username", user.Username },
-            { "@password", user.Password },
-            { "@name", user.Name },
-            { "@surname", user.Surname },
-            { "@roleId", user.RoleId }
-        };
+            {
+                { "@username", user.username },
+                { "@password", user.password },
+                { "@name", user.name },
+                { "@surname", user.surname },
+                { "@roleId", user.roleId },
+                { "@isActive", user.isActive }
+            };
 
+            Database.ExecuteNonQuery(query, parameters);
+        }
+
+        public static void Update(UserModel user)
+        {
+            string query = @"
+            UPDATE Users
+            SET password = @password,
+                name = @name,
+                surname = @surname,
+                roleId = @roleId
+            WHERE id = @id;";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@id", user.id },
+                { "@username", user.username },
+                { "@password", user.password },
+                { "@name", user.name },
+                { "@surname", user.surname },
+                { "@roleId", user.roleId },
+                { "@isActive", user.isActive }
+            };
             Database.ExecuteNonQuery(query, parameters);
         }
     }

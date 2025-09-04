@@ -44,6 +44,9 @@ namespace GestionAgraria
             imgList = new ImageList(components);
             tabUsers = new TabPage();
             tabVegetablesArea = new TabPage();
+            materialTabControl1 = new ReaLTaiizor.Controls.MaterialTabControl();
+            tabPage1 = new TabPage();
+            tabPage2 = new TabPage();
             tabHome = new TabPage();
             tableLayoutPanel1 = new TableLayoutPanel();
             pictureBox1 = new PictureBox();
@@ -52,17 +55,17 @@ namespace GestionAgraria
             tabAnimalArea = new TabPage();
             pictureBox2 = new PictureBox();
             tabIndustryArea = new TabPage();
-            materialTabControl1 = new ReaLTaiizor.Controls.MaterialTabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
+            dataGridView1 = new DataGridView();
+            tabUsers.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
+            materialTabControl1.SuspendLayout();
             tabHome.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             tcPrincipal.SuspendLayout();
             tabAnimalArea.SuspendLayout();
             ((ISupportInitialize)pictureBox2).BeginInit();
-            materialTabControl1.SuspendLayout();
+            ((ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // imgList
@@ -78,6 +81,7 @@ namespace GestionAgraria
             // 
             // tabUsers
             // 
+            tabUsers.Controls.Add(dataGridView1);
             tabUsers.ImageKey = "user.png";
             tabUsers.Location = new Point(4, 24);
             tabUsers.Name = "tabUsers";
@@ -96,6 +100,42 @@ namespace GestionAgraria
             tabVegetablesArea.TabIndex = 2;
             tabVegetablesArea.Text = "Vegetales";
             tabVegetablesArea.UseVisualStyleBackColor = true;
+            // 
+            // materialTabControl1
+            // 
+            materialTabControl1.Controls.Add(tabPage1);
+            materialTabControl1.Controls.Add(tabPage2);
+            materialTabControl1.Depth = 0;
+            materialTabControl1.Dock = DockStyle.Fill;
+            materialTabControl1.ImageList = imgList;
+            materialTabControl1.Location = new Point(0, 0);
+            materialTabControl1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialTabControl1.Multiline = true;
+            materialTabControl1.Name = "materialTabControl1";
+            materialTabControl1.SelectedIndex = 0;
+            materialTabControl1.Size = new Size(1236, 513);
+            materialTabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            tabPage1.ImageKey = "user.png";
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1228, 485);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "tabPage1";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1228, 485);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "tabPage2";
+            tabPage2.UseVisualStyleBackColor = true;
             // 
             // tabHome
             // 
@@ -204,41 +244,16 @@ namespace GestionAgraria
             tabIndustryArea.Text = "Industria";
             tabIndustryArea.UseVisualStyleBackColor = true;
             // 
-            // materialTabControl1
+            // dataGridView1
             // 
-            materialTabControl1.Controls.Add(tabPage1);
-            materialTabControl1.Controls.Add(tabPage2);
-            materialTabControl1.Depth = 0;
-            materialTabControl1.Dock = DockStyle.Fill;
-            materialTabControl1.ImageList = imgList;
-            materialTabControl1.Location = new Point(0, 0);
-            materialTabControl1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialTabControl1.Multiline = true;
-            materialTabControl1.Name = "materialTabControl1";
-            materialTabControl1.SelectedIndex = 0;
-            materialTabControl1.Size = new Size(1236, 513);
-            materialTabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            tabPage1.ImageKey = "user.png";
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1228, 485);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1228, 485);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.Size = new Size(1236, 513);
+            dataGridView1.TabIndex = 0;
             // 
             // FormPrincipal
             // 
@@ -254,7 +269,9 @@ namespace GestionAgraria
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión Agraria";
             Load += FormPrincipal_Load;
+            tabUsers.ResumeLayout(false);
             tabVegetablesArea.ResumeLayout(false);
+            materialTabControl1.ResumeLayout(false);
             tabHome.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
@@ -262,7 +279,7 @@ namespace GestionAgraria
             tcPrincipal.ResumeLayout(false);
             tabAnimalArea.ResumeLayout(false);
             ((ISupportInitialize)pictureBox2).EndInit();
-            materialTabControl1.ResumeLayout(false);
+            ((ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -281,5 +298,6 @@ namespace GestionAgraria
         private ReaLTaiizor.Controls.MaterialTabControl materialTabControl1;
         private TabPage tabPage1;
         private TabPage tabPage2;
+        private DataGridView dataGridView1;
     }
 }

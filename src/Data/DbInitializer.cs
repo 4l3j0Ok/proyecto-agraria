@@ -14,7 +14,7 @@ namespace GestionAgraria.data
     {
         public static string createRolesTable = $@"
             CREATE TABLE IF NOT EXISTS Roles (
-                id TEXT PRIMARY KEY,
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 name TEXT NOT NULL
             );";
         public static string createUsersTable = @$"
@@ -23,7 +23,9 @@ namespace GestionAgraria.data
                 password TEXT NOT NULL,
                 name TEXT NOT NULL,
                 surname TEXT NOT NULL,
-                roleId TEXT NOT NULL
+                roleId TEXT NOT NULL,
+                isActive INTEGER NOT NULL DEFAULT 1,
+                FOREIGN KEY (roleId) REFERENCES Roles(id)
             );";
         public static string createFormativeEnvironmentsTable = @$"
             CREATE TABLE IF NOT EXISTS FormativeEnvironments (
@@ -32,31 +34,57 @@ namespace GestionAgraria.data
             );";
         public static void CreateTablesIfNotExists()
         {
-            Debug.WriteLine($"Ejecutando consulta para crear las tabla de roles: {createRolesTable}");
             Database.ExecuteNonQuery(createRolesTable);
-            // Insertar los roles default
-            foreach (string role in Config.defaultRoles)
-            {
-                RoleRepository.Insert(new RoleModel { Name = role });
-            }
-            Debug.WriteLine($"Ejecutando consulta para crear las tabla de usuarios: {createUsersTable}");
+            CreateDefaultRolesIfNotExists();
             Database.ExecuteNonQuery(createUsersTable);
             Debug.WriteLine($"Ejecutando consulta para crear las tabla de entornos formativos: {createFormativeEnvironmentsTable}");
             Database.ExecuteNonQuery(createFormativeEnvironmentsTable);
         }
 
+        public static void CreateDefaultRolesIfNotExists()
+        {
+            string query = "SELECT * FROM Roles LIMIT 1;";
+            bool hasAnyRole;
+
+            using (var sqlDataReader = Database.ExecuteReader(query))
+            {
+                hasAnyRole = sqlDataReader.HasRows;
+            }
+
+            if (hasAnyRole) return;
+
+            foreach (string role in Config.defaultRoles)
+                RoleRepository.Insert(new RoleModel { Name = role });
+        }
+
         public static UserModel? CreateAdminUserIfNotExists()
         {
             string query = "SELECT * FROM Users LIMIT 1;";
-            SqliteDataReader sqlDataReader = Database.ExecuteReader(query);
-            if (sqlDataReader.HasRows) return null;
-            UserModel user = new UserModel();
-            sqlDataReader.Close();
-            user.Username = "admin";
-            user.Password = Utils.GenerateRandomString(12);
-            user.Name = "Administrador";
-            user.Surname = "Sistema";
-            user.RoleId = 1;
+            using (var sqlDataReader = Database.ExecuteReader(query))
+            {
+                if (sqlDataReader.HasRows) return null;
+            }
+
+            int? roleId = null;
+            query = "SELECT id FROM Roles WHERE name = 'admin' LIMIT 1;";
+            using (SqliteDataReader roleDataReader = Database.ExecuteReader(query))
+            {
+                if (roleDataReader.Read())
+                    roleId = roleDataReader.GetInt32(0);
+            }
+
+            if (roleId == null) return null;
+
+            var user = new UserModel
+            {
+                username = "admin",
+                password = Utils.GenerateRandomString(12),
+                name = "Administrador",
+                surname = "Sistema",
+                roleId = roleId.Value,
+                isActive = 1
+            };
+
             UserRepository.Insert(user);
             return user;
         }
