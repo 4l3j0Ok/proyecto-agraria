@@ -1,6 +1,7 @@
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Enum.Crown;
 using ReaLTaiizor.Forms;
+using ReaLTaiizor.Controls;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System.Windows.Forms;
@@ -23,16 +24,20 @@ namespace GestionAgraria
             UserModel? user = DbInitializer.CreateAdminUserIfNotExists();
             if (user != null)
             {
-                MessageBox.Show(
-                    text: $"Se creó el usuario administrador por defecto con los siguientes datos:\n" +
-                            $"Usuario: {user.username}\n" +
-                            $"Contraseña: {user.password}\n" +
-                            $"Por favor, anótalo para poder loguearte por primera vez.\n" +
-                            $"Posteriormente podrás eliminarlo si así lo deseas.",
-                    caption: "Usuario administrador creado",
-                    buttons: MessageBoxButtons.OK,
-                    icon: MessageBoxIcon.Warning
-                );
+                CustomMessageBox msgBox = new CustomMessageBox();
+                msgBox.Text = "Usuario administrador creado";
+                msgBox.lblMessage.Text = $"Se creó el usuario administrador por defecto con los siguientes datos:\n" +
+                    $"Usuario: {user.username}\n" +
+                    $"Contraseña: {user.password}\n" +
+                    $"Por favor, anótalo para poder loguearte por primera vez.\n" +
+                    $"Posteriormente podrás eliminarlo si así lo deseas.";
+                msgBox.btnLeft.Text = "Copiar";
+                msgBox.btnLeft.Click += (s, ev) => copyPassword(user.password ?? "");
+                msgBox.btnLeft.Click += (s, ev) => msgBox.btnLeft.Text = "¡Copiado!";
+                msgBox.btnLeft.Click += (s, ev) => msgBox.btnLeft.Type = MaterialButton.MaterialButtonType.Outlined;
+                msgBox.btnRight.Text = "Aceptar";
+                msgBox.btnRight.Click += (s, ev) => msgBox.Close();
+                msgBox.ShowDialog();
             }
         }
         private void btnLogin_Click(object sender, EventArgs e)
@@ -55,9 +60,11 @@ namespace GestionAgraria
                 btnLogin.Enabled = true;
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        private void copyPassword(string password)
         {
-
+            Clipboard.SetText(password);
+            
+            return;
         }
     }
 }
