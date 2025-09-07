@@ -1,5 +1,6 @@
 ﻿using GestionAgraria.data;
 using GestionAgraria.models;
+using GestionAgraria.Views;
 using ReaLTaiizor.Colors;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
@@ -34,6 +35,12 @@ namespace GestionAgraria
         private void LoadUsersTable()
         {
             List<UserModel> users = UserRepository.GetAll();
+            foreach (UserModel user in users)
+            {
+                UCUserCard userCard = new UCUserCard(user: user);
+                userCard.Dock = DockStyle.Top;
+                tabUsers.Controls.Add(userCard);
+            }
         }
     }
 }

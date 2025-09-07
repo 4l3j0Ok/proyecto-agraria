@@ -60,11 +60,9 @@ namespace GestionAgraria
                 btnLogin.Enabled = true;
         }
 
-        private void copyPassword(string password)
+        private static void copyPassword(string password)
         {
             Clipboard.SetText(password);
-            
-            return;
         }
     }
 }

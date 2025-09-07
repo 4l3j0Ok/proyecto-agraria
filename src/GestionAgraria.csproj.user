@@ -11,6 +11,9 @@
     <Compile Update="Views\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\UCUserCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Views\FormPrincipal.resx">
