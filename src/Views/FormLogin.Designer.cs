@@ -49,8 +49,8 @@ namespace GestionAgraria
             pictureBox1 = new PictureBox();
             tableLayoutPanel5 = new TableLayoutPanel();
             parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
-            parrotPictureBox4 = new ReaLTaiizor.Controls.ParrotPictureBox();
             parrotPictureBox5 = new ReaLTaiizor.Controls.ParrotPictureBox();
+            parrotPictureBox4 = new ReaLTaiizor.Controls.ParrotPictureBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -358,28 +358,6 @@ namespace GestionAgraria
             parrotPictureBox1.Text = "parrotPictureBox1";
             parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
-            // parrotPictureBox4
-            // 
-            parrotPictureBox4.Anchor = AnchorStyles.None;
-            parrotPictureBox4.ColorLeft = Color.DodgerBlue;
-            parrotPictureBox4.ColorRight = Color.DodgerBlue;
-            parrotPictureBox4.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            parrotPictureBox4.FilterAlpha = 200;
-            parrotPictureBox4.FilterEnabled = false;
-            parrotPictureBox4.Image = Properties.Resources.uietp1;
-            parrotPictureBox4.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            parrotPictureBox4.IsElipse = false;
-            parrotPictureBox4.IsParallax = false;
-            parrotPictureBox4.Location = new Point(192, 7);
-            parrotPictureBox4.MaximumSize = new Size(90, 70);
-            parrotPictureBox4.Name = "parrotPictureBox4";
-            parrotPictureBox4.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox4.Size = new Size(90, 70);
-            parrotPictureBox4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            parrotPictureBox4.TabIndex = 3;
-            parrotPictureBox4.Text = "parrotPictureBox4";
-            parrotPictureBox4.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            // 
             // parrotPictureBox5
             // 
             parrotPictureBox5.Anchor = AnchorStyles.None;
@@ -401,6 +379,28 @@ namespace GestionAgraria
             parrotPictureBox5.TabIndex = 4;
             parrotPictureBox5.Text = "parrotPictureBox5";
             parrotPictureBox5.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            // 
+            // parrotPictureBox4
+            // 
+            parrotPictureBox4.Anchor = AnchorStyles.None;
+            parrotPictureBox4.ColorLeft = Color.DodgerBlue;
+            parrotPictureBox4.ColorRight = Color.DodgerBlue;
+            parrotPictureBox4.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            parrotPictureBox4.FilterAlpha = 200;
+            parrotPictureBox4.FilterEnabled = false;
+            parrotPictureBox4.Image = Properties.Resources.uietp1;
+            parrotPictureBox4.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            parrotPictureBox4.IsElipse = false;
+            parrotPictureBox4.IsParallax = false;
+            parrotPictureBox4.Location = new Point(192, 7);
+            parrotPictureBox4.MaximumSize = new Size(90, 70);
+            parrotPictureBox4.Name = "parrotPictureBox4";
+            parrotPictureBox4.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            parrotPictureBox4.Size = new Size(90, 70);
+            parrotPictureBox4.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            parrotPictureBox4.TabIndex = 3;
+            parrotPictureBox4.Text = "parrotPictureBox4";
+            parrotPictureBox4.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // FormLogin
             // 

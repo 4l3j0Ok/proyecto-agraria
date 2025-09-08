@@ -26,6 +26,8 @@ namespace GestionAgraria.data
                     password = reader.GetString(reader.GetOrdinal("password")),
                     name = reader.GetString(reader.GetOrdinal("name")),
                     surname = reader.GetString(reader.GetOrdinal("surname")),
+                    personId = reader.GetString(reader.GetOrdinal("personId")),
+                    phone = reader.GetString(reader.GetOrdinal("phone")),
                     roleId = reader.GetInt32(reader.GetOrdinal("roleId")),
                     isActive = reader.GetInt32(reader.GetOrdinal("isActive"))
                 });
@@ -34,7 +36,7 @@ namespace GestionAgraria.data
         }
         public static UserModel? Get(string username)
         {
-            string query = "SELECT id, username, password, name, surname, roleId, isActive FROM Users WHERE username = @username";
+            string query = "SELECT * FROM Users WHERE username = @username";
             var parameters = new Dictionary<string, object>
             {
                 { "@username", username }
@@ -49,6 +51,8 @@ namespace GestionAgraria.data
                     password = reader.GetString(reader.GetOrdinal("password")),
                     name = reader.GetString(reader.GetOrdinal("name")),
                     surname = reader.GetString(reader.GetOrdinal("surname")),
+                    personId = reader.GetString(reader.GetOrdinal("personId")),
+                    phone = reader.GetString(reader.GetOrdinal("phone")),
                     roleId = reader.GetInt32(reader.GetOrdinal("roleId")),
                     isActive = reader.GetInt32(reader.GetOrdinal("isActive"))
                 };
@@ -59,8 +63,8 @@ namespace GestionAgraria.data
         public static void Insert(UserModel user)
         {
             string query = @"
-            INSERT INTO Users (username, password, name, surname, roleId)
-            VALUES (@username, @password, @name, @surname, @roleId);";
+            INSERT INTO Users (username, password, name, surname, personId, phone, roleId)
+            VALUES (@username, @password, @name, @surname, @personId, @phone, @roleId);";
 
             var parameters = new Dictionary<string, object>
             {
@@ -68,10 +72,11 @@ namespace GestionAgraria.data
                 { "@password", user.password },
                 { "@name", user.name },
                 { "@surname", user.surname },
+                { "@personId", user.personId },
+                { "@phone", user.phone },
                 { "@roleId", user.roleId },
                 { "@isActive", user.isActive }
             };
-
             Database.ExecuteNonQuery(query, parameters);
         }
 
@@ -82,6 +87,8 @@ namespace GestionAgraria.data
             SET password = @password,
                 name = @name,
                 surname = @surname,
+                personId = @personId,
+                phone = @phone,
                 roleId = @roleId
             WHERE id = @id;";
             var parameters = new Dictionary<string, object>
@@ -91,6 +98,8 @@ namespace GestionAgraria.data
                 { "@password", user.password },
                 { "@name", user.name },
                 { "@surname", user.surname },
+                { "@personId", user.personId },
+                { "@phone", user.phone },
                 { "@roleId", user.roleId },
                 { "@isActive", user.isActive }
             };

@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using GestionAgraria.data;
 
 using GestionAgraria.models;
+using System.Diagnostics;
 
 namespace GestionAgraria
 {

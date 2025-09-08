@@ -17,7 +17,9 @@ namespace GestionAgraria.Views
         {
             InitializeComponent();
             lblUserName.Text = user.name;
+            lblUserUsername.Text = user.username;
             lblUserArea.Text = user.username;
+            lblUserPhone.Text = user.phone;
         }
     }
 }

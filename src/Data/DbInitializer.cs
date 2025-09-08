@@ -24,6 +24,8 @@ namespace GestionAgraria.data
                 password TEXT NOT NULL,
                 name TEXT NOT NULL,
                 surname TEXT NOT NULL,
+                phone TEXT NOT NULL,
+                personId TEXT NOT NULL,
                 roleId TEXT NOT NULL,
                 isActive INTEGER NOT NULL DEFAULT 1,
                 FOREIGN KEY (roleId) REFERENCES Roles(id)
@@ -67,7 +69,7 @@ namespace GestionAgraria.data
             }
 
             int? roleId = null;
-            query = "SELECT id FROM Roles WHERE name = 'admin' LIMIT 1;";
+            query = "SELECT id FROM Roles WHERE name = 'Administrador' LIMIT 1;";
             using (SqliteDataReader roleDataReader = Database.ExecuteReader(query))
             {
                 if (roleDataReader.Read())
@@ -82,10 +84,11 @@ namespace GestionAgraria.data
                 password = Utils.GenerateRandomString(12),
                 name = "Administrador",
                 surname = "Sistema",
+                personId = "10000000",
+                phone = "2224123456",
                 roleId = roleId.Value,
                 isActive = 1
             };
-
             UserRepository.Insert(user);
             return user;
         }

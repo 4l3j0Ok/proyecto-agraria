@@ -12,11 +12,11 @@ namespace GestionAgraria
         public static string random_password_characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':,.<>?/~`";
         public static List<string> defaultRoles = new List<string>
         {
-            "admin",
-            "director",
-            "jefe_area",
-            "profesor",
-            "invitado"
+            "Administrador",
+            "Director",
+            "Jefe de area",
+            "Docente",
+            "Invitado"
         };
     }
     internal class ColorScheme

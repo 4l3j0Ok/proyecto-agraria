@@ -31,11 +31,11 @@
             parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            lblUserUsername = new ReaLTaiizor.Controls.MaterialLabel();
+            lblUserPhone = new ReaLTaiizor.Controls.MaterialLabel();
             lblUserArea = new ReaLTaiizor.Controls.MaterialLabel();
             lblUserName = new ReaLTaiizor.Controls.MaterialLabel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
-            btnEdit = new ReaLTaiizor.Controls.MaterialButton();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -65,13 +65,12 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 3;
+            tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 250F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Controls.Add(parrotPictureBox1, 0, 0);
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 2, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.MaximumSize = new Size(0, 120);
@@ -83,28 +82,74 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(lblUserArea);
+            panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(lblUserName);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(80, 10);
             panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5);
-            panel1.Size = new Size(275, 50);
+            panel1.Size = new Size(525, 50);
             panel1.TabIndex = 2;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.AutoSize = true;
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel2.Controls.Add(lblUserUsername, 0, 0);
+            tableLayoutPanel2.Controls.Add(lblUserPhone, 2, 0);
+            tableLayoutPanel2.Controls.Add(lblUserArea, 1, 0);
+            tableLayoutPanel2.Dock = DockStyle.Top;
+            tableLayoutPanel2.Location = new Point(5, 24);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(515, 14);
+            tableLayoutPanel2.TabIndex = 1;
+            // 
+            // lblUserUsername
+            // 
+            lblUserUsername.AutoSize = true;
+            lblUserUsername.Depth = 0;
+            lblUserUsername.Dock = DockStyle.Fill;
+            lblUserUsername.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            lblUserUsername.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
+            lblUserUsername.Location = new Point(3, 0);
+            lblUserUsername.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblUserUsername.Name = "lblUserUsername";
+            lblUserUsername.Size = new Size(165, 14);
+            lblUserUsername.TabIndex = 6;
+            lblUserUsername.Text = "Nombre de usuario";
+            // 
+            // lblUserPhone
+            // 
+            lblUserPhone.AutoSize = true;
+            lblUserPhone.Depth = 0;
+            lblUserPhone.Dock = DockStyle.Fill;
+            lblUserPhone.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            lblUserPhone.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
+            lblUserPhone.Location = new Point(345, 0);
+            lblUserPhone.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblUserPhone.Name = "lblUserPhone";
+            lblUserPhone.Size = new Size(167, 14);
+            lblUserPhone.TabIndex = 4;
+            lblUserPhone.Text = "Teléfono";
             // 
             // lblUserArea
             // 
             lblUserArea.AutoSize = true;
             lblUserArea.Depth = 0;
-            lblUserArea.Dock = DockStyle.Top;
+            lblUserArea.Dock = DockStyle.Fill;
             lblUserArea.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             lblUserArea.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblUserArea.Location = new Point(5, 24);
+            lblUserArea.Location = new Point(174, 0);
             lblUserArea.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserArea.Name = "lblUserArea";
-            lblUserArea.Size = new Size(25, 14);
-            lblUserArea.TabIndex = 1;
+            lblUserArea.Size = new Size(165, 14);
+            lblUserArea.TabIndex = 5;
             lblUserArea.Text = "Área";
             // 
             // lblUserName
@@ -120,66 +165,6 @@
             lblUserName.Size = new Size(118, 19);
             lblUserName.TabIndex = 0;
             lblUserName.Text = "Nombre Apellido";
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(materialButton1, 1, 0);
-            tableLayoutPanel2.Controls.Add(btnEdit, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(368, 3);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.Padding = new Padding(5);
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(244, 64);
-            tableLayoutPanel2.TabIndex = 3;
-            // 
-            // materialButton1
-            // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.Dock = DockStyle.Fill;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = Properties.Resources.delete;
-            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(126, 11);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.RightToLeft = RightToLeft.No;
-            materialButton1.Size = new Size(109, 42);
-            materialButton1.TabIndex = 5;
-            materialButton1.Text = "Eliminar";
-            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = true;
-            materialButton1.UseVisualStyleBackColor = true;
-            // 
-            // btnEdit
-            // 
-            btnEdit.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnEdit.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnEdit.Depth = 0;
-            btnEdit.Dock = DockStyle.Fill;
-            btnEdit.HighEmphasis = true;
-            btnEdit.Icon = Properties.Resources.edit;
-            btnEdit.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnEdit.Location = new Point(9, 11);
-            btnEdit.Margin = new Padding(4, 6, 4, 6);
-            btnEdit.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnEdit.Name = "btnEdit";
-            btnEdit.NoAccentTextColor = Color.Empty;
-            btnEdit.RightToLeft = RightToLeft.No;
-            btnEdit.Size = new Size(109, 42);
-            btnEdit.TabIndex = 4;
-            btnEdit.Text = "Editar";
-            btnEdit.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnEdit.UseAccentColor = false;
-            btnEdit.UseVisualStyleBackColor = true;
             // 
             // UCUserCard
             // 
@@ -204,10 +189,10 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
         public ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox1;
-        public ReaLTaiizor.Controls.MaterialLabel lblUserArea;
         public ReaLTaiizor.Controls.MaterialLabel lblUserName;
         private TableLayoutPanel tableLayoutPanel2;
-        private ReaLTaiizor.Controls.MaterialButton materialButton1;
-        private ReaLTaiizor.Controls.MaterialButton btnEdit;
+        public ReaLTaiizor.Controls.MaterialLabel lblUserPhone;
+        public ReaLTaiizor.Controls.MaterialLabel lblUserUsername;
+        public ReaLTaiizor.Controls.MaterialLabel lblUserArea;
     }
 }
