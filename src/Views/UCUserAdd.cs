@@ -16,5 +16,10 @@ namespace GestionAgraria.Views
         {
             InitializeComponent();
         }
+
+        private void materialTextBoxEdit5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

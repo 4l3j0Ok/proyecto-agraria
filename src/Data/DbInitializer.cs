@@ -24,6 +24,7 @@ namespace GestionAgraria.data
                 password TEXT NOT NULL,
                 name TEXT NOT NULL,
                 surname TEXT NOT NULL,
+                email TEXT NOT NULL,
                 phone TEXT NOT NULL,
                 personId TEXT NOT NULL,
                 roleId TEXT NOT NULL,
@@ -85,6 +86,7 @@ namespace GestionAgraria.data
                 name = "Administrador",
                 surname = "Sistema",
                 personId = "10000000",
+                email = "email@admin.com",
                 phone = "2224123456",
                 roleId = roleId.Value,
                 isActive = 1

@@ -27,6 +27,7 @@ namespace GestionAgraria.data
                     name = reader.GetString(reader.GetOrdinal("name")),
                     surname = reader.GetString(reader.GetOrdinal("surname")),
                     personId = reader.GetString(reader.GetOrdinal("personId")),
+                    email = reader.GetString(reader.GetOrdinal("email")),
                     phone = reader.GetString(reader.GetOrdinal("phone")),
                     roleId = reader.GetInt32(reader.GetOrdinal("roleId")),
                     isActive = reader.GetInt32(reader.GetOrdinal("isActive"))
@@ -52,6 +53,7 @@ namespace GestionAgraria.data
                     name = reader.GetString(reader.GetOrdinal("name")),
                     surname = reader.GetString(reader.GetOrdinal("surname")),
                     personId = reader.GetString(reader.GetOrdinal("personId")),
+                    email = reader.GetString(reader.GetOrdinal("email")),
                     phone = reader.GetString(reader.GetOrdinal("phone")),
                     roleId = reader.GetInt32(reader.GetOrdinal("roleId")),
                     isActive = reader.GetInt32(reader.GetOrdinal("isActive"))
@@ -63,8 +65,8 @@ namespace GestionAgraria.data
         public static void Insert(UserModel user)
         {
             string query = @"
-            INSERT INTO Users (username, password, name, surname, personId, phone, roleId)
-            VALUES (@username, @password, @name, @surname, @personId, @phone, @roleId);";
+            INSERT INTO Users (username, password, name, surname, personId, email, phone, roleId)
+            VALUES (@username, @password, @name, @surname, @personId, @email ,@phone, @roleId);";
 
             var parameters = new Dictionary<string, object>
             {
@@ -73,6 +75,7 @@ namespace GestionAgraria.data
                 { "@name", user.name },
                 { "@surname", user.surname },
                 { "@personId", user.personId },
+                { "@email", user.email },
                 { "@phone", user.phone },
                 { "@roleId", user.roleId },
                 { "@isActive", user.isActive }
@@ -88,6 +91,7 @@ namespace GestionAgraria.data
                 name = @name,
                 surname = @surname,
                 personId = @personId,
+                email = @email,
                 phone = @phone,
                 roleId = @roleId
             WHERE id = @id;";
@@ -99,6 +103,7 @@ namespace GestionAgraria.data
                 { "@name", user.name },
                 { "@surname", user.surname },
                 { "@personId", user.personId },
+                { "@email", user.email },
                 { "@phone", user.phone },
                 { "@roleId", user.roleId },
                 { "@isActive", user.isActive }
