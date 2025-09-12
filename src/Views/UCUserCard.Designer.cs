@@ -1,4 +1,15 @@
-﻿namespace GestionAgraria.Views
+﻿using GestionAgraria.data;
+using GestionAgraria.models;
+using GestionAgraria.Views;
+using ReaLTaiizor.Colors;
+using ReaLTaiizor.Forms;
+using ReaLTaiizor.Manager;
+using ReaLTaiizor.Util;
+using System.Data;
+using System.Windows.Forms;
+using System.Drawing;
+
+namespace GestionAgraria.Views
 {
     partial class UCUserCard
     {
@@ -116,7 +127,7 @@
             lblUserUsername.Depth = 0;
             lblUserUsername.Dock = DockStyle.Fill;
             lblUserUsername.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-            lblUserUsername.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
+            lblUserUsername.FontType = MaterialSkinManager.FontType.SubtleEmphasis;
             lblUserUsername.Location = new Point(3, 0);
             lblUserUsername.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserUsername.Name = "lblUserUsername";
@@ -130,13 +141,14 @@
             lblUserPhone.Depth = 0;
             lblUserPhone.Dock = DockStyle.Fill;
             lblUserPhone.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-            lblUserPhone.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
+            lblUserPhone.FontType = MaterialSkinManager.FontType.SubtleEmphasis;
             lblUserPhone.Location = new Point(345, 0);
             lblUserPhone.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserPhone.Name = "lblUserPhone";
             lblUserPhone.Size = new Size(167, 14);
             lblUserPhone.TabIndex = 4;
             lblUserPhone.Text = "Teléfono";
+            lblUserPhone.TextAlign = ContentAlignment.TopRight;
             // 
             // lblUserArea
             // 
@@ -144,13 +156,14 @@
             lblUserArea.Depth = 0;
             lblUserArea.Dock = DockStyle.Fill;
             lblUserArea.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-            lblUserArea.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
+            lblUserArea.FontType = MaterialSkinManager.FontType.SubtleEmphasis;
             lblUserArea.Location = new Point(174, 0);
             lblUserArea.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserArea.Name = "lblUserArea";
             lblUserArea.Size = new Size(165, 14);
             lblUserArea.TabIndex = 5;
             lblUserArea.Text = "Área";
+            lblUserArea.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblUserName
             // 
@@ -158,7 +171,7 @@
             lblUserName.Depth = 0;
             lblUserName.Dock = DockStyle.Top;
             lblUserName.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblUserName.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Subtitle1;
+            lblUserName.FontType = MaterialSkinManager.FontType.Subtitle1;
             lblUserName.Location = new Point(5, 5);
             lblUserName.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserName.Name = "lblUserName";

@@ -43,6 +43,7 @@ namespace GestionAgraria
             ComponentResourceManager resources = new ComponentResourceManager(typeof(FormPrincipal));
             imgList = new ImageList(components);
             tabUsers = new TabPage();
+            btnAddUser = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabVegetablesArea = new TabPage();
             materialTabControl1 = new ReaLTaiizor.Controls.MaterialTabControl();
             tabPage1 = new TabPage();
@@ -60,6 +61,7 @@ namespace GestionAgraria
             tabPage6 = new TabPage();
             tabPage7 = new TabPage();
             tabIndustryArea = new TabPage();
+            tabUsers.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
             materialTabControl1.SuspendLayout();
             tabHome.SuspendLayout();
@@ -88,25 +90,39 @@ namespace GestionAgraria
             // 
             // tabUsers
             // 
+            tabUsers.AutoScroll = true;
+            tabUsers.Controls.Add(btnAddUser);
             tabUsers.ImageKey = "user.png";
-            tabUsers.Location = new Point(4, 29);
-            tabUsers.Margin = new Padding(4);
+            tabUsers.Location = new Point(4, 24);
             tabUsers.Name = "tabUsers";
-            tabUsers.Padding = new Padding(25);
-            tabUsers.Size = new Size(909, 383);
+            tabUsers.Padding = new Padding(20);
+            tabUsers.Size = new Size(786, 505);
             tabUsers.TabIndex = 3;
             tabUsers.Text = "Usuarios";
             tabUsers.UseVisualStyleBackColor = true;
+            // 
+            // btnAddUser
+            // 
+            btnAddUser.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddUser.Depth = 0;
+            btnAddUser.Icon = Properties.Resources.add_user;
+            btnAddUser.Location = new Point(707, 426);
+            btnAddUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddUser.Name = "btnAddUser";
+            btnAddUser.Size = new Size(56, 56);
+            btnAddUser.TabIndex = 0;
+            btnAddUser.Text = "Agregar Usuario";
+            btnAddUser.UseVisualStyleBackColor = true;
+            btnAddUser.Click += btnAddUser_Click;
             // 
             // tabVegetablesArea
             // 
             tabVegetablesArea.Controls.Add(materialTabControl1);
             tabVegetablesArea.ImageKey = "vegetable-area.png";
-            tabVegetablesArea.Location = new Point(4, 29);
-            tabVegetablesArea.Margin = new Padding(4);
+            tabVegetablesArea.Location = new Point(4, 24);
             tabVegetablesArea.Name = "tabVegetablesArea";
-            tabVegetablesArea.Padding = new Padding(25);
-            tabVegetablesArea.Size = new Size(909, 383);
+            tabVegetablesArea.Padding = new Padding(20);
+            tabVegetablesArea.Size = new Size(786, 505);
             tabVegetablesArea.TabIndex = 2;
             tabVegetablesArea.Text = "Vegetales";
             tabVegetablesArea.UseVisualStyleBackColor = true;
@@ -118,34 +134,31 @@ namespace GestionAgraria
             materialTabControl1.Depth = 0;
             materialTabControl1.Dock = DockStyle.Fill;
             materialTabControl1.ImageList = imgList;
-            materialTabControl1.Location = new Point(25, 25);
-            materialTabControl1.Margin = new Padding(4);
+            materialTabControl1.Location = new Point(20, 20);
             materialTabControl1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialTabControl1.Multiline = true;
             materialTabControl1.Name = "materialTabControl1";
             materialTabControl1.SelectedIndex = 0;
-            materialTabControl1.Size = new Size(859, 333);
+            materialTabControl1.Size = new Size(746, 465);
             materialTabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
             tabPage1.ImageKey = "user.png";
-            tabPage1.Location = new Point(4, 29);
-            tabPage1.Margin = new Padding(4);
+            tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(4);
-            tabPage1.Size = new Size(851, 300);
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(738, 437);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "tabPage1";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
-            tabPage2.Location = new Point(4, 29);
-            tabPage2.Margin = new Padding(4);
+            tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(4);
-            tabPage2.Size = new Size(852, 300);
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(678, 237);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
@@ -154,11 +167,10 @@ namespace GestionAgraria
             // 
             tabHome.Controls.Add(tableLayoutPanel1);
             tabHome.ImageKey = "home.png";
-            tabHome.Location = new Point(4, 29);
-            tabHome.Margin = new Padding(4);
+            tabHome.Location = new Point(4, 24);
             tabHome.Name = "tabHome";
-            tabHome.Padding = new Padding(25);
-            tabHome.Size = new Size(909, 383);
+            tabHome.Padding = new Padding(20);
+            tabHome.Size = new Size(786, 505);
             tabHome.TabIndex = 0;
             tabHome.Text = "Inicio";
             tabHome.UseVisualStyleBackColor = true;
@@ -171,13 +183,12 @@ namespace GestionAgraria
             tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
             tableLayoutPanel1.Controls.Add(lblWelcome, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(25, 25);
-            tableLayoutPanel1.Margin = new Padding(4);
+            tableLayoutPanel1.Location = new Point(20, 20);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 76.4976959F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 23.5023041F));
-            tableLayoutPanel1.Size = new Size(859, 333);
+            tableLayoutPanel1.Size = new Size(746, 465);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // pictureBox1
@@ -185,10 +196,10 @@ namespace GestionAgraria
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = Properties.Resources.home;
             pictureBox1.InitialImage = null;
-            pictureBox1.Location = new Point(25, 25);
-            pictureBox1.Margin = new Padding(25);
+            pictureBox1.Location = new Point(20, 20);
+            pictureBox1.Margin = new Padding(20);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(809, 204);
+            pictureBox1.Size = new Size(706, 315);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -200,11 +211,10 @@ namespace GestionAgraria
             lblWelcome.Dock = DockStyle.Top;
             lblWelcome.Font = new Font("Roboto", 34F, FontStyle.Bold, GraphicsUnit.Pixel);
             lblWelcome.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H4;
-            lblWelcome.Location = new Point(4, 254);
-            lblWelcome.Margin = new Padding(4, 0, 4, 0);
+            lblWelcome.Location = new Point(3, 355);
             lblWelcome.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(851, 41);
+            lblWelcome.Size = new Size(740, 41);
             lblWelcome.TabIndex = 1;
             lblWelcome.Text = "Bienvenido a Gestión Agraria";
             lblWelcome.TextAlign = ContentAlignment.MiddleCenter;
@@ -219,13 +229,12 @@ namespace GestionAgraria
             tcPrincipal.Depth = 0;
             tcPrincipal.Dock = DockStyle.Fill;
             tcPrincipal.ImageList = imgList;
-            tcPrincipal.Location = new Point(4, 80);
-            tcPrincipal.Margin = new Padding(4);
+            tcPrincipal.Location = new Point(3, 64);
             tcPrincipal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             tcPrincipal.Multiline = true;
             tcPrincipal.Name = "tcPrincipal";
             tcPrincipal.SelectedIndex = 0;
-            tcPrincipal.Size = new Size(917, 416);
+            tcPrincipal.Size = new Size(794, 533);
             tcPrincipal.TabIndex = 0;
             tcPrincipal.SelectedIndexChanged += tcPrincipal_SelectedIndexChanged;
             // 
@@ -233,11 +242,10 @@ namespace GestionAgraria
             // 
             tabAnimalArea.Controls.Add(materialTabControl2);
             tabAnimalArea.ImageKey = "animal-area.png";
-            tabAnimalArea.Location = new Point(4, 29);
-            tabAnimalArea.Margin = new Padding(4);
+            tabAnimalArea.Location = new Point(4, 24);
             tabAnimalArea.Name = "tabAnimalArea";
-            tabAnimalArea.Padding = new Padding(25);
-            tabAnimalArea.Size = new Size(909, 383);
+            tabAnimalArea.Padding = new Padding(20);
+            tabAnimalArea.Size = new Size(786, 505);
             tabAnimalArea.TabIndex = 5;
             tabAnimalArea.Text = "Animales";
             tabAnimalArea.UseVisualStyleBackColor = true;
@@ -252,23 +260,21 @@ namespace GestionAgraria
             materialTabControl2.Depth = 0;
             materialTabControl2.Dock = DockStyle.Top;
             materialTabControl2.ImageList = imgList;
-            materialTabControl2.Location = new Point(25, 25);
-            materialTabControl2.Margin = new Padding(4);
+            materialTabControl2.Location = new Point(20, 20);
             materialTabControl2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialTabControl2.Multiline = true;
             materialTabControl2.Name = "materialTabControl2";
             materialTabControl2.SelectedIndex = 0;
-            materialTabControl2.Size = new Size(859, 381);
+            materialTabControl2.Size = new Size(746, 305);
             materialTabControl2.TabIndex = 1;
             // 
             // tabPage3
             // 
             tabPage3.ImageKey = "Vaca (2).png";
-            tabPage3.Location = new Point(4, 29);
-            tabPage3.Margin = new Padding(4);
+            tabPage3.Location = new Point(4, 24);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(4);
-            tabPage3.Size = new Size(851, 348);
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(738, 277);
             tabPage3.TabIndex = 0;
             tabPage3.Text = "Bovinos";
             tabPage3.UseVisualStyleBackColor = true;
@@ -276,11 +282,10 @@ namespace GestionAgraria
             // tabPage4
             // 
             tabPage4.ImageKey = "Chancho (2).png";
-            tabPage4.Location = new Point(4, 29);
-            tabPage4.Margin = new Padding(4);
+            tabPage4.Location = new Point(4, 24);
             tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(4);
-            tabPage4.Size = new Size(852, 348);
+            tabPage4.Padding = new Padding(3);
+            tabPage4.Size = new Size(678, 277);
             tabPage4.TabIndex = 1;
             tabPage4.Text = "Cerdos";
             tabPage4.UseVisualStyleBackColor = true;
@@ -288,11 +293,11 @@ namespace GestionAgraria
             // tabPage5
             // 
             tabPage5.ImageKey = "Conejo (2).png";
-            tabPage5.Location = new Point(4, 29);
+            tabPage5.Location = new Point(4, 24);
             tabPage5.Margin = new Padding(2);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new Padding(2);
-            tabPage5.Size = new Size(852, 348);
+            tabPage5.Size = new Size(678, 277);
             tabPage5.TabIndex = 2;
             tabPage5.Text = "Conejos";
             tabPage5.UseVisualStyleBackColor = true;
@@ -300,11 +305,11 @@ namespace GestionAgraria
             // tabPage6
             // 
             tabPage6.ImageKey = "Gallina.png";
-            tabPage6.Location = new Point(4, 29);
+            tabPage6.Location = new Point(4, 24);
             tabPage6.Margin = new Padding(2);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new Padding(2);
-            tabPage6.Size = new Size(852, 348);
+            tabPage6.Size = new Size(678, 277);
             tabPage6.TabIndex = 3;
             tabPage6.Text = "Pollos";
             tabPage6.UseVisualStyleBackColor = true;
@@ -312,11 +317,11 @@ namespace GestionAgraria
             // tabPage7
             // 
             tabPage7.ImageKey = "Abeja (2).png";
-            tabPage7.Location = new Point(4, 29);
+            tabPage7.Location = new Point(4, 24);
             tabPage7.Margin = new Padding(2);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new Padding(2);
-            tabPage7.Size = new Size(852, 348);
+            tabPage7.Size = new Size(678, 277);
             tabPage7.TabIndex = 4;
             tabPage7.Text = "Abejas";
             tabPage7.UseVisualStyleBackColor = true;
@@ -325,32 +330,31 @@ namespace GestionAgraria
             // 
             tabIndustryArea.BackColor = Color.FromArgb(238, 238, 238);
             tabIndustryArea.ImageKey = "industry-area.png";
-            tabIndustryArea.Location = new Point(4, 29);
-            tabIndustryArea.Margin = new Padding(4);
+            tabIndustryArea.Location = new Point(4, 24);
             tabIndustryArea.Name = "tabIndustryArea";
-            tabIndustryArea.Padding = new Padding(25);
-            tabIndustryArea.Size = new Size(909, 383);
+            tabIndustryArea.Padding = new Padding(20);
+            tabIndustryArea.Size = new Size(786, 505);
             tabIndustryArea.TabIndex = 4;
             tabIndustryArea.Text = "Industria";
             // 
             // FormPrincipal
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
+            AutoScroll = true;
             BackColor = Color.FromArgb(238, 238, 238);
-            ClientSize = new Size(925, 500);
+            ClientSize = new Size(800, 600);
             Controls.Add(tcPrincipal);
             DrawerHighlightWithAccent = false;
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = tcPrincipal;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4);
-            MinimumSize = new Size(925, 500);
+            MinimumSize = new Size(800, 600);
             Name = "FormPrincipal";
-            Padding = new Padding(4, 80, 4, 4);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión Agraria";
             Load += FormPrincipal_Load;
+            tabUsers.ResumeLayout(false);
             tabVegetablesArea.ResumeLayout(false);
             materialTabControl1.ResumeLayout(false);
             tabHome.ResumeLayout(false);
@@ -384,5 +388,6 @@ namespace GestionAgraria
         private TabPage tabPage5;
         private TabPage tabPage6;
         private TabPage tabPage7;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddUser;
     }
 }

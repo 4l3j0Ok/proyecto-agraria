@@ -13,7 +13,8 @@ namespace GestionAgraria
     public partial class FormPrincipal : MaterialForm
     {
         private readonly UserModel currentUser;
-        public FormPrincipal(UserModel currentUser) {
+        public FormPrincipal(UserModel currentUser)
+        {
             this.currentUser = currentUser;
             ColorScheme.GetSkinManager().AddFormToManage(this);
             InitializeComponent();
@@ -41,6 +42,14 @@ namespace GestionAgraria
                 userCard.Dock = DockStyle.Top;
                 tabUsers.Controls.Add(userCard);
             }
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            UCUserAdd userAddControl = new UCUserAdd();
+            userAddControl.Dock = DockStyle.Fill;
+            tabUsers.Controls.Clear();
+            tabUsers.Controls.Add(userAddControl);
         }
     }
 }
