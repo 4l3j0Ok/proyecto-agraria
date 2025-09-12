@@ -61,6 +61,7 @@ namespace GestionAgraria
             tabPage6 = new TabPage();
             tabPage7 = new TabPage();
             tabIndustryArea = new TabPage();
+            materialFloatingActionButton1 = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabUsers.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
             materialTabControl1.SuspendLayout();
@@ -91,6 +92,7 @@ namespace GestionAgraria
             // tabUsers
             // 
             tabUsers.AutoScroll = true;
+            tabUsers.Controls.Add(materialFloatingActionButton1);
             tabUsers.Controls.Add(btnAddUser);
             tabUsers.ImageKey = "user.png";
             tabUsers.Location = new Point(4, 24);
@@ -337,6 +339,18 @@ namespace GestionAgraria
             tabIndustryArea.TabIndex = 4;
             tabIndustryArea.Text = "Industria";
             // 
+            // materialFloatingActionButton1
+            // 
+            materialFloatingActionButton1.Depth = 0;
+            materialFloatingActionButton1.Icon = Properties.Resources.back;
+            materialFloatingActionButton1.Location = new Point(23, 23);
+            materialFloatingActionButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialFloatingActionButton1.Name = "materialFloatingActionButton1";
+            materialFloatingActionButton1.Size = new Size(56, 56);
+            materialFloatingActionButton1.TabIndex = 13;
+            materialFloatingActionButton1.Text = "materialFloatingActionButton1";
+            materialFloatingActionButton1.UseVisualStyleBackColor = true;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -389,5 +403,6 @@ namespace GestionAgraria
         private TabPage tabPage6;
         private TabPage tabPage7;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddUser;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
     }
 }
