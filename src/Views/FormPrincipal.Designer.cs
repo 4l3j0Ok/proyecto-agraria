@@ -43,6 +43,7 @@ namespace GestionAgraria
             ComponentResourceManager resources = new ComponentResourceManager(typeof(FormPrincipal));
             imgList = new ImageList(components);
             tabUsers = new TabPage();
+            materialFloatingActionButton1 = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             btnAddUser = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabVegetablesArea = new TabPage();
             materialTabControl1 = new ReaLTaiizor.Controls.MaterialTabControl();
@@ -61,7 +62,7 @@ namespace GestionAgraria
             tabPage6 = new TabPage();
             tabPage7 = new TabPage();
             tabIndustryArea = new TabPage();
-            materialFloatingActionButton1 = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            tabEntorno = new TabPage();
             tabUsers.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
             materialTabControl1.SuspendLayout();
@@ -88,6 +89,7 @@ namespace GestionAgraria
             imgList.Images.SetKeyName(7, "Vaca (2).png");
             imgList.Images.SetKeyName(8, "Abeja (2).png");
             imgList.Images.SetKeyName(9, "Conejo (2).png");
+            imgList.Images.SetKeyName(10, "userGroup.png");
             // 
             // tabUsers
             // 
@@ -102,6 +104,18 @@ namespace GestionAgraria
             tabUsers.TabIndex = 3;
             tabUsers.Text = "Usuarios";
             tabUsers.UseVisualStyleBackColor = true;
+            // 
+            // materialFloatingActionButton1
+            // 
+            materialFloatingActionButton1.Depth = 0;
+            materialFloatingActionButton1.Icon = Properties.Resources.back;
+            materialFloatingActionButton1.Location = new Point(23, 23);
+            materialFloatingActionButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialFloatingActionButton1.Name = "materialFloatingActionButton1";
+            materialFloatingActionButton1.Size = new Size(56, 56);
+            materialFloatingActionButton1.TabIndex = 13;
+            materialFloatingActionButton1.Text = "materialFloatingActionButton1";
+            materialFloatingActionButton1.UseVisualStyleBackColor = true;
             // 
             // btnAddUser
             // 
@@ -160,7 +174,7 @@ namespace GestionAgraria
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(678, 237);
+            tabPage2.Size = new Size(738, 437);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
@@ -228,6 +242,7 @@ namespace GestionAgraria
             tcPrincipal.Controls.Add(tabAnimalArea);
             tcPrincipal.Controls.Add(tabIndustryArea);
             tcPrincipal.Controls.Add(tabUsers);
+            tcPrincipal.Controls.Add(tabEntorno);
             tcPrincipal.Depth = 0;
             tcPrincipal.Dock = DockStyle.Fill;
             tcPrincipal.ImageList = imgList;
@@ -287,7 +302,7 @@ namespace GestionAgraria
             tabPage4.Location = new Point(4, 24);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(678, 277);
+            tabPage4.Size = new Size(738, 277);
             tabPage4.TabIndex = 1;
             tabPage4.Text = "Cerdos";
             tabPage4.UseVisualStyleBackColor = true;
@@ -299,7 +314,7 @@ namespace GestionAgraria
             tabPage5.Margin = new Padding(2);
             tabPage5.Name = "tabPage5";
             tabPage5.Padding = new Padding(2);
-            tabPage5.Size = new Size(678, 277);
+            tabPage5.Size = new Size(738, 277);
             tabPage5.TabIndex = 2;
             tabPage5.Text = "Conejos";
             tabPage5.UseVisualStyleBackColor = true;
@@ -311,7 +326,7 @@ namespace GestionAgraria
             tabPage6.Margin = new Padding(2);
             tabPage6.Name = "tabPage6";
             tabPage6.Padding = new Padding(2);
-            tabPage6.Size = new Size(678, 277);
+            tabPage6.Size = new Size(738, 277);
             tabPage6.TabIndex = 3;
             tabPage6.Text = "Pollos";
             tabPage6.UseVisualStyleBackColor = true;
@@ -323,7 +338,7 @@ namespace GestionAgraria
             tabPage7.Margin = new Padding(2);
             tabPage7.Name = "tabPage7";
             tabPage7.Padding = new Padding(2);
-            tabPage7.Size = new Size(678, 277);
+            tabPage7.Size = new Size(738, 277);
             tabPage7.TabIndex = 4;
             tabPage7.Text = "Abejas";
             tabPage7.UseVisualStyleBackColor = true;
@@ -339,17 +354,16 @@ namespace GestionAgraria
             tabIndustryArea.TabIndex = 4;
             tabIndustryArea.Text = "Industria";
             // 
-            // materialFloatingActionButton1
+            // tabEntorno
             // 
-            materialFloatingActionButton1.Depth = 0;
-            materialFloatingActionButton1.Icon = Properties.Resources.back;
-            materialFloatingActionButton1.Location = new Point(23, 23);
-            materialFloatingActionButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialFloatingActionButton1.Name = "materialFloatingActionButton1";
-            materialFloatingActionButton1.Size = new Size(56, 56);
-            materialFloatingActionButton1.TabIndex = 13;
-            materialFloatingActionButton1.Text = "materialFloatingActionButton1";
-            materialFloatingActionButton1.UseVisualStyleBackColor = true;
+            tabEntorno.ImageKey = "userGroup.png";
+            tabEntorno.Location = new Point(4, 24);
+            tabEntorno.Name = "tabEntorno";
+            tabEntorno.Padding = new Padding(3);
+            tabEntorno.Size = new Size(786, 505);
+            tabEntorno.TabIndex = 6;
+            tabEntorno.Text = "Entornos";
+            tabEntorno.UseVisualStyleBackColor = true;
             // 
             // FormPrincipal
             // 
@@ -404,5 +418,6 @@ namespace GestionAgraria
         private TabPage tabPage7;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddUser;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
+        private TabPage tabEntorno;
     }
 }

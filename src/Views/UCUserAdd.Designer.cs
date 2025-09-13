@@ -622,7 +622,7 @@ namespace GestionAgraria.Views
             materialComboBox1.DropDownHeight = 174;
             materialComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             materialComboBox1.DropDownWidth = 121;
-            materialComboBox1.Font = new Font("Roboto Medium", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
             materialComboBox1.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialComboBox1.FormattingEnabled = true;
             materialComboBox1.IntegralHeight = false;
