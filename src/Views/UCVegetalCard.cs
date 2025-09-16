@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCUserAdd : UserControl
+    public partial class UCVegetalCard : UserControl
     {
-        public UCUserAdd()
+        public UCVegetalCard()
         {
             InitializeComponent();
-        }
-
-        private void materialTextBoxEdit5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblUsuario_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

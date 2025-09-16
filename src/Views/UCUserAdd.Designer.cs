@@ -69,12 +69,12 @@ namespace GestionAgraria.Views
             panel3 = new System.Windows.Forms.Panel();
             tbUsuario = new MaterialTextBoxEdit();
             lblUsuario = new MaterialLabel();
-            panel7 = new System.Windows.Forms.Panel();
-            materialComboBox1 = new MaterialComboBox();
-            materialLabel7 = new MaterialLabel();
             panel4 = new System.Windows.Forms.Panel();
             materialTextBoxEdit2 = new MaterialTextBoxEdit();
             materialLabel3 = new MaterialLabel();
+            panel7 = new System.Windows.Forms.Panel();
+            materialComboBox1 = new MaterialComboBox();
+            materialLabel7 = new MaterialLabel();
             panel11 = new System.Windows.Forms.Panel();
             materialTextBoxEdit1 = new MaterialTextBoxEdit();
             materialLabel2 = new MaterialLabel();
@@ -97,8 +97,8 @@ namespace GestionAgraria.Views
             groupBox1.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             panel3.SuspendLayout();
-            panel7.SuspendLayout();
             panel4.SuspendLayout();
+            panel7.SuspendLayout();
             panel11.SuspendLayout();
             panel12.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -112,11 +112,11 @@ namespace GestionAgraria.Views
             materialCard1.Dock = DockStyle.Top;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialCard1.Location = new Point(0, 0);
-            materialCard1.Margin = new Padding(14);
+            materialCard1.Margin = new Padding(16, 19, 16, 19);
             materialCard1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialCard1.Name = "materialCard1";
-            materialCard1.Padding = new Padding(14);
-            materialCard1.Size = new Size(1152, 596);
+            materialCard1.Padding = new Padding(16, 19, 16, 19);
+            materialCard1.Size = new Size(1317, 795);
             materialCard1.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -126,12 +126,13 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.Controls.Add(panel2, 0, 1);
             tableLayoutPanel2.Controls.Add(panel12, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(14, 14);
+            tableLayoutPanel2.Location = new Point(16, 19);
+            tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 218F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 291F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(1124, 568);
+            tableLayoutPanel2.Size = new Size(1285, 757);
             tableLayoutPanel2.TabIndex = 21;
             // 
             // panel2
@@ -141,9 +142,10 @@ namespace GestionAgraria.Views
             panel2.Controls.Add(groupBox2);
             panel2.Controls.Add(groupBox1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 221);
+            panel2.Location = new Point(3, 295);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1118, 344);
+            panel2.Size = new Size(1279, 458);
             panel2.TabIndex = 11;
             // 
             // materialButton1
@@ -156,12 +158,12 @@ namespace GestionAgraria.Views
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
             materialButton1.IconType = MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(0, 300);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.Location = new Point(0, 399);
+            materialButton1.Margin = new Padding(5, 8, 5, 8);
             materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialButton1.Name = "materialButton1";
             materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(1118, 36);
+            materialButton1.Size = new Size(1279, 48);
             materialButton1.TabIndex = 20;
             materialButton1.Text = "Guardar usuario";
             materialButton1.Type = MaterialButton.MaterialButtonType.Contained;
@@ -172,9 +174,11 @@ namespace GestionAgraria.Views
             // 
             groupBox3.Controls.Add(tableLayoutPanel3);
             groupBox3.Dock = DockStyle.Top;
-            groupBox3.Location = new Point(0, 200);
+            groupBox3.Location = new Point(0, 266);
+            groupBox3.Margin = new Padding(3, 4, 3, 4);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1118, 100);
+            groupBox3.Padding = new Padding(3, 4, 3, 4);
+            groupBox3.Size = new Size(1279, 133);
             groupBox3.TabIndex = 32;
             groupBox3.TabStop = false;
             groupBox3.Text = "Datos de contacto";
@@ -187,11 +191,12 @@ namespace GestionAgraria.Views
             tableLayoutPanel3.Controls.Add(panel8, 0, 0);
             tableLayoutPanel3.Controls.Add(panel10, 1, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 19);
+            tableLayoutPanel3.Location = new Point(3, 24);
+            tableLayoutPanel3.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(1112, 78);
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Size = new Size(1273, 105);
             tableLayoutPanel3.TabIndex = 27;
             // 
             // panel8
@@ -202,8 +207,8 @@ namespace GestionAgraria.Views
             panel8.Location = new Point(0, 0);
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
-            panel8.Padding = new Padding(20, 0, 20, 0);
-            panel8.Size = new Size(556, 78);
+            panel8.Padding = new Padding(23, 0, 23, 0);
+            panel8.Size = new Size(636, 105);
             panel8.TabIndex = 26;
             // 
             // materialTextBoxEdit8
@@ -218,12 +223,12 @@ namespace GestionAgraria.Views
             materialTextBoxEdit8.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxEdit8.HideSelection = true;
             materialTextBoxEdit8.LeadingIcon = null;
-            materialTextBoxEdit8.Location = new Point(20, 19);
-            materialTextBoxEdit8.Margin = new Padding(3, 3, 26, 3);
+            materialTextBoxEdit8.Location = new Point(23, 19);
+            materialTextBoxEdit8.Margin = new Padding(3, 4, 30, 4);
             materialTextBoxEdit8.MaxLength = 32767;
             materialTextBoxEdit8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialTextBoxEdit8.Name = "materialTextBoxEdit8";
-            materialTextBoxEdit8.Padding = new Padding(9, 8, 9, 8);
+            materialTextBoxEdit8.Padding = new Padding(10, 11, 10, 11);
             materialTextBoxEdit8.PasswordChar = '\0';
             materialTextBoxEdit8.PrefixSuffixText = null;
             materialTextBoxEdit8.ReadOnly = false;
@@ -232,7 +237,7 @@ namespace GestionAgraria.Views
             materialTextBoxEdit8.SelectionLength = 0;
             materialTextBoxEdit8.SelectionStart = 0;
             materialTextBoxEdit8.ShortcutsEnabled = true;
-            materialTextBoxEdit8.Size = new Size(516, 48);
+            materialTextBoxEdit8.Size = new Size(590, 48);
             materialTextBoxEdit8.TabIndex = 0;
             materialTextBoxEdit8.TabStop = false;
             materialTextBoxEdit8.TextAlign = HorizontalAlignment.Left;
@@ -245,7 +250,7 @@ namespace GestionAgraria.Views
             materialLabel8.Depth = 0;
             materialLabel8.Dock = DockStyle.Top;
             materialLabel8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel8.Location = new Point(20, 0);
+            materialLabel8.Location = new Point(23, 0);
             materialLabel8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel8.Name = "materialLabel8";
             materialLabel8.Size = new Size(97, 19);
@@ -257,11 +262,11 @@ namespace GestionAgraria.Views
             panel10.Controls.Add(materialTextBoxEdit11);
             panel10.Controls.Add(materialLabel9);
             panel10.Dock = DockStyle.Fill;
-            panel10.Location = new Point(556, 0);
+            panel10.Location = new Point(636, 0);
             panel10.Margin = new Padding(0);
             panel10.Name = "panel10";
-            panel10.Padding = new Padding(20, 0, 20, 0);
-            panel10.Size = new Size(556, 78);
+            panel10.Padding = new Padding(23, 0, 23, 0);
+            panel10.Size = new Size(637, 105);
             panel10.TabIndex = 25;
             // 
             // materialTextBoxEdit11
@@ -276,12 +281,12 @@ namespace GestionAgraria.Views
             materialTextBoxEdit11.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxEdit11.HideSelection = true;
             materialTextBoxEdit11.LeadingIcon = null;
-            materialTextBoxEdit11.Location = new Point(20, 19);
-            materialTextBoxEdit11.Margin = new Padding(3, 3, 26, 3);
+            materialTextBoxEdit11.Location = new Point(23, 19);
+            materialTextBoxEdit11.Margin = new Padding(3, 4, 30, 4);
             materialTextBoxEdit11.MaxLength = 32767;
             materialTextBoxEdit11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialTextBoxEdit11.Name = "materialTextBoxEdit11";
-            materialTextBoxEdit11.Padding = new Padding(9, 8, 9, 8);
+            materialTextBoxEdit11.Padding = new Padding(10, 11, 10, 11);
             materialTextBoxEdit11.PasswordChar = '\0';
             materialTextBoxEdit11.PrefixSuffixText = null;
             materialTextBoxEdit11.ReadOnly = false;
@@ -290,7 +295,7 @@ namespace GestionAgraria.Views
             materialTextBoxEdit11.SelectionLength = 0;
             materialTextBoxEdit11.SelectionStart = 0;
             materialTextBoxEdit11.ShortcutsEnabled = true;
-            materialTextBoxEdit11.Size = new Size(516, 48);
+            materialTextBoxEdit11.Size = new Size(591, 48);
             materialTextBoxEdit11.TabIndex = 0;
             materialTextBoxEdit11.TabStop = false;
             materialTextBoxEdit11.TextAlign = HorizontalAlignment.Left;
@@ -303,7 +308,7 @@ namespace GestionAgraria.Views
             materialLabel9.Depth = 0;
             materialLabel9.Dock = DockStyle.Top;
             materialLabel9.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel9.Location = new Point(20, 0);
+            materialLabel9.Location = new Point(23, 0);
             materialLabel9.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel9.Name = "materialLabel9";
             materialLabel9.Size = new Size(128, 19);
@@ -314,9 +319,11 @@ namespace GestionAgraria.Views
             // 
             groupBox2.Controls.Add(tableLayoutPanel4);
             groupBox2.Dock = DockStyle.Top;
-            groupBox2.Location = new Point(0, 100);
+            groupBox2.Location = new Point(0, 133);
+            groupBox2.Margin = new Padding(3, 4, 3, 4);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1118, 100);
+            groupBox2.Padding = new Padding(3, 4, 3, 4);
+            groupBox2.Size = new Size(1279, 133);
             groupBox2.TabIndex = 31;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos personales";
@@ -331,11 +338,12 @@ namespace GestionAgraria.Views
             tableLayoutPanel4.Controls.Add(panel5, 1, 0);
             tableLayoutPanel4.Controls.Add(panel9, 2, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(3, 19);
+            tableLayoutPanel4.Location = new Point(3, 24);
+            tableLayoutPanel4.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Size = new Size(1112, 78);
+            tableLayoutPanel4.Size = new Size(1273, 105);
             tableLayoutPanel4.TabIndex = 30;
             // 
             // panel6
@@ -346,8 +354,8 @@ namespace GestionAgraria.Views
             panel6.Location = new Point(0, 0);
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
-            panel6.Padding = new Padding(20, 0, 20, 0);
-            panel6.Size = new Size(370, 78);
+            panel6.Padding = new Padding(23, 0, 23, 0);
+            panel6.Size = new Size(424, 105);
             panel6.TabIndex = 24;
             // 
             // materialTextBoxEdit10
@@ -362,12 +370,12 @@ namespace GestionAgraria.Views
             materialTextBoxEdit10.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxEdit10.HideSelection = true;
             materialTextBoxEdit10.LeadingIcon = null;
-            materialTextBoxEdit10.Location = new Point(20, 19);
-            materialTextBoxEdit10.Margin = new Padding(3, 3, 26, 3);
+            materialTextBoxEdit10.Location = new Point(23, 19);
+            materialTextBoxEdit10.Margin = new Padding(3, 4, 30, 4);
             materialTextBoxEdit10.MaxLength = 32767;
             materialTextBoxEdit10.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialTextBoxEdit10.Name = "materialTextBoxEdit10";
-            materialTextBoxEdit10.Padding = new Padding(9, 8, 9, 8);
+            materialTextBoxEdit10.Padding = new Padding(10, 11, 10, 11);
             materialTextBoxEdit10.PasswordChar = '\0';
             materialTextBoxEdit10.PrefixSuffixText = null;
             materialTextBoxEdit10.ReadOnly = false;
@@ -376,7 +384,7 @@ namespace GestionAgraria.Views
             materialTextBoxEdit10.SelectionLength = 0;
             materialTextBoxEdit10.SelectionStart = 0;
             materialTextBoxEdit10.ShortcutsEnabled = true;
-            materialTextBoxEdit10.Size = new Size(330, 48);
+            materialTextBoxEdit10.Size = new Size(378, 48);
             materialTextBoxEdit10.TabIndex = 0;
             materialTextBoxEdit10.TabStop = false;
             materialTextBoxEdit10.TextAlign = HorizontalAlignment.Left;
@@ -389,7 +397,7 @@ namespace GestionAgraria.Views
             materialLabel6.Depth = 0;
             materialLabel6.Dock = DockStyle.Top;
             materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel6.Location = new Point(20, 0);
+            materialLabel6.Location = new Point(23, 0);
             materialLabel6.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel6.Name = "materialLabel6";
             materialLabel6.Size = new Size(83, 19);
@@ -401,11 +409,11 @@ namespace GestionAgraria.Views
             panel5.Controls.Add(materialTextBoxEdit9);
             panel5.Controls.Add(materialLabel5);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(370, 0);
+            panel5.Location = new Point(424, 0);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
-            panel5.Padding = new Padding(20, 0, 20, 0);
-            panel5.Size = new Size(370, 78);
+            panel5.Padding = new Padding(23, 0, 23, 0);
+            panel5.Size = new Size(424, 105);
             panel5.TabIndex = 27;
             // 
             // materialTextBoxEdit9
@@ -420,12 +428,12 @@ namespace GestionAgraria.Views
             materialTextBoxEdit9.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxEdit9.HideSelection = true;
             materialTextBoxEdit9.LeadingIcon = null;
-            materialTextBoxEdit9.Location = new Point(20, 19);
-            materialTextBoxEdit9.Margin = new Padding(3, 3, 26, 3);
+            materialTextBoxEdit9.Location = new Point(23, 19);
+            materialTextBoxEdit9.Margin = new Padding(3, 4, 30, 4);
             materialTextBoxEdit9.MaxLength = 32767;
             materialTextBoxEdit9.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialTextBoxEdit9.Name = "materialTextBoxEdit9";
-            materialTextBoxEdit9.Padding = new Padding(9, 8, 9, 8);
+            materialTextBoxEdit9.Padding = new Padding(10, 11, 10, 11);
             materialTextBoxEdit9.PasswordChar = '\0';
             materialTextBoxEdit9.PrefixSuffixText = null;
             materialTextBoxEdit9.ReadOnly = false;
@@ -434,7 +442,7 @@ namespace GestionAgraria.Views
             materialTextBoxEdit9.SelectionLength = 0;
             materialTextBoxEdit9.SelectionStart = 0;
             materialTextBoxEdit9.ShortcutsEnabled = true;
-            materialTextBoxEdit9.Size = new Size(330, 48);
+            materialTextBoxEdit9.Size = new Size(378, 48);
             materialTextBoxEdit9.TabIndex = 0;
             materialTextBoxEdit9.TabStop = false;
             materialTextBoxEdit9.TextAlign = HorizontalAlignment.Left;
@@ -447,7 +455,7 @@ namespace GestionAgraria.Views
             materialLabel5.Depth = 0;
             materialLabel5.Dock = DockStyle.Top;
             materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel5.Location = new Point(20, 0);
+            materialLabel5.Location = new Point(23, 0);
             materialLabel5.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel5.Name = "materialLabel5";
             materialLabel5.Size = new Size(57, 19);
@@ -459,11 +467,11 @@ namespace GestionAgraria.Views
             panel9.Controls.Add(materialTextBoxEdit3);
             panel9.Controls.Add(materialLabel4);
             panel9.Dock = DockStyle.Fill;
-            panel9.Location = new Point(740, 0);
+            panel9.Location = new Point(848, 0);
             panel9.Margin = new Padding(0);
             panel9.Name = "panel9";
-            panel9.Padding = new Padding(20, 0, 20, 0);
-            panel9.Size = new Size(372, 78);
+            panel9.Padding = new Padding(23, 0, 23, 0);
+            panel9.Size = new Size(425, 105);
             panel9.TabIndex = 29;
             // 
             // materialTextBoxEdit3
@@ -478,12 +486,12 @@ namespace GestionAgraria.Views
             materialTextBoxEdit3.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxEdit3.HideSelection = true;
             materialTextBoxEdit3.LeadingIcon = null;
-            materialTextBoxEdit3.Location = new Point(20, 19);
-            materialTextBoxEdit3.Margin = new Padding(3, 3, 26, 3);
+            materialTextBoxEdit3.Location = new Point(23, 19);
+            materialTextBoxEdit3.Margin = new Padding(3, 4, 30, 4);
             materialTextBoxEdit3.MaxLength = 32767;
             materialTextBoxEdit3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialTextBoxEdit3.Name = "materialTextBoxEdit3";
-            materialTextBoxEdit3.Padding = new Padding(9, 8, 9, 8);
+            materialTextBoxEdit3.Padding = new Padding(10, 11, 10, 11);
             materialTextBoxEdit3.PasswordChar = '\0';
             materialTextBoxEdit3.PrefixSuffixText = null;
             materialTextBoxEdit3.ReadOnly = false;
@@ -492,7 +500,7 @@ namespace GestionAgraria.Views
             materialTextBoxEdit3.SelectionLength = 0;
             materialTextBoxEdit3.SelectionStart = 0;
             materialTextBoxEdit3.ShortcutsEnabled = true;
-            materialTextBoxEdit3.Size = new Size(332, 48);
+            materialTextBoxEdit3.Size = new Size(379, 48);
             materialTextBoxEdit3.TabIndex = 0;
             materialTextBoxEdit3.TabStop = false;
             materialTextBoxEdit3.TextAlign = HorizontalAlignment.Left;
@@ -505,7 +513,7 @@ namespace GestionAgraria.Views
             materialLabel4.Depth = 0;
             materialLabel4.Dock = DockStyle.Top;
             materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel4.Location = new Point(20, 0);
+            materialLabel4.Location = new Point(23, 0);
             materialLabel4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel4.Name = "materialLabel4";
             materialLabel4.Size = new Size(58, 19);
@@ -517,8 +525,10 @@ namespace GestionAgraria.Views
             groupBox1.Controls.Add(tableLayoutPanel5);
             groupBox1.Dock = DockStyle.Top;
             groupBox1.Location = new Point(0, 0);
+            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1118, 100);
+            groupBox1.Padding = new Padding(3, 4, 3, 4);
+            groupBox1.Size = new Size(1279, 133);
             groupBox1.TabIndex = 30;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del sistema";
@@ -531,15 +541,16 @@ namespace GestionAgraria.Views
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel5.Controls.Add(panel3, 0, 0);
-            tableLayoutPanel5.Controls.Add(panel7, 3, 0);
             tableLayoutPanel5.Controls.Add(panel4, 2, 0);
+            tableLayoutPanel5.Controls.Add(panel7, 3, 0);
             tableLayoutPanel5.Controls.Add(panel11, 1, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(3, 19);
+            tableLayoutPanel5.Location = new Point(3, 24);
+            tableLayoutPanel5.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(1112, 78);
+            tableLayoutPanel5.Size = new Size(1273, 105);
             tableLayoutPanel5.TabIndex = 29;
             // 
             // panel3
@@ -550,8 +561,8 @@ namespace GestionAgraria.Views
             panel3.Location = new Point(0, 0);
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
-            panel3.Padding = new Padding(20, 0, 20, 0);
-            panel3.Size = new Size(278, 78);
+            panel3.Padding = new Padding(23, 0, 23, 0);
+            panel3.Size = new Size(318, 105);
             panel3.TabIndex = 21;
             // 
             // tbUsuario
@@ -566,12 +577,12 @@ namespace GestionAgraria.Views
             tbUsuario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbUsuario.HideSelection = true;
             tbUsuario.LeadingIcon = null;
-            tbUsuario.Location = new Point(20, 19);
-            tbUsuario.Margin = new Padding(3, 3, 26, 3);
+            tbUsuario.Location = new Point(23, 19);
+            tbUsuario.Margin = new Padding(3, 4, 30, 4);
             tbUsuario.MaxLength = 32767;
             tbUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tbUsuario.Name = "tbUsuario";
-            tbUsuario.Padding = new Padding(9, 8, 9, 8);
+            tbUsuario.Padding = new Padding(10, 11, 10, 11);
             tbUsuario.PasswordChar = '\0';
             tbUsuario.PrefixSuffixText = null;
             tbUsuario.ReadOnly = false;
@@ -580,7 +591,7 @@ namespace GestionAgraria.Views
             tbUsuario.SelectionLength = 0;
             tbUsuario.SelectionStart = 0;
             tbUsuario.ShortcutsEnabled = true;
-            tbUsuario.Size = new Size(238, 48);
+            tbUsuario.Size = new Size(272, 48);
             tbUsuario.TabIndex = 0;
             tbUsuario.TabStop = false;
             tbUsuario.TextAlign = HorizontalAlignment.Left;
@@ -593,23 +604,82 @@ namespace GestionAgraria.Views
             lblUsuario.Depth = 0;
             lblUsuario.Dock = DockStyle.Top;
             lblUsuario.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblUsuario.Location = new Point(20, 0);
+            lblUsuario.Location = new Point(23, 0);
             lblUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(135, 19);
             lblUsuario.TabIndex = 4;
             lblUsuario.Text = "Nombre de usuario";
+            lblUsuario.Click += lblUsuario_Click;
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(materialTextBoxEdit2);
+            panel4.Controls.Add(materialLabel3);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(636, 0);
+            panel4.Margin = new Padding(0);
+            panel4.Name = "panel4";
+            panel4.Padding = new Padding(23, 0, 23, 0);
+            panel4.Size = new Size(318, 105);
+            panel4.TabIndex = 23;
+            // 
+            // materialTextBoxEdit2
+            // 
+            materialTextBoxEdit2.AnimateReadOnly = false;
+            materialTextBoxEdit2.AutoCompleteMode = AutoCompleteMode.None;
+            materialTextBoxEdit2.AutoCompleteSource = AutoCompleteSource.None;
+            materialTextBoxEdit2.BackgroundImageLayout = ImageLayout.None;
+            materialTextBoxEdit2.CharacterCasing = CharacterCasing.Normal;
+            materialTextBoxEdit2.Depth = 0;
+            materialTextBoxEdit2.Dock = DockStyle.Fill;
+            materialTextBoxEdit2.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTextBoxEdit2.HideSelection = true;
+            materialTextBoxEdit2.LeadingIcon = null;
+            materialTextBoxEdit2.Location = new Point(23, 19);
+            materialTextBoxEdit2.Margin = new Padding(3, 4, 30, 4);
+            materialTextBoxEdit2.MaxLength = 32767;
+            materialTextBoxEdit2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialTextBoxEdit2.Name = "materialTextBoxEdit2";
+            materialTextBoxEdit2.Padding = new Padding(10, 11, 10, 11);
+            materialTextBoxEdit2.PasswordChar = '\0';
+            materialTextBoxEdit2.PrefixSuffixText = null;
+            materialTextBoxEdit2.ReadOnly = false;
+            materialTextBoxEdit2.RightToLeft = RightToLeft.No;
+            materialTextBoxEdit2.SelectedText = "";
+            materialTextBoxEdit2.SelectionLength = 0;
+            materialTextBoxEdit2.SelectionStart = 0;
+            materialTextBoxEdit2.ShortcutsEnabled = true;
+            materialTextBoxEdit2.Size = new Size(272, 48);
+            materialTextBoxEdit2.TabIndex = 0;
+            materialTextBoxEdit2.TabStop = false;
+            materialTextBoxEdit2.TextAlign = HorizontalAlignment.Left;
+            materialTextBoxEdit2.TrailingIcon = null;
+            materialTextBoxEdit2.UseSystemPasswordChar = false;
+            // 
+            // materialLabel3
+            // 
+            materialLabel3.AutoSize = true;
+            materialLabel3.Depth = 0;
+            materialLabel3.Dock = DockStyle.Top;
+            materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel3.Location = new Point(23, 0);
+            materialLabel3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel3.Name = "materialLabel3";
+            materialLabel3.Size = new Size(155, 19);
+            materialLabel3.TabIndex = 4;
+            materialLabel3.Text = "Confirmar contraseña";
             // 
             // panel7
             // 
             panel7.Controls.Add(materialComboBox1);
             panel7.Controls.Add(materialLabel7);
             panel7.Dock = DockStyle.Fill;
-            panel7.Location = new Point(834, 0);
+            panel7.Location = new Point(954, 0);
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
-            panel7.Padding = new Padding(20, 0, 20, 0);
-            panel7.Size = new Size(278, 78);
+            panel7.Padding = new Padding(23, 0, 23, 0);
+            panel7.Size = new Size(319, 105);
             panel7.TabIndex = 28;
             // 
             // materialComboBox1
@@ -627,11 +697,12 @@ namespace GestionAgraria.Views
             materialComboBox1.FormattingEnabled = true;
             materialComboBox1.IntegralHeight = false;
             materialComboBox1.ItemHeight = 43;
-            materialComboBox1.Location = new Point(20, 19);
+            materialComboBox1.Location = new Point(23, 19);
+            materialComboBox1.Margin = new Padding(3, 4, 3, 4);
             materialComboBox1.MaxDropDownItems = 4;
             materialComboBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialComboBox1.Name = "materialComboBox1";
-            materialComboBox1.Size = new Size(238, 49);
+            materialComboBox1.Size = new Size(273, 49);
             materialComboBox1.StartIndex = 0;
             materialComboBox1.TabIndex = 9;
             // 
@@ -641,81 +712,23 @@ namespace GestionAgraria.Views
             materialLabel7.Depth = 0;
             materialLabel7.Dock = DockStyle.Top;
             materialLabel7.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel7.Location = new Point(20, 0);
+            materialLabel7.Location = new Point(23, 0);
             materialLabel7.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel7.Name = "materialLabel7";
             materialLabel7.Size = new Size(24, 19);
             materialLabel7.TabIndex = 4;
             materialLabel7.Text = "Rol";
             // 
-            // panel4
-            // 
-            panel4.Controls.Add(materialTextBoxEdit2);
-            panel4.Controls.Add(materialLabel3);
-            panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(556, 0);
-            panel4.Margin = new Padding(0);
-            panel4.Name = "panel4";
-            panel4.Padding = new Padding(20, 0, 20, 0);
-            panel4.Size = new Size(278, 78);
-            panel4.TabIndex = 23;
-            // 
-            // materialTextBoxEdit2
-            // 
-            materialTextBoxEdit2.AnimateReadOnly = false;
-            materialTextBoxEdit2.AutoCompleteMode = AutoCompleteMode.None;
-            materialTextBoxEdit2.AutoCompleteSource = AutoCompleteSource.None;
-            materialTextBoxEdit2.BackgroundImageLayout = ImageLayout.None;
-            materialTextBoxEdit2.CharacterCasing = CharacterCasing.Normal;
-            materialTextBoxEdit2.Depth = 0;
-            materialTextBoxEdit2.Dock = DockStyle.Fill;
-            materialTextBoxEdit2.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBoxEdit2.HideSelection = true;
-            materialTextBoxEdit2.LeadingIcon = null;
-            materialTextBoxEdit2.Location = new Point(20, 19);
-            materialTextBoxEdit2.Margin = new Padding(3, 3, 26, 3);
-            materialTextBoxEdit2.MaxLength = 32767;
-            materialTextBoxEdit2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialTextBoxEdit2.Name = "materialTextBoxEdit2";
-            materialTextBoxEdit2.Padding = new Padding(9, 8, 9, 8);
-            materialTextBoxEdit2.PasswordChar = '\0';
-            materialTextBoxEdit2.PrefixSuffixText = null;
-            materialTextBoxEdit2.ReadOnly = false;
-            materialTextBoxEdit2.RightToLeft = RightToLeft.No;
-            materialTextBoxEdit2.SelectedText = "";
-            materialTextBoxEdit2.SelectionLength = 0;
-            materialTextBoxEdit2.SelectionStart = 0;
-            materialTextBoxEdit2.ShortcutsEnabled = true;
-            materialTextBoxEdit2.Size = new Size(238, 48);
-            materialTextBoxEdit2.TabIndex = 0;
-            materialTextBoxEdit2.TabStop = false;
-            materialTextBoxEdit2.TextAlign = HorizontalAlignment.Left;
-            materialTextBoxEdit2.TrailingIcon = null;
-            materialTextBoxEdit2.UseSystemPasswordChar = false;
-            // 
-            // materialLabel3
-            // 
-            materialLabel3.AutoSize = true;
-            materialLabel3.Depth = 0;
-            materialLabel3.Dock = DockStyle.Top;
-            materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel3.Location = new Point(20, 0);
-            materialLabel3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel3.Name = "materialLabel3";
-            materialLabel3.Size = new Size(155, 19);
-            materialLabel3.TabIndex = 4;
-            materialLabel3.Text = "Confirmar contraseña";
-            // 
             // panel11
             // 
             panel11.Controls.Add(materialTextBoxEdit1);
             panel11.Controls.Add(materialLabel2);
             panel11.Dock = DockStyle.Fill;
-            panel11.Location = new Point(278, 0);
+            panel11.Location = new Point(318, 0);
             panel11.Margin = new Padding(0);
             panel11.Name = "panel11";
-            panel11.Padding = new Padding(20, 0, 20, 0);
-            panel11.Size = new Size(278, 78);
+            panel11.Padding = new Padding(23, 0, 23, 0);
+            panel11.Size = new Size(318, 105);
             panel11.TabIndex = 22;
             // 
             // materialTextBoxEdit1
@@ -730,12 +743,12 @@ namespace GestionAgraria.Views
             materialTextBoxEdit1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxEdit1.HideSelection = true;
             materialTextBoxEdit1.LeadingIcon = null;
-            materialTextBoxEdit1.Location = new Point(20, 19);
-            materialTextBoxEdit1.Margin = new Padding(3, 3, 26, 3);
+            materialTextBoxEdit1.Location = new Point(23, 19);
+            materialTextBoxEdit1.Margin = new Padding(3, 4, 30, 4);
             materialTextBoxEdit1.MaxLength = 32767;
             materialTextBoxEdit1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialTextBoxEdit1.Name = "materialTextBoxEdit1";
-            materialTextBoxEdit1.Padding = new Padding(9, 8, 9, 8);
+            materialTextBoxEdit1.Padding = new Padding(10, 11, 10, 11);
             materialTextBoxEdit1.PasswordChar = '\0';
             materialTextBoxEdit1.PrefixSuffixText = null;
             materialTextBoxEdit1.ReadOnly = false;
@@ -744,7 +757,7 @@ namespace GestionAgraria.Views
             materialTextBoxEdit1.SelectionLength = 0;
             materialTextBoxEdit1.SelectionStart = 0;
             materialTextBoxEdit1.ShortcutsEnabled = true;
-            materialTextBoxEdit1.Size = new Size(238, 48);
+            materialTextBoxEdit1.Size = new Size(272, 48);
             materialTextBoxEdit1.TabIndex = 0;
             materialTextBoxEdit1.TabStop = false;
             materialTextBoxEdit1.TextAlign = HorizontalAlignment.Left;
@@ -757,7 +770,7 @@ namespace GestionAgraria.Views
             materialLabel2.Depth = 0;
             materialLabel2.Dock = DockStyle.Top;
             materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(20, 0);
+            materialLabel2.Location = new Point(23, 0);
             materialLabel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel2.Name = "materialLabel2";
             materialLabel2.Size = new Size(82, 19);
@@ -768,9 +781,10 @@ namespace GestionAgraria.Views
             // 
             panel12.Controls.Add(tableLayoutPanel1);
             panel12.Dock = DockStyle.Fill;
-            panel12.Location = new Point(3, 3);
+            panel12.Location = new Point(3, 4);
+            panel12.Margin = new Padding(3, 4, 3, 4);
             panel12.Name = "panel12";
-            panel12.Size = new Size(1118, 212);
+            panel12.Size = new Size(1279, 283);
             panel12.TabIndex = 12;
             // 
             // tableLayoutPanel1
@@ -781,15 +795,15 @@ namespace GestionAgraria.Views
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(btnUploadProfilePicture, 0, 1);
             tableLayoutPanel1.Controls.Add(parrotPictureBox1, 0, 0);
-            tableLayoutPanel1.Location = new Point(478, 0);
+            tableLayoutPanel1.Location = new Point(546, 0);
             tableLayoutPanel1.Margin = new Padding(0);
-            tableLayoutPanel1.MaximumSize = new Size(158, 0);
-            tableLayoutPanel1.MinimumSize = new Size(158, 0);
+            tableLayoutPanel1.MaximumSize = new Size(181, 0);
+            tableLayoutPanel1.MinimumSize = new Size(181, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(158, 210);
+            tableLayoutPanel1.Size = new Size(181, 247);
             tableLayoutPanel1.TabIndex = 13;
             // 
             // btnUploadProfilePicture
@@ -801,12 +815,12 @@ namespace GestionAgraria.Views
             btnUploadProfilePicture.HighEmphasis = true;
             btnUploadProfilePicture.Icon = Properties.Resources.upload;
             btnUploadProfilePicture.IconType = MaterialButton.MaterialIconType.Rebase;
-            btnUploadProfilePicture.Location = new Point(0, 158);
+            btnUploadProfilePicture.Location = new Point(0, 211);
             btnUploadProfilePicture.Margin = new Padding(0);
             btnUploadProfilePicture.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnUploadProfilePicture.Name = "btnUploadProfilePicture";
             btnUploadProfilePicture.NoAccentTextColor = Color.Empty;
-            btnUploadProfilePicture.Size = new Size(158, 36);
+            btnUploadProfilePicture.Size = new Size(181, 36);
             btnUploadProfilePicture.TabIndex = 36;
             btnUploadProfilePicture.Text = "Subir foto";
             btnUploadProfilePicture.Type = MaterialButton.MaterialButtonType.Outlined;
@@ -826,11 +840,11 @@ namespace GestionAgraria.Views
             parrotPictureBox1.IsParallax = false;
             parrotPictureBox1.Location = new Point(0, 0);
             parrotPictureBox1.Margin = new Padding(0);
-            parrotPictureBox1.MaximumSize = new Size(158, 158);
-            parrotPictureBox1.MinimumSize = new Size(158, 158);
+            parrotPictureBox1.MaximumSize = new Size(181, 211);
+            parrotPictureBox1.MinimumSize = new Size(181, 211);
             parrotPictureBox1.Name = "parrotPictureBox1";
             parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox1.Size = new Size(158, 158);
+            parrotPictureBox1.Size = new Size(181, 211);
             parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             parrotPictureBox1.TabIndex = 34;
             parrotPictureBox1.Text = "parrotPictureBox1";
@@ -838,13 +852,13 @@ namespace GestionAgraria.Views
             // 
             // UCUserAdd
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             Controls.Add(materialCard1);
             Margin = new Padding(0);
             Name = "UCUserAdd";
-            Size = new Size(1152, 604);
+            Size = new Size(1317, 805);
             materialCard1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
             panel2.ResumeLayout(false);
@@ -866,10 +880,10 @@ namespace GestionAgraria.Views
             tableLayoutPanel5.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             panel11.ResumeLayout(false);
             panel11.PerformLayout();
             panel12.ResumeLayout(false);
