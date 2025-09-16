@@ -2,11 +2,12 @@
 using GestionAgraria.models;
 using GestionAgraria.Views;
 using ReaLTaiizor.Colors;
+using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System.Data;
-using System.Windows.Forms;
+using TabPage = System.Windows.Forms.TabPage;
 
 namespace GestionAgraria
 {
@@ -50,6 +51,31 @@ namespace GestionAgraria
             userAddControl.Dock = DockStyle.Fill;
             tabUsers.Controls.Clear();
             tabUsers.Controls.Add(userAddControl);
+        }
+        private void btnAddEntorno_Click(object sender, EventArgs e)
+        {
+            UCEntornoAdd AddControl = new UCEntornoAdd();
+            VerFormularioTab(AddControl, tabEntorno);
+        }
+
+        private void btnAddAnimal_Click(object sender, EventArgs e)
+        {
+            UCUAnimalAdd AddControl = new UCUAnimalAdd();
+            VerFormularioTab(AddControl, tabAnimalArea);
+        }
+
+        private void VerFormularioTab(UserControl uc, TabPage tab)
+        {
+            UserControl ucUserControl = uc as UserControl;
+            ucUserControl.Dock = DockStyle.Fill;
+            tab.Controls.Clear();
+            tab.Controls.Add(ucUserControl);
+        }
+
+        private void btnAddPlanta_Click(object sender, EventArgs e)
+        {
+            UCVegetalAdd AddControl = new UCVegetalAdd();
+            VerFormularioTab(AddControl,tabVegetablesArea);
         }
     }
 }

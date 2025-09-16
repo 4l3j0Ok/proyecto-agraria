@@ -661,17 +661,6 @@
         private ReaLTaiizor.Controls.MaterialLabel materialLabel8;
         private GroupBox groupBox2;
         private TableLayoutPanel tableLayoutPanel4;
-        private GroupBox groupBox1;
-        private TableLayoutPanel tableLayoutPanel5;
-        private Panel panel3;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbUsuario;
-        private ReaLTaiizor.Controls.MaterialLabel lblUsuario;
-        private Panel panel7;
-        private ReaLTaiizor.Controls.MaterialComboBox materialComboBox1;
-        private ReaLTaiizor.Controls.MaterialLabel materialLabel7;
-        private Panel panel6;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit10;
-        private ReaLTaiizor.Controls.MaterialLabel materialLabel6;
         private Panel panel1;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit1;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
@@ -681,5 +670,16 @@
         private Panel panel5;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit9;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel5;
+        private GroupBox groupBox1;
+        private TableLayoutPanel tableLayoutPanel5;
+        private Panel panel6;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit10;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel6;
+        private Panel panel7;
+        private ReaLTaiizor.Controls.MaterialComboBox materialComboBox1;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel7;
+        private Panel panel3;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbUsuario;
+        private ReaLTaiizor.Controls.MaterialLabel lblUsuario;
     }
 }
