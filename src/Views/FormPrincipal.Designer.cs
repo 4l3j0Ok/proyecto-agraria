@@ -63,6 +63,8 @@ namespace GestionAgraria
             tabPage7 = new TabPage();
             tabIndustryArea = new TabPage();
             tabEntorno = new TabPage();
+            btnBack = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabUsers.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
             materialTabControl1.SuspendLayout();
@@ -72,6 +74,7 @@ namespace GestionAgraria
             tcPrincipal.SuspendLayout();
             tabAnimalArea.SuspendLayout();
             materialTabControl2.SuspendLayout();
+            tabEntorno.SuspendLayout();
             SuspendLayout();
             // 
             // imgList
@@ -356,6 +359,8 @@ namespace GestionAgraria
             // 
             // tabEntorno
             // 
+            tabEntorno.Controls.Add(btnBack);
+            tabEntorno.Controls.Add(btnAddEntorno);
             tabEntorno.ImageKey = "userGroup.png";
             tabEntorno.Location = new Point(4, 24);
             tabEntorno.Name = "tabEntorno";
@@ -364,6 +369,32 @@ namespace GestionAgraria
             tabEntorno.TabIndex = 6;
             tabEntorno.Text = "Entornos";
             tabEntorno.UseVisualStyleBackColor = true;
+            // 
+            // btnBack
+            // 
+            btnBack.Depth = 0;
+            btnBack.Icon = Properties.Resources.back;
+            btnBack.Location = new Point(23, 23);
+            btnBack.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(56, 56);
+            btnBack.TabIndex = 15;
+            btnBack.Text = "materialFloatingActionButton2";
+            btnBack.UseVisualStyleBackColor = true;
+            // 
+            // btnAddEntorno
+            // 
+            btnAddEntorno.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddEntorno.Depth = 0;
+            btnAddEntorno.Icon = Properties.Resources.add_user;
+            btnAddEntorno.Location = new Point(707, 426);
+            btnAddEntorno.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddEntorno.Name = "btnAddEntorno";
+            btnAddEntorno.Size = new Size(56, 56);
+            btnAddEntorno.TabIndex = 14;
+            btnAddEntorno.Text = "Agregar Usuario";
+            btnAddEntorno.UseVisualStyleBackColor = true;
+            btnAddEntorno.Click += btnAddEntorno_Click;
             // 
             // FormPrincipal
             // 
@@ -392,6 +423,7 @@ namespace GestionAgraria
             tcPrincipal.ResumeLayout(false);
             tabAnimalArea.ResumeLayout(false);
             materialTabControl2.ResumeLayout(false);
+            tabEntorno.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -419,5 +451,7 @@ namespace GestionAgraria
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddUser;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
         private TabPage tabEntorno;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnBack;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddEntorno;
     }
 }

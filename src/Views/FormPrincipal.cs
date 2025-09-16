@@ -51,5 +51,13 @@ namespace GestionAgraria
             tabUsers.Controls.Clear();
             tabUsers.Controls.Add(userAddControl);
         }
+
+        private void btnAddEntorno_Click(object sender, EventArgs e)
+        {
+            UCEntornoAdd entornoAddControl = new UCEntornoAdd();
+            entornoAddControl.Dock = DockStyle.Fill;
+            tabEntorno.Controls.Clear();
+            tabEntorno.Controls.Add(entornoAddControl);
+        }
     }
 }
