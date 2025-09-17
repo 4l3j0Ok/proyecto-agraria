@@ -309,6 +309,7 @@
             materialComboBox3.FormattingEnabled = true;
             materialComboBox3.IntegralHeight = false;
             materialComboBox3.ItemHeight = 43;
+            materialComboBox3.Items.AddRange(new object[] { "Productivo", "No Productivo" });
             materialComboBox3.Location = new Point(20, 19);
             materialComboBox3.MaxDropDownItems = 4;
             materialComboBox3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -357,6 +358,7 @@
             materialComboBox2.FormattingEnabled = true;
             materialComboBox2.IntegralHeight = false;
             materialComboBox2.ItemHeight = 43;
+            materialComboBox2.Items.AddRange(new object[] { "Masculino", "Femenino" });
             materialComboBox2.Location = new Point(20, 19);
             materialComboBox2.MaxDropDownItems = 4;
             materialComboBox2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;

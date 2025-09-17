@@ -21,8 +21,7 @@ namespace GestionAgraria
         }
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            DbInitializer.Initialize();
-            UserModel? user = DbInitializer.CreateAdminUserIfNotExists();
+            UserModel? user = DbInitializer.Initialize();
             if (user != null)
             {
                 CustomMessageBox msgBox = new CustomMessageBox();

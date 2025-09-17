@@ -12,7 +12,7 @@ namespace GestionAgraria.data
 {
     internal class DbInitializer
     {
-        public static void Initialize()
+        public static UserModel? Initialize()
         {
             using var context = new AppDbContext();
 
@@ -23,7 +23,8 @@ namespace GestionAgraria.data
             SeedDefaultRoles(context);
 
             // Crear usuario administrador si no existe
-            CreateAdminUserIfNotExists(context);
+            UserModel? user = CreateAdminUserIfNotExists(context);
+            return user;
         }
 
         private static void SeedDefaultRoles(AppDbContext context)
@@ -44,7 +45,7 @@ namespace GestionAgraria.data
             var adminRole = context.Roles.FirstOrDefault(r => r.Name == "Administrador");
             if (adminRole == null) return null;
 
-            var user = new UserModel
+            UserModel user = new UserModel
             {
                 Username = "admin",
                 Password = Utils.GenerateRandomString(12),
@@ -59,27 +60,8 @@ namespace GestionAgraria.data
 
             context.Users.Add(user);
             context.SaveChanges();
+
             return user;
-        }
-
-        // Método legacy mantenido para compatibilidad, pero redirige al nuevo método
-        public static void CreateTablesIfNotExists()
-        {
-            Initialize();
-        }
-
-        // Método legacy mantenido para compatibilidad
-        public static void CreateDefaultRolesIfNotExists()
-        {
-            using var context = new AppDbContext();
-            SeedDefaultRoles(context);
-        }
-
-        // Método legacy mantenido para compatibilidad
-        public static UserModel? CreateAdminUserIfNotExists()
-        {
-            using var context = new AppDbContext();
-            return CreateAdminUserIfNotExists(context);
         }
     }
 }

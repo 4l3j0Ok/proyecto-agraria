@@ -40,7 +40,6 @@
             materialComboBox1 = new ReaLTaiizor.Controls.MaterialComboBox();
             panel6 = new Panel();
             materialLabel6 = new ReaLTaiizor.Controls.MaterialLabel();
-            materialTextBoxEdit10 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             groupBox2 = new GroupBox();
             tableLayoutPanel4 = new TableLayoutPanel();
             panel5 = new Panel();
@@ -58,6 +57,7 @@
             materialLabel8 = new ReaLTaiizor.Controls.MaterialLabel();
             materialTextBoxEdit8 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialExpansionPanel1 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
+            materialComboBox2 = new ReaLTaiizor.Controls.MaterialComboBox();
             tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -208,9 +208,9 @@
             materialLabel7.Location = new Point(20, 0);
             materialLabel7.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel7.Name = "materialLabel7";
-            materialLabel7.Size = new Size(91, 19);
+            materialLabel7.Size = new Size(33, 19);
             materialLabel7.TabIndex = 4;
-            materialLabel7.Text = "Tipo entorno";
+            materialLabel7.Text = "Área";
             // 
             // materialComboBox1
             // 
@@ -237,7 +237,7 @@
             // 
             // panel6
             // 
-            panel6.Controls.Add(materialTextBoxEdit10);
+            panel6.Controls.Add(materialComboBox2);
             panel6.Controls.Add(materialLabel6);
             panel6.Dock = DockStyle.Fill;
             panel6.Location = new Point(618, 0);
@@ -259,39 +259,6 @@
             materialLabel6.Size = new Size(92, 19);
             materialLabel6.TabIndex = 4;
             materialLabel6.Text = "Responsable";
-            // 
-            // materialTextBoxEdit10
-            // 
-            materialTextBoxEdit10.AnimateReadOnly = false;
-            materialTextBoxEdit10.AutoCompleteMode = AutoCompleteMode.None;
-            materialTextBoxEdit10.AutoCompleteSource = AutoCompleteSource.None;
-            materialTextBoxEdit10.BackgroundImageLayout = ImageLayout.None;
-            materialTextBoxEdit10.CharacterCasing = CharacterCasing.Normal;
-            materialTextBoxEdit10.Depth = 0;
-            materialTextBoxEdit10.Dock = DockStyle.Fill;
-            materialTextBoxEdit10.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBoxEdit10.HideSelection = true;
-            materialTextBoxEdit10.LeadingIcon = null;
-            materialTextBoxEdit10.Location = new Point(20, 19);
-            materialTextBoxEdit10.Margin = new Padding(3, 3, 26, 3);
-            materialTextBoxEdit10.MaxLength = 32767;
-            materialTextBoxEdit10.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialTextBoxEdit10.Name = "materialTextBoxEdit10";
-            materialTextBoxEdit10.Padding = new Padding(9, 8, 9, 8);
-            materialTextBoxEdit10.PasswordChar = '\0';
-            materialTextBoxEdit10.PrefixSuffixText = null;
-            materialTextBoxEdit10.ReadOnly = false;
-            materialTextBoxEdit10.RightToLeft = RightToLeft.No;
-            materialTextBoxEdit10.SelectedText = "";
-            materialTextBoxEdit10.SelectionLength = 0;
-            materialTextBoxEdit10.SelectionStart = 0;
-            materialTextBoxEdit10.ShortcutsEnabled = true;
-            materialTextBoxEdit10.Size = new Size(270, 48);
-            materialTextBoxEdit10.TabIndex = 0;
-            materialTextBoxEdit10.TabStop = false;
-            materialTextBoxEdit10.TextAlign = HorizontalAlignment.Left;
-            materialTextBoxEdit10.TrailingIcon = null;
-            materialTextBoxEdit10.UseSystemPasswordChar = false;
             // 
             // groupBox2
             // 
@@ -599,6 +566,29 @@
             materialExpansionPanel1.Title = "Agregar Entorno Formativo";
             materialExpansionPanel1.ValidationButtonText = "Guardar";
             // 
+            // materialComboBox2
+            // 
+            materialComboBox2.AutoResize = false;
+            materialComboBox2.BackColor = Color.FromArgb(255, 255, 255);
+            materialComboBox2.Depth = 0;
+            materialComboBox2.Dock = DockStyle.Top;
+            materialComboBox2.DrawMode = DrawMode.OwnerDrawVariable;
+            materialComboBox2.DropDownHeight = 174;
+            materialComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            materialComboBox2.DropDownWidth = 121;
+            materialComboBox2.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            materialComboBox2.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialComboBox2.FormattingEnabled = true;
+            materialComboBox2.IntegralHeight = false;
+            materialComboBox2.ItemHeight = 43;
+            materialComboBox2.Location = new Point(20, 19);
+            materialComboBox2.MaxDropDownItems = 4;
+            materialComboBox2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialComboBox2.Name = "materialComboBox2";
+            materialComboBox2.Size = new Size(270, 49);
+            materialComboBox2.StartIndex = 0;
+            materialComboBox2.TabIndex = 10;
+            // 
             // UCEntornoAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -656,7 +646,6 @@
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel5;
         private Panel panel6;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit10;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel6;
         private Panel panel7;
         private ReaLTaiizor.Controls.MaterialComboBox materialComboBox1;
@@ -665,5 +654,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbUsuario;
         private ReaLTaiizor.Controls.MaterialLabel lblUsuario;
         private ReaLTaiizor.Controls.MaterialExpansionPanel materialExpansionPanel1;
+        private ReaLTaiizor.Controls.MaterialComboBox materialComboBox2;
     }
 }
