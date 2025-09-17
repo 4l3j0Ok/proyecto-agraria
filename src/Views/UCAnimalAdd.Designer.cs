@@ -1,6 +1,6 @@
 ﻿namespace GestionAgraria.Views
 {
-    partial class UCUAnimalAdd
+    partial class UCAnimalAdd
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            materialCard1 = new ReaLTaiizor.Controls.MaterialCard();
+            materialExpansionPanel1 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             panel2 = new Panel();
-            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
             groupBox3 = new GroupBox();
             tableLayoutPanel3 = new TableLayoutPanel();
             panel8 = new Panel();
@@ -59,7 +58,7 @@
             panel3 = new Panel();
             tbUsuario = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblUsuario = new ReaLTaiizor.Controls.MaterialLabel();
-            materialCard1.SuspendLayout();
+            materialExpansionPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -77,20 +76,29 @@
             panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // materialCard1
+            // materialExpansionPanel1
             // 
-            materialCard1.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard1.Controls.Add(tableLayoutPanel2);
-            materialCard1.Depth = 0;
-            materialCard1.Dock = DockStyle.Top;
-            materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialCard1.Location = new Point(0, 0);
-            materialCard1.Margin = new Padding(12, 10, 12, 10);
-            materialCard1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialCard1.Name = "materialCard1";
-            materialCard1.Padding = new Padding(12, 10, 12, 10);
-            materialCard1.Size = new Size(1152, 596);
-            materialCard1.TabIndex = 0;
+            materialExpansionPanel1.AutoScroll = true;
+            materialExpansionPanel1.BackColor = Color.FromArgb(255, 255, 255);
+            materialExpansionPanel1.CancelButtonText = "Cancelar";
+            materialExpansionPanel1.Controls.Add(tableLayoutPanel2);
+            materialExpansionPanel1.Depth = 0;
+            materialExpansionPanel1.Description = "Registra un nuevo animal";
+            materialExpansionPanel1.Dock = DockStyle.Top;
+            materialExpansionPanel1.ExpandHeight = 423;
+            materialExpansionPanel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialExpansionPanel1.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialExpansionPanel1.Location = new Point(0, 0);
+            materialExpansionPanel1.Margin = new Padding(3, 16, 3, 16);
+            materialExpansionPanel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialExpansionPanel1.Name = "materialExpansionPanel1";
+            materialExpansionPanel1.Padding = new Padding(24, 64, 24, 16);
+            materialExpansionPanel1.ShowCollapseExpand = false;
+            materialExpansionPanel1.Size = new Size(1152, 423);
+            materialExpansionPanel1.TabIndex = 1;
+            materialExpansionPanel1.Title = "Agregar animal";
+            materialExpansionPanel1.ValidationButtonEnable = true;
+            materialExpansionPanel1.ValidationButtonText = "Guardar";
             // 
             // tableLayoutPanel2
             // 
@@ -98,47 +106,24 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(panel2, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(12, 10);
+            tableLayoutPanel2.Location = new Point(24, 64);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(1128, 576);
-            tableLayoutPanel2.TabIndex = 22;
+            tableLayoutPanel2.Size = new Size(1104, 343);
+            tableLayoutPanel2.TabIndex = 23;
             // 
             // panel2
             // 
-            panel2.Controls.Add(materialButton1);
             panel2.Controls.Add(groupBox3);
             panel2.Controls.Add(groupBox2);
             panel2.Controls.Add(groupBox1);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1122, 570);
+            panel2.Size = new Size(1098, 337);
             panel2.TabIndex = 11;
-            // 
-            // materialButton1
-            // 
-            materialButton1.AutoSize = false;
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.Dock = DockStyle.Top;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(0, 300);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(1122, 36);
-            materialButton1.TabIndex = 20;
-            materialButton1.Text = "Guardar Aniimal";
-            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -146,7 +131,7 @@
             groupBox3.Dock = DockStyle.Top;
             groupBox3.Location = new Point(0, 200);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1122, 100);
+            groupBox3.Size = new Size(1098, 100);
             groupBox3.TabIndex = 32;
             groupBox3.TabStop = false;
             // 
@@ -156,11 +141,11 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.Controls.Add(panel8, 0, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 19);
+            tableLayoutPanel3.Location = new Point(3, 20);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(1116, 78);
+            tableLayoutPanel3.Size = new Size(1092, 77);
             tableLayoutPanel3.TabIndex = 27;
             // 
             // panel8
@@ -172,7 +157,7 @@
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
             panel8.Padding = new Padding(20, 0, 20, 0);
-            panel8.Size = new Size(1116, 78);
+            panel8.Size = new Size(1092, 77);
             panel8.TabIndex = 26;
             // 
             // materialTextBoxEdit8
@@ -201,7 +186,7 @@
             materialTextBoxEdit8.SelectionLength = 0;
             materialTextBoxEdit8.SelectionStart = 0;
             materialTextBoxEdit8.ShortcutsEnabled = true;
-            materialTextBoxEdit8.Size = new Size(1076, 48);
+            materialTextBoxEdit8.Size = new Size(1052, 48);
             materialTextBoxEdit8.TabIndex = 0;
             materialTextBoxEdit8.TabStop = false;
             materialTextBoxEdit8.TextAlign = HorizontalAlignment.Left;
@@ -227,7 +212,7 @@
             groupBox2.Dock = DockStyle.Top;
             groupBox2.Location = new Point(0, 100);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1122, 100);
+            groupBox2.Size = new Size(1098, 100);
             groupBox2.TabIndex = 31;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos adicionales";
@@ -242,11 +227,11 @@
             tableLayoutPanel4.Controls.Add(panel9, 1, 0);
             tableLayoutPanel4.Controls.Add(panel5, 0, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(3, 19);
+            tableLayoutPanel4.Location = new Point(3, 20);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Size = new Size(1116, 78);
+            tableLayoutPanel4.Size = new Size(1092, 77);
             tableLayoutPanel4.TabIndex = 30;
             // 
             // panel1
@@ -254,11 +239,11 @@
             panel1.Controls.Add(materialComboBox4);
             panel1.Controls.Add(materialLabel1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(744, 0);
+            panel1.Location = new Point(728, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(20, 0, 20, 0);
-            panel1.Size = new Size(372, 78);
+            panel1.Size = new Size(364, 77);
             panel1.TabIndex = 32;
             // 
             // materialComboBox4
@@ -280,7 +265,7 @@
             materialComboBox4.MaxDropDownItems = 4;
             materialComboBox4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialComboBox4.Name = "materialComboBox4";
-            materialComboBox4.Size = new Size(332, 49);
+            materialComboBox4.Size = new Size(324, 49);
             materialComboBox4.StartIndex = 0;
             materialComboBox4.TabIndex = 10;
             // 
@@ -293,20 +278,20 @@
             materialLabel1.Location = new Point(20, 0);
             materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
-            materialLabel1.Size = new Size(141, 19);
+            materialLabel1.Size = new Size(154, 19);
             materialLabel1.TabIndex = 4;
-            materialLabel1.Text = "Pertenece a entorno";
+            materialLabel1.Text = "Entorno perteneciente";
             // 
             // panel9
             // 
             panel9.Controls.Add(materialComboBox3);
             panel9.Controls.Add(materialLabel4);
             panel9.Dock = DockStyle.Fill;
-            panel9.Location = new Point(372, 0);
+            panel9.Location = new Point(364, 0);
             panel9.Margin = new Padding(0);
             panel9.Name = "panel9";
             panel9.Padding = new Padding(20, 0, 20, 0);
-            panel9.Size = new Size(372, 78);
+            panel9.Size = new Size(364, 77);
             panel9.TabIndex = 31;
             // 
             // materialComboBox3
@@ -328,7 +313,7 @@
             materialComboBox3.MaxDropDownItems = 4;
             materialComboBox3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialComboBox3.Name = "materialComboBox3";
-            materialComboBox3.Size = new Size(332, 49);
+            materialComboBox3.Size = new Size(324, 49);
             materialComboBox3.StartIndex = 0;
             materialComboBox3.TabIndex = 10;
             // 
@@ -354,7 +339,7 @@
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
             panel5.Padding = new Padding(20, 0, 20, 0);
-            panel5.Size = new Size(372, 78);
+            panel5.Size = new Size(364, 77);
             panel5.TabIndex = 30;
             // 
             // materialComboBox2
@@ -376,7 +361,7 @@
             materialComboBox2.MaxDropDownItems = 4;
             materialComboBox2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialComboBox2.Name = "materialComboBox2";
-            materialComboBox2.Size = new Size(332, 49);
+            materialComboBox2.Size = new Size(324, 49);
             materialComboBox2.StartIndex = 0;
             materialComboBox2.TabIndex = 10;
             // 
@@ -399,7 +384,7 @@
             groupBox1.Dock = DockStyle.Top;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1122, 100);
+            groupBox1.Size = new Size(1098, 100);
             groupBox1.TabIndex = 30;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del animal";
@@ -414,11 +399,11 @@
             tableLayoutPanel5.Controls.Add(panel7, 1, 0);
             tableLayoutPanel5.Controls.Add(panel3, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(3, 19);
+            tableLayoutPanel5.Location = new Point(3, 20);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.Size = new Size(1116, 78);
+            tableLayoutPanel5.Size = new Size(1092, 77);
             tableLayoutPanel5.TabIndex = 29;
             // 
             // panel6
@@ -426,11 +411,11 @@
             panel6.Controls.Add(materialTextBoxEdit10);
             panel6.Controls.Add(materialLabel6);
             panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(744, 0);
+            panel6.Location = new Point(728, 0);
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
             panel6.Padding = new Padding(20, 0, 20, 0);
-            panel6.Size = new Size(372, 78);
+            panel6.Size = new Size(364, 78);
             panel6.TabIndex = 30;
             // 
             // materialTextBoxEdit10
@@ -459,7 +444,7 @@
             materialTextBoxEdit10.SelectionLength = 0;
             materialTextBoxEdit10.SelectionStart = 0;
             materialTextBoxEdit10.ShortcutsEnabled = true;
-            materialTextBoxEdit10.Size = new Size(332, 48);
+            materialTextBoxEdit10.Size = new Size(324, 48);
             materialTextBoxEdit10.TabIndex = 0;
             materialTextBoxEdit10.TabStop = false;
             materialTextBoxEdit10.TextAlign = HorizontalAlignment.Left;
@@ -484,11 +469,11 @@
             panel7.Controls.Add(materialComboBox1);
             panel7.Controls.Add(materialLabel7);
             panel7.Dock = DockStyle.Fill;
-            panel7.Location = new Point(372, 0);
+            panel7.Location = new Point(364, 0);
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
             panel7.Padding = new Padding(20, 0, 20, 0);
-            panel7.Size = new Size(372, 78);
+            panel7.Size = new Size(364, 78);
             panel7.TabIndex = 29;
             // 
             // materialComboBox1
@@ -510,7 +495,7 @@
             materialComboBox1.MaxDropDownItems = 4;
             materialComboBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialComboBox1.Name = "materialComboBox1";
-            materialComboBox1.Size = new Size(332, 49);
+            materialComboBox1.Size = new Size(324, 49);
             materialComboBox1.StartIndex = 0;
             materialComboBox1.TabIndex = 9;
             // 
@@ -536,7 +521,7 @@
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(20, 0, 20, 0);
-            panel3.Size = new Size(372, 78);
+            panel3.Size = new Size(364, 78);
             panel3.TabIndex = 21;
             // 
             // tbUsuario
@@ -565,7 +550,7 @@
             tbUsuario.SelectionLength = 0;
             tbUsuario.SelectionStart = 0;
             tbUsuario.ShortcutsEnabled = true;
-            tbUsuario.Size = new Size(332, 48);
+            tbUsuario.Size = new Size(324, 48);
             tbUsuario.TabIndex = 0;
             tbUsuario.TabStop = false;
             tbUsuario.TextAlign = HorizontalAlignment.Left;
@@ -585,15 +570,16 @@
             lblUsuario.TabIndex = 4;
             lblUsuario.Text = "Codigo";
             // 
-            // UCUAnimalAdd
+            // UCAnimalAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(materialCard1);
+            Controls.Add(materialExpansionPanel1);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "UCUAnimalAdd";
+            Name = "UCAnimalAdd";
             Size = new Size(1152, 604);
-            materialCard1.ResumeLayout(false);
+            materialExpansionPanel1.ResumeLayout(false);
+            materialExpansionPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             panel2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
@@ -621,10 +607,9 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.MaterialCard materialCard1;
+        private ReaLTaiizor.Controls.MaterialExpansionPanel materialExpansionPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private Panel panel2;
-        private ReaLTaiizor.Controls.MaterialButton materialButton1;
         private GroupBox groupBox3;
         private TableLayoutPanel tableLayoutPanel3;
         private Panel panel8;
@@ -632,9 +617,14 @@
         private ReaLTaiizor.Controls.MaterialLabel materialLabel8;
         private GroupBox groupBox2;
         private TableLayoutPanel tableLayoutPanel4;
+        private Panel panel1;
+        private ReaLTaiizor.Controls.MaterialComboBox materialComboBox4;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
         private Panel panel9;
+        private ReaLTaiizor.Controls.MaterialComboBox materialComboBox3;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel4;
         private Panel panel5;
+        private ReaLTaiizor.Controls.MaterialComboBox materialComboBox2;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel5;
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel5;
@@ -647,10 +637,5 @@
         private Panel panel3;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbUsuario;
         private ReaLTaiizor.Controls.MaterialLabel lblUsuario;
-        private Panel panel1;
-        private ReaLTaiizor.Controls.MaterialComboBox materialComboBox4;
-        private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
-        private ReaLTaiizor.Controls.MaterialComboBox materialComboBox3;
-        private ReaLTaiizor.Controls.MaterialComboBox materialComboBox2;
     }
 }

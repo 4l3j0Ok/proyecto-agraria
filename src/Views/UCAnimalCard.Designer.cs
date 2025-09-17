@@ -43,9 +43,9 @@
             panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(lblEspecie);
             panel1.Location = new Point(79, 10);
-            panel1.Margin = new Padding(10, 10, 10, 10);
+            panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(5, 5, 5, 5);
+            panel1.Padding = new Padding(5);
             panel1.Size = new Size(527, 50);
             panel1.TabIndex = 3;
             // 

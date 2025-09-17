@@ -64,11 +64,11 @@ namespace GestionAgraria.Views
             parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.Low;
             parrotPictureBox1.IsElipse = true;
             parrotPictureBox1.IsParallax = false;
-            parrotPictureBox1.Location = new Point(11, 13);
-            parrotPictureBox1.Margin = new Padding(11, 13, 11, 13);
+            parrotPictureBox1.Location = new Point(10, 10);
+            parrotPictureBox1.Margin = new Padding(10, 10, 10, 10);
             parrotPictureBox1.Name = "parrotPictureBox1";
             parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox1.Size = new Size(57, 67);
+            parrotPictureBox1.Size = new Size(50, 50);
             parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             parrotPictureBox1.TabIndex = 1;
             parrotPictureBox1.Text = "parrotPictureBox1";
@@ -79,17 +79,16 @@ namespace GestionAgraria.Views
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 23F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             tableLayoutPanel1.Controls.Add(parrotPictureBox1, 0, 0);
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
-            tableLayoutPanel1.MaximumSize = new Size(0, 160);
+            tableLayoutPanel1.MaximumSize = new Size(0, 120);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(703, 93);
+            tableLayoutPanel1.Size = new Size(615, 70);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // panel1
@@ -97,11 +96,11 @@ namespace GestionAgraria.Views
             panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(lblUserName);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(90, 13);
-            panel1.Margin = new Padding(11, 13, 11, 13);
+            panel1.Location = new Point(80, 10);
+            panel1.Margin = new Padding(10, 10, 10, 10);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(6, 7, 6, 7);
-            panel1.Size = new Size(602, 67);
+            panel1.Padding = new Padding(5, 5, 5, 5);
+            panel1.Size = new Size(525, 50);
             panel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -115,12 +114,11 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.Controls.Add(lblUserPhone, 2, 0);
             tableLayoutPanel2.Controls.Add(lblUserArea, 1, 0);
             tableLayoutPanel2.Dock = DockStyle.Top;
-            tableLayoutPanel2.Location = new Point(6, 26);
-            tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel2.Location = new Point(5, 24);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(590, 14);
+            tableLayoutPanel2.Size = new Size(515, 14);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // lblUserUsername
@@ -133,7 +131,7 @@ namespace GestionAgraria.Views
             lblUserUsername.Location = new Point(3, 0);
             lblUserUsername.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserUsername.Name = "lblUserUsername";
-            lblUserUsername.Size = new Size(190, 14);
+            lblUserUsername.Size = new Size(165, 14);
             lblUserUsername.TabIndex = 6;
             lblUserUsername.Text = "Nombre de usuario";
             // 
@@ -144,10 +142,10 @@ namespace GestionAgraria.Views
             lblUserPhone.Dock = DockStyle.Fill;
             lblUserPhone.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             lblUserPhone.FontType = MaterialSkinManager.FontType.SubtleEmphasis;
-            lblUserPhone.Location = new Point(395, 0);
+            lblUserPhone.Location = new Point(345, 0);
             lblUserPhone.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserPhone.Name = "lblUserPhone";
-            lblUserPhone.Size = new Size(192, 14);
+            lblUserPhone.Size = new Size(167, 14);
             lblUserPhone.TabIndex = 4;
             lblUserPhone.Text = "Teléfono";
             lblUserPhone.TextAlign = ContentAlignment.TopRight;
@@ -159,10 +157,10 @@ namespace GestionAgraria.Views
             lblUserArea.Dock = DockStyle.Fill;
             lblUserArea.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             lblUserArea.FontType = MaterialSkinManager.FontType.SubtleEmphasis;
-            lblUserArea.Location = new Point(199, 0);
+            lblUserArea.Location = new Point(174, 0);
             lblUserArea.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserArea.Name = "lblUserArea";
-            lblUserArea.Size = new Size(190, 14);
+            lblUserArea.Size = new Size(165, 14);
             lblUserArea.TabIndex = 5;
             lblUserArea.Text = "Área";
             lblUserArea.TextAlign = ContentAlignment.TopCenter;
@@ -174,7 +172,7 @@ namespace GestionAgraria.Views
             lblUserName.Dock = DockStyle.Top;
             lblUserName.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             lblUserName.FontType = MaterialSkinManager.FontType.Subtitle1;
-            lblUserName.Location = new Point(6, 7);
+            lblUserName.Location = new Point(5, 5);
             lblUserName.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(118, 19);
@@ -183,16 +181,15 @@ namespace GestionAgraria.Views
             // 
             // UCUserCard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             Controls.Add(tableLayoutPanel1);
             Cursor = Cursors.Hand;
-            Margin = new Padding(3, 4, 3, 4);
-            MaximumSize = new Size(0, 93);
-            MinimumSize = new Size(703, 93);
+            MaximumSize = new Size(0, 70);
+            MinimumSize = new Size(615, 70);
             Name = "UCUserCard";
-            Size = new Size(703, 93);
+            Size = new Size(615, 70);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

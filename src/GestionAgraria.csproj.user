@@ -17,7 +17,7 @@
     <Compile Update="Views\UCEntornoAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCUAnimalAdd.cs">
+    <Compile Update="Views\UCAnimalAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UCUserAdd.cs">

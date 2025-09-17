@@ -8,7 +8,6 @@ using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System.Data;
-using TabPage = System.Windows.Forms.TabPage;
 
 namespace GestionAgraria
 {
@@ -24,14 +23,14 @@ namespace GestionAgraria
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
+            System.Windows.Forms.TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
             this.Text = selectedTab.Text;
             LoadUsersTable();
         }
 
         private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
+            System.Windows.Forms.TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
             this.Text = selectedTab.Text;
         }
 
@@ -63,11 +62,11 @@ namespace GestionAgraria
 
         private void btnAddAnimal_Click(object sender, EventArgs e)
         {
-            UCUAnimalAdd AddControl = new UCUAnimalAdd();
+            UCAnimalAdd AddControl = new UCAnimalAdd();
             VerFormularioTab(AddControl, tabAnimalArea);
         }
 
-        private void VerFormularioTab(UserControl uc, TabPage tab)
+        private void VerFormularioTab(UserControl uc, System.Windows.Forms.TabPage tab)
         {
             UserControl ucUserControl = uc as UserControl;
             ucUserControl.Dock = DockStyle.Fill;

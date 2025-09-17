@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCUAnimalAdd : UserControl
+    public partial class UCAnimalAdd : UserControl
     {
-        public UCUAnimalAdd()
+        public UCAnimalAdd()
         {
             InitializeComponent();
         }
