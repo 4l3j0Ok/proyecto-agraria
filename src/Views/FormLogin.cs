@@ -5,8 +5,8 @@ using ReaLTaiizor.Controls;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System.Windows.Forms;
+using GestionAgraria.controllers;
 using GestionAgraria.data;
-
 using GestionAgraria.models;
 using System.Diagnostics;
 
@@ -21,19 +21,19 @@ namespace GestionAgraria
         }
         private void FormLogin_Load(object sender, EventArgs e)
         {
-            DbInitializer.CreateTablesIfNotExists();
+            DbInitializer.Initialize();
             UserModel? user = DbInitializer.CreateAdminUserIfNotExists();
             if (user != null)
             {
                 CustomMessageBox msgBox = new CustomMessageBox();
                 msgBox.Text = "Usuario administrador creado";
                 msgBox.lblMessage.Text = $"Se creó el usuario administrador por defecto con los siguientes datos:\n" +
-                    $"Usuario: {user.username}\n" +
-                    $"Contraseña: {user.password}\n" +
+                    $"Usuario: {user.Username}\n" +
+                    $"Contraseña: {user.Password}\n" +
                     $"Por favor, anótalo para poder loguearte por primera vez.\n" +
                     $"Posteriormente podrás eliminarlo si así lo deseas.";
                 msgBox.btnLeft.Text = "Copiar";
-                msgBox.btnLeft.Click += (s, ev) => copyPassword(user.password ?? "");
+                msgBox.btnLeft.Click += (s, ev) => copyPassword(user.Password ?? "");
                 msgBox.btnLeft.Click += (s, ev) => msgBox.btnLeft.Text = "¡Copiado!";
                 msgBox.btnLeft.Click += (s, ev) => msgBox.btnLeft.Type = MaterialButton.MaterialButtonType.Outlined;
                 msgBox.btnRight.Text = "Aceptar";
@@ -45,12 +45,22 @@ namespace GestionAgraria
         {
             string username = tbUsuario.Text;
             string password = tbContrasena.Text;
-            UserModel? user = UserRepository.Get(username);
-            if (user == null || user.password != password)
+
+            using var userController = new UserController();
+            UserModel? user = userController.GetUserByUsername(username);
+
+            if (user == null || user.Password != password)
             {
                 MessageBox.Show("Usuario o contraseña incorrectos.", "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if (!user.IsActive)
+            {
+                MessageBox.Show("El usuario está inactivo.", "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             FormPrincipal formPrincipal = new FormPrincipal(currentUser: user);
             formPrincipal.Show();
             this.Hide();

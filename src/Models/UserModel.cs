@@ -1,25 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+﻿using GestionAgraria.models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace GestionAgraria.models
+public class UserModel
 {
-    public class UserModel
-    {
-        public int? id { get; set; }
-        public string? username { get; set; }
-        public string? password { get; set; }
-        public string? name { get; set; }
-        public string? surname { get; set; }
-        public string? email { get; set; }
-        public string? phone { get; set; }
-        public string? personId { get; set; }
-        public int? roleId { get; set; }
-        public int? isActive { get; set; } = 1;
-    }
+    [Key]
+    public int Id { get; set; }
+
+    [Required]
+    public string Username { get; set; } = string.Empty;
+
+    [Required]
+    public string Password { get; set; } = string.Empty;
+
+    public string? Name { get; set; }
+    public string? Surname { get; set; }
+    public string? Email { get; set; }
+    public string? Phone { get; set; }
+    public string? PersonId { get; set; }
+
+    [ForeignKey("Role")]
+    public int RoleId { get; set; }
+    public RoleModel Role { get; set; } = null!;
+
+    public bool IsActive { get; set; } = true;
 }

@@ -1,4 +1,5 @@
-﻿using GestionAgraria.data;
+﻿using GestionAgraria.controllers;
+using GestionAgraria.data;
 using GestionAgraria.models;
 using GestionAgraria.Views;
 using ReaLTaiizor.Colors;
@@ -36,7 +37,9 @@ namespace GestionAgraria
 
         private void LoadUsersTable()
         {
-            List<UserModel> users = UserRepository.GetAll();
+            using var userController = new UserController();
+            List<UserModel> users = userController.GetAllUsers();
+
             foreach (UserModel user in users)
             {
                 UCUserCard userCard = new UCUserCard(user: user);

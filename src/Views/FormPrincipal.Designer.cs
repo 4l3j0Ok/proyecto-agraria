@@ -105,7 +105,7 @@ namespace GestionAgraria
             // 
             materialFloatingActionButton1.Depth = 0;
             materialFloatingActionButton1.Icon = Properties.Resources.back;
-            materialFloatingActionButton1.Location = new Point(23, 23);
+            materialFloatingActionButton1.Location = new Point(23, 426);
             materialFloatingActionButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialFloatingActionButton1.Name = "materialFloatingActionButton1";
             materialFloatingActionButton1.Size = new Size(56, 56);
