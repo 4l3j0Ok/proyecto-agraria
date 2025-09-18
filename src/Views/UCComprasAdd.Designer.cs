@@ -32,19 +32,11 @@
             groupBox4 = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel7 = new Panel();
-            lblObservaciones = new ReaLTaiizor.Controls.MaterialLabel();
+            txtObservaciones = new ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit();
             panel2 = new Panel();
             groupBox2 = new GroupBox();
             dataGridView1 = new DataGridView();
             materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
-            groupBox3 = new GroupBox();
-            tableLayoutPanel3 = new TableLayoutPanel();
-            panel5 = new Panel();
-            txtPrecioCosto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            lblDescripcion = new ReaLTaiizor.Controls.MaterialLabel();
-            panel4 = new Panel();
-            txtCantidad = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            lblCantidad = new ReaLTaiizor.Controls.MaterialLabel();
             groupBox1 = new GroupBox();
             tableLayoutPanel5 = new TableLayoutPanel();
             panel1 = new Panel();
@@ -53,7 +45,12 @@
             panel3 = new Panel();
             tbCodigoProducto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblCodigoProducto = new ReaLTaiizor.Controls.MaterialLabel();
-            txtObservaciones = new ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit();
+            panel4 = new Panel();
+            txtCantidad = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            lblCantidad = new ReaLTaiizor.Controls.MaterialLabel();
+            panel5 = new Panel();
+            txtPrecioCosto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            lblDescripcion = new ReaLTaiizor.Controls.MaterialLabel();
             materialExpansionPanel1.SuspendLayout();
             groupBox4.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -61,14 +58,12 @@
             panel2.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            groupBox3.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
-            panel5.SuspendLayout();
-            panel4.SuspendLayout();
             groupBox1.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
+            panel4.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // materialExpansionPanel1
@@ -95,13 +90,14 @@
             // groupBox4
             // 
             groupBox4.Controls.Add(tableLayoutPanel1);
-            groupBox4.Location = new Point(21, 609);
+            groupBox4.Location = new Point(21, 576);
             groupBox4.Margin = new Padding(3, 4, 3, 4);
             groupBox4.Name = "groupBox4";
             groupBox4.Padding = new Padding(3, 4, 3, 4);
-            groupBox4.Size = new Size(1269, 128);
+            groupBox4.Size = new Size(1269, 160);
             groupBox4.TabIndex = 35;
             groupBox4.TabStop = false;
+            groupBox4.Text = "Observaciones del Producto";
             // 
             // tableLayoutPanel1
             // 
@@ -115,39 +111,48 @@
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(1263, 104);
+            tableLayoutPanel1.Size = new Size(1263, 136);
             tableLayoutPanel1.TabIndex = 29;
             // 
             // panel7
             // 
             panel7.Controls.Add(txtObservaciones);
-            panel7.Controls.Add(lblObservaciones);
             panel7.Dock = DockStyle.Fill;
             panel7.Location = new Point(0, 0);
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
             panel7.Padding = new Padding(23, 0, 23, 0);
-            panel7.Size = new Size(1263, 109);
+            panel7.Size = new Size(1263, 136);
             panel7.TabIndex = 21;
             // 
-            // lblObservaciones
+            // txtObservaciones
             // 
-            lblObservaciones.AutoSize = true;
-            lblObservaciones.Depth = 0;
-            lblObservaciones.Dock = DockStyle.Top;
-            lblObservaciones.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblObservaciones.Location = new Point(23, 0);
-            lblObservaciones.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblObservaciones.Name = "lblObservaciones";
-            lblObservaciones.Size = new Size(105, 19);
-            lblObservaciones.TabIndex = 4;
-            lblObservaciones.Text = "Observaciones";
+            txtObservaciones.AnimateReadOnly = false;
+            txtObservaciones.BackgroundImageLayout = ImageLayout.None;
+            txtObservaciones.CharacterCasing = CharacterCasing.Normal;
+            txtObservaciones.Depth = 0;
+            txtObservaciones.HideSelection = true;
+            txtObservaciones.Location = new Point(23, 22);
+            txtObservaciones.MaxLength = 32767;
+            txtObservaciones.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtObservaciones.Name = "txtObservaciones";
+            txtObservaciones.PasswordChar = '\0';
+            txtObservaciones.ReadOnly = false;
+            txtObservaciones.ScrollBars = ScrollBars.None;
+            txtObservaciones.SelectedText = "";
+            txtObservaciones.SelectionLength = 0;
+            txtObservaciones.SelectionStart = 0;
+            txtObservaciones.ShortcutsEnabled = true;
+            txtObservaciones.Size = new Size(1220, 93);
+            txtObservaciones.TabIndex = 5;
+            txtObservaciones.TabStop = false;
+            txtObservaciones.TextAlign = HorizontalAlignment.Left;
+            txtObservaciones.UseSystemPasswordChar = false;
             // 
             // panel2
             // 
             panel2.Controls.Add(groupBox2);
             panel2.Controls.Add(materialButton1);
-            panel2.Controls.Add(groupBox3);
             panel2.Controls.Add(groupBox1);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(24, 64);
@@ -159,7 +164,7 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(dataGridView1);
-            groupBox2.Location = new Point(3, 311);
+            groupBox2.Location = new Point(3, 279);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(1263, 230);
             groupBox2.TabIndex = 34;
@@ -184,7 +189,7 @@
             materialButton1.HighEmphasis = true;
             materialButton1.Icon = null;
             materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(0, 266);
+            materialButton1.Location = new Point(0, 216);
             materialButton1.Margin = new Padding(4, 6, 4, 6);
             materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialButton1.Name = "materialButton1";
@@ -196,151 +201,6 @@
             materialButton1.UseAccentColor = false;
             materialButton1.UseVisualStyleBackColor = true;
             // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(tableLayoutPanel3);
-            groupBox3.Dock = DockStyle.Top;
-            groupBox3.Location = new Point(0, 133);
-            groupBox3.Margin = new Padding(3, 4, 3, 4);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(3, 4, 3, 4);
-            groupBox3.Size = new Size(1269, 133);
-            groupBox3.TabIndex = 32;
-            groupBox3.TabStop = false;
-            // 
-            // tableLayoutPanel3
-            // 
-            tableLayoutPanel3.ColumnCount = 2;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Controls.Add(panel5, 1, 0);
-            tableLayoutPanel3.Controls.Add(panel4, 0, 0);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 20);
-            tableLayoutPanel3.Margin = new Padding(3, 4, 3, 4);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 1;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(1263, 109);
-            tableLayoutPanel3.TabIndex = 27;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(txtPrecioCosto);
-            panel5.Controls.Add(lblDescripcion);
-            panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(631, 0);
-            panel5.Margin = new Padding(0);
-            panel5.Name = "panel5";
-            panel5.Padding = new Padding(23, 0, 23, 0);
-            panel5.Size = new Size(632, 109);
-            panel5.TabIndex = 23;
-            // 
-            // txtPrecioCosto
-            // 
-            txtPrecioCosto.AnimateReadOnly = false;
-            txtPrecioCosto.AutoCompleteMode = AutoCompleteMode.None;
-            txtPrecioCosto.AutoCompleteSource = AutoCompleteSource.None;
-            txtPrecioCosto.BackgroundImageLayout = ImageLayout.None;
-            txtPrecioCosto.CharacterCasing = CharacterCasing.Normal;
-            txtPrecioCosto.Depth = 0;
-            txtPrecioCosto.Dock = DockStyle.Fill;
-            txtPrecioCosto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtPrecioCosto.HideSelection = true;
-            txtPrecioCosto.LeadingIcon = null;
-            txtPrecioCosto.Location = new Point(23, 19);
-            txtPrecioCosto.Margin = new Padding(3, 4, 30, 4);
-            txtPrecioCosto.MaxLength = 32767;
-            txtPrecioCosto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtPrecioCosto.Name = "txtPrecioCosto";
-            txtPrecioCosto.Padding = new Padding(10, 11, 10, 11);
-            txtPrecioCosto.PasswordChar = '\0';
-            txtPrecioCosto.PrefixSuffixText = null;
-            txtPrecioCosto.ReadOnly = false;
-            txtPrecioCosto.RightToLeft = RightToLeft.No;
-            txtPrecioCosto.SelectedText = "";
-            txtPrecioCosto.SelectionLength = 0;
-            txtPrecioCosto.SelectionStart = 0;
-            txtPrecioCosto.ShortcutsEnabled = true;
-            txtPrecioCosto.Size = new Size(586, 48);
-            txtPrecioCosto.TabIndex = 0;
-            txtPrecioCosto.TabStop = false;
-            txtPrecioCosto.TextAlign = HorizontalAlignment.Left;
-            txtPrecioCosto.TrailingIcon = null;
-            txtPrecioCosto.UseSystemPasswordChar = false;
-            // 
-            // lblDescripcion
-            // 
-            lblDescripcion.AutoSize = true;
-            lblDescripcion.Depth = 0;
-            lblDescripcion.Dock = DockStyle.Top;
-            lblDescripcion.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblDescripcion.Location = new Point(23, 0);
-            lblDescripcion.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(94, 19);
-            lblDescripcion.TabIndex = 4;
-            lblDescripcion.Text = "Precio Costo ";
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(txtCantidad);
-            panel4.Controls.Add(lblCantidad);
-            panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(0, 0);
-            panel4.Margin = new Padding(0);
-            panel4.Name = "panel4";
-            panel4.Padding = new Padding(23, 0, 23, 0);
-            panel4.Size = new Size(631, 109);
-            panel4.TabIndex = 22;
-            // 
-            // txtCantidad
-            // 
-            txtCantidad.AnimateReadOnly = false;
-            txtCantidad.AutoCompleteMode = AutoCompleteMode.None;
-            txtCantidad.AutoCompleteSource = AutoCompleteSource.None;
-            txtCantidad.BackgroundImageLayout = ImageLayout.None;
-            txtCantidad.CharacterCasing = CharacterCasing.Normal;
-            txtCantidad.Depth = 0;
-            txtCantidad.Dock = DockStyle.Fill;
-            txtCantidad.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtCantidad.HideSelection = true;
-            txtCantidad.LeadingIcon = null;
-            txtCantidad.Location = new Point(23, 19);
-            txtCantidad.Margin = new Padding(3, 4, 30, 4);
-            txtCantidad.MaxLength = 32767;
-            txtCantidad.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtCantidad.Name = "txtCantidad";
-            txtCantidad.Padding = new Padding(10, 11, 10, 11);
-            txtCantidad.PasswordChar = '\0';
-            txtCantidad.PrefixSuffixText = null;
-            txtCantidad.ReadOnly = false;
-            txtCantidad.RightToLeft = RightToLeft.No;
-            txtCantidad.SelectedText = "";
-            txtCantidad.SelectionLength = 0;
-            txtCantidad.SelectionStart = 0;
-            txtCantidad.ShortcutsEnabled = true;
-            txtCantidad.Size = new Size(585, 48);
-            txtCantidad.TabIndex = 0;
-            txtCantidad.TabStop = false;
-            txtCantidad.TextAlign = HorizontalAlignment.Left;
-            txtCantidad.TrailingIcon = null;
-            txtCantidad.UseSystemPasswordChar = false;
-            // 
-            // lblCantidad
-            // 
-            lblCantidad.AutoSize = true;
-            lblCantidad.Depth = 0;
-            lblCantidad.Dock = DockStyle.Top;
-            lblCantidad.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblCantidad.Location = new Point(23, 0);
-            lblCantidad.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblCantidad.Name = "lblCantidad";
-            lblCantidad.Size = new Size(65, 19);
-            lblCantidad.TabIndex = 4;
-            lblCantidad.Text = "Cantidad";
-            // 
             // groupBox1
             // 
             groupBox1.Controls.Add(tableLayoutPanel5);
@@ -349,9 +209,10 @@
             groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(1269, 133);
+            groupBox1.Size = new Size(1269, 216);
             groupBox1.TabIndex = 30;
             groupBox1.TabStop = false;
+            groupBox1.Text = "Datos del Producto";
             // 
             // tableLayoutPanel5
             // 
@@ -367,11 +228,12 @@
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel5.Size = new Size(1263, 109);
+            tableLayoutPanel5.Size = new Size(1263, 192);
             tableLayoutPanel5.TabIndex = 29;
             // 
             // panel1
             // 
+            panel1.Controls.Add(panel5);
             panel1.Controls.Add(txtNombreProducto);
             panel1.Controls.Add(lblNombreProducto);
             panel1.Dock = DockStyle.Fill;
@@ -379,7 +241,7 @@
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(23, 0, 23, 0);
-            panel1.Size = new Size(632, 109);
+            panel1.Size = new Size(632, 192);
             panel1.TabIndex = 22;
             // 
             // txtNombreProducto
@@ -430,6 +292,7 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(panel4);
             panel3.Controls.Add(tbCodigoProducto);
             panel3.Controls.Add(lblCodigoProducto);
             panel3.Dock = DockStyle.Fill;
@@ -437,7 +300,7 @@
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(23, 0, 23, 0);
-            panel3.Size = new Size(631, 109);
+            panel3.Size = new Size(631, 192);
             panel3.TabIndex = 21;
             // 
             // tbCodigoProducto
@@ -486,29 +349,119 @@
             lblCodigoProducto.TabIndex = 4;
             lblCodigoProducto.Text = "Codigo ";
             // 
-            // txtObservaciones
+            // panel4
             // 
-            txtObservaciones.AnimateReadOnly = false;
-            txtObservaciones.BackgroundImageLayout = ImageLayout.None;
-            txtObservaciones.CharacterCasing = CharacterCasing.Normal;
-            txtObservaciones.Depth = 0;
-            txtObservaciones.HideSelection = true;
-            txtObservaciones.Location = new Point(23, 22);
-            txtObservaciones.MaxLength = 32767;
-            txtObservaciones.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtObservaciones.Name = "txtObservaciones";
-            txtObservaciones.PasswordChar = '\0';
-            txtObservaciones.ReadOnly = false;
-            txtObservaciones.ScrollBars = ScrollBars.None;
-            txtObservaciones.SelectedText = "";
-            txtObservaciones.SelectionLength = 0;
-            txtObservaciones.SelectionStart = 0;
-            txtObservaciones.ShortcutsEnabled = true;
-            txtObservaciones.Size = new Size(1220, 48);
-            txtObservaciones.TabIndex = 5;
-            txtObservaciones.TabStop = false;
-            txtObservaciones.TextAlign = HorizontalAlignment.Left;
-            txtObservaciones.UseSystemPasswordChar = false;
+            panel4.Controls.Add(txtCantidad);
+            panel4.Controls.Add(lblCantidad);
+            panel4.Location = new Point(0, 88);
+            panel4.Margin = new Padding(0);
+            panel4.Name = "panel4";
+            panel4.Padding = new Padding(23, 0, 23, 0);
+            panel4.Size = new Size(631, 104);
+            panel4.TabIndex = 23;
+            // 
+            // txtCantidad
+            // 
+            txtCantidad.AnimateReadOnly = false;
+            txtCantidad.AutoCompleteMode = AutoCompleteMode.None;
+            txtCantidad.AutoCompleteSource = AutoCompleteSource.None;
+            txtCantidad.BackgroundImageLayout = ImageLayout.None;
+            txtCantidad.CharacterCasing = CharacterCasing.Normal;
+            txtCantidad.Depth = 0;
+            txtCantidad.Dock = DockStyle.Fill;
+            txtCantidad.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtCantidad.HideSelection = true;
+            txtCantidad.LeadingIcon = null;
+            txtCantidad.Location = new Point(23, 19);
+            txtCantidad.Margin = new Padding(3, 4, 30, 4);
+            txtCantidad.MaxLength = 32767;
+            txtCantidad.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtCantidad.Name = "txtCantidad";
+            txtCantidad.Padding = new Padding(10, 11, 10, 11);
+            txtCantidad.PasswordChar = '\0';
+            txtCantidad.PrefixSuffixText = null;
+            txtCantidad.ReadOnly = false;
+            txtCantidad.RightToLeft = RightToLeft.No;
+            txtCantidad.SelectedText = "";
+            txtCantidad.SelectionLength = 0;
+            txtCantidad.SelectionStart = 0;
+            txtCantidad.ShortcutsEnabled = true;
+            txtCantidad.Size = new Size(585, 48);
+            txtCantidad.TabIndex = 0;
+            txtCantidad.TabStop = false;
+            txtCantidad.TextAlign = HorizontalAlignment.Left;
+            txtCantidad.TrailingIcon = null;
+            txtCantidad.UseSystemPasswordChar = false;
+            // 
+            // lblCantidad
+            // 
+            lblCantidad.AutoSize = true;
+            lblCantidad.Depth = 0;
+            lblCantidad.Dock = DockStyle.Top;
+            lblCantidad.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblCantidad.Location = new Point(23, 0);
+            lblCantidad.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblCantidad.Name = "lblCantidad";
+            lblCantidad.Size = new Size(65, 19);
+            lblCantidad.TabIndex = 4;
+            lblCantidad.Text = "Cantidad";
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(txtPrecioCosto);
+            panel5.Controls.Add(lblDescripcion);
+            panel5.Location = new Point(0, 88);
+            panel5.Margin = new Padding(0);
+            panel5.Name = "panel5";
+            panel5.Padding = new Padding(23, 0, 23, 0);
+            panel5.Size = new Size(632, 104);
+            panel5.TabIndex = 24;
+            // 
+            // txtPrecioCosto
+            // 
+            txtPrecioCosto.AnimateReadOnly = false;
+            txtPrecioCosto.AutoCompleteMode = AutoCompleteMode.None;
+            txtPrecioCosto.AutoCompleteSource = AutoCompleteSource.None;
+            txtPrecioCosto.BackgroundImageLayout = ImageLayout.None;
+            txtPrecioCosto.CharacterCasing = CharacterCasing.Normal;
+            txtPrecioCosto.Depth = 0;
+            txtPrecioCosto.Dock = DockStyle.Fill;
+            txtPrecioCosto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtPrecioCosto.HideSelection = true;
+            txtPrecioCosto.LeadingIcon = null;
+            txtPrecioCosto.Location = new Point(23, 19);
+            txtPrecioCosto.Margin = new Padding(3, 4, 30, 4);
+            txtPrecioCosto.MaxLength = 32767;
+            txtPrecioCosto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtPrecioCosto.Name = "txtPrecioCosto";
+            txtPrecioCosto.Padding = new Padding(10, 11, 10, 11);
+            txtPrecioCosto.PasswordChar = '\0';
+            txtPrecioCosto.PrefixSuffixText = null;
+            txtPrecioCosto.ReadOnly = false;
+            txtPrecioCosto.RightToLeft = RightToLeft.No;
+            txtPrecioCosto.SelectedText = "";
+            txtPrecioCosto.SelectionLength = 0;
+            txtPrecioCosto.SelectionStart = 0;
+            txtPrecioCosto.ShortcutsEnabled = true;
+            txtPrecioCosto.Size = new Size(586, 48);
+            txtPrecioCosto.TabIndex = 0;
+            txtPrecioCosto.TabStop = false;
+            txtPrecioCosto.TextAlign = HorizontalAlignment.Left;
+            txtPrecioCosto.TrailingIcon = null;
+            txtPrecioCosto.UseSystemPasswordChar = false;
+            // 
+            // lblDescripcion
+            // 
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Depth = 0;
+            lblDescripcion.Dock = DockStyle.Top;
+            lblDescripcion.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblDescripcion.Location = new Point(23, 0);
+            lblDescripcion.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new Size(94, 19);
+            lblDescripcion.TabIndex = 4;
+            lblDescripcion.Text = "Precio Costo ";
             // 
             // UCComprasAdd
             // 
@@ -522,23 +475,20 @@
             groupBox4.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel7.ResumeLayout(false);
-            panel7.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            groupBox3.ResumeLayout(false);
-            tableLayoutPanel3.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             groupBox1.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -552,19 +502,10 @@
         private ReaLTaiizor.Controls.MaterialLabel lblDescuento;
         private Panel panel7;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtSubTotal;
-        private ReaLTaiizor.Controls.MaterialLabel lblObservaciones;
         private Panel panel2;
         private GroupBox groupBox2;
         private DataGridView dataGridView1;
         private ReaLTaiizor.Controls.MaterialButton materialButton1;
-        private GroupBox groupBox3;
-        private TableLayoutPanel tableLayoutPanel3;
-        private Panel panel5;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPrecioCosto;
-        private ReaLTaiizor.Controls.MaterialLabel lblDescripcion;
-        private Panel panel4;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCantidad;
-        private ReaLTaiizor.Controls.MaterialLabel lblCantidad;
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel5;
         private Panel panel1;
@@ -574,5 +515,11 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbCodigoProducto;
         private ReaLTaiizor.Controls.MaterialLabel lblCodigoProducto;
         private ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit txtObservaciones;
+        private Panel panel5;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtPrecioCosto;
+        private ReaLTaiizor.Controls.MaterialLabel lblDescripcion;
+        private Panel panel4;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCantidad;
+        private ReaLTaiizor.Controls.MaterialLabel lblCantidad;
     }
 }
