@@ -32,7 +32,6 @@
             groupBox4 = new GroupBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel7 = new Panel();
-            this.txtObservaciones = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblObservaciones = new ReaLTaiizor.Controls.MaterialLabel();
             panel2 = new Panel();
             groupBox2 = new GroupBox();
@@ -54,6 +53,7 @@
             panel3 = new Panel();
             tbCodigoProducto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblCodigoProducto = new ReaLTaiizor.Controls.MaterialLabel();
+            txtObservaciones = new ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit();
             materialExpansionPanel1.SuspendLayout();
             groupBox4.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -120,7 +120,7 @@
             // 
             // panel7
             // 
-            panel7.Controls.Add(this.txtObservaciones);
+            panel7.Controls.Add(txtObservaciones);
             panel7.Controls.Add(lblObservaciones);
             panel7.Dock = DockStyle.Fill;
             panel7.Location = new Point(0, 0);
@@ -129,39 +129,6 @@
             panel7.Padding = new Padding(23, 0, 23, 0);
             panel7.Size = new Size(1263, 109);
             panel7.TabIndex = 21;
-            // 
-            // txtObservaciones
-            // 
-            this.txtObservaciones.AnimateReadOnly = false;
-            this.txtObservaciones.AutoCompleteMode = AutoCompleteMode.None;
-            this.txtObservaciones.AutoCompleteSource = AutoCompleteSource.None;
-            this.txtObservaciones.BackgroundImageLayout = ImageLayout.None;
-            this.txtObservaciones.CharacterCasing = CharacterCasing.Normal;
-            this.txtObservaciones.Depth = 0;
-            this.txtObservaciones.Dock = DockStyle.Fill;
-            this.txtObservaciones.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            this.txtObservaciones.HideSelection = true;
-            this.txtObservaciones.LeadingIcon = null;
-            this.txtObservaciones.Location = new Point(23, 19);
-            this.txtObservaciones.Margin = new Padding(3, 4, 30, 4);
-            this.txtObservaciones.MaxLength = 32767;
-            this.txtObservaciones.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Padding = new Padding(10, 11, 10, 11);
-            this.txtObservaciones.PasswordChar = '\0';
-            this.txtObservaciones.PrefixSuffixText = null;
-            this.txtObservaciones.ReadOnly = false;
-            this.txtObservaciones.RightToLeft = RightToLeft.No;
-            this.txtObservaciones.SelectedText = "";
-            this.txtObservaciones.SelectionLength = 0;
-            this.txtObservaciones.SelectionStart = 0;
-            this.txtObservaciones.ShortcutsEnabled = true;
-            this.txtObservaciones.Size = new Size(1217, 48);
-            this.txtObservaciones.TabIndex = 0;
-            this.txtObservaciones.TabStop = false;
-            this.txtObservaciones.TextAlign = HorizontalAlignment.Left;
-            this.txtObservaciones.TrailingIcon = null;
-            this.txtObservaciones.UseSystemPasswordChar = false;
             // 
             // lblObservaciones
             // 
@@ -519,6 +486,30 @@
             lblCodigoProducto.TabIndex = 4;
             lblCodigoProducto.Text = "Codigo ";
             // 
+            // txtObservaciones
+            // 
+            txtObservaciones.AnimateReadOnly = false;
+            txtObservaciones.BackgroundImageLayout = ImageLayout.None;
+            txtObservaciones.CharacterCasing = CharacterCasing.Normal;
+            txtObservaciones.Depth = 0;
+            txtObservaciones.HideSelection = true;
+            txtObservaciones.Location = new Point(23, 22);
+            txtObservaciones.MaxLength = 32767;
+            txtObservaciones.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtObservaciones.Name = "txtObservaciones";
+            txtObservaciones.PasswordChar = '\0';
+            txtObservaciones.ReadOnly = false;
+            txtObservaciones.ScrollBars = ScrollBars.None;
+            txtObservaciones.SelectedText = "";
+            txtObservaciones.SelectionLength = 0;
+            txtObservaciones.SelectionStart = 0;
+            txtObservaciones.ShortcutsEnabled = true;
+            txtObservaciones.Size = new Size(1220, 48);
+            txtObservaciones.TabIndex = 5;
+            txtObservaciones.TabStop = false;
+            txtObservaciones.TextAlign = HorizontalAlignment.Left;
+            txtObservaciones.UseSystemPasswordChar = false;
+            // 
             // UCComprasAdd
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -582,5 +573,6 @@
         private Panel panel3;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbCodigoProducto;
         private ReaLTaiizor.Controls.MaterialLabel lblCodigoProducto;
+        private ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit txtObservaciones;
     }
 }
