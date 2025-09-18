@@ -54,6 +54,13 @@ namespace GestionAgraria
             tabAnimalArea = new TabPage();
             btnAddAnimal = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabIndustryArea = new TabPage();
+            tcIndustrias = new TabControl();
+            tabProduct = new TabPage();
+            btnAddProduct = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            tabCompras = new TabPage();
+            btnAddCompras = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            tabVentas = new TabPage();
+            btnAddVentas = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabEntorno = new TabPage();
             btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabUsers.SuspendLayout();
@@ -63,6 +70,11 @@ namespace GestionAgraria
             ((ISupportInitialize)pictureBox1).BeginInit();
             tcPrincipal.SuspendLayout();
             tabAnimalArea.SuspendLayout();
+            tabIndustryArea.SuspendLayout();
+            tcIndustrias.SuspendLayout();
+            tabProduct.SuspendLayout();
+            tabCompras.SuspendLayout();
+            tabVentas.SuspendLayout();
             tabEntorno.SuspendLayout();
             SuspendLayout();
             // 
@@ -240,14 +252,101 @@ namespace GestionAgraria
             // 
             // tabIndustryArea
             // 
-            tabIndustryArea.BackColor = Color.FromArgb(238, 238, 238);
+            tabIndustryArea.BackColor = Color.White;
+            tabIndustryArea.Controls.Add(tcIndustrias);
             tabIndustryArea.ImageKey = "industry-area.png";
             tabIndustryArea.Location = new Point(4, 24);
             tabIndustryArea.Name = "tabIndustryArea";
-            tabIndustryArea.Padding = new Padding(20);
             tabIndustryArea.Size = new Size(786, 505);
             tabIndustryArea.TabIndex = 4;
             tabIndustryArea.Text = "Industria";
+            // 
+            // tcIndustrias
+            // 
+            tcIndustrias.Controls.Add(tabProduct);
+            tcIndustrias.Controls.Add(tabCompras);
+            tcIndustrias.Controls.Add(tabVentas);
+            tcIndustrias.Dock = DockStyle.Fill;
+            tcIndustrias.Location = new Point(0, 0);
+            tcIndustrias.Name = "tcIndustrias";
+            tcIndustrias.SelectedIndex = 0;
+            tcIndustrias.Size = new Size(786, 505);
+            tcIndustrias.TabIndex = 2;
+            // 
+            // tabProduct
+            // 
+            tabProduct.Controls.Add(btnAddProduct);
+            tabProduct.Location = new Point(4, 24);
+            tabProduct.Name = "tabProduct";
+            tabProduct.Padding = new Padding(17);
+            tabProduct.Size = new Size(778, 477);
+            tabProduct.TabIndex = 0;
+            tabProduct.Text = "Productos";
+            tabProduct.UseVisualStyleBackColor = true;
+            // 
+            // btnAddProduct
+            // 
+            btnAddProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddProduct.Depth = 0;
+            btnAddProduct.Icon = Properties.Resources.add_user;
+            btnAddProduct.Location = new Point(702, 401);
+            btnAddProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddProduct.Name = "btnAddProduct";
+            btnAddProduct.Size = new Size(56, 56);
+            btnAddProduct.TabIndex = 2;
+            btnAddProduct.Text = "Agregar Producto";
+            btnAddProduct.UseVisualStyleBackColor = true;
+            btnAddProduct.Click += btnAddProduct_Click_1;
+            // 
+            // tabCompras
+            // 
+            tabCompras.Controls.Add(btnAddCompras);
+            tabCompras.Location = new Point(4, 24);
+            tabCompras.Name = "tabCompras";
+            tabCompras.Padding = new Padding(17);
+            tabCompras.Size = new Size(778, 477);
+            tabCompras.TabIndex = 1;
+            tabCompras.Text = "Compras";
+            tabCompras.UseVisualStyleBackColor = true;
+            // 
+            // btnAddCompras
+            // 
+            btnAddCompras.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddCompras.Depth = 0;
+            btnAddCompras.Icon = Properties.Resources.add_user;
+            btnAddCompras.Location = new Point(702, 401);
+            btnAddCompras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddCompras.Name = "btnAddCompras";
+            btnAddCompras.Size = new Size(56, 56);
+            btnAddCompras.TabIndex = 3;
+            btnAddCompras.Text = "Agregar Producto";
+            btnAddCompras.UseVisualStyleBackColor = true;
+            btnAddCompras.Click += btnAddCompras_Click;
+            // 
+            // tabVentas
+            // 
+            tabVentas.Controls.Add(btnAddVentas);
+            tabVentas.Location = new Point(4, 24);
+            tabVentas.Name = "tabVentas";
+            tabVentas.Padding = new Padding(17);
+            tabVentas.Size = new Size(778, 477);
+            tabVentas.TabIndex = 2;
+            tabVentas.Text = "Ventas";
+            tabVentas.UseVisualStyleBackColor = true;
+            // 
+            // btnAddVentas
+            // 
+            btnAddVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddVentas.Depth = 0;
+            btnAddVentas.Icon = Properties.Resources.add_user;
+            btnAddVentas.Location = new Point(702, 401);
+            btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddVentas.Name = "btnAddVentas";
+            btnAddVentas.Size = new Size(56, 56);
+            btnAddVentas.TabIndex = 4;
+            btnAddVentas.Text = "Agregar Producto";
+            btnAddVentas.UseVisualStyleBackColor = true;
+            btnAddVentas.Click += btnAddVentas_Click;
             // 
             // tabEntorno
             // 
@@ -300,6 +399,11 @@ namespace GestionAgraria
             ((ISupportInitialize)pictureBox1).EndInit();
             tcPrincipal.ResumeLayout(false);
             tabAnimalArea.ResumeLayout(false);
+            tabIndustryArea.ResumeLayout(false);
+            tcIndustrias.ResumeLayout(false);
+            tabProduct.ResumeLayout(false);
+            tabCompras.ResumeLayout(false);
+            tabVentas.ResumeLayout(false);
             tabEntorno.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -321,5 +425,12 @@ namespace GestionAgraria
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddEntorno;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddAnimal;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddPlanta;
+        private TabControl tcIndustrias;
+        private TabPage tabProduct;
+        private TabPage tabCompras;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddProduct;
+        private TabPage tabVentas;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddCompras;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddVentas;
     }
 }
