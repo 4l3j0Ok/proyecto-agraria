@@ -30,9 +30,9 @@
         {
             panel1 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
+            lblCantidad = new ReaLTaiizor.Controls.MaterialLabel();
             lblTipoPlanta = new ReaLTaiizor.Controls.MaterialLabel();
             parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
-            lblCantidad = new ReaLTaiizor.Controls.MaterialLabel();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
@@ -63,6 +63,21 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Size = new Size(590, 14);
             tableLayoutPanel2.TabIndex = 1;
+            // 
+            // lblCantidad
+            // 
+            lblCantidad.AutoSize = true;
+            lblCantidad.Depth = 0;
+            lblCantidad.Dock = DockStyle.Fill;
+            lblCantidad.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            lblCantidad.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
+            lblCantidad.Location = new Point(298, 0);
+            lblCantidad.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblCantidad.Name = "lblCantidad";
+            lblCantidad.Size = new Size(289, 14);
+            lblCantidad.TabIndex = 5;
+            lblCantidad.Text = "Cantidad";
+            lblCantidad.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblTipoPlanta
             // 
@@ -99,21 +114,6 @@
             parrotPictureBox1.TabIndex = 5;
             parrotPictureBox1.Text = "parrotPictureBox1";
             parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            // 
-            // lblCantidad
-            // 
-            lblCantidad.AutoSize = true;
-            lblCantidad.Depth = 0;
-            lblCantidad.Dock = DockStyle.Fill;
-            lblCantidad.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-            lblCantidad.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblCantidad.Location = new Point(298, 0);
-            lblCantidad.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblCantidad.Name = "lblCantidad";
-            lblCantidad.Size = new Size(289, 14);
-            lblCantidad.TabIndex = 5;
-            lblCantidad.Text = "Cantidad";
-            lblCantidad.TextAlign = ContentAlignment.TopCenter;
             // 
             // UCVegetalCard
             // 
