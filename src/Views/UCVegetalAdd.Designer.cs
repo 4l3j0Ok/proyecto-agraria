@@ -1,4 +1,15 @@
-﻿namespace GestionAgraria.Views
+﻿using GestionAgraria.controllers;
+using GestionAgraria.data;
+using GestionAgraria.models;
+using GestionAgraria.Views;
+using ReaLTaiizor.Colors;
+using ReaLTaiizor.Controls;
+using ReaLTaiizor.Forms;
+using ReaLTaiizor.Manager;
+using ReaLTaiizor.Util;
+using System.Data;
+
+namespace GestionAgraria.Views
 {
     partial class UCVegetalAdd
     {
@@ -30,18 +41,18 @@
         {
             materialExpansionPanel1 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            panel2 = new Panel();
-            groupBox3 = new GroupBox();
+            panel2 = new System.Windows.Forms.Panel();
+            groupBox3 = new System.Windows.Forms.GroupBox();
             tableLayoutPanel3 = new TableLayoutPanel();
-            panel8 = new Panel();
+            panel8 = new System.Windows.Forms.Panel();
             materialTextBoxEdit8 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel8 = new ReaLTaiizor.Controls.MaterialLabel();
-            groupBox1 = new GroupBox();
+            groupBox1 = new System.Windows.Forms.GroupBox();
             tableLayoutPanel5 = new TableLayoutPanel();
-            panel6 = new Panel();
+            panel6 = new System.Windows.Forms.Panel();
             materialComboBox1 = new ReaLTaiizor.Controls.MaterialComboBox();
             materialLabel6 = new ReaLTaiizor.Controls.MaterialLabel();
-            panel3 = new Panel();
+            panel3 = new System.Windows.Forms.Panel();
             tbUsuario = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblUsuario = new ReaLTaiizor.Controls.MaterialLabel();
             materialExpansionPanel1.SuspendLayout();
@@ -348,25 +359,25 @@
         private ReaLTaiizor.Controls.MaterialLabel lblEntornoProductivo;
         private ReaLTaiizor.Controls.MaterialComboBox cbSexo;
         private ReaLTaiizor.Controls.MaterialLabel lblSexo;
-        private Panel panel4;
+        private System.Windows.Forms.Panel panel4;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbFechaNacieminto_Ingreso;
         private ReaLTaiizor.Controls.MaterialLabel lblFechaNacimiento_Ingres;
         private ReaLTaiizor.Controls.MaterialLabel lblTipoAnimal;
         private ReaLTaiizor.Controls.MaterialLabel lblCodigo;
         private ReaLTaiizor.Controls.MaterialExpansionPanel materialExpansionPanel1;
         private TableLayoutPanel tableLayoutPanel2;
-        private Panel panel2;
-        private GroupBox groupBox3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox3;
         private TableLayoutPanel tableLayoutPanel3;
-        private Panel panel8;
+        private System.Windows.Forms.Panel panel8;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit8;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel8;
-        private GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel5;
-        private Panel panel6;
+        private System.Windows.Forms.Panel panel6;
         private ReaLTaiizor.Controls.MaterialComboBox materialComboBox1;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel6;
-        private Panel panel3;
+        private System.Windows.Forms.Panel panel3;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbUsuario;
         private ReaLTaiizor.Controls.MaterialLabel lblUsuario;
     }
