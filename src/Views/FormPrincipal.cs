@@ -1,12 +1,13 @@
-﻿using GestionAgraria.data;
+﻿using GestionAgraria.controllers;
+using GestionAgraria.data;
 using GestionAgraria.models;
 using GestionAgraria.Views;
 using ReaLTaiizor.Colors;
+using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Util;
 using System.Data;
-using System.Windows.Forms;
 
 namespace GestionAgraria
 {
@@ -22,20 +23,22 @@ namespace GestionAgraria
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
+            System.Windows.Forms.TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
             this.Text = selectedTab.Text;
             LoadUsersTable();
         }
 
         private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
+            System.Windows.Forms.TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
             this.Text = selectedTab.Text;
         }
 
         private void LoadUsersTable()
         {
-            List<UserModel> users = UserRepository.GetAll();
+            using var userController = new UserController();
+            List<UserModel> users = userController.GetAllUsers();
+
             foreach (UserModel user in users)
             {
                 UCUserCard userCard = new UCUserCard(user: user);
@@ -51,13 +54,30 @@ namespace GestionAgraria
             tabUsers.Controls.Clear();
             tabUsers.Controls.Add(userAddControl);
         }
-
         private void btnAddEntorno_Click(object sender, EventArgs e)
         {
-            UCEntornoAdd entornoAddControl = new UCEntornoAdd();
-            entornoAddControl.Dock = DockStyle.Fill;
-            tabEntorno.Controls.Clear();
-            tabEntorno.Controls.Add(entornoAddControl);
+            UCEntornoAdd AddControl = new UCEntornoAdd();
+            VerFormularioTab(AddControl, tabEntorno);
+        }
+
+        private void btnAddAnimal_Click(object sender, EventArgs e)
+        {
+            UCAnimalAdd AddControl = new UCAnimalAdd();
+            VerFormularioTab(AddControl, tabAnimalArea);
+        }
+
+        private void VerFormularioTab(UserControl uc, System.Windows.Forms.TabPage tab)
+        {
+            UserControl ucUserControl = uc as UserControl;
+            ucUserControl.Dock = DockStyle.Fill;
+            tab.Controls.Clear();
+            tab.Controls.Add(ucUserControl);
+        }
+
+        private void btnAddPlanta_Click(object sender, EventArgs e)
+        {
+            UCVegetalAdd AddControl = new UCVegetalAdd();
+            VerFormularioTab(AddControl,tabVegetablesArea);
         }
     }
 }

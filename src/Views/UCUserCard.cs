@@ -16,10 +16,10 @@ namespace GestionAgraria.Views
         public UCUserCard(UserModel user)
         {
             InitializeComponent();
-            lblUserName.Text = user.name;
-            lblUserUsername.Text = user.username;
-            lblUserArea.Text = user.username;
-            lblUserPhone.Text = user.phone;
+            lblUserName.Text = user.Name;
+            lblUserUsername.Text = user.Username;
+            lblUserArea.Text = user.Role?.Name ?? "Sin rol";
+            lblUserPhone.Text = user.Phone;
         }
     }
 }

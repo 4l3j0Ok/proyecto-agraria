@@ -12,86 +12,55 @@ namespace GestionAgraria.data
 {
     internal class DbInitializer
     {
-        public static string createRolesTable = $@"
-            CREATE TABLE IF NOT EXISTS Roles (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                name TEXT NOT NULL
-            );";
-        public static string createUsersTable = @$"
-            CREATE TABLE IF NOT EXISTS Users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT UNIQUE,
-                password TEXT NOT NULL,
-                name TEXT NOT NULL,
-                surname TEXT NOT NULL,
-                email TEXT NOT NULL,
-                phone TEXT NOT NULL,
-                personId TEXT NOT NULL,
-                roleId TEXT NOT NULL,
-                isActive INTEGER NOT NULL DEFAULT 1,
-                FOREIGN KEY (roleId) REFERENCES Roles(id)
-            );";
-        public static string createFormativeEnvironmentsTable = @$"
-            CREATE TABLE IF NOT EXISTS FormativeEnvironments (
-                id TEXT PRIMARY KEY,
-                name TEXT NOT NULL
-            );";
-        public static void CreateTablesIfNotExists()
+        public static UserModel? Initialize()
         {
-            Database.ExecuteNonQuery(createRolesTable);
-            CreateDefaultRolesIfNotExists();
-            Database.ExecuteNonQuery(createUsersTable);
-            Debug.WriteLine($"Ejecutando consulta para crear las tabla de entornos formativos: {createFormativeEnvironmentsTable}");
-            Database.ExecuteNonQuery(createFormativeEnvironmentsTable);
+            using var context = new AppDbContext();
+
+            // Crear la base de datos y las tablas si no existen
+            context.Database.EnsureCreated();
+
+            // Seed de roles por defecto
+            SeedDefaultRoles(context);
+
+            // Crear usuario administrador si no existe
+            UserModel? user = CreateAdminUserIfNotExists(context);
+            return user;
         }
 
-        public static void CreateDefaultRolesIfNotExists()
+        private static void SeedDefaultRoles(AppDbContext context)
         {
-            string query = "SELECT * FROM Roles LIMIT 1;";
-            bool hasAnyRole;
+            if (context.Roles.Any()) return;
 
-            using (var sqlDataReader = Database.ExecuteReader(query))
+            foreach (string roleName in Config.defaultRoles)
             {
-                hasAnyRole = sqlDataReader.HasRows;
+                context.Roles.Add(new RoleModel { Name = roleName });
             }
-
-            if (hasAnyRole) return;
-
-            foreach (string role in Config.defaultRoles)
-                RoleRepository.Insert(new RoleModel { Name = role });
+            context.SaveChanges();
         }
 
-        public static UserModel? CreateAdminUserIfNotExists()
+        private static UserModel? CreateAdminUserIfNotExists(AppDbContext context)
         {
-            string query = "SELECT * FROM Users LIMIT 1;";
-            using (var sqlDataReader = Database.ExecuteReader(query))
-            {
-                if (sqlDataReader.HasRows) return null;
-            }
+            if (context.Users.Any()) return null;
 
-            int? roleId = null;
-            query = "SELECT id FROM Roles WHERE name = 'Administrador' LIMIT 1;";
-            using (SqliteDataReader roleDataReader = Database.ExecuteReader(query))
-            {
-                if (roleDataReader.Read())
-                    roleId = roleDataReader.GetInt32(0);
-            }
+            var adminRole = context.Roles.FirstOrDefault(r => r.Name == "Administrador");
+            if (adminRole == null) return null;
 
-            if (roleId == null) return null;
-
-            var user = new UserModel
+            UserModel user = new UserModel
             {
-                username = "admin",
-                password = Utils.GenerateRandomString(12),
-                name = "Administrador",
-                surname = "Sistema",
-                personId = "10000000",
-                email = "email@admin.com",
-                phone = "2224123456",
-                roleId = roleId.Value,
-                isActive = 1
+                Username = "admin",
+                Password = Utils.GenerateRandomString(12),
+                Name = "Administrador",
+                Surname = "Sistema",
+                PersonId = "10000000",
+                Email = "email@admin.com",
+                Phone = "2224123456",
+                RoleId = adminRole.Id,
+                IsActive = true
             };
-            UserRepository.Insert(user);
+
+            context.Users.Add(user);
+            context.SaveChanges();
+
             return user;
         }
     }

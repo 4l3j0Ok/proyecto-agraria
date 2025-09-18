@@ -1,0 +1,151 @@
+﻿using GestionAgraria.models;
+using GestionAgraria.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Reflection.Emit;
+
+namespace GestionAgraria.data
+{
+    public class AppDbContext : DbContext
+    {
+        public DbSet<UserModel> Users { get; set; }
+        public DbSet<RoleModel> Roles { get; set; }
+        public DbSet<FormativeEnvironmentModel> FormativeEnvironments { get; set; }
+        public DbSet<AnimalModel> Animals { get; set; }
+        public DbSet<VegetalModel> Vegetables { get; set; }
+
+        // acá agregamos todos los modelos que tengamos
+        // public DbSet<ProductModel> Products { get; set; }
+        // public DbSet<InvoiceModel> Invoices { get; set; }
+        // etc...
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite(Config.sql_connection_string);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Configuración de la relación User-Role
+            modelBuilder.Entity<UserModel>()
+                .HasOne(u => u.Role)
+                .WithMany()
+                .HasForeignKey(u => u.RoleId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuración de la relación FormativeEnvironment-ResponsibleUser
+            modelBuilder.Entity<FormativeEnvironmentModel>()
+                .HasOne(fe => fe.Responsible)
+                .WithMany()
+                .HasForeignKey(fe => fe.ResponsibleUserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuración de la relación Animal-FormativeEnvironment
+            modelBuilder.Entity<AnimalModel>()
+                .HasOne(a => a.FormativeEnvironment)
+                .WithMany()
+                .HasForeignKey(a => a.FormativeEnvironmentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuración de la relación Animal-CreatedByUser
+            modelBuilder.Entity<AnimalModel>()
+                .HasOne(a => a.CreatedBy)
+                .WithMany()
+                .HasForeignKey(a => a.CreatedByUserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuración de la relación Vegetal-FormativeEnvironment
+            modelBuilder.Entity<VegetalModel>()
+                .HasOne(v => v.FormativeEnvironment)
+                .WithMany()
+                .HasForeignKey(v => v.FormativeEnvironmentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuración de la relación Vegetal-CreatedByUser
+            modelBuilder.Entity<VegetalModel>()
+                .HasOne(v => v.CreatedBy)
+                .WithMany()
+                .HasForeignKey(v => v.CreatedByUserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuración de índices únicos
+            modelBuilder.Entity<UserModel>()
+                .HasIndex(u => u.Username)
+                .IsUnique();
+
+            modelBuilder.Entity<UserModel>()
+                .HasIndex(u => u.Email)
+                .IsUnique();
+
+            modelBuilder.Entity<UserModel>()
+                .HasIndex(u => u.PersonId)
+                .IsUnique();
+
+            // Configuración de índices únicos para código de animal
+            modelBuilder.Entity<AnimalModel>()
+                .HasIndex(a => a.Code)
+                .IsUnique();
+
+            // Mapeo de nombres de tabla (si es necesario mantener compatibilidad)
+            modelBuilder.Entity<UserModel>().ToTable("Users");
+            modelBuilder.Entity<RoleModel>().ToTable("Roles");
+            modelBuilder.Entity<FormativeEnvironmentModel>().ToTable("FormativeEnvironments");
+            modelBuilder.Entity<AnimalModel>().ToTable("Animals");
+            modelBuilder.Entity<VegetalModel>().ToTable("Vegetables");
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public void SeedDefaultRoles()
+        {
+            foreach (var roleName in Config.defaultRoles)
+            {
+                if (!this.Roles.Any(r => r.Name == roleName))
+                {
+                    this.Roles.Add(new RoleModel { Name = roleName });
+                }
+            }
+            this.SaveChanges();
+        }
+
+        public UserModel? GetUserByUsername(string username)
+        {
+            return this.Users
+                .Include(u => u.Role)
+                .FirstOrDefault(u => u.Username == username);
+        }
+
+        public List<UserModel> GetAllUsersWithRoles()
+        {
+            return this.Users
+                .Include(u => u.Role)
+                .Where(u => u.IsActive)
+                .ToList();
+        }
+
+        public UserModel? CreateAdminUserIfNotExists()
+        {
+            if (this.Users.Any()) return null;
+
+            var adminRole = this.Roles.FirstOrDefault(r => r.Name == "Administrador");
+            if (adminRole == null) return null;
+
+            var user = new UserModel
+            {
+                Username = "admin",
+                Password = Utils.GenerateRandomString(12),
+                Name = "Administrador",
+                Surname = "Sistema",
+                PersonId = "10000000",
+                Email = "email@admin.com",
+                Phone = "2224123456",
+                RoleId = adminRole.Id,
+                IsActive = true
+            };
+
+            this.Users.Add(user);
+            this.SaveChanges();
+            return user;
+        }
+    }
+}

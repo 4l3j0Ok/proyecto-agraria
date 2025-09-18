@@ -43,37 +43,26 @@ namespace GestionAgraria
             ComponentResourceManager resources = new ComponentResourceManager(typeof(FormPrincipal));
             imgList = new ImageList(components);
             tabUsers = new TabPage();
-            materialFloatingActionButton1 = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             btnAddUser = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabVegetablesArea = new TabPage();
-            materialTabControl1 = new ReaLTaiizor.Controls.MaterialTabControl();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
+            btnAddPlanta = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabHome = new TabPage();
             tableLayoutPanel1 = new TableLayoutPanel();
             pictureBox1 = new PictureBox();
             lblWelcome = new ReaLTaiizor.Controls.MaterialLabel();
             tcPrincipal = new ReaLTaiizor.Controls.MaterialTabControl();
             tabAnimalArea = new TabPage();
-            materialTabControl2 = new ReaLTaiizor.Controls.MaterialTabControl();
-            tabPage3 = new TabPage();
-            tabPage4 = new TabPage();
-            tabPage5 = new TabPage();
-            tabPage6 = new TabPage();
-            tabPage7 = new TabPage();
+            btnAddAnimal = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabIndustryArea = new TabPage();
             tabEntorno = new TabPage();
-            btnBack = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabUsers.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
-            materialTabControl1.SuspendLayout();
             tabHome.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             tcPrincipal.SuspendLayout();
             tabAnimalArea.SuspendLayout();
-            materialTabControl2.SuspendLayout();
             tabEntorno.SuspendLayout();
             SuspendLayout();
             // 
@@ -97,7 +86,6 @@ namespace GestionAgraria
             // tabUsers
             // 
             tabUsers.AutoScroll = true;
-            tabUsers.Controls.Add(materialFloatingActionButton1);
             tabUsers.Controls.Add(btnAddUser);
             tabUsers.ImageKey = "user.png";
             tabUsers.Location = new Point(4, 24);
@@ -107,18 +95,6 @@ namespace GestionAgraria
             tabUsers.TabIndex = 3;
             tabUsers.Text = "Usuarios";
             tabUsers.UseVisualStyleBackColor = true;
-            // 
-            // materialFloatingActionButton1
-            // 
-            materialFloatingActionButton1.Depth = 0;
-            materialFloatingActionButton1.Icon = Properties.Resources.back;
-            materialFloatingActionButton1.Location = new Point(23, 23);
-            materialFloatingActionButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialFloatingActionButton1.Name = "materialFloatingActionButton1";
-            materialFloatingActionButton1.Size = new Size(56, 56);
-            materialFloatingActionButton1.TabIndex = 13;
-            materialFloatingActionButton1.Text = "materialFloatingActionButton1";
-            materialFloatingActionButton1.UseVisualStyleBackColor = true;
             // 
             // btnAddUser
             // 
@@ -136,7 +112,7 @@ namespace GestionAgraria
             // 
             // tabVegetablesArea
             // 
-            tabVegetablesArea.Controls.Add(materialTabControl1);
+            tabVegetablesArea.Controls.Add(btnAddPlanta);
             tabVegetablesArea.ImageKey = "vegetable-area.png";
             tabVegetablesArea.Location = new Point(4, 24);
             tabVegetablesArea.Name = "tabVegetablesArea";
@@ -146,41 +122,19 @@ namespace GestionAgraria
             tabVegetablesArea.Text = "Vegetales";
             tabVegetablesArea.UseVisualStyleBackColor = true;
             // 
-            // materialTabControl1
+            // btnAddPlanta
             // 
-            materialTabControl1.Controls.Add(tabPage1);
-            materialTabControl1.Controls.Add(tabPage2);
-            materialTabControl1.Depth = 0;
-            materialTabControl1.Dock = DockStyle.Fill;
-            materialTabControl1.ImageList = imgList;
-            materialTabControl1.Location = new Point(20, 20);
-            materialTabControl1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialTabControl1.Multiline = true;
-            materialTabControl1.Name = "materialTabControl1";
-            materialTabControl1.SelectedIndex = 0;
-            materialTabControl1.Size = new Size(746, 465);
-            materialTabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            tabPage1.ImageKey = "user.png";
-            tabPage1.Location = new Point(4, 24);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(738, 437);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "tabPage1";
-            tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(738, 437);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            btnAddPlanta.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddPlanta.Depth = 0;
+            btnAddPlanta.Icon = Properties.Resources.add_user;
+            btnAddPlanta.Location = new Point(707, 426);
+            btnAddPlanta.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddPlanta.Name = "btnAddPlanta";
+            btnAddPlanta.Size = new Size(56, 56);
+            btnAddPlanta.TabIndex = 18;
+            btnAddPlanta.Text = "Agregar Planta";
+            btnAddPlanta.UseVisualStyleBackColor = true;
+            btnAddPlanta.Click += btnAddPlanta_Click;
             // 
             // tabHome
             // 
@@ -260,7 +214,7 @@ namespace GestionAgraria
             // 
             // tabAnimalArea
             // 
-            tabAnimalArea.Controls.Add(materialTabControl2);
+            tabAnimalArea.Controls.Add(btnAddAnimal);
             tabAnimalArea.ImageKey = "animal-area.png";
             tabAnimalArea.Location = new Point(4, 24);
             tabAnimalArea.Name = "tabAnimalArea";
@@ -270,81 +224,19 @@ namespace GestionAgraria
             tabAnimalArea.Text = "Animales";
             tabAnimalArea.UseVisualStyleBackColor = true;
             // 
-            // materialTabControl2
+            // btnAddAnimal
             // 
-            materialTabControl2.Controls.Add(tabPage3);
-            materialTabControl2.Controls.Add(tabPage4);
-            materialTabControl2.Controls.Add(tabPage5);
-            materialTabControl2.Controls.Add(tabPage6);
-            materialTabControl2.Controls.Add(tabPage7);
-            materialTabControl2.Depth = 0;
-            materialTabControl2.Dock = DockStyle.Top;
-            materialTabControl2.ImageList = imgList;
-            materialTabControl2.Location = new Point(20, 20);
-            materialTabControl2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialTabControl2.Multiline = true;
-            materialTabControl2.Name = "materialTabControl2";
-            materialTabControl2.SelectedIndex = 0;
-            materialTabControl2.Size = new Size(746, 305);
-            materialTabControl2.TabIndex = 1;
-            // 
-            // tabPage3
-            // 
-            tabPage3.ImageKey = "Vaca (2).png";
-            tabPage3.Location = new Point(4, 24);
-            tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(738, 277);
-            tabPage3.TabIndex = 0;
-            tabPage3.Text = "Bovinos";
-            tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            tabPage4.ImageKey = "Chancho (2).png";
-            tabPage4.Location = new Point(4, 24);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(738, 277);
-            tabPage4.TabIndex = 1;
-            tabPage4.Text = "Cerdos";
-            tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            tabPage5.ImageKey = "Conejo (2).png";
-            tabPage5.Location = new Point(4, 24);
-            tabPage5.Margin = new Padding(2);
-            tabPage5.Name = "tabPage5";
-            tabPage5.Padding = new Padding(2);
-            tabPage5.Size = new Size(738, 277);
-            tabPage5.TabIndex = 2;
-            tabPage5.Text = "Conejos";
-            tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            tabPage6.ImageKey = "Gallina.png";
-            tabPage6.Location = new Point(4, 24);
-            tabPage6.Margin = new Padding(2);
-            tabPage6.Name = "tabPage6";
-            tabPage6.Padding = new Padding(2);
-            tabPage6.Size = new Size(738, 277);
-            tabPage6.TabIndex = 3;
-            tabPage6.Text = "Pollos";
-            tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            tabPage7.ImageKey = "Abeja (2).png";
-            tabPage7.Location = new Point(4, 24);
-            tabPage7.Margin = new Padding(2);
-            tabPage7.Name = "tabPage7";
-            tabPage7.Padding = new Padding(2);
-            tabPage7.Size = new Size(738, 277);
-            tabPage7.TabIndex = 4;
-            tabPage7.Text = "Abejas";
-            tabPage7.UseVisualStyleBackColor = true;
+            btnAddAnimal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddAnimal.Depth = 0;
+            btnAddAnimal.Icon = Properties.Resources.add_user;
+            btnAddAnimal.Location = new Point(707, 426);
+            btnAddAnimal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddAnimal.Name = "btnAddAnimal";
+            btnAddAnimal.Size = new Size(56, 56);
+            btnAddAnimal.TabIndex = 16;
+            btnAddAnimal.Text = "Agregar Animal";
+            btnAddAnimal.UseVisualStyleBackColor = true;
+            btnAddAnimal.Click += btnAddAnimal_Click;
             // 
             // tabIndustryArea
             // 
@@ -359,7 +251,6 @@ namespace GestionAgraria
             // 
             // tabEntorno
             // 
-            tabEntorno.Controls.Add(btnBack);
             tabEntorno.Controls.Add(btnAddEntorno);
             tabEntorno.ImageKey = "userGroup.png";
             tabEntorno.Location = new Point(4, 24);
@@ -369,18 +260,6 @@ namespace GestionAgraria
             tabEntorno.TabIndex = 6;
             tabEntorno.Text = "Entornos";
             tabEntorno.UseVisualStyleBackColor = true;
-            // 
-            // btnBack
-            // 
-            btnBack.Depth = 0;
-            btnBack.Icon = Properties.Resources.back;
-            btnBack.Location = new Point(23, 23);
-            btnBack.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(56, 56);
-            btnBack.TabIndex = 15;
-            btnBack.Text = "materialFloatingActionButton2";
-            btnBack.UseVisualStyleBackColor = true;
             // 
             // btnAddEntorno
             // 
@@ -415,14 +294,12 @@ namespace GestionAgraria
             Load += FormPrincipal_Load;
             tabUsers.ResumeLayout(false);
             tabVegetablesArea.ResumeLayout(false);
-            materialTabControl1.ResumeLayout(false);
             tabHome.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((ISupportInitialize)pictureBox1).EndInit();
             tcPrincipal.ResumeLayout(false);
             tabAnimalArea.ResumeLayout(false);
-            materialTabControl2.ResumeLayout(false);
             tabEntorno.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -438,20 +315,11 @@ namespace GestionAgraria
         private ReaLTaiizor.Controls.MaterialTabControl tcPrincipal;
         private TabPage tabIndustryArea;
         private TabPage tabAnimalArea;
-        private ReaLTaiizor.Controls.MaterialTabControl materialTabControl1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
         private DataGridView dataGridView1;
-        private ReaLTaiizor.Controls.MaterialTabControl materialTabControl2;
-        private TabPage tabPage3;
-        private TabPage tabPage4;
-        private TabPage tabPage5;
-        private TabPage tabPage6;
-        private TabPage tabPage7;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddUser;
-        private ReaLTaiizor.Controls.MaterialFloatingActionButton materialFloatingActionButton1;
         private TabPage tabEntorno;
-        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnBack;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddEntorno;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddAnimal;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddPlanta;
     }
 }

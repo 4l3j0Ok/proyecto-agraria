@@ -73,6 +73,26 @@ namespace GestionAgraria.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Animales {
+            get {
+                object obj = ResourceManager.GetObject("Animales", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Animales2 {
+            get {
+                object obj = ResourceManager.GetObject("Animales2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap back {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);
@@ -186,6 +206,16 @@ namespace GestionAgraria.Properties {
         internal static System.Drawing.Bitmap user_placeholder {
             get {
                 object obj = ResourceManager.GetObject("user-placeholder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Vegetales {
+            get {
+                object obj = ResourceManager.GetObject("Vegetales", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
