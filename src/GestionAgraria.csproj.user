@@ -29,6 +29,12 @@
     <Compile Update="Views\UCEntornoCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UCPizarronAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UCPizarronCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UCProductosCard.cs">
       <SubType>UserControl</SubType>
     </Compile>

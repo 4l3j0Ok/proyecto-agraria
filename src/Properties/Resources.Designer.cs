@@ -73,6 +73,16 @@ namespace GestionAgraria.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _80f1c139_85b6_440f_8a06_8bc44149ef0b_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("80f1c139-85b6-440f-8a06-8bc44149ef0b-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_user {
             get {
                 object obj = ResourceManager.GetObject("add_user", resourceCulture);

@@ -40,17 +40,17 @@
             groupBox1 = new GroupBox();
             tableLayoutPanel5 = new TableLayoutPanel();
             panel1 = new Panel();
-            txtNombreProducto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            lblNombreProducto = new ReaLTaiizor.Controls.MaterialLabel();
-            panel3 = new Panel();
-            tbCodigoProducto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            lblCodigoProducto = new ReaLTaiizor.Controls.MaterialLabel();
-            panel4 = new Panel();
-            txtCantidad = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            lblCantidad = new ReaLTaiizor.Controls.MaterialLabel();
             panel5 = new Panel();
             txtPrecioCosto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblDescripcion = new ReaLTaiizor.Controls.MaterialLabel();
+            txtNombreProducto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            lblNombreProducto = new ReaLTaiizor.Controls.MaterialLabel();
+            panel3 = new Panel();
+            panel4 = new Panel();
+            txtCantidad = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            lblCantidad = new ReaLTaiizor.Controls.MaterialLabel();
+            tbCodigoProducto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            lblCodigoProducto = new ReaLTaiizor.Controls.MaterialLabel();
             materialExpansionPanel1.SuspendLayout();
             groupBox4.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -61,9 +61,9 @@
             groupBox1.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             panel1.SuspendLayout();
+            panel5.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
-            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // materialExpansionPanel1
@@ -244,6 +244,63 @@
             panel1.Size = new Size(632, 192);
             panel1.TabIndex = 22;
             // 
+            // panel5
+            // 
+            panel5.Controls.Add(txtPrecioCosto);
+            panel5.Controls.Add(lblDescripcion);
+            panel5.Location = new Point(0, 88);
+            panel5.Margin = new Padding(0);
+            panel5.Name = "panel5";
+            panel5.Padding = new Padding(23, 0, 23, 0);
+            panel5.Size = new Size(632, 104);
+            panel5.TabIndex = 24;
+            // 
+            // txtPrecioCosto
+            // 
+            txtPrecioCosto.AnimateReadOnly = false;
+            txtPrecioCosto.AutoCompleteMode = AutoCompleteMode.None;
+            txtPrecioCosto.AutoCompleteSource = AutoCompleteSource.None;
+            txtPrecioCosto.BackgroundImageLayout = ImageLayout.None;
+            txtPrecioCosto.CharacterCasing = CharacterCasing.Normal;
+            txtPrecioCosto.Depth = 0;
+            txtPrecioCosto.Dock = DockStyle.Fill;
+            txtPrecioCosto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtPrecioCosto.HideSelection = true;
+            txtPrecioCosto.LeadingIcon = null;
+            txtPrecioCosto.Location = new Point(23, 19);
+            txtPrecioCosto.Margin = new Padding(3, 4, 30, 4);
+            txtPrecioCosto.MaxLength = 32767;
+            txtPrecioCosto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtPrecioCosto.Name = "txtPrecioCosto";
+            txtPrecioCosto.Padding = new Padding(10, 11, 10, 11);
+            txtPrecioCosto.PasswordChar = '\0';
+            txtPrecioCosto.PrefixSuffixText = null;
+            txtPrecioCosto.ReadOnly = false;
+            txtPrecioCosto.RightToLeft = RightToLeft.No;
+            txtPrecioCosto.SelectedText = "";
+            txtPrecioCosto.SelectionLength = 0;
+            txtPrecioCosto.SelectionStart = 0;
+            txtPrecioCosto.ShortcutsEnabled = true;
+            txtPrecioCosto.Size = new Size(586, 48);
+            txtPrecioCosto.TabIndex = 0;
+            txtPrecioCosto.TabStop = false;
+            txtPrecioCosto.TextAlign = HorizontalAlignment.Left;
+            txtPrecioCosto.TrailingIcon = null;
+            txtPrecioCosto.UseSystemPasswordChar = false;
+            // 
+            // lblDescripcion
+            // 
+            lblDescripcion.AutoSize = true;
+            lblDescripcion.Depth = 0;
+            lblDescripcion.Dock = DockStyle.Top;
+            lblDescripcion.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblDescripcion.Location = new Point(23, 0);
+            lblDescripcion.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblDescripcion.Name = "lblDescripcion";
+            lblDescripcion.Size = new Size(94, 19);
+            lblDescripcion.TabIndex = 4;
+            lblDescripcion.Text = "Precio Costo ";
+            // 
             // txtNombreProducto
             // 
             txtNombreProducto.AnimateReadOnly = false;
@@ -303,52 +360,6 @@
             panel3.Size = new Size(631, 192);
             panel3.TabIndex = 21;
             // 
-            // tbCodigoProducto
-            // 
-            tbCodigoProducto.AnimateReadOnly = false;
-            tbCodigoProducto.AutoCompleteMode = AutoCompleteMode.None;
-            tbCodigoProducto.AutoCompleteSource = AutoCompleteSource.None;
-            tbCodigoProducto.BackgroundImageLayout = ImageLayout.None;
-            tbCodigoProducto.CharacterCasing = CharacterCasing.Normal;
-            tbCodigoProducto.Depth = 0;
-            tbCodigoProducto.Dock = DockStyle.Fill;
-            tbCodigoProducto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbCodigoProducto.HideSelection = true;
-            tbCodigoProducto.LeadingIcon = null;
-            tbCodigoProducto.Location = new Point(23, 19);
-            tbCodigoProducto.Margin = new Padding(3, 4, 30, 4);
-            tbCodigoProducto.MaxLength = 32767;
-            tbCodigoProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tbCodigoProducto.Name = "tbCodigoProducto";
-            tbCodigoProducto.Padding = new Padding(10, 11, 10, 11);
-            tbCodigoProducto.PasswordChar = '\0';
-            tbCodigoProducto.PrefixSuffixText = null;
-            tbCodigoProducto.ReadOnly = false;
-            tbCodigoProducto.RightToLeft = RightToLeft.No;
-            tbCodigoProducto.SelectedText = "";
-            tbCodigoProducto.SelectionLength = 0;
-            tbCodigoProducto.SelectionStart = 0;
-            tbCodigoProducto.ShortcutsEnabled = true;
-            tbCodigoProducto.Size = new Size(585, 48);
-            tbCodigoProducto.TabIndex = 0;
-            tbCodigoProducto.TabStop = false;
-            tbCodigoProducto.TextAlign = HorizontalAlignment.Left;
-            tbCodigoProducto.TrailingIcon = null;
-            tbCodigoProducto.UseSystemPasswordChar = false;
-            // 
-            // lblCodigoProducto
-            // 
-            lblCodigoProducto.AutoSize = true;
-            lblCodigoProducto.Depth = 0;
-            lblCodigoProducto.Dock = DockStyle.Top;
-            lblCodigoProducto.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblCodigoProducto.Location = new Point(23, 0);
-            lblCodigoProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblCodigoProducto.Name = "lblCodigoProducto";
-            lblCodigoProducto.Size = new Size(55, 19);
-            lblCodigoProducto.TabIndex = 4;
-            lblCodigoProducto.Text = "Codigo ";
-            // 
             // panel4
             // 
             panel4.Controls.Add(txtCantidad);
@@ -406,62 +417,51 @@
             lblCantidad.TabIndex = 4;
             lblCantidad.Text = "Cantidad";
             // 
-            // panel5
+            // tbCodigoProducto
             // 
-            panel5.Controls.Add(txtPrecioCosto);
-            panel5.Controls.Add(lblDescripcion);
-            panel5.Location = new Point(0, 88);
-            panel5.Margin = new Padding(0);
-            panel5.Name = "panel5";
-            panel5.Padding = new Padding(23, 0, 23, 0);
-            panel5.Size = new Size(632, 104);
-            panel5.TabIndex = 24;
+            tbCodigoProducto.AnimateReadOnly = false;
+            tbCodigoProducto.AutoCompleteMode = AutoCompleteMode.None;
+            tbCodigoProducto.AutoCompleteSource = AutoCompleteSource.None;
+            tbCodigoProducto.BackgroundImageLayout = ImageLayout.None;
+            tbCodigoProducto.CharacterCasing = CharacterCasing.Normal;
+            tbCodigoProducto.Depth = 0;
+            tbCodigoProducto.Dock = DockStyle.Fill;
+            tbCodigoProducto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbCodigoProducto.HideSelection = true;
+            tbCodigoProducto.LeadingIcon = null;
+            tbCodigoProducto.Location = new Point(23, 19);
+            tbCodigoProducto.Margin = new Padding(3, 4, 30, 4);
+            tbCodigoProducto.MaxLength = 32767;
+            tbCodigoProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbCodigoProducto.Name = "tbCodigoProducto";
+            tbCodigoProducto.Padding = new Padding(10, 11, 10, 11);
+            tbCodigoProducto.PasswordChar = '\0';
+            tbCodigoProducto.PrefixSuffixText = null;
+            tbCodigoProducto.ReadOnly = false;
+            tbCodigoProducto.RightToLeft = RightToLeft.No;
+            tbCodigoProducto.SelectedText = "";
+            tbCodigoProducto.SelectionLength = 0;
+            tbCodigoProducto.SelectionStart = 0;
+            tbCodigoProducto.ShortcutsEnabled = true;
+            tbCodigoProducto.Size = new Size(585, 48);
+            tbCodigoProducto.TabIndex = 0;
+            tbCodigoProducto.TabStop = false;
+            tbCodigoProducto.TextAlign = HorizontalAlignment.Left;
+            tbCodigoProducto.TrailingIcon = null;
+            tbCodigoProducto.UseSystemPasswordChar = false;
             // 
-            // txtPrecioCosto
+            // lblCodigoProducto
             // 
-            txtPrecioCosto.AnimateReadOnly = false;
-            txtPrecioCosto.AutoCompleteMode = AutoCompleteMode.None;
-            txtPrecioCosto.AutoCompleteSource = AutoCompleteSource.None;
-            txtPrecioCosto.BackgroundImageLayout = ImageLayout.None;
-            txtPrecioCosto.CharacterCasing = CharacterCasing.Normal;
-            txtPrecioCosto.Depth = 0;
-            txtPrecioCosto.Dock = DockStyle.Fill;
-            txtPrecioCosto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtPrecioCosto.HideSelection = true;
-            txtPrecioCosto.LeadingIcon = null;
-            txtPrecioCosto.Location = new Point(23, 19);
-            txtPrecioCosto.Margin = new Padding(3, 4, 30, 4);
-            txtPrecioCosto.MaxLength = 32767;
-            txtPrecioCosto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtPrecioCosto.Name = "txtPrecioCosto";
-            txtPrecioCosto.Padding = new Padding(10, 11, 10, 11);
-            txtPrecioCosto.PasswordChar = '\0';
-            txtPrecioCosto.PrefixSuffixText = null;
-            txtPrecioCosto.ReadOnly = false;
-            txtPrecioCosto.RightToLeft = RightToLeft.No;
-            txtPrecioCosto.SelectedText = "";
-            txtPrecioCosto.SelectionLength = 0;
-            txtPrecioCosto.SelectionStart = 0;
-            txtPrecioCosto.ShortcutsEnabled = true;
-            txtPrecioCosto.Size = new Size(586, 48);
-            txtPrecioCosto.TabIndex = 0;
-            txtPrecioCosto.TabStop = false;
-            txtPrecioCosto.TextAlign = HorizontalAlignment.Left;
-            txtPrecioCosto.TrailingIcon = null;
-            txtPrecioCosto.UseSystemPasswordChar = false;
-            // 
-            // lblDescripcion
-            // 
-            lblDescripcion.AutoSize = true;
-            lblDescripcion.Depth = 0;
-            lblDescripcion.Dock = DockStyle.Top;
-            lblDescripcion.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblDescripcion.Location = new Point(23, 0);
-            lblDescripcion.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(94, 19);
-            lblDescripcion.TabIndex = 4;
-            lblDescripcion.Text = "Precio Costo ";
+            lblCodigoProducto.AutoSize = true;
+            lblCodigoProducto.Depth = 0;
+            lblCodigoProducto.Dock = DockStyle.Top;
+            lblCodigoProducto.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblCodigoProducto.Location = new Point(23, 0);
+            lblCodigoProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblCodigoProducto.Name = "lblCodigoProducto";
+            lblCodigoProducto.Size = new Size(55, 19);
+            lblCodigoProducto.TabIndex = 4;
+            lblCodigoProducto.Text = "Codigo ";
             // 
             // UCComprasAdd
             // 
@@ -483,12 +483,12 @@
             tableLayoutPanel5.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
             ResumeLayout(false);
         }
 
