@@ -30,16 +30,18 @@
         {
             materialExpansionPanel1 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             panel2 = new Panel();
-            groupBox3 = new GroupBox();
-            tableLayoutPanel3 = new TableLayoutPanel();
+            groupBox1 = new GroupBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            panel6 = new Panel();
+            materialTextBoxEdit1 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
+            tableLayoutPanel5 = new TableLayoutPanel();
             panel5 = new Panel();
             txtDescripcion = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblDescripcion = new ReaLTaiizor.Controls.MaterialLabel();
             panel4 = new Panel();
             txtTipo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblTipo = new ReaLTaiizor.Controls.MaterialLabel();
-            groupBox1 = new GroupBox();
-            tableLayoutPanel5 = new TableLayoutPanel();
             panel1 = new Panel();
             txtNombre = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblNombre = new ReaLTaiizor.Controls.MaterialLabel();
@@ -48,12 +50,12 @@
             lblCodigo = new ReaLTaiizor.Controls.MaterialLabel();
             materialExpansionPanel1.SuspendLayout();
             panel2.SuspendLayout();
-            groupBox3.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
+            groupBox1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            panel6.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
-            groupBox1.SuspendLayout();
-            tableLayoutPanel5.SuspendLayout();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -81,7 +83,6 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(groupBox3);
             panel2.Controls.Add(groupBox1);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(21, 48);
@@ -89,43 +90,118 @@
             panel2.Size = new Size(1110, 544);
             panel2.TabIndex = 12;
             // 
-            // groupBox3
+            // groupBox1
             // 
-            groupBox3.Controls.Add(tableLayoutPanel3);
-            groupBox3.Dock = DockStyle.Top;
-            groupBox3.Location = new Point(0, 100);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1110, 100);
-            groupBox3.TabIndex = 32;
-            groupBox3.TabStop = false;
+            groupBox1.Controls.Add(tableLayoutPanel1);
+            groupBox1.Controls.Add(tableLayoutPanel5);
+            groupBox1.Dock = DockStyle.Top;
+            groupBox1.Location = new Point(0, 0);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1110, 264);
+            groupBox1.TabIndex = 30;
+            groupBox1.TabStop = false;
             // 
-            // tableLayoutPanel3
+            // tableLayoutPanel1
             // 
-            tableLayoutPanel3.ColumnCount = 2;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Controls.Add(panel5, 1, 0);
-            tableLayoutPanel3.Controls.Add(panel4, 0, 0);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 19);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 1;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 82F));
-            tableLayoutPanel3.Size = new Size(1104, 78);
-            tableLayoutPanel3.TabIndex = 27;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(panel6, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Bottom;
+            tableLayoutPanel1.Location = new Point(3, 185);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(1104, 76);
+            tableLayoutPanel1.TabIndex = 31;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(materialTextBoxEdit1);
+            panel6.Controls.Add(materialLabel1);
+            panel6.Dock = DockStyle.Fill;
+            panel6.Location = new Point(0, 0);
+            panel6.Margin = new Padding(0);
+            panel6.Name = "panel6";
+            panel6.Padding = new Padding(20, 0, 20, 0);
+            panel6.Size = new Size(1104, 76);
+            panel6.TabIndex = 25;
+            // 
+            // materialTextBoxEdit1
+            // 
+            materialTextBoxEdit1.AnimateReadOnly = false;
+            materialTextBoxEdit1.AutoCompleteMode = AutoCompleteMode.None;
+            materialTextBoxEdit1.AutoCompleteSource = AutoCompleteSource.None;
+            materialTextBoxEdit1.BackgroundImageLayout = ImageLayout.None;
+            materialTextBoxEdit1.CharacterCasing = CharacterCasing.Normal;
+            materialTextBoxEdit1.Depth = 0;
+            materialTextBoxEdit1.Dock = DockStyle.Fill;
+            materialTextBoxEdit1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTextBoxEdit1.HideSelection = true;
+            materialTextBoxEdit1.LeadingIcon = null;
+            materialTextBoxEdit1.Location = new Point(20, 19);
+            materialTextBoxEdit1.Margin = new Padding(3, 3, 26, 3);
+            materialTextBoxEdit1.MaxLength = 32767;
+            materialTextBoxEdit1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialTextBoxEdit1.Name = "materialTextBoxEdit1";
+            materialTextBoxEdit1.Padding = new Padding(9, 8, 9, 8);
+            materialTextBoxEdit1.PasswordChar = '\0';
+            materialTextBoxEdit1.PrefixSuffixText = null;
+            materialTextBoxEdit1.ReadOnly = false;
+            materialTextBoxEdit1.RightToLeft = RightToLeft.No;
+            materialTextBoxEdit1.SelectedText = "";
+            materialTextBoxEdit1.SelectionLength = 0;
+            materialTextBoxEdit1.SelectionStart = 0;
+            materialTextBoxEdit1.ShortcutsEnabled = true;
+            materialTextBoxEdit1.Size = new Size(1064, 48);
+            materialTextBoxEdit1.TabIndex = 0;
+            materialTextBoxEdit1.TabStop = false;
+            materialTextBoxEdit1.TextAlign = HorizontalAlignment.Left;
+            materialTextBoxEdit1.TrailingIcon = null;
+            materialTextBoxEdit1.UseSystemPasswordChar = false;
+            // 
+            // materialLabel1
+            // 
+            materialLabel1.AutoSize = true;
+            materialLabel1.Depth = 0;
+            materialLabel1.Dock = DockStyle.Top;
+            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.Location = new Point(20, 0);
+            materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(84, 19);
+            materialLabel1.TabIndex = 4;
+            materialLabel1.Text = "Descripción";
+            // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.ColumnCount = 2;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel5.Controls.Add(panel5, 1, 1);
+            tableLayoutPanel5.Controls.Add(panel4, 0, 1);
+            tableLayoutPanel5.Controls.Add(panel1, 1, 0);
+            tableLayoutPanel5.Controls.Add(panel3, 0, 0);
+            tableLayoutPanel5.Dock = DockStyle.Fill;
+            tableLayoutPanel5.Location = new Point(3, 19);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 2;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle());
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 82F));
+            tableLayoutPanel5.Size = new Size(1104, 242);
+            tableLayoutPanel5.TabIndex = 29;
             // 
             // panel5
             // 
             panel5.Controls.Add(txtDescripcion);
             panel5.Controls.Add(lblDescripcion);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(552, 0);
+            panel5.Location = new Point(552, 82);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
             panel5.Padding = new Padding(20, 0, 20, 0);
-            panel5.Size = new Size(552, 78);
-            panel5.TabIndex = 23;
+            panel5.Size = new Size(552, 160);
+            panel5.TabIndex = 24;
             // 
             // txtDescripcion
             // 
@@ -169,21 +245,21 @@
             lblDescripcion.Location = new Point(20, 0);
             lblDescripcion.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(84, 19);
+            lblDescripcion.Size = new Size(65, 19);
             lblDescripcion.TabIndex = 4;
-            lblDescripcion.Text = "Descripción";
+            lblDescripcion.Text = "Cantidad";
             // 
             // panel4
             // 
             panel4.Controls.Add(txtTipo);
             panel4.Controls.Add(lblTipo);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(0, 0);
+            panel4.Location = new Point(0, 82);
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(20, 0, 20, 0);
-            panel4.Size = new Size(552, 78);
-            panel4.TabIndex = 22;
+            panel4.Size = new Size(552, 160);
+            panel4.TabIndex = 23;
             // 
             // txtTipo
             // 
@@ -230,32 +306,6 @@
             lblTipo.Size = new Size(33, 19);
             lblTipo.TabIndex = 4;
             lblTipo.Text = "Tipo";
-            // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(tableLayoutPanel5);
-            groupBox1.Dock = DockStyle.Top;
-            groupBox1.Location = new Point(0, 0);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1110, 100);
-            groupBox1.TabIndex = 30;
-            groupBox1.TabStop = false;
-            // 
-            // tableLayoutPanel5
-            // 
-            tableLayoutPanel5.ColumnCount = 2;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Controls.Add(panel1, 1, 0);
-            tableLayoutPanel5.Controls.Add(panel3, 0, 0);
-            tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(3, 19);
-            tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 1;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 82F));
-            tableLayoutPanel5.Size = new Size(1104, 78);
-            tableLayoutPanel5.TabIndex = 29;
             // 
             // panel1
             // 
@@ -384,14 +434,15 @@
             materialExpansionPanel1.ResumeLayout(false);
             materialExpansionPanel1.PerformLayout();
             panel2.ResumeLayout(false);
-            groupBox3.ResumeLayout(false);
-            tableLayoutPanel3.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            tableLayoutPanel5.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            groupBox1.ResumeLayout(false);
-            tableLayoutPanel5.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
@@ -403,14 +454,6 @@
 
         private ReaLTaiizor.Controls.MaterialExpansionPanel materialExpansionPanel1;
         private Panel panel2;
-        private GroupBox groupBox3;
-        private TableLayoutPanel tableLayoutPanel3;
-        private Panel panel5;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDescripcion;
-        private ReaLTaiizor.Controls.MaterialLabel lblDescripcion;
-        private Panel panel4;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTipo;
-        private ReaLTaiizor.Controls.MaterialLabel lblTipo;
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel5;
         private Panel panel1;
@@ -419,5 +462,15 @@
         private Panel panel3;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbCodigo;
         private ReaLTaiizor.Controls.MaterialLabel lblCodigo;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Panel panel6;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit1;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
+        private Panel panel5;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtDescripcion;
+        private ReaLTaiizor.Controls.MaterialLabel lblDescripcion;
+        private Panel panel4;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTipo;
+        private ReaLTaiizor.Controls.MaterialLabel lblTipo;
     }
 }
