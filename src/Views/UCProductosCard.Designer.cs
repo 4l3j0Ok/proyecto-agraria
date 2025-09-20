@@ -60,9 +60,9 @@
             panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(lblNombreProducto);
             panel1.Location = new Point(80, 10);
-            panel1.Margin = new Padding(10, 10, 10, 10);
+            panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(5, 5, 5, 5);
+            panel1.Padding = new Padding(5);
             panel1.Size = new Size(525, 50);
             panel1.TabIndex = 4;
             // 
@@ -138,7 +138,7 @@
             parrotPictureBox1.IsElipse = true;
             parrotPictureBox1.IsParallax = false;
             parrotPictureBox1.Location = new Point(10, 10);
-            parrotPictureBox1.Margin = new Padding(10, 10, 10, 10);
+            parrotPictureBox1.Margin = new Padding(10);
             parrotPictureBox1.Name = "parrotPictureBox1";
             parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             parrotPictureBox1.Size = new Size(50, 50);

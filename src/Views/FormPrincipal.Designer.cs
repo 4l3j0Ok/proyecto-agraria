@@ -295,6 +295,7 @@ namespace GestionAgraria
             btnAddProduct.TabIndex = 2;
             btnAddProduct.Text = "Agregar Producto";
             btnAddProduct.UseVisualStyleBackColor = true;
+            btnAddProduct.Click += btnAddProduct_Click;
             // 
             // tabCompras
             // 
@@ -319,6 +320,7 @@ namespace GestionAgraria
             btnAddCompras.TabIndex = 3;
             btnAddCompras.Text = "Agregar Producto";
             btnAddCompras.UseVisualStyleBackColor = true;
+            btnAddCompras.Click += btnAddCompras_Click;
             // 
             // tabVentas
             // 
@@ -343,6 +345,7 @@ namespace GestionAgraria
             btnAddVentas.TabIndex = 4;
             btnAddVentas.Text = "Agregar Producto";
             btnAddVentas.UseVisualStyleBackColor = true;
+            btnAddVentas.Click += btnAddVentas_Click;
             // 
             // tabEntorno
             // 
