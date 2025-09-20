@@ -16,8 +16,6 @@ namespace GestionAgraria.Views
     {
         private UserModel _user;
 
-        public event EventHandler<UserModel> UserCardClicked;
-
         public UCUserCard(UserModel user)
         {
             InitializeComponent();
@@ -27,8 +25,6 @@ namespace GestionAgraria.Views
             lblUserUsername.Text = user.Username;
             lblUserArea.Text = user.Role?.Name ?? "Sin rol";
             lblUserPhone.Text = user.Phone;
-
-            // Configurar el evento click para el UserControl y todos sus controles hijos
             SetupClickEvent();
         }
 
@@ -57,10 +53,8 @@ namespace GestionAgraria.Views
             }
         }
 
-        private void OnUserCardClick(object sender, EventArgs e)
+        private void OnUserCardClick(object? sender, EventArgs? e)
         {
-            // Disparar el evento personalizado
-            UserCardClicked?.Invoke(this, _user);
 
             // Comportamiento por defecto
             OpenFormAdd(_user);
