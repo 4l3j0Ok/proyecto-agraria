@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionAgraria.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace GestionAgraria.Views
 {
     public partial class UCVegetalCard : UserControl
     {
-        public UCVegetalCard()
+        public UCVegetalCard(VegetalModel vegetal)
         {
             InitializeComponent();
+            lblPlantType.Text = vegetal.PlantType;
+            lblPlantQuantity.Text = vegetal.Quantity.ToString();
         }
     }
 }

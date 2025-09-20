@@ -40,34 +40,6 @@ namespace GestionAgraria.data
                 .HasForeignKey(fe => fe.ResponsibleUserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Configuración de la relación Animal-FormativeEnvironment
-            modelBuilder.Entity<AnimalModel>()
-                .HasOne(a => a.FormativeEnvironment)
-                .WithMany()
-                .HasForeignKey(a => a.FormativeEnvironmentId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Configuración de la relación Animal-CreatedByUser
-            modelBuilder.Entity<AnimalModel>()
-                .HasOne(a => a.CreatedBy)
-                .WithMany()
-                .HasForeignKey(a => a.CreatedByUserId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Configuración de la relación Vegetal-FormativeEnvironment
-            modelBuilder.Entity<VegetalModel>()
-                .HasOne(v => v.FormativeEnvironment)
-                .WithMany()
-                .HasForeignKey(v => v.FormativeEnvironmentId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Configuración de la relación Vegetal-CreatedByUser
-            modelBuilder.Entity<VegetalModel>()
-                .HasOne(v => v.CreatedBy)
-                .WithMany()
-                .HasForeignKey(v => v.CreatedByUserId)
-                .OnDelete(DeleteBehavior.Restrict);
-
             // Configuración de índices únicos
             modelBuilder.Entity<UserModel>()
                 .HasIndex(u => u.Username)

@@ -20,13 +20,13 @@
     <Compile Update="Views\UCComprasAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCEntornoAdd.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Views\UCAnimalAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCEntornoCard.cs">
+    <Compile Update="Views\UCFormativeEnvironmentCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UCFormativeEnvironmentAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UCPizarronAdd.cs">

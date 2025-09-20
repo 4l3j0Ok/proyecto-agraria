@@ -1,6 +1,6 @@
 ﻿namespace GestionAgraria.Views
 {
-    partial class UCEntornoAdd
+    partial class UCFormativeEnvironmentAdd
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -589,12 +589,12 @@
             materialExpansionPanel1.Title = "Agregar Entorno Formativo";
             materialExpansionPanel1.ValidationButtonText = "Guardar";
             // 
-            // UCEntornoAdd
+            // UCFormativeEnvironmentAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(materialExpansionPanel1);
-            Name = "UCEntornoAdd";
+            Name = "UCFormativeEnvironmentAdd";
             Size = new Size(988, 478);
             tableLayoutPanel2.ResumeLayout(false);
             panel2.ResumeLayout(false);

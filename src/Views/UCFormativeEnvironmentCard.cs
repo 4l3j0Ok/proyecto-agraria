@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestionAgraria.models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,9 +11,9 @@ using System.Windows.Forms;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCEntornoAdd : UserControl
+    public partial class UCFormativeEnvironmentCard : UserControl
     {
-        public UCEntornoAdd()
+        public UCFormativeEnvironmentCard(FormativeEnvironmentModel formativeEnvironment)
         {
             InitializeComponent();
         }

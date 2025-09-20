@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCEntornoCard : UserControl
+    public partial class UCFormativeEnvironmentAdd : UserControl
     {
-        public UCEntornoCard()
+        public UCFormativeEnvironmentAdd()
         {
             InitializeComponent();
         }

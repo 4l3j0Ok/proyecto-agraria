@@ -416,7 +416,6 @@ namespace GestionAgraria
         private TableLayoutPanel tableLayoutPanel1;
         private PictureBox pictureBox1;
         private ReaLTaiizor.Controls.MaterialLabel lblWelcome;
-        private ReaLTaiizor.Controls.MaterialTabControl tcPrincipal;
         private TabPage tabIndustryArea;
         private TabPage tabAnimalArea;
         private DataGridView dataGridView1;

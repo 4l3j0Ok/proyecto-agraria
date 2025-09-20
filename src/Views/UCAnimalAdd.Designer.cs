@@ -593,7 +593,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(materialExpansionPanel1);
             Name = "UCAnimalAdd";
-            Size = new Size(1317, 805);
+            Size = new Size(1152, 430);
             materialExpansionPanel1.ResumeLayout(false);
             materialExpansionPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);

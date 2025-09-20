@@ -54,7 +54,7 @@ namespace GestionAgraria.Views
             materialLabel6 = new MaterialLabel();
             panel3 = new System.Windows.Forms.Panel();
             tbUsuario = new MaterialTextBoxEdit();
-            lblTipoPlanta = new MaterialLabel();
+            //lblUsuario = new MaterialLabel();
             materialExpansionPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();

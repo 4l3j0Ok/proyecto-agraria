@@ -8,14 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionAgraria.models;
+using GestionAgraria.Models;
 
 namespace GestionAgraria.Views
 {
     public partial class UCAnimalCard : UserControl
     {
-        public UCAnimalCard()
+        public UCAnimalCard(AnimalModel animal)
         {
             InitializeComponent();
+            lblType.Text = animal.AnimalType;
+            lblCode.Text = animal.Code;
+            lblProductiveState.Text = animal.ProductiveState;
         }
     }
 }
