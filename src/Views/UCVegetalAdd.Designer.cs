@@ -54,7 +54,6 @@ namespace GestionAgraria.Views
             materialLabel6 = new MaterialLabel();
             panel3 = new System.Windows.Forms.Panel();
             tbUsuario = new MaterialTextBoxEdit();
-            //lblUsuario = new MaterialLabel();
             materialExpansionPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
@@ -272,7 +271,6 @@ namespace GestionAgraria.Views
             // panel3
             // 
             panel3.Controls.Add(tbUsuario);
-            panel3.Controls.Add(lblTipoPlanta);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 0);
             panel3.Margin = new Padding(0);
@@ -293,7 +291,7 @@ namespace GestionAgraria.Views
             tbUsuario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbUsuario.HideSelection = true;
             tbUsuario.LeadingIcon = null;
-            tbUsuario.Location = new Point(20, 19);
+            tbUsuario.Location = new Point(20, 0);
             tbUsuario.Margin = new Padding(3, 3, 26, 3);
             tbUsuario.MaxLength = 32767;
             tbUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -313,19 +311,6 @@ namespace GestionAgraria.Views
             tbUsuario.TextAlign = HorizontalAlignment.Left;
             tbUsuario.TrailingIcon = null;
             tbUsuario.UseSystemPasswordChar = false;
-            // 
-            // lblTipoPlanta
-            // 
-            lblTipoPlanta.AutoSize = true;
-            lblTipoPlanta.Depth = 0;
-            lblTipoPlanta.Dock = DockStyle.Top;
-            lblTipoPlanta.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblTipoPlanta.Location = new Point(20, 0);
-            lblTipoPlanta.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblTipoPlanta.Name = "lblTipoPlanta";
-            lblTipoPlanta.Size = new Size(104, 19);
-            lblTipoPlanta.TabIndex = 4;
-            lblTipoPlanta.Text = "Tipo de Planta";
             // 
             // UCVegetalAdd
             // 
@@ -348,7 +333,6 @@ namespace GestionAgraria.Views
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
             panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             ResumeLayout(false);
         }
 

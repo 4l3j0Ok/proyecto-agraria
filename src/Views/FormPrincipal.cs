@@ -2,6 +2,7 @@
 using GestionAgraria.models;
 using GestionAgraria.Models;
 using GestionAgraria.Views;
+using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -26,10 +27,6 @@ namespace GestionAgraria
             LoadFormativeEnvironments();
         }
 
-        private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
         private void LoadUsersTable()
         {
             using var userController = new UserController();
@@ -39,12 +36,6 @@ namespace GestionAgraria
             {
                 UCUserCard userCard = new UCUserCard(user: user);
                 userCard.Dock = DockStyle.Top;
-                userCard.Click += (s, e) =>
-                {
-                    Debug.WriteLine($"User card clicked: {user.Name}");
-                    UCUserAdd userEditControl = new UCUserAdd(user);
-                    VerFormularioTab(userEditControl);
-                };
                 tabUsers.Controls.Add(userCard);
             }
         }
@@ -86,32 +77,31 @@ namespace GestionAgraria
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             UCUserAdd userAddControl = new UCUserAdd();
-            VerFormularioTab(userAddControl);
+            VerFormularioTab(userAddControl, tabUsers);
         }
         private void btnAddEntorno_Click(object sender, EventArgs e)
         {
             UCFormativeEnvironmentAdd AddControl = new UCFormativeEnvironmentAdd();
-            this.VerFormularioTab(AddControl);
+            this.VerFormularioTab(AddControl, tabEntorno);
         }
 
         private void btnAddAnimal_Click(object sender, EventArgs e)
         {
             UCAnimalAdd AddControl = new UCAnimalAdd();
-            this.VerFormularioTab(AddControl);
+            this.VerFormularioTab(AddControl, tabAnimalArea);
         }
 
-        private void VerFormularioTab(UserControl uc)
+        public void VerFormularioTab(UserControl uc, System.Windows.Forms.TabPage tabPage)
         {
             uc.Dock = DockStyle.Fill;
-            TabPage currentTab = tcPrincipal.SelectedTab;
-            currentTab.Controls.Clear();
-            currentTab.Controls.Add(uc);
+            tabPage.Controls.Clear();
+            tabPage.Controls.Add(uc);
         }
 
         private void btnAddPlanta_Click(object sender, EventArgs e)
         {
             UCVegetalAdd AddControl = new UCVegetalAdd();
-            this.VerFormularioTab(AddControl);
+            this.VerFormularioTab(AddControl, tabVegetablesArea);
         }
     }
 }

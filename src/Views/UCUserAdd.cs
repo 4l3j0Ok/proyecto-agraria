@@ -15,28 +15,13 @@ namespace GestionAgraria.Views
     public partial class UCUserAdd : UserControl
     {
         private UserController userController;
+        private UserModel currentUser;
 
         public UCUserAdd(UserModel user = null)
         {
             InitializeComponent();
             userController = new UserController();
-            LoadRoles();
-        }
-
-        private void LoadRoles()
-        {
-            try
-            {
-                var roles = userController.GetAllRoles();
-                // Aquí cargarías los roles en un ComboBox o similar
-                // Ejemplo: cbRoles.DataSource = roles;
-                // cbRoles.DisplayMember = "Name";
-                // cbRoles.ValueMember = "Id";
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar roles: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            currentUser = user;
         }
     }
 }

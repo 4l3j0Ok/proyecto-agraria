@@ -222,7 +222,6 @@ namespace GestionAgraria
             tcPrincipal.SelectedIndex = 0;
             tcPrincipal.Size = new Size(794, 533);
             tcPrincipal.TabIndex = 0;
-            tcPrincipal.SelectedIndexChanged += tcPrincipal_SelectedIndexChanged;
             // 
             // tabAnimalArea
             // 
@@ -296,7 +295,6 @@ namespace GestionAgraria
             btnAddProduct.TabIndex = 2;
             btnAddProduct.Text = "Agregar Producto";
             btnAddProduct.UseVisualStyleBackColor = true;
-            btnAddProduct.Click += btnAddProduct_Click_1;
             // 
             // tabCompras
             // 
@@ -321,7 +319,6 @@ namespace GestionAgraria
             btnAddCompras.TabIndex = 3;
             btnAddCompras.Text = "Agregar Producto";
             btnAddCompras.UseVisualStyleBackColor = true;
-            btnAddCompras.Click += btnAddCompras_Click;
             // 
             // tabVentas
             // 
@@ -346,7 +343,6 @@ namespace GestionAgraria
             btnAddVentas.TabIndex = 4;
             btnAddVentas.Text = "Agregar Producto";
             btnAddVentas.UseVisualStyleBackColor = true;
-            btnAddVentas.Click += btnAddVentas_Click;
             // 
             // tabEntorno
             // 
@@ -410,7 +406,6 @@ namespace GestionAgraria
 
         #endregion
         private ImageList imgList;
-        private TabPage tabUsers;
         private TabPage tabVegetablesArea;
         private TabPage tabHome;
         private TableLayoutPanel tableLayoutPanel1;
@@ -431,5 +426,7 @@ namespace GestionAgraria
         private TabPage tabVentas;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddCompras;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddVentas;
+        public ReaLTaiizor.Controls.MaterialTabControl tcPrincipal;
+        public TabPage tabUsers;
     }
 }
