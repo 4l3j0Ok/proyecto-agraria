@@ -63,7 +63,6 @@ namespace GestionAgraria
             btnAddVentas = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabEntorno = new TabPage();
             btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            tabPizarron = new TabPage();
             tabUsers.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
             tabHome.SuspendLayout();
@@ -95,7 +94,6 @@ namespace GestionAgraria
             imgList.Images.SetKeyName(8, "Abeja (2).png");
             imgList.Images.SetKeyName(9, "Conejo (2).png");
             imgList.Images.SetKeyName(10, "userGroup.png");
-            imgList.Images.SetKeyName(11, "Pizarron.png");
             // 
             // tabUsers
             // 
@@ -214,7 +212,6 @@ namespace GestionAgraria
             tcPrincipal.Controls.Add(tabIndustryArea);
             tcPrincipal.Controls.Add(tabUsers);
             tcPrincipal.Controls.Add(tabEntorno);
-            tcPrincipal.Controls.Add(tabPizarron);
             tcPrincipal.Depth = 0;
             tcPrincipal.Dock = DockStyle.Fill;
             tcPrincipal.ImageList = imgList;
@@ -225,7 +222,6 @@ namespace GestionAgraria
             tcPrincipal.SelectedIndex = 0;
             tcPrincipal.Size = new Size(794, 533);
             tcPrincipal.TabIndex = 0;
-            tcPrincipal.SelectedIndexChanged += tcPrincipal_SelectedIndexChanged;
             // 
             // tabAnimalArea
             // 
@@ -299,7 +295,7 @@ namespace GestionAgraria
             btnAddProduct.TabIndex = 2;
             btnAddProduct.Text = "Agregar Producto";
             btnAddProduct.UseVisualStyleBackColor = true;
-            btnAddProduct.Click += btnAddProduct_Click_1;
+            btnAddProduct.Click += btnAddProduct_Click;
             // 
             // tabCompras
             // 
@@ -377,17 +373,6 @@ namespace GestionAgraria
             btnAddEntorno.UseVisualStyleBackColor = true;
             btnAddEntorno.Click += btnAddEntorno_Click;
             // 
-            // tabPizarron
-            // 
-            tabPizarron.ImageIndex = 11;
-            tabPizarron.Location = new Point(4, 24);
-            tabPizarron.Name = "tabPizarron";
-            tabPizarron.Padding = new Padding(3);
-            tabPizarron.Size = new Size(786, 505);
-            tabPizarron.TabIndex = 7;
-            tabPizarron.Text = "Pizarron";
-            tabPizarron.UseVisualStyleBackColor = true;
-            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -424,13 +409,11 @@ namespace GestionAgraria
 
         #endregion
         private ImageList imgList;
-        private TabPage tabUsers;
         private TabPage tabVegetablesArea;
         private TabPage tabHome;
         private TableLayoutPanel tableLayoutPanel1;
         private PictureBox pictureBox1;
         private ReaLTaiizor.Controls.MaterialLabel lblWelcome;
-        private ReaLTaiizor.Controls.MaterialTabControl tcPrincipal;
         private TabPage tabIndustryArea;
         private TabPage tabAnimalArea;
         private DataGridView dataGridView1;
@@ -446,6 +429,7 @@ namespace GestionAgraria
         private TabPage tabVentas;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddCompras;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddVentas;
-        private TabPage tabPizarron;
+        public ReaLTaiizor.Controls.MaterialTabControl tcPrincipal;
+        public TabPage tabUsers;
     }
 }

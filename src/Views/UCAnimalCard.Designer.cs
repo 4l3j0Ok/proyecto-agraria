@@ -30,9 +30,9 @@
         {
             panel1 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
-            lbl_Codigo = new ReaLTaiizor.Controls.MaterialLabel();
-            lblEProductivo = new ReaLTaiizor.Controls.MaterialLabel();
-            lblEspecie = new ReaLTaiizor.Controls.MaterialLabel();
+            lblCode = new ReaLTaiizor.Controls.MaterialLabel();
+            lblProductiveState = new ReaLTaiizor.Controls.MaterialLabel();
+            lblType = new ReaLTaiizor.Controls.MaterialLabel();
             parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -41,9 +41,9 @@
             // panel1
             // 
             panel1.Controls.Add(tableLayoutPanel2);
-            panel1.Controls.Add(lblEspecie);
-            panel1.Location = new Point(90, 13);
-            panel1.Margin = new Padding(11, 13, 11, 13);
+            panel1.Controls.Add(lblType);
+            panel1.Location = new Point(79, 10);
+            panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(6, 7, 6, 7);
             panel1.Size = new Size(602, 67);
@@ -55,8 +55,8 @@
             tableLayoutPanel2.ColumnCount = 2;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel2.Controls.Add(lbl_Codigo, 0, 0);
-            tableLayoutPanel2.Controls.Add(lblEProductivo, 1, 0);
+            tableLayoutPanel2.Controls.Add(lblCode, 0, 0);
+            tableLayoutPanel2.Controls.Add(lblProductiveState, 1, 0);
             tableLayoutPanel2.Dock = DockStyle.Top;
             tableLayoutPanel2.Location = new Point(6, 26);
             tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
@@ -66,48 +66,48 @@
             tableLayoutPanel2.Size = new Size(590, 14);
             tableLayoutPanel2.TabIndex = 1;
             // 
-            // lbl_Codigo
+            // lblCode
             // 
-            lbl_Codigo.AutoSize = true;
-            lbl_Codigo.Depth = 0;
-            lbl_Codigo.Dock = DockStyle.Fill;
-            lbl_Codigo.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-            lbl_Codigo.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lbl_Codigo.Location = new Point(3, 0);
-            lbl_Codigo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lbl_Codigo.Name = "lbl_Codigo";
-            lbl_Codigo.Size = new Size(289, 14);
-            lbl_Codigo.TabIndex = 6;
-            lbl_Codigo.Text = "Código";
+            lblCode.AutoSize = true;
+            lblCode.Depth = 0;
+            lblCode.Dock = DockStyle.Fill;
+            lblCode.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            lblCode.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
+            lblCode.Location = new Point(3, 0);
+            lblCode.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblCode.Name = "lblCode";
+            lblCode.Size = new Size(252, 14);
+            lblCode.TabIndex = 6;
+            lblCode.Text = "Código";
             // 
-            // lblEProductivo
+            // lblProductiveState
             // 
-            lblEProductivo.AutoSize = true;
-            lblEProductivo.Depth = 0;
-            lblEProductivo.Dock = DockStyle.Fill;
-            lblEProductivo.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-            lblEProductivo.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblEProductivo.Location = new Point(298, 0);
-            lblEProductivo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEProductivo.Name = "lblEProductivo";
-            lblEProductivo.Size = new Size(289, 14);
-            lblEProductivo.TabIndex = 5;
-            lblEProductivo.Text = "Entorno Productivo";
-            lblEProductivo.TextAlign = ContentAlignment.TopCenter;
+            lblProductiveState.AutoSize = true;
+            lblProductiveState.Depth = 0;
+            lblProductiveState.Dock = DockStyle.Fill;
+            lblProductiveState.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            lblProductiveState.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
+            lblProductiveState.Location = new Point(261, 0);
+            lblProductiveState.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblProductiveState.Name = "lblProductiveState";
+            lblProductiveState.Size = new Size(253, 14);
+            lblProductiveState.TabIndex = 5;
+            lblProductiveState.Text = "Estado Productivo";
+            lblProductiveState.TextAlign = ContentAlignment.TopCenter;
             // 
-            // lblEspecie
+            // lblType
             // 
-            lblEspecie.AutoSize = true;
-            lblEspecie.Depth = 0;
-            lblEspecie.Dock = DockStyle.Top;
-            lblEspecie.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblEspecie.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Subtitle1;
-            lblEspecie.Location = new Point(6, 7);
-            lblEspecie.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEspecie.Name = "lblEspecie";
-            lblEspecie.Size = new Size(55, 19);
-            lblEspecie.TabIndex = 0;
-            lblEspecie.Text = "Especie";
+            lblType.AutoSize = true;
+            lblType.Depth = 0;
+            lblType.Dock = DockStyle.Top;
+            lblType.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblType.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Subtitle1;
+            lblType.Location = new Point(5, 5);
+            lblType.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblType.Name = "lblType";
+            lblType.Size = new Size(55, 19);
+            lblType.TabIndex = 0;
+            lblType.Text = "Especie";
             // 
             // parrotPictureBox1
             // 
@@ -150,9 +150,9 @@
 
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel2;
-        public ReaLTaiizor.Controls.MaterialLabel lbl_Codigo;
-        public ReaLTaiizor.Controls.MaterialLabel lblEProductivo;
-        public ReaLTaiizor.Controls.MaterialLabel lblEspecie;
+        public ReaLTaiizor.Controls.MaterialLabel lblCode;
+        public ReaLTaiizor.Controls.MaterialLabel lblProductiveState;
+        public ReaLTaiizor.Controls.MaterialLabel lblType;
         private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox1;
     }
 }

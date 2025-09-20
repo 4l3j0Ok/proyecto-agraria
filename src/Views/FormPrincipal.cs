@@ -1,13 +1,11 @@
 ﻿using GestionAgraria.controllers;
-using GestionAgraria.data;
 using GestionAgraria.models;
+using GestionAgraria.Models;
 using GestionAgraria.Views;
-using ReaLTaiizor.Colors;
 using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
-using System.Data;
+using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace GestionAgraria
 {
@@ -23,15 +21,10 @@ namespace GestionAgraria
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            System.Windows.Forms.TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
-            this.Text = selectedTab.Text;
             LoadUsersTable();
-        }
-
-        private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            System.Windows.Forms.TabPage selectedTab = tcPrincipal.SelectedTab ?? throw new InvalidOperationException("No se seleccionó ninguna pestaña.");
-            this.Text = selectedTab.Text;
+            LoadVegetablesTable();
+            LoadAnimalsTable();
+            LoadFormativeEnvironments();
         }
 
         private void LoadUsersTable()
@@ -46,57 +39,87 @@ namespace GestionAgraria
                 tabUsers.Controls.Add(userCard);
             }
         }
+        private void LoadVegetablesTable()
+        {
+            using var vegetalController = new VegetalController();
+            List<VegetalModel> vegetals = vegetalController.GetAllVegetables();
+            foreach (VegetalModel vegetal in vegetals)
+            {
+                UCVegetalCard vegetalCard = new UCVegetalCard(vegetal: vegetal);
+                vegetalCard.Dock = DockStyle.Top;
+                tabVegetablesArea.Controls.Add(vegetalCard);
+            }
+        }
+        private void LoadAnimalsTable()
+        {
+            using var animalController = new AnimalController();
+            List<AnimalModel> animals = animalController.GetAllAnimals();
+            foreach (AnimalModel animal in animals)
+            {
+                UCAnimalCard animalCard = new UCAnimalCard(animal: animal);
+                animalCard.Dock = DockStyle.Top;
+                tabAnimalArea.Controls.Add(animalCard);
+            }
+        }
+        //TODO
+        private void LoadFormativeEnvironments()
+        {
+            using var environmentController = new FormativeEnvironmentController();
+            List<FormativeEnvironmentModel> formativeEnvironments = environmentController.GetAllFormativeEnvironments();
+            foreach (FormativeEnvironmentModel formativeEnvironment in formativeEnvironments)
+            {
+                UCFormativeEnvironmentCard formativeEnvironmentCard = new UCFormativeEnvironmentCard(formativeEnvironment: formativeEnvironment);
+                formativeEnvironmentCard.Dock = DockStyle.Top;
+                tabEntorno.Controls.Add(formativeEnvironmentCard);
+            }
+        }
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             UCUserAdd userAddControl = new UCUserAdd();
-            userAddControl.Dock = DockStyle.Fill;
-            tabUsers.Controls.Clear();
-            tabUsers.Controls.Add(userAddControl);
+            VerFormularioTab(userAddControl, tabUsers);
         }
         private void btnAddEntorno_Click(object sender, EventArgs e)
         {
-            UCEntornoAdd AddControl = new UCEntornoAdd();
-            VerFormularioTab(AddControl, tabEntorno);
+            UCFormativeEnvironmentAdd AddControl = new UCFormativeEnvironmentAdd();
+            this.VerFormularioTab(AddControl, tabEntorno);
         }
 
         private void btnAddAnimal_Click(object sender, EventArgs e)
         {
             UCAnimalAdd AddControl = new UCAnimalAdd();
-            VerFormularioTab(AddControl, tabAnimalArea);
+            this.VerFormularioTab(AddControl, tabAnimalArea);
         }
 
-        private void VerFormularioTab(UserControl uc, System.Windows.Forms.TabPage tab)
+        public void VerFormularioTab(UserControl uc, System.Windows.Forms.TabPage tabPage)
         {
-            UserControl ucUserControl = uc as UserControl;
-            ucUserControl.Dock = DockStyle.Fill;
-            tab.Controls.Clear();
-            tab.Controls.Add(ucUserControl);
+            uc.Dock = DockStyle.Fill;
+            tabPage.Controls.Clear();
+            tabPage.Controls.Add(uc);
         }
 
         private void btnAddPlanta_Click(object sender, EventArgs e)
         {
             UCVegetalAdd AddControl = new UCVegetalAdd();
-            VerFormularioTab(AddControl, tabVegetablesArea);
+            this.VerFormularioTab(AddControl, tabVegetablesArea);
         }
 
-
-        private void btnAddProduct_Click_1(object sender, EventArgs e)
+        private void btnAddProduct_Click(object sender, EventArgs e)
         {
             UCCargaProductosAdd AddControl = new UCCargaProductosAdd();
-            VerFormularioTab(AddControl, tabProduct);
+            this.VerFormularioTab(AddControl, tabProduct);
         }
 
         private void btnAddCompras_Click(object sender, EventArgs e)
         {
             UCComprasAdd AddControl = new UCComprasAdd();
-            VerFormularioTab(AddControl, tabCompras);
+            this.VerFormularioTab(AddControl, tabCompras);
         }
 
         private void btnAddVentas_Click(object sender, EventArgs e)
         {
             UCVentasAdd AddControl = new UCVentasAdd();
-            VerFormularioTab(AddControl, tabVentas);
+            this.VerFormularioTab(AddControl, tabVentas);
         }
     }
 }

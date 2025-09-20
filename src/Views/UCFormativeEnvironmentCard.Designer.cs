@@ -1,6 +1,6 @@
 ﻿namespace GestionAgraria.Views
 {
-    partial class UCEntornoCard
+    partial class UCFormativeEnvironmentCard
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -168,12 +168,12 @@
             lblUserName.TabIndex = 0;
             lblUserName.Text = "Nombre Entorno";
             // 
-            // UCEntornoCard
+            // UCFormativeEnvironmentCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
-            Name = "UCEntornoCard";
+            Name = "UCFormativeEnvironmentCard";
             Size = new Size(615, 70);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);

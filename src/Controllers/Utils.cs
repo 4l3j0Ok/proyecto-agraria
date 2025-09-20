@@ -22,5 +22,29 @@ namespace GestionAgraria
             }
             return password;
         }
+        public static void CardSetupClickEvent(Control obj, EventHandler OnUserCardClick)
+        {
+            // Agregar evento click al UserControl principal
+            obj.Click += OnUserCardClick;
+            obj.Cursor = Cursors.Hand; // Cambiar cursor para indicar que es clickeable
+
+            // Agregar evento click a todos los controles hijos recursivamente
+            Utils.CardAddClickEventToControls(obj.Controls, OnUserCardClick);
+        }
+
+        public static void CardAddClickEventToControls(Control.ControlCollection controls, EventHandler function)
+        {
+            foreach (Control control in controls)
+            {
+                control.Click += function;
+                control.Cursor = Cursors.Hand;
+
+                // Si el control tiene controles hijos, agregar el evento recursivamente
+                if (control.HasChildren)
+                {
+                    Utils.CardAddClickEventToControls(control.Controls, function);
+                }
+            }
+        }
     }
 }
