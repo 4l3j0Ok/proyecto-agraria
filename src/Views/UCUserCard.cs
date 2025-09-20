@@ -1,4 +1,5 @@
 ﻿using GestionAgraria.models;
+using GestionAgraria.controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,38 +26,11 @@ namespace GestionAgraria.Views
             lblUserUsername.Text = user.Username;
             lblUserArea.Text = user.Role?.Name ?? "Sin rol";
             lblUserPhone.Text = user.Phone;
-            SetupClickEvent();
-        }
-
-        private void SetupClickEvent()
-        {
-            // Agregar evento click al UserControl principal
-            this.Click += OnUserCardClick;
-            this.Cursor = Cursors.Hand; // Cambiar cursor para indicar que es clickeable
-
-            // Agregar evento click a todos los controles hijos recursivamente
-            AddClickEventToControls(this.Controls);
-        }
-
-        private void AddClickEventToControls(Control.ControlCollection controls)
-        {
-            foreach (Control control in controls)
-            {
-                control.Click += OnUserCardClick;
-                control.Cursor = Cursors.Hand;
-
-                // Si el control tiene controles hijos, agregar el evento recursivamente
-                if (control.HasChildren)
-                {
-                    AddClickEventToControls(control.Controls);
-                }
-            }
+            Utils.CardSetupClickEvent(this, OnUserCardClick);
         }
 
         private void OnUserCardClick(object? sender, EventArgs? e)
         {
-
-            // Comportamiento por defecto
             OpenFormAdd(_user);
         }
 
