@@ -63,6 +63,7 @@ namespace GestionAgraria
             btnAddVentas = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabEntorno = new TabPage();
             btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            tabPizarron = new TabPage();
             tabUsers.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
             tabHome.SuspendLayout();
@@ -94,6 +95,7 @@ namespace GestionAgraria
             imgList.Images.SetKeyName(8, "Abeja (2).png");
             imgList.Images.SetKeyName(9, "Conejo (2).png");
             imgList.Images.SetKeyName(10, "userGroup.png");
+            imgList.Images.SetKeyName(11, "Pizarron.png");
             // 
             // tabUsers
             // 
@@ -212,6 +214,7 @@ namespace GestionAgraria
             tcPrincipal.Controls.Add(tabIndustryArea);
             tcPrincipal.Controls.Add(tabUsers);
             tcPrincipal.Controls.Add(tabEntorno);
+            tcPrincipal.Controls.Add(tabPizarron);
             tcPrincipal.Depth = 0;
             tcPrincipal.Dock = DockStyle.Fill;
             tcPrincipal.ImageList = imgList;
@@ -374,6 +377,17 @@ namespace GestionAgraria
             btnAddEntorno.UseVisualStyleBackColor = true;
             btnAddEntorno.Click += btnAddEntorno_Click;
             // 
+            // tabPizarron
+            // 
+            tabPizarron.ImageIndex = 11;
+            tabPizarron.Location = new Point(4, 24);
+            tabPizarron.Name = "tabPizarron";
+            tabPizarron.Padding = new Padding(3);
+            tabPizarron.Size = new Size(786, 505);
+            tabPizarron.TabIndex = 7;
+            tabPizarron.Text = "Pizarron";
+            tabPizarron.UseVisualStyleBackColor = true;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -432,5 +446,6 @@ namespace GestionAgraria
         private TabPage tabVentas;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddCompras;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddVentas;
+        private TabPage tabPizarron;
     }
 }

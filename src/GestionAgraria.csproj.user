@@ -14,6 +14,9 @@
     <Compile Update="Views\UCAnimalCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UCBlackboardCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UCCargaProductosAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>

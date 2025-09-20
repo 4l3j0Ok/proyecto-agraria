@@ -85,16 +85,16 @@
             materialExpansionPanel1.Depth = 0;
             materialExpansionPanel1.Description = "Registra un nuevo animal";
             materialExpansionPanel1.Dock = DockStyle.Top;
-            materialExpansionPanel1.ExpandHeight = 564;
+            materialExpansionPanel1.ExpandHeight = 423;
             materialExpansionPanel1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialExpansionPanel1.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialExpansionPanel1.Location = new Point(0, 0);
-            materialExpansionPanel1.Margin = new Padding(3, 21, 3, 21);
+            materialExpansionPanel1.Margin = new Padding(3, 16, 3, 16);
             materialExpansionPanel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialExpansionPanel1.Name = "materialExpansionPanel1";
-            materialExpansionPanel1.Padding = new Padding(27, 85, 27, 21);
+            materialExpansionPanel1.Padding = new Padding(24, 64, 24, 16);
             materialExpansionPanel1.ShowCollapseExpand = false;
-            materialExpansionPanel1.Size = new Size(1317, 564);
+            materialExpansionPanel1.Size = new Size(1152, 423);
             materialExpansionPanel1.TabIndex = 1;
             materialExpansionPanel1.Title = "Agregar animal";
             materialExpansionPanel1.ValidationButtonEnable = true;
@@ -106,13 +106,12 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(panel2, 0, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(27, 85);
-            tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel2.Location = new Point(24, 64);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 457F));
-            tableLayoutPanel2.Size = new Size(1263, 458);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 344F));
+            tableLayoutPanel2.Size = new Size(1104, 343);
             tableLayoutPanel2.TabIndex = 23;
             // 
             // panel2
@@ -121,21 +120,18 @@
             panel2.Controls.Add(groupBox2);
             panel2.Controls.Add(groupBox1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 4);
-            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1257, 450);
+            panel2.Size = new Size(1098, 337);
             panel2.TabIndex = 11;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(tableLayoutPanel3);
             groupBox3.Dock = DockStyle.Top;
-            groupBox3.Location = new Point(0, 266);
-            groupBox3.Margin = new Padding(3, 4, 3, 4);
+            groupBox3.Location = new Point(0, 200);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(3, 4, 3, 4);
-            groupBox3.Size = new Size(1257, 133);
+            groupBox3.Size = new Size(1098, 100);
             groupBox3.TabIndex = 32;
             groupBox3.TabStop = false;
             // 
@@ -145,12 +141,11 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.Controls.Add(panel8, 0, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 20);
-            tableLayoutPanel3.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel3.Location = new Point(3, 19);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Size = new Size(1251, 109);
+            tableLayoutPanel3.Size = new Size(1092, 78);
             tableLayoutPanel3.TabIndex = 27;
             // 
             // panel8
@@ -161,8 +156,8 @@
             panel8.Location = new Point(0, 0);
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
-            panel8.Padding = new Padding(23, 0, 23, 0);
-            panel8.Size = new Size(1251, 109);
+            panel8.Padding = new Padding(20, 0, 20, 0);
+            panel8.Size = new Size(1092, 78);
             panel8.TabIndex = 26;
             // 
             // materialTextBoxEdit8
@@ -177,12 +172,12 @@
             materialTextBoxEdit8.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxEdit8.HideSelection = true;
             materialTextBoxEdit8.LeadingIcon = null;
-            materialTextBoxEdit8.Location = new Point(23, 19);
-            materialTextBoxEdit8.Margin = new Padding(3, 4, 30, 4);
+            materialTextBoxEdit8.Location = new Point(20, 19);
+            materialTextBoxEdit8.Margin = new Padding(3, 3, 26, 3);
             materialTextBoxEdit8.MaxLength = 32767;
             materialTextBoxEdit8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialTextBoxEdit8.Name = "materialTextBoxEdit8";
-            materialTextBoxEdit8.Padding = new Padding(10, 11, 10, 11);
+            materialTextBoxEdit8.Padding = new Padding(9, 8, 9, 8);
             materialTextBoxEdit8.PasswordChar = '\0';
             materialTextBoxEdit8.PrefixSuffixText = null;
             materialTextBoxEdit8.ReadOnly = false;
@@ -191,7 +186,7 @@
             materialTextBoxEdit8.SelectionLength = 0;
             materialTextBoxEdit8.SelectionStart = 0;
             materialTextBoxEdit8.ShortcutsEnabled = true;
-            materialTextBoxEdit8.Size = new Size(1205, 48);
+            materialTextBoxEdit8.Size = new Size(1052, 48);
             materialTextBoxEdit8.TabIndex = 0;
             materialTextBoxEdit8.TabStop = false;
             materialTextBoxEdit8.TextAlign = HorizontalAlignment.Left;
@@ -204,7 +199,7 @@
             materialLabel8.Depth = 0;
             materialLabel8.Dock = DockStyle.Top;
             materialLabel8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel8.Location = new Point(23, 0);
+            materialLabel8.Location = new Point(20, 0);
             materialLabel8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel8.Name = "materialLabel8";
             materialLabel8.Size = new Size(105, 19);
@@ -215,11 +210,9 @@
             // 
             groupBox2.Controls.Add(tableLayoutPanel4);
             groupBox2.Dock = DockStyle.Top;
-            groupBox2.Location = new Point(0, 133);
-            groupBox2.Margin = new Padding(3, 4, 3, 4);
+            groupBox2.Location = new Point(0, 100);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new Padding(3, 4, 3, 4);
-            groupBox2.Size = new Size(1257, 133);
+            groupBox2.Size = new Size(1098, 100);
             groupBox2.TabIndex = 31;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos adicionales";
@@ -234,12 +227,11 @@
             tableLayoutPanel4.Controls.Add(panel9, 1, 0);
             tableLayoutPanel4.Controls.Add(panel5, 0, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(3, 20);
-            tableLayoutPanel4.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel4.Location = new Point(3, 19);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Size = new Size(1251, 109);
+            tableLayoutPanel4.Size = new Size(1092, 78);
             tableLayoutPanel4.TabIndex = 30;
             // 
             // panel1
@@ -247,11 +239,11 @@
             panel1.Controls.Add(materialComboBox4);
             panel1.Controls.Add(materialLabel1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(834, 0);
+            panel1.Location = new Point(728, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(23, 0, 23, 0);
-            panel1.Size = new Size(417, 109);
+            panel1.Padding = new Padding(20, 0, 20, 0);
+            panel1.Size = new Size(364, 78);
             panel1.TabIndex = 32;
             // 
             // materialComboBox4
@@ -269,12 +261,11 @@
             materialComboBox4.FormattingEnabled = true;
             materialComboBox4.IntegralHeight = false;
             materialComboBox4.ItemHeight = 43;
-            materialComboBox4.Location = new Point(23, 19);
-            materialComboBox4.Margin = new Padding(3, 4, 3, 4);
+            materialComboBox4.Location = new Point(20, 19);
             materialComboBox4.MaxDropDownItems = 4;
             materialComboBox4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialComboBox4.Name = "materialComboBox4";
-            materialComboBox4.Size = new Size(371, 49);
+            materialComboBox4.Size = new Size(324, 49);
             materialComboBox4.StartIndex = 0;
             materialComboBox4.TabIndex = 10;
             // 
@@ -284,7 +275,7 @@
             materialLabel1.Depth = 0;
             materialLabel1.Dock = DockStyle.Top;
             materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(23, 0);
+            materialLabel1.Location = new Point(20, 0);
             materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
             materialLabel1.Size = new Size(154, 19);
@@ -296,11 +287,11 @@
             panel9.Controls.Add(materialComboBox3);
             panel9.Controls.Add(materialLabel4);
             panel9.Dock = DockStyle.Fill;
-            panel9.Location = new Point(417, 0);
+            panel9.Location = new Point(364, 0);
             panel9.Margin = new Padding(0);
             panel9.Name = "panel9";
-            panel9.Padding = new Padding(23, 0, 23, 0);
-            panel9.Size = new Size(417, 109);
+            panel9.Padding = new Padding(20, 0, 20, 0);
+            panel9.Size = new Size(364, 78);
             panel9.TabIndex = 31;
             // 
             // materialComboBox3
@@ -319,12 +310,11 @@
             materialComboBox3.IntegralHeight = false;
             materialComboBox3.ItemHeight = 43;
             materialComboBox3.Items.AddRange(new object[] { "Productivo", "No Productivo" });
-            materialComboBox3.Location = new Point(23, 19);
-            materialComboBox3.Margin = new Padding(3, 4, 3, 4);
+            materialComboBox3.Location = new Point(20, 19);
             materialComboBox3.MaxDropDownItems = 4;
             materialComboBox3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialComboBox3.Name = "materialComboBox3";
-            materialComboBox3.Size = new Size(371, 49);
+            materialComboBox3.Size = new Size(324, 49);
             materialComboBox3.StartIndex = 0;
             materialComboBox3.TabIndex = 10;
             // 
@@ -334,7 +324,7 @@
             materialLabel4.Depth = 0;
             materialLabel4.Dock = DockStyle.Top;
             materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel4.Location = new Point(23, 0);
+            materialLabel4.Location = new Point(20, 0);
             materialLabel4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel4.Name = "materialLabel4";
             materialLabel4.Size = new Size(130, 19);
@@ -349,8 +339,8 @@
             panel5.Location = new Point(0, 0);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
-            panel5.Padding = new Padding(23, 0, 23, 0);
-            panel5.Size = new Size(417, 109);
+            panel5.Padding = new Padding(20, 0, 20, 0);
+            panel5.Size = new Size(364, 78);
             panel5.TabIndex = 30;
             // 
             // materialComboBox2
@@ -369,12 +359,11 @@
             materialComboBox2.IntegralHeight = false;
             materialComboBox2.ItemHeight = 43;
             materialComboBox2.Items.AddRange(new object[] { "Masculino", "Femenino" });
-            materialComboBox2.Location = new Point(23, 19);
-            materialComboBox2.Margin = new Padding(3, 4, 3, 4);
+            materialComboBox2.Location = new Point(20, 19);
             materialComboBox2.MaxDropDownItems = 4;
             materialComboBox2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialComboBox2.Name = "materialComboBox2";
-            materialComboBox2.Size = new Size(371, 49);
+            materialComboBox2.Size = new Size(324, 49);
             materialComboBox2.StartIndex = 0;
             materialComboBox2.TabIndex = 10;
             // 
@@ -384,7 +373,7 @@
             materialLabel5.Depth = 0;
             materialLabel5.Dock = DockStyle.Top;
             materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel5.Location = new Point(23, 0);
+            materialLabel5.Location = new Point(20, 0);
             materialLabel5.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel5.Name = "materialLabel5";
             materialLabel5.Size = new Size(36, 19);
@@ -396,10 +385,8 @@
             groupBox1.Controls.Add(tableLayoutPanel5);
             groupBox1.Dock = DockStyle.Top;
             groupBox1.Location = new Point(0, 0);
-            groupBox1.Margin = new Padding(3, 4, 3, 4);
             groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 4, 3, 4);
-            groupBox1.Size = new Size(1257, 133);
+            groupBox1.Size = new Size(1098, 100);
             groupBox1.TabIndex = 30;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del animal";
@@ -414,12 +401,11 @@
             tableLayoutPanel5.Controls.Add(panel7, 1, 0);
             tableLayoutPanel5.Controls.Add(panel3, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(3, 20);
-            tableLayoutPanel5.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel5.Location = new Point(3, 19);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.Size = new Size(1251, 109);
+            tableLayoutPanel5.Size = new Size(1092, 78);
             tableLayoutPanel5.TabIndex = 29;
             // 
             // panel6
@@ -427,11 +413,11 @@
             panel6.Controls.Add(materialTextBoxEdit10);
             panel6.Controls.Add(materialLabel6);
             panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(834, 0);
+            panel6.Location = new Point(728, 0);
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
-            panel6.Padding = new Padding(23, 0, 23, 0);
-            panel6.Size = new Size(417, 109);
+            panel6.Padding = new Padding(20, 0, 20, 0);
+            panel6.Size = new Size(364, 82);
             panel6.TabIndex = 30;
             // 
             // materialTextBoxEdit10
@@ -446,12 +432,12 @@
             materialTextBoxEdit10.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialTextBoxEdit10.HideSelection = true;
             materialTextBoxEdit10.LeadingIcon = null;
-            materialTextBoxEdit10.Location = new Point(23, 19);
-            materialTextBoxEdit10.Margin = new Padding(3, 4, 30, 4);
+            materialTextBoxEdit10.Location = new Point(20, 19);
+            materialTextBoxEdit10.Margin = new Padding(3, 3, 26, 3);
             materialTextBoxEdit10.MaxLength = 32767;
             materialTextBoxEdit10.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialTextBoxEdit10.Name = "materialTextBoxEdit10";
-            materialTextBoxEdit10.Padding = new Padding(10, 11, 10, 11);
+            materialTextBoxEdit10.Padding = new Padding(9, 8, 9, 8);
             materialTextBoxEdit10.PasswordChar = '\0';
             materialTextBoxEdit10.PrefixSuffixText = null;
             materialTextBoxEdit10.ReadOnly = false;
@@ -460,7 +446,7 @@
             materialTextBoxEdit10.SelectionLength = 0;
             materialTextBoxEdit10.SelectionStart = 0;
             materialTextBoxEdit10.ShortcutsEnabled = true;
-            materialTextBoxEdit10.Size = new Size(371, 48);
+            materialTextBoxEdit10.Size = new Size(324, 48);
             materialTextBoxEdit10.TabIndex = 0;
             materialTextBoxEdit10.TabStop = false;
             materialTextBoxEdit10.TextAlign = HorizontalAlignment.Left;
@@ -473,7 +459,7 @@
             materialLabel6.Depth = 0;
             materialLabel6.Dock = DockStyle.Top;
             materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel6.Location = new Point(23, 0);
+            materialLabel6.Location = new Point(20, 0);
             materialLabel6.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel6.Name = "materialLabel6";
             materialLabel6.Size = new Size(211, 19);
@@ -485,11 +471,11 @@
             panel7.Controls.Add(materialComboBox1);
             panel7.Controls.Add(materialLabel7);
             panel7.Dock = DockStyle.Fill;
-            panel7.Location = new Point(417, 0);
+            panel7.Location = new Point(364, 0);
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
-            panel7.Padding = new Padding(23, 0, 23, 0);
-            panel7.Size = new Size(417, 109);
+            panel7.Padding = new Padding(20, 0, 20, 0);
+            panel7.Size = new Size(364, 82);
             panel7.TabIndex = 29;
             // 
             // materialComboBox1
@@ -507,12 +493,11 @@
             materialComboBox1.FormattingEnabled = true;
             materialComboBox1.IntegralHeight = false;
             materialComboBox1.ItemHeight = 43;
-            materialComboBox1.Location = new Point(23, 19);
-            materialComboBox1.Margin = new Padding(3, 4, 3, 4);
+            materialComboBox1.Location = new Point(20, 19);
             materialComboBox1.MaxDropDownItems = 4;
             materialComboBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             materialComboBox1.Name = "materialComboBox1";
-            materialComboBox1.Size = new Size(371, 49);
+            materialComboBox1.Size = new Size(324, 49);
             materialComboBox1.StartIndex = 0;
             materialComboBox1.TabIndex = 9;
             // 
@@ -522,7 +507,7 @@
             materialLabel7.Depth = 0;
             materialLabel7.Dock = DockStyle.Top;
             materialLabel7.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel7.Location = new Point(23, 0);
+            materialLabel7.Location = new Point(20, 0);
             materialLabel7.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel7.Name = "materialLabel7";
             materialLabel7.Size = new Size(87, 19);
@@ -537,8 +522,8 @@
             panel3.Location = new Point(0, 0);
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
-            panel3.Padding = new Padding(23, 0, 23, 0);
-            panel3.Size = new Size(417, 109);
+            panel3.Padding = new Padding(20, 0, 20, 0);
+            panel3.Size = new Size(364, 82);
             panel3.TabIndex = 21;
             // 
             // tbUsuario
@@ -553,12 +538,12 @@
             tbUsuario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbUsuario.HideSelection = true;
             tbUsuario.LeadingIcon = null;
-            tbUsuario.Location = new Point(23, 19);
-            tbUsuario.Margin = new Padding(3, 4, 30, 4);
+            tbUsuario.Location = new Point(20, 19);
+            tbUsuario.Margin = new Padding(3, 3, 26, 3);
             tbUsuario.MaxLength = 32767;
             tbUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tbUsuario.Name = "tbUsuario";
-            tbUsuario.Padding = new Padding(10, 11, 10, 11);
+            tbUsuario.Padding = new Padding(9, 8, 9, 8);
             tbUsuario.PasswordChar = '\0';
             tbUsuario.PrefixSuffixText = null;
             tbUsuario.ReadOnly = false;
@@ -567,7 +552,7 @@
             tbUsuario.SelectionLength = 0;
             tbUsuario.SelectionStart = 0;
             tbUsuario.ShortcutsEnabled = true;
-            tbUsuario.Size = new Size(371, 48);
+            tbUsuario.Size = new Size(324, 48);
             tbUsuario.TabIndex = 0;
             tbUsuario.TabStop = false;
             tbUsuario.TextAlign = HorizontalAlignment.Left;
@@ -580,7 +565,7 @@
             lblUsuario.Depth = 0;
             lblUsuario.Dock = DockStyle.Top;
             lblUsuario.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblUsuario.Location = new Point(23, 0);
+            lblUsuario.Location = new Point(20, 0);
             lblUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(51, 19);
@@ -589,11 +574,12 @@
             // 
             // UCAnimalAdd
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(materialExpansionPanel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UCAnimalAdd";
-            Size = new Size(1317, 805);
+            Size = new Size(1152, 604);
             materialExpansionPanel1.ResumeLayout(false);
             materialExpansionPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
