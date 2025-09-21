@@ -18,6 +18,7 @@ public class UserModel
     public string? Email { get; set; }
     public string? Phone { get; set; }
     public string? PersonId { get; set; }
+    public byte[]? ProfilePicture { get; set; }
 
     [ForeignKey("Role")]
     public int RoleId { get; set; }

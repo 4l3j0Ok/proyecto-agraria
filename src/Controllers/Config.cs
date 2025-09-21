@@ -1,6 +1,7 @@
 ﻿using ReaLTaiizor.Util;
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Colors;
+using System.Drawing;
 
 namespace GestionAgraria
 {
@@ -18,6 +19,7 @@ namespace GestionAgraria
             "Docente",
             "Invitado"
         };
+        public static Bitmap default_profile_picture = Properties.Resources.user_placeholder;
     }
     internal class ColorScheme
     {

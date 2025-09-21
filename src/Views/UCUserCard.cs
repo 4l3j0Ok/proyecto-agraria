@@ -26,6 +26,7 @@ namespace GestionAgraria.Views
             lblUserUsername.Text = user.Username;
             lblUserArea.Text = user.Role?.Name ?? "Sin rol";
             lblUserPhone.Text = user.Phone;
+            pbUserProfilePicture.Image = Utils.ByteArrayToImage(user.ProfilePicture);
             Utils.CardSetupClickEvent(this, OnUserCardClick);
         }
 

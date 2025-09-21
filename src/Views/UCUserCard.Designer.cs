@@ -39,7 +39,7 @@ namespace GestionAgraria.Views
         /// </summary>
         private void InitializeComponent()
         {
-            parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
+            pbUserProfilePicture = new ReaLTaiizor.Controls.ParrotPictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel1 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -52,27 +52,27 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
-            // parrotPictureBox1
+            // pbUserProfilePicture
             // 
-            parrotPictureBox1.ColorLeft = Color.Black;
-            parrotPictureBox1.ColorRight = Color.Black;
-            parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            parrotPictureBox1.Dock = DockStyle.Fill;
-            parrotPictureBox1.FilterAlpha = 200;
-            parrotPictureBox1.FilterEnabled = false;
-            parrotPictureBox1.Image = Properties.Resources.user_placeholder;
-            parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.Low;
-            parrotPictureBox1.IsElipse = true;
-            parrotPictureBox1.IsParallax = false;
-            parrotPictureBox1.Location = new Point(9, 8);
-            parrotPictureBox1.Margin = new Padding(9, 8, 9, 8);
-            parrotPictureBox1.Name = "parrotPictureBox1";
-            parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox1.Size = new Size(50, 54);
-            parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            parrotPictureBox1.TabIndex = 1;
-            parrotPictureBox1.Text = "parrotPictureBox1";
-            parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            pbUserProfilePicture.ColorLeft = Color.Black;
+            pbUserProfilePicture.ColorRight = Color.Black;
+            pbUserProfilePicture.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            pbUserProfilePicture.Dock = DockStyle.Fill;
+            pbUserProfilePicture.FilterAlpha = 200;
+            pbUserProfilePicture.FilterEnabled = false;
+            pbUserProfilePicture.Image = Properties.Resources.user_placeholder;
+            pbUserProfilePicture.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.Low;
+            pbUserProfilePicture.IsElipse = true;
+            pbUserProfilePicture.IsParallax = false;
+            pbUserProfilePicture.Location = new Point(9, 8);
+            pbUserProfilePicture.Margin = new Padding(9, 8, 9, 8);
+            pbUserProfilePicture.Name = "pbUserProfilePicture";
+            pbUserProfilePicture.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            pbUserProfilePicture.Size = new Size(50, 54);
+            pbUserProfilePicture.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            pbUserProfilePicture.TabIndex = 1;
+            pbUserProfilePicture.Text = "parrotPictureBox1";
+            pbUserProfilePicture.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // tableLayoutPanel1
             // 
@@ -80,7 +80,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Controls.Add(parrotPictureBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(pbUserProfilePicture, 0, 0);
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
@@ -201,7 +201,7 @@ namespace GestionAgraria.Views
         #endregion
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel1;
-        public ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox1;
+        public ReaLTaiizor.Controls.ParrotPictureBox pbUserProfilePicture;
         public ReaLTaiizor.Controls.MaterialLabel lblUserName;
         private TableLayoutPanel tableLayoutPanel2;
         public ReaLTaiizor.Controls.MaterialLabel lblUserPhone;

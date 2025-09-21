@@ -19,9 +19,8 @@ namespace GestionAgraria
             InitializeComponent();
             ColorScheme.GetSkinManager().AddFormToManage(this);
         }
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-            UserModel? user = DbInitializer.Initialize();
+        private void FormLogin_Load(object sender, EventArgs e) {
+            UserModel? user = DbInitializer.InitializeUser();
             if (user != null)
             {
                 CustomMessageBox msgBox = new CustomMessageBox();
@@ -45,7 +44,7 @@ namespace GestionAgraria
             string username = tbUsuario.Text;
             string password = tbContrasena.Text;
 
-            using var userController = new UserController();
+            UserController userController = new UserController();
             UserModel? user = userController.GetUserByUsername(username);
 
             if (user == null || user.Password != password)

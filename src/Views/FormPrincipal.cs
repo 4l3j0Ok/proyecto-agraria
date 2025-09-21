@@ -29,7 +29,7 @@ namespace GestionAgraria
 
         private void LoadUsersTable()
         {
-            using var userController = new UserController();
+            UserController userController = new UserController();
             List<UserModel> users = userController.GetAllUsers();
 
             foreach (UserModel user in users)

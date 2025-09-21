@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GestionAgraria
 {
@@ -44,6 +45,22 @@ namespace GestionAgraria
                 {
                     Utils.CardAddClickEventToControls(control.Controls, function);
                 }
+            }
+        }
+        public static byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+                return ms.ToArray();
+            }
+        }
+        public static System.Drawing.Image? ByteArrayToImage(byte[] byteArrayIn)
+        {
+            if (byteArrayIn == null || byteArrayIn.Length == 0) return null;
+            using (var ms = new MemoryStream(byteArrayIn))
+            {
+                return System.Drawing.Image.FromStream(ms);
             }
         }
     }

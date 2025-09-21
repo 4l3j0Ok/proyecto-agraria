@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GestionAgraria.controllers
 {
-    public class UserController : IDisposable
+    public class UserController
     {
         private readonly AppDbContext _context;
 
@@ -99,6 +99,7 @@ namespace GestionAgraria.controllers
                 existingUser.Email = user.Email;
                 existingUser.Phone = user.Phone;
                 existingUser.PersonId = user.PersonId;
+                existingUser.ProfilePicture = user.ProfilePicture;
                 existingUser.RoleId = user.RoleId;
                 existingUser.IsActive = user.IsActive;
 
@@ -145,16 +146,6 @@ namespace GestionAgraria.controllers
             {
                 return false;
             }
-        }
-
-        public List<RoleModel> GetAllRoles()
-        {
-            return _context.Roles.ToList();
-        }
-
-        public void Dispose()
-        {
-            _context?.Dispose();
         }
     }
 }

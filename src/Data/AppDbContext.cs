@@ -112,6 +112,7 @@ namespace GestionAgraria.data
                 Email = "email@admin.com",
                 Phone = "2224123456",
                 RoleId = adminRole.Id,
+                ProfilePicture = Utils.ImageToByteArray(Config.default_profile_picture),
                 IsActive = true
             };
 
