@@ -13,8 +13,10 @@ namespace GestionAgraria.Models
         [Required]
         public string title { get; set; }
 
-
-
+        public string entorno { get; set; }
+        public string observaciones { get; set; }
+        public int dateRecord {  get; set; }
+        public string idTraining { get; set; }
 
     }
 }

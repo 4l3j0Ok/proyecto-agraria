@@ -45,7 +45,7 @@
             lblTitle.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblTitle.Name = "lblTitle";
             lblTitle.Padding = new Padding(5);
-            lblTitle.Size = new Size(274, 25);
+            lblTitle.Size = new Size(214, 30);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Titulo";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
@@ -56,12 +56,12 @@
             lblDate.Depth = 0;
             lblDate.Dock = DockStyle.Fill;
             lblDate.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblDate.Location = new Point(5, 40);
+            lblDate.Location = new Point(5, 45);
             lblDate.Margin = new Padding(5);
             lblDate.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblDate.Name = "lblDate";
             lblDate.Padding = new Padding(5);
-            lblDate.Size = new Size(274, 25);
+            lblDate.Size = new Size(214, 31);
             lblDate.TabIndex = 1;
             lblDate.Text = "Fecha";
             lblDate.TextAlign = ContentAlignment.MiddleCenter;
@@ -78,7 +78,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(284, 70);
+            tableLayoutPanel1.Size = new Size(224, 81);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // UCBlackboardCard
@@ -87,7 +87,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
             Name = "UCBlackboardCard";
-            Size = new Size(284, 70);
+            Size = new Size(224, 81);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
