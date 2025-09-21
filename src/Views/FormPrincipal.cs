@@ -103,5 +103,23 @@ namespace GestionAgraria
             UCVegetalAdd AddControl = new UCVegetalAdd();
             this.VerFormularioTab(AddControl, tabVegetablesArea);
         }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            UCCargaProductosAdd AddControl = new UCCargaProductosAdd();
+            this.VerFormularioTab(AddControl, tabProduct);
+        }
+
+        private void btnAddCompras_Click(object sender, EventArgs e)
+        {
+            UCComprasAdd AddControl = new UCComprasAdd();
+            this.VerFormularioTab(AddControl, tabCompras);
+        }
+
+        private void btnAddVentas_Click(object sender, EventArgs e)
+        {
+            UCVentasAdd AddControl = new UCVentasAdd();
+            this.VerFormularioTab(AddControl, tabVentas);
+        }
     }
 }
