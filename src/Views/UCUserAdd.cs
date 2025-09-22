@@ -26,6 +26,8 @@ namespace GestionAgraria.Views
             InitializeComponent();
             if (user != null)
             {
+                mepUserAdd.Title = "Modificar Usuario";
+                mepUserAdd.Description = "Edita los datos del usuario seleccionado";
                 currentUser = user;
                 tbUserName.Text = user.Name;
                 tbUserSurname.Text = user.Surname;
@@ -126,9 +128,7 @@ namespace GestionAgraria.Views
         {
             // Validar campos antes de guardar
             if (!ValidateFields())
-            {
                 return;
-            }
 
             currentUser.Name = tbUserName.Text;
             currentUser.Surname = tbUserSurname.Text;
@@ -146,13 +146,9 @@ namespace GestionAgraria.Views
             }
             bool success;
             if (currentUser.Id == 0)
-            {
                 success = userController.CreateUser(currentUser);
-            }
             else
-            {
                 success = userController.UpdateUser(currentUser);
-            }
             if (success)
             {
                 MessageBox.Show("Usuario guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -161,6 +157,8 @@ namespace GestionAgraria.Views
             {
                 MessageBox.Show("Error al guardar el usuario. El nombre de usuario, email o identificación ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
+            formPrincipal.RestaurarFormularioTab(formPrincipal.tabUsers);
         }
     }
 }

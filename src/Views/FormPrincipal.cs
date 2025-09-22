@@ -12,6 +12,7 @@ namespace GestionAgraria
     public partial class FormPrincipal : MaterialForm
     {
         private readonly UserModel currentUser;
+        private readonly List<Dictionary<string, List<Control>>> previousTabPages = new List<Dictionary<string, List<Control>>>();
         public FormPrincipal(UserModel currentUser)
         {
             this.currentUser = currentUser;
@@ -21,12 +22,16 @@ namespace GestionAgraria
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            ReloadUI();
+        }
+        public void ReloadUI()
+        {
+            tabUsers.Controls.Clear();
             LoadUsersTable();
             LoadVegetablesTable();
             LoadAnimalsTable();
             LoadFormativeEnvironments();
         }
-
         private void LoadUsersTable()
         {
             UserController userController = new UserController();
@@ -91,35 +96,42 @@ namespace GestionAgraria
             this.VerFormularioTab(AddControl, tabAnimalArea);
         }
 
+        // Reemplaza la línea problemática en el método VerFormularioTab
         public void VerFormularioTab(UserControl uc, System.Windows.Forms.TabPage tabPage)
         {
             uc.Dock = DockStyle.Fill;
+            // Guardar una copia de los controles actuales antes de agregar el nuevo UserControl
+            var previousControls = new List<Control>();
+            foreach (Control control in tabPage.Controls)
+            {
+                previousControls.Add(control);
+            }
+            Dictionary<string, List<Control>> previousTabPage = new Dictionary<string, List<Control>>();
+            previousTabPage[tabPage.Name ?? ""] = previousControls;
+            previousTabPages.Add(previousTabPage);
             tabPage.Controls.Clear();
             tabPage.Controls.Add(uc);
+        }
+        public void RestaurarFormularioTab(System.Windows.Forms.TabPage tabPage)
+        {
+            // Si el tabPage.Name está en la lista previousTabPages, restaurar los controles anteriores
+            var previousTabPage = previousTabPages.LastOrDefault(tp => tp.ContainsKey(tabPage.Name ?? ""));
+            if (previousTabPage != null)
+            {
+                tabPage.Controls.Clear();
+                foreach (var control in previousTabPage[tabPage.Name ?? ""])
+                {
+                    tabPage.Controls.Add(control);
+                }
+                previousTabPages.Remove(previousTabPage);
+                ReloadUI();
+            }
         }
 
         private void btnAddPlanta_Click(object sender, EventArgs e)
         {
             UCVegetalAdd AddControl = new UCVegetalAdd();
             this.VerFormularioTab(AddControl, tabVegetablesArea);
-        }
-
-        private void btnAddProduct_Click(object sender, EventArgs e)
-        {
-            UCCargaProductosAdd AddControl = new UCCargaProductosAdd();
-            this.VerFormularioTab(AddControl, tabProduct);
-        }
-
-        private void btnAddCompras_Click(object sender, EventArgs e)
-        {
-            UCComprasAdd AddControl = new UCComprasAdd();
-            this.VerFormularioTab(AddControl, tabCompras);
-        }
-
-        private void btnAddVentas_Click(object sender, EventArgs e)
-        {
-            UCVentasAdd AddControl = new UCVentasAdd();
-            this.VerFormularioTab(AddControl, tabVentas);
         }
     }
 }

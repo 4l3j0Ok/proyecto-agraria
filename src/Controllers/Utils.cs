@@ -1,6 +1,7 @@
 ﻿using GestionAgraria.controllers;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,11 +48,15 @@ namespace GestionAgraria
                 }
             }
         }
-        public static byte[] ImageToByteArray(System.Drawing.Image imageIn)
+        public static byte[]? ImageToByteArray(System.Drawing.Image? imageIn)
         {
+            if (imageIn == null)
+                return null;
+
             using (var ms = new MemoryStream())
             {
-                imageIn.Save(ms, imageIn.RawFormat);
+                // Usar PNG como formato predeterminado para evitar problemas con RawFormat
+                imageIn.Save(ms, ImageFormat.Png);
                 return ms.ToArray();
             }
         }
