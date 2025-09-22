@@ -579,7 +579,7 @@
             Controls.Add(materialExpansionPanel1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCAnimalAdd";
-            Size = new Size(1008, 322);
+            Size = new Size(1008, 422);
             materialExpansionPanel1.ResumeLayout(false);
             materialExpansionPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);

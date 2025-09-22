@@ -42,11 +42,11 @@
             // 
             panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(lblType);
-            panel1.Location = new Point(79, 10);
-            panel1.Margin = new Padding(10);
+            panel1.Location = new Point(69, 8);
+            panel1.Margin = new Padding(9, 8, 9, 8);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(6, 7, 6, 7);
-            panel1.Size = new Size(602, 67);
+            panel1.Padding = new Padding(5);
+            panel1.Size = new Size(527, 50);
             panel1.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -58,12 +58,11 @@
             tableLayoutPanel2.Controls.Add(lblCode, 0, 0);
             tableLayoutPanel2.Controls.Add(lblProductiveState, 1, 0);
             tableLayoutPanel2.Dock = DockStyle.Top;
-            tableLayoutPanel2.Location = new Point(6, 26);
-            tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel2.Location = new Point(5, 24);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(590, 14);
+            tableLayoutPanel2.Size = new Size(517, 14);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // lblCode
@@ -122,10 +121,11 @@
             parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             parrotPictureBox1.IsElipse = false;
             parrotPictureBox1.IsParallax = false;
-            parrotPictureBox1.Location = new Point(7, 8);
+            parrotPictureBox1.Location = new Point(6, 6);
+            parrotPictureBox1.Margin = new Padding(3, 2, 3, 2);
             parrotPictureBox1.Name = "parrotPictureBox1";
             parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox1.Size = new Size(73, 76);
+            parrotPictureBox1.Size = new Size(64, 57);
             parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             parrotPictureBox1.TabIndex = 4;
             parrotPictureBox1.Text = "parrotPictureBox1";
@@ -133,12 +133,13 @@
             // 
             // UCAnimalCard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(parrotPictureBox1);
             Controls.Add(panel1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "UCAnimalCard";
-            Size = new Size(703, 93);
+            Size = new Size(615, 70);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
