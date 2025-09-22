@@ -20,6 +20,24 @@ namespace GestionAgraria
             "Invitado"
         };
         public static Bitmap default_profile_picture = Properties.Resources.user_placeholder;
+        public static List<string> defaultAnimalTypes = new List<string>
+        {
+            "Vaca",
+            "Cerdo",
+            "Oveja",
+            "Caballo",
+            "Gallina",
+            "Pato",
+            "Cabra",
+            "Conejo"
+        };
+        public static List<string> defaultAreas = new List<string>
+        {
+            "Animales",
+            "Vegetales",
+            "Industria",
+            "Mixto"
+        };
     }
     internal class ColorScheme
     {
@@ -43,6 +61,16 @@ namespace GestionAgraria
             );
             return materialSkinManager;
         }
+    }
+    internal class TabConfig
+    {
+        public static string[] productiveStates = new string[]
+        {
+            "Productivo",
+            "Enfermo",
+            "Embarazada",
+            "Crecimiento"
+        };
     }
 }
 

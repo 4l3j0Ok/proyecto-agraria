@@ -14,12 +14,29 @@ namespace GestionAgraria.Views
 {
     public partial class UCAnimalCard : UserControl
     {
+        private AnimalModel _animal;
+
         public UCAnimalCard(AnimalModel animal)
         {
             InitializeComponent();
-            lblType.Text = animal.AnimalType;
+            _animal = animal;
+
+            lblType.Text = animal.AnimalType.Name;
             lblCode.Text = animal.Code;
             lblProductiveState.Text = animal.ProductiveState;
+            Utils.CardSetupClickEvent(this, OnAnimalCardClick);
+        }
+
+        private void OnAnimalCardClick(object? sender, EventArgs? e)
+        {
+            OpenFormAdd(_animal);
+        }
+
+        public static void OpenFormAdd(AnimalModel animal)
+        {
+            UCAnimalAdd animalAdd = new UCAnimalAdd(animal);
+            FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
+            formPrincipal?.VerFormularioTab(animalAdd, formPrincipal.tabAnimalArea);
         }
     }
 }

@@ -21,6 +21,7 @@ namespace GestionAgraria.data
 
             // Seed de roles por defecto
             context.SeedDefaultRoles();
+            context.SeedDefaultAnimalTypes();
 
             // Crear usuario administrador si no existe
             UserModel? user = context.CreateAdminUserIfNotExists();

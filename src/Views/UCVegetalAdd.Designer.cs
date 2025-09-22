@@ -1,13 +1,15 @@
-﻿using GestionAgraria.controllers;
-using GestionAgraria.data;
-using GestionAgraria.models;
-using GestionAgraria.Views;
-using ReaLTaiizor.Colors;
-using ReaLTaiizor.Controls;
-using ReaLTaiizor.Forms;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using GestionAgraria.Models;
+using GestionAgraria.controllers;
+using ReaLTaiizor.Controls;
 
 namespace GestionAgraria.Views
 {
@@ -39,7 +41,7 @@ namespace GestionAgraria.Views
         /// </summary>
         private void InitializeComponent()
         {
-            materialExpansionPanel1 = new MaterialExpansionPanel();
+            mepVegetalAdd = new MaterialExpansionPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             panel2 = new System.Windows.Forms.Panel();
             groupBox3 = new System.Windows.Forms.GroupBox();
@@ -58,7 +60,7 @@ namespace GestionAgraria.Views
             panel3 = new System.Windows.Forms.Panel();
             tbUsuario = new MaterialTextBoxEdit();
             materialLabel1 = new MaterialLabel();
-            materialExpansionPanel1.SuspendLayout();
+            mepVegetalAdd.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -71,28 +73,29 @@ namespace GestionAgraria.Views
             panel3.SuspendLayout();
             SuspendLayout();
             // 
-            // materialExpansionPanel1
+            // mepVegetalAdd
             // 
-            materialExpansionPanel1.AutoScroll = true;
-            materialExpansionPanel1.BackColor = Color.FromArgb(255, 255, 255);
-            materialExpansionPanel1.CancelButtonText = "Cancelar";
-            materialExpansionPanel1.Controls.Add(tableLayoutPanel2);
-            materialExpansionPanel1.Depth = 0;
-            materialExpansionPanel1.Description = "Registrar una nueva planta";
-            materialExpansionPanel1.Dock = DockStyle.Top;
-            materialExpansionPanel1.ExpandHeight = 343;
-            materialExpansionPanel1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialExpansionPanel1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialExpansionPanel1.Location = new Point(0, 0);
-            materialExpansionPanel1.Margin = new Padding(3, 16, 3, 16);
-            materialExpansionPanel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialExpansionPanel1.Name = "materialExpansionPanel1";
-            materialExpansionPanel1.Padding = new Padding(24, 64, 24, 16);
-            materialExpansionPanel1.ShowCollapseExpand = false;
-            materialExpansionPanel1.Size = new Size(1152, 343);
-            materialExpansionPanel1.TabIndex = 0;
-            materialExpansionPanel1.Title = "Agregar Planta";
-            materialExpansionPanel1.ValidationButtonText = "Guardar";
+            mepVegetalAdd.AutoScroll = true;
+            mepVegetalAdd.BackColor = Color.FromArgb(255, 255, 255);
+            mepVegetalAdd.CancelButtonText = "Cancelar";
+            mepVegetalAdd.Controls.Add(tableLayoutPanel2);
+            mepVegetalAdd.Depth = 0;
+            mepVegetalAdd.Description = "Registrar una nueva planta";
+            mepVegetalAdd.Dock = DockStyle.Top;
+            mepVegetalAdd.ExpandHeight = 343;
+            mepVegetalAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            mepVegetalAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            mepVegetalAdd.Location = new Point(0, 0);
+            mepVegetalAdd.Margin = new Padding(3, 16, 3, 16);
+            mepVegetalAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            mepVegetalAdd.Name = "mepVegetalAdd";
+            mepVegetalAdd.Padding = new Padding(24, 64, 24, 16);
+            mepVegetalAdd.ShowCollapseExpand = false;
+            mepVegetalAdd.Size = new Size(1152, 343);
+            mepVegetalAdd.TabIndex = 0;
+            mepVegetalAdd.Title = "Agregar Planta";
+            mepVegetalAdd.ValidationButtonText = "Guardar";
+            mepVegetalAdd.SaveClick += mepVegetalAdd_SaveClick;
             // 
             // tableLayoutPanel2
             // 
@@ -385,12 +388,12 @@ namespace GestionAgraria.Views
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(materialExpansionPanel1);
+            Controls.Add(mepVegetalAdd);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCVegetalAdd";
             Size = new Size(1152, 344);
-            materialExpansionPanel1.ResumeLayout(false);
-            materialExpansionPanel1.PerformLayout();
+            mepVegetalAdd.ResumeLayout(false);
+            mepVegetalAdd.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             panel2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
@@ -420,7 +423,7 @@ namespace GestionAgraria.Views
         private ReaLTaiizor.Controls.MaterialLabel lblFechaNacimiento_Ingres;
         private ReaLTaiizor.Controls.MaterialLabel lblTipoAnimal;
         private ReaLTaiizor.Controls.MaterialLabel lblCodigo;
-        private ReaLTaiizor.Controls.MaterialExpansionPanel materialExpansionPanel1;
+        private ReaLTaiizor.Controls.MaterialExpansionPanel mepVegetalAdd;
         private TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox3;

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace GestionAgraria.controllers
 {
@@ -27,6 +28,8 @@ namespace GestionAgraria.controllers
         public List<AnimalModel> GetAllAnimals()
         {
             return _context.Animals
+                .Include(a => a.AnimalType)
+                .Include(a => a.FormativeEnvironment)
                 .Where(a => a.IsActive)
                 .ToList();
         }
@@ -34,31 +37,46 @@ namespace GestionAgraria.controllers
         public AnimalModel? GetAnimalById(int id)
         {
             return _context.Animals
+                .Include(a => a.AnimalType)
+                .Include(a => a.FormativeEnvironment)
                 .FirstOrDefault(a => a.Id == id);
         }
 
         public AnimalModel? GetAnimalByCode(string code)
         {
             return _context.Animals
+                .Include(a => a.AnimalType)
+                .Include(a => a.FormativeEnvironment)
                 .FirstOrDefault(a => a.Code == code && a.IsActive);
         }
 
         public List<AnimalModel> GetAnimalsByFormativeEnvironment(int formativeEnvironmentId)
         {
             return _context.Animals
+                .Include(a => a.AnimalType)
+                .Include(a => a.FormativeEnvironment)
                 .ToList();
         }
 
+        public List<AnimalTypeModel> GetAnimalTypes()
+        {
+            return _context.AnimalTypes
+                .ToList();
+        }
         public List<AnimalModel> GetAnimalsByType(string animalType)
         {
             return _context.Animals
-                .Where(a => a.AnimalType == animalType && a.IsActive)
+                .Include(a => a.AnimalType)
+                .Include(a => a.FormativeEnvironment)
+                .Where(a => a.AnimalType.Name == animalType && a.IsActive)
                 .ToList();
         }
 
         public List<AnimalModel> GetAnimalsBySex(string sex)
         {
             return _context.Animals
+                .Include(a => a.AnimalType)
+                .Include(a => a.FormativeEnvironment)
                 .Where(a => a.Sex == sex && a.IsActive)
                 .ToList();
         }
@@ -66,6 +84,8 @@ namespace GestionAgraria.controllers
         public List<AnimalModel> GetAnimalsByProductiveState(string productiveState)
         {
             return _context.Animals
+                .Include(a => a.AnimalType)
+                .Include(a => a.FormativeEnvironment)
                 .Where(a => a.ProductiveState == productiveState && a.IsActive)
                 .ToList();
         }
@@ -74,15 +94,16 @@ namespace GestionAgraria.controllers
         {
             try
             {
-                // Validar que el código no exista
+                // Validar que no exista el codigo:
                 if (_context.Animals.Any(a => a.Code == animal.Code))
                     return false;
                 _context.Animals.Add(animal);
                 _context.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -156,7 +177,6 @@ namespace GestionAgraria.controllers
         public List<FormativeEnvironmentModel> GetAllActiveFormativeEnvironments()
         {
             return _context.FormativeEnvironments
-                .Include(fe => fe.Responsible)
                 .Where(fe => fe.IsActive)
                 .ToList();
         }
@@ -164,8 +184,9 @@ namespace GestionAgraria.controllers
         public List<string> GetDistinctAnimalTypes()
         {
             return _context.Animals
+                .Include(a => a.AnimalType)
                 .Where(a => a.IsActive)
-                .Select(a => a.AnimalType)
+                .Select(a => a.AnimalType.Name)
                 .Distinct()
                 .ToList();
         }

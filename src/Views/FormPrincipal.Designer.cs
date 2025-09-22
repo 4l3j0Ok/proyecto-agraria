@@ -406,16 +406,15 @@ namespace GestionAgraria
 
         #endregion
         private ImageList imgList;
-        private TabPage tabVegetablesArea;
+        public TabPage tabVegetablesArea;
         private TabPage tabHome;
         private TableLayoutPanel tableLayoutPanel1;
         private PictureBox pictureBox1;
         private ReaLTaiizor.Controls.MaterialLabel lblWelcome;
         private TabPage tabIndustryArea;
-        private TabPage tabAnimalArea;
+        public TabPage tabAnimalArea;
         private DataGridView dataGridView1;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddUser;
-        private TabPage tabEntorno;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddEntorno;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddAnimal;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddPlanta;
@@ -428,5 +427,8 @@ namespace GestionAgraria
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddVentas;
         public ReaLTaiizor.Controls.MaterialTabControl tcPrincipal;
         public TabPage tabUsers;
+        //public TabPage tabVegetablesArea;
+        //public TabPage tabAnimalArea;
+        public TabPage tabEntorno;
     }
 }

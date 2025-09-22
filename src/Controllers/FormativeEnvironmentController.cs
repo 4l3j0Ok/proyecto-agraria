@@ -3,6 +3,7 @@ using GestionAgraria.models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,6 @@ namespace GestionAgraria.controllers
         public List<FormativeEnvironmentModel> GetAllFormativeEnvironments()
         {
             return _context.FormativeEnvironments
-                .Include(fe => fe.Responsible)
                 .Where(fe => fe.IsActive)
                 .ToList();
         }
@@ -34,14 +34,12 @@ namespace GestionAgraria.controllers
         public FormativeEnvironmentModel? GetFormativeEnvironmentById(int id)
         {
             return _context.FormativeEnvironments
-                .Include(fe => fe.Responsible)
                 .FirstOrDefault(fe => fe.Id == id);
         }
 
         public List<FormativeEnvironmentModel> GetFormativeEnvironmentsByResponsible(int responsibleUserId)
         {
             return _context.FormativeEnvironments
-                .Include(fe => fe.Responsible)
                 .Where(fe => fe.ResponsibleUserId == responsibleUserId && fe.IsActive)
                 .ToList();
         }
@@ -49,7 +47,6 @@ namespace GestionAgraria.controllers
         public List<FormativeEnvironmentModel> GetFormativeEnvironmentsByYear(int year)
         {
             return _context.FormativeEnvironments
-                .Include(fe => fe.Responsible)
                 .Where(fe => fe.Year == year && fe.IsActive)
                 .ToList();
         }
@@ -62,11 +59,9 @@ namespace GestionAgraria.controllers
                 if (!_context.Users.Any(u => u.Id == formativeEnvironment.ResponsibleUserId && u.IsActive))
                     return false;
 
-                // Validar que no exista un entorno con el mismo nombre, área y año
+                // Validar que no exista un entorno con el mismo nombre
                 if (_context.FormativeEnvironments.Any(fe =>
                     fe.Name == formativeEnvironment.Name &&
-                    fe.Area == formativeEnvironment.Area &&
-                    fe.Year == formativeEnvironment.Year &&
                     fe.IsActive))
                     return false;
 
@@ -74,8 +69,9 @@ namespace GestionAgraria.controllers
                 _context.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 return false;
             }
         }

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using GestionAgraria.models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace GestionAgraria.Models
 {
@@ -12,13 +13,18 @@ namespace GestionAgraria.Models
         [Required]
         public string Code { get; set; } = string.Empty;
 
+        [ForeignKey("AnimalType")]
         [Required]
-        public string AnimalType { get; set; } = string.Empty;
+        public int AnimalTypeId { get; set; }
+        public AnimalTypeModel AnimalType { get; set; } = null!;
+
+        [ForeignKey("FormativeEnvironment")]
+        [Required]
+        public int FormativeEnvironmentId { get; set; }
+        public FormativeEnvironmentModel FormativeEnvironment { get; set; } = null!;
 
         [Required]
         public DateTime BirthOrEntryDate { get; set; }
-
-        [Required]
         public string Sex { get; set; } = string.Empty;
 
         [Required]

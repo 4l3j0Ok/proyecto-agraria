@@ -22,11 +22,22 @@ namespace GestionAgraria
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
-            ReloadUI();
+            LoadCards();
         }
-        public void ReloadUI()
+        public void LoadCards(bool clearCurrent=false)
         {
-            tabUsers.Controls.Clear();
+            if (clearCurrent)
+            {
+                foreach (System.Windows.Forms.TabPage tabPage in tcPrincipal.TabPages)
+                {
+                    List<UserControl> userControls = tabPage.Controls.OfType<UserControl>().ToList();
+                    foreach (UserControl uc in userControls)
+                    {
+                        tabPage.Controls.Remove(uc);
+                        uc.Dispose();
+                    }
+                }
+            }
             LoadUsersTable();
             LoadVegetablesTable();
             LoadAnimalsTable();
@@ -66,7 +77,6 @@ namespace GestionAgraria
                 tabAnimalArea.Controls.Add(animalCard);
             }
         }
-        //TODO
         private void LoadFormativeEnvironments()
         {
             using var environmentController = new FormativeEnvironmentController();
@@ -124,7 +134,7 @@ namespace GestionAgraria
                     tabPage.Controls.Add(control);
                 }
                 previousTabPages.Remove(previousTabPage);
-                ReloadUI();
+                LoadCards();
             }
         }
 

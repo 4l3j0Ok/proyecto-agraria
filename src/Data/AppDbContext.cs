@@ -12,6 +12,7 @@ namespace GestionAgraria.data
         public DbSet<RoleModel> Roles { get; set; }
         public DbSet<FormativeEnvironmentModel> FormativeEnvironments { get; set; }
         public DbSet<AnimalModel> Animals { get; set; }
+        public DbSet<AnimalTypeModel> AnimalTypes { get; set; }
         public DbSet<VegetalModel> Vegetables { get; set; }
 
         // acá agregamos todos los modelos que tengamos
@@ -32,14 +33,17 @@ namespace GestionAgraria.data
                 .WithMany()
                 .HasForeignKey(u => u.RoleId)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            // Configuración de la relación FormativeEnvironment-ResponsibleUser
-            modelBuilder.Entity<FormativeEnvironmentModel>()
-                .HasOne(fe => fe.Responsible)
+            modelBuilder.Entity<AnimalModel>()
+                .HasOne(a => a.FormativeEnvironment)
                 .WithMany()
-                .HasForeignKey(fe => fe.ResponsibleUserId)
+                .HasForeignKey(a => a.FormativeEnvironmentId)
                 .OnDelete(DeleteBehavior.Restrict);
-
+            // Configuración de la relación Animal-AnimalType
+            modelBuilder.Entity<AnimalModel>()
+                .HasOne(a => a.AnimalType)
+                .WithMany()
+                .HasForeignKey(a => a.AnimalTypeId)
+                .OnDelete(DeleteBehavior.Restrict);
             // Configuración de índices únicos
             modelBuilder.Entity<UserModel>()
                 .HasIndex(u => u.Username)
@@ -63,6 +67,7 @@ namespace GestionAgraria.data
             modelBuilder.Entity<RoleModel>().ToTable("Roles");
             modelBuilder.Entity<FormativeEnvironmentModel>().ToTable("FormativeEnvironments");
             modelBuilder.Entity<AnimalModel>().ToTable("Animals");
+            modelBuilder.Entity<AnimalTypeModel>().ToTable("AnimalTypes");
             modelBuilder.Entity<VegetalModel>().ToTable("Vegetables");
 
             base.OnModelCreating(modelBuilder);
@@ -75,6 +80,17 @@ namespace GestionAgraria.data
                 if (!this.Roles.Any(r => r.Name == roleName))
                 {
                     this.Roles.Add(new RoleModel { Name = roleName });
+                }
+            }
+            this.SaveChanges();
+        }
+        public void SeedDefaultAnimalTypes()
+        {
+            foreach (var typeName in Config.defaultAnimalTypes)
+            {
+                if (!this.AnimalTypes.Any(t => t.Name == typeName))
+                {
+                    this.AnimalTypes.Add(new AnimalTypeModel { Name = typeName });
                 }
             }
             this.SaveChanges();
