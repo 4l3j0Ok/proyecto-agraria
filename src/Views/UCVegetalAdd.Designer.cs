@@ -96,6 +96,7 @@ namespace GestionAgraria.Views
             mepVegetalAdd.Title = "Agregar Planta";
             mepVegetalAdd.ValidationButtonText = "Guardar";
             mepVegetalAdd.SaveClick += mepVegetalAdd_SaveClick;
+            mepVegetalAdd.CancelClick += mepVegetalAdd_CancelClick;
             // 
             // tableLayoutPanel2
             // 

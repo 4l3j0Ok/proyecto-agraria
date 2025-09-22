@@ -101,11 +101,12 @@ namespace GestionAgraria
             tbUsuario.SelectionStart = 0;
             tbUsuario.ShortcutsEnabled = true;
             tbUsuario.Size = new Size(455, 48);
-            tbUsuario.TabIndex = 0;
+            tbUsuario.TabIndex = 1;
             tbUsuario.TabStop = false;
             tbUsuario.TextAlign = HorizontalAlignment.Left;
             tbUsuario.TrailingIcon = null;
             tbUsuario.UseSystemPasswordChar = false;
+            tbUsuario.KeyPress += tbCredentials_KeyPress;
             tbUsuario.TextChanged += tb_TextChanged;
             // 
             // lblUsuario
@@ -158,11 +159,12 @@ namespace GestionAgraria
             tbContrasena.SelectionStart = 0;
             tbContrasena.ShortcutsEnabled = true;
             tbContrasena.Size = new Size(455, 48);
-            tbContrasena.TabIndex = 1;
+            tbContrasena.TabIndex = 2;
             tbContrasena.TabStop = false;
             tbContrasena.TextAlign = HorizontalAlignment.Left;
             tbContrasena.TrailingIcon = null;
             tbContrasena.UseSystemPasswordChar = false;
+            tbContrasena.KeyPress += tbCredentials_KeyPress;
             tbContrasena.TextChanged += tb_TextChanged;
             // 
             // lblContrasenia
@@ -195,7 +197,7 @@ namespace GestionAgraria
             btnLogin.NoAccentTextColor = Color.Empty;
             btnLogin.Padding = new Padding(18, 15, 18, 15);
             btnLogin.Size = new Size(455, 36);
-            btnLogin.TabIndex = 2;
+            btnLogin.TabIndex = 3;
             btnLogin.Text = "Iniciar sesión";
             btnLogin.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnLogin.UseAccentColor = false;
@@ -235,7 +237,7 @@ namespace GestionAgraria
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 90F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.Size = new Size(495, 492);
-            tableLayoutPanel2.TabIndex = 4;
+            tableLayoutPanel2.TabIndex = 0;
             // 
             // panel3
             // 
@@ -304,12 +306,12 @@ namespace GestionAgraria
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 82.8244247F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 17.1755733F));
             tableLayoutPanel4.Size = new Size(495, 490);
-            tableLayoutPanel4.TabIndex = 5;
+            tableLayoutPanel4.TabIndex = 0;
             // 
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Properties.Resources.home;
+            pictureBox1.Image = Properties.Resources.homeImage;
             pictureBox1.Location = new Point(20, 40);
             pictureBox1.Margin = new Padding(20, 40, 20, 40);
             pictureBox1.Name = "pictureBox1";
@@ -388,7 +390,7 @@ namespace GestionAgraria
             parrotPictureBox4.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
             parrotPictureBox4.FilterAlpha = 200;
             parrotPictureBox4.FilterEnabled = false;
-            parrotPictureBox4.Image = Properties.Resources.uietp1;
+            parrotPictureBox4.Image = Properties.Resources.uietp;
             parrotPictureBox4.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             parrotPictureBox4.IsElipse = false;
             parrotPictureBox4.IsParallax = false;

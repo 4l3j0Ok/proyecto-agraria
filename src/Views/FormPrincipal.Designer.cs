@@ -94,6 +94,7 @@ namespace GestionAgraria
             imgList.Images.SetKeyName(8, "Abeja (2).png");
             imgList.Images.SetKeyName(9, "Conejo (2).png");
             imgList.Images.SetKeyName(10, "userGroup.png");
+            imgList.Images.SetKeyName(11, "");
             // 
             // tabUsers
             // 
@@ -179,7 +180,7 @@ namespace GestionAgraria
             // pictureBox1
             // 
             pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Properties.Resources.home;
+            pictureBox1.Image = Properties.Resources.homeImage;
             pictureBox1.InitialImage = null;
             pictureBox1.Location = new Point(20, 20);
             pictureBox1.Margin = new Padding(20);
@@ -256,6 +257,7 @@ namespace GestionAgraria
             tabIndustryArea.ImageKey = "industry-area.png";
             tabIndustryArea.Location = new Point(4, 24);
             tabIndustryArea.Name = "tabIndustryArea";
+            tabIndustryArea.Padding = new Padding(20);
             tabIndustryArea.Size = new Size(786, 505);
             tabIndustryArea.TabIndex = 4;
             tabIndustryArea.Text = "Industria";
@@ -266,10 +268,10 @@ namespace GestionAgraria
             tcIndustrias.Controls.Add(tabCompras);
             tcIndustrias.Controls.Add(tabVentas);
             tcIndustrias.Dock = DockStyle.Fill;
-            tcIndustrias.Location = new Point(0, 0);
+            tcIndustrias.Location = new Point(20, 20);
             tcIndustrias.Name = "tcIndustrias";
             tcIndustrias.SelectedIndex = 0;
-            tcIndustrias.Size = new Size(786, 505);
+            tcIndustrias.Size = new Size(746, 465);
             tcIndustrias.TabIndex = 2;
             // 
             // tabProduct
@@ -278,7 +280,7 @@ namespace GestionAgraria
             tabProduct.Location = new Point(4, 24);
             tabProduct.Name = "tabProduct";
             tabProduct.Padding = new Padding(17);
-            tabProduct.Size = new Size(778, 477);
+            tabProduct.Size = new Size(738, 437);
             tabProduct.TabIndex = 0;
             tabProduct.Text = "Productos";
             tabProduct.UseVisualStyleBackColor = true;
@@ -288,7 +290,7 @@ namespace GestionAgraria
             btnAddProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddProduct.Depth = 0;
             btnAddProduct.Icon = Properties.Resources.add_user;
-            btnAddProduct.Location = new Point(702, 401);
+            btnAddProduct.Location = new Point(662, 361);
             btnAddProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddProduct.Name = "btnAddProduct";
             btnAddProduct.Size = new Size(56, 56);
@@ -350,7 +352,7 @@ namespace GestionAgraria
             tabEntorno.ImageKey = "userGroup.png";
             tabEntorno.Location = new Point(4, 24);
             tabEntorno.Name = "tabEntorno";
-            tabEntorno.Padding = new Padding(3);
+            tabEntorno.Padding = new Padding(20);
             tabEntorno.Size = new Size(786, 505);
             tabEntorno.TabIndex = 6;
             tabEntorno.Text = "Entornos";
@@ -361,7 +363,7 @@ namespace GestionAgraria
             btnAddEntorno.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddEntorno.Depth = 0;
             btnAddEntorno.Icon = Properties.Resources.add_user;
-            btnAddEntorno.Location = new Point(707, 426);
+            btnAddEntorno.Location = new Point(690, 409);
             btnAddEntorno.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddEntorno.Name = "btnAddEntorno";
             btnAddEntorno.Size = new Size(56, 56);

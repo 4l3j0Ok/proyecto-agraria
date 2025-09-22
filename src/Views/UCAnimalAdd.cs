@@ -16,6 +16,7 @@ namespace GestionAgraria.Views
     {
         private AnimalController animalController;
         private AnimalModel currentAnimal;
+        private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
 
         public UCAnimalAdd(AnimalModel? animal = null)
         {
@@ -135,7 +136,7 @@ namespace GestionAgraria.Views
             var environments = animalController.GetAllActiveFormativeEnvironments();
             if (environments.Count == 0)
             {
-                MessageBox.Show("No hay entornos formativos activos disponibles. Debe crear al menos uno antes de registrar un animal.", 
+                MessageBox.Show("No hay entornos formativos activos disponibles. Debe crear al menos uno antes de registrar un animal.",
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -143,21 +144,21 @@ namespace GestionAgraria.Views
             // Validar que se seleccione un entorno formativo (ahora obligatorio)
             if (string.IsNullOrWhiteSpace(cbAnimalFormativeEnvironment.Text))
             {
-                MessageBox.Show("Debe seleccionar un entorno formativo.", "Campo requerido", 
+                MessageBox.Show("Debe seleccionar un entorno formativo.", "Campo requerido",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var selectedEnvironment = environments.FirstOrDefault(env => 
+            var selectedEnvironment = environments.FirstOrDefault(env =>
                 env.Name == cbAnimalFormativeEnvironment.Text);
-            
+
             if (selectedEnvironment == null)
             {
-                MessageBox.Show("El entorno formativo seleccionado no es válido.", "Error", 
+                MessageBox.Show("El entorno formativo seleccionado no es válido.", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             currentAnimal.FormativeEnvironment = selectedEnvironment;
             currentAnimal.FormativeEnvironmentId = selectedEnvironment.Id;
 
@@ -170,14 +171,17 @@ namespace GestionAgraria.Views
             if (success)
             {
                 MessageBox.Show("Animal guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
                 formPrincipal?.RestaurarFormularioTab(formPrincipal.tabAnimalArea);
-                formPrincipal?.LoadCards(clearCurrent: true);
             }
             else
             {
                 MessageBox.Show("Error al guardar el animal. El código ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void mepAnimalAdd_CancelClick(object sender, EventArgs e)
+        {
+            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabAnimalArea);
         }
     }
 }

@@ -2,6 +2,9 @@
 using ReaLTaiizor.Manager;
 using ReaLTaiizor.Colors;
 using System.Drawing;
+using ReaLTaiizor.Forms;
+using ReaLTaiizor.Controls;
+
 
 namespace GestionAgraria
 {
@@ -39,18 +42,20 @@ namespace GestionAgraria
             "Mixto"
         };
     }
-    internal class ColorScheme
+    internal class UIConfig
     {
         public static int primary = 0x396f04; // Color primario
         public static int lightPrimary = 0x7dbd07; // Tono más claro del color primario
         public static int darkPrimary = 0x234602; // Tono más oscuro del color primario
         public static int accent = 0x7a3f00; // Color de acento
         public static int background = 0xEEEEEE; // Color de fondo
+        public static string fontFamily = "Comic Sans MS"; // Fuente principal
 
         public static MaterialSkinManager GetSkinManager()
         {
             MaterialSkinManager materialSkinManager;
             materialSkinManager = MaterialSkinManager.Instance;
+            
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
             materialSkinManager.ColorScheme = new MaterialColorScheme(
                 primary: primary,

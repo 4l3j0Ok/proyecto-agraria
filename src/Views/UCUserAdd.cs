@@ -18,6 +18,7 @@ namespace GestionAgraria.Views
         private UserController userController;
         private RoleController roleController;
         private UserModel currentUser;
+        private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
 
         public UCUserAdd(UserModel? user = null)
         {
@@ -157,8 +158,12 @@ namespace GestionAgraria.Views
             {
                 MessageBox.Show("Error al guardar el usuario. El nombre de usuario, email o identificación ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
             formPrincipal.RestaurarFormularioTab(formPrincipal.tabUsers);
+        }
+
+        private void mepUserAdd_CancelClick(object sender, EventArgs e)
+        {
+            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabUsers);
         }
     }
 }

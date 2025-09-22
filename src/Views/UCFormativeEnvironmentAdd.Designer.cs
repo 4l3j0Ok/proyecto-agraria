@@ -594,6 +594,7 @@ namespace GestionAgraria.Views
             mepFormativeEnvironmentAdd.ValidationButtonEnable = true;
             mepFormativeEnvironmentAdd.ValidationButtonText = "Guardar";
             mepFormativeEnvironmentAdd.SaveClick += mepFormativeEnvironmentAdd_SaveClick;
+            mepFormativeEnvironmentAdd.CancelClick += mepFormativeEnvironmentAdd_CancelClick;
             // 
             // UCFormativeEnvironmentAdd
             // 

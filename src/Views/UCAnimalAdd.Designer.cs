@@ -111,6 +111,7 @@ namespace GestionAgraria.Views
             mepAnimalAdd.ValidationButtonEnable = true;
             mepAnimalAdd.ValidationButtonText = "Guardar";
             mepAnimalAdd.SaveClick += mepAnimalAdd_SaveClick;
+            mepAnimalAdd.CancelClick += mepAnimalAdd_CancelClick;
             // 
             // tableLayoutPanel2
             // 

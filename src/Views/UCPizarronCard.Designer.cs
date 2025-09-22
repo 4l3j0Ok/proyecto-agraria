@@ -98,10 +98,10 @@
             parrotPictureBox1.ColorRight = Color.Black;
             parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
             parrotPictureBox1.FilterAlpha = 200;
-            parrotPictureBox1.FilterEnabled = true;
-            parrotPictureBox1.Image = Properties.Resources._80f1c139_85b6_440f_8a06_8bc44149ef0b_removebg_preview;
+            parrotPictureBox1.FilterEnabled = false;
+            parrotPictureBox1.Image = Properties.Resources.user_placeholder;
             parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            parrotPictureBox1.IsElipse = false;
+            parrotPictureBox1.IsElipse = true;
             parrotPictureBox1.IsParallax = false;
             parrotPictureBox1.Location = new Point(8, 6);
             parrotPictureBox1.Margin = new Padding(3, 2, 3, 2);
@@ -117,11 +117,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(parrotPictureBox1);
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCPizarronCard";
-            Size = new Size(615, 70);
+            Size = new Size(613, 68);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);

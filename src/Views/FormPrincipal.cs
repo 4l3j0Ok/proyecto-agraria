@@ -5,7 +5,9 @@ using GestionAgraria.Views;
 using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
 using System.Diagnostics;
+using System.Drawing.Printing;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace GestionAgraria
 {
@@ -16,7 +18,7 @@ namespace GestionAgraria
         public FormPrincipal(UserModel currentUser)
         {
             this.currentUser = currentUser;
-            ColorScheme.GetSkinManager().AddFormToManage(this);
+            UIConfig.GetSkinManager().AddFormToManage(this);
             InitializeComponent();
         }
 
@@ -52,6 +54,7 @@ namespace GestionAgraria
             {
                 UCUserCard userCard = new UCUserCard(user: user);
                 userCard.Dock = DockStyle.Top;
+                userCard.Margin = new Padding(0,0,0,20);
                 tabUsers.Controls.Add(userCard);
             }
         }
@@ -134,7 +137,7 @@ namespace GestionAgraria
                     tabPage.Controls.Add(control);
                 }
                 previousTabPages.Remove(previousTabPage);
-                LoadCards();
+                LoadCards(clearCurrent: true);
             }
         }
 

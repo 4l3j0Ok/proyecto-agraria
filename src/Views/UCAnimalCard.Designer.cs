@@ -110,16 +110,16 @@
             // 
             // parrotPictureBox1
             // 
-            parrotPictureBox1.BackColor = SystemColors.Control;
-            parrotPictureBox1.ColorLeft = Color.Gray;
-            parrotPictureBox1.ColorRight = Color.Gray;
+            parrotPictureBox1.BackColor = Color.Transparent;
+            parrotPictureBox1.ColorLeft = Color.Transparent;
+            parrotPictureBox1.ColorRight = Color.Transparent;
             parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
             parrotPictureBox1.FilterAlpha = 200;
-            parrotPictureBox1.FilterEnabled = true;
+            parrotPictureBox1.FilterEnabled = false;
             parrotPictureBox1.ForeColor = SystemColors.ActiveBorder;
-            parrotPictureBox1.Image = Properties.Resources.Animales2;
+            parrotPictureBox1.Image = Properties.Resources.animal_placeholder;
             parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            parrotPictureBox1.IsElipse = false;
+            parrotPictureBox1.IsElipse = true;
             parrotPictureBox1.IsParallax = false;
             parrotPictureBox1.Location = new Point(6, 6);
             parrotPictureBox1.Margin = new Padding(3, 2, 3, 2);
@@ -129,17 +129,19 @@
             parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             parrotPictureBox1.TabIndex = 4;
             parrotPictureBox1.Text = "parrotPictureBox1";
-            parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
             // UCAnimalCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(parrotPictureBox1);
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCAnimalCard";
-            Size = new Size(615, 70);
+            Size = new Size(613, 68);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);

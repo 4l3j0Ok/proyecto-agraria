@@ -39,8 +39,8 @@ namespace GestionAgraria.Views
         /// </summary>
         private void InitializeComponent()
         {
-            pbUserProfilePicture = new ReaLTaiizor.Controls.ParrotPictureBox();
             tableLayoutPanel1 = new TableLayoutPanel();
+            pbUserProfilePicture = new ReaLTaiizor.Controls.ParrotPictureBox();
             panel1 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
             lblUserUsername = new ReaLTaiizor.Controls.MaterialLabel();
@@ -51,6 +51,23 @@ namespace GestionAgraria.Views
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(pbUserProfilePicture, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.MaximumSize = new Size(0, 120);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(613, 68);
+            tableLayoutPanel1.TabIndex = 4;
             // 
             // pbUserProfilePicture
             // 
@@ -68,28 +85,11 @@ namespace GestionAgraria.Views
             pbUserProfilePicture.Margin = new Padding(9, 8, 9, 8);
             pbUserProfilePicture.Name = "pbUserProfilePicture";
             pbUserProfilePicture.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            pbUserProfilePicture.Size = new Size(50, 54);
+            pbUserProfilePicture.Size = new Size(50, 52);
             pbUserProfilePicture.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             pbUserProfilePicture.TabIndex = 1;
             pbUserProfilePicture.Text = "parrotPictureBox1";
             pbUserProfilePicture.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Controls.Add(pbUserProfilePicture, 0, 0);
-            tableLayoutPanel1.Controls.Add(panel1, 1, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.MaximumSize = new Size(0, 120);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(615, 70);
-            tableLayoutPanel1.TabIndex = 2;
             // 
             // panel1
             // 
@@ -100,7 +100,7 @@ namespace GestionAgraria.Views
             panel1.Margin = new Padding(9, 8, 9, 8);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(4);
-            panel1.Size = new Size(529, 54);
+            panel1.Size = new Size(527, 52);
             panel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -118,7 +118,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(521, 14);
+            tableLayoutPanel2.Size = new Size(519, 14);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // lblUserUsername
@@ -145,7 +145,7 @@ namespace GestionAgraria.Views
             lblUserPhone.Location = new Point(349, 0);
             lblUserPhone.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserPhone.Name = "lblUserPhone";
-            lblUserPhone.Size = new Size(169, 14);
+            lblUserPhone.Size = new Size(167, 14);
             lblUserPhone.TabIndex = 4;
             lblUserPhone.Text = "Teléfono";
             lblUserPhone.TextAlign = ContentAlignment.TopRight;
@@ -184,12 +184,13 @@ namespace GestionAgraria.Views
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(tableLayoutPanel1);
             Cursor = Cursors.Hand;
             MaximumSize = new Size(0, 70);
             MinimumSize = new Size(615, 70);
             Name = "UCUserCard";
-            Size = new Size(615, 70);
+            Size = new Size(613, 68);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -199,13 +200,14 @@ namespace GestionAgraria.Views
         }
 
         #endregion
+
         private TableLayoutPanel tableLayoutPanel1;
-        private Panel panel1;
         public ReaLTaiizor.Controls.ParrotPictureBox pbUserProfilePicture;
-        public ReaLTaiizor.Controls.MaterialLabel lblUserName;
+        private Panel panel1;
         private TableLayoutPanel tableLayoutPanel2;
-        public ReaLTaiizor.Controls.MaterialLabel lblUserPhone;
         public ReaLTaiizor.Controls.MaterialLabel lblUserUsername;
+        public ReaLTaiizor.Controls.MaterialLabel lblUserPhone;
         public ReaLTaiizor.Controls.MaterialLabel lblUserArea;
+        public ReaLTaiizor.Controls.MaterialLabel lblUserName;
     }
 }

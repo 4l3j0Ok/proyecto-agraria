@@ -55,7 +55,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(615, 70);
+            tableLayoutPanel1.Size = new Size(613, 68);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // parrotPictureBox1
@@ -74,7 +74,7 @@
             parrotPictureBox1.Margin = new Padding(10);
             parrotPictureBox1.Name = "parrotPictureBox1";
             parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox1.Size = new Size(50, 50);
+            parrotPictureBox1.Size = new Size(50, 48);
             parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             parrotPictureBox1.TabIndex = 1;
             parrotPictureBox1.Text = "parrotPictureBox1";
@@ -89,7 +89,7 @@
             panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5);
-            panel1.Size = new Size(525, 50);
+            panel1.Size = new Size(523, 48);
             panel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -107,7 +107,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(515, 14);
+            tableLayoutPanel2.Size = new Size(513, 14);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // lblUserUsername
@@ -134,7 +134,7 @@
             lblUserPhone.Location = new Point(345, 0);
             lblUserPhone.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserPhone.Name = "lblUserPhone";
-            lblUserPhone.Size = new Size(167, 14);
+            lblUserPhone.Size = new Size(165, 14);
             lblUserPhone.TabIndex = 4;
             lblUserPhone.Text = "Año";
             lblUserPhone.TextAlign = ContentAlignment.TopRight;
@@ -172,9 +172,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(tableLayoutPanel1);
             Name = "UCFormativeEnvironmentCard";
-            Size = new Size(615, 70);
+            Size = new Size(613, 68);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

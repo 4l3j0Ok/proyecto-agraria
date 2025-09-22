@@ -42,6 +42,7 @@
             // 
             // tableLayoutPanel1
             // 
+            tableLayoutPanel1.BackColor = Color.White;
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -133,7 +134,7 @@
             parrotPictureBox1.Dock = DockStyle.Fill;
             parrotPictureBox1.FilterAlpha = 200;
             parrotPictureBox1.FilterEnabled = false;
-            parrotPictureBox1.Image = Properties.Resources._1f861400_6fda_40d1_a756_b0e7c48ed135_removebg_preview;
+            parrotPictureBox1.Image = Properties.Resources.farm_placeholder;
             parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.Low;
             parrotPictureBox1.IsElipse = true;
             parrotPictureBox1.IsParallax = false;

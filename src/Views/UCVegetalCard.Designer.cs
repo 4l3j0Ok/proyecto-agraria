@@ -28,23 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
+            materialCard1 = new ReaLTaiizor.Controls.MaterialCard();
+            parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
             panel1 = new Panel();
             lblPlantQuantity = new ReaLTaiizor.Controls.MaterialLabel();
             lblPlantType = new ReaLTaiizor.Controls.MaterialLabel();
-            parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
+            materialCard1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // materialCard1
+            // 
+            materialCard1.BackColor = Color.FromArgb(255, 255, 255);
+            materialCard1.Controls.Add(parrotPictureBox1);
+            materialCard1.Controls.Add(panel1);
+            materialCard1.Depth = 0;
+            materialCard1.Dock = DockStyle.Fill;
+            materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialCard1.Location = new Point(0, 0);
+            materialCard1.Margin = new Padding(14);
+            materialCard1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialCard1.Name = "materialCard1";
+            materialCard1.Padding = new Padding(14);
+            materialCard1.Size = new Size(615, 70);
+            materialCard1.TabIndex = 7;
+            // 
+            // parrotPictureBox1
+            // 
+            parrotPictureBox1.BackColor = Color.Transparent;
+            parrotPictureBox1.ColorLeft = Color.Transparent;
+            parrotPictureBox1.ColorRight = Color.Transparent;
+            parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            parrotPictureBox1.FilterAlpha = 200;
+            parrotPictureBox1.FilterEnabled = false;
+            parrotPictureBox1.ForeColor = SystemColors.ActiveBorder;
+            parrotPictureBox1.Image = Properties.Resources.vegetable_placeholder;
+            parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            parrotPictureBox1.IsElipse = true;
+            parrotPictureBox1.IsParallax = false;
+            parrotPictureBox1.Location = new Point(7, 6);
+            parrotPictureBox1.Margin = new Padding(3, 2, 3, 2);
+            parrotPictureBox1.Name = "parrotPictureBox1";
+            parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            parrotPictureBox1.Size = new Size(64, 57);
+            parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            parrotPictureBox1.TabIndex = 7;
+            parrotPictureBox1.Text = "parrotPictureBox1";
+            parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // panel1
             // 
             panel1.Controls.Add(lblPlantQuantity);
             panel1.Controls.Add(lblPlantType);
-            panel1.Location = new Point(79, 10);
+            panel1.Location = new Point(78, 10);
             panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5);
             panel1.Size = new Size(527, 50);
-            panel1.TabIndex = 4;
+            panel1.TabIndex = 6;
             // 
             // lblPlantQuantity
             // 
@@ -75,38 +116,16 @@
             lblPlantType.TabIndex = 0;
             lblPlantType.Text = "Tipo de Planta";
             // 
-            // parrotPictureBox1
-            // 
-            parrotPictureBox1.BackColor = SystemColors.Control;
-            parrotPictureBox1.ColorLeft = Color.Gray;
-            parrotPictureBox1.ColorRight = Color.Gray;
-            parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            parrotPictureBox1.FilterAlpha = 200;
-            parrotPictureBox1.FilterEnabled = true;
-            parrotPictureBox1.ForeColor = SystemColors.ActiveBorder;
-            parrotPictureBox1.Image = Properties.Resources.Vegetales;
-            parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            parrotPictureBox1.IsElipse = false;
-            parrotPictureBox1.IsParallax = false;
-            parrotPictureBox1.Location = new Point(8, 6);
-            parrotPictureBox1.Margin = new Padding(3, 2, 3, 2);
-            parrotPictureBox1.Name = "parrotPictureBox1";
-            parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox1.Size = new Size(64, 57);
-            parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            parrotPictureBox1.TabIndex = 5;
-            parrotPictureBox1.Text = "parrotPictureBox1";
-            parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            // 
             // UCVegetalCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(parrotPictureBox1);
-            Controls.Add(panel1);
+            BackColor = Color.White;
+            Controls.Add(materialCard1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCVegetalCard";
             Size = new Size(615, 70);
+            materialCard1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -114,9 +133,10 @@
 
         #endregion
 
-        private Panel panel1;
-        public ReaLTaiizor.Controls.MaterialLabel lblPlantType;
+        private ReaLTaiizor.Controls.MaterialCard materialCard1;
         private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox1;
+        private Panel panel1;
         public ReaLTaiizor.Controls.MaterialLabel lblPlantQuantity;
+        public ReaLTaiizor.Controls.MaterialLabel lblPlantType;
     }
 }

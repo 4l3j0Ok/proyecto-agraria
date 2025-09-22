@@ -17,6 +17,7 @@ namespace GestionAgraria.Views
         private FormativeEnvironmentController formativeEnvironmentController;
         private UserController userController;
         private FormativeEnvironmentModel currentFormativeEnvironment;
+        private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
 
         public UCFormativeEnvironmentAdd(FormativeEnvironmentModel? formativeEnvironment = null)
         {
@@ -129,14 +130,17 @@ namespace GestionAgraria.Views
             if (success)
             {
                 MessageBox.Show("Entorno formativo guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
                 formPrincipal?.RestaurarFormularioTab(formPrincipal.tabEntorno);
-                formPrincipal?.LoadCards(clearCurrent: true);
             }
             else
             {
                 MessageBox.Show("Error al guardar el entorno formativo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void mepFormativeEnvironmentAdd_CancelClick(object sender, EventArgs e)
+        {
+            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabEntorno);
         }
     }
 }

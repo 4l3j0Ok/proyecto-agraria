@@ -17,9 +17,10 @@ namespace GestionAgraria
         public FormLogin()
         {
             InitializeComponent();
-            ColorScheme.GetSkinManager().AddFormToManage(this);
+            UIConfig.GetSkinManager().AddFormToManage(this);
         }
-        private void FormLogin_Load(object sender, EventArgs e) {
+        private void FormLogin_Load(object sender, EventArgs e)
+        {
             UserModel? user = DbInitializer.InitializeUser();
             if (user != null)
             {
@@ -72,6 +73,12 @@ namespace GestionAgraria
         private static void copyPassword(string password)
         {
             Clipboard.SetText(password);
+        }
+
+        private void tbCredentials_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                btnLogin.PerformClick();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace GestionAgraria.Views
     {
         private VegetalController vegetalController;
         private VegetalModel currentVegetal;
+        private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
 
         public UCVegetalAdd(VegetalModel? vegetal = null)
         {
@@ -95,14 +96,17 @@ namespace GestionAgraria.Views
             if (success)
             {
                 MessageBox.Show("Vegetal guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
                 formPrincipal?.RestaurarFormularioTab(formPrincipal.tabVegetablesArea);
-                formPrincipal?.LoadCards(clearCurrent: true);
             }
             else
             {
                 MessageBox.Show("Error al guardar el vegetal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void mepVegetalAdd_CancelClick(object sender, EventArgs e)
+        {
+            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabVegetablesArea);
         }
     }
 }
