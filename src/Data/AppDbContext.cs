@@ -15,6 +15,8 @@ namespace GestionAgraria.data
         public DbSet<AnimalTypeModel> AnimalTypes { get; set; }
         public DbSet<VegetalModel> Vegetables { get; set; }
 
+        public DbSet<ProductModel> Product { get; set; }
+
         // acá agregamos todos los modelos que tengamos
         // public DbSet<ProductModel> Products { get; set; }
         // public DbSet<InvoiceModel> Invoices { get; set; }
@@ -33,6 +35,8 @@ namespace GestionAgraria.data
                 .WithMany()
                 .HasForeignKey(u => u.RoleId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuración de la relación Animal - FormativeEnviroment
             modelBuilder.Entity<AnimalModel>()
                 .HasOne(a => a.FormativeEnvironment)
                 .WithMany()
@@ -57,10 +61,27 @@ namespace GestionAgraria.data
                 .HasIndex(u => u.PersonId)
                 .IsUnique();
 
+            modelBuilder.Entity<ProductModel>()
+                .HasIndex(u => u.code)
+                .IsUnique();
+
             // Configuración de índices únicos para código de animal
             modelBuilder.Entity<AnimalModel>()
                 .HasIndex(a => a.Code)
                 .IsUnique();
+
+            // Configuración de índices únicos para código de Producto
+            modelBuilder.Entity<ProductModel>()
+                .HasIndex(u => u.code)
+                .IsUnique();
+
+            // Configuración de la relación Product - FormativeEnviroment
+            modelBuilder.Entity<ProductModel>()
+                .HasOne(a => a.FormativeEnvironment)
+                .WithMany()
+                .HasForeignKey(a => a.FormativeEnvironmentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
             // Mapeo de nombres de tabla (si es necesario mantener compatibilidad)
             modelBuilder.Entity<UserModel>().ToTable("Users");
@@ -69,6 +90,7 @@ namespace GestionAgraria.data
             modelBuilder.Entity<AnimalModel>().ToTable("Animals");
             modelBuilder.Entity<AnimalTypeModel>().ToTable("AnimalTypes");
             modelBuilder.Entity<VegetalModel>().ToTable("Vegetables");
+            modelBuilder.Entity<ProductModel>().ToTable("Product");
 
             base.OnModelCreating(modelBuilder);
         }

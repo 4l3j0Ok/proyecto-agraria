@@ -97,7 +97,7 @@
             lblPlantQuantity.Location = new Point(5, 24);
             lblPlantQuantity.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblPlantQuantity.Name = "lblPlantQuantity";
-            lblPlantQuantity.Size = new Size(48, 14);
+            lblPlantQuantity.Size = new Size(51, 14);
             lblPlantQuantity.TabIndex = 6;
             lblPlantQuantity.Text = "Cantidad";
             lblPlantQuantity.TextAlign = ContentAlignment.TopCenter;

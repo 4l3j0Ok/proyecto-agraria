@@ -1,4 +1,5 @@
 ﻿using GestionAgraria.controllers;
+using GestionAgraria.Controllers;
 using GestionAgraria.models;
 using GestionAgraria.Models;
 using GestionAgraria.Views;
@@ -26,7 +27,7 @@ namespace GestionAgraria
         {
             LoadCards();
         }
-        public void LoadCards(bool clearCurrent=false)
+        public void LoadCards(bool clearCurrent = false)
         {
             if (clearCurrent)
             {
@@ -44,6 +45,7 @@ namespace GestionAgraria
             LoadVegetablesTable();
             LoadAnimalsTable();
             LoadFormativeEnvironments();
+            LoadProductTable();
         }
         private void LoadUsersTable()
         {
@@ -54,7 +56,7 @@ namespace GestionAgraria
             {
                 UCUserCard userCard = new UCUserCard(user: user);
                 userCard.Dock = DockStyle.Top;
-                userCard.Margin = new Padding(0,0,0,20);
+                userCard.Margin = new Padding(0, 0, 0, 20);
                 tabUsers.Controls.Add(userCard);
             }
         }
@@ -91,7 +93,19 @@ namespace GestionAgraria
                 tabEntorno.Controls.Add(formativeEnvironmentCard);
             }
         }
+        private void LoadProductTable()
+        {
+            using var ProducController = new ProductController();
+            List<ProductModel> products = ProducController.GetAllProduct();
 
+            foreach (ProductModel pro in products)
+            {
+                UCProductosCard prodCard = new UCProductosCard(pro);
+                prodCard.Dock = DockStyle.Top;
+                prodCard.Margin = new Padding(0, 0, 0, 20);
+                tabProduct.Controls.Add(prodCard);
+            }
+        }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             UCUserAdd userAddControl = new UCUserAdd();
@@ -145,6 +159,24 @@ namespace GestionAgraria
         {
             UCVegetalAdd AddControl = new UCVegetalAdd();
             this.VerFormularioTab(AddControl, tabVegetablesArea);
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            UCCargaProductosAdd AddControl = new UCCargaProductosAdd();
+            this.VerFormularioTab(AddControl, tabProduct);
+        }
+
+        private void btnAddCompras_Click(object sender, EventArgs e)
+        {
+            UCComprasAdd AddControl = new UCComprasAdd();
+            this.VerFormularioTab(AddControl, tabCompras);
+        }
+
+        private void btnAddVentas_Click(object sender, EventArgs e)
+        {
+            UCVentasAdd AddControl = new UCVentasAdd();
+            this.VerFormularioTab(AddControl, tabVentas);
         }
     }
 }

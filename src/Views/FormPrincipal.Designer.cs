@@ -102,11 +102,10 @@ namespace GestionAgraria
             tabUsers.AutoScroll = true;
             tabUsers.Controls.Add(btnAddUser);
             tabUsers.ImageKey = "user.png";
-            tabUsers.Location = new Point(4, 29);
-            tabUsers.Margin = new Padding(4, 4, 4, 4);
+            tabUsers.Location = new Point(4, 24);
             tabUsers.Name = "tabUsers";
-            tabUsers.Padding = new Padding(25, 25, 25, 25);
-            tabUsers.Size = new Size(984, 633);
+            tabUsers.Padding = new Padding(20);
+            tabUsers.Size = new Size(786, 505);
             tabUsers.TabIndex = 3;
             tabUsers.Text = "Usuarios";
             tabUsers.UseVisualStyleBackColor = true;
@@ -116,11 +115,10 @@ namespace GestionAgraria
             btnAddUser.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddUser.Depth = 0;
             btnAddUser.Icon = Properties.Resources.add_user;
-            btnAddUser.Location = new Point(884, 532);
-            btnAddUser.Margin = new Padding(4, 4, 4, 4);
+            btnAddUser.Location = new Point(707, 426);
             btnAddUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddUser.Name = "btnAddUser";
-            btnAddUser.Size = new Size(70, 70);
+            btnAddUser.Size = new Size(56, 56);
             btnAddUser.TabIndex = 0;
             btnAddUser.Text = "Agregar Usuario";
             btnAddUser.UseVisualStyleBackColor = true;
@@ -130,11 +128,10 @@ namespace GestionAgraria
             // 
             tabVegetablesArea.Controls.Add(btnAddPlanta);
             tabVegetablesArea.ImageKey = "vegetable-area.png";
-            tabVegetablesArea.Location = new Point(4, 29);
-            tabVegetablesArea.Margin = new Padding(4, 4, 4, 4);
+            tabVegetablesArea.Location = new Point(4, 24);
             tabVegetablesArea.Name = "tabVegetablesArea";
-            tabVegetablesArea.Padding = new Padding(25, 25, 25, 25);
-            tabVegetablesArea.Size = new Size(984, 633);
+            tabVegetablesArea.Padding = new Padding(20);
+            tabVegetablesArea.Size = new Size(786, 505);
             tabVegetablesArea.TabIndex = 2;
             tabVegetablesArea.Text = "Vegetales";
             tabVegetablesArea.UseVisualStyleBackColor = true;
@@ -144,11 +141,10 @@ namespace GestionAgraria
             btnAddPlanta.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddPlanta.Depth = 0;
             btnAddPlanta.Icon = Properties.Resources.add_user;
-            btnAddPlanta.Location = new Point(884, 532);
-            btnAddPlanta.Margin = new Padding(4, 4, 4, 4);
+            btnAddPlanta.Location = new Point(707, 426);
             btnAddPlanta.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddPlanta.Name = "btnAddPlanta";
-            btnAddPlanta.Size = new Size(70, 70);
+            btnAddPlanta.Size = new Size(56, 56);
             btnAddPlanta.TabIndex = 18;
             btnAddPlanta.Text = "Agregar Planta";
             btnAddPlanta.UseVisualStyleBackColor = true;
@@ -158,11 +154,10 @@ namespace GestionAgraria
             // 
             tabHome.Controls.Add(tableLayoutPanel1);
             tabHome.ImageKey = "home.png";
-            tabHome.Location = new Point(4, 29);
-            tabHome.Margin = new Padding(4, 4, 4, 4);
+            tabHome.Location = new Point(4, 24);
             tabHome.Name = "tabHome";
-            tabHome.Padding = new Padding(25, 25, 25, 25);
-            tabHome.Size = new Size(984, 633);
+            tabHome.Padding = new Padding(20);
+            tabHome.Size = new Size(786, 505);
             tabHome.TabIndex = 0;
             tabHome.Text = "Inicio";
             tabHome.UseVisualStyleBackColor = true;
@@ -175,13 +170,12 @@ namespace GestionAgraria
             tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
             tableLayoutPanel1.Controls.Add(lblWelcome, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(25, 25);
-            tableLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
+            tableLayoutPanel1.Location = new Point(20, 20);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 76.4976959F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 23.5023041F));
-            tableLayoutPanel1.Size = new Size(934, 583);
+            tableLayoutPanel1.Size = new Size(746, 465);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // pictureBox1
@@ -189,10 +183,10 @@ namespace GestionAgraria
             pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = Properties.Resources.homeImage;
             pictureBox1.InitialImage = null;
-            pictureBox1.Location = new Point(25, 25);
-            pictureBox1.Margin = new Padding(25, 25, 25, 25);
+            pictureBox1.Location = new Point(20, 20);
+            pictureBox1.Margin = new Padding(20);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(884, 395);
+            pictureBox1.Size = new Size(706, 315);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -204,11 +198,10 @@ namespace GestionAgraria
             lblWelcome.Dock = DockStyle.Top;
             lblWelcome.Font = new Font("Roboto", 34F, FontStyle.Bold, GraphicsUnit.Pixel);
             lblWelcome.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H4;
-            lblWelcome.Location = new Point(4, 445);
-            lblWelcome.Margin = new Padding(4, 0, 4, 0);
+            lblWelcome.Location = new Point(3, 355);
             lblWelcome.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(926, 41);
+            lblWelcome.Size = new Size(740, 41);
             lblWelcome.TabIndex = 1;
             lblWelcome.Text = "Bienvenido a Gestión Agraria";
             lblWelcome.TextAlign = ContentAlignment.MiddleCenter;
@@ -225,24 +218,22 @@ namespace GestionAgraria
             tcPrincipal.Depth = 0;
             tcPrincipal.Dock = DockStyle.Fill;
             tcPrincipal.ImageList = imgList;
-            tcPrincipal.Location = new Point(4, 80);
-            tcPrincipal.Margin = new Padding(4, 4, 4, 4);
+            tcPrincipal.Location = new Point(3, 64);
             tcPrincipal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             tcPrincipal.Multiline = true;
             tcPrincipal.Name = "tcPrincipal";
             tcPrincipal.SelectedIndex = 0;
-            tcPrincipal.Size = new Size(992, 666);
+            tcPrincipal.Size = new Size(794, 533);
             tcPrincipal.TabIndex = 0;
             // 
             // tabAnimalArea
             // 
             tabAnimalArea.Controls.Add(btnAddAnimal);
             tabAnimalArea.ImageKey = "animal-area.png";
-            tabAnimalArea.Location = new Point(4, 29);
-            tabAnimalArea.Margin = new Padding(4, 4, 4, 4);
+            tabAnimalArea.Location = new Point(4, 24);
             tabAnimalArea.Name = "tabAnimalArea";
-            tabAnimalArea.Padding = new Padding(25, 25, 25, 25);
-            tabAnimalArea.Size = new Size(984, 633);
+            tabAnimalArea.Padding = new Padding(20);
+            tabAnimalArea.Size = new Size(786, 505);
             tabAnimalArea.TabIndex = 5;
             tabAnimalArea.Text = "Animales";
             tabAnimalArea.UseVisualStyleBackColor = true;
@@ -252,11 +243,10 @@ namespace GestionAgraria
             btnAddAnimal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddAnimal.Depth = 0;
             btnAddAnimal.Icon = Properties.Resources.add_user;
-            btnAddAnimal.Location = new Point(884, 532);
-            btnAddAnimal.Margin = new Padding(4, 4, 4, 4);
+            btnAddAnimal.Location = new Point(707, 426);
             btnAddAnimal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddAnimal.Name = "btnAddAnimal";
-            btnAddAnimal.Size = new Size(70, 70);
+            btnAddAnimal.Size = new Size(56, 56);
             btnAddAnimal.TabIndex = 16;
             btnAddAnimal.Text = "Agregar Animal";
             btnAddAnimal.UseVisualStyleBackColor = true;
@@ -267,11 +257,10 @@ namespace GestionAgraria
             tabIndustryArea.BackColor = Color.White;
             tabIndustryArea.Controls.Add(tcIndustrias);
             tabIndustryArea.ImageKey = "industry-area.png";
-            tabIndustryArea.Location = new Point(4, 29);
-            tabIndustryArea.Margin = new Padding(4, 4, 4, 4);
+            tabIndustryArea.Location = new Point(4, 24);
             tabIndustryArea.Name = "tabIndustryArea";
-            tabIndustryArea.Padding = new Padding(25, 25, 25, 25);
-            tabIndustryArea.Size = new Size(984, 633);
+            tabIndustryArea.Padding = new Padding(20);
+            tabIndustryArea.Size = new Size(786, 505);
             tabIndustryArea.TabIndex = 4;
             tabIndustryArea.Text = "Industria";
             // 
@@ -281,21 +270,19 @@ namespace GestionAgraria
             tcIndustrias.Controls.Add(tabCompras);
             tcIndustrias.Controls.Add(tabVentas);
             tcIndustrias.Dock = DockStyle.Fill;
-            tcIndustrias.Location = new Point(25, 25);
-            tcIndustrias.Margin = new Padding(4, 4, 4, 4);
+            tcIndustrias.Location = new Point(20, 20);
             tcIndustrias.Name = "tcIndustrias";
             tcIndustrias.SelectedIndex = 0;
-            tcIndustrias.Size = new Size(934, 583);
+            tcIndustrias.Size = new Size(746, 465);
             tcIndustrias.TabIndex = 2;
             // 
             // tabProduct
             // 
             tabProduct.Controls.Add(btnAddProduct);
-            tabProduct.Location = new Point(4, 29);
-            tabProduct.Margin = new Padding(4, 4, 4, 4);
+            tabProduct.Location = new Point(4, 24);
             tabProduct.Name = "tabProduct";
-            tabProduct.Padding = new Padding(21, 21, 21, 21);
-            tabProduct.Size = new Size(926, 550);
+            tabProduct.Padding = new Padding(17);
+            tabProduct.Size = new Size(738, 437);
             tabProduct.TabIndex = 0;
             tabProduct.Text = "Productos";
             tabProduct.UseVisualStyleBackColor = true;
@@ -305,23 +292,22 @@ namespace GestionAgraria
             btnAddProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddProduct.Depth = 0;
             btnAddProduct.Icon = Properties.Resources.add_user;
-            btnAddProduct.Location = new Point(830, 447);
-            btnAddProduct.Margin = new Padding(4, 4, 4, 4);
+            btnAddProduct.Location = new Point(663, 361);
             btnAddProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddProduct.Name = "btnAddProduct";
-            btnAddProduct.Size = new Size(70, 70);
+            btnAddProduct.Size = new Size(56, 56);
             btnAddProduct.TabIndex = 2;
             btnAddProduct.Text = "Agregar Producto";
             btnAddProduct.UseVisualStyleBackColor = true;
+            btnAddProduct.Click += btnAddProduct_Click;
             // 
             // tabCompras
             // 
             tabCompras.Controls.Add(btnAddCompras);
-            tabCompras.Location = new Point(4, 29);
-            tabCompras.Margin = new Padding(4, 4, 4, 4);
+            tabCompras.Location = new Point(4, 24);
             tabCompras.Name = "tabCompras";
-            tabCompras.Padding = new Padding(21, 21, 21, 21);
-            tabCompras.Size = new Size(924, 548);
+            tabCompras.Padding = new Padding(17);
+            tabCompras.Size = new Size(738, 437);
             tabCompras.TabIndex = 1;
             tabCompras.Text = "Compras";
             tabCompras.UseVisualStyleBackColor = true;
@@ -331,11 +317,10 @@ namespace GestionAgraria
             btnAddCompras.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddCompras.Depth = 0;
             btnAddCompras.Icon = Properties.Resources.add_user;
-            btnAddCompras.Location = new Point(828, 445);
-            btnAddCompras.Margin = new Padding(4, 4, 4, 4);
+            btnAddCompras.Location = new Point(663, 361);
             btnAddCompras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddCompras.Name = "btnAddCompras";
-            btnAddCompras.Size = new Size(70, 70);
+            btnAddCompras.Size = new Size(56, 56);
             btnAddCompras.TabIndex = 3;
             btnAddCompras.Text = "Agregar Producto";
             btnAddCompras.UseVisualStyleBackColor = true;
@@ -343,11 +328,10 @@ namespace GestionAgraria
             // tabVentas
             // 
             tabVentas.Controls.Add(btnAddVentas);
-            tabVentas.Location = new Point(4, 29);
-            tabVentas.Margin = new Padding(4, 4, 4, 4);
+            tabVentas.Location = new Point(4, 24);
             tabVentas.Name = "tabVentas";
-            tabVentas.Padding = new Padding(21, 21, 21, 21);
-            tabVentas.Size = new Size(926, 550);
+            tabVentas.Padding = new Padding(17);
+            tabVentas.Size = new Size(738, 437);
             tabVentas.TabIndex = 2;
             tabVentas.Text = "Ventas";
             tabVentas.UseVisualStyleBackColor = true;
@@ -357,11 +341,10 @@ namespace GestionAgraria
             btnAddVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddVentas.Depth = 0;
             btnAddVentas.Icon = Properties.Resources.add_user;
-            btnAddVentas.Location = new Point(830, 447);
-            btnAddVentas.Margin = new Padding(4, 4, 4, 4);
+            btnAddVentas.Location = new Point(663, 361);
             btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddVentas.Name = "btnAddVentas";
-            btnAddVentas.Size = new Size(70, 70);
+            btnAddVentas.Size = new Size(56, 56);
             btnAddVentas.TabIndex = 4;
             btnAddVentas.Text = "Agregar Producto";
             btnAddVentas.UseVisualStyleBackColor = true;
@@ -370,11 +353,10 @@ namespace GestionAgraria
             // 
             tabEntorno.Controls.Add(btnAddEntorno);
             tabEntorno.ImageKey = "userGroup.png";
-            tabEntorno.Location = new Point(4, 29);
-            tabEntorno.Margin = new Padding(4, 4, 4, 4);
+            tabEntorno.Location = new Point(4, 24);
             tabEntorno.Name = "tabEntorno";
-            tabEntorno.Padding = new Padding(25, 25, 25, 25);
-            tabEntorno.Size = new Size(984, 633);
+            tabEntorno.Padding = new Padding(20);
+            tabEntorno.Size = new Size(786, 505);
             tabEntorno.TabIndex = 6;
             tabEntorno.Text = "Entornos";
             tabEntorno.UseVisualStyleBackColor = true;
@@ -384,11 +366,10 @@ namespace GestionAgraria
             btnAddEntorno.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddEntorno.Depth = 0;
             btnAddEntorno.Icon = Properties.Resources.add_user;
-            btnAddEntorno.Location = new Point(862, 511);
-            btnAddEntorno.Margin = new Padding(4, 4, 4, 4);
+            btnAddEntorno.Location = new Point(690, 409);
             btnAddEntorno.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddEntorno.Name = "btnAddEntorno";
-            btnAddEntorno.Size = new Size(70, 70);
+            btnAddEntorno.Size = new Size(56, 56);
             btnAddEntorno.TabIndex = 14;
             btnAddEntorno.Text = "Agregar Usuario";
             btnAddEntorno.UseVisualStyleBackColor = true;
@@ -397,30 +378,29 @@ namespace GestionAgraria
             // tabPizarron
             // 
             tabPizarron.ImageKey = "pizarron.png";
-            tabPizarron.Location = new Point(4, 29);
+            tabPizarron.Location = new Point(4, 24);
+            tabPizarron.Margin = new Padding(2);
             tabPizarron.Name = "tabPizarron";
-            tabPizarron.Padding = new Padding(3);
-            tabPizarron.Size = new Size(984, 633);
+            tabPizarron.Padding = new Padding(2);
+            tabPizarron.Size = new Size(786, 505);
             tabPizarron.TabIndex = 7;
             tabPizarron.Text = "Pizarrón";
             tabPizarron.UseVisualStyleBackColor = true;
             // 
             // FormPrincipal
             // 
-            AutoScaleDimensions = new SizeF(120F, 120F);
+            AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoScroll = true;
             BackColor = Color.FromArgb(238, 238, 238);
-            ClientSize = new Size(1000, 750);
+            ClientSize = new Size(800, 600);
             Controls.Add(tcPrincipal);
             DrawerHighlightWithAccent = false;
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = tcPrincipal;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 4, 4, 4);
-            MinimumSize = new Size(1000, 750);
+            MinimumSize = new Size(800, 574);
             Name = "FormPrincipal";
-            Padding = new Padding(4, 80, 4, 4);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gestión Agraria";
             Load += FormPrincipal_Load;
@@ -448,18 +428,13 @@ namespace GestionAgraria
         private TableLayoutPanel tableLayoutPanel1;
         private PictureBox pictureBox1;
         private ReaLTaiizor.Controls.MaterialLabel lblWelcome;
-        private TabPage tabIndustryArea;
         public TabPage tabAnimalArea;
         private DataGridView dataGridView1;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddUser;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddEntorno;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddAnimal;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddPlanta;
-        private TabControl tcIndustrias;
-        private TabPage tabProduct;
-        private TabPage tabCompras;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddProduct;
-        private TabPage tabVentas;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddCompras;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddVentas;
         public ReaLTaiizor.Controls.MaterialTabControl tcPrincipal;
@@ -468,5 +443,10 @@ namespace GestionAgraria
         //public TabPage tabAnimalArea;
         public TabPage tabEntorno;
         private TabPage tabPizarron;
+        public TabPage tabIndustryArea;
+        public TabControl tcIndustrias;
+        public TabPage tabProduct;
+        public TabPage tabCompras;
+        public TabPage tabVentas;
     }
 }
