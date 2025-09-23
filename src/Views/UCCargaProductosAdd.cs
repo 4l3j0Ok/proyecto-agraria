@@ -109,6 +109,29 @@ namespace GestionAgraria.Views
             currentProduct.Quantity = int.Parse(cbProductStock.Text);
             currentProduct.Observations = tbDescription.Text;
 
+            var environments = producController.GetAllActiveFormativeEnvironments();
+
+            if (environments.Count == 0)
+            {
+                MessageBox.Show("No hay entornos formativos activos disponibles. Debe crear al menos uno antes de registrar un animal.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(cbProductFormativeEnvironment.Text))
+            {
+                MessageBox.Show("Debe seleccionar un entorno formativo.", "Campo requerido",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var selectedEnvironment = environments.FirstOrDefault(env =>
+                env.Name == cbProductFormativeEnvironment.Text);
+
+            currentProduct.FormativeEnvironment = selectedEnvironment;
+            currentProduct.FormativeEnvironmentId = selectedEnvironment.Id;
+
+
             bool success;
             if (currentProduct.Id == 0)
                 success = producController.CreateProduct(currentProduct);
@@ -117,12 +140,12 @@ namespace GestionAgraria.Views
 
             if (success)
             {
-                MessageBox.Show("Vegetal guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vegetal producto correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 formPrincipal?.RestaurarFormularioTab(formPrincipal.tabProduct);
             }
             else
             {
-                MessageBox.Show("Error al guardar el vegetal.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al guardar el producto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

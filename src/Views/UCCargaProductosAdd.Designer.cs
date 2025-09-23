@@ -77,7 +77,10 @@
             mepProductAdd.Size = new Size(1152, 604);
             mepProductAdd.TabIndex = 0;
             mepProductAdd.Title = "Cargar Nuevo Producto ";
+            mepProductAdd.ValidationButtonEnable = true;
             mepProductAdd.ValidationButtonText = "GUARDAR";
+            mepProductAdd.SaveClick += mepProductAdd_SaveClick;
+            mepProductAdd.CancelClick += mepProductAdd_cancelClick;
             // 
             // panel2
             // 
