@@ -28,26 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
+            tableLayoutPanel1 = new TableLayoutPanel();
+            parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
             panel1 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
             lblCode = new ReaLTaiizor.Controls.MaterialLabel();
-            lblProductiveState = new ReaLTaiizor.Controls.MaterialLabel();
             lblType = new ReaLTaiizor.Controls.MaterialLabel();
-            parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
+            lblProductiveState = new ReaLTaiizor.Controls.MaterialLabel();
+            tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(parrotPictureBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(398, 68);
+            tableLayoutPanel1.TabIndex = 0;
+            // 
+            // parrotPictureBox1
+            // 
+            parrotPictureBox1.BackColor = Color.Transparent;
+            parrotPictureBox1.ColorLeft = Color.Transparent;
+            parrotPictureBox1.ColorRight = Color.Transparent;
+            parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            parrotPictureBox1.Dock = DockStyle.Fill;
+            parrotPictureBox1.FilterAlpha = 200;
+            parrotPictureBox1.FilterEnabled = false;
+            parrotPictureBox1.ForeColor = SystemColors.ActiveBorder;
+            parrotPictureBox1.Image = Properties.Resources.animal_placeholder;
+            parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            parrotPictureBox1.IsElipse = true;
+            parrotPictureBox1.IsParallax = false;
+            parrotPictureBox1.Location = new Point(10, 10);
+            parrotPictureBox1.Margin = new Padding(10);
+            parrotPictureBox1.MaximumSize = new Size(400, 70);
+            parrotPictureBox1.Name = "parrotPictureBox1";
+            parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            parrotPictureBox1.Size = new Size(50, 48);
+            parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            parrotPictureBox1.TabIndex = 6;
+            parrotPictureBox1.Text = "parrotPictureBox1";
+            parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.SystemDefault;
             // 
             // panel1
             // 
             panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(lblType);
-            panel1.Location = new Point(69, 8);
-            panel1.Margin = new Padding(9, 8, 9, 8);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(80, 10);
+            panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5);
-            panel1.Size = new Size(527, 50);
-            panel1.TabIndex = 3;
+            panel1.Size = new Size(308, 48);
+            panel1.TabIndex = 5;
             // 
             // tableLayoutPanel2
             // 
@@ -62,7 +105,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(517, 14);
+            tableLayoutPanel2.Size = new Size(298, 14);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // lblCode
@@ -75,24 +118,9 @@
             lblCode.Location = new Point(3, 0);
             lblCode.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblCode.Name = "lblCode";
-            lblCode.Size = new Size(252, 14);
+            lblCode.Size = new Size(143, 14);
             lblCode.TabIndex = 6;
             lblCode.Text = "Código";
-            // 
-            // lblProductiveState
-            // 
-            lblProductiveState.AutoSize = true;
-            lblProductiveState.Depth = 0;
-            lblProductiveState.Dock = DockStyle.Fill;
-            lblProductiveState.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-            lblProductiveState.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblProductiveState.Location = new Point(261, 0);
-            lblProductiveState.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblProductiveState.Name = "lblProductiveState";
-            lblProductiveState.Size = new Size(253, 14);
-            lblProductiveState.TabIndex = 5;
-            lblProductiveState.Text = "Estado Productivo";
-            lblProductiveState.TextAlign = ContentAlignment.TopCenter;
             // 
             // lblType
             // 
@@ -108,28 +136,20 @@
             lblType.TabIndex = 0;
             lblType.Text = "Especie";
             // 
-            // parrotPictureBox1
+            // lblProductiveState
             // 
-            parrotPictureBox1.BackColor = Color.Transparent;
-            parrotPictureBox1.ColorLeft = Color.Transparent;
-            parrotPictureBox1.ColorRight = Color.Transparent;
-            parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            parrotPictureBox1.FilterAlpha = 200;
-            parrotPictureBox1.FilterEnabled = false;
-            parrotPictureBox1.ForeColor = SystemColors.ActiveBorder;
-            parrotPictureBox1.Image = Properties.Resources.animal_placeholder;
-            parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            parrotPictureBox1.IsElipse = true;
-            parrotPictureBox1.IsParallax = false;
-            parrotPictureBox1.Location = new Point(6, 6);
-            parrotPictureBox1.Margin = new Padding(3, 2, 3, 2);
-            parrotPictureBox1.Name = "parrotPictureBox1";
-            parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox1.Size = new Size(64, 57);
-            parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            parrotPictureBox1.TabIndex = 4;
-            parrotPictureBox1.Text = "parrotPictureBox1";
-            parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            lblProductiveState.AutoSize = true;
+            lblProductiveState.Depth = 0;
+            lblProductiveState.Dock = DockStyle.Fill;
+            lblProductiveState.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            lblProductiveState.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
+            lblProductiveState.Location = new Point(152, 0);
+            lblProductiveState.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblProductiveState.Name = "lblProductiveState";
+            lblProductiveState.Size = new Size(143, 14);
+            lblProductiveState.TabIndex = 5;
+            lblProductiveState.Text = "Estado Productivo";
+            lblProductiveState.TextAlign = ContentAlignment.TopCenter;
             // 
             // UCAnimalCard
             // 
@@ -137,11 +157,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BorderStyle = BorderStyle.FixedSingle;
-            Controls.Add(parrotPictureBox1);
-            Controls.Add(panel1);
+            Controls.Add(tableLayoutPanel1);
             Margin = new Padding(3, 2, 3, 2);
+            MaximumSize = new Size(600, 70);
+            MinimumSize = new Size(400, 70);
             Name = "UCAnimalCard";
-            Size = new Size(613, 68);
+            Size = new Size(398, 68);
+            tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
@@ -151,11 +173,12 @@
 
         #endregion
 
+        private TableLayoutPanel tableLayoutPanel1;
+        private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox1;
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel2;
         public ReaLTaiizor.Controls.MaterialLabel lblCode;
-        public ReaLTaiizor.Controls.MaterialLabel lblProductiveState;
         public ReaLTaiizor.Controls.MaterialLabel lblType;
-        private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox1;
+        public ReaLTaiizor.Controls.MaterialLabel lblProductiveState;
     }
 }

@@ -3,6 +3,7 @@ using GestionAgraria.models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,16 +58,16 @@ namespace GestionAgraria.controllers
                 if (!string.IsNullOrEmpty(user.Email) && _context.Users.Any(u => u.Email == user.Email))
                     return false;
 
-                // Validar que el PersonId no exista
-                if (!string.IsNullOrEmpty(user.PersonId) && _context.Users.Any(u => u.PersonId == user.PersonId))
-                    return false;
-
+                // Limpiar la propiedad de navegación para evitar que Entity Framework intente insertar el Role
+                user.Role = null;
+                
                 _context.Users.Add(user);
                 _context.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 return false;
             }
         }

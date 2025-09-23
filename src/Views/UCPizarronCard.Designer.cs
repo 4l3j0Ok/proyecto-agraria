@@ -28,56 +28,63 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            lblFecha = new ReaLTaiizor.Controls.MaterialLabel();
-            lblProcedimientos = new ReaLTaiizor.Controls.MaterialLabel();
+            tableLayoutPanel1 = new TableLayoutPanel();
             parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
+            panel1 = new Panel();
+            lblProcedimientos = new ReaLTaiizor.Controls.MaterialLabel();
+            lblFecha = new ReaLTaiizor.Controls.MaterialLabel();
+            tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(parrotPictureBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(398, 68);
+            tableLayoutPanel1.TabIndex = 0;
+            // 
+            // parrotPictureBox1
+            // 
+            parrotPictureBox1.ColorLeft = Color.Black;
+            parrotPictureBox1.ColorRight = Color.Black;
+            parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            parrotPictureBox1.Dock = DockStyle.Fill;
+            parrotPictureBox1.FilterAlpha = 200;
+            parrotPictureBox1.FilterEnabled = false;
+            parrotPictureBox1.Image = Properties.Resources.user_placeholder;
+            parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            parrotPictureBox1.IsElipse = true;
+            parrotPictureBox1.IsParallax = false;
+            parrotPictureBox1.Location = new Point(10, 10);
+            parrotPictureBox1.Margin = new Padding(10);
+            parrotPictureBox1.Name = "parrotPictureBox1";
+            parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            parrotPictureBox1.Size = new Size(50, 48);
+            parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            parrotPictureBox1.TabIndex = 8;
+            parrotPictureBox1.Text = "parrotPictureBox1";
+            parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // panel1
             // 
-            panel1.Controls.Add(tableLayoutPanel2);
+            panel1.Controls.Add(lblFecha);
             panel1.Controls.Add(lblProcedimientos);
-            panel1.Location = new Point(88, 13);
-            panel1.Margin = new Padding(11, 13, 11, 13);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(80, 10);
+            panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
-            panel1.Padding = new Padding(6, 7, 6, 7);
-            panel1.Size = new Size(602, 67);
-            panel1.TabIndex = 5;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.AutoSize = true;
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel2.Controls.Add(lblFecha, 1, 0);
-            tableLayoutPanel2.Dock = DockStyle.Top;
-            tableLayoutPanel2.Location = new Point(6, 26);
-            tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(590, 14);
-            tableLayoutPanel2.TabIndex = 1;
-            // 
-            // lblFecha
-            // 
-            lblFecha.AutoSize = true;
-            lblFecha.Depth = 0;
-            lblFecha.Dock = DockStyle.Fill;
-            lblFecha.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-            lblFecha.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblFecha.Location = new Point(298, 0);
-            lblFecha.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(289, 14);
-            lblFecha.TabIndex = 5;
-            lblFecha.Text = "Fecha";
-            lblFecha.TextAlign = ContentAlignment.TopCenter;
+            panel1.Padding = new Padding(5);
+            panel1.Size = new Size(308, 48);
+            panel1.TabIndex = 7;
             // 
             // lblProcedimientos
             // 
@@ -86,56 +93,52 @@
             lblProcedimientos.Dock = DockStyle.Top;
             lblProcedimientos.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             lblProcedimientos.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Subtitle1;
-            lblProcedimientos.Location = new Point(6, 7);
+            lblProcedimientos.Location = new Point(5, 5);
             lblProcedimientos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblProcedimientos.Name = "lblProcedimientos";
             lblProcedimientos.Size = new Size(111, 19);
             lblProcedimientos.TabIndex = 0;
             lblProcedimientos.Text = "Procedimientos";
             // 
-            // parrotPictureBox1
+            // lblFecha
             // 
-            parrotPictureBox1.ColorLeft = Color.Black;
-            parrotPictureBox1.ColorRight = Color.Black;
-            parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            parrotPictureBox1.FilterAlpha = 200;
-            parrotPictureBox1.FilterEnabled = false;
-            parrotPictureBox1.Image = Properties.Resources.user_placeholder;
-            parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            parrotPictureBox1.IsElipse = true;
-            parrotPictureBox1.IsParallax = false;
-            parrotPictureBox1.Location = new Point(9, 8);
-            parrotPictureBox1.Name = "parrotPictureBox1";
-            parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox1.Size = new Size(71, 77);
-            parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            parrotPictureBox1.TabIndex = 6;
-            parrotPictureBox1.Text = "parrotPictureBox1";
-            parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            lblFecha.AutoSize = true;
+            lblFecha.Depth = 0;
+            lblFecha.Dock = DockStyle.Fill;
+            lblFecha.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            lblFecha.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
+            lblFecha.Location = new Point(5, 24);
+            lblFecha.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblFecha.Name = "lblFecha";
+            lblFecha.Size = new Size(31, 14);
+            lblFecha.TabIndex = 6;
+            lblFecha.Text = "Fecha";
+            lblFecha.TextAlign = ContentAlignment.TopCenter;
             // 
             // UCPizarronCard
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BorderStyle = BorderStyle.FixedSingle;
-            Controls.Add(parrotPictureBox1);
-            Controls.Add(panel1);
+            Controls.Add(tableLayoutPanel1);
+            Margin = new Padding(3, 2, 3, 2);
+            MaximumSize = new Size(600, 70);
+            MinimumSize = new Size(400, 70);
             Name = "UCPizarronCard";
-            Size = new Size(701, 91);
+            Size = new Size(398, 68);
+            tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private TableLayoutPanel tableLayoutPanel2;
-        public ReaLTaiizor.Controls.MaterialLabel lblProcedimientos;
+        private TableLayoutPanel tableLayoutPanel1;
         private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox1;
+        private Panel panel1;
+        public ReaLTaiizor.Controls.MaterialLabel lblProcedimientos;
         public ReaLTaiizor.Controls.MaterialLabel lblFecha;
     }
 }

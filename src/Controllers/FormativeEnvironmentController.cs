@@ -27,6 +27,7 @@ namespace GestionAgraria.controllers
         public List<FormativeEnvironmentModel> GetAllFormativeEnvironments()
         {
             return _context.FormativeEnvironments
+                .Include(fe => fe.Responsible)
                 .Where(fe => fe.IsActive)
                 .ToList();
         }
@@ -34,12 +35,14 @@ namespace GestionAgraria.controllers
         public FormativeEnvironmentModel? GetFormativeEnvironmentById(int id)
         {
             return _context.FormativeEnvironments
+                .Include(fe => fe.Responsible)
                 .FirstOrDefault(fe => fe.Id == id);
         }
 
         public List<FormativeEnvironmentModel> GetFormativeEnvironmentsByResponsible(int responsibleUserId)
         {
             return _context.FormativeEnvironments
+                .Include(fe => fe.Responsible)
                 .Where(fe => fe.ResponsibleUserId == responsibleUserId && fe.IsActive)
                 .ToList();
         }
@@ -47,6 +50,7 @@ namespace GestionAgraria.controllers
         public List<FormativeEnvironmentModel> GetFormativeEnvironmentsByYear(int year)
         {
             return _context.FormativeEnvironments
+                .Include(fe => fe.Responsible)
                 .Where(fe => fe.Year == year && fe.IsActive)
                 .ToList();
         }
@@ -64,6 +68,9 @@ namespace GestionAgraria.controllers
                     fe.Name == formativeEnvironment.Name &&
                     fe.IsActive))
                     return false;
+
+              
+                formativeEnvironment.Responsible = null;
 
                 _context.FormativeEnvironments.Add(formativeEnvironment);
                 _context.SaveChanges();
@@ -110,8 +117,9 @@ namespace GestionAgraria.controllers
                 _context.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 return false;
             }
         }
@@ -128,8 +136,9 @@ namespace GestionAgraria.controllers
                 _context.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 return false;
             }
         }
@@ -146,8 +155,9 @@ namespace GestionAgraria.controllers
                 _context.SaveChanges();
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex);
                 return false;
             }
         }

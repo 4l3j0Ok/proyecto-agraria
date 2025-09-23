@@ -14,7 +14,8 @@ namespace GestionAgraria
     public partial class FormPrincipal : MaterialForm
     {
         private readonly UserModel currentUser;
-        private readonly List<Dictionary<string, List<Control>>> previousTabPages = new List<Dictionary<string, List<Control>>>();
+        private readonly Dictionary<System.Windows.Forms.TabPage, List<Control>> originalTabContents = new Dictionary<System.Windows.Forms.TabPage, List<Control>>();
+        
         public FormPrincipal(UserModel currentUser)
         {
             this.currentUser = currentUser;
@@ -25,18 +26,37 @@ namespace GestionAgraria
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             LoadCards();
+            // Guardar el estado inicial de todos los tabs
+            SaveOriginalTabContents();
         }
-        public void LoadCards(bool clearCurrent=false)
+        
+        private void SaveOriginalTabContents()
         {
-            if (clearCurrent)
+            foreach (System.Windows.Forms.TabPage tabPage in tcPrincipal.TabPages)
+            {
+                var controls = new List<Control>();
+                foreach (Control control in tabPage.Controls)
+                {
+                    controls.Add(control);
+                }
+                originalTabContents[tabPage] = controls;
+            }
+        }
+        
+        public void LoadCards(Type? clearObjectsOfType = null)
+        {
+            if (clearObjectsOfType != null)
             {
                 foreach (System.Windows.Forms.TabPage tabPage in tcPrincipal.TabPages)
                 {
-                    List<UserControl> userControls = tabPage.Controls.OfType<UserControl>().ToList();
-                    foreach (UserControl uc in userControls)
+                    // Elimina todos los controles del tipo especificado
+                    var controlsToRemove = tabPage.Controls.Cast<Control>()
+                        .Where(c => c.GetType() == clearObjectsOfType)
+                        .ToList();
+                    foreach (var control in controlsToRemove)
                     {
-                        tabPage.Controls.Remove(uc);
-                        uc.Dispose();
+                        tabPage.Controls.Remove(control);
+                        control.Dispose();
                     }
                 }
             }
@@ -54,8 +74,8 @@ namespace GestionAgraria
             {
                 UCUserCard userCard = new UCUserCard(user: user);
                 userCard.Dock = DockStyle.Top;
-                userCard.Margin = new Padding(0,0,0,20);
-                tabUsers.Controls.Add(userCard);
+                userCard.Margin = new Padding(10);
+                flpUsersList.Controls.Add(userCard);
             }
         }
         private void LoadVegetablesTable()
@@ -66,6 +86,7 @@ namespace GestionAgraria
             {
                 UCVegetalCard vegetalCard = new UCVegetalCard(vegetal: vegetal);
                 vegetalCard.Dock = DockStyle.Top;
+                vegetalCard.Margin = new Padding(10);
                 tabVegetablesArea.Controls.Add(vegetalCard);
             }
         }
@@ -77,6 +98,7 @@ namespace GestionAgraria
             {
                 UCAnimalCard animalCard = new UCAnimalCard(animal: animal);
                 animalCard.Dock = DockStyle.Top;
+                animalCard.Margin = new Padding(10);
                 tabAnimalArea.Controls.Add(animalCard);
             }
         }
@@ -88,6 +110,7 @@ namespace GestionAgraria
             {
                 UCFormativeEnvironmentCard formativeEnvironmentCard = new UCFormativeEnvironmentCard(formativeEnvironment: formativeEnvironment);
                 formativeEnvironmentCard.Dock = DockStyle.Top;
+                formativeEnvironmentCard.Margin = new Padding(10);
                 tabEntorno.Controls.Add(formativeEnvironmentCard);
             }
         }
@@ -109,35 +132,63 @@ namespace GestionAgraria
             this.VerFormularioTab(AddControl, tabAnimalArea);
         }
 
-        // Reemplaza la línea problemática en el método VerFormularioTab
         public void VerFormularioTab(UserControl uc, System.Windows.Forms.TabPage tabPage)
         {
-            uc.Dock = DockStyle.Fill;
-            // Guardar una copia de los controles actuales antes de agregar el nuevo UserControl
-            var previousControls = new List<Control>();
-            foreach (Control control in tabPage.Controls)
+            // Guardar el estado actual del tab si no está guardado o si ha cambiado
+            if (!originalTabContents.ContainsKey(tabPage))
             {
-                previousControls.Add(control);
+                var controls = new List<Control>();
+                foreach (Control control in tabPage.Controls)
+                {
+                    controls.Add(control);
+                }
+                originalTabContents[tabPage] = controls;
             }
-            Dictionary<string, List<Control>> previousTabPage = new Dictionary<string, List<Control>>();
-            previousTabPage[tabPage.Name ?? ""] = previousControls;
-            previousTabPages.Add(previousTabPage);
+            
+            uc.Dock = DockStyle.Fill;
             tabPage.Controls.Clear();
             tabPage.Controls.Add(uc);
         }
+        
         public void RestaurarFormularioTab(System.Windows.Forms.TabPage tabPage)
         {
-            // Si el tabPage.Name está en la lista previousTabPages, restaurar los controles anteriores
-            var previousTabPage = previousTabPages.LastOrDefault(tp => tp.ContainsKey(tabPage.Name ?? ""));
-            if (previousTabPage != null)
+            // Limpiar el contenido actual
+            tabPage.Controls.Clear();
+            
+            // Verificar si hay contenido original guardado para este tab
+            if (originalTabContents.ContainsKey(tabPage))
             {
-                tabPage.Controls.Clear();
-                foreach (var control in previousTabPage[tabPage.Name ?? ""])
+                // Restaurar el contenido original
+                foreach (Control control in originalTabContents[tabPage])
                 {
                     tabPage.Controls.Add(control);
                 }
-                previousTabPages.Remove(previousTabPage);
-                LoadCards(clearCurrent: true);
+            }
+            else
+            {
+                // Si no hay contenido guardado, recargar según el tipo de tab
+                ReloadTabContent(tabPage);
+            }
+        }
+        
+        private void ReloadTabContent(System.Windows.Forms.TabPage tabPage)
+        {
+            // Identificar qué tab es y recargar su contenido apropiado
+            if (tabPage == tabUsers)
+            {
+                LoadUsersTable();
+            }
+            else if (tabPage == tabVegetablesArea)
+            {
+                LoadVegetablesTable();
+            }
+            else if (tabPage == tabAnimalArea)
+            {
+                LoadAnimalsTable();
+            }
+            else if (tabPage == tabEntorno)
+            {
+                LoadFormativeEnvironments();
             }
         }
 
