@@ -16,7 +16,7 @@ namespace GestionAgraria
     {
         private readonly UserModel currentUser;
         private readonly Dictionary<System.Windows.Forms.TabPage, List<Control>> originalTabContents = new Dictionary<System.Windows.Forms.TabPage, List<Control>>();
-        
+
         public FormPrincipal(UserModel currentUser)
         {
             this.currentUser = currentUser;
@@ -30,7 +30,7 @@ namespace GestionAgraria
             // Guardar el estado inicial de todos los tabs
             SaveOriginalTabContents();
         }
-        
+
         private void SaveOriginalTabContents()
         {
             foreach (System.Windows.Forms.TabPage tabPage in tcPrincipal.TabPages)
@@ -43,7 +43,7 @@ namespace GestionAgraria
                 originalTabContents[tabPage] = controls;
             }
         }
-        
+
         public void LoadCards(Type? clearObjectsOfType = null)
         {
             if (clearObjectsOfType != null)
@@ -71,7 +71,8 @@ namespace GestionAgraria
         {
             UserController userController = new UserController();
             List<UserModel> users = userController.GetAllUsers();
-
+            if (users.Count > 0)
+                lblEmptyUsers.Visible = false;
             foreach (UserModel user in users)
             {
                 UCUserCard userCard = new UCUserCard(user: user);
@@ -83,10 +84,12 @@ namespace GestionAgraria
         private void LoadVegetablesTable()
         {
             using var vegetalController = new VegetalController();
-            List<VegetalModel> vegetals = vegetalController.GetAllVegetables();
-            foreach (VegetalModel vegetal in vegetals)
+            List<VegetalModel> vegetables = vegetalController.GetAllVegetables();
+            if (vegetables.Count > 0)
+                lblEmptyVegetables.Visible = false;
+            foreach (VegetalModel vegetable in vegetables)
             {
-                UCVegetalCard vegetalCard = new UCVegetalCard(vegetal: vegetal);
+                UCVegetalCard vegetalCard = new UCVegetalCard(vegetal: vegetable);
                 vegetalCard.Dock = DockStyle.Top;
                 vegetalCard.Margin = new Padding(10);
                 tabVegetablesArea.Controls.Add(vegetalCard);
@@ -96,6 +99,8 @@ namespace GestionAgraria
         {
             using var animalController = new AnimalController();
             List<AnimalModel> animals = animalController.GetAllAnimals();
+            if (animals.Count > 0)
+                lblEmptyAnimals.Visible = false;
             foreach (AnimalModel animal in animals)
             {
                 UCAnimalCard animalCard = new UCAnimalCard(animal: animal);
@@ -108,6 +113,8 @@ namespace GestionAgraria
         {
             using var environmentController = new FormativeEnvironmentController();
             List<FormativeEnvironmentModel> formativeEnvironments = environmentController.GetAllFormativeEnvironments();
+            if (formativeEnvironments.Count > 0)
+                lblEmptyFormativeEnvironments.Visible = false;
             foreach (FormativeEnvironmentModel formativeEnvironment in formativeEnvironments)
             {
                 UCFormativeEnvironmentCard formativeEnvironmentCard = new UCFormativeEnvironmentCard(formativeEnvironment: formativeEnvironment);
@@ -120,7 +127,8 @@ namespace GestionAgraria
         {
             using var ProducController = new ProductController();
             List<ProductModel> products = ProducController.GetAllProduct();
-
+            if (products.Count > 0)
+                lblEmptyProducts.Visible = false;
             foreach (ProductModel pro in products)
             {
                 UCProductosCard prodCard = new UCProductosCard(pro);
@@ -158,17 +166,17 @@ namespace GestionAgraria
                 }
                 originalTabContents[tabPage] = controls;
             }
-            
+
             uc.Dock = DockStyle.Fill;
             tabPage.Controls.Clear();
             tabPage.Controls.Add(uc);
         }
-        
+
         public void RestaurarFormularioTab(System.Windows.Forms.TabPage tabPage)
         {
             // Limpiar el contenido actual
             tabPage.Controls.Clear();
-            
+
             // Verificar si hay contenido original guardado para este tab
             if (originalTabContents.ContainsKey(tabPage))
             {
@@ -184,7 +192,7 @@ namespace GestionAgraria
                 ReloadTabContent(tabPage);
             }
         }
-        
+
         private void ReloadTabContent(System.Windows.Forms.TabPage tabPage)
         {
             // Identificar qué tab es y recargar su contenido apropiado
@@ -228,6 +236,12 @@ namespace GestionAgraria
         {
             UCVentasAdd AddControl = new UCVentasAdd();
             this.VerFormularioTab(AddControl, tabVentas);
+        }
+
+        private void tabCerrarSesion_Click(object sender, EventArgs e)
+        {
+            // Reiniciar el programa
+            Application.Restart();
         }
     }
 }

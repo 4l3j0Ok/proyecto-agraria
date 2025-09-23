@@ -43,32 +43,41 @@ namespace GestionAgraria
             ComponentResourceManager resources = new ComponentResourceManager(typeof(FormPrincipal));
             imgList = new ImageList(components);
             tabUsers = new TabPage();
+            lblEmptyUsers = new ReaLTaiizor.Controls.MaterialLabel();
             btnAddUser = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             flpUsersList = new FlowLayoutPanel();
             tabVegetablesArea = new TabPage();
-            flpVegetalList = new FlowLayoutPanel();
             btnAddPlanta = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            lblEmptyVegetables = new ReaLTaiizor.Controls.MaterialLabel();
+            flpVegetalList = new FlowLayoutPanel();
             tabHome = new TabPage();
             tableLayoutPanel1 = new TableLayoutPanel();
             pictureBox1 = new PictureBox();
             lblWelcome = new ReaLTaiizor.Controls.MaterialLabel();
             tcPrincipal = new ReaLTaiizor.Controls.MaterialTabControl();
             tabAnimalArea = new TabPage();
+            lblEmptyAnimals = new ReaLTaiizor.Controls.MaterialLabel();
             btnAddAnimal = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             flpAnimalsList = new FlowLayoutPanel();
             tabIndustryArea = new TabPage();
             tcIndustrias = new TabControl();
             tabProduct = new TabPage();
+            lblEmptyProducts = new ReaLTaiizor.Controls.MaterialLabel();
             tabCompras = new TabPage();
+            lblEmptyPurchases = new ReaLTaiizor.Controls.MaterialLabel();
             btnAddCompras = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabVentas = new TabPage();
+            lblEmptySells = new ReaLTaiizor.Controls.MaterialLabel();
             btnAddVentas = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabEntorno = new TabPage();
+            lblEmptyFormativeEnvironments = new ReaLTaiizor.Controls.MaterialLabel();
             btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             flpFormativeEnvironmentsList = new FlowLayoutPanel();
             tabPizarron = new TabPage();
+            lblEmptyBlackboards = new ReaLTaiizor.Controls.MaterialLabel();
             flowLayoutPanel4 = new FlowLayoutPanel();
             tabCerrarSesion = new TabPage();
+            btnAddProduct = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabUsers.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
             tabHome.SuspendLayout();
@@ -78,6 +87,7 @@ namespace GestionAgraria
             tabAnimalArea.SuspendLayout();
             tabIndustryArea.SuspendLayout();
             tcIndustrias.SuspendLayout();
+            tabProduct.SuspendLayout();
             tabCompras.SuspendLayout();
             tabVentas.SuspendLayout();
             tabEntorno.SuspendLayout();
@@ -107,6 +117,7 @@ namespace GestionAgraria
             // 
             tabUsers.AutoScroll = true;
             tabUsers.Controls.Add(btnAddUser);
+            tabUsers.Controls.Add(lblEmptyUsers);
             tabUsers.Controls.Add(flpUsersList);
             tabUsers.ImageKey = "user.png";
             tabUsers.Location = new Point(4, 39);
@@ -117,12 +128,27 @@ namespace GestionAgraria
             tabUsers.Text = "Usuarios";
             tabUsers.UseVisualStyleBackColor = true;
             // 
+            // lblEmptyUsers
+            // 
+            lblEmptyUsers.Depth = 0;
+            lblEmptyUsers.Dock = DockStyle.Fill;
+            lblEmptyUsers.FlatStyle = FlatStyle.Flat;
+            lblEmptyUsers.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyUsers.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyUsers.Location = new Point(20, 20);
+            lblEmptyUsers.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyUsers.Name = "lblEmptyUsers";
+            lblEmptyUsers.Size = new Size(896, 450);
+            lblEmptyUsers.TabIndex = 5;
+            lblEmptyUsers.Text = "Aún no tienes usuarios agregados... Comienza por agregar uno.";
+            lblEmptyUsers.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // btnAddUser
             // 
             btnAddUser.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddUser.Depth = 0;
             btnAddUser.Icon = Properties.Resources.add_user;
-            btnAddUser.Location = new Point(881, 431);
+            btnAddUser.Location = new Point(877, 431);
             btnAddUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddUser.Name = "btnAddUser";
             btnAddUser.Size = new Size(56, 56);
@@ -141,8 +167,9 @@ namespace GestionAgraria
             // 
             // tabVegetablesArea
             // 
-            tabVegetablesArea.Controls.Add(flpVegetalList);
             tabVegetablesArea.Controls.Add(btnAddPlanta);
+            tabVegetablesArea.Controls.Add(lblEmptyVegetables);
+            tabVegetablesArea.Controls.Add(flpVegetalList);
             tabVegetablesArea.ImageKey = "vegetable-area.png";
             tabVegetablesArea.Location = new Point(4, 39);
             tabVegetablesArea.Name = "tabVegetablesArea";
@@ -152,20 +179,12 @@ namespace GestionAgraria
             tabVegetablesArea.Text = "Vegetales";
             tabVegetablesArea.UseVisualStyleBackColor = true;
             // 
-            // flpVegetalList
-            // 
-            flpVegetalList.Dock = DockStyle.Fill;
-            flpVegetalList.Location = new Point(20, 20);
-            flpVegetalList.Name = "flpVegetalList";
-            flpVegetalList.Size = new Size(896, 450);
-            flpVegetalList.TabIndex = 19;
-            // 
             // btnAddPlanta
             // 
             btnAddPlanta.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddPlanta.Depth = 0;
             btnAddPlanta.Icon = Properties.Resources.add_user;
-            btnAddPlanta.Location = new Point(707, 426);
+            btnAddPlanta.Location = new Point(877, 431);
             btnAddPlanta.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddPlanta.Name = "btnAddPlanta";
             btnAddPlanta.Size = new Size(56, 56);
@@ -173,6 +192,29 @@ namespace GestionAgraria
             btnAddPlanta.Text = "Agregar Planta";
             btnAddPlanta.UseVisualStyleBackColor = true;
             btnAddPlanta.Click += btnAddPlanta_Click;
+            // 
+            // lblEmptyVegetables
+            // 
+            lblEmptyVegetables.Depth = 0;
+            lblEmptyVegetables.Dock = DockStyle.Fill;
+            lblEmptyVegetables.FlatStyle = FlatStyle.Flat;
+            lblEmptyVegetables.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyVegetables.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyVegetables.Location = new Point(20, 20);
+            lblEmptyVegetables.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyVegetables.Name = "lblEmptyVegetables";
+            lblEmptyVegetables.Size = new Size(896, 450);
+            lblEmptyVegetables.TabIndex = 1;
+            lblEmptyVegetables.Text = "Aún no tienes vegetales agregados... Comienza por agregar uno.";
+            lblEmptyVegetables.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // flpVegetalList
+            // 
+            flpVegetalList.Dock = DockStyle.Fill;
+            flpVegetalList.Location = new Point(20, 20);
+            flpVegetalList.Name = "flpVegetalList";
+            flpVegetalList.Size = new Size(896, 450);
+            flpVegetalList.TabIndex = 19;
             // 
             // tabHome
             // 
@@ -256,6 +298,7 @@ namespace GestionAgraria
             // tabAnimalArea
             // 
             tabAnimalArea.Controls.Add(btnAddAnimal);
+            tabAnimalArea.Controls.Add(lblEmptyAnimals);
             tabAnimalArea.Controls.Add(flpAnimalsList);
             tabAnimalArea.ImageKey = "animal-area.png";
             tabAnimalArea.Location = new Point(4, 39);
@@ -265,6 +308,21 @@ namespace GestionAgraria
             tabAnimalArea.TabIndex = 5;
             tabAnimalArea.Text = "Animales";
             tabAnimalArea.UseVisualStyleBackColor = true;
+            // 
+            // lblEmptyAnimals
+            // 
+            lblEmptyAnimals.Depth = 0;
+            lblEmptyAnimals.Dock = DockStyle.Fill;
+            lblEmptyAnimals.FlatStyle = FlatStyle.Flat;
+            lblEmptyAnimals.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyAnimals.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyAnimals.Location = new Point(20, 20);
+            lblEmptyAnimals.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyAnimals.Name = "lblEmptyAnimals";
+            lblEmptyAnimals.Size = new Size(896, 450);
+            lblEmptyAnimals.TabIndex = 18;
+            lblEmptyAnimals.Text = "Aún no tienes animales agregados... Comienza por agregar uno.";
+            lblEmptyAnimals.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnAddAnimal
             // 
@@ -314,6 +372,8 @@ namespace GestionAgraria
             // 
             // tabProduct
             // 
+            tabProduct.Controls.Add(btnAddProduct);
+            tabProduct.Controls.Add(lblEmptyProducts);
             tabProduct.Location = new Point(4, 24);
             tabProduct.Name = "tabProduct";
             tabProduct.Padding = new Padding(17);
@@ -322,9 +382,25 @@ namespace GestionAgraria
             tabProduct.Text = "Productos";
             tabProduct.UseVisualStyleBackColor = true;
             // 
+            // lblEmptyProducts
+            // 
+            lblEmptyProducts.Depth = 0;
+            lblEmptyProducts.Dock = DockStyle.Fill;
+            lblEmptyProducts.FlatStyle = FlatStyle.Flat;
+            lblEmptyProducts.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyProducts.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyProducts.Location = new Point(17, 17);
+            lblEmptyProducts.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyProducts.Name = "lblEmptyProducts";
+            lblEmptyProducts.Size = new Size(854, 388);
+            lblEmptyProducts.TabIndex = 2;
+            lblEmptyProducts.Text = "Aún no tienes productos agregados... Comienza por agregar uno.";
+            lblEmptyProducts.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // tabCompras
             // 
             tabCompras.Controls.Add(btnAddCompras);
+            tabCompras.Controls.Add(lblEmptyPurchases);
             tabCompras.Location = new Point(4, 24);
             tabCompras.Name = "tabCompras";
             tabCompras.Padding = new Padding(17);
@@ -332,6 +408,21 @@ namespace GestionAgraria
             tabCompras.TabIndex = 1;
             tabCompras.Text = "Compras";
             tabCompras.UseVisualStyleBackColor = true;
+            // 
+            // lblEmptyPurchases
+            // 
+            lblEmptyPurchases.Depth = 0;
+            lblEmptyPurchases.Dock = DockStyle.Fill;
+            lblEmptyPurchases.FlatStyle = FlatStyle.Flat;
+            lblEmptyPurchases.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyPurchases.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyPurchases.Location = new Point(17, 17);
+            lblEmptyPurchases.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyPurchases.Name = "lblEmptyPurchases";
+            lblEmptyPurchases.Size = new Size(854, 388);
+            lblEmptyPurchases.TabIndex = 4;
+            lblEmptyPurchases.Text = "Aún no tienes compras registradas... Comienza por agregar una.";
+            lblEmptyPurchases.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnAddCompras
             // 
@@ -349,6 +440,7 @@ namespace GestionAgraria
             // tabVentas
             // 
             tabVentas.Controls.Add(btnAddVentas);
+            tabVentas.Controls.Add(lblEmptySells);
             tabVentas.Location = new Point(4, 24);
             tabVentas.Name = "tabVentas";
             tabVentas.Padding = new Padding(17);
@@ -356,6 +448,21 @@ namespace GestionAgraria
             tabVentas.TabIndex = 2;
             tabVentas.Text = "Ventas";
             tabVentas.UseVisualStyleBackColor = true;
+            // 
+            // lblEmptySells
+            // 
+            lblEmptySells.Depth = 0;
+            lblEmptySells.Dock = DockStyle.Fill;
+            lblEmptySells.FlatStyle = FlatStyle.Flat;
+            lblEmptySells.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptySells.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptySells.Location = new Point(17, 17);
+            lblEmptySells.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptySells.Name = "lblEmptySells";
+            lblEmptySells.Size = new Size(854, 388);
+            lblEmptySells.TabIndex = 5;
+            lblEmptySells.Text = "Aún no tienes ventas registradas... Comienza por agregar una.";
+            lblEmptySells.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnAddVentas
             // 
@@ -373,6 +480,7 @@ namespace GestionAgraria
             // tabEntorno
             // 
             tabEntorno.Controls.Add(btnAddEntorno);
+            tabEntorno.Controls.Add(lblEmptyFormativeEnvironments);
             tabEntorno.Controls.Add(flpFormativeEnvironmentsList);
             tabEntorno.ImageKey = "userGroup.png";
             tabEntorno.Location = new Point(4, 39);
@@ -383,12 +491,27 @@ namespace GestionAgraria
             tabEntorno.Text = "Entornos";
             tabEntorno.UseVisualStyleBackColor = true;
             // 
+            // lblEmptyFormativeEnvironments
+            // 
+            lblEmptyFormativeEnvironments.Depth = 0;
+            lblEmptyFormativeEnvironments.Dock = DockStyle.Fill;
+            lblEmptyFormativeEnvironments.FlatStyle = FlatStyle.Flat;
+            lblEmptyFormativeEnvironments.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyFormativeEnvironments.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyFormativeEnvironments.Location = new Point(20, 20);
+            lblEmptyFormativeEnvironments.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyFormativeEnvironments.Name = "lblEmptyFormativeEnvironments";
+            lblEmptyFormativeEnvironments.Size = new Size(896, 450);
+            lblEmptyFormativeEnvironments.TabIndex = 16;
+            lblEmptyFormativeEnvironments.Text = "Aún no tienes entornos formativos agregados... Comienza por agregar uno.";
+            lblEmptyFormativeEnvironments.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // btnAddEntorno
             // 
             btnAddEntorno.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddEntorno.Depth = 0;
             btnAddEntorno.Icon = Properties.Resources.add;
-            btnAddEntorno.Location = new Point(881, 431);
+            btnAddEntorno.Location = new Point(877, 431);
             btnAddEntorno.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddEntorno.Name = "btnAddEntorno";
             btnAddEntorno.Size = new Size(56, 56);
@@ -407,6 +530,7 @@ namespace GestionAgraria
             // 
             // tabPizarron
             // 
+            tabPizarron.Controls.Add(lblEmptyBlackboards);
             tabPizarron.Controls.Add(flowLayoutPanel4);
             tabPizarron.ImageKey = "pizarron.png";
             tabPizarron.Location = new Point(4, 39);
@@ -417,6 +541,21 @@ namespace GestionAgraria
             tabPizarron.TabIndex = 7;
             tabPizarron.Text = "Pizarrón";
             tabPizarron.UseVisualStyleBackColor = true;
+            // 
+            // lblEmptyBlackboards
+            // 
+            lblEmptyBlackboards.Depth = 0;
+            lblEmptyBlackboards.Dock = DockStyle.Fill;
+            lblEmptyBlackboards.FlatStyle = FlatStyle.Flat;
+            lblEmptyBlackboards.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyBlackboards.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyBlackboards.Location = new Point(20, 20);
+            lblEmptyBlackboards.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyBlackboards.Name = "lblEmptyBlackboards";
+            lblEmptyBlackboards.Size = new Size(896, 450);
+            lblEmptyBlackboards.TabIndex = 5;
+            lblEmptyBlackboards.Text = "Aún no tienes pizzarrones agregados... Comienza por agregar uno.";
+            lblEmptyBlackboards.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel4
             // 
@@ -436,6 +575,20 @@ namespace GestionAgraria
             tabCerrarSesion.TabIndex = 8;
             tabCerrarSesion.Text = "Cerrar Sesión";
             tabCerrarSesion.UseVisualStyleBackColor = true;
+            tabCerrarSesion.Enter += tabCerrarSesion_Click;
+            // 
+            // btnAddProduct
+            // 
+            btnAddProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddProduct.Depth = 0;
+            btnAddProduct.Icon = Properties.Resources.add;
+            btnAddProduct.Location = new Point(829, 363);
+            btnAddProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddProduct.Name = "btnAddProduct";
+            btnAddProduct.Size = new Size(56, 56);
+            btnAddProduct.TabIndex = 3;
+            btnAddProduct.Text = "Agregar Usuario";
+            btnAddProduct.UseVisualStyleBackColor = true;
             // 
             // FormPrincipal
             // 
@@ -464,6 +617,7 @@ namespace GestionAgraria
             tabAnimalArea.ResumeLayout(false);
             tabIndustryArea.ResumeLayout(false);
             tcIndustrias.ResumeLayout(false);
+            tabProduct.ResumeLayout(false);
             tabCompras.ResumeLayout(false);
             tabVentas.ResumeLayout(false);
             tabEntorno.ResumeLayout(false);
@@ -503,5 +657,14 @@ namespace GestionAgraria
         public TabPage tabProduct;
         public TabPage tabCompras;
         public TabPage tabVentas;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyVegetables;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyAnimals;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyProducts;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyPurchases;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptySells;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyUsers;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyFormativeEnvironments;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyBlackboards;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddProduct;
     }
 }
