@@ -183,7 +183,7 @@ namespace GestionAgraria.Views
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            BorderStyle = BorderStyle.FixedSingle;
+
             Controls.Add(tableLayoutPanel1);
             Cursor = Cursors.Hand;
             MaximumSize = new Size(600, 70);

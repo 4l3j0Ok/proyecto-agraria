@@ -31,8 +31,8 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
             panel1 = new Panel();
-            lblProcedimientos = new ReaLTaiizor.Controls.MaterialLabel();
             lblFecha = new ReaLTaiizor.Controls.MaterialLabel();
+            lblProcedimientos = new ReaLTaiizor.Controls.MaterialLabel();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -49,7 +49,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(398, 68);
+            tableLayoutPanel1.Size = new Size(400, 70);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // parrotPictureBox1
@@ -68,7 +68,7 @@
             parrotPictureBox1.Margin = new Padding(10);
             parrotPictureBox1.Name = "parrotPictureBox1";
             parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox1.Size = new Size(50, 48);
+            parrotPictureBox1.Size = new Size(50, 50);
             parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             parrotPictureBox1.TabIndex = 8;
             parrotPictureBox1.Text = "parrotPictureBox1";
@@ -83,22 +83,8 @@
             panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5);
-            panel1.Size = new Size(308, 48);
+            panel1.Size = new Size(310, 50);
             panel1.TabIndex = 7;
-            // 
-            // lblProcedimientos
-            // 
-            lblProcedimientos.AutoSize = true;
-            lblProcedimientos.Depth = 0;
-            lblProcedimientos.Dock = DockStyle.Top;
-            lblProcedimientos.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblProcedimientos.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Subtitle1;
-            lblProcedimientos.Location = new Point(5, 5);
-            lblProcedimientos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblProcedimientos.Name = "lblProcedimientos";
-            lblProcedimientos.Size = new Size(111, 19);
-            lblProcedimientos.TabIndex = 0;
-            lblProcedimientos.Text = "Procedimientos";
             // 
             // lblFecha
             // 
@@ -115,18 +101,31 @@
             lblFecha.Text = "Fecha";
             lblFecha.TextAlign = ContentAlignment.TopCenter;
             // 
+            // lblProcedimientos
+            // 
+            lblProcedimientos.AutoSize = true;
+            lblProcedimientos.Depth = 0;
+            lblProcedimientos.Dock = DockStyle.Top;
+            lblProcedimientos.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblProcedimientos.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Subtitle1;
+            lblProcedimientos.Location = new Point(5, 5);
+            lblProcedimientos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblProcedimientos.Name = "lblProcedimientos";
+            lblProcedimientos.Size = new Size(111, 19);
+            lblProcedimientos.TabIndex = 0;
+            lblProcedimientos.Text = "Procedimientos";
+            // 
             // UCPizarronCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(3, 2, 3, 2);
             MaximumSize = new Size(600, 70);
             MinimumSize = new Size(400, 70);
             Name = "UCPizarronCard";
-            Size = new Size(398, 68);
+            Size = new Size(400, 70);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
