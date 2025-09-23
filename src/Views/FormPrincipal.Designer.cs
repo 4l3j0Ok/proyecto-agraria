@@ -64,6 +64,7 @@ namespace GestionAgraria
             tabEntorno = new TabPage();
             btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabPizarron = new TabPage();
+            tabCerrarSesion = new TabPage();
             tabUsers.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
             tabHome.SuspendLayout();
@@ -96,6 +97,7 @@ namespace GestionAgraria
             imgList.Images.SetKeyName(9, "Conejo (2).png");
             imgList.Images.SetKeyName(10, "userGroup.png");
             imgList.Images.SetKeyName(11, "pizarron.png");
+            imgList.Images.SetKeyName(12, "CerrarSesion.png");
             // 
             // tabUsers
             // 
@@ -103,9 +105,9 @@ namespace GestionAgraria
             tabUsers.Controls.Add(btnAddUser);
             tabUsers.ImageKey = "user.png";
             tabUsers.Location = new Point(4, 29);
-            tabUsers.Margin = new Padding(4, 4, 4, 4);
+            tabUsers.Margin = new Padding(4);
             tabUsers.Name = "tabUsers";
-            tabUsers.Padding = new Padding(25, 25, 25, 25);
+            tabUsers.Padding = new Padding(25);
             tabUsers.Size = new Size(984, 633);
             tabUsers.TabIndex = 3;
             tabUsers.Text = "Usuarios";
@@ -117,7 +119,7 @@ namespace GestionAgraria
             btnAddUser.Depth = 0;
             btnAddUser.Icon = Properties.Resources.add_user;
             btnAddUser.Location = new Point(884, 532);
-            btnAddUser.Margin = new Padding(4, 4, 4, 4);
+            btnAddUser.Margin = new Padding(4);
             btnAddUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddUser.Name = "btnAddUser";
             btnAddUser.Size = new Size(70, 70);
@@ -131,9 +133,9 @@ namespace GestionAgraria
             tabVegetablesArea.Controls.Add(btnAddPlanta);
             tabVegetablesArea.ImageKey = "vegetable-area.png";
             tabVegetablesArea.Location = new Point(4, 29);
-            tabVegetablesArea.Margin = new Padding(4, 4, 4, 4);
+            tabVegetablesArea.Margin = new Padding(4);
             tabVegetablesArea.Name = "tabVegetablesArea";
-            tabVegetablesArea.Padding = new Padding(25, 25, 25, 25);
+            tabVegetablesArea.Padding = new Padding(25);
             tabVegetablesArea.Size = new Size(984, 633);
             tabVegetablesArea.TabIndex = 2;
             tabVegetablesArea.Text = "Vegetales";
@@ -145,7 +147,7 @@ namespace GestionAgraria
             btnAddPlanta.Depth = 0;
             btnAddPlanta.Icon = Properties.Resources.add_user;
             btnAddPlanta.Location = new Point(884, 532);
-            btnAddPlanta.Margin = new Padding(4, 4, 4, 4);
+            btnAddPlanta.Margin = new Padding(4);
             btnAddPlanta.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddPlanta.Name = "btnAddPlanta";
             btnAddPlanta.Size = new Size(70, 70);
@@ -159,9 +161,9 @@ namespace GestionAgraria
             tabHome.Controls.Add(tableLayoutPanel1);
             tabHome.ImageKey = "home.png";
             tabHome.Location = new Point(4, 29);
-            tabHome.Margin = new Padding(4, 4, 4, 4);
+            tabHome.Margin = new Padding(4);
             tabHome.Name = "tabHome";
-            tabHome.Padding = new Padding(25, 25, 25, 25);
+            tabHome.Padding = new Padding(25);
             tabHome.Size = new Size(984, 633);
             tabHome.TabIndex = 0;
             tabHome.Text = "Inicio";
@@ -176,7 +178,7 @@ namespace GestionAgraria
             tableLayoutPanel1.Controls.Add(lblWelcome, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(25, 25);
-            tableLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
+            tableLayoutPanel1.Margin = new Padding(4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 76.4976959F));
@@ -190,7 +192,7 @@ namespace GestionAgraria
             pictureBox1.Image = Properties.Resources.homeImage;
             pictureBox1.InitialImage = null;
             pictureBox1.Location = new Point(25, 25);
-            pictureBox1.Margin = new Padding(25, 25, 25, 25);
+            pictureBox1.Margin = new Padding(25);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(884, 395);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -222,11 +224,12 @@ namespace GestionAgraria
             tcPrincipal.Controls.Add(tabUsers);
             tcPrincipal.Controls.Add(tabEntorno);
             tcPrincipal.Controls.Add(tabPizarron);
+            tcPrincipal.Controls.Add(tabCerrarSesion);
             tcPrincipal.Depth = 0;
             tcPrincipal.Dock = DockStyle.Fill;
             tcPrincipal.ImageList = imgList;
             tcPrincipal.Location = new Point(4, 80);
-            tcPrincipal.Margin = new Padding(4, 4, 4, 4);
+            tcPrincipal.Margin = new Padding(4);
             tcPrincipal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             tcPrincipal.Multiline = true;
             tcPrincipal.Name = "tcPrincipal";
@@ -239,9 +242,9 @@ namespace GestionAgraria
             tabAnimalArea.Controls.Add(btnAddAnimal);
             tabAnimalArea.ImageKey = "animal-area.png";
             tabAnimalArea.Location = new Point(4, 29);
-            tabAnimalArea.Margin = new Padding(4, 4, 4, 4);
+            tabAnimalArea.Margin = new Padding(4);
             tabAnimalArea.Name = "tabAnimalArea";
-            tabAnimalArea.Padding = new Padding(25, 25, 25, 25);
+            tabAnimalArea.Padding = new Padding(25);
             tabAnimalArea.Size = new Size(984, 633);
             tabAnimalArea.TabIndex = 5;
             tabAnimalArea.Text = "Animales";
@@ -253,7 +256,7 @@ namespace GestionAgraria
             btnAddAnimal.Depth = 0;
             btnAddAnimal.Icon = Properties.Resources.add_user;
             btnAddAnimal.Location = new Point(884, 532);
-            btnAddAnimal.Margin = new Padding(4, 4, 4, 4);
+            btnAddAnimal.Margin = new Padding(4);
             btnAddAnimal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddAnimal.Name = "btnAddAnimal";
             btnAddAnimal.Size = new Size(70, 70);
@@ -268,9 +271,9 @@ namespace GestionAgraria
             tabIndustryArea.Controls.Add(tcIndustrias);
             tabIndustryArea.ImageKey = "industry-area.png";
             tabIndustryArea.Location = new Point(4, 29);
-            tabIndustryArea.Margin = new Padding(4, 4, 4, 4);
+            tabIndustryArea.Margin = new Padding(4);
             tabIndustryArea.Name = "tabIndustryArea";
-            tabIndustryArea.Padding = new Padding(25, 25, 25, 25);
+            tabIndustryArea.Padding = new Padding(25);
             tabIndustryArea.Size = new Size(984, 633);
             tabIndustryArea.TabIndex = 4;
             tabIndustryArea.Text = "Industria";
@@ -282,7 +285,7 @@ namespace GestionAgraria
             tcIndustrias.Controls.Add(tabVentas);
             tcIndustrias.Dock = DockStyle.Fill;
             tcIndustrias.Location = new Point(25, 25);
-            tcIndustrias.Margin = new Padding(4, 4, 4, 4);
+            tcIndustrias.Margin = new Padding(4);
             tcIndustrias.Name = "tcIndustrias";
             tcIndustrias.SelectedIndex = 0;
             tcIndustrias.Size = new Size(934, 583);
@@ -292,9 +295,9 @@ namespace GestionAgraria
             // 
             tabProduct.Controls.Add(btnAddProduct);
             tabProduct.Location = new Point(4, 29);
-            tabProduct.Margin = new Padding(4, 4, 4, 4);
+            tabProduct.Margin = new Padding(4);
             tabProduct.Name = "tabProduct";
-            tabProduct.Padding = new Padding(21, 21, 21, 21);
+            tabProduct.Padding = new Padding(21);
             tabProduct.Size = new Size(926, 550);
             tabProduct.TabIndex = 0;
             tabProduct.Text = "Productos";
@@ -306,7 +309,7 @@ namespace GestionAgraria
             btnAddProduct.Depth = 0;
             btnAddProduct.Icon = Properties.Resources.add_user;
             btnAddProduct.Location = new Point(830, 447);
-            btnAddProduct.Margin = new Padding(4, 4, 4, 4);
+            btnAddProduct.Margin = new Padding(4);
             btnAddProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddProduct.Name = "btnAddProduct";
             btnAddProduct.Size = new Size(70, 70);
@@ -318,10 +321,10 @@ namespace GestionAgraria
             // 
             tabCompras.Controls.Add(btnAddCompras);
             tabCompras.Location = new Point(4, 29);
-            tabCompras.Margin = new Padding(4, 4, 4, 4);
+            tabCompras.Margin = new Padding(4);
             tabCompras.Name = "tabCompras";
-            tabCompras.Padding = new Padding(21, 21, 21, 21);
-            tabCompras.Size = new Size(924, 548);
+            tabCompras.Padding = new Padding(21);
+            tabCompras.Size = new Size(926, 550);
             tabCompras.TabIndex = 1;
             tabCompras.Text = "Compras";
             tabCompras.UseVisualStyleBackColor = true;
@@ -331,8 +334,8 @@ namespace GestionAgraria
             btnAddCompras.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddCompras.Depth = 0;
             btnAddCompras.Icon = Properties.Resources.add_user;
-            btnAddCompras.Location = new Point(828, 445);
-            btnAddCompras.Margin = new Padding(4, 4, 4, 4);
+            btnAddCompras.Location = new Point(830, 447);
+            btnAddCompras.Margin = new Padding(4);
             btnAddCompras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddCompras.Name = "btnAddCompras";
             btnAddCompras.Size = new Size(70, 70);
@@ -344,9 +347,9 @@ namespace GestionAgraria
             // 
             tabVentas.Controls.Add(btnAddVentas);
             tabVentas.Location = new Point(4, 29);
-            tabVentas.Margin = new Padding(4, 4, 4, 4);
+            tabVentas.Margin = new Padding(4);
             tabVentas.Name = "tabVentas";
-            tabVentas.Padding = new Padding(21, 21, 21, 21);
+            tabVentas.Padding = new Padding(21);
             tabVentas.Size = new Size(926, 550);
             tabVentas.TabIndex = 2;
             tabVentas.Text = "Ventas";
@@ -358,7 +361,7 @@ namespace GestionAgraria
             btnAddVentas.Depth = 0;
             btnAddVentas.Icon = Properties.Resources.add_user;
             btnAddVentas.Location = new Point(830, 447);
-            btnAddVentas.Margin = new Padding(4, 4, 4, 4);
+            btnAddVentas.Margin = new Padding(4);
             btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddVentas.Name = "btnAddVentas";
             btnAddVentas.Size = new Size(70, 70);
@@ -371,9 +374,9 @@ namespace GestionAgraria
             tabEntorno.Controls.Add(btnAddEntorno);
             tabEntorno.ImageKey = "userGroup.png";
             tabEntorno.Location = new Point(4, 29);
-            tabEntorno.Margin = new Padding(4, 4, 4, 4);
+            tabEntorno.Margin = new Padding(4);
             tabEntorno.Name = "tabEntorno";
-            tabEntorno.Padding = new Padding(25, 25, 25, 25);
+            tabEntorno.Padding = new Padding(25);
             tabEntorno.Size = new Size(984, 633);
             tabEntorno.TabIndex = 6;
             tabEntorno.Text = "Entornos";
@@ -385,7 +388,7 @@ namespace GestionAgraria
             btnAddEntorno.Depth = 0;
             btnAddEntorno.Icon = Properties.Resources.add_user;
             btnAddEntorno.Location = new Point(862, 511);
-            btnAddEntorno.Margin = new Padding(4, 4, 4, 4);
+            btnAddEntorno.Margin = new Padding(4);
             btnAddEntorno.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddEntorno.Name = "btnAddEntorno";
             btnAddEntorno.Size = new Size(70, 70);
@@ -405,6 +408,17 @@ namespace GestionAgraria
             tabPizarron.Text = "Pizarrón";
             tabPizarron.UseVisualStyleBackColor = true;
             // 
+            // tabCerrarSesion
+            // 
+            tabCerrarSesion.ImageKey = "CerrarSesion.png";
+            tabCerrarSesion.Location = new Point(4, 29);
+            tabCerrarSesion.Name = "tabCerrarSesion";
+            tabCerrarSesion.Padding = new Padding(3);
+            tabCerrarSesion.Size = new Size(984, 633);
+            tabCerrarSesion.TabIndex = 8;
+            tabCerrarSesion.Text = "Cerrar Sesión";
+            tabCerrarSesion.UseVisualStyleBackColor = true;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(120F, 120F);
@@ -417,7 +431,7 @@ namespace GestionAgraria
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = tcPrincipal;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MinimumSize = new Size(1000, 750);
             Name = "FormPrincipal";
             Padding = new Padding(4, 80, 4, 4);
@@ -468,5 +482,6 @@ namespace GestionAgraria
         //public TabPage tabAnimalArea;
         public TabPage tabEntorno;
         private TabPage tabPizarron;
+        private TabPage tabCerrarSesion;
     }
 }
