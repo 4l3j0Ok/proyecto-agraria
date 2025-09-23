@@ -101,6 +101,7 @@ namespace GestionAgraria
             imgList.Images.SetKeyName(9, "Conejo (2).png");
             imgList.Images.SetKeyName(10, "userGroup.png");
             imgList.Images.SetKeyName(11, "pizarron.png");
+            imgList.Images.SetKeyName(12, "cerrar-sesion.png");
             // 
             // tabUsers
             // 
@@ -427,7 +428,7 @@ namespace GestionAgraria
             // 
             // tabCerrarSesion
             // 
-            tabCerrarSesion.ImageKey = "CerrarSesion.png";
+            tabCerrarSesion.ImageKey = "cerrar-sesion.png";
             tabCerrarSesion.Location = new Point(4, 39);
             tabCerrarSesion.Name = "tabCerrarSesion";
             tabCerrarSesion.Padding = new Padding(3);
