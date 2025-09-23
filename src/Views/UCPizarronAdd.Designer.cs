@@ -31,6 +31,7 @@
             materialExpansionPanel1 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             groupBox1 = new GroupBox();
             panel8 = new Panel();
+            dataGridView1 = new DataGridView();
             txtObservaciones = new ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit();
             materialLabel8 = new ReaLTaiizor.Controls.MaterialLabel();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -40,14 +41,13 @@
             panel1 = new Panel();
             txtTitulo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
-            dataGridView1 = new DataGridView();
             materialExpansionPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
             panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // materialExpansionPanel1
@@ -92,6 +92,15 @@
             panel8.Padding = new Padding(23, 0, 23, 0);
             panel8.Size = new Size(1251, 531);
             panel8.TabIndex = 27;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(15, 96);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(1216, 422);
+            dataGridView1.TabIndex = 7;
             // 
             // txtObservaciones
             // 
@@ -240,15 +249,6 @@
             materialLabel1.TabIndex = 0;
             materialLabel1.Text = "Titulo";
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(15, 96);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1216, 422);
-            dataGridView1.TabIndex = 7;
-            // 
             // UCPizarronAdd
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -261,12 +261,12 @@
             groupBox1.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
