@@ -16,10 +16,8 @@ namespace GestionAgraria.models
 
         [ForeignKey("Responsible")]
         public int ResponsibleUserId { get; set; }
-        
-        // Hacer que la propiedad de navegación no sea tracked por Entity Framework
-        [NotMapped]
-        public UserModel? Responsible { get; set; }
+
+        public virtual UserModel? Responsible { get; set; }
 
         [Required]
         public int Year { get; set; }

@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             materialCard1 = new ReaLTaiizor.Controls.MaterialCard();
+            tableLayoutPanel1 = new TableLayoutPanel();
             parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
             panel1 = new Panel();
             lblPlantQuantity = new ReaLTaiizor.Controls.MaterialLabel();
             lblPlantType = new ReaLTaiizor.Controls.MaterialLabel();
             materialCard1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // materialCard1
             // 
             materialCard1.BackColor = Color.FromArgb(255, 255, 255);
-            materialCard1.Controls.Add(parrotPictureBox1);
-            materialCard1.Controls.Add(panel1);
+            materialCard1.Controls.Add(tableLayoutPanel1);
             materialCard1.Depth = 0;
             materialCard1.Dock = DockStyle.Fill;
             materialCard1.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -49,9 +50,24 @@
             materialCard1.Margin = new Padding(14);
             materialCard1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialCard1.Name = "materialCard1";
-            materialCard1.Padding = new Padding(14);
-            materialCard1.Size = new Size(615, 70);
+            materialCard1.Padding = new Padding(10);
+            materialCard1.Size = new Size(453, 70);
             materialCard1.TabIndex = 7;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(parrotPictureBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel1, 1, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(10, 10);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Size = new Size(433, 50);
+            tableLayoutPanel1.TabIndex = 0;
             // 
             // parrotPictureBox1
             // 
@@ -66,13 +82,13 @@
             parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             parrotPictureBox1.IsElipse = true;
             parrotPictureBox1.IsParallax = false;
-            parrotPictureBox1.Location = new Point(7, 6);
+            parrotPictureBox1.Location = new Point(3, 2);
             parrotPictureBox1.Margin = new Padding(3, 2, 3, 2);
             parrotPictureBox1.Name = "parrotPictureBox1";
             parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox1.Size = new Size(64, 57);
+            parrotPictureBox1.Size = new Size(44, 46);
             parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            parrotPictureBox1.TabIndex = 7;
+            parrotPictureBox1.TabIndex = 9;
             parrotPictureBox1.Text = "parrotPictureBox1";
             parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
@@ -80,12 +96,13 @@
             // 
             panel1.Controls.Add(lblPlantQuantity);
             panel1.Controls.Add(lblPlantType);
-            panel1.Location = new Point(78, 10);
-            panel1.Margin = new Padding(10);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(50, 0);
+            panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5);
-            panel1.Size = new Size(527, 50);
-            panel1.TabIndex = 6;
+            panel1.Size = new Size(383, 50);
+            panel1.TabIndex = 8;
             // 
             // lblPlantQuantity
             // 
@@ -123,9 +140,12 @@
             BackColor = Color.White;
             Controls.Add(materialCard1);
             Margin = new Padding(3, 2, 3, 2);
+            MaximumSize = new Size(600, 70);
+            MinimumSize = new Size(400, 70);
             Name = "UCVegetalCard";
-            Size = new Size(615, 70);
+            Size = new Size(453, 70);
             materialCard1.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -134,6 +154,7 @@
         #endregion
 
         private ReaLTaiizor.Controls.MaterialCard materialCard1;
+        private TableLayoutPanel tableLayoutPanel1;
         private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox1;
         private Panel panel1;
         public ReaLTaiizor.Controls.MaterialLabel lblPlantQuantity;
