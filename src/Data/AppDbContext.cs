@@ -14,8 +14,9 @@ namespace GestionAgraria.data
         public DbSet<AnimalModel> Animals { get; set; }
         public DbSet<AnimalTypeModel> AnimalTypes { get; set; }
         public DbSet<VegetalModel> Vegetables { get; set; }
-
         public DbSet<ProductModel> Product { get; set; }
+        public DbSet<SellsModel> Sells { get; set; }
+        public DbSet<DetailSellsModel> DetailSells { get; set; }
 
         // acá agregamos todos los modelos que tengamos
         // public DbSet<ProductModel> Products { get; set; }
@@ -48,6 +49,14 @@ namespace GestionAgraria.data
                 .WithMany()
                 .HasForeignKey(a => a.AnimalTypeId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuracion de la relacion de Sells - user
+            modelBuilder.Entity<SellsModel>()
+                .HasOne(a => a.UserId)
+                .WithMany()
+                .HasForeignKey(a => a.)
+                .OnDelete(DeleteBehavior.Restrict);
+
             // Configuración de índices únicos
             modelBuilder.Entity<UserModel>()
                 .HasIndex(u => u.Username)
