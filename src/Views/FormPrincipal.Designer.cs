@@ -43,8 +43,8 @@ namespace GestionAgraria
             ComponentResourceManager resources = new ComponentResourceManager(typeof(FormPrincipal));
             imgList = new ImageList(components);
             tabUsers = new TabPage();
-            lblEmptyUsers = new ReaLTaiizor.Controls.MaterialLabel();
             btnAddUser = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            lblEmptyUsers = new ReaLTaiizor.Controls.MaterialLabel();
             flpUsersList = new FlowLayoutPanel();
             tabVegetablesArea = new TabPage();
             btnAddPlanta = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
@@ -56,28 +56,28 @@ namespace GestionAgraria
             lblWelcome = new ReaLTaiizor.Controls.MaterialLabel();
             tcPrincipal = new ReaLTaiizor.Controls.MaterialTabControl();
             tabAnimalArea = new TabPage();
-            lblEmptyAnimals = new ReaLTaiizor.Controls.MaterialLabel();
             btnAddAnimal = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            lblEmptyAnimals = new ReaLTaiizor.Controls.MaterialLabel();
             flpAnimalsList = new FlowLayoutPanel();
             tabIndustryArea = new TabPage();
             tcIndustrias = new TabControl();
             tabProduct = new TabPage();
+            btnAddProduct = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             lblEmptyProducts = new ReaLTaiizor.Controls.MaterialLabel();
             tabCompras = new TabPage();
-            lblEmptyPurchases = new ReaLTaiizor.Controls.MaterialLabel();
             btnAddCompras = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            lblEmptyPurchases = new ReaLTaiizor.Controls.MaterialLabel();
             tabVentas = new TabPage();
-            lblEmptySells = new ReaLTaiizor.Controls.MaterialLabel();
             btnAddVentas = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            lblEmptySells = new ReaLTaiizor.Controls.MaterialLabel();
             tabEntorno = new TabPage();
-            lblEmptyFormativeEnvironments = new ReaLTaiizor.Controls.MaterialLabel();
             btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            lblEmptyFormativeEnvironments = new ReaLTaiizor.Controls.MaterialLabel();
             flpFormativeEnvironmentsList = new FlowLayoutPanel();
             tabPizarron = new TabPage();
             lblEmptyBlackboards = new ReaLTaiizor.Controls.MaterialLabel();
             flowLayoutPanel4 = new FlowLayoutPanel();
             tabCerrarSesion = new TabPage();
-            btnAddProduct = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabUsers.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
             tabHome.SuspendLayout();
@@ -128,6 +128,20 @@ namespace GestionAgraria
             tabUsers.Text = "Usuarios";
             tabUsers.UseVisualStyleBackColor = true;
             // 
+            // btnAddUser
+            // 
+            btnAddUser.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddUser.Depth = 0;
+            btnAddUser.Icon = Properties.Resources.add_user;
+            btnAddUser.Location = new Point(877, 431);
+            btnAddUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddUser.Name = "btnAddUser";
+            btnAddUser.Size = new Size(56, 56);
+            btnAddUser.TabIndex = 0;
+            btnAddUser.Text = "Agregar Usuario";
+            btnAddUser.UseVisualStyleBackColor = true;
+            btnAddUser.Click += btnAddUser_Click;
+            // 
             // lblEmptyUsers
             // 
             lblEmptyUsers.Depth = 0;
@@ -142,20 +156,6 @@ namespace GestionAgraria
             lblEmptyUsers.TabIndex = 5;
             lblEmptyUsers.Text = "Aún no tienes usuarios agregados... Comienza por agregar uno.";
             lblEmptyUsers.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnAddUser
-            // 
-            btnAddUser.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddUser.Depth = 0;
-            btnAddUser.Icon = Properties.Resources.add_user;
-            btnAddUser.Location = new Point(877, 431);
-            btnAddUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddUser.Name = "btnAddUser";
-            btnAddUser.Size = new Size(56, 56);
-            btnAddUser.TabIndex = 0;
-            btnAddUser.Text = "Agregar Usuario";
-            btnAddUser.UseVisualStyleBackColor = true;
-            btnAddUser.Click += btnAddUser_Click;
             // 
             // flpUsersList
             // 
@@ -309,6 +309,20 @@ namespace GestionAgraria
             tabAnimalArea.Text = "Animales";
             tabAnimalArea.UseVisualStyleBackColor = true;
             // 
+            // btnAddAnimal
+            // 
+            btnAddAnimal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddAnimal.Depth = 0;
+            btnAddAnimal.Icon = Properties.Resources.add;
+            btnAddAnimal.Location = new Point(877, 431);
+            btnAddAnimal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddAnimal.Name = "btnAddAnimal";
+            btnAddAnimal.Size = new Size(56, 56);
+            btnAddAnimal.TabIndex = 16;
+            btnAddAnimal.Text = "Agregar Animal";
+            btnAddAnimal.UseVisualStyleBackColor = true;
+            btnAddAnimal.Click += btnAddAnimal_Click;
+            // 
             // lblEmptyAnimals
             // 
             lblEmptyAnimals.Depth = 0;
@@ -323,20 +337,6 @@ namespace GestionAgraria
             lblEmptyAnimals.TabIndex = 18;
             lblEmptyAnimals.Text = "Aún no tienes animales agregados... Comienza por agregar uno.";
             lblEmptyAnimals.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnAddAnimal
-            // 
-            btnAddAnimal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddAnimal.Depth = 0;
-            btnAddAnimal.Icon = Properties.Resources.add;
-            btnAddAnimal.Location = new Point(877, 431);
-            btnAddAnimal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddAnimal.Name = "btnAddAnimal";
-            btnAddAnimal.Size = new Size(56, 56);
-            btnAddAnimal.TabIndex = 16;
-            btnAddAnimal.Text = "Agregar Animal";
-            btnAddAnimal.UseVisualStyleBackColor = true;
-            btnAddAnimal.Click += btnAddAnimal_Click;
             // 
             // flpAnimalsList
             // 
@@ -382,6 +382,20 @@ namespace GestionAgraria
             tabProduct.Text = "Productos";
             tabProduct.UseVisualStyleBackColor = true;
             // 
+            // btnAddProduct
+            // 
+            btnAddProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddProduct.Depth = 0;
+            btnAddProduct.Icon = Properties.Resources.add;
+            btnAddProduct.Location = new Point(829, 363);
+            btnAddProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddProduct.Name = "btnAddProduct";
+            btnAddProduct.Size = new Size(56, 56);
+            btnAddProduct.TabIndex = 3;
+            btnAddProduct.Text = "Agregar Usuario";
+            btnAddProduct.UseVisualStyleBackColor = true;
+            btnAddProduct.Click += btnAddProduct_Click;
+            // 
             // lblEmptyProducts
             // 
             lblEmptyProducts.Depth = 0;
@@ -409,6 +423,20 @@ namespace GestionAgraria
             tabCompras.Text = "Compras";
             tabCompras.UseVisualStyleBackColor = true;
             // 
+            // btnAddCompras
+            // 
+            btnAddCompras.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddCompras.Depth = 0;
+            btnAddCompras.Icon = Properties.Resources.add_user;
+            btnAddCompras.Location = new Point(813, 346);
+            btnAddCompras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddCompras.Name = "btnAddCompras";
+            btnAddCompras.Size = new Size(56, 56);
+            btnAddCompras.TabIndex = 3;
+            btnAddCompras.Text = "Agregar Producto";
+            btnAddCompras.UseVisualStyleBackColor = true;
+            btnAddCompras.Click += btnAddCompras_Click;
+            // 
             // lblEmptyPurchases
             // 
             lblEmptyPurchases.Depth = 0;
@@ -424,19 +452,6 @@ namespace GestionAgraria
             lblEmptyPurchases.Text = "Aún no tienes compras registradas... Comienza por agregar una.";
             lblEmptyPurchases.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnAddCompras
-            // 
-            btnAddCompras.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddCompras.Depth = 0;
-            btnAddCompras.Icon = Properties.Resources.add_user;
-            btnAddCompras.Location = new Point(813, 346);
-            btnAddCompras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddCompras.Name = "btnAddCompras";
-            btnAddCompras.Size = new Size(56, 56);
-            btnAddCompras.TabIndex = 3;
-            btnAddCompras.Text = "Agregar Producto";
-            btnAddCompras.UseVisualStyleBackColor = true;
-            // 
             // tabVentas
             // 
             tabVentas.Controls.Add(btnAddVentas);
@@ -448,6 +463,20 @@ namespace GestionAgraria
             tabVentas.TabIndex = 2;
             tabVentas.Text = "Ventas";
             tabVentas.UseVisualStyleBackColor = true;
+            // 
+            // btnAddVentas
+            // 
+            btnAddVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddVentas.Depth = 0;
+            btnAddVentas.Icon = Properties.Resources.add_user;
+            btnAddVentas.Location = new Point(813, 346);
+            btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddVentas.Name = "btnAddVentas";
+            btnAddVentas.Size = new Size(56, 56);
+            btnAddVentas.TabIndex = 4;
+            btnAddVentas.Text = "Agregar Producto";
+            btnAddVentas.UseVisualStyleBackColor = true;
+            btnAddVentas.Click += btnAddVentas_Click;
             // 
             // lblEmptySells
             // 
@@ -464,19 +493,6 @@ namespace GestionAgraria
             lblEmptySells.Text = "Aún no tienes ventas registradas... Comienza por agregar una.";
             lblEmptySells.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // btnAddVentas
-            // 
-            btnAddVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddVentas.Depth = 0;
-            btnAddVentas.Icon = Properties.Resources.add_user;
-            btnAddVentas.Location = new Point(813, 346);
-            btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddVentas.Name = "btnAddVentas";
-            btnAddVentas.Size = new Size(56, 56);
-            btnAddVentas.TabIndex = 4;
-            btnAddVentas.Text = "Agregar Producto";
-            btnAddVentas.UseVisualStyleBackColor = true;
-            // 
             // tabEntorno
             // 
             tabEntorno.Controls.Add(btnAddEntorno);
@@ -490,6 +506,20 @@ namespace GestionAgraria
             tabEntorno.TabIndex = 6;
             tabEntorno.Text = "Entornos";
             tabEntorno.UseVisualStyleBackColor = true;
+            // 
+            // btnAddEntorno
+            // 
+            btnAddEntorno.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddEntorno.Depth = 0;
+            btnAddEntorno.Icon = Properties.Resources.add;
+            btnAddEntorno.Location = new Point(877, 431);
+            btnAddEntorno.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddEntorno.Name = "btnAddEntorno";
+            btnAddEntorno.Size = new Size(56, 56);
+            btnAddEntorno.TabIndex = 14;
+            btnAddEntorno.Text = "Agregar Usuario";
+            btnAddEntorno.UseVisualStyleBackColor = true;
+            btnAddEntorno.Click += btnAddEntorno_Click;
             // 
             // lblEmptyFormativeEnvironments
             // 
@@ -505,20 +535,6 @@ namespace GestionAgraria
             lblEmptyFormativeEnvironments.TabIndex = 16;
             lblEmptyFormativeEnvironments.Text = "Aún no tienes entornos formativos agregados... Comienza por agregar uno.";
             lblEmptyFormativeEnvironments.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // btnAddEntorno
-            // 
-            btnAddEntorno.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddEntorno.Depth = 0;
-            btnAddEntorno.Icon = Properties.Resources.add;
-            btnAddEntorno.Location = new Point(877, 431);
-            btnAddEntorno.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddEntorno.Name = "btnAddEntorno";
-            btnAddEntorno.Size = new Size(56, 56);
-            btnAddEntorno.TabIndex = 14;
-            btnAddEntorno.Text = "Agregar Usuario";
-            btnAddEntorno.UseVisualStyleBackColor = true;
-            btnAddEntorno.Click += btnAddEntorno_Click;
             // 
             // flpFormativeEnvironmentsList
             // 
@@ -576,19 +592,6 @@ namespace GestionAgraria
             tabCerrarSesion.Text = "Cerrar Sesión";
             tabCerrarSesion.UseVisualStyleBackColor = true;
             tabCerrarSesion.Enter += tabCerrarSesion_Click;
-            // 
-            // btnAddProduct
-            // 
-            btnAddProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddProduct.Depth = 0;
-            btnAddProduct.Icon = Properties.Resources.add;
-            btnAddProduct.Location = new Point(829, 363);
-            btnAddProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddProduct.Name = "btnAddProduct";
-            btnAddProduct.Size = new Size(56, 56);
-            btnAddProduct.TabIndex = 3;
-            btnAddProduct.Text = "Agregar Usuario";
-            btnAddProduct.UseVisualStyleBackColor = true;
             // 
             // FormPrincipal
             // 

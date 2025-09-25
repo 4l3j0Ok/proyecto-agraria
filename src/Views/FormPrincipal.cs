@@ -66,6 +66,7 @@ namespace GestionAgraria
             LoadAnimalsTable();
             LoadFormativeEnvironments();
             LoadProductTable();
+            LoadSellsTable();
         }
         private void LoadUsersTable()
         {
@@ -137,6 +138,22 @@ namespace GestionAgraria
                 tabProduct.Controls.Add(prodCard);
             }
         }
+        private void LoadSellsTable()
+        {
+            using var sellsController = new SellsController();
+            List<SellsModel> sells = sellsController.GetAllSells();
+            if (sells.Count > 0)
+                lblEmptyProducts.Visible = false;
+            foreach (SellsModel se in sells)
+            {
+                UCSellsCard sellsCard = new UCSellsCard(se);
+                sellsCard.Dock = DockStyle.Top;
+                sellsCard.Margin = new Padding(0, 0, 0, 20);
+                tabProduct.Controls.Add(sellsCard);
+            }
+        }
+
+
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             UCUserAdd userAddControl = new UCUserAdd();
@@ -228,13 +245,13 @@ namespace GestionAgraria
 
         private void btnAddCompras_Click(object sender, EventArgs e)
         {
-            UCComprasAdd AddControl = new UCComprasAdd();
+            UCBuysAdd AddControl = new UCBuysAdd(currentUser);
             this.VerFormularioTab(AddControl, tabCompras);
         }
 
         private void btnAddVentas_Click(object sender, EventArgs e)
         {
-            UCVentasAdd AddControl = new UCVentasAdd();
+            UCSellsAdd AddControl = new UCSellsAdd(currentUser);
             this.VerFormularioTab(AddControl, tabVentas);
         }
 

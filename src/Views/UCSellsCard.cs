@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using GestionAgraria.Models;
+
+namespace GestionAgraria.Views
+{
+    public partial class UCSellsCard : UserControl
+    {
+        private SellsModel _sells;
+        public UCSellsCard(SellsModel sells)
+        {
+            InitializeComponent();
+            _sells = sells;
+            lblUserUsername.Text = sells.User.Name +" "+ sells.User.Surname;
+            lblRecordDatetime.Text = sells.RecordDate.ToString();
+            lblTotal.Text = sells.TotalCost.ToString();
+        }
+
+        private void OnSellsCardOnClick(object? sender, EventArgs? e)
+        {
+            openFormAdd(_sells);
+        }
+
+        public static void openFormAdd(SellsModel sells)
+        {
+            UCSellsAdd sellsAdd = new UCSellsAdd();
+            FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
+            formPrincipal?.VerFormularioTab(sellsAdd, formPrincipal.tabVentas);
+        }
+    }
+}

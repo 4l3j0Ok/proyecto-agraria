@@ -108,7 +108,6 @@ namespace GestionAgraria.Controllers
         public ProductModel? GetProductByCode(string code)
         {
             return _context.Product
-                .Include(a => a.Name)
                 .Include(a => a.FormativeEnvironment)
                 .FirstOrDefault(a => a.code == code && a.IsActive);
         }
@@ -117,7 +116,7 @@ namespace GestionAgraria.Controllers
         {
             return _context.FormativeEnvironments
                 .Where(fe => fe.IsActive)
-            .ToList();
+                .ToList();
         }
 
         //public List<ProductModel> GetAnimalTypes()

@@ -1,0 +1,168 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using GestionAgraria.controllers;
+using GestionAgraria.Controllers;
+using GestionAgraria.models;
+using GestionAgraria.Models;
+
+namespace GestionAgraria.Views
+{
+    public partial class UCSellsAdd : UserControl
+    {
+        private SellsController SellsController;
+        private ProductController productController;
+        private DetailSellsController detailSellsController;
+        private UserController userController;
+
+        private List<DetailSellsModel> currentDetailSellsList = new List<DetailSellsModel>();
+
+        private SellsModel currentSells;
+        private DetailSellsModel currentDetailSells;
+        private UserModel currentUser;
+
+        private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
+        public UCSellsAdd(UserModel? CurrentUser = null, SellsModel? sells = null)
+        {
+            currentUser = CurrentUser;
+            SellsController = new SellsController();
+            productController = new ProductController();
+            InitializeComponent();
+            LoadComboBoxes();
+            if (sells != null)
+            {
+                mepSellsAdd.Title = "Modificar Venta";
+                mepSellsAdd.Description = "Edita los datos de la venta seleccionada";
+                currentSells = sells;
+
+            }
+            else
+            {
+                currentSells = new SellsModel();
+            }
+        }
+
+        private void mepSellsAdd_SaveClick(object sender, EventArgs e)
+        {
+            try 
+            {
+                currentSells = new SellsModel();
+
+                detailSellsController = new DetailSellsController();
+                userController = new UserController();
+
+                currentSells.TotalCost = Convert.ToDecimal(tbTotal.Text);
+                currentSells.Observation = tbSellsObservations.Text;
+                currentSells.User = currentUser;
+                currentSells.UserId = currentSells.User.Id;
+
+                SellsController.CreateSells(currentSells);
+
+                currentSells = SellsController.GetLastSell();
+
+                foreach (DetailSellsModel sells in currentDetailSellsList)
+                {
+                    sells.SellsId = currentSells.Id;
+                    detailSellsController.CreateDetailSells(sells);
+                }
+                currentDetailSellsList.Clear();
+            }
+            catch (Exception ex) 
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
+        private void UCSellsAdd_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadComboBoxes()
+        {
+            try
+            {
+                cbCodeProduc.Items.Clear();
+                cbNameProduct.Items.Clear();
+
+                List<ProductModel> products = productController.GetAllProduct();
+                foreach (ProductModel pro in products)
+                {
+                    cbCodeProduc.Items.Add(pro.code);
+                    cbNameProduct.Items.Add(pro.Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void mepSellsAdd_CancelClick(object sender, EventArgs e)
+        {
+            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabVentas);
+        }
+
+        private void btnProductAddList_Click(object sender, EventArgs e)
+        {
+            currentDetailSells = new DetailSellsModel();
+            List<string> listProduct = new List<string>();
+            try
+            {
+
+                string code = cbCodeProduc.Text;
+
+                currentDetailSells.Product = productController.GetProductByCode(code);
+                currentDetailSells.SellsId = currentSells.Id;
+                currentDetailSells.Quatity = int.Parse(tbQuatity.Text);
+                currentDetailSells.PriceUnit = Convert.ToDecimal(tbPrecio.Text);
+                currentDetailSells.ProductId = currentDetailSells.Product.Id;
+
+                currentDetailSellsList.Add(currentDetailSells);
+
+                string name = currentDetailSells.Product.Name;
+                string cantidad = Convert.ToString(currentDetailSells.Quatity);
+                string PriceUnit = Convert.ToString(currentDetailSells.PriceUnit);
+
+                listProduct.Add(code);
+                listProduct.Add(name);
+                listProduct.Add(cantidad);
+                listProduct.Add(PriceUnit);
+                LoadDGVProduct(listProduct);
+            }
+            catch (Exception ex )
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            
+        }
+        int total = 0;
+        private void LoadDGVProduct(List<string> listProduct)
+        {
+            int rows  = dgvProductList.Rows.Add();
+            dgvProductList.Rows[rows].Cells[0].Value = listProduct[0];
+            dgvProductList.Rows[rows].Cells[1].Value = listProduct[1];
+            dgvProductList.Rows[rows].Cells[2].Value = listProduct[2];
+            dgvProductList.Rows[rows].Cells[3].Value = listProduct[3];
+
+            if (int.TryParse(listProduct[3], out int value))
+            {
+                if(int.TryParse(listProduct[2], out int value1))
+                dgvProductList.Rows[rows].Cells[4].Value = value * value1;
+                total += value * value1;
+                tbTotal.Text = Convert.ToString(total );
+            }
+            else
+            {
+                dgvProductList.Rows[rows].Cells[4].Value = "Error";
+            }
+        }
+    }
+}

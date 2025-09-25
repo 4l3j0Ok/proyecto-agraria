@@ -17,7 +17,7 @@
     <Compile Update="Views\UCCargaProductosAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCComprasAdd.cs">
+    <Compile Update="Views\UCBuysAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UCAnimalAdd.cs">
@@ -38,6 +38,9 @@
     <Compile Update="Views\UCProductosCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UCSellsCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UCUserAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -50,7 +53,7 @@
     <Compile Update="Views\UCVegetalCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCVentasAdd.cs">
+    <Compile Update="Views\UCSellsAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

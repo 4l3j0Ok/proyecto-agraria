@@ -50,12 +50,48 @@ namespace GestionAgraria.data
                 .HasForeignKey(a => a.AnimalTypeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Configuracion de la relacion de Sells - user
+            // Configuracion de la relacion de Sells-user
             modelBuilder.Entity<SellsModel>()
-                .HasOne(a => a.UserId)
+                .HasOne(a => a.User)
                 .WithMany()
-                .HasForeignKey(a => a.)
+                .HasForeignKey(a => a.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuracion de la relacion de DetailSells-Sells
+            modelBuilder.Entity<DetailSellsModel>()
+                .HasOne(a => a.Sells)
+                .WithMany()
+                .HasForeignKey(a => a.SellsId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuracion de la relacion de DetailSells-Product
+            modelBuilder.Entity<DetailSellsModel>()
+                .HasOne(a => a.Product)
+                .WithMany()
+                .HasForeignKey(a => a.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuracion de la relacion de Buys-user
+            modelBuilder.Entity<BuysModel>()
+                .HasOne(a => a.User)
+                .WithMany()
+                .HasForeignKey(a => a.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuracion de la relacion de DetailBuysModel-Buys
+            modelBuilder.Entity<DetailBuysModel>()
+                .HasOne(a => a.Buys)
+                .WithMany()
+                .HasForeignKey(a => a.BuysId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuracion de la relacion de DetailBuysModel-Product
+            modelBuilder.Entity<DetailBuysModel>()
+                .HasOne(a => a.Product)
+                .WithMany()
+                .HasForeignKey(a => a.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
+
 
             // Configuración de índices únicos
             modelBuilder.Entity<UserModel>()
@@ -84,7 +120,7 @@ namespace GestionAgraria.data
                 .HasIndex(u => u.code)
                 .IsUnique();
 
-            // Configuración de la relación Product - FormativeEnviroment
+            // Configuración de la relación Product-FormativeEnviroment
             modelBuilder.Entity<ProductModel>()
                 .HasOne(a => a.FormativeEnvironment)
                 .WithMany()
@@ -100,7 +136,10 @@ namespace GestionAgraria.data
             modelBuilder.Entity<AnimalTypeModel>().ToTable("AnimalTypes");
             modelBuilder.Entity<VegetalModel>().ToTable("Vegetables");
             modelBuilder.Entity<ProductModel>().ToTable("Product");
-
+            modelBuilder.Entity<SellsModel>().ToTable("Sells");
+            modelBuilder.Entity<DetailSellsModel>().ToTable("DetailSells");
+            modelBuilder.Entity<BuysModel>().ToTable("Buys");
+            modelBuilder.Entity<DetailBuysModel>().ToTable("DetailBuys");
             base.OnModelCreating(modelBuilder);
         }
 

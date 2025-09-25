@@ -23,6 +23,7 @@ namespace GestionAgraria.Views
             _product = product;
 
             lblNombreProducto.Text = product.Name;
+            lbl_CodigoProducto.Text = product.code;
             lblStock.Text = product.Quantity.ToString();
             Utils.CardSetupClickEvent(this, OnProductCardClick);
         }
