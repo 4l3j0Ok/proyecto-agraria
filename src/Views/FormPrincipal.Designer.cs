@@ -74,8 +74,9 @@ namespace GestionAgraria
             btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             lblEmptyFormativeEnvironments = new ReaLTaiizor.Controls.MaterialLabel();
             flpFormativeEnvironmentsList = new FlowLayoutPanel();
-            tabPizarron = new TabPage();
-            lblEmptyBlackboards = new ReaLTaiizor.Controls.MaterialLabel();
+            tabBlackBoard = new TabPage();
+            btnAddBlackBoard = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            lblEmptyBlackBoards = new ReaLTaiizor.Controls.MaterialLabel();
             flowLayoutPanel4 = new FlowLayoutPanel();
             tabCerrarSesion = new TabPage();
             tabUsers.SuspendLayout();
@@ -91,7 +92,7 @@ namespace GestionAgraria
             tabCompras.SuspendLayout();
             tabVentas.SuspendLayout();
             tabEntorno.SuspendLayout();
-            tabPizarron.SuspendLayout();
+            tabBlackBoard.SuspendLayout();
             SuspendLayout();
             // 
             // imgList
@@ -280,7 +281,7 @@ namespace GestionAgraria
             tcPrincipal.Controls.Add(tabIndustryArea);
             tcPrincipal.Controls.Add(tabUsers);
             tcPrincipal.Controls.Add(tabEntorno);
-            tcPrincipal.Controls.Add(tabPizarron);
+            tcPrincipal.Controls.Add(tabBlackBoard);
             tcPrincipal.Controls.Add(tabCerrarSesion);
             tcPrincipal.Depth = 0;
             tcPrincipal.Dock = DockStyle.Fill;
@@ -394,7 +395,6 @@ namespace GestionAgraria
             btnAddProduct.TabIndex = 3;
             btnAddProduct.Text = "Agregar Usuario";
             btnAddProduct.UseVisualStyleBackColor = true;
-            btnAddProduct.Click += btnAddProduct_Click;
             // 
             // lblEmptyProducts
             // 
@@ -435,7 +435,6 @@ namespace GestionAgraria
             btnAddCompras.TabIndex = 3;
             btnAddCompras.Text = "Agregar Producto";
             btnAddCompras.UseVisualStyleBackColor = true;
-            btnAddCompras.Click += btnAddCompras_Click;
             // 
             // lblEmptyPurchases
             // 
@@ -476,7 +475,6 @@ namespace GestionAgraria
             btnAddVentas.TabIndex = 4;
             btnAddVentas.Text = "Agregar Producto";
             btnAddVentas.UseVisualStyleBackColor = true;
-            btnAddVentas.Click += btnAddVentas_Click;
             // 
             // lblEmptySells
             // 
@@ -544,34 +542,50 @@ namespace GestionAgraria
             flpFormativeEnvironmentsList.Size = new Size(896, 450);
             flpFormativeEnvironmentsList.TabIndex = 15;
             // 
-            // tabPizarron
+            // tabBlackBoard
             // 
-            tabPizarron.Controls.Add(lblEmptyBlackboards);
-            tabPizarron.Controls.Add(flowLayoutPanel4);
-            tabPizarron.ImageKey = "pizarron.png";
-            tabPizarron.Location = new Point(4, 39);
-            tabPizarron.Margin = new Padding(2);
-            tabPizarron.Name = "tabPizarron";
-            tabPizarron.Padding = new Padding(20);
-            tabPizarron.Size = new Size(936, 490);
-            tabPizarron.TabIndex = 7;
-            tabPizarron.Text = "Pizarrón";
-            tabPizarron.UseVisualStyleBackColor = true;
+            tabBlackBoard.Controls.Add(btnAddBlackBoard);
+            tabBlackBoard.Controls.Add(lblEmptyBlackBoards);
+            tabBlackBoard.Controls.Add(flowLayoutPanel4);
+            tabBlackBoard.ImageKey = "pizarron.png";
+            tabBlackBoard.Location = new Point(4, 39);
+            tabBlackBoard.Margin = new Padding(2);
+            tabBlackBoard.Name = "tabBlackBoard";
+            tabBlackBoard.Padding = new Padding(20);
+            tabBlackBoard.Size = new Size(936, 490);
+            tabBlackBoard.TabIndex = 7;
+            tabBlackBoard.Text = "Pizarrón";
+            tabBlackBoard.UseVisualStyleBackColor = true;
             // 
-            // lblEmptyBlackboards
+            // btnAddBlackBoard
             // 
-            lblEmptyBlackboards.Depth = 0;
-            lblEmptyBlackboards.Dock = DockStyle.Fill;
-            lblEmptyBlackboards.FlatStyle = FlatStyle.Flat;
-            lblEmptyBlackboards.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptyBlackboards.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyBlackboards.Location = new Point(20, 20);
-            lblEmptyBlackboards.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptyBlackboards.Name = "lblEmptyBlackboards";
-            lblEmptyBlackboards.Size = new Size(896, 450);
-            lblEmptyBlackboards.TabIndex = 5;
-            lblEmptyBlackboards.Text = "Aún no tienes pizzarrones agregados... Comienza por agregar uno.";
-            lblEmptyBlackboards.TextAlign = ContentAlignment.MiddleCenter;
+            btnAddBlackBoard.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddBlackBoard.Depth = 0;
+            btnAddBlackBoard.Icon = Properties.Resources.add;
+            btnAddBlackBoard.Location = new Point(873, 428);
+            btnAddBlackBoard.Margin = new Padding(10);
+            btnAddBlackBoard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddBlackBoard.Name = "btnAddBlackBoard";
+            btnAddBlackBoard.Size = new Size(56, 56);
+            btnAddBlackBoard.TabIndex = 6;
+            btnAddBlackBoard.Text = "materialFloatingActionButton1";
+            btnAddBlackBoard.UseVisualStyleBackColor = true;
+            btnAddBlackBoard.Click += btnAddBlackBoard_Click;
+            // 
+            // lblEmptyBlackBoards
+            // 
+            lblEmptyBlackBoards.Depth = 0;
+            lblEmptyBlackBoards.Dock = DockStyle.Fill;
+            lblEmptyBlackBoards.FlatStyle = FlatStyle.Flat;
+            lblEmptyBlackBoards.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyBlackBoards.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyBlackBoards.Location = new Point(20, 20);
+            lblEmptyBlackBoards.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyBlackBoards.Name = "lblEmptyBlackBoards";
+            lblEmptyBlackBoards.Size = new Size(896, 450);
+            lblEmptyBlackBoards.TabIndex = 8;
+            lblEmptyBlackBoards.Text = "Aún no tienes pizzarrones agregados... Comienza por agregar uno.";
+            lblEmptyBlackBoards.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanel4
             // 
@@ -624,7 +638,7 @@ namespace GestionAgraria
             tabCompras.ResumeLayout(false);
             tabVentas.ResumeLayout(false);
             tabEntorno.ResumeLayout(false);
-            tabPizarron.ResumeLayout(false);
+            tabBlackBoard.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -650,7 +664,6 @@ namespace GestionAgraria
         //public TabPage tabVegetablesArea;
         //public TabPage tabAnimalArea;
         public TabPage tabEntorno;
-        private TabPage tabPizarron;
         private FlowLayoutPanel flpUsersList;
         private FlowLayoutPanel flpVegetalList;
         private FlowLayoutPanel flpAnimalsList;
@@ -667,7 +680,9 @@ namespace GestionAgraria
         private ReaLTaiizor.Controls.MaterialLabel lblEmptySells;
         private ReaLTaiizor.Controls.MaterialLabel lblEmptyUsers;
         private ReaLTaiizor.Controls.MaterialLabel lblEmptyFormativeEnvironments;
-        private ReaLTaiizor.Controls.MaterialLabel lblEmptyBlackboards;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddProduct;
+        private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddBlackBoard;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyBlackBoards;
+        public TabPage tabBlackBoard;
     }
 }

@@ -11,21 +11,16 @@ using GestionAgraria.Models;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCPizarronCard : UserControl
+    public partial class UCBlackBoardCard : UserControl
     {
         private BlackBoardModel _blackboard;
 
-        public UCPizarronCard(BlackBoardModel blackboard)
+        public UCBlackBoardCard(BlackBoardModel blackboard)
         {
             InitializeComponent();
             _blackboard = blackboard;
-
-            // Aquí agregarías la lógica para mostrar los datos en los controles
-            // Por ejemplo:
-            // lblTitle.Text = blackboard.title;
-            // lblEntorno.Text = blackboard.entorno;
-            // etc.
-
+            lblTitle.Text = blackboard.title;
+            lblFecha.Text = blackboard.dateRecord.ToString();
             Utils.CardSetupClickEvent(this, OnPizarronCardClick);
         }
 
@@ -36,7 +31,7 @@ namespace GestionAgraria.Views
 
         public static void OpenFormAdd(BlackBoardModel blackboard)
         {
-            UCPizarronAdd pizarronAdd = new UCPizarronAdd(blackboard);
+            UCBlackBoardAdd pizarronAdd = new UCBlackBoardAdd(blackboard);
             FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
             formPrincipal?.VerFormularioTab(pizarronAdd, formPrincipal.tabEntorno);
         }

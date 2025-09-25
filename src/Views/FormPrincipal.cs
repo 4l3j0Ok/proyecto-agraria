@@ -66,7 +66,7 @@ namespace GestionAgraria
             LoadAnimalsTable();
             LoadFormativeEnvironments();
             LoadProductTable();
-            LoadSellsTable();
+            LoadBlackBoard();
         }
         private void LoadUsersTable()
         {
@@ -93,7 +93,8 @@ namespace GestionAgraria
                 UCVegetalCard vegetalCard = new UCVegetalCard(vegetal: vegetable);
                 vegetalCard.Dock = DockStyle.Top;
                 vegetalCard.Margin = new Padding(10);
-                tabVegetablesArea.Controls.Add(vegetalCard);
+                // Usar el FlowLayoutPanel correcto según el Designer
+                flpVegetalList.Controls.Add(vegetalCard);
             }
         }
         private void LoadAnimalsTable()
@@ -107,7 +108,8 @@ namespace GestionAgraria
                 UCAnimalCard animalCard = new UCAnimalCard(animal: animal);
                 animalCard.Dock = DockStyle.Top;
                 animalCard.Margin = new Padding(10);
-                tabAnimalArea.Controls.Add(animalCard);
+                // Usar el FlowLayoutPanel correcto
+                flpAnimalsList.Controls.Add(animalCard);
             }
         }
         private void LoadFormativeEnvironments()
@@ -121,7 +123,8 @@ namespace GestionAgraria
                 UCFormativeEnvironmentCard formativeEnvironmentCard = new UCFormativeEnvironmentCard(formativeEnvironment: formativeEnvironment);
                 formativeEnvironmentCard.Dock = DockStyle.Top;
                 formativeEnvironmentCard.Margin = new Padding(10);
-                tabEntorno.Controls.Add(formativeEnvironmentCard);
+                // Usar el FlowLayoutPanel correcto
+                flpFormativeEnvironmentsList.Controls.Add(formativeEnvironmentCard);
             }
         }
         private void LoadProductTable()
@@ -135,25 +138,25 @@ namespace GestionAgraria
                 UCProductosCard prodCard = new UCProductosCard(pro);
                 prodCard.Dock = DockStyle.Top;
                 prodCard.Margin = new Padding(0, 0, 0, 20);
+                // Agregar directamente a la pestaña ya que no tiene FlowLayoutPanel en el Designer
                 tabProduct.Controls.Add(prodCard);
             }
         }
-        private void LoadSellsTable()
+        private void LoadBlackBoard()
         {
-            using var sellsController = new SellsController();
-            List<SellsModel> sells = sellsController.GetAllSells();
-            if (sells.Count > 0)
-                lblEmptyProducts.Visible = false;
-            foreach (SellsModel se in sells)
+            using var blackBoardController = new BlackBoardController();
+            List<BlackBoardModel> blackboards = blackBoardController.GetAllBlackBoards();
+            if (blackboards.Count > 0)
+                lblEmptyBlackBoards.Visible = false;
+            foreach (BlackBoardModel blackboard in blackboards)
             {
-                UCSellsCard sellsCard = new UCSellsCard(se);
-                sellsCard.Dock = DockStyle.Top;
-                sellsCard.Margin = new Padding(0, 0, 0, 20);
-                tabProduct.Controls.Add(sellsCard);
+                UCBlackBoardCard blackboardCard = new UCBlackBoardCard(blackboard: blackboard);
+                blackboardCard.Dock = DockStyle.Top;
+                blackboardCard.Margin = new Padding(10);
+                // Usar el FlowLayoutPanel correcto
+                flowLayoutPanel4.Controls.Add(blackboardCard);
             }
         }
-
-
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             UCUserAdd userAddControl = new UCUserAdd();
@@ -183,7 +186,6 @@ namespace GestionAgraria
                 }
                 originalTabContents[tabPage] = controls;
             }
-
             uc.Dock = DockStyle.Fill;
             tabPage.Controls.Clear();
             tabPage.Controls.Add(uc);
@@ -191,22 +193,70 @@ namespace GestionAgraria
 
         public void RestaurarFormularioTab(System.Windows.Forms.TabPage tabPage)
         {
-            // Limpiar el contenido actual
+            // Paso 1: Limpiar la pestaña completamente (esto elimina el formulario Add)
             tabPage.Controls.Clear();
-
-            // Verificar si hay contenido original guardado para este tab
+            
+            // Paso 2: Restaurar los controles originales del Designer
             if (originalTabContents.ContainsKey(tabPage))
             {
-                // Restaurar el contenido original
                 foreach (Control control in originalTabContents[tabPage])
                 {
                     tabPage.Controls.Add(control);
                 }
             }
-            else
+            
+            // Paso 3: Limpiar solo las tarjetas dinámicas de los contenedores
+            RemoveDynamicControls(tabPage);
+            
+            // Paso 4: Recargar el contenido específico del tab
+            ReloadTabContent(tabPage);
+        }
+
+        private void RemoveDynamicControls(System.Windows.Forms.TabPage tabPage)
+        {
+            // Identificar y limpiar solo los contenedores de datos dinámicos
+            if (tabPage == tabUsers)
             {
-                // Si no hay contenido guardado, recargar según el tipo de tab
-                ReloadTabContent(tabPage);
+                // Limpiar solo las tarjetas del FlowLayoutPanel, no el FlowLayoutPanel mismo
+                flpUsersList.Controls.Clear();
+                lblEmptyUsers.Visible = true;
+            }
+            else if (tabPage == tabVegetablesArea)
+            {
+                // Limpiar solo el FlowLayoutPanel de vegetales
+                flpVegetalList.Controls.Clear();
+                lblEmptyVegetables.Visible = true;
+            }
+            else if (tabPage == tabAnimalArea)
+            {
+                // Limpiar solo el FlowLayoutPanel de animales
+                flpAnimalsList.Controls.Clear();
+                lblEmptyAnimals.Visible = true;
+            }
+            else if (tabPage == tabEntorno)
+            {
+                // Limpiar solo el FlowLayoutPanel de entornos formativos
+                flpFormativeEnvironmentsList.Controls.Clear();
+                lblEmptyFormativeEnvironments.Visible = true;
+            }
+            else if (tabPage == tabProduct)
+            {
+                // Para productos, limpiar solo las tarjetas que se agregan directamente a la pestaña
+                var controlsToRemove = tabProduct.Controls.Cast<Control>()
+                    .Where(c => c is UCProductosCard)
+                    .ToList();
+                foreach (var control in controlsToRemove)
+                {
+                    tabProduct.Controls.Remove(control);
+                    control.Dispose();
+                }
+                lblEmptyProducts.Visible = true;
+            }
+            else if (tabPage == tabBlackBoard)
+            {
+                // Limpiar solo el FlowLayoutPanel de pizarrones
+                flowLayoutPanel4.Controls.Clear();
+                lblEmptyBlackBoards.Visible = true;
             }
         }
 
@@ -229,6 +279,42 @@ namespace GestionAgraria
             {
                 LoadFormativeEnvironments();
             }
+            else if (tabPage == tabProduct)
+            {
+                LoadProductTable();
+            }
+            else if (tabPage == tabBlackBoard)
+            {
+                LoadBlackBoard();
+            }
+        }
+
+        // También actualizar el método ReloadTabContent() sin parámetros para manejar todos los tabs
+        private void ReloadTabContent()
+        {
+            // Limpiar todos los contenedores antes de cargar
+            flpUsersList.Controls.Clear();
+            tabVegetablesArea.Controls.Clear();
+            tabAnimalArea.Controls.Clear();
+            tabEntorno.Controls.Clear();
+            tabProduct.Controls.Clear();
+            tabBlackBoard.Controls.Clear();
+
+            // Resetear todos los labels de vacío
+            lblEmptyUsers.Visible = true;
+            lblEmptyVegetables.Visible = true;
+            lblEmptyAnimals.Visible = true;
+            lblEmptyFormativeEnvironments.Visible = true;
+            lblEmptyProducts.Visible = true;
+            lblEmptyBlackBoards.Visible = true;
+
+            // Cargar todo el contenido
+            LoadUsersTable();
+            LoadVegetablesTable();
+            LoadAnimalsTable();
+            LoadFormativeEnvironments();
+            LoadProductTable();
+            LoadBlackBoard();
         }
 
         private void btnAddPlanta_Click(object sender, EventArgs e)
@@ -243,22 +329,28 @@ namespace GestionAgraria
             this.VerFormularioTab(AddControl, tabProduct);
         }
 
-        private void btnAddCompras_Click(object sender, EventArgs e)
-        {
-            UCBuysAdd AddControl = new UCBuysAdd(currentUser);
-            this.VerFormularioTab(AddControl, tabCompras);
-        }
+        //private void btnAddCompras_Click(object sender, EventArgs e)
+        //{
+        //    UCComprasAdd AddControl = new UCComprasAdd();
+        //    this.VerFormularioTab(AddControl, tabCompras);
+        //}
 
-        private void btnAddVentas_Click(object sender, EventArgs e)
-        {
-            UCSellsAdd AddControl = new UCSellsAdd(currentUser);
-            this.VerFormularioTab(AddControl, tabVentas);
-        }
+        //private void btnAddVentas_Click(object sender, EventArgs e)
+        //{
+        //    UCVentasAdd AddControl = new UCVentasAdd();
+        //    this.VerFormularioTab(AddControl, tabVentas);
+        //}
 
         private void tabCerrarSesion_Click(object sender, EventArgs e)
         {
             // Reiniciar el programa
             Application.Restart();
+        }
+
+        private void btnAddBlackBoard_Click(object sender, EventArgs e)
+        {
+            UCBlackBoardAdd AddControl = new UCBlackBoardAdd();
+            this.VerFormularioTab(AddControl, tabBlackBoard);
         }
     }
 }

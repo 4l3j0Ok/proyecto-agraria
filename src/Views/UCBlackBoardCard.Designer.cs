@@ -1,6 +1,6 @@
 ﻿namespace GestionAgraria.Views
 {
-    partial class UCPizarronCard
+    partial class UCBlackBoardCard
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCBlackBoardCard));
             tableLayoutPanel1 = new TableLayoutPanel();
-            parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
             panel1 = new Panel();
             lblFecha = new ReaLTaiizor.Controls.MaterialLabel();
-            lblProcedimientos = new ReaLTaiizor.Controls.MaterialLabel();
+            lblTitle = new ReaLTaiizor.Controls.MaterialLabel();
+            parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -42,42 +43,22 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(parrotPictureBox1, 0, 0);
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
+            tableLayoutPanel1.Controls.Add(parrotPictureBox1, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.MaximumSize = new Size(800, 70);
+            tableLayoutPanel1.MinimumSize = new Size(400, 70);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(400, 70);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // parrotPictureBox1
-            // 
-            parrotPictureBox1.ColorLeft = Color.Black;
-            parrotPictureBox1.ColorRight = Color.Black;
-            parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            parrotPictureBox1.Dock = DockStyle.Fill;
-            parrotPictureBox1.FilterAlpha = 200;
-            parrotPictureBox1.FilterEnabled = false;
-            parrotPictureBox1.Image = Properties.Resources.user_placeholder;
-            parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
-            parrotPictureBox1.IsElipse = true;
-            parrotPictureBox1.IsParallax = false;
-            parrotPictureBox1.Location = new Point(10, 10);
-            parrotPictureBox1.Margin = new Padding(10);
-            parrotPictureBox1.Name = "parrotPictureBox1";
-            parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            parrotPictureBox1.Size = new Size(50, 50);
-            parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            parrotPictureBox1.TabIndex = 8;
-            parrotPictureBox1.Text = "parrotPictureBox1";
-            parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            // 
             // panel1
             // 
             panel1.Controls.Add(lblFecha);
-            panel1.Controls.Add(lblProcedimientos);
+            panel1.Controls.Add(lblTitle);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(80, 10);
             panel1.Margin = new Padding(10);
@@ -101,21 +82,42 @@
             lblFecha.Text = "Fecha";
             lblFecha.TextAlign = ContentAlignment.TopCenter;
             // 
-            // lblProcedimientos
+            // lblTitle
             // 
-            lblProcedimientos.AutoSize = true;
-            lblProcedimientos.Depth = 0;
-            lblProcedimientos.Dock = DockStyle.Top;
-            lblProcedimientos.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblProcedimientos.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Subtitle1;
-            lblProcedimientos.Location = new Point(5, 5);
-            lblProcedimientos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblProcedimientos.Name = "lblProcedimientos";
-            lblProcedimientos.Size = new Size(111, 19);
-            lblProcedimientos.TabIndex = 0;
-            lblProcedimientos.Text = "Procedimientos";
+            lblTitle.AutoSize = true;
+            lblTitle.Depth = 0;
+            lblTitle.Dock = DockStyle.Top;
+            lblTitle.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblTitle.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Subtitle1;
+            lblTitle.Location = new Point(5, 5);
+            lblTitle.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(120, 19);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Nombre Pizarron";
             // 
-            // UCPizarronCard
+            // parrotPictureBox1
+            // 
+            parrotPictureBox1.ColorLeft = Color.DodgerBlue;
+            parrotPictureBox1.ColorRight = Color.DodgerBlue;
+            parrotPictureBox1.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.Default;
+            parrotPictureBox1.Dock = DockStyle.Fill;
+            parrotPictureBox1.FilterAlpha = 200;
+            parrotPictureBox1.FilterEnabled = false;
+            parrotPictureBox1.Image = (Image)resources.GetObject("parrotPictureBox1.Image");
+            parrotPictureBox1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
+            parrotPictureBox1.IsElipse = false;
+            parrotPictureBox1.IsParallax = false;
+            parrotPictureBox1.Location = new Point(3, 3);
+            parrotPictureBox1.Name = "parrotPictureBox1";
+            parrotPictureBox1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            parrotPictureBox1.Size = new Size(64, 64);
+            parrotPictureBox1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            parrotPictureBox1.TabIndex = 8;
+            parrotPictureBox1.Text = "parrotPictureBox1";
+            parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            // 
+            // UCBlackBoardCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -124,7 +126,7 @@
             Margin = new Padding(3, 2, 3, 2);
             MaximumSize = new Size(600, 70);
             MinimumSize = new Size(400, 70);
-            Name = "UCPizarronCard";
+            Name = "UCBlackBoardCard";
             Size = new Size(400, 70);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
@@ -135,9 +137,9 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox1;
         private Panel panel1;
-        public ReaLTaiizor.Controls.MaterialLabel lblProcedimientos;
+        public ReaLTaiizor.Controls.MaterialLabel lblTitle;
         public ReaLTaiizor.Controls.MaterialLabel lblFecha;
+        private ReaLTaiizor.Controls.ParrotPictureBox parrotPictureBox1;
     }
 }

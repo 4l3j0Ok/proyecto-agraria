@@ -17,6 +17,7 @@ namespace GestionAgraria.data
         public DbSet<ProductModel> Product { get; set; }
         public DbSet<SellsModel> Sells { get; set; }
         public DbSet<DetailSellsModel> DetailSells { get; set; }
+        public DbSet<BlackBoardModel> BlackBoards { get; set; }
 
         // acá agregamos todos los modelos que tengamos
         // public DbSet<ProductModel> Products { get; set; }
@@ -140,6 +141,7 @@ namespace GestionAgraria.data
             modelBuilder.Entity<DetailSellsModel>().ToTable("DetailSells");
             modelBuilder.Entity<BuysModel>().ToTable("Buys");
             modelBuilder.Entity<DetailBuysModel>().ToTable("DetailBuys");
+            modelBuilder.Entity<BlackBoardModel>().ToTable("BlackBoards");
             base.OnModelCreating(modelBuilder);
         }
 

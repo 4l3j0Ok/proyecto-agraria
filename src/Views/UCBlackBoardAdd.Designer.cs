@@ -1,6 +1,6 @@
 ﻿namespace GestionAgraria.Views
 {
-    partial class UCPizarronAdd
+    partial class UCBlackBoardAdd
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,48 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            materialExpansionPanel1 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
+            mepBlackBoard = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             groupBox1 = new GroupBox();
             panel8 = new Panel();
-            dataGridView1 = new DataGridView();
+            dgvData = new DataGridView();
             txtObservaciones = new ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit();
             materialLabel8 = new ReaLTaiizor.Controls.MaterialLabel();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel2 = new Panel();
-            cbEntorno = new ReaLTaiizor.Controls.MaterialComboBox();
+            cbFormativeEnvironment = new ReaLTaiizor.Controls.MaterialComboBox();
             materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
             panel1 = new Panel();
-            txtTitulo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            tbTitle = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
-            materialExpansionPanel1.SuspendLayout();
+            mepBlackBoard.SuspendLayout();
             groupBox1.SuspendLayout();
             panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // materialExpansionPanel1
+            // mepBlackBoard
             // 
-            materialExpansionPanel1.BackColor = Color.FromArgb(255, 255, 255);
-            materialExpansionPanel1.CancelButtonText = "CANCELAR";
-            materialExpansionPanel1.Controls.Add(groupBox1);
-            materialExpansionPanel1.Depth = 0;
-            materialExpansionPanel1.Description = "Agregar Procedimientos";
-            materialExpansionPanel1.Dock = DockStyle.Fill;
-            materialExpansionPanel1.ExpandHeight = 604;
-            materialExpansionPanel1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialExpansionPanel1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialExpansionPanel1.Location = new Point(0, 0);
-            materialExpansionPanel1.Margin = new Padding(3, 12, 3, 12);
-            materialExpansionPanel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialExpansionPanel1.Name = "materialExpansionPanel1";
-            materialExpansionPanel1.Padding = new Padding(21, 48, 21, 12);
-            materialExpansionPanel1.Size = new Size(1152, 604);
-            materialExpansionPanel1.TabIndex = 0;
-            materialExpansionPanel1.Title = "Procedimeintos ";
-            materialExpansionPanel1.ValidationButtonText = "GUARDAR";
+            mepBlackBoard.BackColor = Color.FromArgb(255, 255, 255);
+            mepBlackBoard.CancelButtonText = "CANCELAR";
+            mepBlackBoard.Controls.Add(groupBox1);
+            mepBlackBoard.Depth = 0;
+            mepBlackBoard.Description = "Crea notas personalizadas, tablas";
+            mepBlackBoard.Dock = DockStyle.Fill;
+            mepBlackBoard.ExpandHeight = 604;
+            mepBlackBoard.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            mepBlackBoard.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            mepBlackBoard.Location = new Point(0, 0);
+            mepBlackBoard.Margin = new Padding(3, 12, 3, 12);
+            mepBlackBoard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            mepBlackBoard.Name = "mepBlackBoard";
+            mepBlackBoard.Padding = new Padding(21, 48, 21, 12);
+            mepBlackBoard.Size = new Size(1152, 604);
+            mepBlackBoard.TabIndex = 0;
+            mepBlackBoard.Title = "Pizarrón";
+            mepBlackBoard.ValidationButtonEnable = true;
+            mepBlackBoard.ValidationButtonText = "GUARDAR";
+            mepBlackBoard.SaveClick += mepBlackBoard_SaveClick;
+            mepBlackBoard.CancelClick += mepBlackBoard_CancelClick;
             // 
             // groupBox1
             // 
@@ -85,7 +88,7 @@
             // 
             // panel8
             // 
-            panel8.Controls.Add(dataGridView1);
+            panel8.Controls.Add(dgvData);
             panel8.Controls.Add(txtObservaciones);
             panel8.Controls.Add(materialLabel8);
             panel8.Location = new Point(5, 91);
@@ -95,15 +98,18 @@
             panel8.Size = new Size(1095, 398);
             panel8.TabIndex = 27;
             // 
-            // dataGridView1
+            // dgvData
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(13, 72);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1064, 316);
-            dataGridView1.TabIndex = 7;
+            dgvData.AllowUserToOrderColumns = true;
+            dgvData.BackgroundColor = Color.Gainsboro;
+            dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvData.EditMode = DataGridViewEditMode.EditOnEnter;
+            dgvData.Location = new Point(13, 72);
+            dgvData.Margin = new Padding(3, 2, 3, 2);
+            dgvData.Name = "dgvData";
+            dgvData.RowHeadersWidth = 51;
+            dgvData.Size = new Size(1064, 316);
+            dgvData.TabIndex = 7;
             // 
             // txtObservaciones
             // 
@@ -160,7 +166,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(cbEntorno);
+            panel2.Controls.Add(cbFormativeEnvironment);
             panel2.Controls.Add(materialLabel2);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(550, 2);
@@ -169,28 +175,28 @@
             panel2.Size = new Size(542, 67);
             panel2.TabIndex = 1;
             // 
-            // cbEntorno
+            // cbFormativeEnvironment
             // 
-            cbEntorno.AutoResize = false;
-            cbEntorno.BackColor = Color.FromArgb(255, 255, 255);
-            cbEntorno.Depth = 0;
-            cbEntorno.DrawMode = DrawMode.OwnerDrawVariable;
-            cbEntorno.DropDownHeight = 174;
-            cbEntorno.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbEntorno.DropDownWidth = 121;
-            cbEntorno.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbEntorno.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbEntorno.FormattingEnabled = true;
-            cbEntorno.IntegralHeight = false;
-            cbEntorno.ItemHeight = 43;
-            cbEntorno.Location = new Point(18, 16);
-            cbEntorno.Margin = new Padding(3, 2, 3, 2);
-            cbEntorno.MaxDropDownItems = 4;
-            cbEntorno.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbEntorno.Name = "cbEntorno";
-            cbEntorno.Size = new Size(510, 49);
-            cbEntorno.StartIndex = 0;
-            cbEntorno.TabIndex = 1;
+            cbFormativeEnvironment.AutoResize = false;
+            cbFormativeEnvironment.BackColor = Color.FromArgb(255, 255, 255);
+            cbFormativeEnvironment.Depth = 0;
+            cbFormativeEnvironment.DrawMode = DrawMode.OwnerDrawVariable;
+            cbFormativeEnvironment.DropDownHeight = 174;
+            cbFormativeEnvironment.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbFormativeEnvironment.DropDownWidth = 121;
+            cbFormativeEnvironment.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbFormativeEnvironment.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbFormativeEnvironment.FormattingEnabled = true;
+            cbFormativeEnvironment.IntegralHeight = false;
+            cbFormativeEnvironment.ItemHeight = 43;
+            cbFormativeEnvironment.Location = new Point(18, 16);
+            cbFormativeEnvironment.Margin = new Padding(3, 2, 3, 2);
+            cbFormativeEnvironment.MaxDropDownItems = 4;
+            cbFormativeEnvironment.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbFormativeEnvironment.Name = "cbFormativeEnvironment";
+            cbFormativeEnvironment.Size = new Size(510, 49);
+            cbFormativeEnvironment.StartIndex = 0;
+            cbFormativeEnvironment.TabIndex = 1;
             // 
             // materialLabel2
             // 
@@ -206,7 +212,7 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(txtTitulo);
+            panel1.Controls.Add(tbTitle);
             panel1.Controls.Add(materialLabel1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(3, 2);
@@ -215,36 +221,36 @@
             panel1.Size = new Size(541, 67);
             panel1.TabIndex = 0;
             // 
-            // txtTitulo
+            // tbTitle
             // 
-            txtTitulo.AnimateReadOnly = false;
-            txtTitulo.AutoCompleteMode = AutoCompleteMode.None;
-            txtTitulo.AutoCompleteSource = AutoCompleteSource.None;
-            txtTitulo.BackgroundImageLayout = ImageLayout.None;
-            txtTitulo.CharacterCasing = CharacterCasing.Normal;
-            txtTitulo.Depth = 0;
-            txtTitulo.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            txtTitulo.HideSelection = true;
-            txtTitulo.LeadingIcon = null;
-            txtTitulo.Location = new Point(10, 16);
-            txtTitulo.Margin = new Padding(3, 2, 3, 2);
-            txtTitulo.MaxLength = 32767;
-            txtTitulo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            txtTitulo.Name = "txtTitulo";
-            txtTitulo.PasswordChar = '\0';
-            txtTitulo.PrefixSuffixText = null;
-            txtTitulo.ReadOnly = false;
-            txtTitulo.RightToLeft = RightToLeft.No;
-            txtTitulo.SelectedText = "";
-            txtTitulo.SelectionLength = 0;
-            txtTitulo.SelectionStart = 0;
-            txtTitulo.ShortcutsEnabled = true;
-            txtTitulo.Size = new Size(518, 48);
-            txtTitulo.TabIndex = 1;
-            txtTitulo.TabStop = false;
-            txtTitulo.TextAlign = HorizontalAlignment.Left;
-            txtTitulo.TrailingIcon = null;
-            txtTitulo.UseSystemPasswordChar = false;
+            tbTitle.AnimateReadOnly = false;
+            tbTitle.AutoCompleteMode = AutoCompleteMode.None;
+            tbTitle.AutoCompleteSource = AutoCompleteSource.None;
+            tbTitle.BackgroundImageLayout = ImageLayout.None;
+            tbTitle.CharacterCasing = CharacterCasing.Normal;
+            tbTitle.Depth = 0;
+            tbTitle.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbTitle.HideSelection = true;
+            tbTitle.LeadingIcon = null;
+            tbTitle.Location = new Point(10, 16);
+            tbTitle.Margin = new Padding(3, 2, 3, 2);
+            tbTitle.MaxLength = 32767;
+            tbTitle.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbTitle.Name = "tbTitle";
+            tbTitle.PasswordChar = '\0';
+            tbTitle.PrefixSuffixText = null;
+            tbTitle.ReadOnly = false;
+            tbTitle.RightToLeft = RightToLeft.No;
+            tbTitle.SelectedText = "";
+            tbTitle.SelectionLength = 0;
+            tbTitle.SelectionStart = 0;
+            tbTitle.ShortcutsEnabled = true;
+            tbTitle.Size = new Size(518, 48);
+            tbTitle.TabIndex = 1;
+            tbTitle.TabStop = false;
+            tbTitle.TextAlign = HorizontalAlignment.Left;
+            tbTitle.TrailingIcon = null;
+            tbTitle.UseSystemPasswordChar = false;
             // 
             // materialLabel1
             // 
@@ -258,20 +264,21 @@
             materialLabel1.TabIndex = 0;
             materialLabel1.Text = "Titulo";
             // 
-            // UCPizarronAdd
+            // UCBlackBoardAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(materialExpansionPanel1);
+            Controls.Add(mepBlackBoard);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "UCPizarronAdd";
+            Name = "UCBlackBoardAdd";
             Size = new Size(1152, 604);
-            materialExpansionPanel1.ResumeLayout(false);
-            materialExpansionPanel1.PerformLayout();
+            Load += UCBlackBoardAdd_Load;
+            mepBlackBoard.ResumeLayout(false);
+            mepBlackBoard.PerformLayout();
             groupBox1.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvData).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -282,7 +289,7 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.MaterialExpansionPanel materialExpansionPanel1;
+        private ReaLTaiizor.Controls.MaterialExpansionPanel mepBlackBoard;
         private GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel8;
@@ -291,9 +298,9 @@
         private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
         private ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit txtObservaciones;
         private Panel panel2;
-        private ReaLTaiizor.Controls.MaterialComboBox cbEntorno;
+        private ReaLTaiizor.Controls.MaterialComboBox cbFormativeEnvironment;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtTitulo;
-        private DataGridView dataGridView1;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbTitle;
+        private DataGridView dgvData;
     }
 }
