@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             mepBlackBoard = new ReaLTaiizor.Controls.MaterialExpansionPanel();
-            groupBox1 = new GroupBox();
-            panel8 = new Panel();
+            tableLayoutPanel2 = new TableLayoutPanel();
             dgvData = new DataGridView();
+            panel8 = new Panel();
             txtObservaciones = new ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit();
             materialLabel8 = new ReaLTaiizor.Controls.MaterialLabel();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -42,9 +42,9 @@
             tbTitle = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
             mepBlackBoard.SuspendLayout();
-            groupBox1.SuspendLayout();
-            panel8.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
+            panel8.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -52,13 +52,14 @@
             // 
             // mepBlackBoard
             // 
+            mepBlackBoard.AutoScroll = true;
             mepBlackBoard.BackColor = Color.FromArgb(255, 255, 255);
             mepBlackBoard.CancelButtonText = "CANCELAR";
-            mepBlackBoard.Controls.Add(groupBox1);
+            mepBlackBoard.Controls.Add(tableLayoutPanel2);
             mepBlackBoard.Depth = 0;
             mepBlackBoard.Description = "Crea notas personalizadas, tablas";
-            mepBlackBoard.Dock = DockStyle.Fill;
-            mepBlackBoard.ExpandHeight = 604;
+            mepBlackBoard.Dock = DockStyle.Top;
+            mepBlackBoard.ExpandHeight = 548;
             mepBlackBoard.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepBlackBoard.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepBlackBoard.Location = new Point(0, 0);
@@ -66,7 +67,7 @@
             mepBlackBoard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepBlackBoard.Name = "mepBlackBoard";
             mepBlackBoard.Padding = new Padding(21, 48, 21, 12);
-            mepBlackBoard.Size = new Size(1152, 604);
+            mepBlackBoard.Size = new Size(906, 548);
             mepBlackBoard.TabIndex = 0;
             mepBlackBoard.Title = "Pizarrón";
             mepBlackBoard.ValidationButtonEnable = true;
@@ -74,42 +75,44 @@
             mepBlackBoard.SaveClick += mepBlackBoard_SaveClick;
             mepBlackBoard.CancelClick += mepBlackBoard_CancelClick;
             // 
-            // groupBox1
+            // tableLayoutPanel2
             // 
-            groupBox1.Controls.Add(panel8);
-            groupBox1.Controls.Add(tableLayoutPanel1);
-            groupBox1.Location = new Point(24, 50);
-            groupBox1.Margin = new Padding(3, 2, 3, 2);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Padding = new Padding(3, 2, 3, 2);
-            groupBox1.Size = new Size(1105, 491);
-            groupBox1.TabIndex = 2;
-            groupBox1.TabStop = false;
-            // 
-            // panel8
-            // 
-            panel8.Controls.Add(dgvData);
-            panel8.Controls.Add(txtObservaciones);
-            panel8.Controls.Add(materialLabel8);
-            panel8.Location = new Point(5, 91);
-            panel8.Margin = new Padding(0);
-            panel8.Name = "panel8";
-            panel8.Padding = new Padding(20, 0, 20, 0);
-            panel8.Size = new Size(1095, 398);
-            panel8.TabIndex = 27;
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(dgvData, 0, 2);
+            tableLayoutPanel2.Controls.Add(panel8, 0, 1);
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(21, 48);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 3;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.Size = new Size(864, 488);
+            tableLayoutPanel2.TabIndex = 3;
             // 
             // dgvData
             // 
-            dgvData.AllowUserToOrderColumns = true;
-            dgvData.BackgroundColor = Color.Gainsboro;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvData.EditMode = DataGridViewEditMode.EditOnEnter;
-            dgvData.Location = new Point(13, 72);
-            dgvData.Margin = new Padding(3, 2, 3, 2);
+            dgvData.Dock = DockStyle.Top;
+            dgvData.Location = new Point(3, 140);
             dgvData.Name = "dgvData";
-            dgvData.RowHeadersWidth = 51;
-            dgvData.Size = new Size(1064, 316);
-            dgvData.TabIndex = 7;
+            dgvData.Size = new Size(858, 281);
+            dgvData.TabIndex = 30;
+            // 
+            // panel8
+            // 
+            panel8.AutoSize = true;
+            panel8.Controls.Add(txtObservaciones);
+            panel8.Controls.Add(materialLabel8);
+            panel8.Dock = DockStyle.Top;
+            panel8.Location = new Point(0, 75);
+            panel8.Margin = new Padding(0);
+            panel8.Name = "panel8";
+            panel8.Padding = new Padding(20, 0, 20, 0);
+            panel8.Size = new Size(864, 62);
+            panel8.TabIndex = 29;
             // 
             // txtObservaciones
             // 
@@ -117,8 +120,9 @@
             txtObservaciones.BackgroundImageLayout = ImageLayout.None;
             txtObservaciones.CharacterCasing = CharacterCasing.Normal;
             txtObservaciones.Depth = 0;
+            txtObservaciones.Dock = DockStyle.Top;
             txtObservaciones.HideSelection = true;
-            txtObservaciones.Location = new Point(13, 23);
+            txtObservaciones.Location = new Point(20, 19);
             txtObservaciones.Margin = new Padding(3, 2, 3, 2);
             txtObservaciones.MaxLength = 32767;
             txtObservaciones.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
@@ -130,7 +134,7 @@
             txtObservaciones.SelectionLength = 0;
             txtObservaciones.SelectionStart = 0;
             txtObservaciones.ShortcutsEnabled = true;
-            txtObservaciones.Size = new Size(1064, 43);
+            txtObservaciones.Size = new Size(824, 43);
             txtObservaciones.TabIndex = 6;
             txtObservaciones.TabStop = false;
             txtObservaciones.TextAlign = HorizontalAlignment.Left;
@@ -156,23 +160,24 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(panel2, 1, 0);
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel1.Location = new Point(5, 17);
+            tableLayoutPanel1.Dock = DockStyle.Top;
+            tableLayoutPanel1.Location = new Point(3, 2);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1095, 71);
-            tableLayoutPanel1.TabIndex = 0;
+            tableLayoutPanel1.Size = new Size(858, 71);
+            tableLayoutPanel1.TabIndex = 1;
             // 
             // panel2
             // 
             panel2.Controls.Add(cbFormativeEnvironment);
             panel2.Controls.Add(materialLabel2);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(550, 2);
+            panel2.Location = new Point(432, 2);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(542, 67);
+            panel2.Size = new Size(423, 67);
             panel2.TabIndex = 1;
             // 
             // cbFormativeEnvironment
@@ -189,12 +194,12 @@
             cbFormativeEnvironment.FormattingEnabled = true;
             cbFormativeEnvironment.IntegralHeight = false;
             cbFormativeEnvironment.ItemHeight = 43;
-            cbFormativeEnvironment.Location = new Point(18, 16);
+            cbFormativeEnvironment.Location = new Point(3, 18);
             cbFormativeEnvironment.Margin = new Padding(3, 2, 3, 2);
             cbFormativeEnvironment.MaxDropDownItems = 4;
             cbFormativeEnvironment.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbFormativeEnvironment.Name = "cbFormativeEnvironment";
-            cbFormativeEnvironment.Size = new Size(510, 49);
+            cbFormativeEnvironment.Size = new Size(420, 49);
             cbFormativeEnvironment.StartIndex = 0;
             cbFormativeEnvironment.TabIndex = 1;
             // 
@@ -218,7 +223,7 @@
             panel1.Location = new Point(3, 2);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(541, 67);
+            panel1.Size = new Size(423, 67);
             panel1.TabIndex = 0;
             // 
             // tbTitle
@@ -245,7 +250,7 @@
             tbTitle.SelectionLength = 0;
             tbTitle.SelectionStart = 0;
             tbTitle.ShortcutsEnabled = true;
-            tbTitle.Size = new Size(518, 48);
+            tbTitle.Size = new Size(410, 48);
             tbTitle.TabIndex = 1;
             tbTitle.TabStop = false;
             tbTitle.TextAlign = HorizontalAlignment.Left;
@@ -268,17 +273,19 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             Controls.Add(mepBlackBoard);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCBlackBoardAdd";
-            Size = new Size(1152, 604);
+            Size = new Size(906, 548);
             Load += UCBlackBoardAdd_Load;
             mepBlackBoard.ResumeLayout(false);
             mepBlackBoard.PerformLayout();
-            groupBox1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvData).EndInit();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvData).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -290,17 +297,17 @@
         #endregion
 
         private ReaLTaiizor.Controls.MaterialExpansionPanel mepBlackBoard;
-        private GroupBox groupBox1;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel tableLayoutPanel2;
+        private DataGridView dgvData;
         private Panel panel8;
-        private ReaLTaiizor.Controls.MaterialLabel materialLabel8;
-        private Panel panel1;
-        private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
         private ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit txtObservaciones;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel8;
+        private TableLayoutPanel tableLayoutPanel1;
         private Panel panel2;
         private ReaLTaiizor.Controls.MaterialComboBox cbFormativeEnvironment;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
+        private Panel panel1;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbTitle;
-        private DataGridView dgvData;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
     }
 }
