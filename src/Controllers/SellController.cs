@@ -11,35 +11,35 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestionAgraria.Controllers
 {
-    public class SellsController : IDisposable
+    public class SellController : IDisposable
     {
         public AppDbContext _context;
 
-        public SellsController()
+        public SellController()
         {
             _context = new AppDbContext();
         }
 
-        public SellsController(AppDbContext context)
+        public SellController(AppDbContext context)
         {
             _context = context;
         }
 
-        public List<SellsModel> GetAllSells() 
+        public List<SellModel> GetAllSells() 
         { 
             return _context.Sells
                 .Include(a => a.User)
                 .ToList();        
         }
 
-        public SellsModel? getSellsById(int id)
+        public SellModel? getSellsById(int id)
         {
             return _context.Sells
                 .Include (a => a.User)
                 .FirstOrDefault(a => a.Id == id);
         }
 
-        public SellsModel? GetLastSell()
+        public SellModel? GetLastSell()
         {
             return _context.Sells
                 .Include(a => a.User)
@@ -47,14 +47,14 @@ namespace GestionAgraria.Controllers
                 .FirstOrDefault();
         }
 
-        public List<SellsModel> GetSellsByUser(int userId)
+        public List<SellModel> GetSellsByUser(int userId)
         {
             return _context.Sells
                 .Include (a => a.User)
                 .ToList();
         }
 
-        public bool CreateSells(SellsModel sells)
+        public bool CreateSells(SellModel sells)
         {
             try
             {
@@ -70,7 +70,7 @@ namespace GestionAgraria.Controllers
             }
         }
 
-        public bool UpdateSells(SellsModel sells)
+        public bool UpdateSells(SellModel sells)
         {
             try
             {

@@ -14,10 +14,10 @@
     <Compile Update="Views\UCAnimalCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCBuysAdd.cs">
+    <Compile Update="Views\UCPurchasesAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCProductsAdd.cs">
+    <Compile Update="Views\UCProductAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UCAnimalAdd.cs">
@@ -35,13 +35,13 @@
     <Compile Update="Views\UCBlackBoardCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCProductsCard.cs">
+    <Compile Update="Views\UCProductCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCSellsAdd.cs">
+    <Compile Update="Views\UCSellAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCSellsCard.cs">
+    <Compile Update="Views\UCSellCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UCUserAdd.cs">
@@ -50,10 +50,10 @@
     <Compile Update="Views\UCUserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCVegetalAdd.cs">
+    <Compile Update="Views\UCVegetableAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCVegetalCard.cs">
+    <Compile Update="Views\UCVegetableCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

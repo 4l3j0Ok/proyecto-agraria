@@ -4,7 +4,7 @@ using GestionAgraria.models;
 
 namespace GestionAgraria.Models
 {
-    public class VegetalModel
+    public class VegetableModel
     {
         [Key]
         public int Id { get; set; }

@@ -12,15 +12,15 @@ using GestionAgraria.controllers;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCVegetalAdd : UserControl
+    public partial class UCVegetableAdd : UserControl
     {
-        private VegetalController vegetalController;
-        private VegetalModel currentVegetal;
+        private VegetableController vegetalController;
+        private VegetableModel currentVegetal;
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
 
-        public UCVegetalAdd(VegetalModel? vegetal = null)
+        public UCVegetableAdd(VegetableModel? vegetal = null)
         {
-            vegetalController = new VegetalController();
+            vegetalController = new VegetableController();
             InitializeComponent();
 
             LoadComboBoxes();
@@ -34,7 +34,7 @@ namespace GestionAgraria.Views
             }
             else
             {
-                currentVegetal = new VegetalModel();
+                currentVegetal = new VegetableModel();
             }
         }
 
@@ -44,7 +44,7 @@ namespace GestionAgraria.Views
             // Los tipos de plantas se pueden escribir directamente
         }
 
-        private void LoadVegetalData(VegetalModel vegetal)
+        private void LoadVegetalData(VegetableModel vegetal)
         {
             tbUsuario.Text = vegetal.PlantType;
             materialComboBox1.Text = vegetal.Quantity.ToString();

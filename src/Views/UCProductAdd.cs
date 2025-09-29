@@ -14,13 +14,13 @@ using ReaLTaiizor.Controls;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCProductsAdd : UserControl
+    public partial class UCProductAdd : UserControl
     {
         private ProductController producController;
         private ProductModel currentProduct;
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
 
-        public UCProductsAdd(ProductModel? product = null)
+        public UCProductAdd(ProductModel? product = null)
         {
             producController = new ProductController();
             InitializeComponent();

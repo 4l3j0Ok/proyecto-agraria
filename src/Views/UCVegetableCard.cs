@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCVegetalCard : UserControl
+    public partial class UCVegetableCard : UserControl
     {
-        private VegetalModel _vegetal;
+        private VegetableModel _vegetal;
 
-        public UCVegetalCard(VegetalModel vegetal)
+        public UCVegetableCard(VegetableModel vegetal)
         {
             InitializeComponent();
             _vegetal = vegetal;
@@ -30,9 +30,9 @@ namespace GestionAgraria.Views
             OpenFormAdd(_vegetal);
         }
 
-        public static void OpenFormAdd(VegetalModel vegetal)
+        public static void OpenFormAdd(VegetableModel vegetal)
         {
-            UCVegetalAdd vegetalAdd = new UCVegetalAdd(vegetal);
+            UCVegetableAdd vegetalAdd = new UCVegetableAdd(vegetal);
             FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
             formPrincipal?.VerFormularioTab(vegetalAdd, formPrincipal.tabVegetablesArea);
         }

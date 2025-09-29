@@ -15,24 +15,24 @@ using GestionAgraria.Models;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCSellsAdd : UserControl
+    public partial class UCSellAdd : UserControl
     {
-        private SellsController SellsController;
+        private SellController SellsController;
         private ProductController productController;
-        private DetailSellsController detailSellsController;
+        private SellDetailController detailSellsController;
         private UserController userController;
 
-        private List<DetailSellsModel> currentDetailSellsList = new List<DetailSellsModel>();
+        private List<SellDetailModel> currentDetailSellsList = new List<SellDetailModel>();
 
-        private SellsModel currentSells;
-        private DetailSellsModel currentDetailSells;
+        private SellModel currentSells;
+        private SellDetailModel currentDetailSells;
         private UserModel currentUser;
 
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-        public UCSellsAdd(UserModel? CurrentUser = null, SellsModel? sells = null)
+        public UCSellAdd(UserModel? CurrentUser = null, SellModel? sells = null)
         {
             currentUser = CurrentUser;
-            SellsController = new SellsController();
+            SellsController = new SellController();
             productController = new ProductController();
             InitializeComponent();
             LoadComboBoxes();
@@ -45,7 +45,7 @@ namespace GestionAgraria.Views
             }
             else
             {
-                currentSells = new SellsModel();
+                currentSells = new SellModel();
             }
         }
 
@@ -53,9 +53,9 @@ namespace GestionAgraria.Views
         {
             try 
             {
-                currentSells = new SellsModel();
+                currentSells = new SellModel();
 
-                detailSellsController = new DetailSellsController();
+                detailSellsController = new SellDetailController();
                 userController = new UserController();
 
                 currentSells.TotalCost = Convert.ToDecimal(tbTotal.Text);
@@ -67,7 +67,7 @@ namespace GestionAgraria.Views
 
                 currentSells = SellsController.GetLastSell();
 
-                foreach (DetailSellsModel sells in currentDetailSellsList)
+                foreach (SellDetailModel sells in currentDetailSellsList)
                 {
                     sells.SellsId = currentSells.Id;
                     detailSellsController.CreateDetailSells(sells);
@@ -112,7 +112,7 @@ namespace GestionAgraria.Views
 
         private void btnProductAddList_Click(object sender, EventArgs e)
         {
-            currentDetailSells = new DetailSellsModel();
+            currentDetailSells = new SellDetailModel();
             List<string> listProduct = new List<string>();
             try
             {

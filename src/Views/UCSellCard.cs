@@ -11,10 +11,10 @@ using GestionAgraria.Models;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCSellsCard : UserControl
+    public partial class UCSellCard : UserControl
     {
-        private SellsModel _sells;
-        public UCSellsCard(SellsModel sells)
+        private SellModel _sells;
+        public UCSellCard(SellModel sells)
         {
             InitializeComponent();
             _sells = sells;
@@ -28,9 +28,9 @@ namespace GestionAgraria.Views
             openFormAdd(_sells);
         }
 
-        public static void openFormAdd(SellsModel sells)
+        public static void openFormAdd(SellModel sells)
         {
-            UCSellsAdd sellsAdd = new UCSellsAdd();
+            UCSellAdd sellsAdd = new UCSellAdd();
             FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
             formPrincipal?.VerFormularioTab(sellsAdd, formPrincipal.tabVentas);
         }

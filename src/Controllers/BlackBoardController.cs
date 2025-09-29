@@ -26,33 +26,33 @@ namespace GestionAgraria.controllers
 
         public List<BlackBoardModel> GetAllBlackBoards()
         {
-            return _context.BlackBoards
+            return _context.BlackBoard
                 .ToList();
         }
 
         public BlackBoardModel? GetBlackBoardById(int id)
         {
-            return _context.BlackBoards
+            return _context.BlackBoard
                 .FirstOrDefault(bb => bb.Id == id);
         }
 
-        public List<BlackBoardModel> GetBlackBoardsByEntorno(string entorno)
+        public List<BlackBoardModel> GetBlackBoardByEntorno(string entorno)
         {
-            return _context.BlackBoards
+            return _context.BlackBoard
                 .Where(bb => bb.entorno == entorno)
                 .ToList();
         }
 
-        public List<BlackBoardModel> GetBlackBoardsByDateRecord(int dateRecord)
+        public List<BlackBoardModel> GetBlackBoardByDateRecord(int dateRecord)
         {
-            return _context.BlackBoards
+            return _context.BlackBoard
                 .Where(bb => bb.dateRecord == dateRecord)
                 .ToList();
         }
 
-        public List<BlackBoardModel> GetBlackBoardsByTraining(string idTraining)
+        public List<BlackBoardModel> GetBlackBoardByTraining(string idTraining)
         {
-            return _context.BlackBoards
+            return _context.BlackBoard
                 .Where(bb => bb.idTraining == idTraining)
                 .ToList();
         }
@@ -62,10 +62,10 @@ namespace GestionAgraria.controllers
             try
             {
                 // Validar que no exista una pizarra con el mismo título
-                if (_context.BlackBoards.Any(bb => bb.title == blackBoard.title))
+                if (_context.BlackBoard.Any(bb => bb.title == blackBoard.title))
                     return false;
 
-                _context.BlackBoards.Add(blackBoard);
+                _context.BlackBoard.Add(blackBoard);
                 _context.SaveChanges();
                 return true;
             }
@@ -80,12 +80,12 @@ namespace GestionAgraria.controllers
         {
             try
             {
-                var existingBlackBoard = _context.BlackBoards.Find(blackBoard.Id);
+                var existingBlackBoard = _context.BlackBoard.Find(blackBoard.Id);
                 if (existingBlackBoard == null)
                     return false;
 
                 // Validar que no exista una pizarra con el mismo título (excepto la actual)
-                if (_context.BlackBoards.Any(bb =>
+                if (_context.BlackBoard.Any(bb =>
                     bb.title == blackBoard.title &&
                     bb.Id != blackBoard.Id))
                     return false;
@@ -111,11 +111,11 @@ namespace GestionAgraria.controllers
         {
             try
             {
-                var blackBoard = _context.BlackBoards.Find(blackBoardId);
+                var blackBoard = _context.BlackBoard.Find(blackBoardId);
                 if (blackBoard == null)
                     return false;
 
-                _context.BlackBoards.Remove(blackBoard);
+                _context.BlackBoard.Remove(blackBoard);
                 _context.SaveChanges();
                 return true;
             }
@@ -128,7 +128,7 @@ namespace GestionAgraria.controllers
 
         public List<string> GetDistinctEntornos()
         {
-            return _context.BlackBoards
+            return _context.BlackBoard
                 .Select(bb => bb.entorno)
                 .Where(e => !string.IsNullOrEmpty(e))
                 .Distinct()
@@ -137,7 +137,7 @@ namespace GestionAgraria.controllers
 
         public List<int> GetDistinctDateRecords()
         {
-            return _context.BlackBoards
+            return _context.BlackBoard
                 .Select(bb => bb.dateRecord)
                 .Distinct()
                 .OrderByDescending(d => d)
@@ -146,7 +146,7 @@ namespace GestionAgraria.controllers
 
         public List<string> GetDistinctTrainings()
         {
-            return _context.BlackBoards
+            return _context.BlackBoard
                 .Select(bb => bb.idTraining)
                 .Where(t => !string.IsNullOrEmpty(t))
                 .Distinct()

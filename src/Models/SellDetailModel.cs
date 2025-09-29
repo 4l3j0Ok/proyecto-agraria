@@ -3,31 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using GestionAgraria.models;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-
 namespace GestionAgraria.Models
 {
-    public class SellsModel
+    public class SellDetailModel
     {
         [Key]
         public int Id { get; set; }
 
         [Required]
-        public DateTime  RecordDate { get; set; }
+        public int Quatity { get; set; }
 
-        public decimal TotalCost { get; set; }
-
-        public string? Observation { get; set; } 
-
-        [ForeignKey("User")]
         [Required]
-        public int UserId { get; set; }
-        public UserModel? User { get; set; } = null!;
+        public decimal PriceUnit { get; set; }
 
+        [ForeignKey("Product")]
+        [Required]
+        public int ProductId { get; set; }
+        public ProductModel Product { get; set; }
 
+        [ForeignKey("Sells")]
+        [Required]
+        public int SellsId { get; set; }
+        public SellModel Sells { get; set; }
     }
 }

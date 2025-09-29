@@ -13,7 +13,7 @@ using ReaLTaiizor.Controls;
 
 namespace GestionAgraria.Views
 {
-    partial class UCVegetalAdd
+    partial class UCVegetableAdd
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

@@ -84,13 +84,13 @@ namespace GestionAgraria
         }
         private void LoadVegetablesTable()
         {
-            using var vegetalController = new VegetalController();
-            List<VegetalModel> vegetables = vegetalController.GetAllVegetables();
+            using var vegetalController = new VegetableController();
+            List<VegetableModel> vegetables = vegetalController.GetAllVegetables();
             if (vegetables.Count > 0)
                 lblEmptyVegetables.Visible = false;
-            foreach (VegetalModel vegetable in vegetables)
+            foreach (VegetableModel vegetable in vegetables)
             {
-                UCVegetalCard vegetalCard = new UCVegetalCard(vegetal: vegetable);
+                UCVegetableCard vegetalCard = new UCVegetableCard(vegetal: vegetable);
                 vegetalCard.Dock = DockStyle.Top;
                 vegetalCard.Margin = new Padding(10);
                 // Usar el FlowLayoutPanel correcto según el Designer
@@ -135,7 +135,7 @@ namespace GestionAgraria
                 lblEmptyProducts.Visible = false;
             foreach (ProductModel pro in products)
             {
-                UCProductsCard prodCard = new UCProductsCard(pro);
+                UCProductCard prodCard = new UCProductCard(pro);
                 prodCard.Dock = DockStyle.Top;
                 prodCard.Margin = new Padding(0, 0, 0, 20);
                 // Agregar directamente a la pestaña ya que no tiene FlowLayoutPanel en el Designer
@@ -243,7 +243,7 @@ namespace GestionAgraria
             {
                 // Para productos, limpiar solo las tarjetas que se agregan directamente a la pestaña
                 var controlsToRemove = tabProduct.Controls.Cast<Control>()
-                    .Where(c => c is UCProductsCard)
+                    .Where(c => c is UCProductCard)
                     .ToList();
                 foreach (var control in controlsToRemove)
                 {
@@ -319,25 +319,25 @@ namespace GestionAgraria
 
         private void btnAddPlanta_Click(object sender, EventArgs e)
         {
-            UCVegetalAdd AddControl = new UCVegetalAdd();
+            UCVegetableAdd AddControl = new UCVegetableAdd();
             this.VerFormularioTab(AddControl, tabVegetablesArea);
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            UCProductsAdd AddControl = new UCProductsAdd();
+            UCProductAdd AddControl = new UCProductAdd();
             this.VerFormularioTab(AddControl, tabProduct);
         }
 
         private void btnAddCompras_Click(object sender, EventArgs e)
         {
-            UCBuysAdd AddControl = new UCBuysAdd();
+            UCPurchasesAdd AddControl = new UCPurchasesAdd();
             this.VerFormularioTab(AddControl, tabCompras);
         }
 
         private void btnAddVentas_Click(object sender, EventArgs e)
         {
-            UCSellsAdd AddControl = new UCSellsAdd();
+            UCSellAdd AddControl = new UCSellAdd();
             this.VerFormularioTab(AddControl, tabVentas);
         }
 

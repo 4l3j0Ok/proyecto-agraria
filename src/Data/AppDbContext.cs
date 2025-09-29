@@ -13,11 +13,11 @@ namespace GestionAgraria.data
         public DbSet<FormativeEnvironmentModel> FormativeEnvironments { get; set; }
         public DbSet<AnimalModel> Animals { get; set; }
         public DbSet<AnimalTypeModel> AnimalTypes { get; set; }
-        public DbSet<VegetalModel> Vegetables { get; set; }
+        public DbSet<VegetableModel> Vegetables { get; set; }
         public DbSet<ProductModel> Product { get; set; }
-        public DbSet<SellsModel> Sells { get; set; }
-        public DbSet<DetailSellsModel> DetailSells { get; set; }
-        public DbSet<BlackBoardModel> BlackBoards { get; set; }
+        public DbSet<SellModel> Sells { get; set; }
+        public DbSet<SellDetailModel> SellDetail { get; set; }
+        public DbSet<BlackBoardModel> BlackBoard { get; set; }
 
         // acá agregamos todos los modelos que tengamos
         // public DbSet<ProductModel> Products { get; set; }
@@ -52,42 +52,42 @@ namespace GestionAgraria.data
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Configuracion de la relacion de Sells-user
-            modelBuilder.Entity<SellsModel>()
+            modelBuilder.Entity<SellModel>()
                 .HasOne(a => a.User)
                 .WithMany()
                 .HasForeignKey(a => a.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Configuracion de la relacion de DetailSells-Sells
-            modelBuilder.Entity<DetailSellsModel>()
+            modelBuilder.Entity<SellDetailModel>()
                 .HasOne(a => a.Sells)
                 .WithMany()
                 .HasForeignKey(a => a.SellsId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // Configuracion de la relacion de DetailSells-Product
-            modelBuilder.Entity<DetailSellsModel>()
+            modelBuilder.Entity<SellDetailModel>()
                 .HasOne(a => a.Product)
                 .WithMany()
                 .HasForeignKey(a => a.ProductId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Configuracion de la relacion de Buys-user
-            modelBuilder.Entity<BuysModel>()
+            // Configuracion de la relacion de Purchases-user
+            modelBuilder.Entity<PurchaseModel>()
                 .HasOne(a => a.User)
                 .WithMany()
                 .HasForeignKey(a => a.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Configuracion de la relacion de DetailBuysModel-Buys
-            modelBuilder.Entity<DetailBuysModel>()
-                .HasOne(a => a.Buys)
+            // Configuracion de la relacion de DetailPurchasesModel-Purchases
+            modelBuilder.Entity<PurchaseDetailModel>()
+                .HasOne(a => a.Purchases)
                 .WithMany()
-                .HasForeignKey(a => a.BuysId)
+                .HasForeignKey(a => a.PurchasesId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Configuracion de la relacion de DetailBuysModel-Product
-            modelBuilder.Entity<DetailBuysModel>()
+            // Configuracion de la relacion de DetailPurchasesModel-Product
+            modelBuilder.Entity<PurchaseDetailModel>()
                 .HasOne(a => a.Product)
                 .WithMany()
                 .HasForeignKey(a => a.ProductId)
@@ -130,18 +130,18 @@ namespace GestionAgraria.data
 
 
             // Mapeo de nombres de tabla (si es necesario mantener compatibilidad)
-            modelBuilder.Entity<UserModel>().ToTable("Users");
-            modelBuilder.Entity<RoleModel>().ToTable("Roles");
-            modelBuilder.Entity<FormativeEnvironmentModel>().ToTable("FormativeEnvironments");
-            modelBuilder.Entity<AnimalModel>().ToTable("Animals");
-            modelBuilder.Entity<AnimalTypeModel>().ToTable("AnimalTypes");
-            modelBuilder.Entity<VegetalModel>().ToTable("Vegetables");
+            modelBuilder.Entity<UserModel>().ToTable("User");
+            modelBuilder.Entity<RoleModel>().ToTable("Role");
+            modelBuilder.Entity<FormativeEnvironmentModel>().ToTable("FormativeEnvironment");
+            modelBuilder.Entity<AnimalModel>().ToTable("Animal");
+            modelBuilder.Entity<AnimalTypeModel>().ToTable("AnimalType");
+            modelBuilder.Entity<VegetableModel>().ToTable("Vegetable");
             modelBuilder.Entity<ProductModel>().ToTable("Product");
-            modelBuilder.Entity<SellsModel>().ToTable("Sells");
-            modelBuilder.Entity<DetailSellsModel>().ToTable("DetailSells");
-            modelBuilder.Entity<BuysModel>().ToTable("Buys");
-            modelBuilder.Entity<DetailBuysModel>().ToTable("DetailBuys");
-            modelBuilder.Entity<BlackBoardModel>().ToTable("BlackBoards");
+            modelBuilder.Entity<SellModel>().ToTable("Sell");
+            modelBuilder.Entity<SellDetailModel>().ToTable("SellDetail");
+            modelBuilder.Entity<PurchaseModel>().ToTable("Purchase");
+            modelBuilder.Entity<PurchaseDetailModel>().ToTable("PurchaseDetail");
+            modelBuilder.Entity<BlackBoardModel>().ToTable("BlackBoard");
             base.OnModelCreating(modelBuilder);
         }
 

@@ -10,41 +10,41 @@ using System.Threading.Tasks;
 
 namespace GestionAgraria.controllers
 {
-    public class VegetalController : IDisposable
+    public class VegetableController : IDisposable
     {
         private readonly AppDbContext _context;
 
-        public VegetalController()
+        public VegetableController()
         {
             _context = new AppDbContext();
         }
 
-        public VegetalController(AppDbContext context)
+        public VegetableController(AppDbContext context)
         {
             _context = context;
         }
 
-        public List<VegetalModel> GetAllVegetables()
+        public List<VegetableModel> GetAllVegetables()
         {
             return _context.Vegetables
                 .Where(v => v.IsActive)
                 .ToList();
         }
 
-        public VegetalModel? GetVegetalById(int id)
+        public VegetableModel? GetVegetalById(int id)
         {
             return _context.Vegetables
                 .FirstOrDefault(v => v.Id == id);
         }
 
-        public List<VegetalModel> GetVegetalsByPlantType(string plantType)
+        public List<VegetableModel> GetVegetalsByPlantType(string plantType)
         {
             return _context.Vegetables
                 .Where(v => v.IsActive)
                 .ToList();
         }
 
-        public bool CreateVegetal(VegetalModel vegetal)
+        public bool CreateVegetal(VegetableModel vegetal)
         {
             try
             {
@@ -62,7 +62,7 @@ namespace GestionAgraria.controllers
             }
         }
 
-        public bool UpdateVegetal(VegetalModel vegetal)
+        public bool UpdateVegetal(VegetableModel vegetal)
         {
             try
             {
@@ -173,7 +173,7 @@ namespace GestionAgraria.controllers
                 .Sum(v => v.Quantity);
         }
 
-        public List<VegetalModel> GetVegetalsWithLowQuantity(int threshold = 10)
+        public List<VegetableModel> GetVegetalsWithLowQuantity(int threshold = 10)
         {
             return _context.Vegetables
                 .Where(v => v.Quantity <= threshold && v.IsActive)

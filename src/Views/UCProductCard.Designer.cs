@@ -1,6 +1,6 @@
 ﻿namespace GestionAgraria.Views
 {
-    partial class UCProductsCard
+    partial class UCProductCard
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

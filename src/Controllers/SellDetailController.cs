@@ -10,33 +10,33 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GestionAgraria.Controllers
 {
-    public class DetailSellsController : IDisposable
+    public class SellDetailController : IDisposable
     {
         private readonly AppDbContext _context;
-        public DetailSellsController()
+        public SellDetailController()
         {
             _context = new AppDbContext();
         }
 
-        public DetailSellsController(AppDbContext context)
+        public SellDetailController(AppDbContext context)
         {
             _context = context;
         }
 
-        public List<DetailSellsModel> GetAllDetail()
+        public List<SellDetailModel> GetAllDetail()
         {
-            return _context.DetailSells
+            return _context.SellDetail
                 .Include(a => a.Product)
                 .Include(a => a.Sells)
                 .Include(a => a.SellsId == a.Id)
                 .ToList();
         }
 
-        public bool CreateDetailSells(DetailSellsModel detailSells)
+        public bool CreateDetailSells(SellDetailModel detailSells)
         {
             try 
             {
-                _context.DetailSells.Add(detailSells);
+                _context.SellDetail.Add(detailSells);
                 _context.SaveChanges();
                 return true;
             }

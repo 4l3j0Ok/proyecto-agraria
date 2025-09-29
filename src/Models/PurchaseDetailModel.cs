@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace GestionAgraria.Models
 {
-    public class DetailBuysModel
+    public class PurchaseDetailModel
     {
         [Key]
         public int Id { get; set; }
@@ -26,9 +26,9 @@ namespace GestionAgraria.Models
         public int ProductId { get; set; }
         public ProductModel Product { get; set; }
 
-        [ForeignKey("Buys")]
+        [ForeignKey("Purchases")]
         [Required]
-        public int BuysId { get; set; }
-        public BuysModel Buys { get; set; }
+        public int PurchasesId { get; set; }
+        public PurchaseModel Purchases { get; set; }
     }
 }

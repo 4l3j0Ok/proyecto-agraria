@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCProductsCard : UserControl
+    public partial class UCProductCard : UserControl
     {
         private ProductModel _product;
         
-        public UCProductsCard(ProductModel product)
+        public UCProductCard(ProductModel product)
         {
             InitializeComponent();
 
@@ -35,7 +35,7 @@ namespace GestionAgraria.Views
 
         public static void OpenFormAdd(ProductModel product)
         {
-            UCProductsAdd ProductlAdd = new  UCProductsAdd(product);
+            UCProductAdd ProductlAdd = new  UCProductAdd(product);
             FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
             formPrincipal?.VerFormularioTab(ProductlAdd, formPrincipal.tabProduct);
         }

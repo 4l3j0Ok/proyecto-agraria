@@ -1,6 +1,6 @@
 ﻿namespace GestionAgraria.Views
 {
-    partial class UCBuysAdd
+    partial class UCPurchasesAdd
     {
         /// <summary> 
         /// Variable del diseñador necesaria.

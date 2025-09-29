@@ -15,20 +15,20 @@ using GestionAgraria.Models;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCBuysAdd : UserControl
+    public partial class UCPurchasesAdd : UserControl
     {
 
         private ProductController productController;
         private UserController userController;
 
-        private List<DetailBuysModel> currentDetailBuysList = new List<DetailBuysModel>();
+        private List<PurchaseDetailModel> currentDetailBuysList = new List<PurchaseDetailModel>();
 
-        private BuysModel currentBuys;
-        private DetailBuysModel currentDetailBuys;
+        private PurchaseModel currentBuys;
+        private PurchaseDetailModel currentDetailBuys;
         private UserModel currentUser;
 
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-        public UCBuysAdd(UserModel? CurrentUser = null, BuysModel? buys = null)
+        public UCPurchasesAdd(UserModel? CurrentUser = null, PurchaseModel? buys = null)
         {
             currentUser = CurrentUser;
             productController = new ProductController();
@@ -58,7 +58,7 @@ namespace GestionAgraria.Views
         }
         private void btnProductAddList_Click(object sender, EventArgs e)
         {
-            currentDetailBuys = new DetailBuysModel();
+            currentDetailBuys = new PurchaseDetailModel();
             List<string> listProduct = new List<string>();
             try
             {
