@@ -17,7 +17,7 @@
     <Compile Update="Views\UCBuysAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCCargaProductosAdd.cs">
+    <Compile Update="Views\UCProductsAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UCAnimalAdd.cs">
@@ -35,7 +35,7 @@
     <Compile Update="Views\UCBlackBoardCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCProductosCard.cs">
+    <Compile Update="Views\UCProductsCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UCSellsAdd.cs">

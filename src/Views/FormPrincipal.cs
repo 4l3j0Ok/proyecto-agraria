@@ -135,7 +135,7 @@ namespace GestionAgraria
                 lblEmptyProducts.Visible = false;
             foreach (ProductModel pro in products)
             {
-                UCProductosCard prodCard = new UCProductosCard(pro);
+                UCProductsCard prodCard = new UCProductsCard(pro);
                 prodCard.Dock = DockStyle.Top;
                 prodCard.Margin = new Padding(0, 0, 0, 20);
                 // Agregar directamente a la pestaña ya que no tiene FlowLayoutPanel en el Designer
@@ -243,7 +243,7 @@ namespace GestionAgraria
             {
                 // Para productos, limpiar solo las tarjetas que se agregan directamente a la pestaña
                 var controlsToRemove = tabProduct.Controls.Cast<Control>()
-                    .Where(c => c is UCProductosCard)
+                    .Where(c => c is UCProductsCard)
                     .ToList();
                 foreach (var control in controlsToRemove)
                 {
@@ -325,7 +325,7 @@ namespace GestionAgraria
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            UCCargaProductosAdd AddControl = new UCCargaProductosAdd();
+            UCProductsAdd AddControl = new UCProductsAdd();
             this.VerFormularioTab(AddControl, tabProduct);
         }
 
