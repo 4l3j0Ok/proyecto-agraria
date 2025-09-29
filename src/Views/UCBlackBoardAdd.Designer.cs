@@ -57,7 +57,7 @@
             mepBlackBoard.CancelButtonText = "CANCELAR";
             mepBlackBoard.Controls.Add(tableLayoutPanel2);
             mepBlackBoard.Depth = 0;
-            mepBlackBoard.Description = "Crea notas personalizadas, tablas";
+            mepBlackBoard.Description = "Crea notas personalizadas con tablas incluídas";
             mepBlackBoard.Dock = DockStyle.Top;
             mepBlackBoard.ExpandHeight = 548;
             mepBlackBoard.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -94,10 +94,14 @@
             // 
             // dgvData
             // 
+            dgvData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvData.ColumnHeadersVisible = false;
             dgvData.Dock = DockStyle.Top;
+            dgvData.EditMode = DataGridViewEditMode.EditOnEnter;
             dgvData.Location = new Point(3, 140);
             dgvData.Name = "dgvData";
+            dgvData.SelectionMode = DataGridViewSelectionMode.CellSelect;
             dgvData.Size = new Size(858, 281);
             dgvData.TabIndex = 30;
             // 

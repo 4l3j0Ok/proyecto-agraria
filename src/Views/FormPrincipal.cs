@@ -195,7 +195,7 @@ namespace GestionAgraria
         {
             // Paso 1: Limpiar la pestaña completamente (esto elimina el formulario Add)
             tabPage.Controls.Clear();
-            
+
             // Paso 2: Restaurar los controles originales del Designer
             if (originalTabContents.ContainsKey(tabPage))
             {
@@ -204,10 +204,10 @@ namespace GestionAgraria
                     tabPage.Controls.Add(control);
                 }
             }
-            
+
             // Paso 3: Limpiar solo las tarjetas dinámicas de los contenedores
             RemoveDynamicControls(tabPage);
-            
+
             // Paso 4: Recargar el contenido específico del tab
             ReloadTabContent(tabPage);
         }
@@ -329,17 +329,17 @@ namespace GestionAgraria
             this.VerFormularioTab(AddControl, tabProduct);
         }
 
-        //private void btnAddCompras_Click(object sender, EventArgs e)
-        //{
-        //    UCComprasAdd AddControl = new UCComprasAdd();
-        //    this.VerFormularioTab(AddControl, tabCompras);
-        //}
+        private void btnAddCompras_Click(object sender, EventArgs e)
+        {
+            UCBuysAdd AddControl = new UCBuysAdd();
+            this.VerFormularioTab(AddControl, tabCompras);
+        }
 
-        //private void btnAddVentas_Click(object sender, EventArgs e)
-        //{
-        //    UCVentasAdd AddControl = new UCVentasAdd();
-        //    this.VerFormularioTab(AddControl, tabVentas);
-        //}
+        private void btnAddVentas_Click(object sender, EventArgs e)
+        {
+            UCSellsAdd AddControl = new UCSellsAdd();
+            this.VerFormularioTab(AddControl, tabVentas);
+        }
 
         private void tabCerrarSesion_Click(object sender, EventArgs e)
         {

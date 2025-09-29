@@ -133,7 +133,7 @@ namespace GestionAgraria
             // 
             btnAddUser.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddUser.Depth = 0;
-            btnAddUser.Icon = Properties.Resources.add_user;
+            btnAddUser.Icon = Properties.Resources.add;
             btnAddUser.Location = new Point(877, 431);
             btnAddUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddUser.Name = "btnAddUser";
@@ -388,13 +388,14 @@ namespace GestionAgraria
             btnAddProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddProduct.Depth = 0;
             btnAddProduct.Icon = Properties.Resources.add;
-            btnAddProduct.Location = new Point(829, 363);
+            btnAddProduct.Location = new Point(812, 346);
             btnAddProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddProduct.Name = "btnAddProduct";
             btnAddProduct.Size = new Size(56, 56);
             btnAddProduct.TabIndex = 3;
             btnAddProduct.Text = "Agregar Usuario";
             btnAddProduct.UseVisualStyleBackColor = true;
+            btnAddProduct.Click += btnAddProduct_Click;
             // 
             // lblEmptyProducts
             // 
@@ -427,14 +428,15 @@ namespace GestionAgraria
             // 
             btnAddCompras.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddCompras.Depth = 0;
-            btnAddCompras.Icon = Properties.Resources.add_user;
-            btnAddCompras.Location = new Point(813, 346);
+            btnAddCompras.Icon = Properties.Resources.add;
+            btnAddCompras.Location = new Point(812, 346);
             btnAddCompras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddCompras.Name = "btnAddCompras";
             btnAddCompras.Size = new Size(56, 56);
             btnAddCompras.TabIndex = 3;
             btnAddCompras.Text = "Agregar Producto";
             btnAddCompras.UseVisualStyleBackColor = true;
+            btnAddCompras.Click += btnAddCompras_Click;
             // 
             // lblEmptyPurchases
             // 
@@ -467,7 +469,7 @@ namespace GestionAgraria
             // 
             btnAddVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddVentas.Depth = 0;
-            btnAddVentas.Icon = Properties.Resources.add_user;
+            btnAddVentas.Icon = Properties.Resources.add;
             btnAddVentas.Location = new Point(813, 346);
             btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddVentas.Name = "btnAddVentas";
@@ -475,6 +477,7 @@ namespace GestionAgraria
             btnAddVentas.TabIndex = 4;
             btnAddVentas.Text = "Agregar Producto";
             btnAddVentas.UseVisualStyleBackColor = true;
+            btnAddVentas.Click += btnAddVentas_Click;
             // 
             // lblEmptySells
             // 
@@ -562,7 +565,7 @@ namespace GestionAgraria
             btnAddBlackBoard.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddBlackBoard.Depth = 0;
             btnAddBlackBoard.Icon = Properties.Resources.add;
-            btnAddBlackBoard.Location = new Point(873, 428);
+            btnAddBlackBoard.Location = new Point(877, 431);
             btnAddBlackBoard.Margin = new Padding(10);
             btnAddBlackBoard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddBlackBoard.Name = "btnAddBlackBoard";
