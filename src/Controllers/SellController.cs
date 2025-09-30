@@ -41,10 +41,10 @@ namespace GestionAgraria.Controllers
 
         public SellModel? GetLastSell()
         {
-            return _context.Sells
-                .Include(a => a.User)
-                .OrderByDescending(a => a.Id)
-                .FirstOrDefault();
+                return _context.Sells
+                    .Include(s => s.User)
+                    .OrderByDescending(s => s.Id)
+                    .FirstOrDefault();
         }
 
         public List<SellModel> GetSellsByUser(int userId)
@@ -56,16 +56,22 @@ namespace GestionAgraria.Controllers
 
         public bool CreateSells(SellModel sells)
         {
+            SellModel se = new SellModel();
+            se.RecordDate = DateTime.Today;
+            se.TotalCost = sells.TotalCost;
+            se.Observation = sells.Observation;
+            se.UserId = sells.UserId;
+
             try
             {
-                _context.Sells.Add(sells);
+                _context.Sells.Add(se);
                 _context.SaveChanges();
                 return true;
 
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.InnerException?.Message ?? ex.Message);
                 return false;
             }
         }

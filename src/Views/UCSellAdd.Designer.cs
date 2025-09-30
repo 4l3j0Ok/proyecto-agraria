@@ -567,13 +567,13 @@
             lblCodigoProducto.TabIndex = 4;
             lblCodigoProducto.Text = "Codigo ";
             // 
-            // UCSellsAdd
+            // UCSellAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "UCSellsAdd";
+            Name = "UCSellAdd";
             Size = new Size(1152, 616);
             Load += UCSellsAdd_Load;
             panel1.ResumeLayout(false);

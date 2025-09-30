@@ -112,6 +112,7 @@ namespace GestionAgraria.Views
 
         private void btnProductAddList_Click(object sender, EventArgs e)
         {
+
             currentDetailSells = new SellDetailModel();
             List<string> listProduct = new List<string>();
             try
@@ -119,15 +120,15 @@ namespace GestionAgraria.Views
 
                 string code = cbCodeProduc.Text;
 
-                currentDetailSells.Product = productController.GetProductByCode(code);
+                ProductModel product = productController.GetProductByCode(code);
                 currentDetailSells.SellsId = currentSells.Id;
                 currentDetailSells.Quatity = int.Parse(tbQuatity.Text);
                 currentDetailSells.PriceUnit = Convert.ToDecimal(tbPrecio.Text);
-                currentDetailSells.ProductId = currentDetailSells.Product.Id;
+                currentDetailSells.ProductId = product.Id;
 
                 currentDetailSellsList.Add(currentDetailSells);
 
-                string name = currentDetailSells.Product.Name;
+                string name = product.Name;
                 string cantidad = Convert.ToString(currentDetailSells.Quatity);
                 string PriceUnit = Convert.ToString(currentDetailSells.PriceUnit);
 

@@ -42,7 +42,7 @@ namespace GestionAgraria.Controllers
             }
             catch(Exception ex)  
             {
-                Debug.WriteLine(ex.Message);
+                Debug.WriteLine(ex.InnerException?.Message ?? ex.Message);
                 return false;
             }
         }
