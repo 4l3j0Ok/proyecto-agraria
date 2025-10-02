@@ -25,11 +25,11 @@ namespace GestionAgraria.Models
         [ForeignKey("Product")]
         [Required]
         public int ProductId { get; set; }
-        public ProductModel Product { get; set; }
+        public ProductModel Product { get; set; } = null!;
 
         [ForeignKey("Sells")]
         [Required]
         public int SellsId { get; set; }
-        public SellModel Sells { get; set; }
+        public SellModel Sells { get; set; } = null!;
     }
 }
