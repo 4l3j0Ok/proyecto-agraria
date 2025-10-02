@@ -618,7 +618,9 @@ namespace GestionAgraria
             BackColor = Color.FromArgb(224, 224, 224);
             ClientSize = new Size(950, 600);
             Controls.Add(tcPrincipal);
+            DrawerAutoShow = true;
             DrawerHighlightWithAccent = false;
+            DrawerIsOpen = true;
             DrawerShowIconsWhenHidden = true;
             DrawerTabControl = tcPrincipal;
             Icon = (Icon)resources.GetObject("$this.Icon");

@@ -65,13 +65,6 @@ namespace GestionAgraria.Views
 
                 // Cargar estados productivos
                 cbAnimalProductiveState.Items.AddRange(TabConfig.productiveStates.ToArray());
-
-                // Cargar entornos formativos
-                var formativeEnvironments = animalController.GetAllActiveFormativeEnvironments();
-                foreach (var environment in formativeEnvironments)
-                {
-                    cbAnimalFormativeEnvironment.Items.Add(environment.Name);
-                }
             }
             catch (Exception ex)
             {
@@ -182,6 +175,16 @@ namespace GestionAgraria.Views
         private void mepAnimalAdd_CancelClick(object sender, EventArgs e)
         {
             formPrincipal?.RestaurarFormularioTab(formPrincipal.tabAnimalArea);
+        }
+
+        private void cbAnimalFormativeEnvironment_DropDown(object sender, EventArgs e)
+        {
+            // Cargar entornos formativos
+            var formativeEnvironments = animalController.GetAllActiveFormativeEnvironments();
+            foreach (var environment in formativeEnvironments)
+            {
+                cbAnimalFormativeEnvironment.Items.Add(environment.Name);
+            }
         }
     }
 }

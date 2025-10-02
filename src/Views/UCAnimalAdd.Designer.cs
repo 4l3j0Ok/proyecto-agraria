@@ -281,6 +281,7 @@ namespace GestionAgraria.Views
             cbAnimalFormativeEnvironment.Size = new Size(278, 49);
             cbAnimalFormativeEnvironment.StartIndex = 0;
             cbAnimalFormativeEnvironment.TabIndex = 10;
+            cbAnimalFormativeEnvironment.DropDown += cbAnimalFormativeEnvironment_DropDown;
             // 
             // materialLabel1
             // 
