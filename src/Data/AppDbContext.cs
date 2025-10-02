@@ -11,6 +11,7 @@ namespace GestionAgraria.data
         public DbSet<UserModel> Users { get; set; }
         public DbSet<RoleModel> Roles { get; set; }
         public DbSet<FormativeEnvironmentModel> FormativeEnvironments { get; set; }
+        public DbSet<FormativeEnvironmentDataModel> FormativeEnvironmentData { get; set; }
         public DbSet<AnimalModel> Animals { get; set; }
         public DbSet<AnimalTypeModel> AnimalTypes { get; set; }
         public DbSet<VegetableModel> Vegetables { get; set; }
@@ -37,6 +38,13 @@ namespace GestionAgraria.data
                 .WithMany()
                 .HasForeignKey(u => u.RoleId)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuración de la relación FormativeEnvironment-FormativeEnvironmentData
+            modelBuilder.Entity<FormativeEnvironmentDataModel>()
+                .HasOne(fed => fed.FormativeEnvironment)
+                .WithMany(fe => fe.AcademicData)
+                .HasForeignKey(fed => fed.FormativeEnvironmentId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // Configuración de la relación Animal - FormativeEnviroment
             modelBuilder.Entity<AnimalModel>()

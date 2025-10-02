@@ -49,16 +49,17 @@ namespace GestionAgraria.Views
             tbEnvironmentObservations = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel8 = new ReaLTaiizor.Controls.MaterialLabel();
             groupBox2 = new GroupBox();
-            tableLayoutPanel4 = new TableLayoutPanel();
+            tlYearData = new TableLayoutPanel();
             panel1 = new Panel();
-            tbEnvironmentGroup = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            tbEnvironmentGroup1 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
             panel9 = new Panel();
-            tbEnvironmentCourse = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            tbEnvironmentCourse1 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel4 = new ReaLTaiizor.Controls.MaterialLabel();
             panel5 = new Panel();
-            cbEnvironmentYear = new ReaLTaiizor.Controls.MaterialComboBox();
+            cbEnvironmentYear1 = new ReaLTaiizor.Controls.MaterialComboBox();
             materialLabel5 = new ReaLTaiizor.Controls.MaterialLabel();
+            btnAddCourseData = new ReaLTaiizor.Controls.MaterialButton();
             groupBox1 = new GroupBox();
             tableLayoutPanel5 = new TableLayoutPanel();
             panel6 = new Panel();
@@ -77,7 +78,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel3.SuspendLayout();
             panel8.SuspendLayout();
             groupBox2.SuspendLayout();
-            tableLayoutPanel4.SuspendLayout();
+            tlYearData.SuspendLayout();
             panel1.SuspendLayout();
             panel9.SuspendLayout();
             panel5.SuspendLayout();
@@ -118,7 +119,7 @@ namespace GestionAgraria.Views
             // 
             groupBox3.Controls.Add(tableLayoutPanel3);
             groupBox3.Dock = DockStyle.Top;
-            groupBox3.Location = new Point(0, 200);
+            groupBox3.Location = new Point(0, 228);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(934, 100);
             groupBox3.TabIndex = 32;
@@ -197,76 +198,82 @@ namespace GestionAgraria.Views
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(tableLayoutPanel4);
+            groupBox2.AutoSize = true;
+            groupBox2.Controls.Add(tlYearData);
             groupBox2.Dock = DockStyle.Top;
             groupBox2.Location = new Point(0, 100);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(934, 100);
+            groupBox2.Size = new Size(934, 128);
             groupBox2.TabIndex = 31;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos adicionales";
             // 
-            // tableLayoutPanel4
+            // tlYearData
             // 
-            tableLayoutPanel4.ColumnCount = 3;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel4.Controls.Add(panel1, 2, 0);
-            tableLayoutPanel4.Controls.Add(panel9, 1, 0);
-            tableLayoutPanel4.Controls.Add(panel5, 0, 0);
-            tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(3, 19);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 1;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Size = new Size(928, 78);
-            tableLayoutPanel4.TabIndex = 30;
+            tlYearData.AutoScroll = true;
+            tlYearData.AutoSize = true;
+            tlYearData.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tlYearData.ColumnCount = 3;
+            tlYearData.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33333F));
+            tlYearData.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
+            tlYearData.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333359F));
+            tlYearData.Controls.Add(panel1, 2, 0);
+            tlYearData.Controls.Add(panel9, 1, 0);
+            tlYearData.Controls.Add(panel5, 0, 0);
+            tlYearData.Controls.Add(btnAddCourseData, 0, 1);
+            tlYearData.Dock = DockStyle.Fill;
+            tlYearData.Location = new Point(3, 19);
+            tlYearData.Name = "tlYearData";
+            tlYearData.RowCount = 2;
+            tlYearData.RowStyles.Add(new RowStyle());
+            tlYearData.RowStyles.Add(new RowStyle());
+            tlYearData.Size = new Size(928, 106);
+            tlYearData.TabIndex = 30;
             // 
             // panel1
             // 
-            panel1.Controls.Add(tbEnvironmentGroup);
+            panel1.Controls.Add(tbEnvironmentGroup1);
             panel1.Controls.Add(materialLabel1);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(618, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(20, 0, 20, 0);
-            panel1.Size = new Size(310, 78);
+            panel1.Size = new Size(310, 58);
             panel1.TabIndex = 32;
             // 
-            // tbEnvironmentGroup
+            // tbEnvironmentGroup1
             // 
-            tbEnvironmentGroup.AnimateReadOnly = false;
-            tbEnvironmentGroup.AutoCompleteMode = AutoCompleteMode.None;
-            tbEnvironmentGroup.AutoCompleteSource = AutoCompleteSource.None;
-            tbEnvironmentGroup.BackgroundImageLayout = ImageLayout.None;
-            tbEnvironmentGroup.CharacterCasing = CharacterCasing.Normal;
-            tbEnvironmentGroup.Depth = 0;
-            tbEnvironmentGroup.Dock = DockStyle.Fill;
-            tbEnvironmentGroup.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbEnvironmentGroup.HideSelection = true;
-            tbEnvironmentGroup.LeadingIcon = null;
-            tbEnvironmentGroup.Location = new Point(20, 19);
-            tbEnvironmentGroup.Margin = new Padding(3, 3, 26, 3);
-            tbEnvironmentGroup.MaxLength = 1;
-            tbEnvironmentGroup.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tbEnvironmentGroup.Name = "tbEnvironmentGroup";
-            tbEnvironmentGroup.Padding = new Padding(9, 8, 9, 8);
-            tbEnvironmentGroup.PasswordChar = '\0';
-            tbEnvironmentGroup.PrefixSuffixText = null;
-            tbEnvironmentGroup.ReadOnly = false;
-            tbEnvironmentGroup.RightToLeft = RightToLeft.No;
-            tbEnvironmentGroup.SelectedText = "";
-            tbEnvironmentGroup.SelectionLength = 0;
-            tbEnvironmentGroup.SelectionStart = 0;
-            tbEnvironmentGroup.ShortcutsEnabled = true;
-            tbEnvironmentGroup.Size = new Size(270, 48);
-            tbEnvironmentGroup.TabIndex = 0;
-            tbEnvironmentGroup.TabStop = false;
-            tbEnvironmentGroup.TextAlign = HorizontalAlignment.Left;
-            tbEnvironmentGroup.TrailingIcon = null;
-            tbEnvironmentGroup.UseSystemPasswordChar = false;
+            tbEnvironmentGroup1.AnimateReadOnly = false;
+            tbEnvironmentGroup1.AutoCompleteMode = AutoCompleteMode.None;
+            tbEnvironmentGroup1.AutoCompleteSource = AutoCompleteSource.None;
+            tbEnvironmentGroup1.BackgroundImageLayout = ImageLayout.None;
+            tbEnvironmentGroup1.CharacterCasing = CharacterCasing.Normal;
+            tbEnvironmentGroup1.Depth = 0;
+            tbEnvironmentGroup1.Dock = DockStyle.Fill;
+            tbEnvironmentGroup1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbEnvironmentGroup1.HideSelection = true;
+            tbEnvironmentGroup1.LeadingIcon = null;
+            tbEnvironmentGroup1.Location = new Point(20, 19);
+            tbEnvironmentGroup1.Margin = new Padding(3, 3, 26, 3);
+            tbEnvironmentGroup1.MaxLength = 1;
+            tbEnvironmentGroup1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbEnvironmentGroup1.Name = "tbEnvironmentGroup1";
+            tbEnvironmentGroup1.Padding = new Padding(9, 8, 9, 8);
+            tbEnvironmentGroup1.PasswordChar = '\0';
+            tbEnvironmentGroup1.PrefixSuffixText = null;
+            tbEnvironmentGroup1.ReadOnly = false;
+            tbEnvironmentGroup1.RightToLeft = RightToLeft.No;
+            tbEnvironmentGroup1.SelectedText = "";
+            tbEnvironmentGroup1.SelectionLength = 0;
+            tbEnvironmentGroup1.SelectionStart = 0;
+            tbEnvironmentGroup1.ShortcutsEnabled = true;
+            tbEnvironmentGroup1.Size = new Size(270, 48);
+            tbEnvironmentGroup1.TabIndex = 0;
+            tbEnvironmentGroup1.TabStop = false;
+            tbEnvironmentGroup1.TextAlign = HorizontalAlignment.Left;
+            tbEnvironmentGroup1.TrailingIcon = null;
+            tbEnvironmentGroup1.UseSystemPasswordChar = false;
             // 
             // materialLabel1
             // 
@@ -283,48 +290,48 @@ namespace GestionAgraria.Views
             // 
             // panel9
             // 
-            panel9.Controls.Add(tbEnvironmentCourse);
+            panel9.Controls.Add(tbEnvironmentCourse1);
             panel9.Controls.Add(materialLabel4);
             panel9.Dock = DockStyle.Fill;
             panel9.Location = new Point(309, 0);
             panel9.Margin = new Padding(0);
             panel9.Name = "panel9";
             panel9.Padding = new Padding(20, 0, 20, 0);
-            panel9.Size = new Size(309, 78);
+            panel9.Size = new Size(309, 58);
             panel9.TabIndex = 31;
             // 
-            // tbEnvironmentCourse
+            // tbEnvironmentCourse1
             // 
-            tbEnvironmentCourse.AnimateReadOnly = false;
-            tbEnvironmentCourse.AutoCompleteMode = AutoCompleteMode.None;
-            tbEnvironmentCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tbEnvironmentCourse.BackgroundImageLayout = ImageLayout.None;
-            tbEnvironmentCourse.CharacterCasing = CharacterCasing.Normal;
-            tbEnvironmentCourse.Depth = 0;
-            tbEnvironmentCourse.Dock = DockStyle.Fill;
-            tbEnvironmentCourse.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbEnvironmentCourse.HideSelection = true;
-            tbEnvironmentCourse.LeadingIcon = null;
-            tbEnvironmentCourse.Location = new Point(20, 19);
-            tbEnvironmentCourse.Margin = new Padding(3, 3, 26, 3);
-            tbEnvironmentCourse.MaxLength = 1;
-            tbEnvironmentCourse.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tbEnvironmentCourse.Name = "tbEnvironmentCourse";
-            tbEnvironmentCourse.Padding = new Padding(9, 8, 9, 8);
-            tbEnvironmentCourse.PasswordChar = '\0';
-            tbEnvironmentCourse.PrefixSuffixText = null;
-            tbEnvironmentCourse.ReadOnly = false;
-            tbEnvironmentCourse.RightToLeft = RightToLeft.No;
-            tbEnvironmentCourse.SelectedText = "";
-            tbEnvironmentCourse.SelectionLength = 0;
-            tbEnvironmentCourse.SelectionStart = 0;
-            tbEnvironmentCourse.ShortcutsEnabled = true;
-            tbEnvironmentCourse.Size = new Size(269, 48);
-            tbEnvironmentCourse.TabIndex = 0;
-            tbEnvironmentCourse.TabStop = false;
-            tbEnvironmentCourse.TextAlign = HorizontalAlignment.Left;
-            tbEnvironmentCourse.TrailingIcon = null;
-            tbEnvironmentCourse.UseSystemPasswordChar = false;
+            tbEnvironmentCourse1.AnimateReadOnly = false;
+            tbEnvironmentCourse1.AutoCompleteMode = AutoCompleteMode.None;
+            tbEnvironmentCourse1.AutoCompleteSource = AutoCompleteSource.None;
+            tbEnvironmentCourse1.BackgroundImageLayout = ImageLayout.None;
+            tbEnvironmentCourse1.CharacterCasing = CharacterCasing.Normal;
+            tbEnvironmentCourse1.Depth = 0;
+            tbEnvironmentCourse1.Dock = DockStyle.Fill;
+            tbEnvironmentCourse1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbEnvironmentCourse1.HideSelection = true;
+            tbEnvironmentCourse1.LeadingIcon = null;
+            tbEnvironmentCourse1.Location = new Point(20, 19);
+            tbEnvironmentCourse1.Margin = new Padding(3, 3, 26, 3);
+            tbEnvironmentCourse1.MaxLength = 1;
+            tbEnvironmentCourse1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbEnvironmentCourse1.Name = "tbEnvironmentCourse1";
+            tbEnvironmentCourse1.Padding = new Padding(9, 8, 9, 8);
+            tbEnvironmentCourse1.PasswordChar = '\0';
+            tbEnvironmentCourse1.PrefixSuffixText = null;
+            tbEnvironmentCourse1.ReadOnly = false;
+            tbEnvironmentCourse1.RightToLeft = RightToLeft.No;
+            tbEnvironmentCourse1.SelectedText = "";
+            tbEnvironmentCourse1.SelectionLength = 0;
+            tbEnvironmentCourse1.SelectionStart = 0;
+            tbEnvironmentCourse1.ShortcutsEnabled = true;
+            tbEnvironmentCourse1.Size = new Size(269, 48);
+            tbEnvironmentCourse1.TabIndex = 0;
+            tbEnvironmentCourse1.TabStop = false;
+            tbEnvironmentCourse1.TextAlign = HorizontalAlignment.Left;
+            tbEnvironmentCourse1.TrailingIcon = null;
+            tbEnvironmentCourse1.UseSystemPasswordChar = false;
             // 
             // materialLabel4
             // 
@@ -341,39 +348,39 @@ namespace GestionAgraria.Views
             // 
             // panel5
             // 
-            panel5.Controls.Add(cbEnvironmentYear);
+            panel5.Controls.Add(cbEnvironmentYear1);
             panel5.Controls.Add(materialLabel5);
             panel5.Dock = DockStyle.Fill;
             panel5.Location = new Point(0, 0);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
             panel5.Padding = new Padding(20, 0, 20, 0);
-            panel5.Size = new Size(309, 78);
+            panel5.Size = new Size(309, 58);
             panel5.TabIndex = 30;
             // 
-            // cbEnvironmentYear
+            // cbEnvironmentYear1
             // 
-            cbEnvironmentYear.AutoResize = false;
-            cbEnvironmentYear.BackColor = Color.FromArgb(255, 255, 255);
-            cbEnvironmentYear.Depth = 0;
-            cbEnvironmentYear.Dock = DockStyle.Top;
-            cbEnvironmentYear.DrawMode = DrawMode.OwnerDrawVariable;
-            cbEnvironmentYear.DropDownHeight = 174;
-            cbEnvironmentYear.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbEnvironmentYear.DropDownWidth = 121;
-            cbEnvironmentYear.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbEnvironmentYear.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbEnvironmentYear.FormattingEnabled = true;
-            cbEnvironmentYear.IntegralHeight = false;
-            cbEnvironmentYear.ItemHeight = 43;
-            cbEnvironmentYear.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7" });
-            cbEnvironmentYear.Location = new Point(20, 19);
-            cbEnvironmentYear.MaxDropDownItems = 4;
-            cbEnvironmentYear.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbEnvironmentYear.Name = "cbEnvironmentYear";
-            cbEnvironmentYear.Size = new Size(269, 49);
-            cbEnvironmentYear.StartIndex = 0;
-            cbEnvironmentYear.TabIndex = 5;
+            cbEnvironmentYear1.AutoResize = false;
+            cbEnvironmentYear1.BackColor = Color.FromArgb(255, 255, 255);
+            cbEnvironmentYear1.Depth = 0;
+            cbEnvironmentYear1.Dock = DockStyle.Top;
+            cbEnvironmentYear1.DrawMode = DrawMode.OwnerDrawVariable;
+            cbEnvironmentYear1.DropDownHeight = 174;
+            cbEnvironmentYear1.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEnvironmentYear1.DropDownWidth = 121;
+            cbEnvironmentYear1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbEnvironmentYear1.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbEnvironmentYear1.FormattingEnabled = true;
+            cbEnvironmentYear1.IntegralHeight = false;
+            cbEnvironmentYear1.ItemHeight = 43;
+            cbEnvironmentYear1.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7" });
+            cbEnvironmentYear1.Location = new Point(20, 19);
+            cbEnvironmentYear1.MaxDropDownItems = 4;
+            cbEnvironmentYear1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbEnvironmentYear1.Name = "cbEnvironmentYear1";
+            cbEnvironmentYear1.Size = new Size(269, 49);
+            cbEnvironmentYear1.StartIndex = 0;
+            cbEnvironmentYear1.TabIndex = 5;
             // 
             // materialLabel5
             // 
@@ -387,6 +394,29 @@ namespace GestionAgraria.Views
             materialLabel5.Size = new Size(29, 19);
             materialLabel5.TabIndex = 4;
             materialLabel5.Text = "Año";
+            // 
+            // btnAddCourseData
+            // 
+            btnAddCourseData.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            tlYearData.SetColumnSpan(btnAddCourseData, 3);
+            btnAddCourseData.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnAddCourseData.Depth = 0;
+            btnAddCourseData.Dock = DockStyle.Fill;
+            btnAddCourseData.HighEmphasis = true;
+            btnAddCourseData.Icon = null;
+            btnAddCourseData.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnAddCourseData.Location = new Point(4, 64);
+            btnAddCourseData.Margin = new Padding(4, 6, 4, 6);
+            btnAddCourseData.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddCourseData.Name = "btnAddCourseData";
+            btnAddCourseData.NoAccentTextColor = Color.Empty;
+            btnAddCourseData.Size = new Size(920, 36);
+            btnAddCourseData.TabIndex = 33;
+            btnAddCourseData.Text = "Agregar";
+            btnAddCourseData.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnAddCourseData.UseAccentColor = false;
+            btnAddCourseData.UseVisualStyleBackColor = true;
+            btnAddCourseData.Click += btnAddCourseData_Click;
             // 
             // groupBox1
             // 
@@ -605,12 +635,15 @@ namespace GestionAgraria.Views
             Size = new Size(988, 478);
             tableLayoutPanel2.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             groupBox3.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             groupBox2.ResumeLayout(false);
-            tableLayoutPanel4.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            tlYearData.ResumeLayout(false);
+            tlYearData.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel9.ResumeLayout(false);
@@ -640,12 +673,12 @@ namespace GestionAgraria.Views
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbEnvironmentObservations;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel8;
         private GroupBox groupBox2;
-        private TableLayoutPanel tableLayoutPanel4;
+        private TableLayoutPanel tlYearData;
         private Panel panel1;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbEnvironmentGroup;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbEnvironmentGroup1;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
         private Panel panel9;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbEnvironmentCourse;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbEnvironmentCourse1;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel4;
         private Panel panel5;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel5;
@@ -661,6 +694,7 @@ namespace GestionAgraria.Views
         private ReaLTaiizor.Controls.MaterialLabel lblUsuario;
         private ReaLTaiizor.Controls.MaterialExpansionPanel mepFormativeEnvironmentAdd;
         private ReaLTaiizor.Controls.MaterialComboBox cbEnvironmentResponsable;
-        private ReaLTaiizor.Controls.MaterialComboBox cbEnvironmentYear;
+        private ReaLTaiizor.Controls.MaterialComboBox cbEnvironmentYear1;
+        private ReaLTaiizor.Controls.MaterialButton btnAddCourseData;
     }
 }

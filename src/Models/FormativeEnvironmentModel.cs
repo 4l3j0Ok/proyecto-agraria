@@ -19,13 +19,17 @@ namespace GestionAgraria.models
 
         public virtual UserModel? Responsible { get; set; }
 
-        [Required]
+        // Datos académicos relacionados
+        public virtual ICollection<FormativeEnvironmentDataModel> AcademicData { get; set; } = new List<FormativeEnvironmentDataModel>();
+
+        // Mantener propiedades para compatibilidad con código existente (deprecated)
+        [Obsolete("Use AcademicData collection instead")]
         public int Year { get; set; }
 
-        [Required]
+        [Obsolete("Use AcademicData collection instead")]
         public string Course { get; set; } = string.Empty;
 
-        [Required]
+        [Obsolete("Use AcademicData collection instead")]
         public string Group { get; set; } = string.Empty;
 
         public string? Observations { get; set; }

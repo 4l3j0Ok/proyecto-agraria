@@ -28,6 +28,7 @@ namespace GestionAgraria.controllers
         {
             return _context.FormativeEnvironments
                 .Include(fe => fe.Responsible)
+                .Include(fe => fe.AcademicData.Where(ad => ad.IsActive))
                 .Where(fe => fe.IsActive)
                 .ToList();
         }
@@ -36,6 +37,7 @@ namespace GestionAgraria.controllers
         {
             return _context.FormativeEnvironments
                 .Include(fe => fe.Responsible)
+                .Include(fe => fe.AcademicData.Where(ad => ad.IsActive))
                 .FirstOrDefault(fe => fe.Id == id);
         }
 
@@ -43,6 +45,7 @@ namespace GestionAgraria.controllers
         {
             return _context.FormativeEnvironments
                 .Include(fe => fe.Responsible)
+                .Include(fe => fe.AcademicData.Where(ad => ad.IsActive))
                 .Where(fe => fe.ResponsibleUserId == responsibleUserId && fe.IsActive)
                 .ToList();
         }
@@ -69,11 +72,23 @@ namespace GestionAgraria.controllers
                     fe.IsActive))
                     return false;
 
-              
                 formativeEnvironment.Responsible = null;
 
                 _context.FormativeEnvironments.Add(formativeEnvironment);
                 _context.SaveChanges();
+
+                // Si hay datos académicos, agregarlos
+                if (formativeEnvironment.AcademicData != null && formativeEnvironment.AcademicData.Any())
+                {
+                    foreach (var academicData in formativeEnvironment.AcademicData)
+                    {
+                        academicData.FormativeEnvironmentId = formativeEnvironment.Id;
+                        academicData.FormativeEnvironment = null;
+                    }
+                    _context.FormativeEnvironmentData.AddRange(formativeEnvironment.AcademicData);
+                    _context.SaveChanges();
+                }
+
                 return true;
             }
             catch (Exception ex)
@@ -87,7 +102,10 @@ namespace GestionAgraria.controllers
         {
             try
             {
-                var existingEnvironment = _context.FormativeEnvironments.Find(formativeEnvironment.Id);
+                var existingEnvironment = _context.FormativeEnvironments
+                    .Include(fe => fe.AcademicData)
+                    .FirstOrDefault(fe => fe.Id == formativeEnvironment.Id);
+                
                 if (existingEnvironment == null)
                     return false;
 
@@ -95,24 +113,52 @@ namespace GestionAgraria.controllers
                 if (!_context.Users.Any(u => u.Id == formativeEnvironment.ResponsibleUserId && u.IsActive))
                     return false;
 
-                // Validar que no exista un entorno con el mismo nombre, área y año (excepto el actual)
+                // Validar que no exista un entorno con el mismo nombre (excepto el actual)
                 if (_context.FormativeEnvironments.Any(fe =>
                     fe.Name == formativeEnvironment.Name &&
                     fe.Area == formativeEnvironment.Area &&
-                    fe.Year == formativeEnvironment.Year &&
                     fe.Id != formativeEnvironment.Id &&
                     fe.IsActive))
                     return false;
 
-                // Actualizar propiedades
+                // Actualizar propiedades básicas
                 existingEnvironment.Name = formativeEnvironment.Name;
                 existingEnvironment.Area = formativeEnvironment.Area;
                 existingEnvironment.ResponsibleUserId = formativeEnvironment.ResponsibleUserId;
-                existingEnvironment.Year = formativeEnvironment.Year;
-                existingEnvironment.Course = formativeEnvironment.Course;
-                existingEnvironment.Group = formativeEnvironment.Group;
                 existingEnvironment.Observations = formativeEnvironment.Observations;
                 existingEnvironment.IsActive = formativeEnvironment.IsActive;
+
+                // Actualizar datos académicos
+                // Primero marcar como inactivos los existentes
+                foreach (var existing in existingEnvironment.AcademicData)
+                {
+                    existing.IsActive = false;
+                }
+
+                // Agregar los nuevos datos académicos
+                if (formativeEnvironment.AcademicData != null && formativeEnvironment.AcademicData.Any())
+                {
+                    foreach (var academicData in formativeEnvironment.AcademicData)
+                    {
+                        if (academicData.Id == 0) // Nuevo registro
+                        {
+                            academicData.FormativeEnvironmentId = formativeEnvironment.Id;
+                            academicData.FormativeEnvironment = null;
+                            _context.FormativeEnvironmentData.Add(academicData);
+                        }
+                        else // Actualizar existente
+                        {
+                            var existingData = existingEnvironment.AcademicData.FirstOrDefault(ad => ad.Id == academicData.Id);
+                            if (existingData != null)
+                            {
+                                existingData.Year = academicData.Year;
+                                existingData.Course = academicData.Course;
+                                existingData.Group = academicData.Group;
+                                existingData.IsActive = true;
+                            }
+                        }
+                    }
+                }
 
                 _context.SaveChanges();
                 return true;
@@ -181,10 +227,20 @@ namespace GestionAgraria.controllers
 
         public List<int> GetDistinctYears()
         {
-            return _context.FormativeEnvironments
+            var yearsFromAcademicData = _context.FormativeEnvironmentData
+                .Where(fed => fed.IsActive && fed.FormativeEnvironment!.IsActive)
+                .Select(fed => fed.Year)
+                .Distinct();
+
+            var yearsFromFormativeEnvironments = _context.FormativeEnvironments
                 .Where(fe => fe.IsActive)
+#pragma warning disable CS0618 // Type or member is obsolete
                 .Select(fe => fe.Year)
-                .Distinct()
+#pragma warning restore CS0618 // Type or member is obsolete
+                .Distinct();
+
+            return yearsFromAcademicData
+                .Union(yearsFromFormativeEnvironments)
                 .OrderByDescending(y => y)
                 .ToList();
         }
