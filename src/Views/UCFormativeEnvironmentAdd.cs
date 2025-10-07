@@ -20,7 +20,7 @@ namespace GestionAgraria.Views
         private UserController userController;
         private FormativeEnvironmentModel currentFormativeEnvironment;
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-        private List<Panel> dynamicDataRows = new List<Panel>();
+        private List<UCFormativeEnvironmentDataAdd> dynamicDataRows = new List<UCFormativeEnvironmentDataAdd>();
 
         public UCFormativeEnvironmentAdd(FormativeEnvironmentModel? formativeEnvironment = null)
         {
@@ -72,25 +72,10 @@ namespace GestionAgraria.Views
             // Cargar datos académicos
             if (formativeEnvironment.AcademicData != null && formativeEnvironment.AcademicData.Any())
             {
-                var firstData = formativeEnvironment.AcademicData.First();
-                cbEnvironmentYear1.Text = firstData.Year.ToString();
-                tbEnvironmentCourse1.Text = firstData.Course;
-                tbEnvironmentGroup1.Text = firstData.Group;
-
-                // Cargar datos adicionales si existen
-                foreach (var data in formativeEnvironment.AcademicData.Skip(1))
+                foreach (var data in formativeEnvironment.AcademicData)
                 {
-                    AddDynamicDataRow(data.Year.ToString(), data.Course, data.Group);
+                    AddDynamicDataRow(data.Year, data.Course, data.Group);
                 }
-            }
-            else
-            {
-                // Compatibilidad con datos antiguos
-#pragma warning disable CS0618 // Type or member is obsolete
-                cbEnvironmentYear1.Text = formativeEnvironment.Year.ToString();
-                tbEnvironmentCourse1.Text = formativeEnvironment.Course;
-                tbEnvironmentGroup1.Text = formativeEnvironment.Group;
-#pragma warning restore CS0618 // Type or member is obsolete
             }
         }
 
@@ -107,36 +92,20 @@ namespace GestionAgraria.Views
             if (cbEnvironmentResponsable.SelectedItem == null)
                 emptyFields.Add("Responsable");
 
-            if (string.IsNullOrWhiteSpace(cbEnvironmentYear1.Text))
-                emptyFields.Add("Año");
-
-            if (string.IsNullOrWhiteSpace(tbEnvironmentCourse1.Text))
-                emptyFields.Add("Curso");
-
-            if (string.IsNullOrWhiteSpace(tbEnvironmentGroup1.Text))
-                emptyFields.Add("Grupo");
-
             // Validar campos dinámicos
-            for (int i = 1; i < tlYearData.RowCount - 1; i++) // Excluir la primera fila (ya validada) y la del botón
+            for (int i = 0; i < dynamicDataRows.Count; i++)
             {
-                var yearPanel = tlYearData.GetControlFromPosition(0, i);
-                var coursePanel = tlYearData.GetControlFromPosition(1, i);
-                var groupPanel = tlYearData.GetControlFromPosition(2, i);
-
-                if (yearPanel != null && coursePanel != null && groupPanel != null)
+                var dataControl = dynamicDataRows[i];
+                if (!dataControl.IsValid())
                 {
-                    var yearCombo = yearPanel.Controls.OfType<MaterialComboBox>().FirstOrDefault();
-                    var courseText = coursePanel.Controls.OfType<MaterialTextBoxEdit>().FirstOrDefault();
-                    var groupText = groupPanel.Controls.OfType<MaterialTextBoxEdit>().FirstOrDefault();
+                    if (string.IsNullOrWhiteSpace(dataControl.Year.ToString()) || dataControl.Year == 0)
+                        emptyFields.Add($"Año (fila {i + 2})");
 
-                    if (yearCombo != null && string.IsNullOrWhiteSpace(yearCombo.Text))
-                        emptyFields.Add($"Año (fila {i + 1})");
+                    if (string.IsNullOrWhiteSpace(dataControl.Course))
+                        emptyFields.Add($"Curso (fila {i + 2})");
 
-                    if (courseText != null && string.IsNullOrWhiteSpace(courseText.Text))
-                        emptyFields.Add($"Curso (fila {i + 1})");
-
-                    if (groupText != null && string.IsNullOrWhiteSpace(groupText.Text))
-                        emptyFields.Add($"Grupo (fila {i + 1})");
+                    if (string.IsNullOrWhiteSpace(dataControl.Group))
+                        emptyFields.Add($"Grupo (fila {i + 2})");
                 }
             }
 
@@ -169,41 +138,18 @@ namespace GestionAgraria.Views
             // Recopilar datos académicos
             var academicDataList = new List<FormativeEnvironmentDataModel>();
 
-            // Primer fila (siempre presente)
-            academicDataList.Add(new FormativeEnvironmentDataModel
+            // Filas dinámicas desde los user controls
+            foreach (var dataControl in dynamicDataRows)
             {
-                Year = int.Parse(cbEnvironmentYear1.Text),
-                Course = tbEnvironmentCourse1.Text,
-                Group = tbEnvironmentGroup1.Text,
-                IsActive = true
-            });
-
-            // Filas dinámicas
-            for (int i = 1; i < tlYearData.RowCount - 1; i++) // Excluir la primera fila y la del botón
-            {
-                var yearPanel = tlYearData.GetControlFromPosition(0, i);
-                var coursePanel = tlYearData.GetControlFromPosition(1, i);
-                var groupPanel = tlYearData.GetControlFromPosition(2, i);
-
-                if (yearPanel != null && coursePanel != null && groupPanel != null)
+                if (dataControl.IsValid())
                 {
-                    var yearCombo = yearPanel.Controls.OfType<MaterialComboBox>().FirstOrDefault();
-                    var courseText = coursePanel.Controls.OfType<MaterialTextBoxEdit>().FirstOrDefault();
-                    var groupText = groupPanel.Controls.OfType<MaterialTextBoxEdit>().FirstOrDefault();
-
-                    if (yearCombo != null && courseText != null && groupText != null &&
-                        !string.IsNullOrWhiteSpace(yearCombo.Text) &&
-                        !string.IsNullOrWhiteSpace(courseText.Text) &&
-                        !string.IsNullOrWhiteSpace(groupText.Text))
+                    academicDataList.Add(new FormativeEnvironmentDataModel
                     {
-                        academicDataList.Add(new FormativeEnvironmentDataModel
-                        {
-                            Year = int.Parse(yearCombo.Text),
-                            Course = courseText.Text,
-                            Group = groupText.Text,
-                            IsActive = true
-                        });
-                    }
+                        Year = dataControl.Year,
+                        Course = dataControl.Course,
+                        Group = dataControl.Group,
+                        IsActive = true
+                    });
                 }
             }
 
@@ -231,112 +177,46 @@ namespace GestionAgraria.Views
             formPrincipal?.RestaurarFormularioTab(formPrincipal.tabEntorno);
         }
 
-        private void btnAddCourseData_Click(object sender, EventArgs e)
+        private void btnAddFormativeEnvironmentData_Click(object sender, EventArgs e)
         {
             AddDynamicDataRow();
         }
 
-        private Panel AddDynamicDataRow(string year = "", string course = "", string group = "")
+        private UCFormativeEnvironmentDataAdd AddDynamicDataRow(int year = 1, string course = "", string group = "")
         {
-            int rowIndex = tlYearData.RowCount - 1; // Insertar antes del botón
-            tlYearData.RowCount++;
-            tlYearData.RowStyles.Insert(rowIndex, new RowStyle(SizeType.AutoSize));
-
-            // Crear panel para el año
-            var panelYear = new Panel
+            // Crear el nuevo user control
+            var dataControl = new UCFormativeEnvironmentDataAdd(year, course, group)
             {
-                Dock = DockStyle.Fill,
-                Margin = new Padding(0),
-                Padding = new Padding(20, 0, 20, 0)
-            };
-
-            var labelYear = new MaterialLabel
-            {
-                Text = "Año",
-                AutoSize = true,
                 Dock = DockStyle.Top,
-                Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
+                Margin = new Padding(0, 0, 0, 10)
             };
 
-            var cbYear = new MaterialComboBox
-            {
-                Name = $"cbEnvironmentYear{dynamicDataRows.Count + 2}",
-                Dock = DockStyle.Top,
-                DropDownStyle = ComboBoxStyle.DropDownList
-            };
-            cbYear.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7" });
-            if (!string.IsNullOrEmpty(year))
-                cbYear.Text = year;
+            // Suscribirse al evento de eliminar
+            dataControl.DeleteRequested += DataControl_DeleteRequested;
 
-            panelYear.Controls.Add(cbYear);
-            panelYear.Controls.Add(labelYear);
-
-            // Crear panel para el curso
-            var panelCourse = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Margin = new Padding(0),
-                Padding = new Padding(20, 0, 20, 0)
-            };
-
-            var labelCourse = new MaterialLabel
-            {
-                Text = "Curso",
-                AutoSize = true,
-                Dock = DockStyle.Top,
-                Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
-            };
-
-            var tbCourse = new MaterialTextBoxEdit
-            {
-                Name = $"tbEnvironmentCourse{dynamicDataRows.Count + 2}",
-                Text = course,
-                Dock = DockStyle.Fill,
-                MaxLength = 1
-            };
-
-            panelCourse.Controls.Add(tbCourse);
-            panelCourse.Controls.Add(labelCourse);
-
-            // Crear panel para el grupo
-            var panelGroup = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Margin = new Padding(0),
-                Padding = new Padding(20, 0, 20, 0)
-            };
-
-            var labelGroup = new MaterialLabel
-            {
-                Text = "Grupo",
-                AutoSize = true,
-                Dock = DockStyle.Top,
-                Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel)
-            };
-
-            var tbGroup = new MaterialTextBoxEdit
-            {
-                Name = $"tbEnvironmentGroup{dynamicDataRows.Count + 2}",
-                Text = group,
-                Dock = DockStyle.Fill,
-                MaxLength = 1
-            };
-
-            panelGroup.Controls.Add(tbGroup);
-            panelGroup.Controls.Add(labelGroup);
-
-            // Agregar controles al TableLayoutPanel
-            tlYearData.Controls.Add(panelYear, 0, rowIndex);
-            tlYearData.Controls.Add(panelCourse, 1, rowIndex);
-            tlYearData.Controls.Add(panelGroup, 2, rowIndex);
-
-            // Mover el botón a la última fila
-            tlYearData.SetRow(btnAddCourseData, tlYearData.RowCount - 1);
+            // Agregar el control al panel - se apilará en la parte superior
+            panelFormativeEnvironmentData.Controls.Add(dataControl);
+            dataControl.BringToFront();
 
             // Agregar referencias a la lista para tracking
-            dynamicDataRows.Add(panelYear);
+            dynamicDataRows.Add(dataControl);
 
-            return panelYear;
+            return dataControl;
+        }
+
+        private void DataControl_DeleteRequested(object? sender, EventArgs e)
+        {
+            if (sender is UCFormativeEnvironmentDataAdd dataControl)
+            {
+                // Eliminar el control de la lista
+                dynamicDataRows.Remove(dataControl);
+
+                // Eliminar el control del Panel
+                panelFormativeEnvironmentData.Controls.Remove(dataControl);
+
+                // Liberar recursos del control
+                dataControl.Dispose();
+            }
         }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel2 = new Panel();
             MepBuysAdd = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             panel3 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -59,7 +58,6 @@
             panel10 = new Panel();
             tbTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblCodigoProducto = new ReaLTaiizor.Controls.MaterialLabel();
-            panel2.SuspendLayout();
             MepBuysAdd.SuspendLayout();
             panel3.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -74,24 +72,15 @@
             panel10.SuspendLayout();
             SuspendLayout();
             // 
-            // panel2
-            // 
-            panel2.AutoScroll = true;
-            panel2.Controls.Add(MepBuysAdd);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1152, 667);
-            panel2.TabIndex = 0;
-            // 
             // MepBuysAdd
             // 
+            MepBuysAdd.AutoScroll = true;
             MepBuysAdd.BackColor = Color.FromArgb(255, 255, 255);
             MepBuysAdd.CancelButtonText = "CANCELAR";
             MepBuysAdd.Controls.Add(panel3);
             MepBuysAdd.Depth = 0;
             MepBuysAdd.Description = "Registrar Nuevas Compras";
-            MepBuysAdd.Dock = DockStyle.Top;
+            MepBuysAdd.Dock = DockStyle.Fill;
             MepBuysAdd.ExpandHeight = 667;
             MepBuysAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             MepBuysAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -101,17 +90,18 @@
             MepBuysAdd.Name = "MepBuysAdd";
             MepBuysAdd.Padding = new Padding(21, 48, 21, 12);
             MepBuysAdd.Size = new Size(1152, 667);
-            MepBuysAdd.TabIndex = 3;
+            MepBuysAdd.TabIndex = 4;
             MepBuysAdd.Title = "Compras";
             MepBuysAdd.ValidationButtonText = "GUARDAR";
-            MepBuysAdd.CancelClick += MepBuysAdd_CancelClick;
             // 
             // panel3
             // 
+            panel3.AutoSize = true;
+            panel3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel3.Controls.Add(tableLayoutPanel2);
             panel3.Controls.Add(tableLayoutPanel3);
             panel3.Controls.Add(tableLayoutPanel5);
-            panel3.Dock = DockStyle.Fill;
+            panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(21, 48);
             panel3.Name = "panel3";
             panel3.Size = new Size(1110, 607);
@@ -201,7 +191,6 @@
             btnProductAddList.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnProductAddList.UseAccentColor = false;
             btnProductAddList.UseVisualStyleBackColor = true;
-            btnProductAddList.Click += btnProductAddList_Click;
             // 
             // tableLayoutPanel3
             // 
@@ -565,15 +554,14 @@
             lblCodigoProducto.TabIndex = 4;
             lblCodigoProducto.Text = "Total";
             // 
-            // UCBuysAdd
+            // UCPurchasesAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panel2);
+            Controls.Add(MepBuysAdd);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "UCBuysAdd";
+            Name = "UCPurchasesAdd";
             Size = new Size(1152, 667);
-            panel2.ResumeLayout(false);
             MepBuysAdd.ResumeLayout(false);
             MepBuysAdd.PerformLayout();
             panel3.ResumeLayout(false);
@@ -612,10 +600,15 @@
         private Panel panel4;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCantidad;
         private ReaLTaiizor.Controls.MaterialLabel lblCantidad;
-        private Panel panel2;
         private ReaLTaiizor.Controls.MaterialExpansionPanel MepBuysAdd;
         private Panel panel3;
         private TableLayoutPanel tableLayoutPanel2;
+        private DataGridView dgvProductList;
+        private DataGridViewTextBoxColumn CodeProduct;
+        private DataGridViewTextBoxColumn NameProduct;
+        private DataGridViewTextBoxColumn Quatity;
+        private DataGridViewTextBoxColumn PriceProduct;
+        private DataGridViewTextBoxColumn PriceTotal;
         private ReaLTaiizor.Controls.MaterialButton btnProductAddList;
         private TableLayoutPanel tableLayoutPanel3;
         private Panel panel6;
@@ -625,23 +618,17 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbQuatity;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
         private Panel panel8;
+        private ReaLTaiizor.Controls.MaterialComboBox cbNameProduct;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel3;
         private Panel panel9;
+        private ReaLTaiizor.Controls.MaterialComboBox cbCodeProduc;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel4;
         private TableLayoutPanel tableLayoutPanel5;
-        private Panel panel10;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbTotal;
-        private ReaLTaiizor.Controls.MaterialLabel lblCodigoProducto;
         private Panel panel11;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbSellsObservations;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel5;
-        private ReaLTaiizor.Controls.MaterialComboBox cbNameProduct;
-        private ReaLTaiizor.Controls.MaterialComboBox cbCodeProduc;
-        private DataGridView dgvProductList;
-        private DataGridViewTextBoxColumn CodeProduct;
-        private DataGridViewTextBoxColumn NameProduct;
-        private DataGridViewTextBoxColumn Quatity;
-        private DataGridViewTextBoxColumn PriceProduct;
-        private DataGridViewTextBoxColumn PriceTotal;
+        private Panel panel10;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbTotal;
+        private ReaLTaiizor.Controls.MaterialLabel lblCodigoProducto;
     }
 }

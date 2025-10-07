@@ -53,13 +53,15 @@
             // mepBlackBoard
             // 
             mepBlackBoard.AutoScroll = true;
+            mepBlackBoard.AutoSize = true;
+            mepBlackBoard.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             mepBlackBoard.BackColor = Color.FromArgb(255, 255, 255);
             mepBlackBoard.CancelButtonText = "CANCELAR";
             mepBlackBoard.Controls.Add(tableLayoutPanel2);
             mepBlackBoard.Depth = 0;
             mepBlackBoard.Description = "Crea notas personalizadas con tablas incluídas";
             mepBlackBoard.Dock = DockStyle.Top;
-            mepBlackBoard.ExpandHeight = 548;
+            mepBlackBoard.ExpandHeight = 572;
             mepBlackBoard.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepBlackBoard.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepBlackBoard.Location = new Point(0, 0);
@@ -67,7 +69,7 @@
             mepBlackBoard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepBlackBoard.Name = "mepBlackBoard";
             mepBlackBoard.Padding = new Padding(21, 48, 21, 12);
-            mepBlackBoard.Size = new Size(906, 548);
+            mepBlackBoard.Size = new Size(889, 572);
             mepBlackBoard.TabIndex = 0;
             mepBlackBoard.Title = "Pizarrón";
             mepBlackBoard.ValidationButtonEnable = true;
@@ -77,6 +79,7 @@
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(dgvData, 0, 2);
@@ -89,7 +92,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(864, 488);
+            tableLayoutPanel2.Size = new Size(847, 512);
             tableLayoutPanel2.TabIndex = 3;
             // 
             // dgvData
@@ -102,7 +105,7 @@
             dgvData.Location = new Point(3, 140);
             dgvData.Name = "dgvData";
             dgvData.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            dgvData.Size = new Size(858, 281);
+            dgvData.Size = new Size(841, 281);
             dgvData.TabIndex = 30;
             // 
             // panel8
@@ -115,7 +118,7 @@
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
             panel8.Padding = new Padding(20, 0, 20, 0);
-            panel8.Size = new Size(864, 62);
+            panel8.Size = new Size(847, 62);
             panel8.TabIndex = 29;
             // 
             // txtObservaciones
@@ -138,7 +141,7 @@
             txtObservaciones.SelectionLength = 0;
             txtObservaciones.SelectionStart = 0;
             txtObservaciones.ShortcutsEnabled = true;
-            txtObservaciones.Size = new Size(824, 43);
+            txtObservaciones.Size = new Size(807, 43);
             txtObservaciones.TabIndex = 6;
             txtObservaciones.TabStop = false;
             txtObservaciones.TextAlign = HorizontalAlignment.Left;
@@ -170,7 +173,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(858, 71);
+            tableLayoutPanel1.Size = new Size(841, 71);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // panel2
@@ -178,10 +181,10 @@
             panel2.Controls.Add(cbFormativeEnvironment);
             panel2.Controls.Add(materialLabel2);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(432, 2);
+            panel2.Location = new Point(423, 2);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(423, 67);
+            panel2.Size = new Size(415, 67);
             panel2.TabIndex = 1;
             // 
             // cbFormativeEnvironment
@@ -227,7 +230,7 @@
             panel1.Location = new Point(3, 2);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(423, 67);
+            panel1.Size = new Size(414, 67);
             panel1.TabIndex = 0;
             // 
             // tbTitle
@@ -281,7 +284,7 @@
             Controls.Add(mepBlackBoard);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCBlackBoardAdd";
-            Size = new Size(906, 548);
+            Size = new Size(889, 548);
             Load += UCBlackBoardAdd_Load;
             mepBlackBoard.ResumeLayout(false);
             mepBlackBoard.PerformLayout();
@@ -296,6 +299,7 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

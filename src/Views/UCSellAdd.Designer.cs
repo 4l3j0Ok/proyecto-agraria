@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
             mepSellsAdd = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             panel2 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
@@ -59,7 +58,6 @@
             panel8 = new Panel();
             cbCodeProduc = new ReaLTaiizor.Controls.MaterialComboBox();
             lblCodigoProducto = new ReaLTaiizor.Controls.MaterialLabel();
-            panel1.SuspendLayout();
             mepSellsAdd.SuspendLayout();
             panel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -74,24 +72,15 @@
             panel8.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
-            // 
-            panel1.AutoScroll = true;
-            panel1.Controls.Add(mepSellsAdd);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1152, 616);
-            panel1.TabIndex = 0;
-            // 
             // mepSellsAdd
             // 
+            mepSellsAdd.AutoScroll = true;
             mepSellsAdd.BackColor = Color.FromArgb(255, 255, 255);
             mepSellsAdd.CancelButtonText = "CANCELAR";
             mepSellsAdd.Controls.Add(panel2);
             mepSellsAdd.Depth = 0;
             mepSellsAdd.Description = "Registrar un Nueva Venta";
-            mepSellsAdd.Dock = DockStyle.Top;
+            mepSellsAdd.Dock = DockStyle.Fill;
             mepSellsAdd.ExpandHeight = 616;
             mepSellsAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepSellsAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -99,24 +88,24 @@
             mepSellsAdd.Margin = new Padding(3, 12, 3, 12);
             mepSellsAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepSellsAdd.Name = "mepSellsAdd";
-            mepSellsAdd.Padding = new Padding(21, 48, 21, 12);
+            mepSellsAdd.Padding = new Padding(21, 48, 21, 50);
             mepSellsAdd.Size = new Size(1152, 616);
-            mepSellsAdd.TabIndex = 2;
+            mepSellsAdd.TabIndex = 3;
             mepSellsAdd.Title = "Ventas";
             mepSellsAdd.ValidationButtonEnable = true;
             mepSellsAdd.ValidationButtonText = "GUARDAR";
-            mepSellsAdd.SaveClick += mepSellsAdd_SaveClick;
-            mepSellsAdd.CancelClick += mepSellsAdd_CancelClick;
             // 
             // panel2
             // 
+            panel2.AutoSize = true;
+            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.Controls.Add(tableLayoutPanel1);
             panel2.Controls.Add(tableLayoutPanel2);
             panel2.Controls.Add(tableLayoutPanel5);
-            panel2.Dock = DockStyle.Fill;
+            panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(21, 48);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1110, 556);
+            panel2.Size = new Size(1110, 518);
             panel2.TabIndex = 12;
             // 
             // tableLayoutPanel1
@@ -287,7 +276,6 @@
             btnProductAddList.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnProductAddList.UseAccentColor = false;
             btnProductAddList.UseVisualStyleBackColor = true;
-            btnProductAddList.Click += btnProductAddList_Click;
             // 
             // dgvProductList
             // 
@@ -571,12 +559,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(panel1);
+            Controls.Add(mepSellsAdd);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCSellAdd";
             Size = new Size(1152, 616);
             Load += UCSellsAdd_Load;
-            panel1.ResumeLayout(false);
             mepSellsAdd.ResumeLayout(false);
             mepSellsAdd.PerformLayout();
             panel2.ResumeLayout(false);
@@ -602,16 +589,23 @@
 
         #endregion
 
-        private Panel panel1;
         private ReaLTaiizor.Controls.MaterialExpansionPanel mepSellsAdd;
         private Panel panel2;
         private TableLayoutPanel tableLayoutPanel1;
+        private Panel panel10;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbSellsObservations;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel3;
         private Panel panel7;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbTotal;
         private ReaLTaiizor.Controls.MaterialLabel lblSubTotal;
         private TableLayoutPanel tableLayoutPanel2;
         private ReaLTaiizor.Controls.MaterialButton btnProductAddList;
         private DataGridView dgvProductList;
+        private DataGridViewTextBoxColumn CodeProduct;
+        private DataGridViewTextBoxColumn NameProduct;
+        private DataGridViewTextBoxColumn Quatity;
+        private DataGridViewTextBoxColumn PriceProduct;
+        private DataGridViewTextBoxColumn PriceTotal;
         private TableLayoutPanel tableLayoutPanel5;
         private Panel panel5;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbPrecio;
@@ -620,18 +614,10 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbQuatity;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
         private Panel panel3;
+        private ReaLTaiizor.Controls.MaterialComboBox cbNameProduct;
         private ReaLTaiizor.Controls.MaterialLabel lblNombreProducto;
         private Panel panel8;
-        private ReaLTaiizor.Controls.MaterialLabel lblCodigoProducto;
-        private Panel panel10;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbSellsObservations;
-        private ReaLTaiizor.Controls.MaterialLabel materialLabel3;
-        private ReaLTaiizor.Controls.MaterialComboBox cbNameProduct;
         private ReaLTaiizor.Controls.MaterialComboBox cbCodeProduc;
-        private DataGridViewTextBoxColumn CodeProduct;
-        private DataGridViewTextBoxColumn NameProduct;
-        private DataGridViewTextBoxColumn Quatity;
-        private DataGridViewTextBoxColumn PriceProduct;
-        private DataGridViewTextBoxColumn PriceTotal;
+        private ReaLTaiizor.Controls.MaterialLabel lblCodigoProducto;
     }
 }

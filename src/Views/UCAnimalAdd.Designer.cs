@@ -90,13 +90,15 @@ namespace GestionAgraria.Views
             // mepAnimalAdd
             // 
             mepAnimalAdd.AutoScroll = true;
+            mepAnimalAdd.AutoSize = true;
+            mepAnimalAdd.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             mepAnimalAdd.BackColor = Color.FromArgb(255, 255, 255);
             mepAnimalAdd.CancelButtonText = "Cancelar";
             mepAnimalAdd.Controls.Add(tableLayoutPanel2);
             mepAnimalAdd.Depth = 0;
             mepAnimalAdd.Description = "Registra un nuevo animal";
-            mepAnimalAdd.Dock = DockStyle.Top;
-            mepAnimalAdd.ExpandHeight = 423;
+            mepAnimalAdd.Dock = DockStyle.Fill;
+            mepAnimalAdd.ExpandHeight = 422;
             mepAnimalAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepAnimalAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepAnimalAdd.Location = new Point(0, 0);
@@ -105,7 +107,7 @@ namespace GestionAgraria.Views
             mepAnimalAdd.Name = "mepAnimalAdd";
             mepAnimalAdd.Padding = new Padding(24, 64, 24, 16);
             mepAnimalAdd.ShowCollapseExpand = false;
-            mepAnimalAdd.Size = new Size(1008, 423);
+            mepAnimalAdd.Size = new Size(1008, 422);
             mepAnimalAdd.TabIndex = 1;
             mepAnimalAdd.Title = "Agregar animal";
             mepAnimalAdd.ValidationButtonEnable = true;
@@ -115,16 +117,18 @@ namespace GestionAgraria.Views
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.AutoSize = true;
+            tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(panel2, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Dock = DockStyle.Top;
             tableLayoutPanel2.Location = new Point(24, 64);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 344F));
-            tableLayoutPanel2.Size = new Size(960, 343);
+            tableLayoutPanel2.Size = new Size(960, 342);
             tableLayoutPanel2.TabIndex = 23;
             // 
             // panel2
@@ -135,7 +139,7 @@ namespace GestionAgraria.Views
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(954, 337);
+            panel2.Size = new Size(954, 336);
             panel2.TabIndex = 11;
             // 
             // groupBox3
@@ -599,6 +603,7 @@ namespace GestionAgraria.Views
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

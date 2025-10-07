@@ -60,6 +60,7 @@
             // 
             // mepProductAdd
             // 
+            mepProductAdd.AutoScroll = true;
             mepProductAdd.BackColor = Color.FromArgb(255, 255, 255);
             mepProductAdd.CancelButtonText = "CANCELAR";
             mepProductAdd.Controls.Add(panel2);
@@ -84,7 +85,8 @@
             // 
             // panel2
             // 
-            panel2.AutoScroll = true;
+            panel2.AutoSize = true;
+            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.Controls.Add(tableLayoutPanel1);
             panel2.Controls.Add(tableLayoutPanel5);
             panel2.Dock = DockStyle.Top;
@@ -396,13 +398,13 @@
             materialLabel2.TabIndex = 4;
             materialLabel2.Text = "Entorno perteneciente";
             // 
-            // UCCargaProductosAdd
+            // UCProductAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(mepProductAdd);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "UCCargaProductosAdd";
+            Name = "UCProductAdd";
             Size = new Size(1152, 604);
             mepProductAdd.ResumeLayout(false);
             mepProductAdd.PerformLayout();

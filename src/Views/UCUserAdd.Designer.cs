@@ -1,4 +1,4 @@
-﻿using GestionAgraria.data;
+﻿    using GestionAgraria.data;
 using GestionAgraria.models;
 using GestionAgraria.Views;
 using ReaLTaiizor.Colors;
@@ -103,7 +103,7 @@ namespace GestionAgraria.Views
             mepUserAdd.Controls.Add(tableLayoutPanel2);
             mepUserAdd.Depth = 0;
             mepUserAdd.Description = "Dar de alta un nuevo usuario para la plataforma";
-            mepUserAdd.Dock = DockStyle.Top;
+            mepUserAdd.Dock = DockStyle.Fill;
             mepUserAdd.ExpandHeight = 655;
             mepUserAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepUserAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -111,40 +111,42 @@ namespace GestionAgraria.Views
             mepUserAdd.Margin = new Padding(3, 16, 3, 16);
             mepUserAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepUserAdd.Name = "mepUserAdd";
-            mepUserAdd.Padding = new Padding(24, 64, 24, 16);
+            mepUserAdd.Padding = new Padding(24, 64, 24, 50);
             mepUserAdd.ShowCollapseExpand = false;
             mepUserAdd.Size = new Size(1152, 655);
-            mepUserAdd.TabIndex = 0;
+            mepUserAdd.TabIndex = 1;
             mepUserAdd.Title = "Agregar usuario";
             mepUserAdd.ValidationButtonEnable = true;
             mepUserAdd.ValidationButtonText = "Guardar";
-            mepUserAdd.SaveClick += mepUserAdd_SaveClick;
-            mepUserAdd.CancelClick += mepUserAdd_CancelClick;
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.AutoSize = true;
+            tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(panel2, 0, 1);
             tableLayoutPanel2.Controls.Add(panel12, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Dock = DockStyle.Top;
             tableLayoutPanel2.Location = new Point(24, 64);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 218F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(1104, 575);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.Size = new Size(1104, 524);
             tableLayoutPanel2.TabIndex = 22;
             // 
             // panel2
             // 
+            panel2.AutoSize = true;
+            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.Controls.Add(groupBox3);
             panel2.Controls.Add(groupBox2);
             panel2.Controls.Add(groupBox1);
-            panel2.Dock = DockStyle.Fill;
+            panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(3, 221);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1098, 351);
+            panel2.Size = new Size(1098, 300);
             panel2.TabIndex = 11;
             // 
             // groupBox3
@@ -745,8 +747,10 @@ namespace GestionAgraria.Views
             // 
             // panel12
             // 
+            panel12.AutoSize = true;
+            panel12.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel12.Controls.Add(tableLayoutPanel1);
-            panel12.Dock = DockStyle.Fill;
+            panel12.Dock = DockStyle.Top;
             panel12.Location = new Point(3, 3);
             panel12.Name = "panel12";
             panel12.Size = new Size(1098, 212);
@@ -811,13 +815,11 @@ namespace GestionAgraria.Views
             btnUploadProfilePicture.Type = MaterialButton.MaterialButtonType.Outlined;
             btnUploadProfilePicture.UseAccentColor = false;
             btnUploadProfilePicture.UseVisualStyleBackColor = true;
-            btnUploadProfilePicture.Click += btnUploadProfilePicture_Click;
             // 
             // UCUserAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            AutoScroll = true;
             Controls.Add(mepUserAdd);
             Margin = new Padding(0);
             Name = "UCUserAdd";
@@ -826,6 +828,7 @@ namespace GestionAgraria.Views
             mepUserAdd.ResumeLayout(false);
             mepUserAdd.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             panel2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
@@ -898,7 +901,7 @@ namespace GestionAgraria.Views
         private MaterialLabel materialLabel2;
         private System.Windows.Forms.Panel panel12;
         private TableLayoutPanel tableLayoutPanel1;
-        private MaterialButton btnUploadProfilePicture;
         private ParrotPictureBox pbUserProfilePicture;
+        private MaterialButton btnUploadProfilePicture;
     }
 }

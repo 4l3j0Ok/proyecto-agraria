@@ -81,7 +81,7 @@ namespace GestionAgraria.Views
             mepVegetalAdd.Controls.Add(tableLayoutPanel2);
             mepVegetalAdd.Depth = 0;
             mepVegetalAdd.Description = "Registrar una nueva planta";
-            mepVegetalAdd.Dock = DockStyle.Top;
+            mepVegetalAdd.Dock = DockStyle.Fill;
             mepVegetalAdd.ExpandHeight = 343;
             mepVegetalAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepVegetalAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -91,7 +91,7 @@ namespace GestionAgraria.Views
             mepVegetalAdd.Name = "mepVegetalAdd";
             mepVegetalAdd.Padding = new Padding(24, 64, 24, 16);
             mepVegetalAdd.ShowCollapseExpand = false;
-            mepVegetalAdd.Size = new Size(1152, 343);
+            mepVegetalAdd.Size = new Size(1152, 344);
             mepVegetalAdd.TabIndex = 0;
             mepVegetalAdd.Title = "Agregar Planta";
             mepVegetalAdd.ValidationButtonText = "Guardar";
@@ -195,7 +195,7 @@ namespace GestionAgraria.Views
             materialLabel8.AutoSize = true;
             materialLabel8.Depth = 0;
             materialLabel8.Dock = DockStyle.Top;
-            materialLabel8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel8.Font = new Font("Robot", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel8.Location = new Point(20, 0);
             materialLabel8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel8.Name = "materialLabel8";
@@ -377,7 +377,7 @@ namespace GestionAgraria.Views
             materialLabel1.AutoSize = true;
             materialLabel1.Depth = 0;
             materialLabel1.Dock = DockStyle.Top;
-            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.Font = new Font("Robot", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel1.Location = new Point(20, 0);
             materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
