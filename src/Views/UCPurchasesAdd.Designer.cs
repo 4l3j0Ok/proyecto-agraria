@@ -74,21 +74,20 @@
             // 
             // MepBuysAdd
             // 
-            MepBuysAdd.AutoScroll = true;
             MepBuysAdd.BackColor = Color.FromArgb(255, 255, 255);
             MepBuysAdd.CancelButtonText = "CANCELAR";
             MepBuysAdd.Controls.Add(panel3);
             MepBuysAdd.Depth = 0;
             MepBuysAdd.Description = "Registrar Nuevas Compras";
             MepBuysAdd.Dock = DockStyle.Fill;
-            MepBuysAdd.ExpandHeight = 667;
+            MepBuysAdd.ExpandHeight = 0;
             MepBuysAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             MepBuysAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             MepBuysAdd.Location = new Point(0, 0);
             MepBuysAdd.Margin = new Padding(3, 12, 3, 12);
             MepBuysAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             MepBuysAdd.Name = "MepBuysAdd";
-            MepBuysAdd.Padding = new Padding(21, 48, 21, 12);
+            MepBuysAdd.Padding = new Padding(21, 48, 21, 20);
             MepBuysAdd.Size = new Size(1152, 667);
             MepBuysAdd.TabIndex = 4;
             MepBuysAdd.Title = "Compras";
@@ -101,10 +100,10 @@
             panel3.Controls.Add(tableLayoutPanel2);
             panel3.Controls.Add(tableLayoutPanel3);
             panel3.Controls.Add(tableLayoutPanel5);
-            panel3.Dock = DockStyle.Top;
+            panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(21, 48);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1110, 607);
+            panel3.Size = new Size(1110, 599);
             panel3.TabIndex = 14;
             // 
             // tableLayoutPanel2

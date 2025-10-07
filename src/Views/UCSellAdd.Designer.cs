@@ -74,21 +74,20 @@
             // 
             // mepSellsAdd
             // 
-            mepSellsAdd.AutoScroll = true;
             mepSellsAdd.BackColor = Color.FromArgb(255, 255, 255);
             mepSellsAdd.CancelButtonText = "CANCELAR";
             mepSellsAdd.Controls.Add(panel2);
             mepSellsAdd.Depth = 0;
             mepSellsAdd.Description = "Registrar un Nueva Venta";
             mepSellsAdd.Dock = DockStyle.Fill;
-            mepSellsAdd.ExpandHeight = 616;
+            mepSellsAdd.ExpandHeight = 0;
             mepSellsAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepSellsAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepSellsAdd.Location = new Point(0, 0);
             mepSellsAdd.Margin = new Padding(3, 12, 3, 12);
             mepSellsAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepSellsAdd.Name = "mepSellsAdd";
-            mepSellsAdd.Padding = new Padding(21, 48, 21, 50);
+            mepSellsAdd.Padding = new Padding(21, 48, 21, 20);
             mepSellsAdd.Size = new Size(1152, 616);
             mepSellsAdd.TabIndex = 3;
             mepSellsAdd.Title = "Ventas";
@@ -102,10 +101,10 @@
             panel2.Controls.Add(tableLayoutPanel1);
             panel2.Controls.Add(tableLayoutPanel2);
             panel2.Controls.Add(tableLayoutPanel5);
-            panel2.Dock = DockStyle.Top;
+            panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(21, 48);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1110, 518);
+            panel2.Size = new Size(1110, 548);
             panel2.TabIndex = 12;
             // 
             // tableLayoutPanel1

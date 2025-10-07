@@ -89,23 +89,20 @@ namespace GestionAgraria.Views
             // 
             // mepAnimalAdd
             // 
-            mepAnimalAdd.AutoScroll = true;
-            mepAnimalAdd.AutoSize = true;
-            mepAnimalAdd.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             mepAnimalAdd.BackColor = Color.FromArgb(255, 255, 255);
             mepAnimalAdd.CancelButtonText = "Cancelar";
             mepAnimalAdd.Controls.Add(tableLayoutPanel2);
             mepAnimalAdd.Depth = 0;
             mepAnimalAdd.Description = "Registra un nuevo animal";
             mepAnimalAdd.Dock = DockStyle.Fill;
-            mepAnimalAdd.ExpandHeight = 422;
+            mepAnimalAdd.ExpandHeight = 0;
             mepAnimalAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepAnimalAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepAnimalAdd.Location = new Point(0, 0);
             mepAnimalAdd.Margin = new Padding(3, 16, 3, 16);
             mepAnimalAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepAnimalAdd.Name = "mepAnimalAdd";
-            mepAnimalAdd.Padding = new Padding(24, 64, 24, 16);
+            mepAnimalAdd.Padding = new Padding(24, 64, 24, 20);
             mepAnimalAdd.ShowCollapseExpand = false;
             mepAnimalAdd.Size = new Size(1008, 422);
             mepAnimalAdd.TabIndex = 1;

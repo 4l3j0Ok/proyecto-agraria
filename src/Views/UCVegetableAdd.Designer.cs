@@ -75,21 +75,20 @@ namespace GestionAgraria.Views
             // 
             // mepVegetalAdd
             // 
-            mepVegetalAdd.AutoScroll = true;
             mepVegetalAdd.BackColor = Color.FromArgb(255, 255, 255);
             mepVegetalAdd.CancelButtonText = "Cancelar";
             mepVegetalAdd.Controls.Add(tableLayoutPanel2);
             mepVegetalAdd.Depth = 0;
             mepVegetalAdd.Description = "Registrar una nueva planta";
             mepVegetalAdd.Dock = DockStyle.Fill;
-            mepVegetalAdd.ExpandHeight = 343;
+            mepVegetalAdd.ExpandHeight = 0;
             mepVegetalAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepVegetalAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepVegetalAdd.Location = new Point(0, 0);
             mepVegetalAdd.Margin = new Padding(3, 16, 3, 16);
             mepVegetalAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepVegetalAdd.Name = "mepVegetalAdd";
-            mepVegetalAdd.Padding = new Padding(24, 64, 24, 16);
+            mepVegetalAdd.Padding = new Padding(24, 64, 24, 20);
             mepVegetalAdd.ShowCollapseExpand = false;
             mepVegetalAdd.Size = new Size(1152, 344);
             mepVegetalAdd.TabIndex = 0;
@@ -319,7 +318,7 @@ namespace GestionAgraria.Views
             materialLabel6.AutoSize = true;
             materialLabel6.Depth = 0;
             materialLabel6.Dock = DockStyle.Top;
-            materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel6.Font = new Font("Robot", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel6.Location = new Point(20, 0);
             materialLabel6.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel6.Name = "materialLabel6";

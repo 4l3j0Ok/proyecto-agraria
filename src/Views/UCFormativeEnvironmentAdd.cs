@@ -40,6 +40,7 @@ namespace GestionAgraria.Views
             else
             {
                 currentFormativeEnvironment = new FormativeEnvironmentModel();
+                AddDynamicDataRow();
             }
         }
 
@@ -201,6 +202,13 @@ namespace GestionAgraria.Views
             // Agregar referencias a la lista para tracking
             dynamicDataRows.Add(dataControl);
 
+            // Forzar el redimensionamiento del panel y contenedores padres
+            panelFormativeEnvironmentData.PerformLayout();
+            tlYearData.PerformLayout();
+            groupBox2.PerformLayout();
+            tableLayoutPanel1.PerformLayout();
+            mepFormativeEnvironmentAdd.PerformLayout();
+
             return dataControl;
         }
 
@@ -216,6 +224,13 @@ namespace GestionAgraria.Views
 
                 // Liberar recursos del control
                 dataControl.Dispose();
+
+                // Forzar el redimensionamiento del panel y contenedores padres
+                panelFormativeEnvironmentData.PerformLayout();
+                tlYearData.PerformLayout();
+                groupBox2.PerformLayout();
+                tableLayoutPanel1.PerformLayout();
+                mepFormativeEnvironmentAdd.PerformLayout();
             }
         }
     }

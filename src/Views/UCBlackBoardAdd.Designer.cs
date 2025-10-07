@@ -52,24 +52,21 @@
             // 
             // mepBlackBoard
             // 
-            mepBlackBoard.AutoScroll = true;
-            mepBlackBoard.AutoSize = true;
-            mepBlackBoard.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             mepBlackBoard.BackColor = Color.FromArgb(255, 255, 255);
             mepBlackBoard.CancelButtonText = "CANCELAR";
             mepBlackBoard.Controls.Add(tableLayoutPanel2);
             mepBlackBoard.Depth = 0;
             mepBlackBoard.Description = "Crea notas personalizadas con tablas incluídas";
-            mepBlackBoard.Dock = DockStyle.Top;
-            mepBlackBoard.ExpandHeight = 572;
+            mepBlackBoard.Dock = DockStyle.Fill;
+            mepBlackBoard.ExpandHeight = 0;
             mepBlackBoard.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepBlackBoard.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepBlackBoard.Location = new Point(0, 0);
             mepBlackBoard.Margin = new Padding(3, 12, 3, 12);
             mepBlackBoard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepBlackBoard.Name = "mepBlackBoard";
-            mepBlackBoard.Padding = new Padding(21, 48, 21, 12);
-            mepBlackBoard.Size = new Size(889, 572);
+            mepBlackBoard.Padding = new Padding(21, 48, 21, 20);
+            mepBlackBoard.Size = new Size(906, 548);
             mepBlackBoard.TabIndex = 0;
             mepBlackBoard.Title = "Pizarrón";
             mepBlackBoard.ValidationButtonEnable = true;

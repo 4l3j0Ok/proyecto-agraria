@@ -60,21 +60,20 @@
             // 
             // mepProductAdd
             // 
-            mepProductAdd.AutoScroll = true;
             mepProductAdd.BackColor = Color.FromArgb(255, 255, 255);
             mepProductAdd.CancelButtonText = "CANCELAR";
             mepProductAdd.Controls.Add(panel2);
             mepProductAdd.Depth = 0;
             mepProductAdd.Description = "Registrar un Nuevo Producto";
             mepProductAdd.Dock = DockStyle.Fill;
-            mepProductAdd.ExpandHeight = 604;
+            mepProductAdd.ExpandHeight = 0;
             mepProductAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepProductAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepProductAdd.Location = new Point(0, 0);
             mepProductAdd.Margin = new Padding(3, 12, 3, 12);
             mepProductAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepProductAdd.Name = "mepProductAdd";
-            mepProductAdd.Padding = new Padding(21, 48, 21, 12);
+            mepProductAdd.Padding = new Padding(21, 48, 21, 20);
             mepProductAdd.Size = new Size(1152, 604);
             mepProductAdd.TabIndex = 0;
             mepProductAdd.Title = "Cargar Nuevo Producto ";
@@ -89,10 +88,10 @@
             panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.Controls.Add(tableLayoutPanel1);
             panel2.Controls.Add(tableLayoutPanel5);
-            panel2.Dock = DockStyle.Top;
+            panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(21, 48);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1110, 544);
+            panel2.Size = new Size(1110, 536);
             panel2.TabIndex = 12;
             // 
             // tableLayoutPanel1
