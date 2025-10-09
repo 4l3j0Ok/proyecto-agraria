@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GestionAgraria.Controls;
 
 
 namespace GestionAgraria.Views
@@ -39,7 +40,7 @@ namespace GestionAgraria.Views
         /// </summary>
         private void InitializeComponent()
         {
-            mepAnimalAdd = new ReaLTaiizor.Controls.MaterialExpansionPanel();
+            mepAnimalAdd = new NonCollapsibleMaterialExpansionPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             panel2 = new Panel();
             groupBox3 = new GroupBox();
@@ -605,7 +606,7 @@ namespace GestionAgraria.Views
 
         #endregion
 
-        private ReaLTaiizor.Controls.MaterialExpansionPanel mepAnimalAdd;
+        private NonCollapsibleMaterialExpansionPanel mepAnimalAdd;
         private TableLayoutPanel tableLayoutPanel2;
         private Panel panel2;
         private GroupBox groupBox3;

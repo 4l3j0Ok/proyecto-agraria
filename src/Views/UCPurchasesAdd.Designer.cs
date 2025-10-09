@@ -1,4 +1,7 @@
-﻿namespace GestionAgraria.Views
+﻿using GestionAgraria.Controls;
+
+
+namespace GestionAgraria.Views
 {
     partial class UCPurchasesAdd
     {
@@ -28,7 +31,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            MepBuysAdd = new ReaLTaiizor.Controls.MaterialExpansionPanel();
+            MepBuysAdd = new NonCollapsibleMaterialExpansionPanel();
             panel3 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
             dgvProductList = new DataGridView();
@@ -599,7 +602,7 @@
         private Panel panel4;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit txtCantidad;
         private ReaLTaiizor.Controls.MaterialLabel lblCantidad;
-        private ReaLTaiizor.Controls.MaterialExpansionPanel MepBuysAdd;
+        private NonCollapsibleMaterialExpansionPanel MepBuysAdd;
         private Panel panel3;
         private TableLayoutPanel tableLayoutPanel2;
         private DataGridView dgvProductList;

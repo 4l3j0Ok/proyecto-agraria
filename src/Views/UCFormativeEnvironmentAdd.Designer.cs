@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionAgraria.models;
 using GestionAgraria.controllers;
+using GestionAgraria.Controls;
 
 
 namespace GestionAgraria.Views
@@ -41,7 +42,7 @@ namespace GestionAgraria.Views
         /// </summary>
         private void InitializeComponent()
         {
-            mepFormativeEnvironmentAdd = new ReaLTaiizor.Controls.MaterialExpansionPanel();
+            mepFormativeEnvironmentAdd = new NonCollapsibleMaterialExpansionPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             groupBox2 = new GroupBox();
             tlYearData = new TableLayoutPanel();
@@ -436,7 +437,7 @@ namespace GestionAgraria.Views
         }
 
         #endregion
-        private ReaLTaiizor.Controls.MaterialExpansionPanel mepFormativeEnvironmentAdd;
+        private NonCollapsibleMaterialExpansionPanel mepFormativeEnvironmentAdd;
         private TableLayoutPanel tableLayoutPanel1;
         private GroupBox groupBox2;
         private TableLayoutPanel tlYearData;

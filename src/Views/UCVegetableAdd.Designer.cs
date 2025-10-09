@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using GestionAgraria.Models;
 using GestionAgraria.controllers;
 using ReaLTaiizor.Controls;
+using GestionAgraria.Controls;
+
+
 
 namespace GestionAgraria.Views
 {
@@ -41,7 +44,7 @@ namespace GestionAgraria.Views
         /// </summary>
         private void InitializeComponent()
         {
-            mepVegetalAdd = new MaterialExpansionPanel();
+            mepVegetalAdd = new NonCollapsibleMaterialExpansionPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             panel2 = new System.Windows.Forms.Panel();
             groupBox3 = new System.Windows.Forms.GroupBox();
@@ -423,7 +426,7 @@ namespace GestionAgraria.Views
         private ReaLTaiizor.Controls.MaterialLabel lblFechaNacimiento_Ingres;
         private ReaLTaiizor.Controls.MaterialLabel lblTipoAnimal;
         private ReaLTaiizor.Controls.MaterialLabel lblCodigo;
-        private ReaLTaiizor.Controls.MaterialExpansionPanel mepVegetalAdd;
+        private NonCollapsibleMaterialExpansionPanel mepVegetalAdd;
         private TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox3;

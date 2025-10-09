@@ -1,4 +1,6 @@
-﻿namespace GestionAgraria.Views
+﻿using GestionAgraria.Controls;  
+
+namespace GestionAgraria.Views
 {
     partial class UCBlackBoardAdd
     {
@@ -28,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            mepBlackBoard = new ReaLTaiizor.Controls.MaterialExpansionPanel();
+            mepBlackBoard = new NonCollapsibleMaterialExpansionPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             dgvData = new DataGridView();
             panel8 = new Panel();
@@ -301,7 +303,7 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.MaterialExpansionPanel mepBlackBoard;
+        private NonCollapsibleMaterialExpansionPanel mepBlackBoard;
         private TableLayoutPanel tableLayoutPanel2;
         private DataGridView dgvData;
         private Panel panel8;

@@ -1,4 +1,7 @@
-﻿namespace GestionAgraria.Views
+﻿using GestionAgraria.Controls;
+
+
+namespace GestionAgraria.Views
 {
     partial class UCSellAdd
     {
@@ -28,7 +31,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            mepSellsAdd = new ReaLTaiizor.Controls.MaterialExpansionPanel();
+            mepSellsAdd = new NonCollapsibleMaterialExpansionPanel();
             panel2 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel10 = new Panel();
@@ -588,7 +591,7 @@
 
         #endregion
 
-        private ReaLTaiizor.Controls.MaterialExpansionPanel mepSellsAdd;
+        private NonCollapsibleMaterialExpansionPanel mepSellsAdd;
         private Panel panel2;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel10;
