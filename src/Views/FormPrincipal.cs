@@ -27,8 +27,35 @@ namespace GestionAgraria
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
             LoadCards();
-            // Guardar el estado inicial de todos los tabs
             SaveOriginalTabContents();
+            
+            // Posicionar botones flotantes
+            PositionFloatingButtons();
+        }
+
+        private void PositionFloatingButtons()
+        {
+            // Los botones flotantes están dentro de cada TabPage, no en el formulario directamente
+            foreach (System.Windows.Forms.TabPage tabPage in tcPrincipal.TabPages)
+            {
+                foreach (Control control in tabPage.Controls)
+                {
+                    if (control is ReaLTaiizor.Controls.MaterialFloatingActionButton btnFloat)
+                    {
+                        // Asegurar que tenga Anchor correcto
+                        btnFloat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                        
+                        // Recalcular posición basada en el tamaño del TabPage
+                        btnFloat.Location = new Point(
+                            tabPage.ClientSize.Width - btnFloat.Width - 20,
+                            tabPage.ClientSize.Height - btnFloat.Height - 20
+                        );
+                        
+                        // Asegurar que esté al frente
+                        btnFloat.BringToFront();
+                    }
+                }
+            }
         }
 
         private void SaveOriginalTabContents()
@@ -202,6 +229,7 @@ namespace GestionAgraria
                 foreach (Control control in originalTabContents[tabPage])
                 {
                     tabPage.Controls.Add(control);
+                    PositionFloatingButtons();
                 }
             }
 

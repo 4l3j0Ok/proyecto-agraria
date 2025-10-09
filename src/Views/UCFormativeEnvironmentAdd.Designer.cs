@@ -83,7 +83,7 @@ namespace GestionAgraria.Views
             mepFormativeEnvironmentAdd.Depth = 0;
             mepFormativeEnvironmentAdd.Description = "Registrar un nuevo entorno formativo";
             mepFormativeEnvironmentAdd.Dock = DockStyle.Top;
-            mepFormativeEnvironmentAdd.ExpandHeight = 453;
+            mepFormativeEnvironmentAdd.ExpandHeight = 983;
             mepFormativeEnvironmentAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepFormativeEnvironmentAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepFormativeEnvironmentAdd.Location = new Point(0, 0);
@@ -92,7 +92,7 @@ namespace GestionAgraria.Views
             mepFormativeEnvironmentAdd.Name = "mepFormativeEnvironmentAdd";
             mepFormativeEnvironmentAdd.Padding = new Padding(24, 20, 24, 20);
             mepFormativeEnvironmentAdd.ShowCollapseExpand = false;
-            mepFormativeEnvironmentAdd.Size = new Size(954, 453);
+            mepFormativeEnvironmentAdd.Size = new Size(937, 983);
             mepFormativeEnvironmentAdd.TabIndex = 0;
             mepFormativeEnvironmentAdd.Title = "Agregar Entorno Formativo";
             mepFormativeEnvironmentAdd.ValidationButtonEnable = true;
@@ -116,7 +116,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(906, 301);
+            tableLayoutPanel1.Size = new Size(889, 301);
             tableLayoutPanel1.TabIndex = 24;
             // 
             // groupBox2
@@ -127,7 +127,7 @@ namespace GestionAgraria.Views
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new Point(3, 142);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(900, 76);
+            groupBox2.Size = new Size(883, 76);
             groupBox2.TabIndex = 32;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos adicionales";
@@ -146,7 +146,7 @@ namespace GestionAgraria.Views
             tlYearData.RowCount = 2;
             tlYearData.RowStyles.Add(new RowStyle());
             tlYearData.RowStyles.Add(new RowStyle());
-            tlYearData.Size = new Size(894, 54);
+            tlYearData.Size = new Size(877, 54);
             tlYearData.TabIndex = 30;
             // 
             // panelFormativeEnvironmentData
@@ -156,7 +156,7 @@ namespace GestionAgraria.Views
             panelFormativeEnvironmentData.Dock = DockStyle.Top;
             panelFormativeEnvironmentData.Location = new Point(3, 3);
             panelFormativeEnvironmentData.Name = "panelFormativeEnvironmentData";
-            panelFormativeEnvironmentData.Size = new Size(888, 0);
+            panelFormativeEnvironmentData.Size = new Size(871, 0);
             panelFormativeEnvironmentData.TabIndex = 1;
             // 
             // btnAddFormativeEnvironmentData
@@ -173,7 +173,7 @@ namespace GestionAgraria.Views
             btnAddFormativeEnvironmentData.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddFormativeEnvironmentData.Name = "btnAddFormativeEnvironmentData";
             btnAddFormativeEnvironmentData.NoAccentTextColor = Color.Empty;
-            btnAddFormativeEnvironmentData.Size = new Size(794, 36);
+            btnAddFormativeEnvironmentData.Size = new Size(777, 36);
             btnAddFormativeEnvironmentData.TabIndex = 0;
             btnAddFormativeEnvironmentData.Text = "Agregar";
             btnAddFormativeEnvironmentData.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -187,7 +187,7 @@ namespace GestionAgraria.Views
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(900, 133);
+            groupBox1.Size = new Size(883, 133);
             groupBox1.TabIndex = 31;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del Entorno";
@@ -206,7 +206,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.Size = new Size(894, 111);
+            tableLayoutPanel5.Size = new Size(877, 111);
             tableLayoutPanel5.TabIndex = 29;
             // 
             // panel6
@@ -214,11 +214,11 @@ namespace GestionAgraria.Views
             panel6.Controls.Add(cbEnvironmentResponsable);
             panel6.Controls.Add(materialLabel6);
             panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(594, 0);
+            panel6.Location = new Point(584, 0);
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
             panel6.Padding = new Padding(20, 0, 20, 0);
-            panel6.Size = new Size(300, 161);
+            panel6.Size = new Size(293, 161);
             panel6.TabIndex = 30;
             // 
             // cbEnvironmentResponsable
@@ -240,7 +240,7 @@ namespace GestionAgraria.Views
             cbEnvironmentResponsable.MaxDropDownItems = 4;
             cbEnvironmentResponsable.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbEnvironmentResponsable.Name = "cbEnvironmentResponsable";
-            cbEnvironmentResponsable.Size = new Size(260, 49);
+            cbEnvironmentResponsable.Size = new Size(253, 49);
             cbEnvironmentResponsable.StartIndex = 0;
             cbEnvironmentResponsable.TabIndex = 10;
             // 
@@ -262,11 +262,11 @@ namespace GestionAgraria.Views
             panel7.Controls.Add(cbEnvironmentArea);
             panel7.Controls.Add(materialLabel7);
             panel7.Dock = DockStyle.Fill;
-            panel7.Location = new Point(297, 0);
+            panel7.Location = new Point(292, 0);
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
             panel7.Padding = new Padding(20, 0, 20, 0);
-            panel7.Size = new Size(297, 161);
+            panel7.Size = new Size(292, 161);
             panel7.TabIndex = 29;
             // 
             // cbEnvironmentArea
@@ -288,7 +288,7 @@ namespace GestionAgraria.Views
             cbEnvironmentArea.MaxDropDownItems = 4;
             cbEnvironmentArea.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbEnvironmentArea.Name = "cbEnvironmentArea";
-            cbEnvironmentArea.Size = new Size(257, 49);
+            cbEnvironmentArea.Size = new Size(252, 49);
             cbEnvironmentArea.StartIndex = 0;
             cbEnvironmentArea.TabIndex = 9;
             // 
@@ -314,7 +314,7 @@ namespace GestionAgraria.Views
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(20, 0, 20, 0);
-            panel3.Size = new Size(297, 161);
+            panel3.Size = new Size(292, 161);
             panel3.TabIndex = 21;
             // 
             // tbEnvironmentName
@@ -343,7 +343,7 @@ namespace GestionAgraria.Views
             tbEnvironmentName.SelectionLength = 0;
             tbEnvironmentName.SelectionStart = 0;
             tbEnvironmentName.ShortcutsEnabled = true;
-            tbEnvironmentName.Size = new Size(257, 48);
+            tbEnvironmentName.Size = new Size(252, 48);
             tbEnvironmentName.TabIndex = 0;
             tbEnvironmentName.TabStop = false;
             tbEnvironmentName.TextAlign = HorizontalAlignment.Left;
@@ -369,7 +369,7 @@ namespace GestionAgraria.Views
             groupBox4.Dock = DockStyle.Fill;
             groupBox4.Location = new Point(3, 224);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(900, 74);
+            groupBox4.Size = new Size(883, 74);
             groupBox4.TabIndex = 33;
             groupBox4.TabStop = false;
             groupBox4.Text = "Observaciones";
@@ -400,7 +400,7 @@ namespace GestionAgraria.Views
             tbEnvironmentObservations.SelectionLength = 0;
             tbEnvironmentObservations.SelectionStart = 0;
             tbEnvironmentObservations.ShortcutsEnabled = true;
-            tbEnvironmentObservations.Size = new Size(894, 48);
+            tbEnvironmentObservations.Size = new Size(877, 48);
             tbEnvironmentObservations.TabIndex = 1;
             tbEnvironmentObservations.TabStop = false;
             tbEnvironmentObservations.TextAlign = HorizontalAlignment.Left;
@@ -414,7 +414,7 @@ namespace GestionAgraria.Views
             AutoScroll = true;
             Controls.Add(mepFormativeEnvironmentAdd);
             Name = "UCFormativeEnvironmentAdd";
-            Size = new Size(954, 440);
+            Size = new Size(937, 440);
             mepFormativeEnvironmentAdd.ResumeLayout(false);
             mepFormativeEnvironmentAdd.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);

@@ -69,7 +69,7 @@ namespace GestionAgraria.Views
             mepProductAdd.Depth = 0;
             mepProductAdd.Description = "Registrar un Nuevo Producto";
             mepProductAdd.Dock = DockStyle.Fill;
-            mepProductAdd.ExpandHeight = 0;
+            mepProductAdd.ExpandHeight = 604;
             mepProductAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepProductAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepProductAdd.Location = new Point(0, 0);
@@ -77,6 +77,7 @@ namespace GestionAgraria.Views
             mepProductAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepProductAdd.Name = "mepProductAdd";
             mepProductAdd.Padding = new Padding(21, 48, 21, 20);
+            mepProductAdd.ShowCollapseExpand = false;
             mepProductAdd.Size = new Size(1152, 604);
             mepProductAdd.TabIndex = 0;
             mepProductAdd.Title = "Cargar Nuevo Producto ";
