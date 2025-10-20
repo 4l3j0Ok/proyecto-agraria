@@ -50,6 +50,9 @@ namespace GestionAgraria.Views
             materialLabel8 = new ReaLTaiizor.Controls.MaterialLabel();
             groupBox2 = new GroupBox();
             tableLayoutPanel4 = new TableLayoutPanel();
+            panel4 = new Panel();
+            cbEstado = new ReaLTaiizor.Controls.MaterialComboBox();
+            materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
             panel1 = new Panel();
             cbAnimalFormativeEnvironment = new ReaLTaiizor.Controls.MaterialComboBox();
             materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
@@ -78,6 +81,7 @@ namespace GestionAgraria.Views
             panel8.SuspendLayout();
             groupBox2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
+            panel4.SuspendLayout();
             panel1.SuspendLayout();
             panel9.SuspendLayout();
             panel5.SuspendLayout();
@@ -96,7 +100,7 @@ namespace GestionAgraria.Views
             mepAnimalAdd.Depth = 0;
             mepAnimalAdd.Description = "Registra un nuevo animal";
             mepAnimalAdd.Dock = DockStyle.Fill;
-            mepAnimalAdd.ExpandHeight = 0;
+            mepAnimalAdd.ExpandHeight = 422;
             mepAnimalAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepAnimalAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepAnimalAdd.Location = new Point(0, 0);
@@ -234,10 +238,12 @@ namespace GestionAgraria.Views
             // 
             // tableLayoutPanel4
             // 
-            tableLayoutPanel4.ColumnCount = 3;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel4.ColumnCount = 4;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.Controls.Add(panel4, 3, 0);
             tableLayoutPanel4.Controls.Add(panel1, 2, 0);
             tableLayoutPanel4.Controls.Add(panel9, 1, 0);
             tableLayoutPanel4.Controls.Add(panel5, 0, 0);
@@ -249,16 +255,64 @@ namespace GestionAgraria.Views
             tableLayoutPanel4.Size = new Size(948, 78);
             tableLayoutPanel4.TabIndex = 30;
             // 
+            // panel4
+            // 
+            panel4.Controls.Add(cbEstado);
+            panel4.Controls.Add(materialLabel2);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(711, 0);
+            panel4.Margin = new Padding(0);
+            panel4.Name = "panel4";
+            panel4.Padding = new Padding(20, 0, 20, 0);
+            panel4.Size = new Size(237, 78);
+            panel4.TabIndex = 33;
+            // 
+            // cbEstado
+            // 
+            cbEstado.AutoResize = false;
+            cbEstado.BackColor = Color.FromArgb(255, 255, 255);
+            cbEstado.Depth = 0;
+            cbEstado.Dock = DockStyle.Top;
+            cbEstado.DrawMode = DrawMode.OwnerDrawVariable;
+            cbEstado.DropDownHeight = 174;
+            cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEstado.DropDownWidth = 121;
+            cbEstado.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbEstado.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbEstado.FormattingEnabled = true;
+            cbEstado.IntegralHeight = false;
+            cbEstado.ItemHeight = 43;
+            cbEstado.Location = new Point(20, 19);
+            cbEstado.MaxDropDownItems = 4;
+            cbEstado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbEstado.Name = "cbEstado";
+            cbEstado.Size = new Size(197, 49);
+            cbEstado.StartIndex = 0;
+            cbEstado.TabIndex = 10;
+            // 
+            // materialLabel2
+            // 
+            materialLabel2.AutoSize = true;
+            materialLabel2.Depth = 0;
+            materialLabel2.Dock = DockStyle.Top;
+            materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel2.Location = new Point(20, 0);
+            materialLabel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel2.Name = "materialLabel2";
+            materialLabel2.Size = new Size(50, 19);
+            materialLabel2.TabIndex = 4;
+            materialLabel2.Text = "Estado";
+            // 
             // panel1
             // 
             panel1.Controls.Add(cbAnimalFormativeEnvironment);
             panel1.Controls.Add(materialLabel1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(630, 0);
+            panel1.Location = new Point(474, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(20, 0, 20, 0);
-            panel1.Size = new Size(318, 78);
+            panel1.Size = new Size(237, 78);
             panel1.TabIndex = 32;
             // 
             // cbAnimalFormativeEnvironment
@@ -280,7 +334,7 @@ namespace GestionAgraria.Views
             cbAnimalFormativeEnvironment.MaxDropDownItems = 4;
             cbAnimalFormativeEnvironment.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbAnimalFormativeEnvironment.Name = "cbAnimalFormativeEnvironment";
-            cbAnimalFormativeEnvironment.Size = new Size(278, 49);
+            cbAnimalFormativeEnvironment.Size = new Size(197, 49);
             cbAnimalFormativeEnvironment.StartIndex = 0;
             cbAnimalFormativeEnvironment.TabIndex = 10;
             cbAnimalFormativeEnvironment.DropDown += cbAnimalFormativeEnvironment_DropDown;
@@ -303,11 +357,11 @@ namespace GestionAgraria.Views
             panel9.Controls.Add(cbAnimalProductiveState);
             panel9.Controls.Add(materialLabel4);
             panel9.Dock = DockStyle.Fill;
-            panel9.Location = new Point(315, 0);
+            panel9.Location = new Point(237, 0);
             panel9.Margin = new Padding(0);
             panel9.Name = "panel9";
             panel9.Padding = new Padding(20, 0, 20, 0);
-            panel9.Size = new Size(315, 78);
+            panel9.Size = new Size(237, 78);
             panel9.TabIndex = 31;
             // 
             // cbAnimalProductiveState
@@ -330,7 +384,7 @@ namespace GestionAgraria.Views
             cbAnimalProductiveState.MaxDropDownItems = 4;
             cbAnimalProductiveState.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbAnimalProductiveState.Name = "cbAnimalProductiveState";
-            cbAnimalProductiveState.Size = new Size(275, 49);
+            cbAnimalProductiveState.Size = new Size(197, 49);
             cbAnimalProductiveState.StartIndex = 0;
             cbAnimalProductiveState.TabIndex = 10;
             // 
@@ -356,7 +410,7 @@ namespace GestionAgraria.Views
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
             panel5.Padding = new Padding(20, 0, 20, 0);
-            panel5.Size = new Size(315, 78);
+            panel5.Size = new Size(237, 78);
             panel5.TabIndex = 30;
             // 
             // cbAnimalSex
@@ -379,7 +433,7 @@ namespace GestionAgraria.Views
             cbAnimalSex.MaxDropDownItems = 4;
             cbAnimalSex.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbAnimalSex.Name = "cbAnimalSex";
-            cbAnimalSex.Size = new Size(275, 49);
+            cbAnimalSex.Size = new Size(197, 49);
             cbAnimalSex.StartIndex = 0;
             cbAnimalSex.TabIndex = 10;
             // 
@@ -586,6 +640,8 @@ namespace GestionAgraria.Views
             panel8.PerformLayout();
             groupBox2.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel9.ResumeLayout(false);
@@ -601,7 +657,6 @@ namespace GestionAgraria.Views
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -636,5 +691,8 @@ namespace GestionAgraria.Views
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbAnimalCode;
         private ReaLTaiizor.Controls.MaterialLabel lblUsuario;
         private ReaLTaiizor.Controls.PoisonDateTime dtAnimalEntryDate;
+        private Panel panel4;
+        private ReaLTaiizor.Controls.MaterialComboBox cbEstado;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
     }
 }

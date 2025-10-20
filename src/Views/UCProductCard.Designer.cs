@@ -148,13 +148,13 @@
             parrotPictureBox1.Text = "parrotPictureBox1";
             parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
-            // UCProductosCard
+            // UCProductCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "UCProductosCard";
+            Name = "UCProductCard";
             Size = new Size(615, 70);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);

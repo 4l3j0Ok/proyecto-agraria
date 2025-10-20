@@ -17,8 +17,11 @@ namespace GestionAgraria
         private readonly UserModel currentUser;
         private readonly Dictionary<System.Windows.Forms.TabPage, List<Control>> originalTabContents = new Dictionary<System.Windows.Forms.TabPage, List<Control>>();
 
+        private RoleController roleController;
+        private AnimalController animalController;
         public FormPrincipal(UserModel currentUser)
         {
+            roleController = new RoleController();
             this.currentUser = currentUser;
             UIConfig.GetSkinManager().AddFormToManage(this);
             InitializeComponent();
@@ -28,7 +31,7 @@ namespace GestionAgraria
         {
             LoadCards();
             SaveOriginalTabContents();
-            
+
             // Posicionar botones flotantes
             PositionFloatingButtons();
         }
@@ -44,13 +47,13 @@ namespace GestionAgraria
                     {
                         // Asegurar que tenga Anchor correcto
                         btnFloat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-                        
+
                         // Recalcular posición basada en el tamaño del TabPage
                         btnFloat.Location = new Point(
                             tabPage.ClientSize.Width - btnFloat.Width - 20,
                             tabPage.ClientSize.Height - btnFloat.Height - 20
                         );
-                        
+
                         // Asegurar que esté al frente
                         btnFloat.BringToFront();
                     }
@@ -88,17 +91,50 @@ namespace GestionAgraria
                     }
                 }
             }
-            LoadUsersTable();
-            LoadVegetablesTable();
-            LoadAnimalsTable();
-            LoadFormativeEnvironments();
-            LoadProductTable();
-            LoadBlackBoard();
+            try
+            {
+
+                LoadComboBoxesEnvironmentsFilter();
+                cbEstadoBusquedaEntonor.SelectedIndex = 0; // Establecer el valor predeterminado
+                cbAreasFiltro.SelectedIndex = 0; // Establecer el valor predeterminado
+
+                LoadComboBoxesUsersFilter();
+                cbRole.SelectedIndex = 0; // Establecer el valor predeterminado 
+                cbEstadoUserSearch.SelectedIndex = 0; // Establecer el valor predeterminado
+                LoadUsersTable();
+
+                LoadComboBoxesFiltroVegetal();
+                cbEstadoFiltroPlantas.SelectedIndex = 0; // Establecer el valor predeterminado
+                cbEntornoFiltro.SelectedIndex = 0; // Establecer el valor predeterminado
+                LoadVegetablesTable();
+
+
+                LoadAnimalsTable();
+                LoadFormativeEnvironments();
+                LoadProductTable();
+                LoadBlackBoard();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
         private void LoadUsersTable()
         {
             UserController userController = new UserController();
-            List<UserModel> users = userController.GetAllUsers();
+            List<UserModel> users = new List<UserModel>();
+
+            string? role = cbRole.SelectedIndex == 0 ? null : cbRole.SelectedItem?.ToString();
+
+            int estado = cbEstadoUserSearch.SelectedIndex;
+
+            string? searchText = "";
+            if (tbSearchUsers.Text.Length > 2)
+            {
+                searchText = string.IsNullOrWhiteSpace(tbSearchUsers.Text) ? null : tbSearchUsers.Text;
+            }
+            users = userController.GetUsersForFilter(estado, role, searchText);
+
             if (users.Count > 0)
                 lblEmptyUsers.Visible = false;
             foreach (UserModel user in users)
@@ -109,10 +145,34 @@ namespace GestionAgraria
                 flpUsersList.Controls.Add(userCard);
             }
         }
+        private void LoadComboBoxesUsersFilter()
+        {
+            // Cargar Roles
+
+            List<RoleModel> roles = roleController.GetAllRoles();
+            foreach (RoleModel role in roles)
+            {
+                cbRole.Items.Add(role.Name);
+            }
+        }
         private void LoadVegetablesTable()
         {
+            flpVegetalList.Controls.Clear();
+
             using var vegetalController = new VegetableController();
-            List<VegetableModel> vegetables = vegetalController.GetAllVegetables();
+
+            string? entorno = cbEntornoFiltro.SelectedIndex == 0 ? null : cbEntornoFiltro.SelectedItem?.ToString();
+
+            int estado = cbEstadoFiltroPlantas.SelectedIndex;
+
+            string? searchText = "";
+
+            if (tbSearchPlante.Text.Length > 2)
+            {
+                searchText = string.IsNullOrWhiteSpace(tbSearchPlante.Text) ? null : tbSearchPlante.Text;
+            }
+
+            List<VegetableModel> vegetables = vegetalController.GetVegetablesForFiltro(estado, entorno, searchText);
             if (vegetables.Count > 0)
                 lblEmptyVegetables.Visible = false;
             foreach (VegetableModel vegetable in vegetables)
@@ -124,6 +184,29 @@ namespace GestionAgraria
                 flpVegetalList.Controls.Add(vegetalCard);
             }
         }
+
+        private void LoadComboBoxesFiltroVegetal()
+        {
+            animalController = new AnimalController();
+            try
+            {
+                // Limpiar los combos antes de cargar
+                // cbEntornoFiltro.Items.Clear();
+
+                // Cargar tipos de animales
+                var formativeEnvironments = animalController.GetAllActiveFormativeEnvironments();
+
+                foreach (var environment in formativeEnvironments)
+                {
+                    cbEntornoFiltro.Items.Add(environment.Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void LoadAnimalsTable()
         {
             using var animalController = new AnimalController();
@@ -142,7 +225,21 @@ namespace GestionAgraria
         private void LoadFormativeEnvironments()
         {
             using var environmentController = new FormativeEnvironmentController();
-            List<FormativeEnvironmentModel> formativeEnvironments = environmentController.GetAllFormativeEnvironments();
+
+            List<FormativeEnvironmentModel> formativeEnvironments = new List<FormativeEnvironmentModel>();
+
+            string? area = cbAreasFiltro.SelectedIndex == 0 ? null : cbAreasFiltro.SelectedItem?.ToString();
+
+            int estado = cbEstadoBusquedaEntonor.SelectedIndex;
+
+            string? searchText = "";
+
+            if (tbSeachFormativeEnvironments.Text.Length > 2)
+            {
+                searchText = string.IsNullOrWhiteSpace(tbSeachFormativeEnvironments.Text) ? null : tbSeachFormativeEnvironments.Text;
+            }
+            formativeEnvironments = environmentController.GetFormativeEnvironments(estado, area, searchText);
+
             if (formativeEnvironments.Count > 0)
                 lblEmptyFormativeEnvironments.Visible = false;
             foreach (FormativeEnvironmentModel formativeEnvironment in formativeEnvironments)
@@ -154,6 +251,13 @@ namespace GestionAgraria
                 flpFormativeEnvironmentsList.Controls.Add(formativeEnvironmentCard);
             }
         }
+
+        private void LoadComboBoxesEnvironmentsFilter()
+        {
+            // Cargar áreas
+            cbAreasFiltro.Items.AddRange(Config.defaultAreas.ToArray());
+        }
+
         private void LoadProductTable()
         {
             using var ProducController = new ProductController();
@@ -203,19 +307,27 @@ namespace GestionAgraria
 
         public void VerFormularioTab(UserControl uc, System.Windows.Forms.TabPage tabPage)
         {
-            // Guardar el estado actual del tab si no está guardado o si ha cambiado
-            if (!originalTabContents.ContainsKey(tabPage))
+            try
             {
-                var controls = new List<Control>();
-                foreach (Control control in tabPage.Controls)
+                // Guardar el estado actual del tab si no está guardado o si ha cambiado
+                if (!originalTabContents.ContainsKey(tabPage))
                 {
-                    controls.Add(control);
+                    var controls = new List<Control>();
+                    foreach (Control control in tabPage.Controls)
+                    {
+                        controls.Add(control);
+                    }
+                    originalTabContents[tabPage] = controls;
                 }
-                originalTabContents[tabPage] = controls;
+                uc.Dock = DockStyle.Fill;
+                tabPage.Controls.Clear();
+                tabPage.Controls.Add(uc);
             }
-            uc.Dock = DockStyle.Fill;
-            tabPage.Controls.Clear();
-            tabPage.Controls.Add(uc);
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                ;
+            }
         }
 
         public void RestaurarFormularioTab(System.Windows.Forms.TabPage tabPage)
@@ -379,6 +491,60 @@ namespace GestionAgraria
         {
             UCBlackBoardAdd AddControl = new UCBlackBoardAdd();
             this.VerFormularioTab(AddControl, tabBlackBoard);
+        }
+
+        private void cbEstadoBusquedaEntonor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            flpFormativeEnvironmentsList.Controls.Clear();
+            LoadFormativeEnvironments();
+        }
+
+        private void cbAreasFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            flpFormativeEnvironmentsList.Controls.Clear();
+            LoadFormativeEnvironments();
+        }
+
+        private void tbSeachFormativeEnvironments_TextChanged(object sender, EventArgs e)
+        {
+            flpFormativeEnvironmentsList.Controls.Clear();
+            LoadFormativeEnvironments();
+        }
+
+        private void tbSearchUsers_TextChanged(object sender, EventArgs e)
+        {
+            flpUsersList.Controls.Clear();
+            LoadUsersTable();
+        }
+
+        private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            flpUsersList.Controls.Clear();
+            LoadUsersTable();
+        }
+
+        private void cbEstadoUserSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            flpUsersList.Controls.Clear();
+            LoadUsersTable();
+        }
+
+        private void cbEntornoFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            flpVegetalList.Controls.Clear();
+            LoadVegetablesTable();
+        }
+
+        private void cbEstadoFiltroPlantas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            flpVegetalList.Controls.Clear();
+            LoadVegetablesTable();
+        }
+
+        private void tbSearchPlante_TextChanged(object sender, EventArgs e)
+        {
+            flpVegetalList.Controls.Clear();
+            LoadVegetablesTable();
         }
     }
 }

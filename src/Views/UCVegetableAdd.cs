@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionAgraria.Models;
 using GestionAgraria.controllers;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace GestionAgraria.Views
 {
@@ -42,13 +43,42 @@ namespace GestionAgraria.Views
         {
             // No hay ComboBoxes específicos para este formulario
             // Los tipos de plantas se pueden escribir directamente
+            vegetalController = new VegetableController();
+            try
+            {
+                // Limpiar los combos antes de cargar
+                cbEntornos.Items.Clear();
+
+                // Cargar tipos de animales
+                var formativeEnvironments = vegetalController.GetAllActiveFormativeEnvironments();
+
+                foreach (var environment in formativeEnvironments)
+                {
+                    cbEntornos.Items.Add(environment.Name);
+                }
+                for (int i = 0; i <= 50; i++)
+                {
+                    cbQuatityPlant.Items.Add(i.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void LoadVegetalData(VegetableModel vegetal)
         {
             tbUsuario.Text = vegetal.PlantType;
-            materialComboBox1.Text = vegetal.Quantity.ToString();
+            cbQuatityPlant.Text = vegetal.Quantity.ToString();
+            if (vegetal.IsActive == false)
+                cbEstado.SelectedIndex = 1;
             materialTextBoxEdit8.Text = vegetal.Observations;
+
+            if (vegetal.FormativeEnvironment != null)
+            {
+                cbEntornos.SelectedIndex = cbEntornos.Items.IndexOf(vegetal.FormativeEnvironment.Name);
+            }
         }
 
         private bool ValidateFields()
@@ -58,7 +88,7 @@ namespace GestionAgraria.Views
             if (string.IsNullOrWhiteSpace(tbUsuario.Text))
                 emptyFields.Add("Tipo de Planta");
 
-            if (string.IsNullOrWhiteSpace(materialComboBox1.Text))
+            if (string.IsNullOrWhiteSpace(cbQuatityPlant.Text))
                 emptyFields.Add("Cantidad");
 
             if (emptyFields.Count > 0)
@@ -69,7 +99,7 @@ namespace GestionAgraria.Views
             }
 
             // Validar cantidad
-            if (!int.TryParse(materialComboBox1.Text, out int quantity) || quantity <= 0)
+            if (!int.TryParse(cbQuatityPlant.Text, out int quantity) || quantity <= 0)
             {
                 MessageBox.Show("La cantidad debe ser un número entero mayor a 0.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -80,12 +110,33 @@ namespace GestionAgraria.Views
 
         private void mepVegetalAdd_SaveClick(object sender, EventArgs e)
         {
+            // Verificar si hay entornos formativos disponibles
+            var environments = vegetalController.GetAllActiveFormativeEnvironments();
+            if (environments.Count == 0)
+            {
+                MessageBox.Show("No hay entornos formativos activos disponibles. Debe crear al menos uno antes de registrar un animal.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (!ValidateFields())
                 return;
 
             currentVegetal.PlantType = tbUsuario.Text;
-            currentVegetal.Quantity = int.Parse(materialComboBox1.Text);
+            currentVegetal.Quantity = int.Parse(cbQuatityPlant.Text);
             currentVegetal.Observations = materialTextBoxEdit8.Text;
+
+
+            var selectedEnvironment = environments.FirstOrDefault(env =>
+                env.Name == cbEntornos.Text);
+            if (selectedEnvironment == null)
+            {
+                MessageBox.Show("No hay entornos formativos seleccionado.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            currentVegetal.FormativeEnvironment = selectedEnvironment;
+            currentVegetal.FormativeEnvironmentId = selectedEnvironment.Id;
 
             bool success;
             if (currentVegetal.Id == 0)

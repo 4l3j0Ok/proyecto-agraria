@@ -32,6 +32,36 @@ namespace GestionAgraria.controllers
                 .ToList();
         }
 
+        public List<UserModel> GetUsersForFilter(int estado, string? role = null, string? searchText = null)
+        {
+            var query = _context.Users
+                .Include(u => u.Role)
+                .AsQueryable();
+
+            // 📌 Filtro por estado
+            if (estado == 0) // Activos
+                query = query.Where(u => u.IsActive);
+            else if (estado == 1) // Inactivos
+                query = query.Where(u => !u.IsActive);
+            // estado == 2 → Todos (sin filtro)
+
+            // 📌 Filtro por rol
+            if (!string.IsNullOrEmpty(role))
+                query = query.Where(u => u.Role.Name == role);
+
+            // 📌 Filtro opcional por texto (ejemplo: nombre o email del usuario)
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                string lowerText = searchText.ToLower();
+                query = query.Where(u =>
+                    u.Name.ToLower().Contains(lowerText) ||
+                    u.Email.ToLower().Contains(lowerText)
+                );
+            }
+
+            return query.ToList();
+        }
+
         public UserModel? GetUserByUsername(string username)
         {
             return _context.Users

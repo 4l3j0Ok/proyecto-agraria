@@ -54,11 +54,14 @@ namespace GestionAgraria.Views
             materialLabel8 = new MaterialLabel();
             groupBox1 = new System.Windows.Forms.GroupBox();
             tableLayoutPanel5 = new TableLayoutPanel();
+            panel4 = new System.Windows.Forms.Panel();
+            cbEstado = new MaterialComboBox();
+            materialLabel3 = new MaterialLabel();
             panel1 = new System.Windows.Forms.Panel();
-            materialComboBox2 = new MaterialComboBox();
+            cbEntornos = new MaterialComboBox();
             materialLabel2 = new MaterialLabel();
             panel6 = new System.Windows.Forms.Panel();
-            materialComboBox1 = new MaterialComboBox();
+            cbQuatityPlant = new MaterialComboBox();
             materialLabel6 = new MaterialLabel();
             panel3 = new System.Windows.Forms.Panel();
             tbUsuario = new MaterialTextBoxEdit();
@@ -71,6 +74,7 @@ namespace GestionAgraria.Views
             panel8.SuspendLayout();
             groupBox1.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
+            panel4.SuspendLayout();
             panel1.SuspendLayout();
             panel6.SuspendLayout();
             panel3.SuspendLayout();
@@ -84,7 +88,7 @@ namespace GestionAgraria.Views
             mepVegetalAdd.Depth = 0;
             mepVegetalAdd.Description = "Registrar una nueva planta";
             mepVegetalAdd.Dock = DockStyle.Fill;
-            mepVegetalAdd.ExpandHeight = 0;
+            mepVegetalAdd.ExpandHeight = 344;
             mepVegetalAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepVegetalAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepVegetalAdd.Location = new Point(0, 0);
@@ -96,6 +100,7 @@ namespace GestionAgraria.Views
             mepVegetalAdd.Size = new Size(1152, 344);
             mepVegetalAdd.TabIndex = 0;
             mepVegetalAdd.Title = "Agregar Planta";
+            mepVegetalAdd.ValidationButtonEnable = true;
             mepVegetalAdd.ValidationButtonText = "Guardar";
             mepVegetalAdd.SaveClick += mepVegetalAdd_SaveClick;
             mepVegetalAdd.CancelClick += mepVegetalAdd_CancelClick;
@@ -111,7 +116,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 263F));
-            tableLayoutPanel2.Size = new Size(1104, 263);
+            tableLayoutPanel2.Size = new Size(1104, 260);
             tableLayoutPanel2.TabIndex = 23;
             // 
             // panel2
@@ -121,7 +126,7 @@ namespace GestionAgraria.Views
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1098, 257);
+            panel2.Size = new Size(1098, 254);
             panel2.TabIndex = 11;
             // 
             // groupBox3
@@ -197,7 +202,7 @@ namespace GestionAgraria.Views
             materialLabel8.AutoSize = true;
             materialLabel8.Depth = 0;
             materialLabel8.Dock = DockStyle.Top;
-            materialLabel8.Font = new Font("Robot", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel8.Location = new Point(20, 0);
             materialLabel8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel8.Name = "materialLabel8";
@@ -218,10 +223,12 @@ namespace GestionAgraria.Views
             // 
             // tableLayoutPanel5
             // 
-            tableLayoutPanel5.ColumnCount = 3;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel5.ColumnCount = 4;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel5.Controls.Add(panel4, 3, 0);
             tableLayoutPanel5.Controls.Add(panel1, 2, 0);
             tableLayoutPanel5.Controls.Add(panel6, 1, 0);
             tableLayoutPanel5.Controls.Add(panel3, 0, 0);
@@ -233,40 +240,89 @@ namespace GestionAgraria.Views
             tableLayoutPanel5.Size = new Size(1092, 78);
             tableLayoutPanel5.TabIndex = 29;
             // 
+            // panel4
+            // 
+            panel4.Controls.Add(cbEstado);
+            panel4.Controls.Add(materialLabel3);
+            panel4.Dock = DockStyle.Fill;
+            panel4.Location = new Point(818, 0);
+            panel4.Margin = new Padding(0);
+            panel4.Name = "panel4";
+            panel4.Padding = new Padding(20, 0, 20, 0);
+            panel4.Size = new Size(274, 82);
+            panel4.TabIndex = 34;
+            // 
+            // cbEstado
+            // 
+            cbEstado.AutoResize = false;
+            cbEstado.BackColor = Color.FromArgb(255, 255, 255);
+            cbEstado.Depth = 0;
+            cbEstado.Dock = DockStyle.Top;
+            cbEstado.DrawMode = DrawMode.OwnerDrawVariable;
+            cbEstado.DropDownHeight = 174;
+            cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEstado.DropDownWidth = 121;
+            cbEstado.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbEstado.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbEstado.FormattingEnabled = true;
+            cbEstado.IntegralHeight = false;
+            cbEstado.ItemHeight = 43;
+            cbEstado.Items.AddRange(new object[] { "Activo", "Inactivo" });
+            cbEstado.Location = new Point(20, 19);
+            cbEstado.MaxDropDownItems = 4;
+            cbEstado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbEstado.Name = "cbEstado";
+            cbEstado.Size = new Size(234, 49);
+            cbEstado.StartIndex = 0;
+            cbEstado.TabIndex = 10;
+            // 
+            // materialLabel3
+            // 
+            materialLabel3.AutoSize = true;
+            materialLabel3.Depth = 0;
+            materialLabel3.Dock = DockStyle.Top;
+            materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel3.Location = new Point(20, 0);
+            materialLabel3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel3.Name = "materialLabel3";
+            materialLabel3.Size = new Size(50, 19);
+            materialLabel3.TabIndex = 4;
+            materialLabel3.Text = "Estado";
+            // 
             // panel1
             // 
-            panel1.Controls.Add(materialComboBox2);
+            panel1.Controls.Add(cbEntornos);
             panel1.Controls.Add(materialLabel2);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(728, 0);
+            panel1.Location = new Point(545, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(20, 0, 20, 0);
-            panel1.Size = new Size(364, 82);
+            panel1.Size = new Size(273, 82);
             panel1.TabIndex = 31;
             // 
-            // materialComboBox2
+            // cbEntornos
             // 
-            materialComboBox2.AutoResize = false;
-            materialComboBox2.BackColor = Color.FromArgb(255, 255, 255);
-            materialComboBox2.Depth = 0;
-            materialComboBox2.Dock = DockStyle.Top;
-            materialComboBox2.DrawMode = DrawMode.OwnerDrawVariable;
-            materialComboBox2.DropDownHeight = 174;
-            materialComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            materialComboBox2.DropDownWidth = 121;
-            materialComboBox2.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            materialComboBox2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialComboBox2.FormattingEnabled = true;
-            materialComboBox2.IntegralHeight = false;
-            materialComboBox2.ItemHeight = 43;
-            materialComboBox2.Location = new Point(20, 19);
-            materialComboBox2.MaxDropDownItems = 4;
-            materialComboBox2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialComboBox2.Name = "materialComboBox2";
-            materialComboBox2.Size = new Size(324, 49);
-            materialComboBox2.StartIndex = 0;
-            materialComboBox2.TabIndex = 10;
+            cbEntornos.AutoResize = false;
+            cbEntornos.BackColor = Color.FromArgb(255, 255, 255);
+            cbEntornos.Depth = 0;
+            cbEntornos.Dock = DockStyle.Top;
+            cbEntornos.DrawMode = DrawMode.OwnerDrawVariable;
+            cbEntornos.DropDownHeight = 174;
+            cbEntornos.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEntornos.DropDownWidth = 121;
+            cbEntornos.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbEntornos.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbEntornos.FormattingEnabled = true;
+            cbEntornos.IntegralHeight = false;
+            cbEntornos.ItemHeight = 43;
+            cbEntornos.Location = new Point(20, 19);
+            cbEntornos.MaxDropDownItems = 4;
+            cbEntornos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbEntornos.Name = "cbEntornos";
+            cbEntornos.Size = new Size(233, 49);
+            cbEntornos.StartIndex = 0;
+            cbEntornos.TabIndex = 10;
             // 
             // materialLabel2
             // 
@@ -283,45 +339,45 @@ namespace GestionAgraria.Views
             // 
             // panel6
             // 
-            panel6.Controls.Add(materialComboBox1);
+            panel6.Controls.Add(cbQuatityPlant);
             panel6.Controls.Add(materialLabel6);
             panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(364, 0);
+            panel6.Location = new Point(382, 0);
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
             panel6.Padding = new Padding(20, 0, 20, 0);
-            panel6.Size = new Size(364, 82);
+            panel6.Size = new Size(163, 82);
             panel6.TabIndex = 30;
             // 
-            // materialComboBox1
+            // cbQuatityPlant
             // 
-            materialComboBox1.AutoResize = false;
-            materialComboBox1.BackColor = Color.FromArgb(255, 255, 255);
-            materialComboBox1.Depth = 0;
-            materialComboBox1.Dock = DockStyle.Top;
-            materialComboBox1.DrawMode = DrawMode.OwnerDrawVariable;
-            materialComboBox1.DropDownHeight = 174;
-            materialComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            materialComboBox1.DropDownWidth = 121;
-            materialComboBox1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            materialComboBox1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialComboBox1.FormattingEnabled = true;
-            materialComboBox1.IntegralHeight = false;
-            materialComboBox1.ItemHeight = 43;
-            materialComboBox1.Location = new Point(20, 19);
-            materialComboBox1.MaxDropDownItems = 4;
-            materialComboBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialComboBox1.Name = "materialComboBox1";
-            materialComboBox1.Size = new Size(324, 49);
-            materialComboBox1.StartIndex = 0;
-            materialComboBox1.TabIndex = 10;
+            cbQuatityPlant.AutoResize = false;
+            cbQuatityPlant.BackColor = Color.FromArgb(255, 255, 255);
+            cbQuatityPlant.Depth = 0;
+            cbQuatityPlant.Dock = DockStyle.Top;
+            cbQuatityPlant.DrawMode = DrawMode.OwnerDrawVariable;
+            cbQuatityPlant.DropDownHeight = 174;
+            cbQuatityPlant.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbQuatityPlant.DropDownWidth = 121;
+            cbQuatityPlant.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbQuatityPlant.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbQuatityPlant.FormattingEnabled = true;
+            cbQuatityPlant.IntegralHeight = false;
+            cbQuatityPlant.ItemHeight = 43;
+            cbQuatityPlant.Location = new Point(20, 19);
+            cbQuatityPlant.MaxDropDownItems = 4;
+            cbQuatityPlant.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbQuatityPlant.Name = "cbQuatityPlant";
+            cbQuatityPlant.Size = new Size(123, 49);
+            cbQuatityPlant.StartIndex = 0;
+            cbQuatityPlant.TabIndex = 10;
             // 
             // materialLabel6
             // 
             materialLabel6.AutoSize = true;
             materialLabel6.Depth = 0;
             materialLabel6.Dock = DockStyle.Top;
-            materialLabel6.Font = new Font("Robot", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel6.Location = new Point(20, 0);
             materialLabel6.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel6.Name = "materialLabel6";
@@ -338,7 +394,7 @@ namespace GestionAgraria.Views
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(20, 0, 20, 0);
-            panel3.Size = new Size(364, 82);
+            panel3.Size = new Size(382, 82);
             panel3.TabIndex = 21;
             // 
             // tbUsuario
@@ -367,7 +423,7 @@ namespace GestionAgraria.Views
             tbUsuario.SelectionLength = 0;
             tbUsuario.SelectionStart = 0;
             tbUsuario.ShortcutsEnabled = true;
-            tbUsuario.Size = new Size(324, 48);
+            tbUsuario.Size = new Size(342, 48);
             tbUsuario.TabIndex = 0;
             tbUsuario.TabStop = false;
             tbUsuario.TextAlign = HorizontalAlignment.Left;
@@ -379,7 +435,7 @@ namespace GestionAgraria.Views
             materialLabel1.AutoSize = true;
             materialLabel1.Depth = 0;
             materialLabel1.Dock = DockStyle.Top;
-            materialLabel1.Font = new Font("Robot", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel1.Location = new Point(20, 0);
             materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel1.Name = "materialLabel1";
@@ -387,13 +443,13 @@ namespace GestionAgraria.Views
             materialLabel1.TabIndex = 5;
             materialLabel1.Text = "Nombre planta";
             // 
-            // UCVegetalAdd
+            // UCVegetableAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(mepVegetalAdd);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "UCVegetalAdd";
+            Name = "UCVegetableAdd";
             Size = new Size(1152, 344);
             mepVegetalAdd.ResumeLayout(false);
             mepVegetalAdd.PerformLayout();
@@ -405,6 +461,8 @@ namespace GestionAgraria.Views
             panel8.PerformLayout();
             groupBox1.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel6.ResumeLayout(false);
@@ -437,14 +495,16 @@ namespace GestionAgraria.Views
         private System.Windows.Forms.GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel6;
-        private ReaLTaiizor.Controls.MaterialComboBox materialComboBox1;
+        private ReaLTaiizor.Controls.MaterialComboBox cbQuatityPlant;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel6;
         private System.Windows.Forms.Panel panel3;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbUsuario;
         private ReaLTaiizor.Controls.MaterialLabel lblTipoPlanta;
         private System.Windows.Forms.Panel panel1;
-        private MaterialComboBox materialComboBox2;
+        private MaterialComboBox cbEntornos;
         private MaterialLabel materialLabel2;
         private MaterialLabel materialLabel1;
+        private MaterialComboBox cbEstado;
+        private MaterialLabel materialLabel3;
     }
 }

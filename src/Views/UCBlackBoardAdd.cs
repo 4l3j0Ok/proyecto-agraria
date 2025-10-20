@@ -52,7 +52,7 @@ namespace GestionAgraria.Views
 
         private void LoadFormativeEnvironments()
         {
-            List<FormativeEnvironmentModel> environments = formativeEnvironmentController.GetAllFormativeEnvironments();
+            List<FormativeEnvironmentModel> environments = formativeEnvironmentController.GetAllFormativeEnvironmentsActive();
             cbFormativeEnvironment.Items.Clear();
             
             foreach (FormativeEnvironmentModel environment in environments)

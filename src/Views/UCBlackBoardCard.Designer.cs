@@ -77,7 +77,7 @@
             lblFecha.Location = new Point(5, 24);
             lblFecha.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblFecha.Name = "lblFecha";
-            lblFecha.Size = new Size(31, 14);
+            lblFecha.Size = new Size(34, 14);
             lblFecha.TabIndex = 6;
             lblFecha.Text = "Fecha";
             lblFecha.TextAlign = ContentAlignment.TopCenter;

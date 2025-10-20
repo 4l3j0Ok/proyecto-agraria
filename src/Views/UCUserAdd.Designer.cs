@@ -57,6 +57,9 @@ namespace GestionAgraria.Views
             materialLabel4 = new MaterialLabel();
             groupBox1 = new System.Windows.Forms.GroupBox();
             tableLayoutPanel5 = new TableLayoutPanel();
+            panel1 = new System.Windows.Forms.Panel();
+            cbEstadoUser = new MaterialComboBox();
+            materialLabel1 = new MaterialLabel();
             panel3 = new System.Windows.Forms.Panel();
             tbUserUsername = new MaterialTextBoxEdit();
             lblUsuario = new MaterialLabel();
@@ -87,6 +90,7 @@ namespace GestionAgraria.Views
             panel9.SuspendLayout();
             groupBox1.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
+            panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
             panel7.SuspendLayout();
@@ -104,8 +108,8 @@ namespace GestionAgraria.Views
             mepUserAdd.Controls.Add(tableLayoutPanel2);
             mepUserAdd.Depth = 0;
             mepUserAdd.Description = "Dar de alta un nuevo usuario para la plataforma";
-            mepUserAdd.Dock = DockStyle.Top;
-            mepUserAdd.ExpandHeight = 1875;
+            mepUserAdd.Dock = DockStyle.Fill;
+            mepUserAdd.ExpandHeight = 657;
             mepUserAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepUserAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepUserAdd.Location = new Point(0, 0);
@@ -114,14 +118,17 @@ namespace GestionAgraria.Views
             mepUserAdd.Name = "mepUserAdd";
             mepUserAdd.Padding = new Padding(24, 64, 24, 20);
             mepUserAdd.ShowCollapseExpand = false;
-            mepUserAdd.Size = new Size(1101, 1875);
+            mepUserAdd.Size = new Size(812, 657);
             mepUserAdd.TabIndex = 1;
             mepUserAdd.Title = "Agregar usuario";
             mepUserAdd.ValidationButtonEnable = true;
             mepUserAdd.ValidationButtonText = "Guardar";
+            mepUserAdd.SaveClick += mepUserAdd_SaveClick;
+            mepUserAdd.CancelClick += mepUserAdd_CancelClick;
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.AutoScroll = true;
             tableLayoutPanel2.AutoSize = true;
             tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel2.ColumnCount = 1;
@@ -134,7 +141,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(1053, 1791);
+            tableLayoutPanel2.Size = new Size(764, 573);
             tableLayoutPanel2.TabIndex = 22;
             // 
             // panel2
@@ -147,7 +154,7 @@ namespace GestionAgraria.Views
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(3, 221);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1047, 300);
+            panel2.Size = new Size(758, 300);
             panel2.TabIndex = 11;
             // 
             // groupBox3
@@ -156,7 +163,7 @@ namespace GestionAgraria.Views
             groupBox3.Dock = DockStyle.Top;
             groupBox3.Location = new Point(0, 200);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1047, 100);
+            groupBox3.Size = new Size(758, 100);
             groupBox3.TabIndex = 32;
             groupBox3.TabStop = false;
             groupBox3.Text = "Datos de contacto";
@@ -173,7 +180,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(1041, 78);
+            tableLayoutPanel3.Size = new Size(752, 78);
             tableLayoutPanel3.TabIndex = 27;
             // 
             // panel8
@@ -185,7 +192,7 @@ namespace GestionAgraria.Views
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
             panel8.Padding = new Padding(20, 0, 20, 0);
-            panel8.Size = new Size(520, 78);
+            panel8.Size = new Size(376, 78);
             panel8.TabIndex = 26;
             // 
             // tbUserPhone
@@ -214,7 +221,7 @@ namespace GestionAgraria.Views
             tbUserPhone.SelectionLength = 0;
             tbUserPhone.SelectionStart = 0;
             tbUserPhone.ShortcutsEnabled = true;
-            tbUserPhone.Size = new Size(480, 48);
+            tbUserPhone.Size = new Size(336, 48);
             tbUserPhone.TabIndex = 0;
             tbUserPhone.TabStop = false;
             tbUserPhone.TextAlign = HorizontalAlignment.Left;
@@ -239,11 +246,11 @@ namespace GestionAgraria.Views
             panel10.Controls.Add(tbUserEmail);
             panel10.Controls.Add(materialLabel9);
             panel10.Dock = DockStyle.Fill;
-            panel10.Location = new Point(520, 0);
+            panel10.Location = new Point(376, 0);
             panel10.Margin = new Padding(0);
             panel10.Name = "panel10";
             panel10.Padding = new Padding(20, 0, 20, 0);
-            panel10.Size = new Size(521, 78);
+            panel10.Size = new Size(376, 78);
             panel10.TabIndex = 25;
             // 
             // tbUserEmail
@@ -272,7 +279,7 @@ namespace GestionAgraria.Views
             tbUserEmail.SelectionLength = 0;
             tbUserEmail.SelectionStart = 0;
             tbUserEmail.ShortcutsEnabled = true;
-            tbUserEmail.Size = new Size(481, 48);
+            tbUserEmail.Size = new Size(336, 48);
             tbUserEmail.TabIndex = 0;
             tbUserEmail.TabStop = false;
             tbUserEmail.TextAlign = HorizontalAlignment.Left;
@@ -298,7 +305,7 @@ namespace GestionAgraria.Views
             groupBox2.Dock = DockStyle.Top;
             groupBox2.Location = new Point(0, 100);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1047, 100);
+            groupBox2.Size = new Size(758, 100);
             groupBox2.TabIndex = 31;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos personales";
@@ -317,7 +324,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Size = new Size(1041, 78);
+            tableLayoutPanel4.Size = new Size(752, 78);
             tableLayoutPanel4.TabIndex = 30;
             // 
             // panel6
@@ -329,7 +336,7 @@ namespace GestionAgraria.Views
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
             panel6.Padding = new Padding(20, 0, 20, 0);
-            panel6.Size = new Size(347, 78);
+            panel6.Size = new Size(250, 78);
             panel6.TabIndex = 24;
             // 
             // tbUserPersonId
@@ -358,7 +365,7 @@ namespace GestionAgraria.Views
             tbUserPersonId.SelectionLength = 0;
             tbUserPersonId.SelectionStart = 0;
             tbUserPersonId.ShortcutsEnabled = true;
-            tbUserPersonId.Size = new Size(307, 48);
+            tbUserPersonId.Size = new Size(210, 48);
             tbUserPersonId.TabIndex = 0;
             tbUserPersonId.TabStop = false;
             tbUserPersonId.TextAlign = HorizontalAlignment.Left;
@@ -383,11 +390,11 @@ namespace GestionAgraria.Views
             panel5.Controls.Add(tbUserName);
             panel5.Controls.Add(materialLabel5);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(347, 0);
+            panel5.Location = new Point(250, 0);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
             panel5.Padding = new Padding(20, 0, 20, 0);
-            panel5.Size = new Size(347, 78);
+            panel5.Size = new Size(250, 78);
             panel5.TabIndex = 27;
             // 
             // tbUserName
@@ -416,7 +423,7 @@ namespace GestionAgraria.Views
             tbUserName.SelectionLength = 0;
             tbUserName.SelectionStart = 0;
             tbUserName.ShortcutsEnabled = true;
-            tbUserName.Size = new Size(307, 48);
+            tbUserName.Size = new Size(210, 48);
             tbUserName.TabIndex = 0;
             tbUserName.TabStop = false;
             tbUserName.TextAlign = HorizontalAlignment.Left;
@@ -441,11 +448,11 @@ namespace GestionAgraria.Views
             panel9.Controls.Add(tbUserSurname);
             panel9.Controls.Add(materialLabel4);
             panel9.Dock = DockStyle.Fill;
-            panel9.Location = new Point(694, 0);
+            panel9.Location = new Point(500, 0);
             panel9.Margin = new Padding(0);
             panel9.Name = "panel9";
             panel9.Padding = new Padding(20, 0, 20, 0);
-            panel9.Size = new Size(347, 78);
+            panel9.Size = new Size(252, 78);
             panel9.TabIndex = 29;
             // 
             // tbUserSurname
@@ -474,7 +481,7 @@ namespace GestionAgraria.Views
             tbUserSurname.SelectionLength = 0;
             tbUserSurname.SelectionStart = 0;
             tbUserSurname.ShortcutsEnabled = true;
-            tbUserSurname.Size = new Size(307, 48);
+            tbUserSurname.Size = new Size(212, 48);
             tbUserSurname.TabIndex = 0;
             tbUserSurname.TabStop = false;
             tbUserSurname.TextAlign = HorizontalAlignment.Left;
@@ -500,18 +507,20 @@ namespace GestionAgraria.Views
             groupBox1.Dock = DockStyle.Top;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1047, 100);
+            groupBox1.Size = new Size(758, 100);
             groupBox1.TabIndex = 30;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del sistema";
             // 
             // tableLayoutPanel5
             // 
-            tableLayoutPanel5.ColumnCount = 4;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel5.ColumnCount = 5;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel5.Controls.Add(panel1, 4, 0);
             tableLayoutPanel5.Controls.Add(panel3, 0, 0);
             tableLayoutPanel5.Controls.Add(panel4, 2, 0);
             tableLayoutPanel5.Controls.Add(panel7, 3, 0);
@@ -521,8 +530,57 @@ namespace GestionAgraria.Views
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(1041, 78);
+            tableLayoutPanel5.Size = new Size(752, 78);
             tableLayoutPanel5.TabIndex = 29;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(cbEstadoUser);
+            panel1.Controls.Add(materialLabel1);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(600, 0);
+            panel1.Margin = new Padding(0);
+            panel1.Name = "panel1";
+            panel1.Padding = new Padding(20, 0, 20, 0);
+            panel1.Size = new Size(152, 78);
+            panel1.TabIndex = 29;
+            // 
+            // cbEstadoUser
+            // 
+            cbEstadoUser.AutoResize = false;
+            cbEstadoUser.BackColor = Color.FromArgb(255, 255, 255);
+            cbEstadoUser.Depth = 0;
+            cbEstadoUser.Dock = DockStyle.Top;
+            cbEstadoUser.DrawMode = DrawMode.OwnerDrawVariable;
+            cbEstadoUser.DropDownHeight = 174;
+            cbEstadoUser.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEstadoUser.DropDownWidth = 121;
+            cbEstadoUser.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbEstadoUser.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbEstadoUser.FormattingEnabled = true;
+            cbEstadoUser.IntegralHeight = false;
+            cbEstadoUser.ItemHeight = 43;
+            cbEstadoUser.Items.AddRange(new object[] { "Activo", "Inactivo" });
+            cbEstadoUser.Location = new Point(20, 19);
+            cbEstadoUser.MaxDropDownItems = 4;
+            cbEstadoUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbEstadoUser.Name = "cbEstadoUser";
+            cbEstadoUser.Size = new Size(112, 49);
+            cbEstadoUser.StartIndex = 0;
+            cbEstadoUser.TabIndex = 9;
+            // 
+            // materialLabel1
+            // 
+            materialLabel1.AutoSize = true;
+            materialLabel1.Depth = 0;
+            materialLabel1.Dock = DockStyle.Top;
+            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.Location = new Point(20, 0);
+            materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(50, 19);
+            materialLabel1.TabIndex = 4;
+            materialLabel1.Text = "Estado";
             // 
             // panel3
             // 
@@ -533,7 +591,7 @@ namespace GestionAgraria.Views
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(20, 0, 20, 0);
-            panel3.Size = new Size(260, 78);
+            panel3.Size = new Size(150, 78);
             panel3.TabIndex = 21;
             // 
             // tbUserUsername
@@ -562,7 +620,7 @@ namespace GestionAgraria.Views
             tbUserUsername.SelectionLength = 0;
             tbUserUsername.SelectionStart = 0;
             tbUserUsername.ShortcutsEnabled = true;
-            tbUserUsername.Size = new Size(220, 48);
+            tbUserUsername.Size = new Size(110, 48);
             tbUserUsername.TabIndex = 0;
             tbUserUsername.TabStop = false;
             tbUserUsername.TextAlign = HorizontalAlignment.Left;
@@ -587,11 +645,11 @@ namespace GestionAgraria.Views
             panel4.Controls.Add(tbUserPasswordConfirm);
             panel4.Controls.Add(materialLabel3);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(520, 0);
+            panel4.Location = new Point(300, 0);
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(20, 0, 20, 0);
-            panel4.Size = new Size(260, 78);
+            panel4.Size = new Size(150, 78);
             panel4.TabIndex = 23;
             // 
             // tbUserPasswordConfirm
@@ -620,7 +678,7 @@ namespace GestionAgraria.Views
             tbUserPasswordConfirm.SelectionLength = 0;
             tbUserPasswordConfirm.SelectionStart = 0;
             tbUserPasswordConfirm.ShortcutsEnabled = true;
-            tbUserPasswordConfirm.Size = new Size(220, 48);
+            tbUserPasswordConfirm.Size = new Size(110, 48);
             tbUserPasswordConfirm.TabIndex = 0;
             tbUserPasswordConfirm.TabStop = false;
             tbUserPasswordConfirm.TextAlign = HorizontalAlignment.Left;
@@ -645,11 +703,11 @@ namespace GestionAgraria.Views
             panel7.Controls.Add(cmbRole);
             panel7.Controls.Add(materialLabel7);
             panel7.Dock = DockStyle.Fill;
-            panel7.Location = new Point(780, 0);
+            panel7.Location = new Point(450, 0);
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
             panel7.Padding = new Padding(20, 0, 20, 0);
-            panel7.Size = new Size(261, 78);
+            panel7.Size = new Size(150, 78);
             panel7.TabIndex = 28;
             // 
             // cmbRole
@@ -671,7 +729,7 @@ namespace GestionAgraria.Views
             cmbRole.MaxDropDownItems = 4;
             cmbRole.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cmbRole.Name = "cmbRole";
-            cmbRole.Size = new Size(221, 49);
+            cmbRole.Size = new Size(110, 49);
             cmbRole.StartIndex = 0;
             cmbRole.TabIndex = 9;
             // 
@@ -693,11 +751,11 @@ namespace GestionAgraria.Views
             panel11.Controls.Add(tbUserPassword);
             panel11.Controls.Add(materialLabel2);
             panel11.Dock = DockStyle.Fill;
-            panel11.Location = new Point(260, 0);
+            panel11.Location = new Point(150, 0);
             panel11.Margin = new Padding(0);
             panel11.Name = "panel11";
             panel11.Padding = new Padding(20, 0, 20, 0);
-            panel11.Size = new Size(260, 78);
+            panel11.Size = new Size(150, 78);
             panel11.TabIndex = 22;
             // 
             // tbUserPassword
@@ -726,7 +784,7 @@ namespace GestionAgraria.Views
             tbUserPassword.SelectionLength = 0;
             tbUserPassword.SelectionStart = 0;
             tbUserPassword.ShortcutsEnabled = true;
-            tbUserPassword.Size = new Size(220, 48);
+            tbUserPassword.Size = new Size(110, 48);
             tbUserPassword.TabIndex = 0;
             tbUserPassword.TabStop = false;
             tbUserPassword.TextAlign = HorizontalAlignment.Left;
@@ -754,7 +812,7 @@ namespace GestionAgraria.Views
             panel12.Dock = DockStyle.Top;
             panel12.Location = new Point(3, 3);
             panel12.Name = "panel12";
-            panel12.Size = new Size(1047, 212);
+            panel12.Size = new Size(758, 212);
             panel12.TabIndex = 12;
             // 
             // tableLayoutPanel1
@@ -765,7 +823,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(pbUserProfilePicture, 0, 0);
             tableLayoutPanel1.Controls.Add(btnUploadProfilePicture, 0, 1);
-            tableLayoutPanel1.Location = new Point(444, 0);
+            tableLayoutPanel1.Location = new Point(300, 0);
             tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.MaximumSize = new Size(158, 0);
             tableLayoutPanel1.MinimumSize = new Size(158, 0);
@@ -825,7 +883,7 @@ namespace GestionAgraria.Views
             Controls.Add(mepUserAdd);
             Margin = new Padding(0);
             Name = "UCUserAdd";
-            Size = new Size(1101, 655);
+            Size = new Size(812, 657);
             Load += UCUserAdd_Load;
             mepUserAdd.ResumeLayout(false);
             mepUserAdd.PerformLayout();
@@ -848,6 +906,8 @@ namespace GestionAgraria.Views
             panel9.PerformLayout();
             groupBox1.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel4.ResumeLayout(false);
@@ -906,5 +966,8 @@ namespace GestionAgraria.Views
         private TableLayoutPanel tableLayoutPanel1;
         private ParrotPictureBox pbUserProfilePicture;
         private MaterialButton btnUploadProfilePicture;
+        private System.Windows.Forms.Panel panel1;
+        private MaterialComboBox cbEstadoUser;
+        private MaterialLabel materialLabel1;
     }
 }

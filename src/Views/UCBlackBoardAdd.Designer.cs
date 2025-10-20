@@ -60,7 +60,7 @@ namespace GestionAgraria.Views
             mepBlackBoard.Depth = 0;
             mepBlackBoard.Description = "Crea notas personalizadas con tablas incluídas";
             mepBlackBoard.Dock = DockStyle.Fill;
-            mepBlackBoard.ExpandHeight = 0;
+            mepBlackBoard.ExpandHeight = 548;
             mepBlackBoard.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepBlackBoard.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepBlackBoard.Location = new Point(0, 0);
@@ -68,7 +68,8 @@ namespace GestionAgraria.Views
             mepBlackBoard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepBlackBoard.Name = "mepBlackBoard";
             mepBlackBoard.Padding = new Padding(21, 48, 21, 20);
-            mepBlackBoard.Size = new Size(906, 548);
+            mepBlackBoard.ShowCollapseExpand = false;
+            mepBlackBoard.Size = new Size(889, 548);
             mepBlackBoard.TabIndex = 0;
             mepBlackBoard.Title = "Pizarrón";
             mepBlackBoard.ValidationButtonEnable = true;
@@ -91,7 +92,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(847, 512);
+            tableLayoutPanel2.Size = new Size(847, 480);
             tableLayoutPanel2.TabIndex = 3;
             // 
             // dgvData
@@ -298,7 +299,6 @@ namespace GestionAgraria.Views
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion

@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ReaLTaiizor.Forms;
+using System.Diagnostics;
 
 namespace GestionAgraria.Views
 {
@@ -37,9 +38,16 @@ namespace GestionAgraria.Views
 
         public static void OpenFormAdd(UserModel user)
         {
-            UCUserAdd userAdd = new UCUserAdd(user);
-            FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-            formPrincipal?.VerFormularioTab(userAdd, formPrincipal.tabUsers);
+            try
+            {
+                UCUserAdd userAdd = new UCUserAdd(user);
+                FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
+                formPrincipal?.VerFormularioTab(userAdd, formPrincipal.tabUsers);
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
         }
     }
 }

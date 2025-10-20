@@ -12,6 +12,11 @@ namespace GestionAgraria.Models
         [Required]
         public string PlantType { get; set; } = string.Empty;
 
+        [ForeignKey("FormativeEnvironment")]
+        [Required]
+        public int FormativeEnvironmentId { get; set; }
+        public FormativeEnvironmentModel FormativeEnvironment { get; set; } = null!;
+
         [Required]
         public int Quantity { get; set; }
 

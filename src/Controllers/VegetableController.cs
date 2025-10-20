@@ -27,8 +27,39 @@ namespace GestionAgraria.controllers
         public List<VegetableModel> GetAllVegetables()
         {
             return _context.Vegetables
+                .Include(v => v.FormativeEnvironment)
                 .Where(v => v.IsActive)
                 .ToList();
+        }
+
+        public List<VegetableModel> GetVegetablesForFiltro(int estado, string? entorno = null, string? searchText = null)
+        {
+            var query = _context.Vegetables
+        .Include(v => v.FormativeEnvironment) // ?? Incluimos el entorno
+        .AsQueryable();
+
+            // ?? Filtro por estado
+            if (estado == 0) // Activos
+                query = query.Where(v => v.IsActive);
+            else if (estado == 1) // Inactivos
+                query = query.Where(v => !v.IsActive);
+            // estado == 2 ? Todos (sin filtro)
+
+            // ?? Filtro por entorno
+            if (!string.IsNullOrEmpty(entorno))
+                query = query.Where(v => v.FormativeEnvironment.Name == entorno);
+
+            // ?? Filtro por texto (ej: tipo de planta o descripción)
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                string lowerText = searchText.ToLower();
+                query = query.Where(v =>
+                    v.PlantType.ToLower().Contains(lowerText) ||
+                    v.Observations.ToLower().Contains(lowerText)
+                );
+            }
+
+            return query.ToList();
         }
 
         public VegetableModel? GetVegetalById(int id)
@@ -78,6 +109,8 @@ namespace GestionAgraria.controllers
                 existingVegetal.Quantity = vegetal.Quantity;
                 existingVegetal.Observations = vegetal.Observations;
                 existingVegetal.IsActive = vegetal.IsActive;
+                existingVegetal.FormativeEnvironmentId = vegetal.FormativeEnvironmentId;
+                existingVegetal.FormativeEnvironment = vegetal.FormativeEnvironment;
 
                 _context.SaveChanges();
                 return true;

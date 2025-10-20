@@ -69,7 +69,12 @@ namespace GestionAgraria.Views
                 var responsibleText = $"{formativeEnvironment.Responsible.Name} {formativeEnvironment.Responsible.Surname} - {formativeEnvironment.Responsible.Username}";
                 cbEnvironmentResponsable.Text = responsibleText;
             }
-
+            if (formativeEnvironment.IsActive == false)
+            {
+                cbEstado.SelectedIndex = 1;
+            }
+            else
+                cbEstado.SelectedIndex = 0;
             // Cargar datos académicos
             if (formativeEnvironment.AcademicData != null && formativeEnvironment.AcademicData.Any())
             {
@@ -127,6 +132,9 @@ namespace GestionAgraria.Views
             currentFormativeEnvironment.Name = tbEnvironmentName.Text;
             currentFormativeEnvironment.Area = cbEnvironmentArea.Text;
             currentFormativeEnvironment.Observations = tbEnvironmentObservations.Text;
+
+            if (!(cbEstado.SelectedIndex == 0))
+                currentFormativeEnvironment.IsActive = false;
 
             // Obtener el usuario responsable seleccionado
             var users = userController.GetAllUsers();

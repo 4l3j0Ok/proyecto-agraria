@@ -133,7 +133,7 @@
             lblPlantType.TabIndex = 0;
             lblPlantType.Text = "Tipo de Planta";
             // 
-            // UCVegetalCard
+            // UCVegetableCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -142,7 +142,7 @@
             Margin = new Padding(3, 2, 3, 2);
             MaximumSize = new Size(600, 70);
             MinimumSize = new Size(400, 70);
-            Name = "UCVegetalCard";
+            Name = "UCVegetableCard";
             Size = new Size(453, 70);
             materialCard1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);

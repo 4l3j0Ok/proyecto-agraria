@@ -161,12 +161,12 @@
             lblUserName.TabIndex = 0;
             lblUserName.Text = "Responsable";
             // 
-            // UCSellsCard
+            // UCSellCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
-            Name = "UCSellsCard";
+            Name = "UCSellCard";
             Size = new Size(624, 68);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,12 +25,57 @@ namespace GestionAgraria.controllers
             _context = context;
         }
 
-        public List<FormativeEnvironmentModel> GetAllFormativeEnvironments()
+        public List<FormativeEnvironmentModel> GetFormativeEnvironments(int estado,string? area = null,string? searchText = null)
+        {
+            var query = _context.FormativeEnvironments
+                .Include(fe => fe.Responsible)
+                .Include(fe => fe.AcademicData.Where(ad => ad.IsActive))
+                .AsQueryable();
+
+            // 📌 Filtro por estado
+            if (estado == 0) // activos
+                query = query.Where(fe => fe.IsActive);
+            else if (estado == 1) // inactivos
+                query = query.Where(fe => !fe.IsActive);
+            // estado == 2 → todos
+
+            // 📌 Filtro por área
+            if (!string.IsNullOrEmpty(area))
+                query = query.Where(fe => fe.Area == area);
+
+            // 📌 Filtro por texto (responsable o nombre de entorno)
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                string lowerText = searchText.ToLower();
+                query = query.Where(fe =>
+                    fe.Name.ToLower().Contains(lowerText) || // nombre de entorno
+                    fe.Responsible.Name.ToLower().Contains(lowerText) // responsable
+                );
+            }
+
+            return query.ToList();
+        }
+        public List<FormativeEnvironmentModel> GetAllFormativeEnvironmentsActive()
         {
             return _context.FormativeEnvironments
                 .Include(fe => fe.Responsible)
                 .Include(fe => fe.AcademicData.Where(ad => ad.IsActive))
                 .Where(fe => fe.IsActive)
+            .ToList();
+        }
+        public List<FormativeEnvironmentModel> GetAllFormativeEnvironmentsInactive()
+        {
+            return _context.FormativeEnvironments
+                .Include(fe => fe.Responsible)
+                .Include(fe => fe.AcademicData.Where(ad => ad.IsActive))
+                .Where(fe => !fe.IsActive)
+            .ToList();
+        }
+        public List<FormativeEnvironmentModel> GetAllFormativeEnvironments()
+        {
+            return _context.FormativeEnvironments
+                .Include(fe => fe.Responsible)
+                .Include(fe => fe.AcademicData.Where(ad => ad.IsActive))
                 .ToList();
         }
 

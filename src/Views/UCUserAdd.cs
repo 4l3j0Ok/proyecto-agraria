@@ -1,6 +1,8 @@
 ﻿using GestionAgraria.controllers;
 using GestionAgraria.Controllers;
+using GestionAgraria.Controls;
 using GestionAgraria.models;
+using ReaLTaiizor.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +42,8 @@ namespace GestionAgraria.Views
                 tbUserPersonId.Text = user.PersonId;
                 pbUserProfilePicture.Image = Utils.ByteArrayToImage(user.ProfilePicture);
                 cmbRole.SelectedItem = user.Role?.Name ?? "Sin rol";
+                if (user.IsActive == false)
+                    cbEstadoUser.SelectedIndex = 1;
             }
             else
             {
@@ -61,6 +65,8 @@ namespace GestionAgraria.Views
 
         private void UCUserAdd_Load(object sender, EventArgs e)
         {
+            cbEstadoUser.SelectedIndex = 0;
+
             List<RoleModel> roles = roleController.GetAllRoles();
             foreach (RoleModel role in roles)
             {
@@ -127,38 +133,52 @@ namespace GestionAgraria.Views
 
         private void mepUserAdd_SaveClick(object sender, EventArgs e)
         {
-            // Validar campos antes de guardar
-            if (!ValidateFields())
-                return;
+            bool success = false;
+            try
+            {
+                // Validar campos antes de guardar
+                if (!ValidateFields())
+                    return;
 
-            currentUser.Name = tbUserName.Text;
-            currentUser.Surname = tbUserSurname.Text;
-            currentUser.Username = tbUserUsername.Text;
-            currentUser.Phone = tbUserPhone.Text;
-            currentUser.Email = tbUserEmail.Text;
-            currentUser.Password = tbUserPassword.Text;
-            currentUser.PersonId = tbUserPersonId.Text;
-            currentUser.ProfilePicture = Utils.ImageToByteArray(pbUserProfilePicture.Image);
-            RoleModel? selectedRole = roleController.GetRoleByName(cmbRole.SelectedItem?.ToString() ?? "");
-            if (selectedRole != null)
-            {
-                currentUser.RoleId = selectedRole.Id;
-                currentUser.Role = selectedRole;
+                currentUser.Name = tbUserName.Text;
+                currentUser.Surname = tbUserSurname.Text;
+                currentUser.Username = tbUserUsername.Text;
+                currentUser.Phone = tbUserPhone.Text;
+                currentUser.Email = tbUserEmail.Text;
+                currentUser.Password = tbUserPassword.Text;
+                currentUser.PersonId = tbUserPersonId.Text;
+
+                if (!(cbEstadoUser.SelectedIndex == 0))
+                    currentUser.IsActive = false;
+                else
+                    currentUser.IsActive = true;
+
+                currentUser.ProfilePicture = Utils.ImageToByteArray(pbUserProfilePicture.Image);
+                RoleModel? selectedRole = roleController.GetRoleByName(cmbRole.SelectedItem?.ToString() ?? "");
+                if (selectedRole != null)
+                {
+                    currentUser.RoleId = selectedRole.Id;
+                    currentUser.Role = selectedRole;
+                }
+
+                if (currentUser.Id == 0)
+                    success = userController.CreateUser(currentUser);
+                else
+                    success = userController.UpdateUser(currentUser);
+                if (success)
+                {
+                    MessageBox.Show("Usuario guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar el usuario. El nombre de usuario, email o identificación ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                formPrincipal.RestaurarFormularioTab(formPrincipal.tabUsers);
             }
-            bool success;
-            if (currentUser.Id == 0)
-                success = userController.CreateUser(currentUser);
-            else
-                success = userController.UpdateUser(currentUser);
-            if (success)
+            catch (Exception ex)
             {
-                MessageBox.Show("Usuario guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Error al guardar: " + ex.Message);
             }
-            else
-            {
-                MessageBox.Show("Error al guardar el usuario. El nombre de usuario, email o identificación ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            formPrincipal.RestaurarFormularioTab(formPrincipal.tabUsers);
         }
 
         private void mepUserAdd_CancelClick(object sender, EventArgs e)
