@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionAgraria.Models;
 using GestionAgraria.controllers;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace GestionAgraria.Views
 {
@@ -30,6 +31,7 @@ namespace GestionAgraria.Views
                 mepAnimalAdd.Title = "Modificar Animal";
                 mepAnimalAdd.Description = "Edita los datos del animal seleccionado";
                 currentAnimal = animal;
+                
                 LoadAnimalData(animal);
             }
             else
@@ -59,6 +61,12 @@ namespace GestionAgraria.Views
                 {
                     cbAnimalType.Items.Add(type.Name);
                 }
+                var formativeEnvironments = animalController.GetAllActiveFormativeEnvironments();
+
+                foreach (var environment in formativeEnvironments)
+                {
+                    cbAnimalFormativeEnvironment.Items.Add(environment.Name);
+                }
 
                 // Cargar sexos
                 cbAnimalSex.Items.AddRange(new string[] { "Macho", "Hembra" });
@@ -70,6 +78,7 @@ namespace GestionAgraria.Views
             {
                 MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            cbEstado.SelectedIndex = 0; // Por defecto activo
         }
 
         private void LoadAnimalData(AnimalModel animal)
@@ -81,10 +90,14 @@ namespace GestionAgraria.Views
             cbAnimalObservations.Text = animal.Observations;
             dtAnimalEntryDate.Value = animal.BirthOrEntryDate;
             // Cargar entorno formativo si existe
+
             if (animal.FormativeEnvironment != null)
             {
                 cbAnimalFormativeEnvironment.SelectedIndex = cbAnimalFormativeEnvironment.Items.IndexOf(animal.FormativeEnvironment.Name);
             }
+
+            if (animal.IsActive == false)
+                cbEstado.SelectedIndex = 1;
         }
 
         private bool ValidateFields()
@@ -124,6 +137,11 @@ namespace GestionAgraria.Views
             currentAnimal.Sex = cbAnimalSex.Text;
             currentAnimal.ProductiveState = cbAnimalProductiveState.Text;
             currentAnimal.Observations = cbAnimalObservations.Text;
+
+            if (!(cbEstado.SelectedIndex == 0))
+                currentAnimal.IsActive = false;
+            else
+                currentAnimal.IsActive = true;
 
             // Verificar si hay entornos formativos disponibles
             var environments = animalController.GetAllActiveFormativeEnvironments();
@@ -180,11 +198,11 @@ namespace GestionAgraria.Views
         private void cbAnimalFormativeEnvironment_DropDown(object sender, EventArgs e)
         {
             // Cargar entornos formativos
-            var formativeEnvironments = animalController.GetAllActiveFormativeEnvironments();
-            foreach (var environment in formativeEnvironments)
-            {
-                cbAnimalFormativeEnvironment.Items.Add(environment.Name);
-            }
+            //var formativeEnvironments = animalController.GetAllActiveFormativeEnvironments();
+            //foreach (var environment in formativeEnvironments)
+            //{
+            //    cbAnimalFormativeEnvironment.Items.Add(environment.Name);
+            //}
         }
     }
 }

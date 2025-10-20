@@ -282,6 +282,7 @@ namespace GestionAgraria.Views
             cbEstado.FormattingEnabled = true;
             cbEstado.IntegralHeight = false;
             cbEstado.ItemHeight = 43;
+            cbEstado.Items.AddRange(new object[] { "Activo", "Inactivo" });
             cbEstado.Location = new Point(20, 19);
             cbEstado.MaxDropDownItems = 4;
             cbEstado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;

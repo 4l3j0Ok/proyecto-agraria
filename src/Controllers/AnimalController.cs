@@ -33,6 +33,46 @@ namespace GestionAgraria.controllers
                 .Where(a => a.IsActive)
                 .ToList();
         }
+        public List<AnimalModel> GetAnimalsForFiltro(int estado,string? entorno = null,string? searchText = null,string? animalType = null,string? productiveState = null)
+        {
+            var query = _context.Animals
+                .Include(a => a.AnimalType)            // Incluimos tipo de animal
+                .Include(a => a.FormativeEnvironment)  // Incluimos entorno
+                .AsQueryable();
+
+            // 📌 Filtro por estado (Activo / Inactivo / Todos)
+            if (estado == 0) // Activos
+                query = query.Where(a => a.IsActive);
+            else if (estado == 1) // Inactivos
+                query = query.Where(a => !a.IsActive);
+            // estado == 2 → Todos (sin filtro)
+
+            // 📌 Filtro por entorno
+            if (!string.IsNullOrEmpty(entorno))
+                query = query.Where(a => a.FormativeEnvironment.Name == entorno);
+
+            // 📌 Filtro por tipo de animal
+            if (!string.IsNullOrEmpty(animalType))
+                query = query.Where(a => a.AnimalType.Name == animalType);
+
+            // 📌 Filtro por estado productivo
+            if (!string.IsNullOrEmpty(productiveState))
+                query = query.Where(a => a.ProductiveState == productiveState);
+
+            // 📌 Filtro por texto (ej: tipo, observaciones, sexo, etc.)
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                string lowerText = searchText.ToLower();
+                query = query.Where(a =>
+                    a.AnimalType.Name.ToLower().Contains(lowerText) ||  // nombre del tipo de animal
+                    a.Sex.ToLower().Contains(lowerText) ||              // sexo
+                    a.ProductiveState.ToLower().Contains(lowerText) ||  // estado productivo
+                    a.Observations.ToLower().Contains(lowerText)        // observaciones
+                );
+            }
+
+            return query.ToList();
+        }
 
         public AnimalModel? GetAnimalById(int id)
         {

@@ -95,29 +95,41 @@ namespace GestionAgraria
             {
 
                 LoadComboBoxesEnvironmentsFilter();
-                cbEstadoBusquedaEntonor.SelectedIndex = 0; // Establecer el valor predeterminado
-                cbAreasFiltro.SelectedIndex = 0; // Establecer el valor predeterminado
 
                 LoadComboBoxesUsersFilter();
-                cbRole.SelectedIndex = 0; // Establecer el valor predeterminado 
-                cbEstadoUserSearch.SelectedIndex = 0; // Establecer el valor predeterminado
                 LoadUsersTable();
 
                 LoadComboBoxesFiltroVegetal();
-                cbEstadoFiltroPlantas.SelectedIndex = 0; // Establecer el valor predeterminado
-                cbEntornoFiltro.SelectedIndex = 0; // Establecer el valor predeterminado
                 LoadVegetablesTable();
 
+                LoadComboBoxesFiltroAnimals();
 
                 LoadAnimalsTable();
                 LoadFormativeEnvironments();
                 LoadProductTable();
                 LoadBlackBoard();
+                DefautlSelecForComboboxes();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
             }
+        }
+
+        private void DefautlSelecForComboboxes()
+        {
+            // Establecer los valores predeterminados para los ComboBoxes de filtro
+            cbEstadoFiltroAnimales.SelectedIndex = 0; // Establecer el valor predeterminado
+            cbEntornoFiltroAnimales.SelectedIndex = 0; // Establecer el valor predeterminado
+            cbTipoAnimalFiltro.SelectedIndex = 0; // Establecer el valor predeterminado
+            cbEstadoProductivoFiltro.SelectedIndex = 0; // Establecer el valor predeterminado
+
+            cbEstadoFiltroPlantas.SelectedIndex = 0; // Establecer el valor predeterminado
+            cbEntornoFiltro.SelectedIndex = 0; // Establecer el valor predeterminado
+
+            cbEstadoBusquedaEntonor.SelectedIndex = 0; // Establecer el valor predeterminado
+            cbAreasFiltro.SelectedIndex = 0; // Establecer el valor predeterminado
+
         }
         private void LoadUsersTable()
         {
@@ -187,14 +199,14 @@ namespace GestionAgraria
 
         private void LoadComboBoxesFiltroVegetal()
         {
-            animalController = new AnimalController();
+            using var vegetalController = new VegetableController();
             try
             {
                 // Limpiar los combos antes de cargar
                 // cbEntornoFiltro.Items.Clear();
 
                 // Cargar tipos de animales
-                var formativeEnvironments = animalController.GetAllActiveFormativeEnvironments();
+                var formativeEnvironments = vegetalController.GetAllActiveFormativeEnvironments();
 
                 foreach (var environment in formativeEnvironments)
                 {
@@ -210,7 +222,24 @@ namespace GestionAgraria
         private void LoadAnimalsTable()
         {
             using var animalController = new AnimalController();
-            List<AnimalModel> animals = animalController.GetAllAnimals();
+
+            string? entorno = cbEntornoFiltroAnimales.SelectedIndex == 0 ? null : cbEntornoFiltroAnimales.SelectedItem?.ToString();
+
+            int estado = cbEstadoFiltroAnimales.SelectedIndex;
+
+            string? searchText = "";
+
+            string? animalType = cbTipoAnimalFiltro.SelectedIndex == 0 ? null : cbTipoAnimalFiltro.SelectedItem?.ToString();
+
+            string? productiveState = cbEstadoProductivoFiltro.SelectedIndex == 0 ? null : cbEstadoProductivoFiltro.SelectedItem?.ToString();
+
+
+            if (tbSeachAnimalFiltro.Text.Length > 2)
+            {
+                searchText = string.IsNullOrWhiteSpace(tbSeachAnimalFiltro.Text) ? null : tbSeachAnimalFiltro.Text;
+            }
+
+            List<AnimalModel> animals = animalController.GetAnimalsForFiltro(estado, entorno, searchText, animalType, productiveState);
             if (animals.Count > 0)
                 lblEmptyAnimals.Visible = false;
             foreach (AnimalModel animal in animals)
@@ -222,6 +251,38 @@ namespace GestionAgraria
                 flpAnimalsList.Controls.Add(animalCard);
             }
         }
+
+        private void LoadComboBoxesFiltroAnimals()
+        {
+            using var animalController = new AnimalController();
+
+            try
+            {
+                // Limpiar los combos antes de cargar
+                // cbEntornoFiltro.Items.Clear();
+
+                // Cargar tipos de animales
+                var formativeEnvironments = animalController.GetAllActiveFormativeEnvironments();
+
+                foreach (var environment in formativeEnvironments)
+                {
+                    cbEntornoFiltroAnimales.Items.Add(environment.Name);
+                }
+
+                var animalTypes = animalController.GetAnimalTypes();
+                foreach (var type in animalTypes)
+                {
+                    cbTipoAnimalFiltro.Items.Add(type.Name);
+                }
+                // Cargar estados productivos
+                cbEstadoProductivoFiltro.Items.AddRange(TabConfig.productiveStates.ToArray());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void LoadFormativeEnvironments()
         {
             using var environmentController = new FormativeEnvironmentController();
@@ -545,6 +606,18 @@ namespace GestionAgraria
         {
             flpVegetalList.Controls.Clear();
             LoadVegetablesTable();
+        }
+
+        private void tbSeachAnimalFiltro_TextChanged(object sender, EventArgs e)
+        {
+            flpAnimalsList.Controls.Clear();
+            LoadAnimalsTable();
+        }
+
+        private void cbTipoAnimalFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            flpAnimalsList.Controls.Clear();
+            LoadAnimalsTable();
         }
     }
 }
