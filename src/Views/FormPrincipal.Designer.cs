@@ -43,8 +43,6 @@ namespace GestionAgraria
             TabPage tabUsers;
             ComponentResourceManager resources = new ComponentResourceManager(typeof(FormPrincipal));
             btnAddUser = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            flpUsersList = new FlowLayoutPanel();
-            lblEmptyUsers = new ReaLTaiizor.Controls.MaterialLabel();
             panel5 = new Panel();
             materialLabel4 = new ReaLTaiizor.Controls.MaterialLabel();
             tableLayoutPanel3 = new TableLayoutPanel();
@@ -60,8 +58,6 @@ namespace GestionAgraria
             imgList = new ImageList(components);
             tabVegetablesArea = new TabPage();
             btnAddPlanta = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            flpVegetalList = new FlowLayoutPanel();
-            lblEmptyVegetables = new ReaLTaiizor.Controls.MaterialLabel();
             panel9 = new Panel();
             materialLabel8 = new ReaLTaiizor.Controls.MaterialLabel();
             tableLayoutPanel4 = new TableLayoutPanel();
@@ -116,8 +112,6 @@ namespace GestionAgraria
             lblEmptySells = new ReaLTaiizor.Controls.MaterialLabel();
             tabEntorno = new TabPage();
             btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            flpFormativeEnvironmentsList = new FlowLayoutPanel();
-            lblEmptyFormativeEnvironments = new ReaLTaiizor.Controls.MaterialLabel();
             panel1 = new Panel();
             materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -135,16 +129,23 @@ namespace GestionAgraria
             lblEmptyBlackBoards = new ReaLTaiizor.Controls.MaterialLabel();
             flowLayoutPanel4 = new FlowLayoutPanel();
             tabCerrarSesion = new TabPage();
+            panel20 = new Panel();
+            flpVegetalList = new FlowLayoutPanel();
+            lblEmptyVegetables = new ReaLTaiizor.Controls.MaterialLabel();
+            panel21 = new Panel();
+            flpUsersList = new FlowLayoutPanel();
+            lblEmptyUsers = new ReaLTaiizor.Controls.MaterialLabel();
+            panel22 = new Panel();
+            flpFormativeEnvironmentsList = new FlowLayoutPanel();
+            lblEmptyFormativeEnvironments = new ReaLTaiizor.Controls.MaterialLabel();
             tabUsers = new TabPage();
             tabUsers.SuspendLayout();
-            flpUsersList.SuspendLayout();
             panel5.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
             panel8.SuspendLayout();
             tabVegetablesArea.SuspendLayout();
-            flpVegetalList.SuspendLayout();
             panel9.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             panel11.SuspendLayout();
@@ -169,21 +170,23 @@ namespace GestionAgraria
             tabCompras.SuspendLayout();
             tabVentas.SuspendLayout();
             tabEntorno.SuspendLayout();
-            flpFormativeEnvironmentsList.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel4.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             tabBlackBoard.SuspendLayout();
+            panel20.SuspendLayout();
+            panel21.SuspendLayout();
+            panel22.SuspendLayout();
             SuspendLayout();
             // 
             // tabUsers
             // 
             tabUsers.AutoScroll = true;
             tabUsers.CausesValidation = false;
+            tabUsers.Controls.Add(panel21);
             tabUsers.Controls.Add(btnAddUser);
-            tabUsers.Controls.Add(flpUsersList);
             tabUsers.Controls.Add(panel5);
             tabUsers.ImageKey = "user.png";
             tabUsers.Location = new Point(4, 39);
@@ -207,32 +210,6 @@ namespace GestionAgraria
             btnAddUser.Text = "Agregar Usuario";
             btnAddUser.UseVisualStyleBackColor = true;
             btnAddUser.Click += btnAddUser_Click;
-            // 
-            // flpUsersList
-            // 
-            flpUsersList.BackColor = Color.Transparent;
-            flpUsersList.Controls.Add(lblEmptyUsers);
-            flpUsersList.Dock = DockStyle.Top;
-            flpUsersList.Location = new Point(20, 132);
-            flpUsersList.Name = "flpUsersList";
-            flpUsersList.Size = new Size(920, 340);
-            flpUsersList.TabIndex = 1;
-            // 
-            // lblEmptyUsers
-            // 
-            lblEmptyUsers.BackColor = Color.Transparent;
-            lblEmptyUsers.Depth = 0;
-            lblEmptyUsers.Dock = DockStyle.Top;
-            lblEmptyUsers.FlatStyle = FlatStyle.Flat;
-            lblEmptyUsers.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptyUsers.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyUsers.Location = new Point(3, 0);
-            lblEmptyUsers.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptyUsers.Name = "lblEmptyUsers";
-            lblEmptyUsers.Size = new Size(920, 357);
-            lblEmptyUsers.TabIndex = 5;
-            lblEmptyUsers.Text = "Aún no tienes usuarios agregados... Comienza por agregar uno.";
-            lblEmptyUsers.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel5
             // 
@@ -448,8 +425,8 @@ namespace GestionAgraria
             // 
             // tabVegetablesArea
             // 
+            tabVegetablesArea.Controls.Add(panel20);
             tabVegetablesArea.Controls.Add(btnAddPlanta);
-            tabVegetablesArea.Controls.Add(flpVegetalList);
             tabVegetablesArea.Controls.Add(panel9);
             tabVegetablesArea.ImageKey = "vegetable-area.png";
             tabVegetablesArea.Location = new Point(4, 39);
@@ -475,29 +452,6 @@ namespace GestionAgraria
             btnAddPlanta.Text = "Agregar Planta";
             btnAddPlanta.UseVisualStyleBackColor = true;
             btnAddPlanta.Click += btnAddPlanta_Click;
-            // 
-            // flpVegetalList
-            // 
-            flpVegetalList.Controls.Add(lblEmptyVegetables);
-            flpVegetalList.Dock = DockStyle.Top;
-            flpVegetalList.Location = new Point(20, 132);
-            flpVegetalList.Name = "flpVegetalList";
-            flpVegetalList.Size = new Size(920, 331);
-            flpVegetalList.TabIndex = 19;
-            // 
-            // lblEmptyVegetables
-            // 
-            lblEmptyVegetables.Depth = 0;
-            lblEmptyVegetables.FlatStyle = FlatStyle.Flat;
-            lblEmptyVegetables.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptyVegetables.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyVegetables.Location = new Point(3, 0);
-            lblEmptyVegetables.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptyVegetables.Name = "lblEmptyVegetables";
-            lblEmptyVegetables.Size = new Size(917, 331);
-            lblEmptyVegetables.TabIndex = 1;
-            lblEmptyVegetables.Text = "Aún no tienes vegetales agregados... Comienza por agregar uno.";
-            lblEmptyVegetables.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel9
             // 
@@ -1310,8 +1264,8 @@ namespace GestionAgraria
             // 
             // tabEntorno
             // 
+            tabEntorno.Controls.Add(panel22);
             tabEntorno.Controls.Add(btnAddEntorno);
-            tabEntorno.Controls.Add(flpFormativeEnvironmentsList);
             tabEntorno.Controls.Add(panel1);
             tabEntorno.ImageKey = "userGroup.png";
             tabEntorno.Location = new Point(4, 39);
@@ -1335,30 +1289,6 @@ namespace GestionAgraria
             btnAddEntorno.Text = "Agregar Usuario";
             btnAddEntorno.UseVisualStyleBackColor = true;
             btnAddEntorno.Click += btnAddEntorno_Click;
-            // 
-            // flpFormativeEnvironmentsList
-            // 
-            flpFormativeEnvironmentsList.Controls.Add(lblEmptyFormativeEnvironments);
-            flpFormativeEnvironmentsList.Dock = DockStyle.Top;
-            flpFormativeEnvironmentsList.Location = new Point(20, 132);
-            flpFormativeEnvironmentsList.Name = "flpFormativeEnvironmentsList";
-            flpFormativeEnvironmentsList.Size = new Size(920, 359);
-            flpFormativeEnvironmentsList.TabIndex = 15;
-            // 
-            // lblEmptyFormativeEnvironments
-            // 
-            lblEmptyFormativeEnvironments.Depth = 0;
-            lblEmptyFormativeEnvironments.Dock = DockStyle.Top;
-            lblEmptyFormativeEnvironments.FlatStyle = FlatStyle.Flat;
-            lblEmptyFormativeEnvironments.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptyFormativeEnvironments.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyFormativeEnvironments.Location = new Point(3, 0);
-            lblEmptyFormativeEnvironments.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptyFormativeEnvironments.Name = "lblEmptyFormativeEnvironments";
-            lblEmptyFormativeEnvironments.Size = new Size(920, 359);
-            lblEmptyFormativeEnvironments.TabIndex = 18;
-            lblEmptyFormativeEnvironments.Text = "Aún no tienes entornos formativos agregados... Comienza por agregar uno.";
-            lblEmptyFormativeEnvironments.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -1623,6 +1553,107 @@ namespace GestionAgraria
             tabCerrarSesion.UseVisualStyleBackColor = true;
             tabCerrarSesion.Enter += tabCerrarSesion_Click;
             // 
+            // panel20
+            // 
+            panel20.Controls.Add(lblEmptyVegetables);
+            panel20.Controls.Add(flpVegetalList);
+            panel20.Dock = DockStyle.Fill;
+            panel20.Location = new Point(20, 132);
+            panel20.Name = "panel20";
+            panel20.Size = new Size(920, 337);
+            panel20.TabIndex = 21;
+            // 
+            // flpVegetalList
+            // 
+            flpVegetalList.Dock = DockStyle.Fill;
+            flpVegetalList.Location = new Point(0, 0);
+            flpVegetalList.Name = "flpVegetalList";
+            flpVegetalList.Size = new Size(920, 337);
+            flpVegetalList.TabIndex = 20;
+            // 
+            // lblEmptyVegetables
+            // 
+            lblEmptyVegetables.Depth = 0;
+            lblEmptyVegetables.Dock = DockStyle.Fill;
+            lblEmptyVegetables.FlatStyle = FlatStyle.Flat;
+            lblEmptyVegetables.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyVegetables.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyVegetables.Location = new Point(0, 0);
+            lblEmptyVegetables.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyVegetables.Name = "lblEmptyVegetables";
+            lblEmptyVegetables.Size = new Size(920, 337);
+            lblEmptyVegetables.TabIndex = 21;
+            lblEmptyVegetables.Text = "Aún no tienes vegetales agregados... Comienza por agregar uno.";
+            lblEmptyVegetables.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel21
+            // 
+            panel21.Controls.Add(lblEmptyUsers);
+            panel21.Controls.Add(flpUsersList);
+            panel21.Dock = DockStyle.Fill;
+            panel21.Location = new Point(20, 132);
+            panel21.Name = "panel21";
+            panel21.Size = new Size(920, 337);
+            panel21.TabIndex = 18;
+            // 
+            // flpUsersList
+            // 
+            flpUsersList.BackColor = Color.Transparent;
+            flpUsersList.Dock = DockStyle.Fill;
+            flpUsersList.Location = new Point(0, 0);
+            flpUsersList.Name = "flpUsersList";
+            flpUsersList.Size = new Size(920, 337);
+            flpUsersList.TabIndex = 2;
+            // 
+            // lblEmptyUsers
+            // 
+            lblEmptyUsers.BackColor = Color.Transparent;
+            lblEmptyUsers.Depth = 0;
+            lblEmptyUsers.Dock = DockStyle.Fill;
+            lblEmptyUsers.FlatStyle = FlatStyle.Flat;
+            lblEmptyUsers.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyUsers.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyUsers.Location = new Point(0, 0);
+            lblEmptyUsers.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyUsers.Name = "lblEmptyUsers";
+            lblEmptyUsers.Size = new Size(920, 337);
+            lblEmptyUsers.TabIndex = 6;
+            lblEmptyUsers.Text = "Aún no tienes usuarios agregados... Comienza por agregar uno.";
+            lblEmptyUsers.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // panel22
+            // 
+            panel22.Controls.Add(lblEmptyFormativeEnvironments);
+            panel22.Controls.Add(flpFormativeEnvironmentsList);
+            panel22.Dock = DockStyle.Fill;
+            panel22.Location = new Point(20, 132);
+            panel22.Name = "panel22";
+            panel22.Size = new Size(920, 337);
+            panel22.TabIndex = 17;
+            // 
+            // flpFormativeEnvironmentsList
+            // 
+            flpFormativeEnvironmentsList.Dock = DockStyle.Fill;
+            flpFormativeEnvironmentsList.Location = new Point(0, 0);
+            flpFormativeEnvironmentsList.Name = "flpFormativeEnvironmentsList";
+            flpFormativeEnvironmentsList.Size = new Size(920, 337);
+            flpFormativeEnvironmentsList.TabIndex = 16;
+            // 
+            // lblEmptyFormativeEnvironments
+            // 
+            lblEmptyFormativeEnvironments.Depth = 0;
+            lblEmptyFormativeEnvironments.Dock = DockStyle.Fill;
+            lblEmptyFormativeEnvironments.FlatStyle = FlatStyle.Flat;
+            lblEmptyFormativeEnvironments.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyFormativeEnvironments.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyFormativeEnvironments.Location = new Point(0, 0);
+            lblEmptyFormativeEnvironments.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyFormativeEnvironments.Name = "lblEmptyFormativeEnvironments";
+            lblEmptyFormativeEnvironments.Size = new Size(920, 337);
+            lblEmptyFormativeEnvironments.TabIndex = 19;
+            lblEmptyFormativeEnvironments.Text = "Aún no tienes entornos formativos agregados... Comienza por agregar uno.";
+            lblEmptyFormativeEnvironments.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -1645,7 +1676,6 @@ namespace GestionAgraria
             Text = "Gestión Agraria";
             Load += FormPrincipal_Load;
             tabUsers.ResumeLayout(false);
-            flpUsersList.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
@@ -1656,7 +1686,6 @@ namespace GestionAgraria
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             tabVegetablesArea.ResumeLayout(false);
-            flpVegetalList.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             tableLayoutPanel4.ResumeLayout(false);
@@ -1692,7 +1721,6 @@ namespace GestionAgraria
             tabCompras.ResumeLayout(false);
             tabVentas.ResumeLayout(false);
             tabEntorno.ResumeLayout(false);
-            flpFormativeEnvironmentsList.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
@@ -1703,6 +1731,9 @@ namespace GestionAgraria
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             tabBlackBoard.ResumeLayout(false);
+            panel20.ResumeLayout(false);
+            panel21.ResumeLayout(false);
+            panel22.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -1727,25 +1758,19 @@ namespace GestionAgraria
         //public TabPage tabVegetablesArea;
         //public TabPage tabAnimalArea;
         public TabPage tabEntorno;
-        private FlowLayoutPanel flpUsersList;
-        private FlowLayoutPanel flpVegetalList;
-        private FlowLayoutPanel flpFormativeEnvironmentsList;
         private FlowLayoutPanel flowLayoutPanel4;
         public TabPage tabProduct;
         public TabPage tabCompras;
         public TabPage tabVentas;
-        private ReaLTaiizor.Controls.MaterialLabel lblEmptyVegetables;
         private ReaLTaiizor.Controls.MaterialLabel lblEmptyProducts;
         private ReaLTaiizor.Controls.MaterialLabel lblEmptyPurchases;
         private ReaLTaiizor.Controls.MaterialLabel lblEmptySells;
-        private ReaLTaiizor.Controls.MaterialLabel lblEmptyUsers;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddProduct;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddBlackBoard;
         private ReaLTaiizor.Controls.MaterialLabel lblEmptyBlackBoards;
         public TabPage tabBlackBoard;
         private ReaLTaiizor.Controls.MaterialTabSelector materialTabSelector1;
         public ReaLTaiizor.Controls.MaterialTabControl tcIndustrias;
-        private ReaLTaiizor.Controls.MaterialLabel lblEmptyFormativeEnvironments;
         private Panel panel1;
         private TableLayoutPanel tableLayoutPanel2;
         private Panel panel3;
@@ -1804,5 +1829,14 @@ namespace GestionAgraria
         private Panel panel18;
         private ReaLTaiizor.Controls.MaterialComboBox cbTipoAnimalFiltro;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel16;
+        private Panel panel20;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyVegetables;
+        private FlowLayoutPanel flpVegetalList;
+        private Panel panel21;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyUsers;
+        private FlowLayoutPanel flpUsersList;
+        private Panel panel22;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyFormativeEnvironments;
+        private FlowLayoutPanel flpFormativeEnvironmentsList;
     }
 }
