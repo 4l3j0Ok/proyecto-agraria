@@ -61,7 +61,7 @@ namespace GestionAgraria.Controllers
                 existingProduct.Name = product.Name;
                 existingProduct.Quantity = product.Quantity;
                 existingProduct.Observations = product.Observations;
-                existingProduct.IsActive = existingProduct.IsActive;
+                existingProduct.IsActive = product.IsActive;
 
                 _context.SaveChanges();
                 return true;

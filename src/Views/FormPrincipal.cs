@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using static GestionAgraria.Utils;
 
 namespace GestionAgraria
 {
@@ -307,6 +308,7 @@ namespace GestionAgraria
 
             if (formativeEnvironments.Count > 0)
                 lblEmptyFormativeEnvironments.Visible = false;
+
             foreach (FormativeEnvironmentModel formativeEnvironment in formativeEnvironments)
             {
                 UCFormativeEnvironmentCard formativeEnvironmentCard = new UCFormativeEnvironmentCard(formativeEnvironment: formativeEnvironment);
@@ -323,6 +325,7 @@ namespace GestionAgraria
             cbAreasFiltro.Items.AddRange(Config.defaultAreas.ToArray());
         }
 
+        public static int currentPage = 1;
         private void LoadProductTable()
         {
             using var ProducController = new ProductController();
@@ -342,14 +345,38 @@ namespace GestionAgraria
             List<ProductModel> products = ProducController.GetProductsForFiltro(estado, entorno, searchText);
             if (products.Count > 0)
                 lblEmptyProducts.Visible = false;
-
-            foreach (ProductModel pro in products)
+            try
             {
-                UCProductCard prodCard = new UCProductCard(pro);
-                prodCard.Dock = DockStyle.Top;
-                prodCard.Margin = new Padding(0, 0, 0, 20);
-                // Agregar directamente a la pestaña ya que no tiene FlowLayoutPanel en el Designer
-                flpProductList.Controls.Add(prodCard);
+                var ejemploCard = new UCProductCard(products.First());
+
+                int pageSize = CalcularPageSize(flpProductList, ejemploCard);
+
+                //foreach (ProductModel pro in products)
+                //{
+                //    UCProductCard prodCard = new UCProductCard(pro);
+                //    prodCard.Dock = DockStyle.Top;
+                //    prodCard.Margin = new Padding(0, 0, 0, 20);
+                //    // Agregar directamente a la pestaña ya que no tiene FlowLayoutPanel en el Designer
+                //    flpProductList.Controls.Add(prodCard);
+                //}
+
+
+                Paginator.CargarPaginaGrid(
+                    flpProductList,
+                    products,
+                    ref currentPage,
+                    pro =>
+                    {
+                        var card = new UCProductCard(pro);
+                        card.Margin = new Padding(8, 8, 16, 8); // separaciones laterales/verticales
+                        // NO Dock
+                        return card;
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
             }
         }
 
@@ -367,7 +394,7 @@ namespace GestionAgraria
 
                 foreach (var environment in formativeEnvironments)
                 {
-                    cbEstadoFiltroProducto.Items.Add(environment.Name);
+                    cbEntornosFiltroProducto.Items.Add(environment.Name);
                 }
 
             }
@@ -584,7 +611,6 @@ namespace GestionAgraria
             UCSellAdd AddControl = new UCSellAdd();
             this.VerFormularioTab(AddControl, tabVentas);
         }
-
         private void tabCerrarSesion_Click(object sender, EventArgs e)
         {
             // Reiniciar el programa
@@ -621,15 +647,30 @@ namespace GestionAgraria
             LoadAnimalsTable();
         }
 
-        private void btnAddUser_Click_1(object sender, EventArgs e)
-        {
-            UCUserAdd AddControl = new UCUserAdd();
-            this.VerFormularioTab(AddControl, tabUsers);
-        }
 
         private void CargarProductoCBSelec(object sender, EventArgs e)
         {
             flpProductList.Controls.Clear();
+            LoadProductTable();
+        }
+
+        private void flpProductList_Resize(object sender, EventArgs e)
+        {
+            flpProductList.Controls.Clear();
+            LoadProductTable();
+        }
+
+        private void btnPreviousPageProduct_Click(object sender, EventArgs e)
+        {
+            currentPage = Math.Max(1, currentPage - 1);
+            //int valor = int.Parse(currentPage.ToString());
+            //if (int.Parse(currentPage.ToString()) > 1)
+            LoadProductTable();
+        }
+
+        private void btnNextPageProduct_Click(object sender, EventArgs e)
+        {
+            currentPage++;
             LoadProductTable();
         }
     }

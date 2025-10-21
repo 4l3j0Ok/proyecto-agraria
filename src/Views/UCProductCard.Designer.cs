@@ -53,7 +53,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(615, 70);
+            tableLayoutPanel1.Size = new Size(369, 70);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -64,7 +64,7 @@
             panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5);
-            panel1.Size = new Size(525, 50);
+            panel1.Size = new Size(279, 50);
             panel1.TabIndex = 4;
             // 
             // tableLayoutPanel2
@@ -80,7 +80,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(515, 14);
+            tableLayoutPanel2.Size = new Size(269, 14);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // lbl_CodigoProducto
@@ -93,7 +93,7 @@
             lbl_CodigoProducto.Location = new Point(3, 0);
             lbl_CodigoProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lbl_CodigoProducto.Name = "lbl_CodigoProducto";
-            lbl_CodigoProducto.Size = new Size(251, 14);
+            lbl_CodigoProducto.Size = new Size(128, 14);
             lbl_CodigoProducto.TabIndex = 6;
             lbl_CodigoProducto.Text = "Código";
             // 
@@ -104,10 +104,10 @@
             lblStock.Dock = DockStyle.Fill;
             lblStock.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             lblStock.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblStock.Location = new Point(260, 0);
+            lblStock.Location = new Point(137, 0);
             lblStock.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblStock.Name = "lblStock";
-            lblStock.Size = new Size(252, 14);
+            lblStock.Size = new Size(129, 14);
             lblStock.TabIndex = 5;
             lblStock.Text = "Stock";
             lblStock.TextAlign = ContentAlignment.TopCenter;
@@ -155,7 +155,7 @@
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCProductCard";
-            Size = new Size(615, 70);
+            Size = new Size(369, 70);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

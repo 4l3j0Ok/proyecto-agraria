@@ -68,5 +68,82 @@ namespace GestionAgraria
                 return System.Drawing.Image.FromStream(ms);
             }
         }
+
+        public static int CalcularPageSize(FlowLayoutPanel panel, UserControl ejemploCard)
+        {
+            if (ejemploCard == null || ejemploCard.Height == 0)
+                return 1;
+
+            // Se calcula cuántos entran verticalmente
+            int disponibles = panel.Height / (ejemploCard.Height + ejemploCard.Margin.Vertical);
+            return Math.Max(disponibles, 1); // mínimo 1
+        }
+
+        public static class Paginator
+        {
+            public static void CargarPaginaGrid<T>(
+        FlowLayoutPanel panel,
+        List<T> items,
+        ref int currentPage,
+        Func<T, UserControl> createCard)
+            {
+                if (items == null || items.Count == 0)
+                {
+                    panel.Controls.Clear();
+                    currentPage = 1;
+                    return;
+                }
+
+                // 1) Tarjeta de ejemplo para medir
+                var sample = createCard(items[0]);
+                // Asegurá márgenes por si el createCard no los setea
+                if (sample.Margin == Padding.Empty) sample.Margin = new Padding(8);
+
+                // Si tu tarjeta tiene AutoSize = true, PreferredSize suele ser lo mejor
+                var cardSize = sample.PreferredSize.IsEmpty ? sample.Size : sample.PreferredSize;
+                var margin = sample.Margin;
+
+                // 2) Área disponible (sin padding)
+                int availW = Math.Max(1, panel.ClientSize.Width - panel.Padding.Horizontal);
+                int availH = Math.Max(1, panel.ClientSize.Height - panel.Padding.Vertical);
+
+                // 3) Columnas y filas que entran
+                int cols = Math.Max(1, availW / (cardSize.Width + margin.Horizontal));
+                int rows = Math.Max(1, availH / (cardSize.Height + margin.Vertical));
+                int pageSize = Math.Max(1, rows * cols);
+
+                // 4) Clamp de página
+                int totalPages = (int)Math.Ceiling((double)items.Count / pageSize);
+                currentPage = Math.Min(Math.Max(1, currentPage), Math.Max(1, totalPages));
+
+                int start = (currentPage - 1) * pageSize;
+                var slice = items.Skip(start).Take(pageSize).ToList();
+
+                // 5) Render
+                panel.SuspendLayout();
+                panel.AutoScroll = false; // paginado, no scroll
+                panel.WrapContents = true;
+                panel.FlowDirection = FlowDirection.LeftToRight;
+                panel.Controls.Clear();
+
+                foreach (var it in slice)
+                {
+                    var card = createCard(it);
+                    card.Dock = DockStyle.None;            // <- IMPORTANTE
+                    if (card.Margin == Padding.Empty)      // <- asegura separación
+                        card.Margin = margin;
+
+                    panel.Controls.Add(card);
+                }
+
+                panel.ResumeLayout();
+            }
+
+            public static int GetTotalPages<T>(List<T> items, int pageSize)
+            {
+                return (int)Math.Ceiling((double)items.Count / pageSize);
+            }
+        }
+
     }
 }
