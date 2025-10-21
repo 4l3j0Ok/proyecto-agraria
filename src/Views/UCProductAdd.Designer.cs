@@ -33,14 +33,19 @@ namespace GestionAgraria.Views
         {
             mepProductAdd = new NonCollapsibleMaterialExpansionPanel();
             panel2 = new Panel();
+            groupBox1 = new GroupBox();
+            panel3 = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             panel6 = new Panel();
             tbDescription = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
-            panel3 = new Panel();
+            panel8 = new Panel();
             cbProductStock = new ReaLTaiizor.Controls.MaterialComboBox();
             materialLabel3 = new ReaLTaiizor.Controls.MaterialLabel();
             tableLayoutPanel5 = new TableLayoutPanel();
+            panel7 = new Panel();
+            cbEstado = new ReaLTaiizor.Controls.MaterialComboBox();
+            materialLabel5 = new ReaLTaiizor.Controls.MaterialLabel();
             panel5 = new Panel();
             tbProductName = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel4 = new ReaLTaiizor.Controls.MaterialLabel();
@@ -52,10 +57,13 @@ namespace GestionAgraria.Views
             materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
             mepProductAdd.SuspendLayout();
             panel2.SuspendLayout();
+            groupBox1.SuspendLayout();
+            panel3.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel6.SuspendLayout();
-            panel3.SuspendLayout();
+            panel8.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
+            panel7.SuspendLayout();
             panel5.SuspendLayout();
             panel4.SuspendLayout();
             panel1.SuspendLayout();
@@ -90,13 +98,33 @@ namespace GestionAgraria.Views
             // 
             panel2.AutoSize = true;
             panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            panel2.Controls.Add(tableLayoutPanel1);
-            panel2.Controls.Add(tableLayoutPanel5);
+            panel2.Controls.Add(groupBox1);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(21, 48);
             panel2.Name = "panel2";
             panel2.Size = new Size(1110, 536);
             panel2.TabIndex = 12;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(panel3);
+            groupBox1.Dock = DockStyle.Top;
+            groupBox1.Location = new Point(0, 0);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(1110, 192);
+            groupBox1.TabIndex = 35;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Datos del prodocto";
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(tableLayoutPanel1);
+            panel3.Controls.Add(tableLayoutPanel5);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(3, 19);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1104, 167);
+            panel3.TabIndex = 35;
             // 
             // tableLayoutPanel1
             // 
@@ -104,25 +132,25 @@ namespace GestionAgraria.Views
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75F));
             tableLayoutPanel1.Controls.Add(panel6, 0, 0);
-            tableLayoutPanel1.Controls.Add(panel3, 0, 0);
+            tableLayoutPanel1.Controls.Add(panel8, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 84);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1110, 81);
-            tableLayoutPanel1.TabIndex = 34;
+            tableLayoutPanel1.Size = new Size(1104, 81);
+            tableLayoutPanel1.TabIndex = 35;
             // 
             // panel6
             // 
             panel6.Controls.Add(tbDescription);
             panel6.Controls.Add(materialLabel1);
             panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(277, 0);
+            panel6.Location = new Point(276, 0);
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
             panel6.Padding = new Padding(20, 0, 20, 0);
-            panel6.Size = new Size(833, 81);
+            panel6.Size = new Size(828, 81);
             panel6.TabIndex = 25;
             // 
             // tbDescription
@@ -151,7 +179,7 @@ namespace GestionAgraria.Views
             tbDescription.SelectionLength = 0;
             tbDescription.SelectionStart = 0;
             tbDescription.ShortcutsEnabled = true;
-            tbDescription.Size = new Size(793, 48);
+            tbDescription.Size = new Size(788, 48);
             tbDescription.TabIndex = 0;
             tbDescription.TabStop = false;
             tbDescription.TextAlign = HorizontalAlignment.Left;
@@ -171,17 +199,17 @@ namespace GestionAgraria.Views
             materialLabel1.TabIndex = 4;
             materialLabel1.Text = "Descripción";
             // 
-            // panel3
+            // panel8
             // 
-            panel3.Controls.Add(cbProductStock);
-            panel3.Controls.Add(materialLabel3);
-            panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 0);
-            panel3.Margin = new Padding(0);
-            panel3.Name = "panel3";
-            panel3.Padding = new Padding(20, 0, 20, 0);
-            panel3.Size = new Size(277, 81);
-            panel3.TabIndex = 42;
+            panel8.Controls.Add(cbProductStock);
+            panel8.Controls.Add(materialLabel3);
+            panel8.Dock = DockStyle.Fill;
+            panel8.Location = new Point(0, 0);
+            panel8.Margin = new Padding(0);
+            panel8.Name = "panel8";
+            panel8.Padding = new Padding(20, 0, 20, 0);
+            panel8.Size = new Size(276, 81);
+            panel8.TabIndex = 42;
             // 
             // cbProductStock
             // 
@@ -203,7 +231,7 @@ namespace GestionAgraria.Views
             cbProductStock.MaxDropDownItems = 4;
             cbProductStock.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbProductStock.Name = "cbProductStock";
-            cbProductStock.Size = new Size(237, 49);
+            cbProductStock.Size = new Size(236, 49);
             cbProductStock.StartIndex = 0;
             cbProductStock.TabIndex = 11;
             // 
@@ -222,10 +250,12 @@ namespace GestionAgraria.Views
             // 
             // tableLayoutPanel5
             // 
-            tableLayoutPanel5.ColumnCount = 3;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel5.ColumnCount = 4;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutPanel5.Controls.Add(panel7, 3, 0);
             tableLayoutPanel5.Controls.Add(panel5, 0, 0);
             tableLayoutPanel5.Controls.Add(panel4, 0, 0);
             tableLayoutPanel5.Controls.Add(panel1, 2, 0);
@@ -234,19 +264,68 @@ namespace GestionAgraria.Views
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle());
-            tableLayoutPanel5.Size = new Size(1110, 84);
-            tableLayoutPanel5.TabIndex = 33;
+            tableLayoutPanel5.Size = new Size(1104, 84);
+            tableLayoutPanel5.TabIndex = 36;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(cbEstado);
+            panel7.Controls.Add(materialLabel5);
+            panel7.Dock = DockStyle.Fill;
+            panel7.Location = new Point(883, 0);
+            panel7.Margin = new Padding(0);
+            panel7.Name = "panel7";
+            panel7.Padding = new Padding(20, 0, 20, 0);
+            panel7.Size = new Size(221, 84);
+            panel7.TabIndex = 41;
+            // 
+            // cbEstado
+            // 
+            cbEstado.AutoResize = false;
+            cbEstado.BackColor = Color.FromArgb(255, 255, 255);
+            cbEstado.Depth = 0;
+            cbEstado.Dock = DockStyle.Top;
+            cbEstado.DrawMode = DrawMode.OwnerDrawVariable;
+            cbEstado.DropDownHeight = 174;
+            cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEstado.DropDownWidth = 121;
+            cbEstado.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbEstado.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbEstado.FormattingEnabled = true;
+            cbEstado.IntegralHeight = false;
+            cbEstado.ItemHeight = 43;
+            cbEstado.Items.AddRange(new object[] { "Activo", "Inactivo" });
+            cbEstado.Location = new Point(20, 19);
+            cbEstado.MaxDropDownItems = 4;
+            cbEstado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbEstado.Name = "cbEstado";
+            cbEstado.Size = new Size(181, 49);
+            cbEstado.StartIndex = 0;
+            cbEstado.TabIndex = 9;
+            // 
+            // materialLabel5
+            // 
+            materialLabel5.AutoSize = true;
+            materialLabel5.Depth = 0;
+            materialLabel5.Dock = DockStyle.Top;
+            materialLabel5.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel5.Location = new Point(20, 0);
+            materialLabel5.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel5.Name = "materialLabel5";
+            materialLabel5.Size = new Size(50, 19);
+            materialLabel5.TabIndex = 4;
+            materialLabel5.Text = "Estado";
             // 
             // panel5
             // 
             panel5.Controls.Add(tbProductName);
             panel5.Controls.Add(materialLabel4);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(370, 0);
+            panel5.Location = new Point(276, 0);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
             panel5.Padding = new Padding(20, 0, 20, 0);
-            panel5.Size = new Size(370, 84);
+            panel5.Size = new Size(331, 84);
             panel5.TabIndex = 40;
             // 
             // tbProductName
@@ -275,7 +354,7 @@ namespace GestionAgraria.Views
             tbProductName.SelectionLength = 0;
             tbProductName.SelectionStart = 0;
             tbProductName.ShortcutsEnabled = true;
-            tbProductName.Size = new Size(330, 48);
+            tbProductName.Size = new Size(291, 48);
             tbProductName.TabIndex = 0;
             tbProductName.TabStop = false;
             tbProductName.TextAlign = HorizontalAlignment.Left;
@@ -304,7 +383,7 @@ namespace GestionAgraria.Views
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(20, 0, 20, 0);
-            panel4.Size = new Size(370, 84);
+            panel4.Size = new Size(276, 84);
             panel4.TabIndex = 39;
             // 
             // tbProductCode
@@ -333,7 +412,7 @@ namespace GestionAgraria.Views
             tbProductCode.SelectionLength = 0;
             tbProductCode.SelectionStart = 0;
             tbProductCode.ShortcutsEnabled = true;
-            tbProductCode.Size = new Size(330, 48);
+            tbProductCode.Size = new Size(236, 48);
             tbProductCode.TabIndex = 0;
             tbProductCode.TabStop = false;
             tbProductCode.TextAlign = HorizontalAlignment.Left;
@@ -358,11 +437,11 @@ namespace GestionAgraria.Views
             panel1.Controls.Add(cbProductFormativeEnvironment);
             panel1.Controls.Add(materialLabel2);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(740, 0);
+            panel1.Location = new Point(607, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(20, 0, 20, 0);
-            panel1.Size = new Size(370, 84);
+            panel1.Size = new Size(276, 84);
             panel1.TabIndex = 32;
             // 
             // cbProductFormativeEnvironment
@@ -384,7 +463,7 @@ namespace GestionAgraria.Views
             cbProductFormativeEnvironment.MaxDropDownItems = 4;
             cbProductFormativeEnvironment.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbProductFormativeEnvironment.Name = "cbProductFormativeEnvironment";
-            cbProductFormativeEnvironment.Size = new Size(330, 49);
+            cbProductFormativeEnvironment.Size = new Size(236, 49);
             cbProductFormativeEnvironment.StartIndex = 0;
             cbProductFormativeEnvironment.TabIndex = 10;
             // 
@@ -412,12 +491,16 @@ namespace GestionAgraria.Views
             mepProductAdd.ResumeLayout(false);
             mepProductAdd.PerformLayout();
             panel2.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
             tableLayoutPanel5.ResumeLayout(false);
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel4.ResumeLayout(false);
@@ -431,23 +514,28 @@ namespace GestionAgraria.Views
 
         private NonCollapsibleMaterialExpansionPanel mepProductAdd;
         private Panel panel2;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit3;
+        private GroupBox groupBox1;
+        private Panel panel3;
         private TableLayoutPanel tableLayoutPanel1;
         private Panel panel6;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbDescription;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel1;
-        private TableLayoutPanel tableLayoutPanel5;
-        private Panel panel1;
-        private ReaLTaiizor.Controls.MaterialComboBox cbProductFormativeEnvironment;
-        private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit3;
-        private Panel panel3;
+        private Panel panel8;
         private ReaLTaiizor.Controls.MaterialComboBox cbProductStock;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel3;
+        private TableLayoutPanel tableLayoutPanel5;
+        private Panel panel7;
+        private ReaLTaiizor.Controls.MaterialComboBox cbEstado;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel5;
         private Panel panel5;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbProductName;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel4;
         private Panel panel4;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbProductCode;
         private ReaLTaiizor.Controls.MaterialLabel lblTipo;
+        private Panel panel1;
+        private ReaLTaiizor.Controls.MaterialComboBox cbProductFormativeEnvironment;
+        private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
     }
 }

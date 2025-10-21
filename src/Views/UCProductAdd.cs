@@ -43,7 +43,7 @@ namespace GestionAgraria.Views
         {
 
             //cbProductStock.Items.Add = "1";
-
+            cbEstado.SelectedIndex = 0; // Por defecto activo
             try
             {
                 cbProductFormativeEnvironment.Items.Clear();
@@ -63,11 +63,16 @@ namespace GestionAgraria.Views
         {
             tbProductCode.Text = product.code;
             tbProductName.Text = product.Name;
-            cbProductStock.Text = product.Quantity.ToString(); 
+            cbProductStock.Text = product.Quantity.ToString();
+            tbDescription.Text = product.Observations;
             if (product.FormativeEnvironment != null) 
             { 
             cbProductFormativeEnvironment.SelectedIndex = cbProductFormativeEnvironment.Items.IndexOf(product.FormativeEnvironment.Name);
             }
+            cbEstado.SelectedIndex = 0; // Por defecto activo
+            if (product.IsActive == false)
+                cbEstado.SelectedIndex = 1;
+
         }
 
         private bool ValidateFields()
@@ -108,6 +113,11 @@ namespace GestionAgraria.Views
             currentProduct.Name = tbProductName.Text;
             currentProduct.Quantity = int.Parse(cbProductStock.Text);
             currentProduct.Observations = tbDescription.Text;
+
+            if (!(cbEstado.SelectedIndex == 0))
+                currentProduct.IsActive = false;
+            else
+                currentProduct.IsActive = true;
 
             var environments = producController.GetAllActiveFormativeEnvironments();
 
