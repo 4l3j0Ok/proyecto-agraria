@@ -115,7 +115,7 @@ namespace GestionAgraria
             materialLabel7 = new ReaLTaiizor.Controls.MaterialLabel();
             panel21 = new Panel();
             lblEmptyUsers = new ReaLTaiizor.Controls.MaterialLabel();
-            flpUsersList = new FlowLayoutPanel();
+            flpUsersList1 = new FlowLayoutPanel();
             tabEntorno = new TabPage();
             panel22 = new Panel();
             lblEmptyFormativeEnvironments = new ReaLTaiizor.Controls.MaterialLabel();
@@ -1069,8 +1069,8 @@ namespace GestionAgraria
             // tabUsers
             // 
             tabUsers.Controls.Add(btnAddUser);
-            tabUsers.Controls.Add(panel5);
             tabUsers.Controls.Add(panel21);
+            tabUsers.Controls.Add(panel5);
             tabUsers.ImageKey = "user.png";
             tabUsers.Location = new Point(4, 39);
             tabUsers.Name = "tabUsers";
@@ -1292,11 +1292,11 @@ namespace GestionAgraria
             // panel21
             // 
             panel21.Controls.Add(lblEmptyUsers);
-            panel21.Controls.Add(flpUsersList);
+            panel21.Controls.Add(flpUsersList1);
             panel21.Dock = DockStyle.Fill;
-            panel21.Location = new Point(20, 20);
+            panel21.Location = new Point(20, 132);
             panel21.Name = "panel21";
-            panel21.Size = new Size(920, 449);
+            panel21.Size = new Size(920, 337);
             panel21.TabIndex = 19;
             // 
             // lblEmptyUsers
@@ -1310,19 +1310,19 @@ namespace GestionAgraria
             lblEmptyUsers.Location = new Point(0, 0);
             lblEmptyUsers.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblEmptyUsers.Name = "lblEmptyUsers";
-            lblEmptyUsers.Size = new Size(920, 449);
+            lblEmptyUsers.Size = new Size(920, 337);
             lblEmptyUsers.TabIndex = 6;
             lblEmptyUsers.Text = "Aún no tienes usuarios agregados... Comienza por agregar uno.";
             lblEmptyUsers.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // flpUsersList
+            // flpUsersList1
             // 
-            flpUsersList.BackColor = Color.Transparent;
-            flpUsersList.Dock = DockStyle.Fill;
-            flpUsersList.Location = new Point(0, 0);
-            flpUsersList.Name = "flpUsersList";
-            flpUsersList.Size = new Size(920, 449);
-            flpUsersList.TabIndex = 2;
+            flpUsersList1.BackColor = Color.Transparent;
+            flpUsersList1.Dock = DockStyle.Fill;
+            flpUsersList1.Location = new Point(0, 0);
+            flpUsersList1.Name = "flpUsersList1";
+            flpUsersList1.Size = new Size(920, 337);
+            flpUsersList1.TabIndex = 2;
             // 
             // tabEntorno
             // 
@@ -1833,5 +1833,6 @@ namespace GestionAgraria
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbSearchUsers;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel7;
         public TabPage tabUsers;
+        private FlowLayoutPanel flpUsersList1;
     }
 }

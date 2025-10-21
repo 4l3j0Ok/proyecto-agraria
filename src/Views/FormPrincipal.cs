@@ -154,7 +154,7 @@ namespace GestionAgraria
                 UCUserCard userCard = new UCUserCard(user: user);
                 userCard.Dock = DockStyle.Top;
                 userCard.Margin = new Padding(10);
-                flpUsersList.Controls.Add(userCard);
+                flpUsersList1.Controls.Add(userCard);
             }
         }
         private void LoadComboBoxesUsersFilter()
