@@ -619,5 +619,11 @@ namespace GestionAgraria
             flpAnimalsList.Controls.Clear();
             LoadAnimalsTable();
         }
+
+        private void btnAddUser_Click_1(object sender, EventArgs e)
+        {
+            UCUserAdd AddControl = new UCUserAdd();
+            this.VerFormularioTab(AddControl, tabUsers);
+        }
     }
 }
