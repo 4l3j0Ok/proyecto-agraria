@@ -112,7 +112,7 @@ namespace GestionAgraria.Controllers
                 .FirstOrDefault(a => a.code == code && a.IsActive);
         }
 
-        public List<ProductModel> GetProductsForFiltro(int estado, string? entorno = null, string? searchText = null)
+        public List<ProductModel> GetProductsForFiltro(int estado, string? entorno = null, string? searchText = null, int page = 1, int pageSize = 20)
         {
             var query = _context.Product
                 .Include(p => p.FormativeEnvironment) // incluimos entorno
@@ -139,7 +139,38 @@ namespace GestionAgraria.Controllers
                 );
             }
 
-            return query.ToList();
+            // 📌 Pagination
+            return query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
+
+        public int GetProductsCountForFilter(int estado, string? entorno = null, string? searchText = null)
+        {
+            var query = _context.Product.AsQueryable();
+
+            // 📌 Filtro por estado
+            if (estado == 0) // Activos
+                query = query.Where(p => p.IsActive);
+            else if (estado == 1) // Inactivos
+                query = query.Where(p => !p.IsActive);
+
+            // 📌 Filtro por entorno
+            if (!string.IsNullOrEmpty(entorno))
+                query = query.Where(p => p.FormativeEnvironment.Name == entorno);
+
+            // 📌 Filtro por búsqueda
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                string lowerText = searchText.ToLower();
+                query = query.Where(p =>
+                    p.code.ToLower().Contains(lowerText) ||
+                    p.Name.ToLower().Contains(lowerText)
+                );
+            }
+
+            return query.Count();
         }
 
         public List<FormativeEnvironmentModel> GetAllActiveFormativeEnvironments()

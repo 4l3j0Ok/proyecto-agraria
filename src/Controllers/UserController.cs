@@ -32,7 +32,7 @@ namespace GestionAgraria.controllers
                 .ToList();
         }
 
-        public List<UserModel> GetUsersForFilter(int estado, string? role = null, string? searchText = null)
+        public List<UserModel> GetUsersForFilter(int estado, string? role = null, string? searchText = null, int page = 1, int pageSize = 20)
         {
             var query = _context.Users
                 .Include(u => u.Role)
@@ -59,7 +59,38 @@ namespace GestionAgraria.controllers
                 );
             }
 
-            return query.ToList();
+            // 📌 Pagination
+            return query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
+
+        public int GetUsersCountForFilter(int estado, string? role = null, string? searchText = null)
+        {
+            var query = _context.Users.AsQueryable();
+
+            // 📌 Filtro por estado
+            if (estado == 0) // Activos
+                query = query.Where(u => u.IsActive);
+            else if (estado == 1) // Inactivos
+                query = query.Where(u => !u.IsActive);
+
+            // 📌 Filtro por rol
+            if (!string.IsNullOrEmpty(role))
+                query = query.Where(u => u.Role.Name == role);
+
+            // 📌 Filtro opcional por texto
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                string lowerText = searchText.ToLower();
+                query = query.Where(u =>
+                    u.Name.ToLower().Contains(lowerText) ||
+                    u.Email.ToLower().Contains(lowerText)
+                );
+            }
+
+            return query.Count();
         }
 
         public UserModel? GetUserByUsername(string username)

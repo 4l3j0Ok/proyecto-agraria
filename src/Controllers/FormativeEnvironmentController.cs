@@ -25,7 +25,7 @@ namespace GestionAgraria.controllers
             _context = context;
         }
 
-        public List<FormativeEnvironmentModel> GetFormativeEnvironments(int estado,string? area = null,string? searchText = null)
+        public List<FormativeEnvironmentModel> GetFormativeEnvironments(int estado,string? area = null,string? searchText = null, int page = 1, int pageSize = 20)
         {
             var query = _context.FormativeEnvironments
                 .Include(fe => fe.Responsible)
@@ -53,8 +53,40 @@ namespace GestionAgraria.controllers
                 );
             }
 
-            return query.ToList();
+            // 📌 Pagination
+            return query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
         }
+
+        public int GetFormativeEnvironmentsCountForFilter(int estado, string? area = null, string? searchText = null)
+        {
+            var query = _context.FormativeEnvironments.AsQueryable();
+
+            // 📌 Filtro por estado
+            if (estado == 0) // activos
+                query = query.Where(fe => fe.IsActive);
+            else if (estado == 1) // inactivos
+                query = query.Where(fe => !fe.IsActive);
+
+            // 📌 Filtro por área
+            if (!string.IsNullOrEmpty(area))
+                query = query.Where(fe => fe.Area == area);
+
+            // 📌 Filtro por texto
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                string lowerText = searchText.ToLower();
+                query = query.Where(fe =>
+                    fe.Name.ToLower().Contains(lowerText) ||
+                    fe.Responsible.Name.ToLower().Contains(lowerText)
+                );
+            }
+
+            return query.Count();
+        }
+
         public List<FormativeEnvironmentModel> GetAllFormativeEnvironmentsActive()
         {
             return _context.FormativeEnvironments

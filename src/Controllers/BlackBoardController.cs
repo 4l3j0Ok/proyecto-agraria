@@ -24,10 +24,17 @@ namespace GestionAgraria.controllers
             _context = context;
         }
 
-        public List<BlackBoardModel> GetAllBlackBoards()
+        public List<BlackBoardModel> GetAllBlackBoards(int page = 1, int pageSize = 20)
         {
             return _context.BlackBoard
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToList();
+        }
+
+        public int GetBlackBoardsCount()
+        {
+            return _context.BlackBoard.Count();
         }
 
         public BlackBoardModel? GetBlackBoardById(int id)

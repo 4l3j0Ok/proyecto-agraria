@@ -33,7 +33,7 @@ namespace GestionAgraria.controllers
                 .Where(a => a.IsActive)
                 .ToList();
         }
-        public List<AnimalModel> GetAnimalsForFiltro(int estado,string? entorno = null,string? searchText = null,string? animalType = null,string? productiveState = null)
+        public List<AnimalModel> GetAnimalsForFiltro(int estado,string? entorno = null,string? searchText = null,string? animalType = null,string? productiveState = null, int page = 1, int pageSize = 20)
         {
             var query = _context.Animals
                 .Include(a => a.AnimalType)            // Incluimos tipo de animal
@@ -71,7 +71,48 @@ namespace GestionAgraria.controllers
                 );
             }
 
-            return query.ToList();
+            // 📌 Pagination
+            return query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
+
+        public int GetAnimalsCountForFilter(int estado, string? entorno = null, string? searchText = null, string? animalType = null, string? productiveState = null)
+        {
+            var query = _context.Animals.AsQueryable();
+
+            // 📌 Filtro por estado
+            if (estado == 0) // Activos
+                query = query.Where(a => a.IsActive);
+            else if (estado == 1) // Inactivos
+                query = query.Where(a => !a.IsActive);
+
+            // 📌 Filtro por entorno
+            if (!string.IsNullOrEmpty(entorno))
+                query = query.Where(a => a.FormativeEnvironment.Name == entorno);
+
+            // 📌 Filtro por tipo de animal
+            if (!string.IsNullOrEmpty(animalType))
+                query = query.Where(a => a.AnimalType.Name == animalType);
+
+            // 📌 Filtro por estado productivo
+            if (!string.IsNullOrEmpty(productiveState))
+                query = query.Where(a => a.ProductiveState == productiveState);
+
+            // 📌 Filtro por texto
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                string lowerText = searchText.ToLower();
+                query = query.Where(a =>
+                    a.AnimalType.Name.ToLower().Contains(lowerText) ||
+                    a.Sex.ToLower().Contains(lowerText) ||
+                    a.ProductiveState.ToLower().Contains(lowerText) ||
+                    a.Observations.ToLower().Contains(lowerText)
+                );
+            }
+
+            return query.Count();
         }
 
         public AnimalModel? GetAnimalById(int id)

@@ -5,6 +5,9 @@
     <Compile Update="Controls\NonCollapsibleMaterialExpansionPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Controls\UCPaginator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\CustomMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
