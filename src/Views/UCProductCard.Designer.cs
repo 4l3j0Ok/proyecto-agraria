@@ -154,8 +154,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(250, 70);
             Name = "UCProductCard";
-            Size = new Size(369, 70);
+            Size = new Size(250, 70);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

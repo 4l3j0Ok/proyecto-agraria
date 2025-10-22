@@ -5,14 +5,39 @@ namespace GestionAgraria.Controls
 {
     /// <summary>
     /// Versión personalizada de MaterialExpansionPanel que deshabilita completamente
-    /// la funcionalidad de colapsar/expandir, incluso al hacer clic en la cabecera.
+    /// la funcionalidad de colapsar/expandir, incluso al hacer clic en la cabecera
+    /// y al presionar los botones Save/Cancel.
     /// </summary>
     public class NonCollapsibleMaterialExpansionPanel : MaterialExpansionPanel
     {
+        private bool _suppressCollapseToggle = false;
+
         public NonCollapsibleMaterialExpansionPanel()
         {
             // Asegurar que el botón de colapsar esté oculto
             this.ShowCollapseExpand = false;
+            
+            // Suscribirse a los eventos para interceptarlos
+            this.SaveClick += OnInternalSaveClick;
+            this.CancelClick += OnInternalCancelClick;
+        }
+
+        /// <summary>
+        /// Intercepta el evento SaveClick para evitar el colapso automático
+        /// </summary>
+        private void OnInternalSaveClick(object? sender, EventArgs e)
+        {
+            // Marcar que se debe suprimir el colapso
+            _suppressCollapseToggle = true;
+        }
+
+        /// <summary>
+        /// Intercepta el evento CancelClick para evitar el colapso automático
+        /// </summary>
+        private void OnInternalCancelClick(object? sender, EventArgs e)
+        {
+            // Marcar que se debe suprimir el colapso
+            _suppressCollapseToggle = true;
         }
 
         /// <summary>
@@ -41,7 +66,33 @@ namespace GestionAgraria.Controls
         public new bool Collapse
         {
             get => false;
-            set { /* No hacer nada, siempre expandido */ }
+            set 
+            { 
+                // Si se está intentando colapsar y debemos suprimirlo, no hacer nada
+                if (_suppressCollapseToggle)
+                {
+                    _suppressCollapseToggle = false; // Resetear la bandera
+                    return; // No permitir el colapso
+                }
+                // No hacer nada en cualquier caso, siempre expandido
+            }
+        }
+
+        /// <summary>
+        /// Sobrescribe la propiedad Height para evitar cambios de tamaño durante colapso
+        /// </summary>
+        protected override void OnLayout(LayoutEventArgs e)
+        {
+            // Guardar el estado de expansión antes de llamar al base
+            var wasCollapsed = base.Collapse;
+            
+            base.OnLayout(e);
+            
+            // Forzar que siempre esté expandido después del layout
+            if (base.Collapse != false)
+            {
+                base.Collapse = false;
+            }
         }
     }
 }

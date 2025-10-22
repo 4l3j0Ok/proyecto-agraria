@@ -174,10 +174,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             Controls.Add(tableLayoutPanel1);
-            MaximumSize = new Size(600, 70);
-            MinimumSize = new Size(400, 70);
+            MinimumSize = new Size(250, 70);
             Name = "UCFormativeEnvironmentCard";
-            Size = new Size(400, 70);
+            Size = new Size(250, 70);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

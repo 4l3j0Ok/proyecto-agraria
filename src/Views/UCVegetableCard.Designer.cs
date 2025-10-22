@@ -140,10 +140,9 @@
             BackColor = Color.White;
             Controls.Add(materialCard1);
             Margin = new Padding(3, 2, 3, 2);
-            MaximumSize = new Size(600, 70);
-            MinimumSize = new Size(400, 70);
+            MinimumSize = new Size(250, 70);
             Name = "UCVegetableCard";
-            Size = new Size(453, 70);
+            Size = new Size(250, 70);
             materialCard1.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);

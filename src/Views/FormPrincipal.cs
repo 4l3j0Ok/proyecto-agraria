@@ -20,12 +20,24 @@ namespace GestionAgraria
 
         private RoleController roleController;
         private AnimalController animalController;
+        
+        // Timers for debouncing resize events
+        private System.Windows.Forms.Timer? resizeTimerUsers;
+        private System.Windows.Forms.Timer? resizeTimerVegetables;
+        private System.Windows.Forms.Timer? resizeTimerAnimals;
+        private System.Windows.Forms.Timer? resizeTimerEnvironments;
+        private System.Windows.Forms.Timer? resizeTimerProducts;
+        private System.Windows.Forms.Timer? resizeTimerBlackBoards;
+
         public FormPrincipal(UserModel currentUser)
         {
             roleController = new RoleController();
             this.currentUser = currentUser;
             UIConfig.GetSkinManager().AddFormToManage(this);
             InitializeComponent();
+            
+            // Initialize resize timers
+            InitializeResizeTimers();
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
@@ -35,6 +47,35 @@ namespace GestionAgraria
 
             // Posicionar botones flotantes
             PositionFloatingButtons();
+
+            // Add resize event handlers for all FlowLayoutPanels with debouncing
+            flpUsersList.ClientSizeChanged += (s, ev) => { resizeTimerUsers?.Stop(); resizeTimerUsers?.Start(); };
+            flpVegetalList.ClientSizeChanged += (s, ev) => { resizeTimerVegetables?.Stop(); resizeTimerVegetables?.Start(); };
+            flpAnimalsList.ClientSizeChanged += (s, ev) => { resizeTimerAnimals?.Stop(); resizeTimerAnimals?.Start(); };
+            flpFormativeEnvironmentsList.ClientSizeChanged += (s, ev) => { resizeTimerEnvironments?.Stop(); resizeTimerEnvironments?.Start(); };
+            flpProductList.ClientSizeChanged += (s, ev) => { resizeTimerProducts?.Stop(); resizeTimerProducts?.Start(); };
+            flowLayoutPanel4.ClientSizeChanged += (s, ev) => { resizeTimerBlackBoards?.Stop(); resizeTimerBlackBoards?.Start(); };
+        }
+
+        private void InitializeResizeTimers()
+        {
+            resizeTimerUsers = new System.Windows.Forms.Timer { Interval = 300 };
+            resizeTimerUsers.Tick += (s, e) => { resizeTimerUsers.Stop(); flpUsersList.Controls.Clear(); LoadUsersTable(); };
+
+            resizeTimerVegetables = new System.Windows.Forms.Timer { Interval = 300 };
+            resizeTimerVegetables.Tick += (s, e) => { resizeTimerVegetables.Stop(); flpVegetalList.Controls.Clear(); LoadVegetablesTable(); };
+
+            resizeTimerAnimals = new System.Windows.Forms.Timer { Interval = 300 };
+            resizeTimerAnimals.Tick += (s, e) => { resizeTimerAnimals.Stop(); flpAnimalsList.Controls.Clear(); LoadAnimalsTable(); };
+
+            resizeTimerEnvironments = new System.Windows.Forms.Timer { Interval = 300 };
+            resizeTimerEnvironments.Tick += (s, e) => { resizeTimerEnvironments.Stop(); flpFormativeEnvironmentsList.Controls.Clear(); LoadFormativeEnvironments(); };
+
+            resizeTimerProducts = new System.Windows.Forms.Timer { Interval = 300 };
+            resizeTimerProducts.Tick += (s, e) => { resizeTimerProducts.Stop(); flpProductList.Controls.Clear(); LoadProductTable(); };
+
+            resizeTimerBlackBoards = new System.Windows.Forms.Timer { Interval = 300 };
+            resizeTimerBlackBoards.Tick += (s, e) => { resizeTimerBlackBoards.Stop(); flowLayoutPanel4.Controls.Clear(); LoadBlackBoard(); };
         }
 
         private void PositionFloatingButtons()
@@ -136,6 +177,72 @@ namespace GestionAgraria
             cbEntornosFiltroProducto.SelectedIndex = 0; // Establecer el valor predeterminado
 
         }
+
+        private void LoadCardsInGrid<T>(FlowLayoutPanel panel, List<T> items, Func<T, UserControl> createCard)
+        {
+            panel.SuspendLayout();
+            panel.Controls.Clear();
+            
+            // Configure FlowLayoutPanel
+            panel.AutoScroll = false;
+            panel.WrapContents = true;
+            panel.FlowDirection = FlowDirection.LeftToRight;
+
+            if (items == null || items.Count == 0)
+            {
+                panel.ResumeLayout();
+                return;
+            }
+
+            // Get available width (accounting for padding)
+            int availableWidth = panel.ClientSize.Width - panel.Padding.Horizontal;
+            
+            // Constants
+            int margin = 10;
+            int maxColumns = 3;
+            int minCardWidth = 250;
+            
+            // Calculate how many columns we can actually fit
+            int maxPossibleColumns = Math.Max(1, (availableWidth + margin) / (minCardWidth + margin));
+            int actualColumns = Math.Min(maxColumns, maxPossibleColumns);
+            
+            // Calculate standard card width for full rows
+            int standardCardWidth = (availableWidth - (margin * (actualColumns + 1))) / actualColumns;
+            standardCardWidth = Math.Max(standardCardWidth, minCardWidth);
+            
+            // Calculate total rows
+            int totalCards = items.Count;
+            int fullRows = totalCards / actualColumns;
+            int cardsInLastRow = totalCards % actualColumns;
+            bool hasPartialLastRow = cardsInLastRow > 0;
+            
+            // Calculate width for cards in the last row if it's partial
+            int lastRowCardWidth = standardCardWidth;
+            if (hasPartialLastRow)
+            {
+                lastRowCardWidth = (availableWidth - (margin * (cardsInLastRow + 1))) / cardsInLastRow;
+                lastRowCardWidth = Math.Max(lastRowCardWidth, minCardWidth);
+            }
+
+            int cardIndex = 0;
+            foreach (var item in items)
+            {
+                // Determine if this card is in the last row
+                bool isInLastRow = hasPartialLastRow && (cardIndex >= fullRows * actualColumns);
+                
+                var card = createCard(item);
+                card.Width = isInLastRow ? lastRowCardWidth : standardCardWidth;
+                card.Height = 70;
+                card.Margin = new Padding(margin, margin, 0, 0);
+                card.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                panel.Controls.Add(card);
+                
+                cardIndex++;
+            }
+
+            panel.ResumeLayout();
+        }
+
         private void LoadUsersTable()
         {
             UserController userController = new UserController();
@@ -154,13 +261,8 @@ namespace GestionAgraria
 
             if (users.Count > 0)
                 lblEmptyUsers.Visible = false;
-            foreach (UserModel user in users)
-            {
-                UCUserCard userCard = new UCUserCard(user: user);
-                userCard.Dock = DockStyle.Top;
-                userCard.Margin = new Padding(10);
-                flpUsersList.Controls.Add(userCard);
-            }
+            
+            LoadCardsInGrid(flpUsersList, users, user => new UCUserCard(user));
         }
         private void LoadComboBoxesUsersFilter()
         {
@@ -192,14 +294,8 @@ namespace GestionAgraria
             List<VegetableModel> vegetables = vegetalController.GetVegetablesForFiltro(estado, entorno, searchText);
             if (vegetables.Count > 0)
                 lblEmptyVegetables.Visible = false;
-            foreach (VegetableModel vegetable in vegetables)
-            {
-                UCVegetableCard vegetalCard = new UCVegetableCard(vegetal: vegetable);
-                vegetalCard.Dock = DockStyle.Top;
-                vegetalCard.Margin = new Padding(10);
-                // Usar el FlowLayoutPanel correcto según el Designer
-                flpVegetalList.Controls.Add(vegetalCard);
-            }
+            
+            LoadCardsInGrid(flpVegetalList, vegetables, vegetable => new UCVegetableCard(vegetable));
         }
 
         private void LoadComboBoxesFiltroVegetal()
@@ -247,14 +343,8 @@ namespace GestionAgraria
             List<AnimalModel> animals = animalController.GetAnimalsForFiltro(estado, entorno, searchText, animalType, productiveState);
             if (animals.Count > 0)
                 lblEmptyAnimals.Visible = false;
-            foreach (AnimalModel animal in animals)
-            {
-                UCAnimalCard animalCard = new UCAnimalCard(animal: animal);
-                animalCard.Dock = DockStyle.Top;
-                animalCard.Margin = new Padding(10);
-                // Usar el FlowLayoutPanel correcto
-                flpAnimalsList.Controls.Add(animalCard);
-            }
+            
+            LoadCardsInGrid(flpAnimalsList, animals, animal => new UCAnimalCard(animal));
         }
 
         private void LoadComboBoxesFiltroAnimals()
@@ -309,14 +399,7 @@ namespace GestionAgraria
             if (formativeEnvironments.Count > 0)
                 lblEmptyFormativeEnvironments.Visible = false;
 
-            foreach (FormativeEnvironmentModel formativeEnvironment in formativeEnvironments)
-            {
-                UCFormativeEnvironmentCard formativeEnvironmentCard = new UCFormativeEnvironmentCard(formativeEnvironment: formativeEnvironment);
-                formativeEnvironmentCard.Dock = DockStyle.Top;
-                formativeEnvironmentCard.Margin = new Padding(10);
-                // Usar el FlowLayoutPanel correcto
-                flpFormativeEnvironmentsList.Controls.Add(formativeEnvironmentCard);
-            }
+            LoadCardsInGrid(flpFormativeEnvironmentsList, formativeEnvironments, env => new UCFormativeEnvironmentCard(env));
         }
 
         private void LoadComboBoxesEnvironmentsFilter()
@@ -345,39 +428,8 @@ namespace GestionAgraria
             List<ProductModel> products = ProducController.GetProductsForFiltro(estado, entorno, searchText);
             if (products.Count > 0)
                 lblEmptyProducts.Visible = false;
-            try
-            {
-                var ejemploCard = new UCProductCard(products.First());
-
-                int pageSize = CalcularPageSize(flpProductList, ejemploCard);
-
-                //foreach (ProductModel pro in products)
-                //{
-                //    UCProductCard prodCard = new UCProductCard(pro);
-                //    prodCard.Dock = DockStyle.Top;
-                //    prodCard.Margin = new Padding(0, 0, 0, 20);
-                //    // Agregar directamente a la pestaña ya que no tiene FlowLayoutPanel en el Designer
-                //    flpProductList.Controls.Add(prodCard);
-                //}
-
-
-                Paginator.CargarPaginaGrid(
-                    flpProductList,
-                    products,
-                    ref currentPage,
-                    pro =>
-                    {
-                        var card = new UCProductCard(pro);
-                        card.Margin = new Padding(8, 8, 16, 8); // separaciones laterales/verticales
-                        // NO Dock
-                        return card;
-                    }
-                );
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
+            
+            LoadCardsInGrid(flpProductList, products, product => new UCProductCard(product));
         }
 
         private void LoadComboBoxesFiltroProduct()
@@ -410,14 +462,8 @@ namespace GestionAgraria
             List<BlackBoardModel> blackboards = blackBoardController.GetAllBlackBoards();
             if (blackboards.Count > 0)
                 lblEmptyBlackBoards.Visible = false;
-            foreach (BlackBoardModel blackboard in blackboards)
-            {
-                UCBlackBoardCard blackboardCard = new UCBlackBoardCard(blackboard: blackboard);
-                blackboardCard.Dock = DockStyle.Top;
-                blackboardCard.Margin = new Padding(10);
-                // Usar el FlowLayoutPanel correcto
-                flowLayoutPanel4.Controls.Add(blackboardCard);
-            }
+            
+            LoadCardsInGrid(flowLayoutPanel4, blackboards, blackboard => new UCBlackBoardCard(blackboard));
         }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
@@ -654,24 +700,5 @@ namespace GestionAgraria
             LoadProductTable();
         }
 
-        private void flpProductList_Resize(object sender, EventArgs e)
-        {
-            flpProductList.Controls.Clear();
-            LoadProductTable();
-        }
-
-        private void btnPreviousPageProduct_Click(object sender, EventArgs e)
-        {
-            currentPage = Math.Max(1, currentPage - 1);
-            //int valor = int.Parse(currentPage.ToString());
-            //if (int.Parse(currentPage.ToString()) > 1)
-            LoadProductTable();
-        }
-
-        private void btnNextPageProduct_Click(object sender, EventArgs e)
-        {
-            currentPage++;
-            LoadProductTable();
-        }
     }
 }
