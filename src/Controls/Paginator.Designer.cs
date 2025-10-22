@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace GestionAgraria.Controls
 {
-    partial class UCPaginator
+    partial class Paginator
     {
         /// <summary> 
         /// Required designer variable.

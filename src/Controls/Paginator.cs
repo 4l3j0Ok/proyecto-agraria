@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace GestionAgraria.Controls
 {
-    public partial class UCPaginator : UserControl
+    public partial class Paginator : UserControl
     {
         private int _currentPage = 1;
         private int _totalPages = 1;
@@ -42,7 +42,7 @@ namespace GestionAgraria.Controls
 
         public static int GetPageSize() => PageSize;
 
-        public UCPaginator()
+        public Paginator()
         {
             InitializeComponent();
             UpdateDisplay();
