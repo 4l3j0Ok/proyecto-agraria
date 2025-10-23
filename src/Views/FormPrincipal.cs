@@ -50,7 +50,6 @@ namespace GestionAgraria
             SaveOriginalTabContents();
             LoadCards();
 
-            PositionFloatingButtons();
 
             flpUsersList.ClientSizeChanged += (s, ev) => { resizeTimerUsers?.Stop(); resizeTimerUsers?.Start(); };
             flpVegetalList.ClientSizeChanged += (s, ev) => { resizeTimerVegetables?.Stop(); resizeTimerVegetables?.Start(); };
@@ -58,6 +57,8 @@ namespace GestionAgraria
             flpFormativeEnvironmentsList.ClientSizeChanged += (s, ev) => { resizeTimerEnvironments?.Stop(); resizeTimerEnvironments?.Start(); };
             flpProductList.ClientSizeChanged += (s, ev) => { resizeTimerProducts?.Stop(); resizeTimerProducts?.Start(); };
             flowLayoutPanel4.ClientSizeChanged += (s, ev) => { resizeTimerBlackBoards?.Stop(); resizeTimerBlackBoards?.Start(); };
+
+            PositionFloatingButtons();
         }
 
         private UCPaginator EnsurePaginatorExists(ref UCPaginator? paginator, System.Windows.Forms.TabPage tabPage, EventHandler<int> pageChangedHandler)
@@ -453,7 +454,7 @@ namespace GestionAgraria
                 searchText = string.IsNullOrWhiteSpace(tbSearchFiltroProducto.Text) ? null : tbSearchFiltroProducto.Text;
             }
 
-            int currentPage = paginatorProducts?.CurrentPage ?? 1;
+            int currentPage = paginatorProducts?.CurrentPage ?? 10;
             int pageSize = UCPaginator.GetPageSize();
 
             List<ProductModel> products = ProducController.GetProductsForFiltro(estado, entorno, searchText, currentPage, pageSize);
