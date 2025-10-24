@@ -51,7 +51,6 @@ namespace GestionAgraria
             SaveOriginalTabContents();
             LoadCards();
 
-            PositionFloatingButtons();
 
             flpUsersList.ClientSizeChanged += (s, ev) => { resizeTimerUsers?.Stop(); resizeTimerUsers?.Start(); };
             flpVegetalList.ClientSizeChanged += (s, ev) => { resizeTimerVegetables?.Stop(); resizeTimerVegetables?.Start(); };
@@ -59,6 +58,8 @@ namespace GestionAgraria
             flpFormativeEnvironmentsList.ClientSizeChanged += (s, ev) => { resizeTimerEnvironments?.Stop(); resizeTimerEnvironments?.Start(); };
             flpProductList.ClientSizeChanged += (s, ev) => { resizeTimerProducts?.Stop(); resizeTimerProducts?.Start(); };
             flowLayoutPanel4.ClientSizeChanged += (s, ev) => { resizeTimerBlackBoards?.Stop(); resizeTimerBlackBoards?.Start(); };
+
+            PositionFloatingButtons();
         }
 
         private Controls.Paginator EnsurePaginatorExists(ref Controls.Paginator? paginator, System.Windows.Forms.TabPage tabPage, EventHandler<int> pageChangedHandler)
