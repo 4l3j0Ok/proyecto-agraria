@@ -592,8 +592,8 @@ namespace GestionAgraria
             // btnAddAnimal
             // 
             btnAddAnimal.Depth = 0;
-            btnAddAnimal.Icon = null;
-            btnAddAnimal.Location = new Point(0, 0);
+            btnAddAnimal.Icon = Properties.Resources.add;
+            btnAddAnimal.Location = new Point(901, 430);
             btnAddAnimal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddAnimal.Name = "btnAddAnimal";
             btnAddAnimal.Size = new Size(56, 56);

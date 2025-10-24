@@ -11,6 +11,7 @@ using GestionAgraria.models;
 using GestionAgraria.controllers;
 using ReaLTaiizor.Controls;
 using Panel = System.Windows.Forms.Panel;
+using GestionAgraria.Core;
 
 namespace GestionAgraria.Views
 {

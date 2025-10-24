@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ReaLTaiizor.Forms;
 using System.Diagnostics;
+using GestionAgraria.Core;
 
 namespace GestionAgraria.Views
 {

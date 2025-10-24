@@ -8,7 +8,7 @@ namespace GestionAgraria.Controls
     {
         private int _currentPage = 1;
         private int _totalPages = 1;
-        private const int PageSize = 1;
+        private const int PageSize = 10;
 
         public event EventHandler<int>? PageChanged;
 

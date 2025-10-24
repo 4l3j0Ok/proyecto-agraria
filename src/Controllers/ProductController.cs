@@ -1,6 +1,7 @@
 ﻿using GestionAgraria.data;
 using GestionAgraria.models;
 using GestionAgraria.Models;
+using GestionAgraria.Core;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -180,11 +181,15 @@ namespace GestionAgraria.Controllers
                 .ToList();
         }
 
-        //public List<ProductModel> GetAnimalTypes()
-        //{
-        //    return _context.
-        //        .ToList();
-        //}
+        public void PrintProductReport(int productId)
+        {
+            var product = GetProductById(productId);
+            if (product != null)
+            {
+                Utils.PrintProduct(product);
+            }
+        }
+
         public void Dispose()
         {
             _context?.Dispose();

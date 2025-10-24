@@ -9,6 +9,7 @@ using GestionAgraria.controllers;
 using GestionAgraria.data;
 using GestionAgraria.models;
 using System.Diagnostics;
+using GestionAgraria.Core;
 
 namespace GestionAgraria
 {
@@ -72,7 +73,14 @@ namespace GestionAgraria
 
         private static void copyPassword(string password)
         {
-            Clipboard.SetText(password);
+            try
+            {
+                Clipboard.SetText(password);
+            }
+            catch
+            {
+                Debug.WriteLine("No se pudo copiar la contraseña al portapapeles.");
+            }
         }
 
         private void tbCredentials_KeyPress(object sender, KeyPressEventArgs e)

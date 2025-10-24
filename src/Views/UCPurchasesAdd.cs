@@ -12,106 +12,284 @@ using GestionAgraria.controllers;
 using GestionAgraria.Controllers;
 using GestionAgraria.models;
 using GestionAgraria.Models;
+using GestionAgraria.Core;
 
 namespace GestionAgraria.Views
 {
     public partial class UCPurchasesAdd : UserControl
     {
-
-        private ProductController productController;
+        private PurchaseController purchaseController;
+        private PurchaseItemController purchaseItemController;
         private UserController userController;
 
-        private List<PurchaseDetailModel> currentDetailBuysList = new List<PurchaseDetailModel>();
+        private List<PurchaseItemModel> currentPurchaseItems = new List<PurchaseItemModel>();
 
-        private PurchaseModel currentBuys;
-        private PurchaseDetailModel currentDetailBuys;
+        private PurchaseModel currentPurchase;
         private UserModel currentUser;
 
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-        public UCPurchasesAdd(UserModel? CurrentUser = null, PurchaseModel? buys = null)
+
+        public UCPurchasesAdd(UserModel? CurrentUser = null, PurchaseModel? purchase = null)
         {
             currentUser = CurrentUser;
-            productController = new ProductController();
+            purchaseController = new PurchaseController();
+            purchaseItemController = new PurchaseItemController();
 
             InitializeComponent();
-            LoadComboBoxes();
+            
+            // Configurar el DataGridView dinámicamente
+            ConfigureDataGridView();
+
+            // Configurar eventos
+            btnProductAddList.Click += btnProductAddList_Click;
+            MepBuysAdd.SaveClick += MepBuysAdd_SaveClick;
+            MepBuysAdd.CancelClick += MepBuysAdd_CancelClick;
+
+            if (purchase != null)
+            {
+                MepBuysAdd.Title = "Modificar Compra";
+                MepBuysAdd.Description = "Edita los datos de la compra seleccionada";
+                currentPurchase = purchase;
+            }
+            else
+            {
+                currentPurchase = new PurchaseModel();
+            }
+
+            // Hacer el total readonly
+            tbTotal.ReadOnly = true;
         }
 
-        private void LoadComboBoxes()
+        private void ConfigureDataGridView()
+        {
+            // Limpiar columnas existentes
+            dgvProductList.Columns.Clear();
+            
+            // Configurar propiedades generales
+            dgvProductList.AllowUserToAddRows = false;
+            dgvProductList.AllowUserToDeleteRows = false;
+            dgvProductList.ReadOnly = true;
+            dgvProductList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvProductList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            
+            // Agregar columnas dinámicamente
+            dgvProductList.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "ColName",
+                HeaderText = "Nombre",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                FillWeight = 40
+            });
+            
+            dgvProductList.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "ColQuantity",
+                HeaderText = "Cantidad",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                FillWeight = 20
+            });
+            
+            dgvProductList.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "ColCost",
+                HeaderText = "Costo Unitario",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                FillWeight = 20,
+                DefaultCellStyle = new DataGridViewCellStyle { Format = "C2" }
+            });
+            
+            dgvProductList.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "ColSubtotal",
+                HeaderText = "Subtotal",
+                AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
+                FillWeight = 20,
+                DefaultCellStyle = new DataGridViewCellStyle { Format = "C2" }
+            });
+        }
+
+        private void btnProductAddList_Click(object? sender, EventArgs e)
         {
             try
             {
-                cbCodeProduc.Items.Clear();
-                cbNameProduct.Items.Clear();
-
-                List<ProductModel> products = productController.GetAllProduct();
-                foreach (ProductModel pro in products)
+                // Validar campos
+                if (string.IsNullOrWhiteSpace(tbPurchaseItemName.Text))
                 {
-                    cbCodeProduc.Items.Add(pro.code);
-                    cbNameProduct.Items.Add(pro.Name);
+                    MessageBox.Show("Debe ingresar el nombre del ítem.", "Campo requerido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tbPurchaseItemName.Focus();
+                    return;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void btnProductAddList_Click(object sender, EventArgs e)
-        {
-            currentDetailBuys = new PurchaseDetailModel();
-            List<string> listProduct = new List<string>();
-            try
-            {
 
-                string code = cbCodeProduc.Text;
+                if (string.IsNullOrWhiteSpace(tbPurchaseItemQuantity.Text))
+                {
+                    MessageBox.Show("Debe ingresar la cantidad.", "Campo requerido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tbPurchaseItemQuantity.Focus();
+                    return;
+                }
 
-                currentDetailBuys.Product = productController.GetProductByCode(code);
-                //currentDetailBuys.BuysId = currentBuys.Id;
-                currentDetailBuys.Quatity = int.Parse(tbQuatity.Text);
-                currentDetailBuys.PriceUnit = Convert.ToDecimal(tbPrecio.Text);
-                currentDetailBuys.ProductId = currentDetailBuys.Product.Id;
+                if (string.IsNullOrWhiteSpace(tbPurchaseItemCost.Text))
+                {
+                    MessageBox.Show("Debe ingresar el costo.", "Campo requerido",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tbPurchaseItemCost.Focus();
+                    return;
+                }
 
-                currentDetailBuysList.Add(currentDetailBuys);
+                // Validar cantidad
+                if (!int.TryParse(tbPurchaseItemQuantity.Text, out int quantity) || quantity <= 0)
+                {
+                    MessageBox.Show("La cantidad debe ser un número entero mayor a 0.", "Error de validación",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tbPurchaseItemQuantity.Focus();
+                    return;
+                }
 
-                string name = currentDetailBuys.Product.Name;
-                string cantidad = Convert.ToString(currentDetailBuys.Quatity);
-                string PriceUnit = Convert.ToString(currentDetailBuys.PriceUnit);
+                // Validar costo
+                if (!decimal.TryParse(tbPurchaseItemCost.Text, out decimal cost) || cost <= 0)
+                {
+                    MessageBox.Show("El costo debe ser un número mayor a 0.", "Error de validación",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    tbPurchaseItemCost.Focus();
+                    return;
+                }
 
-                listProduct.Add(code);
-                listProduct.Add(name);
-                listProduct.Add(cantidad);
-                listProduct.Add(PriceUnit);
-                LoadDGVProduct(listProduct);
+                // Crear nuevo ítem
+                var newItem = new PurchaseItemModel
+                {
+                    Name = tbPurchaseItemName.Text.Trim(),
+                    Quantity = quantity,
+                    Cost = cost
+                };
+
+                currentPurchaseItems.Add(newItem);
+
+                // Calcular subtotal
+                decimal subtotal = quantity * cost;
+
+                // Agregar fila al DataGridView
+                int rowIndex = dgvProductList.Rows.Add();
+                dgvProductList.Rows[rowIndex].Cells["ColName"].Value = newItem.Name;
+                dgvProductList.Rows[rowIndex].Cells["ColQuantity"].Value = newItem.Quantity;
+                dgvProductList.Rows[rowIndex].Cells["ColCost"].Value = newItem.Cost;
+                dgvProductList.Rows[rowIndex].Cells["ColSubtotal"].Value = subtotal;
+
+                // Actualizar total
+                UpdateTotal();
+
+                // Limpiar campos
+                ClearItemFields();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+                MessageBox.Show($"Error al agregar ítem: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        int total = 0;
-        private void LoadDGVProduct(List<string> listProduct)
+        private void UpdateTotal()
         {
-            int rows = dgvProductList.Rows.Add();
-            dgvProductList.Rows[rows].Cells[0].Value = listProduct[0];
-            dgvProductList.Rows[rows].Cells[1].Value = listProduct[1];
-            dgvProductList.Rows[rows].Cells[2].Value = listProduct[2];
-            dgvProductList.Rows[rows].Cells[3].Value = listProduct[3];
-
-            if (int.TryParse(listProduct[3], out int value))
+            decimal total = 0;
+            foreach (var item in currentPurchaseItems)
             {
-                if (int.TryParse(listProduct[2], out int value1))
-                    dgvProductList.Rows[rows].Cells[4].Value = value * value1;
-                total += value * value1;
-                tbTotal.Text = Convert.ToString(total);
+                total += item.Quantity * item.Cost;
             }
-            else
+            tbTotal.Text = $"${total:0.00}";
+        }
+
+        private void ClearItemFields()
+        {
+            tbPurchaseItemName.Text = "";
+            tbPurchaseItemQuantity.Text = "";
+            tbPurchaseItemCost.Text = "";
+            tbPurchaseItemName.Focus();
+        }
+
+        private void MepBuysAdd_SaveClick(object? sender, EventArgs e)
+        {
+            try
             {
-                dgvProductList.Rows[rows].Cells[4].Value = "Error";
+                if (currentPurchaseItems.Count == 0)
+                {
+                    MessageBox.Show("Debe agregar al menos un ítem a la compra.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (currentUser == null)
+                {
+                    MessageBox.Show("No se ha identificado el usuario actual.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Calcular total
+                decimal total = currentPurchaseItems.Sum(item => item.Quantity * item.Cost);
+
+                // Crear la compra
+                var newPurchase = new PurchaseModel
+                {
+                    TotalCost = total,
+                    Observation = tbSellsObservations.Text.Trim(),
+                    UserId = currentUser.Id,
+                    RecordDate = DateTime.Now
+                };
+
+                // Guardar la compra
+                if (!purchaseController.CreatePurchase(newPurchase))
+                {
+                    MessageBox.Show("Error al guardar la compra.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Obtener la compra recién creada
+                var savedPurchase = purchaseController.GetLastPurchase();
+                if (savedPurchase == null)
+                {
+                    MessageBox.Show("Error al obtener la compra guardada.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Guardar los ítems
+                foreach (var item in currentPurchaseItems)
+                {
+                    item.PurchaseId = savedPurchase.Id;
+                    purchaseItemController.CreateItem(item);
+                }
+
+                MessageBox.Show("Compra registrada correctamente.", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Preguntar si desea imprimir
+                var result = MessageBox.Show("¿Desea imprimir el comprobante de compra?", "Imprimir",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Utils.PrintPurchase(savedPurchase, currentPurchaseItems);
+                }
+
+                // Limpiar y volver
+                currentPurchaseItems.Clear();
+                dgvProductList.Rows.Clear();
+                tbTotal.Text = "";
+                tbSellsObservations.Text = "";
+
+                formPrincipal?.RestaurarFormularioTab(formPrincipal.tabCompras);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show($"Error al registrar la compra: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void MepBuysAdd_CancelClick(object sender, EventArgs e)
+        private void MepBuysAdd_CancelClick(object? sender, EventArgs e)
         {
             formPrincipal?.RestaurarFormularioTab(formPrincipal.tabCompras);
         }

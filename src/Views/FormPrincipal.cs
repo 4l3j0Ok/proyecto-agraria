@@ -10,7 +10,8 @@ using System.Diagnostics;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
-using static GestionAgraria.Utils;
+using static GestionAgraria.Core.Utils;
+using GestionAgraria.Core;
 
 namespace GestionAgraria
 {
@@ -22,12 +23,12 @@ namespace GestionAgraria
         private RoleController roleController;
         private AnimalController animalController;
 
-        private UCPaginator paginatorUsers;
-        private UCPaginator paginatorVegetables;
-        private UCPaginator paginatorAnimals;
-        private UCPaginator paginatorEnvironments;
-        private UCPaginator paginatorProducts;
-        private UCPaginator paginatorBlackBoards;
+        private Controls.Paginator paginatorUsers;
+        private Controls.Paginator paginatorVegetables;
+        private Controls.Paginator paginatorAnimals;
+        private Controls.Paginator paginatorEnvironments;
+        private Controls.Paginator paginatorProducts;
+        private Controls.Paginator paginatorBlackBoards;
 
         private System.Windows.Forms.Timer? resizeTimerUsers;
         private System.Windows.Forms.Timer? resizeTimerVegetables;
@@ -60,12 +61,12 @@ namespace GestionAgraria
             flowLayoutPanel4.ClientSizeChanged += (s, ev) => { resizeTimerBlackBoards?.Stop(); resizeTimerBlackBoards?.Start(); };
         }
 
-        private UCPaginator EnsurePaginatorExists(ref UCPaginator? paginator, System.Windows.Forms.TabPage tabPage, EventHandler<int> pageChangedHandler)
+        private Controls.Paginator EnsurePaginatorExists(ref Controls.Paginator? paginator, System.Windows.Forms.TabPage tabPage, EventHandler<int> pageChangedHandler)
         {
             if (paginator == null)
             {
                 Debug.WriteLine($"[PAGINATOR] Creando nuevo paginador para tab: {tabPage.Name}");
-                paginator = new UCPaginator();
+                paginator = new Controls.Paginator();
                 paginator.Dock = DockStyle.Bottom;
                 paginator.PageChanged += pageChangedHandler;
                 tabPage.Controls.Add(paginator);
@@ -102,21 +103,55 @@ namespace GestionAgraria
 
         private void PositionFloatingButtons()
         {
-            foreach (System.Windows.Forms.TabPage tabPage in tcPrincipal.TabPages)
+            // Position buttons in main tab control
+            PositionFloatingButtonsInTabControl(tcPrincipal);
+        }
+
+        /// <summary>
+        /// Recursively positions all MaterialFloatingActionButton controls at the bottom-right 
+        /// of their parent containers with proper margin
+        /// </summary>
+        /// <param name="tabControl">The TabControl to process</param>
+        private void PositionFloatingButtonsInTabControl(ReaLTaiizor.Controls.MaterialTabControl tabControl)
+        {
+            const int MARGIN = 30; // Margin from the edges
+
+            foreach (System.Windows.Forms.TabPage tabPage in tabControl.TabPages)
             {
+                // First, recursively process nested TabControls
                 foreach (Control control in tabPage.Controls)
                 {
-                    if (control is ReaLTaiizor.Controls.MaterialFloatingActionButton btnFloat)
+                    if (control is ReaLTaiizor.Controls.MaterialTabControl nestedTabControl)
                     {
-                        btnFloat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-
-                        btnFloat.Location = new Point(
-                            tabPage.ClientSize.Width - btnFloat.Width - 20,
-                            tabPage.ClientSize.Height - btnFloat.Height - 20
-                        );
-
-                        btnFloat.BringToFront();
+                        PositionFloatingButtonsInTabControl(nestedTabControl);
                     }
+                }
+
+                // Then position floating buttons in this tab page
+                PositionFloatingButtonsInContainer(tabPage, MARGIN);
+            }
+        }
+
+        /// <summary>
+        /// Positions all MaterialFloatingActionButton controls in a container
+        /// at the bottom-right with the specified margin
+        /// </summary>
+        /// <param name="container">The container control</param>
+        /// <param name="margin">Margin from edges in pixels</param>
+        private void PositionFloatingButtonsInContainer(Control container, int margin)
+        {
+            foreach (Control control in container.Controls)
+            {
+                if (control is ReaLTaiizor.Controls.MaterialFloatingActionButton btnFloat)
+                {
+                    btnFloat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                    
+                    btnFloat.Location = new Point(
+                        container.ClientSize.Width - btnFloat.Width - margin,
+                        container.ClientSize.Height - btnFloat.Height - margin
+                    );
+
+                    btnFloat.BringToFront();
                 }
             }
         }
@@ -260,12 +295,12 @@ namespace GestionAgraria
             }
 
             int currentPage = paginatorUsers?.CurrentPage ?? 1;
-            int pageSize = UCPaginator.GetPageSize();
+            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
 
             Debug.WriteLine($"[LOAD_USERS] Obteniendo usuarios - Página: {currentPage}, PageSize: {pageSize}");
             users = userController.GetUsersForFilter(estado, role, searchText, currentPage, pageSize);
             int totalCount = userController.GetUsersCountForFilter(estado, role, searchText);
-            int totalPages = UCPaginator.CalculateTotalPages(totalCount);
+            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
 
             Debug.WriteLine($"[LOAD_USERS] Usuarios obtenidos: {users.Count}, Total: {totalCount}, Páginas: {totalPages}");
             Debug.WriteLine($"[LOAD_USERS] paginatorUsers es null: {paginatorUsers == null}");
@@ -311,11 +346,11 @@ namespace GestionAgraria
             }
 
             int currentPage = paginatorVegetables?.CurrentPage ?? 1;
-            int pageSize = UCPaginator.GetPageSize();
+            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
 
             List<VegetableModel> vegetables = vegetalController.GetVegetablesForFiltro(estado, entorno, searchText, currentPage, pageSize);
             int totalCount = vegetalController.GetVegetablesCountForFilter(estado, entorno, searchText);
-            int totalPages = UCPaginator.CalculateTotalPages(totalCount);
+            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
 
             var paginator = EnsurePaginatorExists(ref paginatorVegetables, tabVegetablesArea, (s, page) => LoadVegetablesTable());
             paginator.TotalPages = totalPages;
@@ -361,11 +396,11 @@ namespace GestionAgraria
             }
 
             int currentPage = paginatorAnimals?.CurrentPage ?? 1;
-            int pageSize = UCPaginator.GetPageSize();
+            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
 
             List<AnimalModel> animals = animalController.GetAnimalsForFiltro(estado, entorno, searchText, animalType, productiveState, currentPage, pageSize);
             int totalCount = animalController.GetAnimalsCountForFilter(estado, entorno, searchText, animalType, productiveState);
-            int totalPages = UCPaginator.CalculateTotalPages(totalCount);
+            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
 
             var paginator = EnsurePaginatorExists(ref paginatorAnimals, tabAnimalArea, (s, page) => LoadAnimalsTable());
             paginator.TotalPages = totalPages;
@@ -419,11 +454,11 @@ namespace GestionAgraria
             }
 
             int currentPage = paginatorEnvironments?.CurrentPage ?? 1;
-            int pageSize = UCPaginator.GetPageSize();
+            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
 
             formativeEnvironments = environmentController.GetFormativeEnvironments(estado, area, searchText, currentPage, pageSize);
             int totalCount = environmentController.GetFormativeEnvironmentsCountForFilter(estado, area, searchText);
-            int totalPages = UCPaginator.CalculateTotalPages(totalCount);
+            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
 
             var paginator = EnsurePaginatorExists(ref paginatorEnvironments, tabEntorno, (s, page) => LoadFormativeEnvironments());
             paginator.TotalPages = totalPages;
@@ -454,11 +489,11 @@ namespace GestionAgraria
             }
 
             int currentPage = paginatorProducts?.CurrentPage ?? 1;
-            int pageSize = UCPaginator.GetPageSize();
+            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
 
             List<ProductModel> products = ProducController.GetProductsForFiltro(estado, entorno, searchText, currentPage, pageSize);
             int totalCount = ProducController.GetProductsCountForFilter(estado, entorno, searchText);
-            int totalPages = UCPaginator.CalculateTotalPages(totalCount);
+            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
 
             var paginator = EnsurePaginatorExists(ref paginatorProducts, tabProduct, (s, page) => LoadProductTable());
             paginator.TotalPages = totalPages;
@@ -495,11 +530,11 @@ namespace GestionAgraria
             using var blackBoardController = new BlackBoardController();
 
             int currentPage = paginatorBlackBoards?.CurrentPage ?? 1;
-            int pageSize = UCPaginator.GetPageSize();
+            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
 
             List<BlackBoardModel> blackboards = blackBoardController.GetAllBlackBoards(currentPage, pageSize);
             int totalCount = blackBoardController.GetBlackBoardsCount();
-            int totalPages = UCPaginator.CalculateTotalPages(totalCount);
+            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
 
             var paginator = EnsurePaginatorExists(ref paginatorBlackBoards, tabBlackBoard, (s, page) => LoadBlackBoard());
             paginator.TotalPages = totalPages;

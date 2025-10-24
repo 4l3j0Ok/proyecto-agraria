@@ -1,4 +1,5 @@
-﻿using GestionAgraria.models;
+﻿using GestionAgraria.Core;
+using GestionAgraria.models;
 using GestionAgraria.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace GestionAgraria.data
         public DbSet<SellModel> Sells { get; set; }
         public DbSet<SellDetailModel> SellDetail { get; set; }
         public DbSet<BlackBoardModel> BlackBoard { get; set; }
+        public DbSet<PurchaseModel> Purchases { get; set; }
+        public DbSet<PurchaseItemModel> PurchaseItems { get; set; }
 
         // acá agregamos todos los modelos que tengamos
         // public DbSet<ProductModel> Products { get; set; }
@@ -52,6 +55,7 @@ namespace GestionAgraria.data
                 .WithMany()
                 .HasForeignKey(a => a.FormativeEnvironmentId)
                 .OnDelete(DeleteBehavior.Restrict);
+            
             // Configuración de la relación Animal-AnimalType
             modelBuilder.Entity<AnimalModel>()
                 .HasOne(a => a.AnimalType)
@@ -87,20 +91,12 @@ namespace GestionAgraria.data
                 .HasForeignKey(a => a.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Configuracion de la relacion de DetailPurchasesModel-Purchases
-            modelBuilder.Entity<PurchaseDetailModel>()
-                .HasOne(a => a.Purchases)
+            // Configuracion de la relacion de PurchaseItem-Purchase (simplificado)
+            modelBuilder.Entity<PurchaseItemModel>()
+                .HasOne(a => a.Purchase)
                 .WithMany()
-                .HasForeignKey(a => a.PurchasesId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Configuracion de la relacion de DetailPurchasesModel-Product
-            modelBuilder.Entity<PurchaseDetailModel>()
-                .HasOne(a => a.Product)
-                .WithMany()
-                .HasForeignKey(a => a.ProductId)
-                .OnDelete(DeleteBehavior.Restrict);
-
+                .HasForeignKey(a => a.PurchaseId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             // Configuración de índices únicos
             modelBuilder.Entity<UserModel>()
@@ -124,11 +120,6 @@ namespace GestionAgraria.data
                 .HasIndex(a => a.Code)
                 .IsUnique();
 
-            // Configuración de índices únicos para código de Producto
-            modelBuilder.Entity<ProductModel>()
-                .HasIndex(u => u.code)
-                .IsUnique();
-
             // Configuración de la relación Product-FormativeEnviroment
             modelBuilder.Entity<ProductModel>()
                 .HasOne(a => a.FormativeEnvironment)
@@ -136,8 +127,7 @@ namespace GestionAgraria.data
                 .HasForeignKey(a => a.FormativeEnvironmentId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
-            // Mapeo de nombres de tabla (si es necesario mantener compatibilidad)
+            // Mapeo de nombres de tabla
             modelBuilder.Entity<UserModel>().ToTable("User");
             modelBuilder.Entity<RoleModel>().ToTable("Role");
             modelBuilder.Entity<FormativeEnvironmentModel>().ToTable("FormativeEnvironment");
@@ -148,8 +138,9 @@ namespace GestionAgraria.data
             modelBuilder.Entity<SellModel>().ToTable("Sell");
             modelBuilder.Entity<SellDetailModel>().ToTable("SellDetail");
             modelBuilder.Entity<PurchaseModel>().ToTable("Purchase");
-            modelBuilder.Entity<PurchaseDetailModel>().ToTable("PurchaseDetail");
+            modelBuilder.Entity<PurchaseItemModel>().ToTable("PurchaseItem");
             modelBuilder.Entity<BlackBoardModel>().ToTable("BlackBoard");
+            
             base.OnModelCreating(modelBuilder);
         }
 
@@ -164,6 +155,7 @@ namespace GestionAgraria.data
             }
             this.SaveChanges();
         }
+        
         public void SeedDefaultAnimalTypes()
         {
             foreach (var typeName in Config.defaultAnimalTypes)

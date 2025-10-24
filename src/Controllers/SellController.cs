@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using GestionAgraria.data;
 using GestionAgraria.models;
 using GestionAgraria.Models;
+using GestionAgraria.Core;
 using Microsoft.EntityFrameworkCore;
 
 namespace GestionAgraria.Controllers
@@ -108,6 +109,22 @@ namespace GestionAgraria.Controllers
             return _context.Product
                 .Where(fe => fe.IsActive)
                 .ToList();
+        }
+
+        public void PrintSellReport(int sellId)
+        {
+            using (var detailController = new SellDetailController(_context))
+            {
+                var sell = getSellsById(sellId);
+                if (sell != null)
+                {
+                    var details = _context.SellDetail
+                        .Include(d => d.Product)
+                        .Where(d => d.SellsId == sellId)
+                        .ToList();
+                    Utils.PrintSell(sell, details);
+                }
+            }
         }
 
         public void Dispose()

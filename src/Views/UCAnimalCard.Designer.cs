@@ -52,7 +52,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(459, 70);
+            tableLayoutPanel1.Size = new Size(250, 70);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // parrotPictureBox1
@@ -89,7 +89,7 @@
             panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5);
-            panel1.Size = new Size(369, 50);
+            panel1.Size = new Size(160, 50);
             panel1.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -105,7 +105,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(359, 14);
+            tableLayoutPanel2.Size = new Size(150, 14);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // lblCode
@@ -118,7 +118,7 @@
             lblCode.Location = new Point(3, 0);
             lblCode.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblCode.Name = "lblCode";
-            lblCode.Size = new Size(173, 14);
+            lblCode.Size = new Size(69, 14);
             lblCode.TabIndex = 6;
             lblCode.Text = "Código";
             // 
@@ -129,10 +129,10 @@
             lblProductiveState.Dock = DockStyle.Fill;
             lblProductiveState.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             lblProductiveState.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblProductiveState.Location = new Point(182, 0);
+            lblProductiveState.Location = new Point(78, 0);
             lblProductiveState.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblProductiveState.Name = "lblProductiveState";
-            lblProductiveState.Size = new Size(174, 14);
+            lblProductiveState.Size = new Size(69, 14);
             lblProductiveState.TabIndex = 5;
             lblProductiveState.Text = "Estado Productivo";
             lblProductiveState.TextAlign = ContentAlignment.TopCenter;

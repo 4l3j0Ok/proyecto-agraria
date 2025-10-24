@@ -83,7 +83,7 @@ namespace GestionAgraria.Views
             mepSellsAdd.Depth = 0;
             mepSellsAdd.Description = "Registrar un Nueva Venta";
             mepSellsAdd.Dock = DockStyle.Fill;
-            mepSellsAdd.ExpandHeight = 0;
+            mepSellsAdd.ExpandHeight = 616;
             mepSellsAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepSellsAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepSellsAdd.Location = new Point(0, 0);
@@ -91,6 +91,7 @@ namespace GestionAgraria.Views
             mepSellsAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepSellsAdd.Name = "mepSellsAdd";
             mepSellsAdd.Padding = new Padding(21, 48, 21, 20);
+            mepSellsAdd.ShowCollapseExpand = false;
             mepSellsAdd.Size = new Size(1152, 616);
             mepSellsAdd.TabIndex = 3;
             mepSellsAdd.Title = "Ventas";

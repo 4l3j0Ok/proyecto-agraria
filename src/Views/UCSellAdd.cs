@@ -12,6 +12,7 @@ using GestionAgraria.controllers;
 using GestionAgraria.Controllers;
 using GestionAgraria.models;
 using GestionAgraria.Models;
+using GestionAgraria.Core;
 
 namespace GestionAgraria.Views
 {
@@ -72,11 +73,25 @@ namespace GestionAgraria.Views
                     sells.SellsId = currentSells.Id;
                     detailSellsController.CreateDetailSells(sells);
                 }
+                
+                MessageBox.Show("Venta registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                // Preguntar si desea imprimir
+                var result = MessageBox.Show("¿Desea imprimir el comprobante de venta?", "Imprimir", 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                
+                if (result == DialogResult.Yes && currentSells != null)
+                {
+                    Utils.PrintSell(currentSells, currentDetailSellsList);
+                }
+                
                 currentDetailSellsList.Clear();
+                formPrincipal?.RestaurarFormularioTab(formPrincipal.tabVentas);
             }
             catch (Exception ex) 
             {
                 Debug.WriteLine(ex.Message);
+                MessageBox.Show($"Error al registrar la venta: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

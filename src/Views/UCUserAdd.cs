@@ -1,6 +1,7 @@
 ﻿using GestionAgraria.controllers;
 using GestionAgraria.Controllers;
 using GestionAgraria.Controls;
+using GestionAgraria.Core;
 using GestionAgraria.models;
 using ReaLTaiizor.Controls;
 using System;

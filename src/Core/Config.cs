@@ -6,7 +6,7 @@ using ReaLTaiizor.Forms;
 using ReaLTaiizor.Controls;
 
 
-namespace GestionAgraria
+namespace GestionAgraria.Core
 {
     internal class Config
     {

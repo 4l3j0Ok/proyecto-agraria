@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using GestionAgraria.controllers;
 using GestionAgraria.Controllers;
 using GestionAgraria.Models;
+using GestionAgraria.Core;
 using ReaLTaiizor.Controls;
 
 namespace GestionAgraria.Views
@@ -151,6 +152,16 @@ namespace GestionAgraria.Views
             if (success)
             {
                 MessageBox.Show("Vegetal producto correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                // Preguntar si desea imprimir
+                var result = MessageBox.Show("¿Desea imprimir el reporte del producto?", "Imprimir", 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                
+                if (result == DialogResult.Yes && currentProduct.Id > 0)
+                {
+                    Utils.PrintProduct(currentProduct);
+                }
+                
                 formPrincipal?.RestaurarFormularioTab(formPrincipal.tabProduct);
             }
             else

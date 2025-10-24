@@ -1,4 +1,5 @@
 ﻿using GestionAgraria.controllers;
+using GestionAgraria.Core;
 using GestionAgraria.Models;
 using System;
 using System.Collections.Generic;
