@@ -33,6 +33,9 @@ namespace GestionAgraria.Views
         {
             MepBuysAdd = new NonCollapsibleMaterialExpansionPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            dgvProductList = new DataGridView();
+            btnProductAddList = new ReaLTaiizor.Controls.MaterialButton();
             tableLayoutPanel5 = new TableLayoutPanel();
             panel11 = new Panel();
             tbSellsObservations = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -40,32 +43,29 @@ namespace GestionAgraria.Views
             panel10 = new Panel();
             tbTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblCodigoProducto = new ReaLTaiizor.Controls.MaterialLabel();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            panel6 = new Panel();
+            tbPurchaseItemCost = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            materialLabel4 = new ReaLTaiizor.Controls.MaterialLabel();
+            panel7 = new Panel();
+            tbPurchaseItemQuantity = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
             panel9 = new Panel();
             panel8 = new Panel();
-            materialLabel3 = new ReaLTaiizor.Controls.MaterialLabel();
             tbPurchaseItemName = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            panel7 = new Panel();
-            materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
-            tbPurchaseItemQuantity = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            panel6 = new Panel();
-            materialLabel4 = new ReaLTaiizor.Controls.MaterialLabel();
-            tbPurchaseItemCost = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            tableLayoutPanel3 = new TableLayoutPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            dgvProductList = new DataGridView();
-            btnProductAddList = new ReaLTaiizor.Controls.MaterialButton();
+            materialLabel3 = new ReaLTaiizor.Controls.MaterialLabel();
             MepBuysAdd.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProductList).BeginInit();
             tableLayoutPanel5.SuspendLayout();
             panel11.SuspendLayout();
             panel10.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            panel6.SuspendLayout();
+            panel7.SuspendLayout();
             panel9.SuspendLayout();
             panel8.SuspendLayout();
-            panel7.SuspendLayout();
-            panel6.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvProductList).BeginInit();
             SuspendLayout();
             // 
             // MepBuysAdd
@@ -108,6 +108,55 @@ namespace GestionAgraria.Views
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.Size = new Size(1110, 599);
             tableLayoutPanel1.TabIndex = 15;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(dgvProductList, 0, 1);
+            tableLayoutPanel2.Controls.Add(btnProductAddList, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 173);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.Padding = new Padding(20, 3, 20, 3);
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle());
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(1104, 332);
+            tableLayoutPanel2.TabIndex = 50;
+            // 
+            // dgvProductList
+            // 
+            dgvProductList.AllowUserToAddRows = false;
+            dgvProductList.AllowUserToDeleteRows = false;
+            dgvProductList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProductList.Dock = DockStyle.Fill;
+            dgvProductList.Location = new Point(23, 50);
+            dgvProductList.Name = "dgvProductList";
+            dgvProductList.ReadOnly = true;
+            dgvProductList.Size = new Size(1058, 276);
+            dgvProductList.TabIndex = 38;
+            // 
+            // btnProductAddList
+            // 
+            btnProductAddList.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btnProductAddList.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            btnProductAddList.Depth = 0;
+            btnProductAddList.Dock = DockStyle.Top;
+            btnProductAddList.HighEmphasis = true;
+            btnProductAddList.Icon = null;
+            btnProductAddList.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btnProductAddList.Location = new Point(24, 7);
+            btnProductAddList.Margin = new Padding(4);
+            btnProductAddList.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnProductAddList.Name = "btnProductAddList";
+            btnProductAddList.NoAccentTextColor = Color.Empty;
+            btnProductAddList.Size = new Size(1056, 36);
+            btnProductAddList.TabIndex = 37;
+            btnProductAddList.Text = "AGREGAR";
+            btnProductAddList.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btnProductAddList.UseAccentColor = false;
+            btnProductAddList.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel5
             // 
@@ -242,132 +291,25 @@ namespace GestionAgraria.Views
             lblCodigoProducto.TabIndex = 4;
             lblCodigoProducto.Text = "Total";
             // 
-            // panel9
+            // tableLayoutPanel3
             // 
-            tableLayoutPanel3.SetColumnSpan(panel9, 2);
-            panel9.Controls.Add(panel8);
-            panel9.Dock = DockStyle.Top;
-            panel9.Location = new Point(3, 3);
-            panel9.Margin = new Padding(0);
-            panel9.Name = "panel9";
-            panel9.Padding = new Padding(20, 0, 20, 0);
-            panel9.Size = new Size(1098, 76);
-            panel9.TabIndex = 21;
-            // 
-            // panel8
-            // 
-            panel8.Controls.Add(tbPurchaseItemName);
-            panel8.Controls.Add(materialLabel3);
-            panel8.Dock = DockStyle.Fill;
-            panel8.Location = new Point(20, 0);
-            panel8.Margin = new Padding(0);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(1058, 76);
-            panel8.TabIndex = 24;
-            // 
-            // materialLabel3
-            // 
-            materialLabel3.AutoSize = true;
-            materialLabel3.Depth = 0;
-            materialLabel3.Dock = DockStyle.Top;
-            materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel3.Location = new Point(0, 0);
-            materialLabel3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel3.Name = "materialLabel3";
-            materialLabel3.Size = new Size(57, 19);
-            materialLabel3.TabIndex = 4;
-            materialLabel3.Text = "Nombre";
-            // 
-            // tbPurchaseItemName
-            // 
-            tbPurchaseItemName.AnimateReadOnly = false;
-            tbPurchaseItemName.AutoCompleteMode = AutoCompleteMode.None;
-            tbPurchaseItemName.AutoCompleteSource = AutoCompleteSource.None;
-            tbPurchaseItemName.BackgroundImageLayout = ImageLayout.None;
-            tbPurchaseItemName.CharacterCasing = CharacterCasing.Normal;
-            tbPurchaseItemName.Depth = 0;
-            tbPurchaseItemName.Dock = DockStyle.Fill;
-            tbPurchaseItemName.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbPurchaseItemName.HideSelection = true;
-            tbPurchaseItemName.LeadingIcon = null;
-            tbPurchaseItemName.Location = new Point(0, 19);
-            tbPurchaseItemName.Margin = new Padding(3, 3, 26, 3);
-            tbPurchaseItemName.MaxLength = 100;
-            tbPurchaseItemName.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tbPurchaseItemName.Name = "tbPurchaseItemName";
-            tbPurchaseItemName.Padding = new Padding(9, 8, 9, 8);
-            tbPurchaseItemName.PasswordChar = '\0';
-            tbPurchaseItemName.PrefixSuffixText = null;
-            tbPurchaseItemName.ReadOnly = false;
-            tbPurchaseItemName.RightToLeft = RightToLeft.No;
-            tbPurchaseItemName.SelectedText = "";
-            tbPurchaseItemName.SelectionLength = 0;
-            tbPurchaseItemName.SelectionStart = 0;
-            tbPurchaseItemName.ShortcutsEnabled = true;
-            tbPurchaseItemName.Size = new Size(1058, 48);
-            tbPurchaseItemName.TabIndex = 5;
-            tbPurchaseItemName.TabStop = false;
-            tbPurchaseItemName.TextAlign = HorizontalAlignment.Left;
-            tbPurchaseItemName.TrailingIcon = null;
-            tbPurchaseItemName.UseSystemPasswordChar = false;
-            // 
-            // panel7
-            // 
-            panel7.Controls.Add(tbPurchaseItemQuantity);
-            panel7.Controls.Add(materialLabel2);
-            panel7.Dock = DockStyle.Fill;
-            panel7.Location = new Point(3, 79);
-            panel7.Margin = new Padding(0);
-            panel7.Name = "panel7";
-            panel7.Padding = new Padding(20, 0, 20, 0);
-            panel7.Size = new Size(549, 82);
-            panel7.TabIndex = 24;
-            // 
-            // materialLabel2
-            // 
-            materialLabel2.AutoSize = true;
-            materialLabel2.Depth = 0;
-            materialLabel2.Dock = DockStyle.Top;
-            materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(20, 0);
-            materialLabel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel2.Name = "materialLabel2";
-            materialLabel2.Size = new Size(65, 19);
-            materialLabel2.TabIndex = 4;
-            materialLabel2.Text = "Cantidad";
-            // 
-            // tbPurchaseItemQuantity
-            // 
-            tbPurchaseItemQuantity.AnimateReadOnly = false;
-            tbPurchaseItemQuantity.AutoCompleteMode = AutoCompleteMode.None;
-            tbPurchaseItemQuantity.AutoCompleteSource = AutoCompleteSource.None;
-            tbPurchaseItemQuantity.BackgroundImageLayout = ImageLayout.None;
-            tbPurchaseItemQuantity.CharacterCasing = CharacterCasing.Normal;
-            tbPurchaseItemQuantity.Depth = 0;
-            tbPurchaseItemQuantity.Dock = DockStyle.Fill;
-            tbPurchaseItemQuantity.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbPurchaseItemQuantity.HideSelection = true;
-            tbPurchaseItemQuantity.LeadingIcon = null;
-            tbPurchaseItemQuantity.Location = new Point(20, 19);
-            tbPurchaseItemQuantity.Margin = new Padding(3, 3, 26, 3);
-            tbPurchaseItemQuantity.MaxLength = 32767;
-            tbPurchaseItemQuantity.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tbPurchaseItemQuantity.Name = "tbPurchaseItemQuantity";
-            tbPurchaseItemQuantity.Padding = new Padding(9, 8, 9, 8);
-            tbPurchaseItemQuantity.PasswordChar = '\0';
-            tbPurchaseItemQuantity.PrefixSuffixText = null;
-            tbPurchaseItemQuantity.ReadOnly = false;
-            tbPurchaseItemQuantity.RightToLeft = RightToLeft.No;
-            tbPurchaseItemQuantity.SelectedText = "";
-            tbPurchaseItemQuantity.SelectionLength = 0;
-            tbPurchaseItemQuantity.SelectionStart = 0;
-            tbPurchaseItemQuantity.ShortcutsEnabled = true;
-            tbPurchaseItemQuantity.Size = new Size(509, 48);
-            tbPurchaseItemQuantity.TabIndex = 0;
-            tbPurchaseItemQuantity.TabStop = false;
-            tbPurchaseItemQuantity.TextAlign = HorizontalAlignment.Left;
-            tbPurchaseItemQuantity.TrailingIcon = null;
-            tbPurchaseItemQuantity.UseSystemPasswordChar = false;
+            tableLayoutPanel3.AutoSize = true;
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(panel6, 1, 1);
+            tableLayoutPanel3.Controls.Add(panel7, 0, 1);
+            tableLayoutPanel3.Controls.Add(panel9, 0, 0);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(3, 3);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.Padding = new Padding(3);
+            tableLayoutPanel3.RowCount = 2;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle());
+            tableLayoutPanel3.RowStyles.Add(new RowStyle());
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel3.Size = new Size(1104, 164);
+            tableLayoutPanel3.TabIndex = 48;
             // 
             // panel6
             // 
@@ -380,19 +322,6 @@ namespace GestionAgraria.Views
             panel6.Padding = new Padding(20, 0, 20, 0);
             panel6.Size = new Size(549, 82);
             panel6.TabIndex = 26;
-            // 
-            // materialLabel4
-            // 
-            materialLabel4.AutoSize = true;
-            materialLabel4.Depth = 0;
-            materialLabel4.Dock = DockStyle.Top;
-            materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel4.Location = new Point(20, 0);
-            materialLabel4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel4.Name = "materialLabel4";
-            materialLabel4.Size = new Size(46, 19);
-            materialLabel4.TabIndex = 4;
-            materialLabel4.Text = "Costo ";
             // 
             // tbPurchaseItemCost
             // 
@@ -427,74 +356,145 @@ namespace GestionAgraria.Views
             tbPurchaseItemCost.TrailingIcon = null;
             tbPurchaseItemCost.UseSystemPasswordChar = false;
             // 
-            // tableLayoutPanel3
+            // materialLabel4
             // 
-            tableLayoutPanel3.AutoSize = true;
-            tableLayoutPanel3.ColumnCount = 2;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.Controls.Add(panel6, 1, 1);
-            tableLayoutPanel3.Controls.Add(panel7, 0, 1);
-            tableLayoutPanel3.Controls.Add(panel9, 0, 0);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 3);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.Padding = new Padding(3);
-            tableLayoutPanel3.RowCount = 2;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(1104, 164);
-            tableLayoutPanel3.TabIndex = 48;
+            materialLabel4.AutoSize = true;
+            materialLabel4.Depth = 0;
+            materialLabel4.Dock = DockStyle.Top;
+            materialLabel4.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel4.Location = new Point(20, 0);
+            materialLabel4.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel4.Name = "materialLabel4";
+            materialLabel4.Size = new Size(46, 19);
+            materialLabel4.TabIndex = 4;
+            materialLabel4.Text = "Costo ";
             // 
-            // tableLayoutPanel2
+            // panel7
             // 
-            tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(dgvProductList, 0, 1);
-            tableLayoutPanel2.Controls.Add(btnProductAddList, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 173);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.Padding = new Padding(20, 3, 20, 3);
-            tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(1104, 332);
-            tableLayoutPanel2.TabIndex = 50;
+            panel7.Controls.Add(tbPurchaseItemQuantity);
+            panel7.Controls.Add(materialLabel2);
+            panel7.Dock = DockStyle.Fill;
+            panel7.Location = new Point(3, 79);
+            panel7.Margin = new Padding(0);
+            panel7.Name = "panel7";
+            panel7.Padding = new Padding(20, 0, 20, 0);
+            panel7.Size = new Size(549, 82);
+            panel7.TabIndex = 24;
             // 
-            // dgvProductList
+            // tbPurchaseItemQuantity
             // 
-            dgvProductList.AllowUserToAddRows = false;
-            dgvProductList.AllowUserToDeleteRows = false;
-            dgvProductList.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductList.Dock = DockStyle.Fill;
-            dgvProductList.Location = new Point(23, 50);
-            dgvProductList.Name = "dgvProductList";
-            dgvProductList.ReadOnly = true;
-            dgvProductList.Size = new Size(1058, 276);
-            dgvProductList.TabIndex = 38;
+            tbPurchaseItemQuantity.AnimateReadOnly = false;
+            tbPurchaseItemQuantity.AutoCompleteMode = AutoCompleteMode.None;
+            tbPurchaseItemQuantity.AutoCompleteSource = AutoCompleteSource.None;
+            tbPurchaseItemQuantity.BackgroundImageLayout = ImageLayout.None;
+            tbPurchaseItemQuantity.CharacterCasing = CharacterCasing.Normal;
+            tbPurchaseItemQuantity.Depth = 0;
+            tbPurchaseItemQuantity.Dock = DockStyle.Fill;
+            tbPurchaseItemQuantity.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbPurchaseItemQuantity.HideSelection = true;
+            tbPurchaseItemQuantity.LeadingIcon = null;
+            tbPurchaseItemQuantity.Location = new Point(20, 19);
+            tbPurchaseItemQuantity.Margin = new Padding(3, 3, 26, 3);
+            tbPurchaseItemQuantity.MaxLength = 32767;
+            tbPurchaseItemQuantity.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbPurchaseItemQuantity.Name = "tbPurchaseItemQuantity";
+            tbPurchaseItemQuantity.Padding = new Padding(9, 8, 9, 8);
+            tbPurchaseItemQuantity.PasswordChar = '\0';
+            tbPurchaseItemQuantity.PrefixSuffixText = null;
+            tbPurchaseItemQuantity.ReadOnly = false;
+            tbPurchaseItemQuantity.RightToLeft = RightToLeft.No;
+            tbPurchaseItemQuantity.SelectedText = "";
+            tbPurchaseItemQuantity.SelectionLength = 0;
+            tbPurchaseItemQuantity.SelectionStart = 0;
+            tbPurchaseItemQuantity.ShortcutsEnabled = true;
+            tbPurchaseItemQuantity.Size = new Size(509, 48);
+            tbPurchaseItemQuantity.TabIndex = 0;
+            tbPurchaseItemQuantity.TabStop = false;
+            tbPurchaseItemQuantity.TextAlign = HorizontalAlignment.Left;
+            tbPurchaseItemQuantity.TrailingIcon = null;
+            tbPurchaseItemQuantity.UseSystemPasswordChar = false;
             // 
-            // btnProductAddList
+            // materialLabel2
             // 
-            btnProductAddList.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnProductAddList.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            btnProductAddList.Depth = 0;
-            btnProductAddList.Dock = DockStyle.Top;
-            btnProductAddList.HighEmphasis = true;
-            btnProductAddList.Icon = null;
-            btnProductAddList.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnProductAddList.Location = new Point(24, 7);
-            btnProductAddList.Margin = new Padding(4);
-            btnProductAddList.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnProductAddList.Name = "btnProductAddList";
-            btnProductAddList.NoAccentTextColor = Color.Empty;
-            btnProductAddList.Size = new Size(1056, 36);
-            btnProductAddList.TabIndex = 37;
-            btnProductAddList.Text = "AGREGAR";
-            btnProductAddList.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btnProductAddList.UseAccentColor = false;
-            btnProductAddList.UseVisualStyleBackColor = true;
+            materialLabel2.AutoSize = true;
+            materialLabel2.Depth = 0;
+            materialLabel2.Dock = DockStyle.Top;
+            materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel2.Location = new Point(20, 0);
+            materialLabel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel2.Name = "materialLabel2";
+            materialLabel2.Size = new Size(65, 19);
+            materialLabel2.TabIndex = 4;
+            materialLabel2.Text = "Cantidad";
+            // 
+            // panel9
+            // 
+            tableLayoutPanel3.SetColumnSpan(panel9, 2);
+            panel9.Controls.Add(panel8);
+            panel9.Dock = DockStyle.Top;
+            panel9.Location = new Point(3, 3);
+            panel9.Margin = new Padding(0);
+            panel9.Name = "panel9";
+            panel9.Padding = new Padding(20, 0, 20, 0);
+            panel9.Size = new Size(1098, 76);
+            panel9.TabIndex = 21;
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(tbPurchaseItemName);
+            panel8.Controls.Add(materialLabel3);
+            panel8.Dock = DockStyle.Fill;
+            panel8.Location = new Point(20, 0);
+            panel8.Margin = new Padding(0);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(1058, 76);
+            panel8.TabIndex = 24;
+            // 
+            // tbPurchaseItemName
+            // 
+            tbPurchaseItemName.AnimateReadOnly = false;
+            tbPurchaseItemName.AutoCompleteMode = AutoCompleteMode.None;
+            tbPurchaseItemName.AutoCompleteSource = AutoCompleteSource.None;
+            tbPurchaseItemName.BackgroundImageLayout = ImageLayout.None;
+            tbPurchaseItemName.CharacterCasing = CharacterCasing.Normal;
+            tbPurchaseItemName.Depth = 0;
+            tbPurchaseItemName.Dock = DockStyle.Fill;
+            tbPurchaseItemName.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbPurchaseItemName.HideSelection = true;
+            tbPurchaseItemName.LeadingIcon = null;
+            tbPurchaseItemName.Location = new Point(0, 19);
+            tbPurchaseItemName.Margin = new Padding(3, 3, 26, 3);
+            tbPurchaseItemName.MaxLength = 100;
+            tbPurchaseItemName.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbPurchaseItemName.Name = "tbPurchaseItemName";
+            tbPurchaseItemName.Padding = new Padding(9, 8, 9, 8);
+            tbPurchaseItemName.PasswordChar = '\0';
+            tbPurchaseItemName.PrefixSuffixText = null;
+            tbPurchaseItemName.ReadOnly = false;
+            tbPurchaseItemName.RightToLeft = RightToLeft.No;
+            tbPurchaseItemName.SelectedText = "";
+            tbPurchaseItemName.SelectionLength = 0;
+            tbPurchaseItemName.SelectionStart = 0;
+            tbPurchaseItemName.ShortcutsEnabled = true;
+            tbPurchaseItemName.Size = new Size(1058, 48);
+            tbPurchaseItemName.TabIndex = 5;
+            tbPurchaseItemName.TabStop = false;
+            tbPurchaseItemName.TextAlign = HorizontalAlignment.Left;
+            tbPurchaseItemName.TrailingIcon = null;
+            tbPurchaseItemName.UseSystemPasswordChar = false;
+            // 
+            // materialLabel3
+            // 
+            materialLabel3.AutoSize = true;
+            materialLabel3.Depth = 0;
+            materialLabel3.Dock = DockStyle.Top;
+            materialLabel3.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel3.Location = new Point(0, 0);
+            materialLabel3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel3.Name = "materialLabel3";
+            materialLabel3.Size = new Size(57, 19);
+            materialLabel3.TabIndex = 4;
+            materialLabel3.Text = "Nombre";
             // 
             // UCPurchasesAdd
             // 
@@ -509,22 +509,22 @@ namespace GestionAgraria.Views
             MepBuysAdd.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProductList).EndInit();
             tableLayoutPanel5.ResumeLayout(false);
             panel11.ResumeLayout(false);
             panel11.PerformLayout();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             panel9.ResumeLayout(false);
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvProductList).EndInit();
             ResumeLayout(false);
         }
 

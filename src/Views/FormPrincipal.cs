@@ -135,25 +135,47 @@ namespace GestionAgraria
 
         /// <summary>
         /// Positions all MaterialFloatingActionButton controls in a container
-        /// at the bottom-right with the specified margin
+        /// at the bottom-right with the specified margin, stacked vertically
         /// </summary>
         /// <param name="container">The container control</param>
         /// <param name="margin">Margin from edges in pixels</param>
         private void PositionFloatingButtonsInContainer(Control container, int margin)
         {
+            const int BUTTON_SPACING = 10; // Spacing between buttons
+            
+            var floatingButtons = new List<ReaLTaiizor.Controls.MaterialFloatingActionButton>();
+            
+            // Collect all floating buttons
             foreach (Control control in container.Controls)
             {
                 if (control is ReaLTaiizor.Controls.MaterialFloatingActionButton btnFloat)
                 {
-                    btnFloat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-                    
-                    btnFloat.Location = new Point(
-                        container.ClientSize.Width - btnFloat.Width - margin,
-                        container.ClientSize.Height - btnFloat.Height - margin
-                    );
-
-                    btnFloat.BringToFront();
+                    floatingButtons.Add(btnFloat);
                 }
+            }
+            
+            if (floatingButtons.Count == 0)
+                return;
+            
+            // Calculate starting Y position (bottom of container minus margin)
+            int currentY = container.ClientSize.Height - margin;
+            
+            // Position buttons from bottom to top
+            for (int i = floatingButtons.Count - 1; i >= 0; i--)
+            {
+                var btnFloat = floatingButtons[i];
+                btnFloat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+                
+                // Position button
+                btnFloat.Location = new Point(
+                    container.ClientSize.Width - btnFloat.Width - margin,
+                    currentY - btnFloat.Height
+                );
+                
+                btnFloat.BringToFront();
+                
+                // Move up for next button
+                currentY -= (btnFloat.Height + BUTTON_SPACING);
             }
         }
 
@@ -701,8 +723,8 @@ namespace GestionAgraria
 
         private void btnAddCompras_Click(object sender, EventArgs e)
         {
-            UCPurchasesAdd AddControl = new UCPurchasesAdd();
-            this.VerFormularioTab(AddControl, tabCompras);
+            UCPurchasesAdd AddControl = new UCPurchasesAdd(currentUser);
+            this.VerFormularioTab(AddControl, tabInsumos);
         }
 
         private void btnAddVentas_Click(object sender, EventArgs e)

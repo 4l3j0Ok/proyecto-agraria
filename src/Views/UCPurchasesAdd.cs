@@ -279,7 +279,7 @@ namespace GestionAgraria.Views
                 tbTotal.Text = "";
                 tbSellsObservations.Text = "";
 
-                formPrincipal?.RestaurarFormularioTab(formPrincipal.tabCompras);
+                formPrincipal?.RestaurarFormularioTab(formPrincipal.tabInsumos);
             }
             catch (Exception ex)
             {
@@ -291,7 +291,7 @@ namespace GestionAgraria.Views
 
         private void MepBuysAdd_CancelClick(object? sender, EventArgs e)
         {
-            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabCompras);
+            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabInsumos);
         }
     }
 }

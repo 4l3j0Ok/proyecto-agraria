@@ -1,6 +1,6 @@
 ﻿namespace GestionAgraria.Views
 {
-    partial class UCSellCard
+    partial class UCPurchaseCard
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -145,12 +145,12 @@
             materialCheckBox1.UseAccentColor = false;
             materialCheckBox1.UseVisualStyleBackColor = true;
             // 
-            // UCSellCard
+            // UCPurchaseCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
-            Name = "UCSellCard";
+            Name = "UCPurchaseCard";
             Size = new Size(624, 68);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();

@@ -48,12 +48,13 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
             tableLayoutPanel1.Controls.Add(parrotPictureBox1, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(369, 70);
+            tableLayoutPanel1.Size = new Size(376, 70);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -156,7 +157,7 @@
             Margin = new Padding(3, 2, 3, 2);
             MinimumSize = new Size(250, 70);
             Name = "UCProductCard";
-            Size = new Size(250, 70);
+            Size = new Size(376, 70);
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
