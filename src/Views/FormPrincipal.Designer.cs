@@ -45,6 +45,19 @@ namespace GestionAgraria
             tabVegetablesArea = new TabPage();
             btnAddPlanta = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             panel20 = new Panel();
+            materialExpansionPanel1 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
+            panel9 = new Panel();
+            materialLabel8 = new ReaLTaiizor.Controls.MaterialLabel();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            panel11 = new Panel();
+            cbEntornoFiltro = new ReaLTaiizor.Controls.MaterialComboBox();
+            materialLabel10 = new ReaLTaiizor.Controls.MaterialLabel();
+            panel13 = new Panel();
+            cbEstadoFiltroPlantas = new ReaLTaiizor.Controls.MaterialComboBox();
+            materialLabel12 = new ReaLTaiizor.Controls.MaterialLabel();
+            panel12 = new Panel();
+            tbSearchPlante = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            materialLabel11 = new ReaLTaiizor.Controls.MaterialLabel();
             lblEmptyVegetables = new ReaLTaiizor.Controls.MaterialLabel();
             flpVegetalList = new FlowLayoutPanel();
             tabHome = new TabPage();
@@ -55,53 +68,6 @@ namespace GestionAgraria
             tabAnimalArea = new TabPage();
             btnAddAnimal = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             panel10 = new Panel();
-            flpAnimalsList = new FlowLayoutPanel();
-            tabIndustryArea = new TabPage();
-            tcIndustrias = new ReaLTaiizor.Controls.MaterialTabControl();
-            tabProduct = new TabPage();
-            btnPrintProduct = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            btnAddProduct = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            panel23 = new Panel();
-            lblEmptyProducts = new ReaLTaiizor.Controls.MaterialLabel();
-            flpProductList = new FlowLayoutPanel();
-            tabInsumos = new TabPage();
-            btnPrintPurchases = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            btnAddCompras = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            lblEmptyPurchases = new ReaLTaiizor.Controls.MaterialLabel();
-            tabVentas = new TabPage();
-            btnPrintSells = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            btnAddVentas = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            lblEmptySells = new ReaLTaiizor.Controls.MaterialLabel();
-            materialTabSelector1 = new ReaLTaiizor.Controls.MaterialTabSelector();
-            tabUsers = new TabPage();
-            btnAddUser = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            panel21 = new Panel();
-            lblEmptyUsers = new ReaLTaiizor.Controls.MaterialLabel();
-            flpUsersList = new FlowLayoutPanel();
-            tabEntorno = new TabPage();
-            panel22 = new Panel();
-            lblEmptyFormativeEnvironments = new ReaLTaiizor.Controls.MaterialLabel();
-            flpFormativeEnvironmentsList = new FlowLayoutPanel();
-            btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            tabBlackBoard = new TabPage();
-            btnAddBlackBoard = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            lblEmptyBlackBoards = new ReaLTaiizor.Controls.MaterialLabel();
-            flowLayoutPanel4 = new FlowLayoutPanel();
-            tabCerrarSesion = new TabPage();
-            materialExpansionPanel2 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
-            panel24 = new Panel();
-            materialLabel18 = new ReaLTaiizor.Controls.MaterialLabel();
-            tableLayoutPanel6 = new TableLayoutPanel();
-            panel25 = new Panel();
-            cbEntornosFiltroProducto = new ReaLTaiizor.Controls.MaterialComboBox();
-            materialLabel19 = new ReaLTaiizor.Controls.MaterialLabel();
-            panel26 = new Panel();
-            cbEstadoFiltroProducto = new ReaLTaiizor.Controls.MaterialComboBox();
-            materialLabel20 = new ReaLTaiizor.Controls.MaterialLabel();
-            panel27 = new Panel();
-            tbSearchFiltroProducto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            materialLabel21 = new ReaLTaiizor.Controls.MaterialLabel();
-            lblEmptyAnimals = new ReaLTaiizor.Controls.MaterialLabel();
             materialExpansionPanel3 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             panel14 = new Panel();
             materialLabel9 = new ReaLTaiizor.Controls.MaterialLabel();
@@ -121,6 +87,41 @@ namespace GestionAgraria
             panel17 = new Panel();
             tbSeachAnimalFiltro = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel15 = new ReaLTaiizor.Controls.MaterialLabel();
+            lblEmptyAnimals = new ReaLTaiizor.Controls.MaterialLabel();
+            flpAnimalsList = new FlowLayoutPanel();
+            tabIndustryArea = new TabPage();
+            tcIndustrias = new ReaLTaiizor.Controls.MaterialTabControl();
+            tabProduct = new TabPage();
+            materialExpansionPanel2 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
+            panel24 = new Panel();
+            materialLabel18 = new ReaLTaiizor.Controls.MaterialLabel();
+            tableLayoutPanel6 = new TableLayoutPanel();
+            panel25 = new Panel();
+            cbEntornosFiltroProducto = new ReaLTaiizor.Controls.MaterialComboBox();
+            materialLabel19 = new ReaLTaiizor.Controls.MaterialLabel();
+            panel26 = new Panel();
+            cbEstadoFiltroProducto = new ReaLTaiizor.Controls.MaterialComboBox();
+            materialLabel20 = new ReaLTaiizor.Controls.MaterialLabel();
+            panel27 = new Panel();
+            tbSearchFiltroProducto = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            materialLabel21 = new ReaLTaiizor.Controls.MaterialLabel();
+            btnPrintProduct = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            btnAddProduct = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            panel23 = new Panel();
+            lblEmptyProducts = new ReaLTaiizor.Controls.MaterialLabel();
+            flpProductList = new FlowLayoutPanel();
+            tabInsumos = new TabPage();
+            btnPrintPurchases = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            btnAddCompras = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            lblEmptyPurchases = new ReaLTaiizor.Controls.MaterialLabel();
+            tabVentas = new TabPage();
+            btnPrintSells = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            btnAddVentas = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            lblEmptySells = new ReaLTaiizor.Controls.MaterialLabel();
+            materialTabSelector1 = new ReaLTaiizor.Controls.MaterialTabSelector();
+            tabUsers = new TabPage();
+            btnAddUser = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            panel21 = new Panel();
             materialExpansionPanel4 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             panel5 = new Panel();
             materialLabel4 = new ReaLTaiizor.Controls.MaterialLabel();
@@ -134,6 +135,11 @@ namespace GestionAgraria
             panel8 = new Panel();
             tbSearchUsers = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel7 = new ReaLTaiizor.Controls.MaterialLabel();
+            lblEmptyUsers = new ReaLTaiizor.Controls.MaterialLabel();
+            flpUsersList = new FlowLayoutPanel();
+            tabEntorno = new TabPage();
+            panel22 = new Panel();
+            lblEmptyFormativeEnvironments = new ReaLTaiizor.Controls.MaterialLabel();
             materialExpansionPanel5 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             panel1 = new Panel();
             materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
@@ -147,44 +153,27 @@ namespace GestionAgraria
             panel3 = new Panel();
             tbSeachFormativeEnvironments = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblUsuario = new ReaLTaiizor.Controls.MaterialLabel();
-            materialExpansionPanel1 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
-            panel9 = new Panel();
-            materialLabel8 = new ReaLTaiizor.Controls.MaterialLabel();
-            tableLayoutPanel4 = new TableLayoutPanel();
-            panel11 = new Panel();
-            cbEntornoFiltro = new ReaLTaiizor.Controls.MaterialComboBox();
-            materialLabel10 = new ReaLTaiizor.Controls.MaterialLabel();
-            panel13 = new Panel();
-            cbEstadoFiltroPlantas = new ReaLTaiizor.Controls.MaterialComboBox();
-            materialLabel12 = new ReaLTaiizor.Controls.MaterialLabel();
-            panel12 = new Panel();
-            tbSearchPlante = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            materialLabel11 = new ReaLTaiizor.Controls.MaterialLabel();
+            flpFormativeEnvironmentsList = new FlowLayoutPanel();
+            btnAddEntorno = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            tabBlackBoard = new TabPage();
+            btnAddBlackBoard = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            lblEmptyBlackBoards = new ReaLTaiizor.Controls.MaterialLabel();
+            flowLayoutPanel4 = new FlowLayoutPanel();
+            tabCerrarSesion = new TabPage();
             tabVegetablesArea.SuspendLayout();
             panel20.SuspendLayout();
+            materialExpansionPanel1.SuspendLayout();
+            panel9.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
+            panel11.SuspendLayout();
+            panel13.SuspendLayout();
+            panel12.SuspendLayout();
             tabHome.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((ISupportInitialize)pictureBox1).BeginInit();
             tcPrincipal.SuspendLayout();
             tabAnimalArea.SuspendLayout();
             panel10.SuspendLayout();
-            tabIndustryArea.SuspendLayout();
-            tcIndustrias.SuspendLayout();
-            tabProduct.SuspendLayout();
-            panel23.SuspendLayout();
-            tabInsumos.SuspendLayout();
-            tabVentas.SuspendLayout();
-            tabUsers.SuspendLayout();
-            panel21.SuspendLayout();
-            tabEntorno.SuspendLayout();
-            panel22.SuspendLayout();
-            tabBlackBoard.SuspendLayout();
-            materialExpansionPanel2.SuspendLayout();
-            panel24.SuspendLayout();
-            tableLayoutPanel6.SuspendLayout();
-            panel25.SuspendLayout();
-            panel26.SuspendLayout();
-            panel27.SuspendLayout();
             materialExpansionPanel3.SuspendLayout();
             panel14.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
@@ -193,24 +182,35 @@ namespace GestionAgraria
             panel19.SuspendLayout();
             panel18.SuspendLayout();
             panel17.SuspendLayout();
+            tabIndustryArea.SuspendLayout();
+            tcIndustrias.SuspendLayout();
+            tabProduct.SuspendLayout();
+            materialExpansionPanel2.SuspendLayout();
+            panel24.SuspendLayout();
+            tableLayoutPanel6.SuspendLayout();
+            panel25.SuspendLayout();
+            panel26.SuspendLayout();
+            panel27.SuspendLayout();
+            panel23.SuspendLayout();
+            tabInsumos.SuspendLayout();
+            tabVentas.SuspendLayout();
+            tabUsers.SuspendLayout();
+            panel21.SuspendLayout();
             materialExpansionPanel4.SuspendLayout();
             panel5.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             panel6.SuspendLayout();
             panel7.SuspendLayout();
             panel8.SuspendLayout();
+            tabEntorno.SuspendLayout();
+            panel22.SuspendLayout();
             materialExpansionPanel5.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel4.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
-            materialExpansionPanel1.SuspendLayout();
-            panel9.SuspendLayout();
-            tableLayoutPanel4.SuspendLayout();
-            panel11.SuspendLayout();
-            panel13.SuspendLayout();
-            panel12.SuspendLayout();
+            tabBlackBoard.SuspendLayout();
             SuspendLayout();
             // 
             // imgList
@@ -268,6 +268,222 @@ namespace GestionAgraria
             panel20.Size = new Size(920, 449);
             panel20.TabIndex = 21;
             // 
+            // materialExpansionPanel1
+            // 
+            materialExpansionPanel1.BackColor = Color.FromArgb(255, 255, 255);
+            materialExpansionPanel1.Collapse = true;
+            materialExpansionPanel1.Controls.Add(panel9);
+            materialExpansionPanel1.Depth = 0;
+            materialExpansionPanel1.Description = "Aplica filtros de búsqueda";
+            materialExpansionPanel1.Dock = DockStyle.Top;
+            materialExpansionPanel1.ExpandHeight = 200;
+            materialExpansionPanel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialExpansionPanel1.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialExpansionPanel1.Location = new Point(0, 0);
+            materialExpansionPanel1.Margin = new Padding(16, 1, 16, 0);
+            materialExpansionPanel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialExpansionPanel1.Name = "materialExpansionPanel1";
+            materialExpansionPanel1.Padding = new Padding(24, 64, 24, 16);
+            materialExpansionPanel1.ShowValidationButtons = false;
+            materialExpansionPanel1.Size = new Size(920, 48);
+            materialExpansionPanel1.TabIndex = 23;
+            materialExpansionPanel1.Title = "Filtros";
+            // 
+            // panel9
+            // 
+            panel9.Controls.Add(materialLabel8);
+            panel9.Controls.Add(tableLayoutPanel4);
+            panel9.Dock = DockStyle.Top;
+            panel9.Location = new Point(24, 64);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(872, 112);
+            panel9.TabIndex = 21;
+            // 
+            // materialLabel8
+            // 
+            materialLabel8.AutoSize = true;
+            materialLabel8.Depth = 0;
+            materialLabel8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel8.Location = new Point(3, 3);
+            materialLabel8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel8.Name = "materialLabel8";
+            materialLabel8.Size = new Size(73, 19);
+            materialLabel8.TabIndex = 5;
+            materialLabel8.Text = "Filtrar por:";
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.ColumnCount = 3;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel4.Controls.Add(panel11, 1, 0);
+            tableLayoutPanel4.Controls.Add(panel13, 2, 0);
+            tableLayoutPanel4.Controls.Add(panel12, 0, 0);
+            tableLayoutPanel4.Dock = DockStyle.Bottom;
+            tableLayoutPanel4.Location = new Point(0, 33);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 1;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.Size = new Size(872, 79);
+            tableLayoutPanel4.TabIndex = 0;
+            // 
+            // panel11
+            // 
+            panel11.Controls.Add(cbEntornoFiltro);
+            panel11.Controls.Add(materialLabel10);
+            panel11.Dock = DockStyle.Bottom;
+            panel11.Location = new Point(436, 1);
+            panel11.Margin = new Padding(0);
+            panel11.Name = "panel11";
+            panel11.Padding = new Padding(20, 0, 20, 0);
+            panel11.Size = new Size(218, 78);
+            panel11.TabIndex = 39;
+            // 
+            // cbEntornoFiltro
+            // 
+            cbEntornoFiltro.AutoResize = false;
+            cbEntornoFiltro.BackColor = Color.FromArgb(255, 255, 255);
+            cbEntornoFiltro.Depth = 0;
+            cbEntornoFiltro.Dock = DockStyle.Top;
+            cbEntornoFiltro.DrawMode = DrawMode.OwnerDrawVariable;
+            cbEntornoFiltro.DropDownHeight = 174;
+            cbEntornoFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEntornoFiltro.DropDownWidth = 121;
+            cbEntornoFiltro.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbEntornoFiltro.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbEntornoFiltro.FormattingEnabled = true;
+            cbEntornoFiltro.IntegralHeight = false;
+            cbEntornoFiltro.ItemHeight = 43;
+            cbEntornoFiltro.Items.AddRange(new object[] { "Todos" });
+            cbEntornoFiltro.Location = new Point(20, 19);
+            cbEntornoFiltro.MaxDropDownItems = 4;
+            cbEntornoFiltro.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbEntornoFiltro.Name = "cbEntornoFiltro";
+            cbEntornoFiltro.Size = new Size(178, 49);
+            cbEntornoFiltro.StartIndex = 0;
+            cbEntornoFiltro.TabIndex = 10;
+            // 
+            // materialLabel10
+            // 
+            materialLabel10.AutoSize = true;
+            materialLabel10.Depth = 0;
+            materialLabel10.Dock = DockStyle.Top;
+            materialLabel10.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel10.Location = new Point(20, 0);
+            materialLabel10.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel10.Name = "materialLabel10";
+            materialLabel10.Size = new Size(175, 19);
+            materialLabel10.TabIndex = 4;
+            materialLabel10.Text = "Entorno al que pertenece";
+            // 
+            // panel13
+            // 
+            panel13.Controls.Add(cbEstadoFiltroPlantas);
+            panel13.Controls.Add(materialLabel12);
+            panel13.Dock = DockStyle.Bottom;
+            panel13.Location = new Point(654, 1);
+            panel13.Margin = new Padding(0);
+            panel13.Name = "panel13";
+            panel13.Padding = new Padding(20, 0, 20, 0);
+            panel13.Size = new Size(218, 78);
+            panel13.TabIndex = 38;
+            // 
+            // cbEstadoFiltroPlantas
+            // 
+            cbEstadoFiltroPlantas.AutoResize = false;
+            cbEstadoFiltroPlantas.BackColor = Color.FromArgb(255, 255, 255);
+            cbEstadoFiltroPlantas.Depth = 0;
+            cbEstadoFiltroPlantas.Dock = DockStyle.Top;
+            cbEstadoFiltroPlantas.DrawMode = DrawMode.OwnerDrawVariable;
+            cbEstadoFiltroPlantas.DropDownHeight = 174;
+            cbEstadoFiltroPlantas.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEstadoFiltroPlantas.DropDownWidth = 121;
+            cbEstadoFiltroPlantas.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbEstadoFiltroPlantas.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbEstadoFiltroPlantas.FormattingEnabled = true;
+            cbEstadoFiltroPlantas.IntegralHeight = false;
+            cbEstadoFiltroPlantas.ItemHeight = 43;
+            cbEstadoFiltroPlantas.Items.AddRange(new object[] { "Activo", "Inactivo", "Todos" });
+            cbEstadoFiltroPlantas.Location = new Point(20, 19);
+            cbEstadoFiltroPlantas.MaxDropDownItems = 4;
+            cbEstadoFiltroPlantas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbEstadoFiltroPlantas.Name = "cbEstadoFiltroPlantas";
+            cbEstadoFiltroPlantas.Size = new Size(178, 49);
+            cbEstadoFiltroPlantas.StartIndex = 0;
+            cbEstadoFiltroPlantas.TabIndex = 10;
+            // 
+            // materialLabel12
+            // 
+            materialLabel12.AutoSize = true;
+            materialLabel12.Depth = 0;
+            materialLabel12.Dock = DockStyle.Top;
+            materialLabel12.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel12.Location = new Point(20, 0);
+            materialLabel12.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel12.Name = "materialLabel12";
+            materialLabel12.Size = new Size(50, 19);
+            materialLabel12.TabIndex = 4;
+            materialLabel12.Text = "Estado";
+            // 
+            // panel12
+            // 
+            panel12.Controls.Add(tbSearchPlante);
+            panel12.Controls.Add(materialLabel11);
+            panel12.Dock = DockStyle.Bottom;
+            panel12.Location = new Point(0, 1);
+            panel12.Margin = new Padding(0);
+            panel12.Name = "panel12";
+            panel12.Padding = new Padding(20, 0, 20, 0);
+            panel12.Size = new Size(436, 78);
+            panel12.TabIndex = 22;
+            // 
+            // tbSearchPlante
+            // 
+            tbSearchPlante.AnimateReadOnly = false;
+            tbSearchPlante.AutoCompleteMode = AutoCompleteMode.None;
+            tbSearchPlante.AutoCompleteSource = AutoCompleteSource.None;
+            tbSearchPlante.BackgroundImageLayout = ImageLayout.None;
+            tbSearchPlante.CharacterCasing = CharacterCasing.Normal;
+            tbSearchPlante.Depth = 0;
+            tbSearchPlante.Dock = DockStyle.Fill;
+            tbSearchPlante.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbSearchPlante.HideSelection = true;
+            tbSearchPlante.LeadingIcon = null;
+            tbSearchPlante.Location = new Point(20, 19);
+            tbSearchPlante.Margin = new Padding(3, 3, 26, 3);
+            tbSearchPlante.MaxLength = 32767;
+            tbSearchPlante.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbSearchPlante.Name = "tbSearchPlante";
+            tbSearchPlante.Padding = new Padding(9, 8, 9, 8);
+            tbSearchPlante.PasswordChar = '\0';
+            tbSearchPlante.PrefixSuffixText = null;
+            tbSearchPlante.ReadOnly = false;
+            tbSearchPlante.RightToLeft = RightToLeft.No;
+            tbSearchPlante.SelectedText = "";
+            tbSearchPlante.SelectionLength = 0;
+            tbSearchPlante.SelectionStart = 0;
+            tbSearchPlante.ShortcutsEnabled = true;
+            tbSearchPlante.Size = new Size(396, 48);
+            tbSearchPlante.TabIndex = 0;
+            tbSearchPlante.TabStop = false;
+            tbSearchPlante.TextAlign = HorizontalAlignment.Left;
+            tbSearchPlante.TrailingIcon = null;
+            tbSearchPlante.UseSystemPasswordChar = false;
+            // 
+            // materialLabel11
+            // 
+            materialLabel11.AutoSize = true;
+            materialLabel11.Depth = 0;
+            materialLabel11.Dock = DockStyle.Top;
+            materialLabel11.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel11.Location = new Point(20, 0);
+            materialLabel11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel11.Name = "materialLabel11";
+            materialLabel11.Size = new Size(81, 19);
+            materialLabel11.TabIndex = 4;
+            materialLabel11.Text = "Buscar por:";
+            // 
             // lblEmptyVegetables
             // 
             lblEmptyVegetables.Depth = 0;
@@ -295,10 +511,10 @@ namespace GestionAgraria
             // 
             tabHome.Controls.Add(tableLayoutPanel1);
             tabHome.ImageKey = "home.png";
-            tabHome.Location = new Point(4, 39);
+            tabHome.Location = new Point(4, 74);
             tabHome.Name = "tabHome";
             tabHome.Padding = new Padding(20);
-            tabHome.Size = new Size(960, 489);
+            tabHome.Size = new Size(656, 339);
             tabHome.TabIndex = 0;
             tabHome.Text = "Inicio";
             tabHome.UseVisualStyleBackColor = true;
@@ -316,7 +532,7 @@ namespace GestionAgraria
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 76.4976959F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 23.5023041F));
-            tableLayoutPanel1.Size = new Size(920, 449);
+            tableLayoutPanel1.Size = new Size(616, 299);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // pictureBox1
@@ -327,7 +543,7 @@ namespace GestionAgraria
             pictureBox1.Location = new Point(20, 20);
             pictureBox1.Margin = new Padding(20);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(880, 303);
+            pictureBox1.Size = new Size(576, 188);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -339,10 +555,10 @@ namespace GestionAgraria
             lblWelcome.Dock = DockStyle.Top;
             lblWelcome.Font = new Font("Roboto", 34F, FontStyle.Bold, GraphicsUnit.Pixel);
             lblWelcome.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H4;
-            lblWelcome.Location = new Point(3, 343);
+            lblWelcome.Location = new Point(3, 228);
             lblWelcome.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(914, 41);
+            lblWelcome.Size = new Size(610, 41);
             lblWelcome.TabIndex = 1;
             lblWelcome.Text = "Bienvenido a Gestión Agraria";
             lblWelcome.TextAlign = ContentAlignment.MiddleCenter;
@@ -367,7 +583,7 @@ namespace GestionAgraria
             tcPrincipal.Name = "tcPrincipal";
             tcPrincipal.Padding = new Point(10, 3);
             tcPrincipal.SelectedIndex = 0;
-            tcPrincipal.Size = new Size(968, 532);
+            tcPrincipal.Size = new Size(664, 417);
             tcPrincipal.TabIndex = 0;
             // 
             // tabAnimalArea
@@ -404,671 +620,6 @@ namespace GestionAgraria
             panel10.Name = "panel10";
             panel10.Size = new Size(920, 449);
             panel10.TabIndex = 18;
-            // 
-            // flpAnimalsList
-            // 
-            flpAnimalsList.Dock = DockStyle.Fill;
-            flpAnimalsList.Location = new Point(0, 0);
-            flpAnimalsList.Name = "flpAnimalsList";
-            flpAnimalsList.Size = new Size(920, 449);
-            flpAnimalsList.TabIndex = 20;
-            // 
-            // tabIndustryArea
-            // 
-            tabIndustryArea.BackColor = Color.White;
-            tabIndustryArea.Controls.Add(tcIndustrias);
-            tabIndustryArea.Controls.Add(materialTabSelector1);
-            tabIndustryArea.ImageKey = "industry-area.png";
-            tabIndustryArea.Location = new Point(4, 39);
-            tabIndustryArea.Margin = new Padding(0);
-            tabIndustryArea.Name = "tabIndustryArea";
-            tabIndustryArea.Size = new Size(960, 489);
-            tabIndustryArea.TabIndex = 4;
-            tabIndustryArea.Text = "Industria";
-            // 
-            // tcIndustrias
-            // 
-            tcIndustrias.Controls.Add(tabProduct);
-            tcIndustrias.Controls.Add(tabInsumos);
-            tcIndustrias.Controls.Add(tabVentas);
-            tcIndustrias.Depth = 0;
-            tcIndustrias.Dock = DockStyle.Fill;
-            tcIndustrias.Location = new Point(0, 35);
-            tcIndustrias.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            tcIndustrias.Multiline = true;
-            tcIndustrias.Name = "tcIndustrias";
-            tcIndustrias.Padding = new Point(6, 10);
-            tcIndustrias.SelectedIndex = 0;
-            tcIndustrias.Size = new Size(960, 454);
-            tcIndustrias.TabIndex = 2;
-            // 
-            // tabProduct
-            // 
-            tabProduct.Controls.Add(materialExpansionPanel2);
-            tabProduct.Controls.Add(btnPrintProduct);
-            tabProduct.Controls.Add(btnAddProduct);
-            tabProduct.Controls.Add(panel23);
-            tabProduct.Location = new Point(4, 38);
-            tabProduct.Name = "tabProduct";
-            tabProduct.Padding = new Padding(17, 50, 17, 17);
-            tabProduct.Size = new Size(952, 412);
-            tabProduct.TabIndex = 0;
-            tabProduct.Text = "Productos";
-            tabProduct.UseVisualStyleBackColor = true;
-            // 
-            // btnPrintProduct
-            // 
-            btnPrintProduct.Depth = 0;
-            btnPrintProduct.Enabled = false;
-            btnPrintProduct.Icon = Properties.Resources.print;
-            btnPrintProduct.Location = new Point(876, 272);
-            btnPrintProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnPrintProduct.Name = "btnPrintProduct";
-            btnPrintProduct.Size = new Size(56, 56);
-            btnPrintProduct.TabIndex = 8;
-            btnPrintProduct.Text = "materialFloatingActionButton3";
-            btnPrintProduct.UseVisualStyleBackColor = true;
-            // 
-            // btnAddProduct
-            // 
-            btnAddProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddProduct.Depth = 0;
-            btnAddProduct.Icon = Properties.Resources.add;
-            btnAddProduct.Location = new Point(876, 336);
-            btnAddProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddProduct.Name = "btnAddProduct";
-            btnAddProduct.Size = new Size(56, 56);
-            btnAddProduct.TabIndex = 3;
-            btnAddProduct.Text = "Agregar Usuario";
-            btnAddProduct.UseVisualStyleBackColor = true;
-            btnAddProduct.Click += btnAddProduct_Click;
-            // 
-            // panel23
-            // 
-            panel23.BackColor = Color.WhiteSmoke;
-            panel23.Controls.Add(lblEmptyProducts);
-            panel23.Controls.Add(flpProductList);
-            panel23.Dock = DockStyle.Fill;
-            panel23.Location = new Point(17, 50);
-            panel23.Name = "panel23";
-            panel23.Padding = new Padding(20);
-            panel23.Size = new Size(918, 345);
-            panel23.TabIndex = 4;
-            // 
-            // lblEmptyProducts
-            // 
-            lblEmptyProducts.Depth = 0;
-            lblEmptyProducts.Dock = DockStyle.Fill;
-            lblEmptyProducts.FlatStyle = FlatStyle.Flat;
-            lblEmptyProducts.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptyProducts.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyProducts.Location = new Point(20, 20);
-            lblEmptyProducts.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptyProducts.Name = "lblEmptyProducts";
-            lblEmptyProducts.Padding = new Padding(0, 0, 20, 0);
-            lblEmptyProducts.Size = new Size(878, 305);
-            lblEmptyProducts.TabIndex = 3;
-            lblEmptyProducts.Text = "Aún no tienes productos agregados... Comienza por agregar uno.";
-            lblEmptyProducts.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // flpProductList
-            // 
-            flpProductList.Dock = DockStyle.Fill;
-            flpProductList.Location = new Point(20, 20);
-            flpProductList.Name = "flpProductList";
-            flpProductList.Size = new Size(878, 305);
-            flpProductList.TabIndex = 4;
-            // 
-            // tabInsumos
-            // 
-            tabInsumos.Controls.Add(btnPrintPurchases);
-            tabInsumos.Controls.Add(btnAddCompras);
-            tabInsumos.Controls.Add(lblEmptyPurchases);
-            tabInsumos.Location = new Point(4, 38);
-            tabInsumos.Name = "tabInsumos";
-            tabInsumos.Padding = new Padding(17);
-            tabInsumos.Size = new Size(952, 412);
-            tabInsumos.TabIndex = 1;
-            tabInsumos.Text = "Insumos";
-            tabInsumos.UseVisualStyleBackColor = true;
-            // 
-            // btnPrintPurchases
-            // 
-            btnPrintPurchases.Depth = 0;
-            btnPrintPurchases.Enabled = false;
-            btnPrintPurchases.Icon = Properties.Resources.print;
-            btnPrintPurchases.Location = new Point(876, 274);
-            btnPrintPurchases.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnPrintPurchases.Name = "btnPrintPurchases";
-            btnPrintPurchases.Size = new Size(56, 56);
-            btnPrintPurchases.TabIndex = 7;
-            btnPrintPurchases.Text = "materialFloatingActionButton2";
-            btnPrintPurchases.UseVisualStyleBackColor = true;
-            // 
-            // btnAddCompras
-            // 
-            btnAddCompras.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddCompras.Depth = 0;
-            btnAddCompras.Icon = Properties.Resources.add;
-            btnAddCompras.Location = new Point(876, 336);
-            btnAddCompras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddCompras.Name = "btnAddCompras";
-            btnAddCompras.Size = new Size(56, 56);
-            btnAddCompras.TabIndex = 3;
-            btnAddCompras.Text = "Agregar Producto";
-            btnAddCompras.UseVisualStyleBackColor = true;
-            btnAddCompras.Click += btnAddCompras_Click;
-            // 
-            // lblEmptyPurchases
-            // 
-            lblEmptyPurchases.Depth = 0;
-            lblEmptyPurchases.Dock = DockStyle.Fill;
-            lblEmptyPurchases.FlatStyle = FlatStyle.Flat;
-            lblEmptyPurchases.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptyPurchases.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyPurchases.Location = new Point(17, 17);
-            lblEmptyPurchases.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptyPurchases.Name = "lblEmptyPurchases";
-            lblEmptyPurchases.Size = new Size(918, 378);
-            lblEmptyPurchases.TabIndex = 4;
-            lblEmptyPurchases.Text = "Aún no tienes compras registradas... Comienza por agregar una.";
-            lblEmptyPurchases.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // tabVentas
-            // 
-            tabVentas.Controls.Add(btnPrintSells);
-            tabVentas.Controls.Add(btnAddVentas);
-            tabVentas.Controls.Add(lblEmptySells);
-            tabVentas.Location = new Point(4, 38);
-            tabVentas.Name = "tabVentas";
-            tabVentas.Padding = new Padding(17);
-            tabVentas.Size = new Size(952, 412);
-            tabVentas.TabIndex = 2;
-            tabVentas.Text = "Ventas";
-            tabVentas.UseVisualStyleBackColor = true;
-            // 
-            // btnPrintSells
-            // 
-            btnPrintSells.Depth = 0;
-            btnPrintSells.Enabled = false;
-            btnPrintSells.Icon = Properties.Resources.print;
-            btnPrintSells.Location = new Point(877, 274);
-            btnPrintSells.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnPrintSells.Name = "btnPrintSells";
-            btnPrintSells.Size = new Size(56, 56);
-            btnPrintSells.TabIndex = 6;
-            btnPrintSells.Text = "materialFloatingActionButton1";
-            btnPrintSells.UseVisualStyleBackColor = true;
-            // 
-            // btnAddVentas
-            // 
-            btnAddVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddVentas.Depth = 0;
-            btnAddVentas.Icon = Properties.Resources.add;
-            btnAddVentas.Location = new Point(877, 336);
-            btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddVentas.Name = "btnAddVentas";
-            btnAddVentas.Size = new Size(56, 56);
-            btnAddVentas.TabIndex = 4;
-            btnAddVentas.Text = "Agregar Producto";
-            btnAddVentas.UseVisualStyleBackColor = true;
-            btnAddVentas.Click += btnAddVentas_Click;
-            // 
-            // lblEmptySells
-            // 
-            lblEmptySells.Depth = 0;
-            lblEmptySells.Dock = DockStyle.Fill;
-            lblEmptySells.FlatStyle = FlatStyle.Flat;
-            lblEmptySells.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptySells.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptySells.Location = new Point(17, 17);
-            lblEmptySells.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptySells.Name = "lblEmptySells";
-            lblEmptySells.Size = new Size(918, 378);
-            lblEmptySells.TabIndex = 5;
-            lblEmptySells.Text = "Aún no tienes ventas registradas... Comienza por agregar una.";
-            lblEmptySells.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // materialTabSelector1
-            // 
-            materialTabSelector1.BaseTabControl = tcIndustrias;
-            materialTabSelector1.CharacterCasing = ReaLTaiizor.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
-            materialTabSelector1.Depth = 0;
-            materialTabSelector1.Dock = DockStyle.Top;
-            materialTabSelector1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTabSelector1.HeadAlignment = ReaLTaiizor.Controls.MaterialTabSelector.Alignment.Center;
-            materialTabSelector1.Location = new Point(0, 0);
-            materialTabSelector1.Margin = new Padding(0);
-            materialTabSelector1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialTabSelector1.Name = "materialTabSelector1";
-            materialTabSelector1.Size = new Size(960, 35);
-            materialTabSelector1.TabIndex = 4;
-            materialTabSelector1.TabIndicatorHeight = 3;
-            materialTabSelector1.Text = "materialTabSelector1";
-            // 
-            // tabUsers
-            // 
-            tabUsers.Controls.Add(btnAddUser);
-            tabUsers.Controls.Add(panel21);
-            tabUsers.ImageKey = "user.png";
-            tabUsers.Location = new Point(4, 39);
-            tabUsers.Name = "tabUsers";
-            tabUsers.Padding = new Padding(20);
-            tabUsers.Size = new Size(960, 489);
-            tabUsers.TabIndex = 9;
-            tabUsers.Text = "Usuarios";
-            tabUsers.UseVisualStyleBackColor = true;
-            // 
-            // btnAddUser
-            // 
-            btnAddUser.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddUser.Depth = 0;
-            btnAddUser.Icon = Properties.Resources.add;
-            btnAddUser.Location = new Point(885, 416);
-            btnAddUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddUser.Name = "btnAddUser";
-            btnAddUser.Size = new Size(56, 56);
-            btnAddUser.TabIndex = 21;
-            btnAddUser.Text = "Agregar Usuario";
-            btnAddUser.UseVisualStyleBackColor = true;
-            btnAddUser.Click += btnAddUser_Click;
-            // 
-            // panel21
-            // 
-            panel21.BackColor = Color.WhiteSmoke;
-            panel21.Controls.Add(materialExpansionPanel4);
-            panel21.Controls.Add(lblEmptyUsers);
-            panel21.Controls.Add(flpUsersList);
-            panel21.Dock = DockStyle.Fill;
-            panel21.Location = new Point(20, 20);
-            panel21.Name = "panel21";
-            panel21.Size = new Size(920, 449);
-            panel21.TabIndex = 19;
-            // 
-            // lblEmptyUsers
-            // 
-            lblEmptyUsers.BackColor = Color.Transparent;
-            lblEmptyUsers.Depth = 0;
-            lblEmptyUsers.Dock = DockStyle.Fill;
-            lblEmptyUsers.FlatStyle = FlatStyle.Flat;
-            lblEmptyUsers.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptyUsers.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyUsers.Location = new Point(0, 0);
-            lblEmptyUsers.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptyUsers.Name = "lblEmptyUsers";
-            lblEmptyUsers.Size = new Size(920, 449);
-            lblEmptyUsers.TabIndex = 6;
-            lblEmptyUsers.Text = "Aún no tienes usuarios agregados... Comienza por agregar uno.";
-            lblEmptyUsers.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // flpUsersList
-            // 
-            flpUsersList.BackColor = Color.Transparent;
-            flpUsersList.Dock = DockStyle.Fill;
-            flpUsersList.Location = new Point(0, 0);
-            flpUsersList.Name = "flpUsersList";
-            flpUsersList.Padding = new Padding(0, 40, 0, 0);
-            flpUsersList.Size = new Size(920, 449);
-            flpUsersList.TabIndex = 2;
-            // 
-            // tabEntorno
-            // 
-            tabEntorno.Controls.Add(panel22);
-            tabEntorno.Controls.Add(btnAddEntorno);
-            tabEntorno.ImageKey = "userGroup.png";
-            tabEntorno.Location = new Point(4, 39);
-            tabEntorno.Name = "tabEntorno";
-            tabEntorno.Padding = new Padding(20);
-            tabEntorno.Size = new Size(960, 489);
-            tabEntorno.TabIndex = 6;
-            tabEntorno.Text = "Entornos";
-            tabEntorno.UseVisualStyleBackColor = true;
-            // 
-            // panel22
-            // 
-            panel22.BackColor = Color.WhiteSmoke;
-            panel22.Controls.Add(lblEmptyFormativeEnvironments);
-            panel22.Controls.Add(materialExpansionPanel5);
-            panel22.Controls.Add(flpFormativeEnvironmentsList);
-            panel22.Dock = DockStyle.Fill;
-            panel22.Location = new Point(20, 20);
-            panel22.Name = "panel22";
-            panel22.Size = new Size(920, 449);
-            panel22.TabIndex = 17;
-            // 
-            // lblEmptyFormativeEnvironments
-            // 
-            lblEmptyFormativeEnvironments.Depth = 0;
-            lblEmptyFormativeEnvironments.Dock = DockStyle.Fill;
-            lblEmptyFormativeEnvironments.FlatStyle = FlatStyle.Flat;
-            lblEmptyFormativeEnvironments.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptyFormativeEnvironments.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyFormativeEnvironments.Location = new Point(0, 48);
-            lblEmptyFormativeEnvironments.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptyFormativeEnvironments.Name = "lblEmptyFormativeEnvironments";
-            lblEmptyFormativeEnvironments.Size = new Size(920, 401);
-            lblEmptyFormativeEnvironments.TabIndex = 19;
-            lblEmptyFormativeEnvironments.Text = "Aún no tienes entornos formativos agregados... Comienza por agregar uno.";
-            lblEmptyFormativeEnvironments.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // flpFormativeEnvironmentsList
-            // 
-            flpFormativeEnvironmentsList.Dock = DockStyle.Fill;
-            flpFormativeEnvironmentsList.Location = new Point(0, 0);
-            flpFormativeEnvironmentsList.Name = "flpFormativeEnvironmentsList";
-            flpFormativeEnvironmentsList.Size = new Size(920, 449);
-            flpFormativeEnvironmentsList.TabIndex = 16;
-            // 
-            // btnAddEntorno
-            // 
-            btnAddEntorno.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddEntorno.Depth = 0;
-            btnAddEntorno.Icon = Properties.Resources.add;
-            btnAddEntorno.Location = new Point(877, 413);
-            btnAddEntorno.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddEntorno.Name = "btnAddEntorno";
-            btnAddEntorno.Size = new Size(56, 56);
-            btnAddEntorno.TabIndex = 14;
-            btnAddEntorno.Text = "Agregar Usuario";
-            btnAddEntorno.UseVisualStyleBackColor = true;
-            btnAddEntorno.Click += btnAddEntorno_Click;
-            // 
-            // tabBlackBoard
-            // 
-            tabBlackBoard.Controls.Add(btnAddBlackBoard);
-            tabBlackBoard.Controls.Add(lblEmptyBlackBoards);
-            tabBlackBoard.Controls.Add(flowLayoutPanel4);
-            tabBlackBoard.ImageKey = "pizarron.png";
-            tabBlackBoard.Location = new Point(4, 39);
-            tabBlackBoard.Margin = new Padding(2);
-            tabBlackBoard.Name = "tabBlackBoard";
-            tabBlackBoard.Padding = new Padding(20);
-            tabBlackBoard.Size = new Size(960, 489);
-            tabBlackBoard.TabIndex = 7;
-            tabBlackBoard.Text = "Pizarrón";
-            tabBlackBoard.UseVisualStyleBackColor = true;
-            // 
-            // btnAddBlackBoard
-            // 
-            btnAddBlackBoard.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddBlackBoard.Depth = 0;
-            btnAddBlackBoard.Icon = Properties.Resources.add;
-            btnAddBlackBoard.Location = new Point(877, 431);
-            btnAddBlackBoard.Margin = new Padding(10);
-            btnAddBlackBoard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddBlackBoard.Name = "btnAddBlackBoard";
-            btnAddBlackBoard.Size = new Size(56, 56);
-            btnAddBlackBoard.TabIndex = 6;
-            btnAddBlackBoard.Text = "materialFloatingActionButton1";
-            btnAddBlackBoard.UseVisualStyleBackColor = true;
-            btnAddBlackBoard.Click += btnAddBlackBoard_Click;
-            // 
-            // lblEmptyBlackBoards
-            // 
-            lblEmptyBlackBoards.Depth = 0;
-            lblEmptyBlackBoards.Dock = DockStyle.Fill;
-            lblEmptyBlackBoards.FlatStyle = FlatStyle.Flat;
-            lblEmptyBlackBoards.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptyBlackBoards.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyBlackBoards.Location = new Point(20, 20);
-            lblEmptyBlackBoards.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptyBlackBoards.Name = "lblEmptyBlackBoards";
-            lblEmptyBlackBoards.Size = new Size(920, 449);
-            lblEmptyBlackBoards.TabIndex = 8;
-            lblEmptyBlackBoards.Text = "Aún no tienes pizzarrones agregados... Comienza por agregar uno.";
-            lblEmptyBlackBoards.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // flowLayoutPanel4
-            // 
-            flowLayoutPanel4.Dock = DockStyle.Fill;
-            flowLayoutPanel4.Location = new Point(20, 20);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(920, 449);
-            flowLayoutPanel4.TabIndex = 2;
-            // 
-            // tabCerrarSesion
-            // 
-            tabCerrarSesion.ImageKey = "cerrar-sesion.png";
-            tabCerrarSesion.Location = new Point(4, 39);
-            tabCerrarSesion.Name = "tabCerrarSesion";
-            tabCerrarSesion.Padding = new Padding(3);
-            tabCerrarSesion.Size = new Size(960, 489);
-            tabCerrarSesion.TabIndex = 8;
-            tabCerrarSesion.Text = "Cerrar Sesión";
-            tabCerrarSesion.UseVisualStyleBackColor = true;
-            tabCerrarSesion.Enter += tabCerrarSesion_Click;
-            // 
-            // materialExpansionPanel2
-            // 
-            materialExpansionPanel2.BackColor = Color.FromArgb(255, 255, 255);
-            materialExpansionPanel2.Collapse = true;
-            materialExpansionPanel2.Controls.Add(panel24);
-            materialExpansionPanel2.Depth = 0;
-            materialExpansionPanel2.Description = "Aplica filtros de búsqueda";
-            materialExpansionPanel2.Dock = DockStyle.Top;
-            materialExpansionPanel2.ExpandHeight = 200;
-            materialExpansionPanel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialExpansionPanel2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialExpansionPanel2.Location = new Point(17, 50);
-            materialExpansionPanel2.Margin = new Padding(16, 1, 16, 0);
-            materialExpansionPanel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialExpansionPanel2.Name = "materialExpansionPanel2";
-            materialExpansionPanel2.Padding = new Padding(24, 64, 24, 16);
-            materialExpansionPanel2.ShowValidationButtons = false;
-            materialExpansionPanel2.Size = new Size(918, 48);
-            materialExpansionPanel2.TabIndex = 22;
-            materialExpansionPanel2.Title = "Filtros";
-            // 
-            // panel24
-            // 
-            panel24.Controls.Add(materialLabel18);
-            panel24.Controls.Add(tableLayoutPanel6);
-            panel24.Dock = DockStyle.Top;
-            panel24.Location = new Point(24, 64);
-            panel24.Name = "panel24";
-            panel24.Size = new Size(870, 112);
-            panel24.TabIndex = 22;
-            // 
-            // materialLabel18
-            // 
-            materialLabel18.AutoSize = true;
-            materialLabel18.Depth = 0;
-            materialLabel18.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel18.Location = new Point(3, 3);
-            materialLabel18.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel18.Name = "materialLabel18";
-            materialLabel18.Size = new Size(73, 19);
-            materialLabel18.TabIndex = 5;
-            materialLabel18.Text = "Filtrar por:";
-            // 
-            // tableLayoutPanel6
-            // 
-            tableLayoutPanel6.ColumnCount = 3;
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel6.Controls.Add(panel25, 1, 0);
-            tableLayoutPanel6.Controls.Add(panel26, 2, 0);
-            tableLayoutPanel6.Controls.Add(panel27, 0, 0);
-            tableLayoutPanel6.Dock = DockStyle.Bottom;
-            tableLayoutPanel6.Location = new Point(0, 33);
-            tableLayoutPanel6.Name = "tableLayoutPanel6";
-            tableLayoutPanel6.RowCount = 1;
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Size = new Size(870, 79);
-            tableLayoutPanel6.TabIndex = 0;
-            // 
-            // panel25
-            // 
-            panel25.Controls.Add(cbEntornosFiltroProducto);
-            panel25.Controls.Add(materialLabel19);
-            panel25.Dock = DockStyle.Bottom;
-            panel25.Location = new Point(435, 1);
-            panel25.Margin = new Padding(0);
-            panel25.Name = "panel25";
-            panel25.Padding = new Padding(20, 0, 20, 0);
-            panel25.Size = new Size(217, 78);
-            panel25.TabIndex = 39;
-            // 
-            // cbEntornosFiltroProducto
-            // 
-            cbEntornosFiltroProducto.AutoResize = false;
-            cbEntornosFiltroProducto.BackColor = Color.FromArgb(255, 255, 255);
-            cbEntornosFiltroProducto.Depth = 0;
-            cbEntornosFiltroProducto.Dock = DockStyle.Top;
-            cbEntornosFiltroProducto.DrawMode = DrawMode.OwnerDrawVariable;
-            cbEntornosFiltroProducto.DropDownHeight = 174;
-            cbEntornosFiltroProducto.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbEntornosFiltroProducto.DropDownWidth = 121;
-            cbEntornosFiltroProducto.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbEntornosFiltroProducto.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbEntornosFiltroProducto.FormattingEnabled = true;
-            cbEntornosFiltroProducto.IntegralHeight = false;
-            cbEntornosFiltroProducto.ItemHeight = 43;
-            cbEntornosFiltroProducto.Items.AddRange(new object[] { "Todos" });
-            cbEntornosFiltroProducto.Location = new Point(20, 19);
-            cbEntornosFiltroProducto.MaxDropDownItems = 4;
-            cbEntornosFiltroProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbEntornosFiltroProducto.Name = "cbEntornosFiltroProducto";
-            cbEntornosFiltroProducto.Size = new Size(177, 49);
-            cbEntornosFiltroProducto.StartIndex = 0;
-            cbEntornosFiltroProducto.TabIndex = 10;
-            // 
-            // materialLabel19
-            // 
-            materialLabel19.AutoSize = true;
-            materialLabel19.Depth = 0;
-            materialLabel19.Dock = DockStyle.Top;
-            materialLabel19.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel19.Location = new Point(20, 0);
-            materialLabel19.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel19.Name = "materialLabel19";
-            materialLabel19.Size = new Size(175, 19);
-            materialLabel19.TabIndex = 4;
-            materialLabel19.Text = "Entorno al que pertenece";
-            // 
-            // panel26
-            // 
-            panel26.Controls.Add(cbEstadoFiltroProducto);
-            panel26.Controls.Add(materialLabel20);
-            panel26.Dock = DockStyle.Bottom;
-            panel26.Location = new Point(652, 1);
-            panel26.Margin = new Padding(0);
-            panel26.Name = "panel26";
-            panel26.Padding = new Padding(20, 0, 20, 0);
-            panel26.Size = new Size(218, 78);
-            panel26.TabIndex = 38;
-            // 
-            // cbEstadoFiltroProducto
-            // 
-            cbEstadoFiltroProducto.AutoResize = false;
-            cbEstadoFiltroProducto.BackColor = Color.FromArgb(255, 255, 255);
-            cbEstadoFiltroProducto.Depth = 0;
-            cbEstadoFiltroProducto.Dock = DockStyle.Top;
-            cbEstadoFiltroProducto.DrawMode = DrawMode.OwnerDrawVariable;
-            cbEstadoFiltroProducto.DropDownHeight = 174;
-            cbEstadoFiltroProducto.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbEstadoFiltroProducto.DropDownWidth = 121;
-            cbEstadoFiltroProducto.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbEstadoFiltroProducto.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbEstadoFiltroProducto.FormattingEnabled = true;
-            cbEstadoFiltroProducto.IntegralHeight = false;
-            cbEstadoFiltroProducto.ItemHeight = 43;
-            cbEstadoFiltroProducto.Items.AddRange(new object[] { "Activo", "Inactivo", "Todos" });
-            cbEstadoFiltroProducto.Location = new Point(20, 19);
-            cbEstadoFiltroProducto.MaxDropDownItems = 4;
-            cbEstadoFiltroProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbEstadoFiltroProducto.Name = "cbEstadoFiltroProducto";
-            cbEstadoFiltroProducto.Size = new Size(178, 49);
-            cbEstadoFiltroProducto.StartIndex = 0;
-            cbEstadoFiltroProducto.TabIndex = 10;
-            // 
-            // materialLabel20
-            // 
-            materialLabel20.AutoSize = true;
-            materialLabel20.Depth = 0;
-            materialLabel20.Dock = DockStyle.Top;
-            materialLabel20.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel20.Location = new Point(20, 0);
-            materialLabel20.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel20.Name = "materialLabel20";
-            materialLabel20.Size = new Size(50, 19);
-            materialLabel20.TabIndex = 4;
-            materialLabel20.Text = "Estado";
-            // 
-            // panel27
-            // 
-            panel27.Controls.Add(tbSearchFiltroProducto);
-            panel27.Controls.Add(materialLabel21);
-            panel27.Dock = DockStyle.Bottom;
-            panel27.Location = new Point(0, 1);
-            panel27.Margin = new Padding(0);
-            panel27.Name = "panel27";
-            panel27.Padding = new Padding(20, 0, 20, 0);
-            panel27.Size = new Size(435, 78);
-            panel27.TabIndex = 22;
-            // 
-            // tbSearchFiltroProducto
-            // 
-            tbSearchFiltroProducto.AnimateReadOnly = false;
-            tbSearchFiltroProducto.AutoCompleteMode = AutoCompleteMode.None;
-            tbSearchFiltroProducto.AutoCompleteSource = AutoCompleteSource.None;
-            tbSearchFiltroProducto.BackgroundImageLayout = ImageLayout.None;
-            tbSearchFiltroProducto.CharacterCasing = CharacterCasing.Normal;
-            tbSearchFiltroProducto.Depth = 0;
-            tbSearchFiltroProducto.Dock = DockStyle.Fill;
-            tbSearchFiltroProducto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbSearchFiltroProducto.HideSelection = true;
-            tbSearchFiltroProducto.LeadingIcon = null;
-            tbSearchFiltroProducto.Location = new Point(20, 19);
-            tbSearchFiltroProducto.Margin = new Padding(3, 3, 26, 3);
-            tbSearchFiltroProducto.MaxLength = 32767;
-            tbSearchFiltroProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tbSearchFiltroProducto.Name = "tbSearchFiltroProducto";
-            tbSearchFiltroProducto.Padding = new Padding(9, 8, 9, 8);
-            tbSearchFiltroProducto.PasswordChar = '\0';
-            tbSearchFiltroProducto.PrefixSuffixText = null;
-            tbSearchFiltroProducto.ReadOnly = false;
-            tbSearchFiltroProducto.RightToLeft = RightToLeft.No;
-            tbSearchFiltroProducto.SelectedText = "";
-            tbSearchFiltroProducto.SelectionLength = 0;
-            tbSearchFiltroProducto.SelectionStart = 0;
-            tbSearchFiltroProducto.ShortcutsEnabled = true;
-            tbSearchFiltroProducto.Size = new Size(395, 48);
-            tbSearchFiltroProducto.TabIndex = 0;
-            tbSearchFiltroProducto.TabStop = false;
-            tbSearchFiltroProducto.TextAlign = HorizontalAlignment.Left;
-            tbSearchFiltroProducto.TrailingIcon = null;
-            tbSearchFiltroProducto.UseSystemPasswordChar = false;
-            // 
-            // materialLabel21
-            // 
-            materialLabel21.AutoSize = true;
-            materialLabel21.Depth = 0;
-            materialLabel21.Dock = DockStyle.Top;
-            materialLabel21.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel21.Location = new Point(20, 0);
-            materialLabel21.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel21.Name = "materialLabel21";
-            materialLabel21.Size = new Size(81, 19);
-            materialLabel21.TabIndex = 4;
-            materialLabel21.Text = "Buscar por:";
-            // 
-            // lblEmptyAnimals
-            // 
-            lblEmptyAnimals.Depth = 0;
-            lblEmptyAnimals.Dock = DockStyle.Fill;
-            lblEmptyAnimals.FlatStyle = FlatStyle.Flat;
-            lblEmptyAnimals.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptyAnimals.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyAnimals.Location = new Point(0, 0);
-            lblEmptyAnimals.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptyAnimals.Name = "lblEmptyAnimals";
-            lblEmptyAnimals.Padding = new Padding(0, 0, 20, 0);
-            lblEmptyAnimals.Size = new Size(920, 449);
-            lblEmptyAnimals.TabIndex = 4;
-            lblEmptyAnimals.Text = "Aún no tienes animales agregados... Comienza por agregar uno.";
-            lblEmptyAnimals.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // materialExpansionPanel3
             // 
@@ -1388,6 +939,518 @@ namespace GestionAgraria
             materialLabel15.TabIndex = 4;
             materialLabel15.Text = "Buscar por:";
             // 
+            // lblEmptyAnimals
+            // 
+            lblEmptyAnimals.Depth = 0;
+            lblEmptyAnimals.Dock = DockStyle.Fill;
+            lblEmptyAnimals.FlatStyle = FlatStyle.Flat;
+            lblEmptyAnimals.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyAnimals.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyAnimals.Location = new Point(0, 0);
+            lblEmptyAnimals.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyAnimals.Name = "lblEmptyAnimals";
+            lblEmptyAnimals.Padding = new Padding(0, 0, 20, 0);
+            lblEmptyAnimals.Size = new Size(920, 449);
+            lblEmptyAnimals.TabIndex = 4;
+            lblEmptyAnimals.Text = "Aún no tienes animales agregados... Comienza por agregar uno.";
+            lblEmptyAnimals.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // flpAnimalsList
+            // 
+            flpAnimalsList.Dock = DockStyle.Fill;
+            flpAnimalsList.Location = new Point(0, 0);
+            flpAnimalsList.Name = "flpAnimalsList";
+            flpAnimalsList.Size = new Size(920, 449);
+            flpAnimalsList.TabIndex = 20;
+            // 
+            // tabIndustryArea
+            // 
+            tabIndustryArea.BackColor = Color.White;
+            tabIndustryArea.Controls.Add(tcIndustrias);
+            tabIndustryArea.Controls.Add(materialTabSelector1);
+            tabIndustryArea.ImageKey = "industry-area.png";
+            tabIndustryArea.Location = new Point(4, 74);
+            tabIndustryArea.Margin = new Padding(0);
+            tabIndustryArea.Name = "tabIndustryArea";
+            tabIndustryArea.Size = new Size(656, 339);
+            tabIndustryArea.TabIndex = 4;
+            tabIndustryArea.Text = "Industria";
+            // 
+            // tcIndustrias
+            // 
+            tcIndustrias.Controls.Add(tabProduct);
+            tcIndustrias.Controls.Add(tabInsumos);
+            tcIndustrias.Controls.Add(tabVentas);
+            tcIndustrias.Depth = 0;
+            tcIndustrias.Dock = DockStyle.Fill;
+            tcIndustrias.Location = new Point(0, 35);
+            tcIndustrias.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            tcIndustrias.Multiline = true;
+            tcIndustrias.Name = "tcIndustrias";
+            tcIndustrias.Padding = new Point(6, 10);
+            tcIndustrias.SelectedIndex = 0;
+            tcIndustrias.Size = new Size(656, 304);
+            tcIndustrias.TabIndex = 2;
+            // 
+            // tabProduct
+            // 
+            tabProduct.Controls.Add(materialExpansionPanel2);
+            tabProduct.Controls.Add(btnPrintProduct);
+            tabProduct.Controls.Add(btnAddProduct);
+            tabProduct.Controls.Add(panel23);
+            tabProduct.Location = new Point(4, 38);
+            tabProduct.Name = "tabProduct";
+            tabProduct.Padding = new Padding(17, 50, 17, 17);
+            tabProduct.Size = new Size(648, 262);
+            tabProduct.TabIndex = 0;
+            tabProduct.Text = "Productos";
+            tabProduct.UseVisualStyleBackColor = true;
+            // 
+            // materialExpansionPanel2
+            // 
+            materialExpansionPanel2.BackColor = Color.FromArgb(255, 255, 255);
+            materialExpansionPanel2.Collapse = true;
+            materialExpansionPanel2.Controls.Add(panel24);
+            materialExpansionPanel2.Depth = 0;
+            materialExpansionPanel2.Description = "Aplica filtros de búsqueda";
+            materialExpansionPanel2.Dock = DockStyle.Top;
+            materialExpansionPanel2.ExpandHeight = 200;
+            materialExpansionPanel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialExpansionPanel2.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            materialExpansionPanel2.Location = new Point(17, 50);
+            materialExpansionPanel2.Margin = new Padding(16, 1, 16, 0);
+            materialExpansionPanel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialExpansionPanel2.Name = "materialExpansionPanel2";
+            materialExpansionPanel2.Padding = new Padding(24, 64, 24, 16);
+            materialExpansionPanel2.ShowValidationButtons = false;
+            materialExpansionPanel2.Size = new Size(614, 48);
+            materialExpansionPanel2.TabIndex = 22;
+            materialExpansionPanel2.Title = "Filtros";
+            // 
+            // panel24
+            // 
+            panel24.Controls.Add(materialLabel18);
+            panel24.Controls.Add(tableLayoutPanel6);
+            panel24.Dock = DockStyle.Top;
+            panel24.Location = new Point(24, 64);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(566, 112);
+            panel24.TabIndex = 22;
+            // 
+            // materialLabel18
+            // 
+            materialLabel18.AutoSize = true;
+            materialLabel18.Depth = 0;
+            materialLabel18.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel18.Location = new Point(3, 3);
+            materialLabel18.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel18.Name = "materialLabel18";
+            materialLabel18.Size = new Size(73, 19);
+            materialLabel18.TabIndex = 5;
+            materialLabel18.Text = "Filtrar por:";
+            // 
+            // tableLayoutPanel6
+            // 
+            tableLayoutPanel6.ColumnCount = 3;
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel6.Controls.Add(panel25, 1, 0);
+            tableLayoutPanel6.Controls.Add(panel26, 2, 0);
+            tableLayoutPanel6.Controls.Add(panel27, 0, 0);
+            tableLayoutPanel6.Dock = DockStyle.Bottom;
+            tableLayoutPanel6.Location = new Point(0, 33);
+            tableLayoutPanel6.Name = "tableLayoutPanel6";
+            tableLayoutPanel6.RowCount = 1;
+            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel6.Size = new Size(566, 79);
+            tableLayoutPanel6.TabIndex = 0;
+            // 
+            // panel25
+            // 
+            panel25.Controls.Add(cbEntornosFiltroProducto);
+            panel25.Controls.Add(materialLabel19);
+            panel25.Dock = DockStyle.Bottom;
+            panel25.Location = new Point(283, 1);
+            panel25.Margin = new Padding(0);
+            panel25.Name = "panel25";
+            panel25.Padding = new Padding(20, 0, 20, 0);
+            panel25.Size = new Size(141, 78);
+            panel25.TabIndex = 39;
+            // 
+            // cbEntornosFiltroProducto
+            // 
+            cbEntornosFiltroProducto.AutoResize = false;
+            cbEntornosFiltroProducto.BackColor = Color.FromArgb(255, 255, 255);
+            cbEntornosFiltroProducto.Depth = 0;
+            cbEntornosFiltroProducto.Dock = DockStyle.Top;
+            cbEntornosFiltroProducto.DrawMode = DrawMode.OwnerDrawVariable;
+            cbEntornosFiltroProducto.DropDownHeight = 174;
+            cbEntornosFiltroProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEntornosFiltroProducto.DropDownWidth = 121;
+            cbEntornosFiltroProducto.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbEntornosFiltroProducto.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbEntornosFiltroProducto.FormattingEnabled = true;
+            cbEntornosFiltroProducto.IntegralHeight = false;
+            cbEntornosFiltroProducto.ItemHeight = 43;
+            cbEntornosFiltroProducto.Items.AddRange(new object[] { "Todos" });
+            cbEntornosFiltroProducto.Location = new Point(20, 19);
+            cbEntornosFiltroProducto.MaxDropDownItems = 4;
+            cbEntornosFiltroProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbEntornosFiltroProducto.Name = "cbEntornosFiltroProducto";
+            cbEntornosFiltroProducto.Size = new Size(101, 49);
+            cbEntornosFiltroProducto.StartIndex = 0;
+            cbEntornosFiltroProducto.TabIndex = 10;
+            // 
+            // materialLabel19
+            // 
+            materialLabel19.AutoSize = true;
+            materialLabel19.Depth = 0;
+            materialLabel19.Dock = DockStyle.Top;
+            materialLabel19.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel19.Location = new Point(20, 0);
+            materialLabel19.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel19.Name = "materialLabel19";
+            materialLabel19.Size = new Size(175, 19);
+            materialLabel19.TabIndex = 4;
+            materialLabel19.Text = "Entorno al que pertenece";
+            // 
+            // panel26
+            // 
+            panel26.Controls.Add(cbEstadoFiltroProducto);
+            panel26.Controls.Add(materialLabel20);
+            panel26.Dock = DockStyle.Bottom;
+            panel26.Location = new Point(424, 1);
+            panel26.Margin = new Padding(0);
+            panel26.Name = "panel26";
+            panel26.Padding = new Padding(20, 0, 20, 0);
+            panel26.Size = new Size(142, 78);
+            panel26.TabIndex = 38;
+            // 
+            // cbEstadoFiltroProducto
+            // 
+            cbEstadoFiltroProducto.AutoResize = false;
+            cbEstadoFiltroProducto.BackColor = Color.FromArgb(255, 255, 255);
+            cbEstadoFiltroProducto.Depth = 0;
+            cbEstadoFiltroProducto.Dock = DockStyle.Top;
+            cbEstadoFiltroProducto.DrawMode = DrawMode.OwnerDrawVariable;
+            cbEstadoFiltroProducto.DropDownHeight = 174;
+            cbEstadoFiltroProducto.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbEstadoFiltroProducto.DropDownWidth = 121;
+            cbEstadoFiltroProducto.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbEstadoFiltroProducto.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbEstadoFiltroProducto.FormattingEnabled = true;
+            cbEstadoFiltroProducto.IntegralHeight = false;
+            cbEstadoFiltroProducto.ItemHeight = 43;
+            cbEstadoFiltroProducto.Items.AddRange(new object[] { "Activo", "Inactivo", "Todos" });
+            cbEstadoFiltroProducto.Location = new Point(20, 19);
+            cbEstadoFiltroProducto.MaxDropDownItems = 4;
+            cbEstadoFiltroProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbEstadoFiltroProducto.Name = "cbEstadoFiltroProducto";
+            cbEstadoFiltroProducto.Size = new Size(102, 49);
+            cbEstadoFiltroProducto.StartIndex = 0;
+            cbEstadoFiltroProducto.TabIndex = 10;
+            // 
+            // materialLabel20
+            // 
+            materialLabel20.AutoSize = true;
+            materialLabel20.Depth = 0;
+            materialLabel20.Dock = DockStyle.Top;
+            materialLabel20.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel20.Location = new Point(20, 0);
+            materialLabel20.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel20.Name = "materialLabel20";
+            materialLabel20.Size = new Size(50, 19);
+            materialLabel20.TabIndex = 4;
+            materialLabel20.Text = "Estado";
+            // 
+            // panel27
+            // 
+            panel27.Controls.Add(tbSearchFiltroProducto);
+            panel27.Controls.Add(materialLabel21);
+            panel27.Dock = DockStyle.Bottom;
+            panel27.Location = new Point(0, 1);
+            panel27.Margin = new Padding(0);
+            panel27.Name = "panel27";
+            panel27.Padding = new Padding(20, 0, 20, 0);
+            panel27.Size = new Size(283, 78);
+            panel27.TabIndex = 22;
+            // 
+            // tbSearchFiltroProducto
+            // 
+            tbSearchFiltroProducto.AnimateReadOnly = false;
+            tbSearchFiltroProducto.AutoCompleteMode = AutoCompleteMode.None;
+            tbSearchFiltroProducto.AutoCompleteSource = AutoCompleteSource.None;
+            tbSearchFiltroProducto.BackgroundImageLayout = ImageLayout.None;
+            tbSearchFiltroProducto.CharacterCasing = CharacterCasing.Normal;
+            tbSearchFiltroProducto.Depth = 0;
+            tbSearchFiltroProducto.Dock = DockStyle.Fill;
+            tbSearchFiltroProducto.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbSearchFiltroProducto.HideSelection = true;
+            tbSearchFiltroProducto.LeadingIcon = null;
+            tbSearchFiltroProducto.Location = new Point(20, 19);
+            tbSearchFiltroProducto.Margin = new Padding(3, 3, 26, 3);
+            tbSearchFiltroProducto.MaxLength = 32767;
+            tbSearchFiltroProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbSearchFiltroProducto.Name = "tbSearchFiltroProducto";
+            tbSearchFiltroProducto.Padding = new Padding(9, 8, 9, 8);
+            tbSearchFiltroProducto.PasswordChar = '\0';
+            tbSearchFiltroProducto.PrefixSuffixText = null;
+            tbSearchFiltroProducto.ReadOnly = false;
+            tbSearchFiltroProducto.RightToLeft = RightToLeft.No;
+            tbSearchFiltroProducto.SelectedText = "";
+            tbSearchFiltroProducto.SelectionLength = 0;
+            tbSearchFiltroProducto.SelectionStart = 0;
+            tbSearchFiltroProducto.ShortcutsEnabled = true;
+            tbSearchFiltroProducto.Size = new Size(243, 48);
+            tbSearchFiltroProducto.TabIndex = 0;
+            tbSearchFiltroProducto.TabStop = false;
+            tbSearchFiltroProducto.TextAlign = HorizontalAlignment.Left;
+            tbSearchFiltroProducto.TrailingIcon = null;
+            tbSearchFiltroProducto.UseSystemPasswordChar = false;
+            // 
+            // materialLabel21
+            // 
+            materialLabel21.AutoSize = true;
+            materialLabel21.Depth = 0;
+            materialLabel21.Dock = DockStyle.Top;
+            materialLabel21.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel21.Location = new Point(20, 0);
+            materialLabel21.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel21.Name = "materialLabel21";
+            materialLabel21.Size = new Size(81, 19);
+            materialLabel21.TabIndex = 4;
+            materialLabel21.Text = "Buscar por:";
+            // 
+            // btnPrintProduct
+            // 
+            btnPrintProduct.Depth = 0;
+            btnPrintProduct.Enabled = false;
+            btnPrintProduct.Icon = Properties.Resources.print;
+            btnPrintProduct.Location = new Point(876, 272);
+            btnPrintProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnPrintProduct.Name = "btnPrintProduct";
+            btnPrintProduct.Size = new Size(56, 56);
+            btnPrintProduct.TabIndex = 8;
+            btnPrintProduct.Text = "materialFloatingActionButton3";
+            btnPrintProduct.UseVisualStyleBackColor = true;
+            // 
+            // btnAddProduct
+            // 
+            btnAddProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddProduct.Depth = 0;
+            btnAddProduct.Icon = Properties.Resources.add;
+            btnAddProduct.Location = new Point(572, 186);
+            btnAddProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddProduct.Name = "btnAddProduct";
+            btnAddProduct.Size = new Size(56, 56);
+            btnAddProduct.TabIndex = 3;
+            btnAddProduct.Text = "Agregar Usuario";
+            btnAddProduct.UseVisualStyleBackColor = true;
+            btnAddProduct.Click += btnAddProduct_Click;
+            // 
+            // panel23
+            // 
+            panel23.BackColor = Color.WhiteSmoke;
+            panel23.Controls.Add(lblEmptyProducts);
+            panel23.Controls.Add(flpProductList);
+            panel23.Dock = DockStyle.Fill;
+            panel23.Location = new Point(17, 50);
+            panel23.Name = "panel23";
+            panel23.Padding = new Padding(20);
+            panel23.Size = new Size(614, 195);
+            panel23.TabIndex = 4;
+            // 
+            // lblEmptyProducts
+            // 
+            lblEmptyProducts.Depth = 0;
+            lblEmptyProducts.Dock = DockStyle.Fill;
+            lblEmptyProducts.FlatStyle = FlatStyle.Flat;
+            lblEmptyProducts.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyProducts.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyProducts.Location = new Point(20, 20);
+            lblEmptyProducts.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyProducts.Name = "lblEmptyProducts";
+            lblEmptyProducts.Padding = new Padding(0, 0, 20, 0);
+            lblEmptyProducts.Size = new Size(574, 155);
+            lblEmptyProducts.TabIndex = 3;
+            lblEmptyProducts.Text = "Aún no tienes productos agregados... Comienza por agregar uno.";
+            lblEmptyProducts.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // flpProductList
+            // 
+            flpProductList.Dock = DockStyle.Fill;
+            flpProductList.Location = new Point(20, 20);
+            flpProductList.Name = "flpProductList";
+            flpProductList.Size = new Size(574, 155);
+            flpProductList.TabIndex = 4;
+            // 
+            // tabInsumos
+            // 
+            tabInsumos.Controls.Add(btnPrintPurchases);
+            tabInsumos.Controls.Add(btnAddCompras);
+            tabInsumos.Controls.Add(lblEmptyPurchases);
+            tabInsumos.Location = new Point(4, 38);
+            tabInsumos.Name = "tabInsumos";
+            tabInsumos.Padding = new Padding(17);
+            tabInsumos.Size = new Size(952, 412);
+            tabInsumos.TabIndex = 1;
+            tabInsumos.Text = "Insumos";
+            tabInsumos.UseVisualStyleBackColor = true;
+            // 
+            // btnPrintPurchases
+            // 
+            btnPrintPurchases.Depth = 0;
+            btnPrintPurchases.Enabled = false;
+            btnPrintPurchases.Icon = Properties.Resources.print;
+            btnPrintPurchases.Location = new Point(876, 274);
+            btnPrintPurchases.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnPrintPurchases.Name = "btnPrintPurchases";
+            btnPrintPurchases.Size = new Size(56, 56);
+            btnPrintPurchases.TabIndex = 7;
+            btnPrintPurchases.Text = "materialFloatingActionButton2";
+            btnPrintPurchases.UseVisualStyleBackColor = true;
+            // 
+            // btnAddCompras
+            // 
+            btnAddCompras.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddCompras.Depth = 0;
+            btnAddCompras.Icon = Properties.Resources.add;
+            btnAddCompras.Location = new Point(876, 336);
+            btnAddCompras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddCompras.Name = "btnAddCompras";
+            btnAddCompras.Size = new Size(56, 56);
+            btnAddCompras.TabIndex = 3;
+            btnAddCompras.Text = "Agregar Producto";
+            btnAddCompras.UseVisualStyleBackColor = true;
+            btnAddCompras.Click += btnAddCompras_Click;
+            // 
+            // lblEmptyPurchases
+            // 
+            lblEmptyPurchases.Depth = 0;
+            lblEmptyPurchases.Dock = DockStyle.Fill;
+            lblEmptyPurchases.FlatStyle = FlatStyle.Flat;
+            lblEmptyPurchases.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyPurchases.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyPurchases.Location = new Point(17, 17);
+            lblEmptyPurchases.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyPurchases.Name = "lblEmptyPurchases";
+            lblEmptyPurchases.Size = new Size(918, 378);
+            lblEmptyPurchases.TabIndex = 4;
+            lblEmptyPurchases.Text = "Aún no tienes compras registradas... Comienza por agregar una.";
+            lblEmptyPurchases.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // tabVentas
+            // 
+            tabVentas.Controls.Add(btnPrintSells);
+            tabVentas.Controls.Add(btnAddVentas);
+            tabVentas.Controls.Add(lblEmptySells);
+            tabVentas.Location = new Point(4, 38);
+            tabVentas.Name = "tabVentas";
+            tabVentas.Padding = new Padding(17);
+            tabVentas.Size = new Size(952, 412);
+            tabVentas.TabIndex = 2;
+            tabVentas.Text = "Ventas";
+            tabVentas.UseVisualStyleBackColor = true;
+            // 
+            // btnPrintSells
+            // 
+            btnPrintSells.Depth = 0;
+            btnPrintSells.Enabled = false;
+            btnPrintSells.Icon = Properties.Resources.print;
+            btnPrintSells.Location = new Point(877, 274);
+            btnPrintSells.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnPrintSells.Name = "btnPrintSells";
+            btnPrintSells.Size = new Size(56, 56);
+            btnPrintSells.TabIndex = 6;
+            btnPrintSells.Text = "materialFloatingActionButton1";
+            btnPrintSells.UseVisualStyleBackColor = true;
+            // 
+            // btnAddVentas
+            // 
+            btnAddVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddVentas.Depth = 0;
+            btnAddVentas.Icon = Properties.Resources.add;
+            btnAddVentas.Location = new Point(877, 336);
+            btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddVentas.Name = "btnAddVentas";
+            btnAddVentas.Size = new Size(56, 56);
+            btnAddVentas.TabIndex = 4;
+            btnAddVentas.Text = "Agregar Producto";
+            btnAddVentas.UseVisualStyleBackColor = true;
+            btnAddVentas.Click += btnAddVentas_Click;
+            // 
+            // lblEmptySells
+            // 
+            lblEmptySells.Depth = 0;
+            lblEmptySells.Dock = DockStyle.Fill;
+            lblEmptySells.FlatStyle = FlatStyle.Flat;
+            lblEmptySells.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptySells.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptySells.Location = new Point(17, 17);
+            lblEmptySells.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptySells.Name = "lblEmptySells";
+            lblEmptySells.Size = new Size(918, 378);
+            lblEmptySells.TabIndex = 5;
+            lblEmptySells.Text = "Aún no tienes ventas registradas... Comienza por agregar una.";
+            lblEmptySells.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // materialTabSelector1
+            // 
+            materialTabSelector1.BaseTabControl = tcIndustrias;
+            materialTabSelector1.CharacterCasing = ReaLTaiizor.Controls.MaterialTabSelector.CustomCharacterCasing.Normal;
+            materialTabSelector1.Depth = 0;
+            materialTabSelector1.Dock = DockStyle.Top;
+            materialTabSelector1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTabSelector1.HeadAlignment = ReaLTaiizor.Controls.MaterialTabSelector.Alignment.Center;
+            materialTabSelector1.Location = new Point(0, 0);
+            materialTabSelector1.Margin = new Padding(0);
+            materialTabSelector1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialTabSelector1.Name = "materialTabSelector1";
+            materialTabSelector1.Size = new Size(656, 35);
+            materialTabSelector1.TabIndex = 4;
+            materialTabSelector1.TabIndicatorHeight = 3;
+            materialTabSelector1.Text = "materialTabSelector1";
+            // 
+            // tabUsers
+            // 
+            tabUsers.Controls.Add(btnAddUser);
+            tabUsers.Controls.Add(panel21);
+            tabUsers.ImageKey = "user.png";
+            tabUsers.Location = new Point(4, 39);
+            tabUsers.Name = "tabUsers";
+            tabUsers.Padding = new Padding(20);
+            tabUsers.Size = new Size(960, 489);
+            tabUsers.TabIndex = 9;
+            tabUsers.Text = "Usuarios";
+            tabUsers.UseVisualStyleBackColor = true;
+            // 
+            // btnAddUser
+            // 
+            btnAddUser.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddUser.Depth = 0;
+            btnAddUser.Icon = Properties.Resources.add;
+            btnAddUser.Location = new Point(885, 416);
+            btnAddUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddUser.Name = "btnAddUser";
+            btnAddUser.Size = new Size(56, 56);
+            btnAddUser.TabIndex = 21;
+            btnAddUser.Text = "Agregar Usuario";
+            btnAddUser.UseVisualStyleBackColor = true;
+            btnAddUser.Click += btnAddUser_Click;
+            // 
+            // panel21
+            // 
+            panel21.BackColor = Color.WhiteSmoke;
+            panel21.Controls.Add(materialExpansionPanel4);
+            panel21.Controls.Add(lblEmptyUsers);
+            panel21.Controls.Add(flpUsersList);
+            panel21.Dock = DockStyle.Fill;
+            panel21.Location = new Point(20, 20);
+            panel21.Name = "panel21";
+            panel21.Size = new Size(920, 449);
+            panel21.TabIndex = 19;
+            // 
             // materialExpansionPanel4
             // 
             materialExpansionPanel4.BackColor = Color.FromArgb(255, 255, 255);
@@ -1604,6 +1667,72 @@ namespace GestionAgraria
             materialLabel7.TabIndex = 4;
             materialLabel7.Text = "Buscar por:";
             // 
+            // lblEmptyUsers
+            // 
+            lblEmptyUsers.BackColor = Color.Transparent;
+            lblEmptyUsers.Depth = 0;
+            lblEmptyUsers.Dock = DockStyle.Fill;
+            lblEmptyUsers.FlatStyle = FlatStyle.Flat;
+            lblEmptyUsers.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyUsers.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyUsers.Location = new Point(0, 0);
+            lblEmptyUsers.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyUsers.Name = "lblEmptyUsers";
+            lblEmptyUsers.Size = new Size(920, 449);
+            lblEmptyUsers.TabIndex = 6;
+            lblEmptyUsers.Text = "Aún no tienes usuarios agregados... Comienza por agregar uno.";
+            lblEmptyUsers.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // flpUsersList
+            // 
+            flpUsersList.BackColor = Color.Transparent;
+            flpUsersList.Dock = DockStyle.Fill;
+            flpUsersList.Location = new Point(0, 0);
+            flpUsersList.Name = "flpUsersList";
+            flpUsersList.Padding = new Padding(0, 40, 0, 0);
+            flpUsersList.Size = new Size(920, 449);
+            flpUsersList.TabIndex = 2;
+            // 
+            // tabEntorno
+            // 
+            tabEntorno.Controls.Add(panel22);
+            tabEntorno.Controls.Add(btnAddEntorno);
+            tabEntorno.ImageKey = "userGroup.png";
+            tabEntorno.Location = new Point(4, 39);
+            tabEntorno.Name = "tabEntorno";
+            tabEntorno.Padding = new Padding(20);
+            tabEntorno.Size = new Size(960, 489);
+            tabEntorno.TabIndex = 6;
+            tabEntorno.Text = "Entornos";
+            tabEntorno.UseVisualStyleBackColor = true;
+            // 
+            // panel22
+            // 
+            panel22.BackColor = Color.WhiteSmoke;
+            panel22.Controls.Add(lblEmptyFormativeEnvironments);
+            panel22.Controls.Add(materialExpansionPanel5);
+            panel22.Controls.Add(flpFormativeEnvironmentsList);
+            panel22.Dock = DockStyle.Fill;
+            panel22.Location = new Point(20, 20);
+            panel22.Name = "panel22";
+            panel22.Size = new Size(920, 449);
+            panel22.TabIndex = 17;
+            // 
+            // lblEmptyFormativeEnvironments
+            // 
+            lblEmptyFormativeEnvironments.Depth = 0;
+            lblEmptyFormativeEnvironments.Dock = DockStyle.Fill;
+            lblEmptyFormativeEnvironments.FlatStyle = FlatStyle.Flat;
+            lblEmptyFormativeEnvironments.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyFormativeEnvironments.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyFormativeEnvironments.Location = new Point(0, 48);
+            lblEmptyFormativeEnvironments.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyFormativeEnvironments.Name = "lblEmptyFormativeEnvironments";
+            lblEmptyFormativeEnvironments.Size = new Size(920, 401);
+            lblEmptyFormativeEnvironments.TabIndex = 19;
+            lblEmptyFormativeEnvironments.Text = "Aún no tienes entornos formativos agregados... Comienza por agregar uno.";
+            lblEmptyFormativeEnvironments.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // materialExpansionPanel5
             // 
             materialExpansionPanel5.BackColor = Color.FromArgb(255, 255, 255);
@@ -1819,221 +1948,92 @@ namespace GestionAgraria
             lblUsuario.TabIndex = 4;
             lblUsuario.Text = "Buscar por:";
             // 
-            // materialExpansionPanel1
+            // flpFormativeEnvironmentsList
             // 
-            materialExpansionPanel1.BackColor = Color.FromArgb(255, 255, 255);
-            materialExpansionPanel1.Collapse = true;
-            materialExpansionPanel1.Controls.Add(panel9);
-            materialExpansionPanel1.Depth = 0;
-            materialExpansionPanel1.Description = "Aplica filtros de búsqueda";
-            materialExpansionPanel1.Dock = DockStyle.Top;
-            materialExpansionPanel1.ExpandHeight = 200;
-            materialExpansionPanel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialExpansionPanel1.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialExpansionPanel1.Location = new Point(0, 0);
-            materialExpansionPanel1.Margin = new Padding(16, 1, 16, 0);
-            materialExpansionPanel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialExpansionPanel1.Name = "materialExpansionPanel1";
-            materialExpansionPanel1.Padding = new Padding(24, 64, 24, 16);
-            materialExpansionPanel1.ShowValidationButtons = false;
-            materialExpansionPanel1.Size = new Size(920, 48);
-            materialExpansionPanel1.TabIndex = 23;
-            materialExpansionPanel1.Title = "Filtros";
+            flpFormativeEnvironmentsList.Dock = DockStyle.Fill;
+            flpFormativeEnvironmentsList.Location = new Point(0, 0);
+            flpFormativeEnvironmentsList.Name = "flpFormativeEnvironmentsList";
+            flpFormativeEnvironmentsList.Size = new Size(920, 449);
+            flpFormativeEnvironmentsList.TabIndex = 16;
             // 
-            // panel9
+            // btnAddEntorno
             // 
-            panel9.Controls.Add(materialLabel8);
-            panel9.Controls.Add(tableLayoutPanel4);
-            panel9.Dock = DockStyle.Top;
-            panel9.Location = new Point(24, 64);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(872, 112);
-            panel9.TabIndex = 21;
+            btnAddEntorno.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddEntorno.Depth = 0;
+            btnAddEntorno.Icon = Properties.Resources.add;
+            btnAddEntorno.Location = new Point(877, 413);
+            btnAddEntorno.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddEntorno.Name = "btnAddEntorno";
+            btnAddEntorno.Size = new Size(56, 56);
+            btnAddEntorno.TabIndex = 14;
+            btnAddEntorno.Text = "Agregar Usuario";
+            btnAddEntorno.UseVisualStyleBackColor = true;
+            btnAddEntorno.Click += btnAddEntorno_Click;
             // 
-            // materialLabel8
+            // tabBlackBoard
             // 
-            materialLabel8.AutoSize = true;
-            materialLabel8.Depth = 0;
-            materialLabel8.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel8.Location = new Point(3, 3);
-            materialLabel8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel8.Name = "materialLabel8";
-            materialLabel8.Size = new Size(73, 19);
-            materialLabel8.TabIndex = 5;
-            materialLabel8.Text = "Filtrar por:";
+            tabBlackBoard.Controls.Add(btnAddBlackBoard);
+            tabBlackBoard.Controls.Add(lblEmptyBlackBoards);
+            tabBlackBoard.Controls.Add(flowLayoutPanel4);
+            tabBlackBoard.ImageKey = "pizarron.png";
+            tabBlackBoard.Location = new Point(4, 39);
+            tabBlackBoard.Margin = new Padding(2);
+            tabBlackBoard.Name = "tabBlackBoard";
+            tabBlackBoard.Padding = new Padding(20);
+            tabBlackBoard.Size = new Size(960, 489);
+            tabBlackBoard.TabIndex = 7;
+            tabBlackBoard.Text = "Pizarrón";
+            tabBlackBoard.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel4
+            // btnAddBlackBoard
             // 
-            tableLayoutPanel4.ColumnCount = 3;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.Controls.Add(panel11, 1, 0);
-            tableLayoutPanel4.Controls.Add(panel13, 2, 0);
-            tableLayoutPanel4.Controls.Add(panel12, 0, 0);
-            tableLayoutPanel4.Dock = DockStyle.Bottom;
-            tableLayoutPanel4.Location = new Point(0, 33);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 1;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.Size = new Size(872, 79);
-            tableLayoutPanel4.TabIndex = 0;
+            btnAddBlackBoard.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddBlackBoard.Depth = 0;
+            btnAddBlackBoard.Icon = Properties.Resources.add;
+            btnAddBlackBoard.Location = new Point(877, 431);
+            btnAddBlackBoard.Margin = new Padding(10);
+            btnAddBlackBoard.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddBlackBoard.Name = "btnAddBlackBoard";
+            btnAddBlackBoard.Size = new Size(56, 56);
+            btnAddBlackBoard.TabIndex = 6;
+            btnAddBlackBoard.Text = "materialFloatingActionButton1";
+            btnAddBlackBoard.UseVisualStyleBackColor = true;
+            btnAddBlackBoard.Click += btnAddBlackBoard_Click;
             // 
-            // panel11
+            // lblEmptyBlackBoards
             // 
-            panel11.Controls.Add(cbEntornoFiltro);
-            panel11.Controls.Add(materialLabel10);
-            panel11.Dock = DockStyle.Bottom;
-            panel11.Location = new Point(436, 1);
-            panel11.Margin = new Padding(0);
-            panel11.Name = "panel11";
-            panel11.Padding = new Padding(20, 0, 20, 0);
-            panel11.Size = new Size(218, 78);
-            panel11.TabIndex = 39;
+            lblEmptyBlackBoards.Depth = 0;
+            lblEmptyBlackBoards.Dock = DockStyle.Fill;
+            lblEmptyBlackBoards.FlatStyle = FlatStyle.Flat;
+            lblEmptyBlackBoards.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyBlackBoards.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyBlackBoards.Location = new Point(20, 20);
+            lblEmptyBlackBoards.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyBlackBoards.Name = "lblEmptyBlackBoards";
+            lblEmptyBlackBoards.Size = new Size(920, 449);
+            lblEmptyBlackBoards.TabIndex = 8;
+            lblEmptyBlackBoards.Text = "Aún no tienes pizzarrones agregados... Comienza por agregar uno.";
+            lblEmptyBlackBoards.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // cbEntornoFiltro
+            // flowLayoutPanel4
             // 
-            cbEntornoFiltro.AutoResize = false;
-            cbEntornoFiltro.BackColor = Color.FromArgb(255, 255, 255);
-            cbEntornoFiltro.Depth = 0;
-            cbEntornoFiltro.Dock = DockStyle.Top;
-            cbEntornoFiltro.DrawMode = DrawMode.OwnerDrawVariable;
-            cbEntornoFiltro.DropDownHeight = 174;
-            cbEntornoFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbEntornoFiltro.DropDownWidth = 121;
-            cbEntornoFiltro.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbEntornoFiltro.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbEntornoFiltro.FormattingEnabled = true;
-            cbEntornoFiltro.IntegralHeight = false;
-            cbEntornoFiltro.ItemHeight = 43;
-            cbEntornoFiltro.Items.AddRange(new object[] { "Todos" });
-            cbEntornoFiltro.Location = new Point(20, 19);
-            cbEntornoFiltro.MaxDropDownItems = 4;
-            cbEntornoFiltro.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbEntornoFiltro.Name = "cbEntornoFiltro";
-            cbEntornoFiltro.Size = new Size(178, 49);
-            cbEntornoFiltro.StartIndex = 0;
-            cbEntornoFiltro.TabIndex = 10;
+            flowLayoutPanel4.Dock = DockStyle.Fill;
+            flowLayoutPanel4.Location = new Point(20, 20);
+            flowLayoutPanel4.Name = "flowLayoutPanel4";
+            flowLayoutPanel4.Size = new Size(920, 449);
+            flowLayoutPanel4.TabIndex = 2;
             // 
-            // materialLabel10
+            // tabCerrarSesion
             // 
-            materialLabel10.AutoSize = true;
-            materialLabel10.Depth = 0;
-            materialLabel10.Dock = DockStyle.Top;
-            materialLabel10.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel10.Location = new Point(20, 0);
-            materialLabel10.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel10.Name = "materialLabel10";
-            materialLabel10.Size = new Size(175, 19);
-            materialLabel10.TabIndex = 4;
-            materialLabel10.Text = "Entorno al que pertenece";
-            // 
-            // panel13
-            // 
-            panel13.Controls.Add(cbEstadoFiltroPlantas);
-            panel13.Controls.Add(materialLabel12);
-            panel13.Dock = DockStyle.Bottom;
-            panel13.Location = new Point(654, 1);
-            panel13.Margin = new Padding(0);
-            panel13.Name = "panel13";
-            panel13.Padding = new Padding(20, 0, 20, 0);
-            panel13.Size = new Size(218, 78);
-            panel13.TabIndex = 38;
-            // 
-            // cbEstadoFiltroPlantas
-            // 
-            cbEstadoFiltroPlantas.AutoResize = false;
-            cbEstadoFiltroPlantas.BackColor = Color.FromArgb(255, 255, 255);
-            cbEstadoFiltroPlantas.Depth = 0;
-            cbEstadoFiltroPlantas.Dock = DockStyle.Top;
-            cbEstadoFiltroPlantas.DrawMode = DrawMode.OwnerDrawVariable;
-            cbEstadoFiltroPlantas.DropDownHeight = 174;
-            cbEstadoFiltroPlantas.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbEstadoFiltroPlantas.DropDownWidth = 121;
-            cbEstadoFiltroPlantas.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbEstadoFiltroPlantas.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbEstadoFiltroPlantas.FormattingEnabled = true;
-            cbEstadoFiltroPlantas.IntegralHeight = false;
-            cbEstadoFiltroPlantas.ItemHeight = 43;
-            cbEstadoFiltroPlantas.Items.AddRange(new object[] { "Activo", "Inactivo", "Todos" });
-            cbEstadoFiltroPlantas.Location = new Point(20, 19);
-            cbEstadoFiltroPlantas.MaxDropDownItems = 4;
-            cbEstadoFiltroPlantas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbEstadoFiltroPlantas.Name = "cbEstadoFiltroPlantas";
-            cbEstadoFiltroPlantas.Size = new Size(178, 49);
-            cbEstadoFiltroPlantas.StartIndex = 0;
-            cbEstadoFiltroPlantas.TabIndex = 10;
-            // 
-            // materialLabel12
-            // 
-            materialLabel12.AutoSize = true;
-            materialLabel12.Depth = 0;
-            materialLabel12.Dock = DockStyle.Top;
-            materialLabel12.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel12.Location = new Point(20, 0);
-            materialLabel12.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel12.Name = "materialLabel12";
-            materialLabel12.Size = new Size(50, 19);
-            materialLabel12.TabIndex = 4;
-            materialLabel12.Text = "Estado";
-            // 
-            // panel12
-            // 
-            panel12.Controls.Add(tbSearchPlante);
-            panel12.Controls.Add(materialLabel11);
-            panel12.Dock = DockStyle.Bottom;
-            panel12.Location = new Point(0, 1);
-            panel12.Margin = new Padding(0);
-            panel12.Name = "panel12";
-            panel12.Padding = new Padding(20, 0, 20, 0);
-            panel12.Size = new Size(436, 78);
-            panel12.TabIndex = 22;
-            // 
-            // tbSearchPlante
-            // 
-            tbSearchPlante.AnimateReadOnly = false;
-            tbSearchPlante.AutoCompleteMode = AutoCompleteMode.None;
-            tbSearchPlante.AutoCompleteSource = AutoCompleteSource.None;
-            tbSearchPlante.BackgroundImageLayout = ImageLayout.None;
-            tbSearchPlante.CharacterCasing = CharacterCasing.Normal;
-            tbSearchPlante.Depth = 0;
-            tbSearchPlante.Dock = DockStyle.Fill;
-            tbSearchPlante.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbSearchPlante.HideSelection = true;
-            tbSearchPlante.LeadingIcon = null;
-            tbSearchPlante.Location = new Point(20, 19);
-            tbSearchPlante.Margin = new Padding(3, 3, 26, 3);
-            tbSearchPlante.MaxLength = 32767;
-            tbSearchPlante.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tbSearchPlante.Name = "tbSearchPlante";
-            tbSearchPlante.Padding = new Padding(9, 8, 9, 8);
-            tbSearchPlante.PasswordChar = '\0';
-            tbSearchPlante.PrefixSuffixText = null;
-            tbSearchPlante.ReadOnly = false;
-            tbSearchPlante.RightToLeft = RightToLeft.No;
-            tbSearchPlante.SelectedText = "";
-            tbSearchPlante.SelectionLength = 0;
-            tbSearchPlante.SelectionStart = 0;
-            tbSearchPlante.ShortcutsEnabled = true;
-            tbSearchPlante.Size = new Size(396, 48);
-            tbSearchPlante.TabIndex = 0;
-            tbSearchPlante.TabStop = false;
-            tbSearchPlante.TextAlign = HorizontalAlignment.Left;
-            tbSearchPlante.TrailingIcon = null;
-            tbSearchPlante.UseSystemPasswordChar = false;
-            // 
-            // materialLabel11
-            // 
-            materialLabel11.AutoSize = true;
-            materialLabel11.Depth = 0;
-            materialLabel11.Dock = DockStyle.Top;
-            materialLabel11.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel11.Location = new Point(20, 0);
-            materialLabel11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel11.Name = "materialLabel11";
-            materialLabel11.Size = new Size(81, 19);
-            materialLabel11.TabIndex = 4;
-            materialLabel11.Text = "Buscar por:";
+            tabCerrarSesion.ImageKey = "cerrar-sesion.png";
+            tabCerrarSesion.Location = new Point(4, 39);
+            tabCerrarSesion.Name = "tabCerrarSesion";
+            tabCerrarSesion.Padding = new Padding(3);
+            tabCerrarSesion.Size = new Size(960, 489);
+            tabCerrarSesion.TabIndex = 8;
+            tabCerrarSesion.Text = "Cerrar Sesión";
+            tabCerrarSesion.UseVisualStyleBackColor = true;
+            tabCerrarSesion.Enter += tabCerrarSesion_Click;
             // 
             // FormPrincipal
             // 
@@ -2042,7 +2042,7 @@ namespace GestionAgraria
             AutoScroll = true;
             BackColor = Color.FromArgb(224, 224, 224);
             CausesValidation = false;
-            ClientSize = new Size(968, 615);
+            ClientSize = new Size(664, 500);
             Controls.Add(tcPrincipal);
             DrawerIsOpen = true;
             DrawerShowIconsWhenHidden = true;
@@ -2050,7 +2050,7 @@ namespace GestionAgraria
             DrawerUseColors = true;
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_56;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MinimumSize = new Size(800, 600);
+            MinimumSize = new Size(642, 430);
             Name = "FormPrincipal";
             Padding = new Padding(0, 80, 0, 3);
             StartPosition = FormStartPosition.CenterScreen;
@@ -2058,6 +2058,17 @@ namespace GestionAgraria
             Load += FormPrincipal_Load;
             tabVegetablesArea.ResumeLayout(false);
             panel20.ResumeLayout(false);
+            materialExpansionPanel1.ResumeLayout(false);
+            materialExpansionPanel1.PerformLayout();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
+            tableLayoutPanel4.ResumeLayout(false);
+            panel11.ResumeLayout(false);
+            panel11.PerformLayout();
+            panel13.ResumeLayout(false);
+            panel13.PerformLayout();
+            panel12.ResumeLayout(false);
+            panel12.PerformLayout();
             tabHome.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
@@ -2065,28 +2076,6 @@ namespace GestionAgraria
             tcPrincipal.ResumeLayout(false);
             tabAnimalArea.ResumeLayout(false);
             panel10.ResumeLayout(false);
-            tabIndustryArea.ResumeLayout(false);
-            tcIndustrias.ResumeLayout(false);
-            tabProduct.ResumeLayout(false);
-            panel23.ResumeLayout(false);
-            tabInsumos.ResumeLayout(false);
-            tabVentas.ResumeLayout(false);
-            tabUsers.ResumeLayout(false);
-            panel21.ResumeLayout(false);
-            tabEntorno.ResumeLayout(false);
-            panel22.ResumeLayout(false);
-            tabBlackBoard.ResumeLayout(false);
-            materialExpansionPanel2.ResumeLayout(false);
-            materialExpansionPanel2.PerformLayout();
-            panel24.ResumeLayout(false);
-            panel24.PerformLayout();
-            tableLayoutPanel6.ResumeLayout(false);
-            panel25.ResumeLayout(false);
-            panel25.PerformLayout();
-            panel26.ResumeLayout(false);
-            panel26.PerformLayout();
-            panel27.ResumeLayout(false);
-            panel27.PerformLayout();
             materialExpansionPanel3.ResumeLayout(false);
             materialExpansionPanel3.PerformLayout();
             panel14.ResumeLayout(false);
@@ -2102,6 +2091,25 @@ namespace GestionAgraria
             panel18.PerformLayout();
             panel17.ResumeLayout(false);
             panel17.PerformLayout();
+            tabIndustryArea.ResumeLayout(false);
+            tcIndustrias.ResumeLayout(false);
+            tabProduct.ResumeLayout(false);
+            materialExpansionPanel2.ResumeLayout(false);
+            materialExpansionPanel2.PerformLayout();
+            panel24.ResumeLayout(false);
+            panel24.PerformLayout();
+            tableLayoutPanel6.ResumeLayout(false);
+            panel25.ResumeLayout(false);
+            panel25.PerformLayout();
+            panel26.ResumeLayout(false);
+            panel26.PerformLayout();
+            panel27.ResumeLayout(false);
+            panel27.PerformLayout();
+            panel23.ResumeLayout(false);
+            tabInsumos.ResumeLayout(false);
+            tabVentas.ResumeLayout(false);
+            tabUsers.ResumeLayout(false);
+            panel21.ResumeLayout(false);
             materialExpansionPanel4.ResumeLayout(false);
             materialExpansionPanel4.PerformLayout();
             panel5.ResumeLayout(false);
@@ -2113,6 +2121,8 @@ namespace GestionAgraria
             panel7.PerformLayout();
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
+            tabEntorno.ResumeLayout(false);
+            panel22.ResumeLayout(false);
             materialExpansionPanel5.ResumeLayout(false);
             materialExpansionPanel5.PerformLayout();
             panel1.ResumeLayout(false);
@@ -2124,17 +2134,7 @@ namespace GestionAgraria
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            materialExpansionPanel1.ResumeLayout(false);
-            materialExpansionPanel1.PerformLayout();
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
-            tableLayoutPanel4.ResumeLayout(false);
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
-            panel13.ResumeLayout(false);
-            panel13.PerformLayout();
-            panel12.ResumeLayout(false);
-            panel12.PerformLayout();
+            tabBlackBoard.ResumeLayout(false);
             ResumeLayout(false);
         }
 
