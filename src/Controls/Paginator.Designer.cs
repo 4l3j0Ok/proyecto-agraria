@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace GestionAgraria.Controls
 {
-    partial class UCPaginator
+    partial class Paginator
     {
         /// <summary> 
         /// Required designer variable.
@@ -164,12 +164,12 @@ namespace GestionAgraria.Controls
             tableLayoutPanel1.Size = new Size(540, 40);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // UCPaginator
+            // Paginator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
-            Name = "UCPaginator";
+            Name = "Paginator";
             Size = new Size(800, 40);
             tableLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
