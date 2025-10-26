@@ -39,7 +39,7 @@ namespace GestionAgraria.Core
         flex-direction: column;
         justify-content: space-between;
         width: calc(50% - 0.5cm);
-        border: 1.5px solid #d1d5db;
+        outline: 1.5px solid #d1d5db;
         border-radius: 0.6rem;
         background-color: #ffffff;
         padding: 1rem;
