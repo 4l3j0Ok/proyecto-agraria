@@ -91,7 +91,7 @@ namespace GestionAgraria
             flpAnimalsList = new FlowLayoutPanel();
             tabIndustryArea = new TabPage();
             tcIndustrias = new ReaLTaiizor.Controls.MaterialTabControl();
-            tabProduct = new TabPage();
+            tabProducts = new TabPage();
             materialExpansionPanel2 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             panel24 = new Panel();
             materialLabel18 = new ReaLTaiizor.Controls.MaterialLabel();
@@ -110,14 +110,18 @@ namespace GestionAgraria
             panel23 = new Panel();
             lblEmptyProducts = new ReaLTaiizor.Controls.MaterialLabel();
             flpProductList = new FlowLayoutPanel();
-            tabInsumos = new TabPage();
+            tabPurchases = new TabPage();
+            panel28 = new Panel();
+            lblEmptyPurchases = new ReaLTaiizor.Controls.MaterialLabel();
+            flpPurchaseList = new FlowLayoutPanel();
             btnPrintPurchases = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             btnAddCompras = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            lblEmptyPurchases = new ReaLTaiizor.Controls.MaterialLabel();
-            tabVentas = new TabPage();
+            tabSells = new TabPage();
+            panel29 = new Panel();
+            lblEmptySells = new ReaLTaiizor.Controls.MaterialLabel();
+            flpSellList = new FlowLayoutPanel();
             btnPrintSells = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             btnAddVentas = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            lblEmptySells = new ReaLTaiizor.Controls.MaterialLabel();
             materialTabSelector1 = new ReaLTaiizor.Controls.MaterialTabSelector();
             tabUsers = new TabPage();
             btnAddUser = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
@@ -184,7 +188,7 @@ namespace GestionAgraria
             panel17.SuspendLayout();
             tabIndustryArea.SuspendLayout();
             tcIndustrias.SuspendLayout();
-            tabProduct.SuspendLayout();
+            tabProducts.SuspendLayout();
             materialExpansionPanel2.SuspendLayout();
             panel24.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
@@ -192,8 +196,10 @@ namespace GestionAgraria
             panel26.SuspendLayout();
             panel27.SuspendLayout();
             panel23.SuspendLayout();
-            tabInsumos.SuspendLayout();
-            tabVentas.SuspendLayout();
+            tabPurchases.SuspendLayout();
+            panel28.SuspendLayout();
+            tabSells.SuspendLayout();
+            panel29.SuspendLayout();
             tabUsers.SuspendLayout();
             panel21.SuspendLayout();
             materialExpansionPanel4.SuspendLayout();
@@ -246,7 +252,7 @@ namespace GestionAgraria
             btnAddPlanta.Depth = 0;
             btnAddPlanta.FlatStyle = FlatStyle.Flat;
             btnAddPlanta.Icon = Properties.Resources.add_user;
-            btnAddPlanta.Location = new Point(891, 433);
+            btnAddPlanta.Location = new Point(755, 298);
             btnAddPlanta.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddPlanta.Name = "btnAddPlanta";
             btnAddPlanta.RightToLeft = RightToLeft.No;
@@ -504,6 +510,7 @@ namespace GestionAgraria
             flpVegetalList.Dock = DockStyle.Fill;
             flpVegetalList.Location = new Point(0, 0);
             flpVegetalList.Name = "flpVegetalList";
+            flpVegetalList.Padding = new Padding(0, 60, 0, 0);
             flpVegetalList.Size = new Size(616, 299);
             flpVegetalList.TabIndex = 20;
             // 
@@ -511,10 +518,10 @@ namespace GestionAgraria
             // 
             tabHome.Controls.Add(tableLayoutPanel1);
             tabHome.ImageKey = "home.png";
-            tabHome.Location = new Point(4, 74);
+            tabHome.Location = new Point(4, 39);
             tabHome.Name = "tabHome";
             tabHome.Padding = new Padding(20);
-            tabHome.Size = new Size(656, 339);
+            tabHome.Size = new Size(792, 474);
             tabHome.TabIndex = 0;
             tabHome.Text = "Inicio";
             tabHome.UseVisualStyleBackColor = true;
@@ -532,7 +539,7 @@ namespace GestionAgraria
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 76.4976959F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 23.5023041F));
-            tableLayoutPanel1.Size = new Size(616, 299);
+            tableLayoutPanel1.Size = new Size(752, 434);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // pictureBox1
@@ -543,7 +550,7 @@ namespace GestionAgraria
             pictureBox1.Location = new Point(20, 20);
             pictureBox1.Margin = new Padding(20);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(576, 188);
+            pictureBox1.Size = new Size(712, 292);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -555,10 +562,10 @@ namespace GestionAgraria
             lblWelcome.Dock = DockStyle.Top;
             lblWelcome.Font = new Font("Roboto", 34F, FontStyle.Bold, GraphicsUnit.Pixel);
             lblWelcome.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H4;
-            lblWelcome.Location = new Point(3, 228);
+            lblWelcome.Location = new Point(3, 332);
             lblWelcome.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(610, 41);
+            lblWelcome.Size = new Size(746, 41);
             lblWelcome.TabIndex = 1;
             lblWelcome.Text = "Bienvenido a Gestión Agraria";
             lblWelcome.TextAlign = ContentAlignment.MiddleCenter;
@@ -591,10 +598,10 @@ namespace GestionAgraria
             tabAnimalArea.Controls.Add(btnAddAnimal);
             tabAnimalArea.Controls.Add(panel10);
             tabAnimalArea.ImageKey = "animal-area.png";
-            tabAnimalArea.Location = new Point(4, 39);
+            tabAnimalArea.Location = new Point(4, 74);
             tabAnimalArea.Name = "tabAnimalArea";
             tabAnimalArea.Padding = new Padding(20);
-            tabAnimalArea.Size = new Size(792, 474);
+            tabAnimalArea.Size = new Size(656, 339);
             tabAnimalArea.TabIndex = 5;
             tabAnimalArea.Text = "Animales";
             tabAnimalArea.UseVisualStyleBackColor = true;
@@ -618,7 +625,7 @@ namespace GestionAgraria
             panel10.Dock = DockStyle.Fill;
             panel10.Location = new Point(20, 20);
             panel10.Name = "panel10";
-            panel10.Size = new Size(752, 434);
+            panel10.Size = new Size(616, 299);
             panel10.TabIndex = 18;
             // 
             // materialExpansionPanel3
@@ -638,7 +645,7 @@ namespace GestionAgraria
             materialExpansionPanel3.Name = "materialExpansionPanel3";
             materialExpansionPanel3.Padding = new Padding(24, 64, 24, 16);
             materialExpansionPanel3.ShowValidationButtons = false;
-            materialExpansionPanel3.Size = new Size(752, 48);
+            materialExpansionPanel3.Size = new Size(616, 48);
             materialExpansionPanel3.TabIndex = 24;
             materialExpansionPanel3.Title = "Filtros";
             // 
@@ -649,7 +656,7 @@ namespace GestionAgraria
             panel14.Dock = DockStyle.Top;
             panel14.Location = new Point(24, 64);
             panel14.Name = "panel14";
-            panel14.Size = new Size(704, 112);
+            panel14.Size = new Size(568, 112);
             panel14.TabIndex = 22;
             // 
             // materialLabel9
@@ -682,7 +689,7 @@ namespace GestionAgraria
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(704, 79);
+            tableLayoutPanel5.Size = new Size(568, 79);
             tableLayoutPanel5.TabIndex = 0;
             // 
             // panel16
@@ -690,11 +697,11 @@ namespace GestionAgraria
             panel16.Controls.Add(cbEstadoFiltroAnimales);
             panel16.Controls.Add(materialLabel14);
             panel16.Dock = DockStyle.Bottom;
-            panel16.Location = new Point(560, 1);
+            panel16.Location = new Point(452, 1);
             panel16.Margin = new Padding(0);
             panel16.Name = "panel16";
             panel16.Padding = new Padding(20, 0, 20, 0);
-            panel16.Size = new Size(144, 78);
+            panel16.Size = new Size(116, 78);
             panel16.TabIndex = 46;
             // 
             // cbEstadoFiltroAnimales
@@ -717,7 +724,7 @@ namespace GestionAgraria
             cbEstadoFiltroAnimales.MaxDropDownItems = 4;
             cbEstadoFiltroAnimales.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbEstadoFiltroAnimales.Name = "cbEstadoFiltroAnimales";
-            cbEstadoFiltroAnimales.Size = new Size(104, 49);
+            cbEstadoFiltroAnimales.Size = new Size(76, 49);
             cbEstadoFiltroAnimales.StartIndex = 0;
             cbEstadoFiltroAnimales.TabIndex = 10;
             // 
@@ -739,11 +746,11 @@ namespace GestionAgraria
             panel15.Controls.Add(cbEntornoFiltroAnimales);
             panel15.Controls.Add(materialLabel13);
             panel15.Dock = DockStyle.Bottom;
-            panel15.Location = new Point(420, 1);
+            panel15.Location = new Point(339, 1);
             panel15.Margin = new Padding(0);
             panel15.Name = "panel15";
             panel15.Padding = new Padding(20, 0, 20, 0);
-            panel15.Size = new Size(140, 78);
+            panel15.Size = new Size(113, 78);
             panel15.TabIndex = 45;
             // 
             // cbEntornoFiltroAnimales
@@ -766,7 +773,7 @@ namespace GestionAgraria
             cbEntornoFiltroAnimales.MaxDropDownItems = 4;
             cbEntornoFiltroAnimales.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbEntornoFiltroAnimales.Name = "cbEntornoFiltroAnimales";
-            cbEntornoFiltroAnimales.Size = new Size(100, 49);
+            cbEntornoFiltroAnimales.Size = new Size(73, 49);
             cbEntornoFiltroAnimales.StartIndex = 0;
             cbEntornoFiltroAnimales.TabIndex = 10;
             // 
@@ -788,11 +795,11 @@ namespace GestionAgraria
             panel19.Controls.Add(cbEstadoProductivoFiltro);
             panel19.Controls.Add(materialLabel17);
             panel19.Dock = DockStyle.Bottom;
-            panel19.Location = new Point(280, 1);
+            panel19.Location = new Point(226, 1);
             panel19.Margin = new Padding(0);
             panel19.Name = "panel19";
             panel19.Padding = new Padding(20, 0, 20, 0);
-            panel19.Size = new Size(140, 78);
+            panel19.Size = new Size(113, 78);
             panel19.TabIndex = 44;
             // 
             // cbEstadoProductivoFiltro
@@ -815,7 +822,7 @@ namespace GestionAgraria
             cbEstadoProductivoFiltro.MaxDropDownItems = 4;
             cbEstadoProductivoFiltro.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbEstadoProductivoFiltro.Name = "cbEstadoProductivoFiltro";
-            cbEstadoProductivoFiltro.Size = new Size(100, 49);
+            cbEstadoProductivoFiltro.Size = new Size(73, 49);
             cbEstadoProductivoFiltro.StartIndex = 0;
             cbEstadoProductivoFiltro.TabIndex = 10;
             // 
@@ -837,11 +844,11 @@ namespace GestionAgraria
             panel18.Controls.Add(cbTipoAnimalFiltro);
             panel18.Controls.Add(materialLabel16);
             panel18.Dock = DockStyle.Bottom;
-            panel18.Location = new Point(140, 1);
+            panel18.Location = new Point(113, 1);
             panel18.Margin = new Padding(0);
             panel18.Name = "panel18";
             panel18.Padding = new Padding(20, 0, 20, 0);
-            panel18.Size = new Size(140, 78);
+            panel18.Size = new Size(113, 78);
             panel18.TabIndex = 43;
             // 
             // cbTipoAnimalFiltro
@@ -864,7 +871,7 @@ namespace GestionAgraria
             cbTipoAnimalFiltro.MaxDropDownItems = 4;
             cbTipoAnimalFiltro.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbTipoAnimalFiltro.Name = "cbTipoAnimalFiltro";
-            cbTipoAnimalFiltro.Size = new Size(100, 49);
+            cbTipoAnimalFiltro.Size = new Size(73, 49);
             cbTipoAnimalFiltro.StartIndex = 0;
             cbTipoAnimalFiltro.TabIndex = 10;
             // 
@@ -890,7 +897,7 @@ namespace GestionAgraria
             panel17.Margin = new Padding(0);
             panel17.Name = "panel17";
             panel17.Padding = new Padding(20, 0, 20, 0);
-            panel17.Size = new Size(140, 78);
+            panel17.Size = new Size(113, 78);
             panel17.TabIndex = 22;
             // 
             // tbSeachAnimalFiltro
@@ -919,7 +926,7 @@ namespace GestionAgraria
             tbSeachAnimalFiltro.SelectionLength = 0;
             tbSeachAnimalFiltro.SelectionStart = 0;
             tbSeachAnimalFiltro.ShortcutsEnabled = true;
-            tbSeachAnimalFiltro.Size = new Size(100, 48);
+            tbSeachAnimalFiltro.Size = new Size(73, 48);
             tbSeachAnimalFiltro.TabIndex = 0;
             tbSeachAnimalFiltro.TabStop = false;
             tbSeachAnimalFiltro.TextAlign = HorizontalAlignment.Left;
@@ -950,7 +957,7 @@ namespace GestionAgraria
             lblEmptyAnimals.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblEmptyAnimals.Name = "lblEmptyAnimals";
             lblEmptyAnimals.Padding = new Padding(0, 0, 20, 0);
-            lblEmptyAnimals.Size = new Size(752, 434);
+            lblEmptyAnimals.Size = new Size(616, 299);
             lblEmptyAnimals.TabIndex = 4;
             lblEmptyAnimals.Text = "Aún no tienes animales agregados... Comienza por agregar uno.";
             lblEmptyAnimals.TextAlign = ContentAlignment.MiddleCenter;
@@ -960,7 +967,8 @@ namespace GestionAgraria
             flpAnimalsList.Dock = DockStyle.Fill;
             flpAnimalsList.Location = new Point(0, 0);
             flpAnimalsList.Name = "flpAnimalsList";
-            flpAnimalsList.Size = new Size(752, 434);
+            flpAnimalsList.Padding = new Padding(0, 60, 0, 0);
+            flpAnimalsList.Size = new Size(616, 299);
             flpAnimalsList.TabIndex = 20;
             // 
             // tabIndustryArea
@@ -969,18 +977,18 @@ namespace GestionAgraria
             tabIndustryArea.Controls.Add(tcIndustrias);
             tabIndustryArea.Controls.Add(materialTabSelector1);
             tabIndustryArea.ImageKey = "industry-area.png";
-            tabIndustryArea.Location = new Point(4, 74);
+            tabIndustryArea.Location = new Point(4, 39);
             tabIndustryArea.Margin = new Padding(0);
             tabIndustryArea.Name = "tabIndustryArea";
-            tabIndustryArea.Size = new Size(656, 339);
+            tabIndustryArea.Size = new Size(792, 474);
             tabIndustryArea.TabIndex = 4;
             tabIndustryArea.Text = "Industria";
             // 
             // tcIndustrias
             // 
-            tcIndustrias.Controls.Add(tabProduct);
-            tcIndustrias.Controls.Add(tabInsumos);
-            tcIndustrias.Controls.Add(tabVentas);
+            tcIndustrias.Controls.Add(tabProducts);
+            tcIndustrias.Controls.Add(tabPurchases);
+            tcIndustrias.Controls.Add(tabSells);
             tcIndustrias.Depth = 0;
             tcIndustrias.Dock = DockStyle.Fill;
             tcIndustrias.Location = new Point(0, 35);
@@ -989,25 +997,26 @@ namespace GestionAgraria
             tcIndustrias.Name = "tcIndustrias";
             tcIndustrias.Padding = new Point(6, 10);
             tcIndustrias.SelectedIndex = 0;
-            tcIndustrias.Size = new Size(656, 304);
+            tcIndustrias.Size = new Size(792, 439);
             tcIndustrias.TabIndex = 2;
             // 
-            // tabProduct
+            // tabProducts
             // 
-            tabProduct.Controls.Add(materialExpansionPanel2);
-            tabProduct.Controls.Add(btnPrintProduct);
-            tabProduct.Controls.Add(btnAddProduct);
-            tabProduct.Controls.Add(panel23);
-            tabProduct.Location = new Point(4, 38);
-            tabProduct.Name = "tabProduct";
-            tabProduct.Padding = new Padding(17, 50, 17, 17);
-            tabProduct.Size = new Size(648, 262);
-            tabProduct.TabIndex = 0;
-            tabProduct.Text = "Productos";
-            tabProduct.UseVisualStyleBackColor = true;
+            tabProducts.Controls.Add(materialExpansionPanel2);
+            tabProducts.Controls.Add(btnPrintProduct);
+            tabProducts.Controls.Add(btnAddProduct);
+            tabProducts.Controls.Add(panel23);
+            tabProducts.Location = new Point(4, 38);
+            tabProducts.Name = "tabProducts";
+            tabProducts.Padding = new Padding(20);
+            tabProducts.Size = new Size(784, 397);
+            tabProducts.TabIndex = 0;
+            tabProducts.Text = "Productos";
+            tabProducts.UseVisualStyleBackColor = true;
             // 
             // materialExpansionPanel2
             // 
+            materialExpansionPanel2.AutoSize = true;
             materialExpansionPanel2.BackColor = Color.FromArgb(255, 255, 255);
             materialExpansionPanel2.Collapse = true;
             materialExpansionPanel2.Controls.Add(panel24);
@@ -1017,13 +1026,13 @@ namespace GestionAgraria
             materialExpansionPanel2.ExpandHeight = 200;
             materialExpansionPanel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialExpansionPanel2.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            materialExpansionPanel2.Location = new Point(17, 50);
+            materialExpansionPanel2.Location = new Point(20, 20);
             materialExpansionPanel2.Margin = new Padding(16, 1, 16, 0);
             materialExpansionPanel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialExpansionPanel2.Name = "materialExpansionPanel2";
             materialExpansionPanel2.Padding = new Padding(24, 64, 24, 16);
             materialExpansionPanel2.ShowValidationButtons = false;
-            materialExpansionPanel2.Size = new Size(614, 48);
+            materialExpansionPanel2.Size = new Size(744, 48);
             materialExpansionPanel2.TabIndex = 22;
             materialExpansionPanel2.Title = "Filtros";
             // 
@@ -1034,7 +1043,7 @@ namespace GestionAgraria
             panel24.Dock = DockStyle.Top;
             panel24.Location = new Point(24, 64);
             panel24.Name = "panel24";
-            panel24.Size = new Size(566, 112);
+            panel24.Size = new Size(696, 172);
             panel24.TabIndex = 22;
             // 
             // materialLabel18
@@ -1059,11 +1068,11 @@ namespace GestionAgraria
             tableLayoutPanel6.Controls.Add(panel26, 2, 0);
             tableLayoutPanel6.Controls.Add(panel27, 0, 0);
             tableLayoutPanel6.Dock = DockStyle.Bottom;
-            tableLayoutPanel6.Location = new Point(0, 33);
+            tableLayoutPanel6.Location = new Point(0, 93);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 1;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Size = new Size(566, 79);
+            tableLayoutPanel6.Size = new Size(696, 79);
             tableLayoutPanel6.TabIndex = 0;
             // 
             // panel25
@@ -1071,11 +1080,11 @@ namespace GestionAgraria
             panel25.Controls.Add(cbEntornosFiltroProducto);
             panel25.Controls.Add(materialLabel19);
             panel25.Dock = DockStyle.Bottom;
-            panel25.Location = new Point(283, 1);
+            panel25.Location = new Point(348, 1);
             panel25.Margin = new Padding(0);
             panel25.Name = "panel25";
             panel25.Padding = new Padding(20, 0, 20, 0);
-            panel25.Size = new Size(141, 78);
+            panel25.Size = new Size(174, 78);
             panel25.TabIndex = 39;
             // 
             // cbEntornosFiltroProducto
@@ -1098,7 +1107,7 @@ namespace GestionAgraria
             cbEntornosFiltroProducto.MaxDropDownItems = 4;
             cbEntornosFiltroProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbEntornosFiltroProducto.Name = "cbEntornosFiltroProducto";
-            cbEntornosFiltroProducto.Size = new Size(101, 49);
+            cbEntornosFiltroProducto.Size = new Size(134, 49);
             cbEntornosFiltroProducto.StartIndex = 0;
             cbEntornosFiltroProducto.TabIndex = 10;
             // 
@@ -1120,11 +1129,11 @@ namespace GestionAgraria
             panel26.Controls.Add(cbEstadoFiltroProducto);
             panel26.Controls.Add(materialLabel20);
             panel26.Dock = DockStyle.Bottom;
-            panel26.Location = new Point(424, 1);
+            panel26.Location = new Point(522, 1);
             panel26.Margin = new Padding(0);
             panel26.Name = "panel26";
             panel26.Padding = new Padding(20, 0, 20, 0);
-            panel26.Size = new Size(142, 78);
+            panel26.Size = new Size(174, 78);
             panel26.TabIndex = 38;
             // 
             // cbEstadoFiltroProducto
@@ -1147,7 +1156,7 @@ namespace GestionAgraria
             cbEstadoFiltroProducto.MaxDropDownItems = 4;
             cbEstadoFiltroProducto.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbEstadoFiltroProducto.Name = "cbEstadoFiltroProducto";
-            cbEstadoFiltroProducto.Size = new Size(102, 49);
+            cbEstadoFiltroProducto.Size = new Size(134, 49);
             cbEstadoFiltroProducto.StartIndex = 0;
             cbEstadoFiltroProducto.TabIndex = 10;
             // 
@@ -1173,7 +1182,7 @@ namespace GestionAgraria
             panel27.Margin = new Padding(0);
             panel27.Name = "panel27";
             panel27.Padding = new Padding(20, 0, 20, 0);
-            panel27.Size = new Size(283, 78);
+            panel27.Size = new Size(348, 78);
             panel27.TabIndex = 22;
             // 
             // tbSearchFiltroProducto
@@ -1202,7 +1211,7 @@ namespace GestionAgraria
             tbSearchFiltroProducto.SelectionLength = 0;
             tbSearchFiltroProducto.SelectionStart = 0;
             tbSearchFiltroProducto.ShortcutsEnabled = true;
-            tbSearchFiltroProducto.Size = new Size(243, 48);
+            tbSearchFiltroProducto.Size = new Size(308, 48);
             tbSearchFiltroProducto.TabIndex = 0;
             tbSearchFiltroProducto.TabStop = false;
             tbSearchFiltroProducto.TextAlign = HorizontalAlignment.Left;
@@ -1227,20 +1236,21 @@ namespace GestionAgraria
             btnPrintProduct.Depth = 0;
             btnPrintProduct.Enabled = false;
             btnPrintProduct.Icon = Properties.Resources.print;
-            btnPrintProduct.Location = new Point(876, 272);
+            btnPrintProduct.Location = new Point(705, 256);
             btnPrintProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnPrintProduct.Name = "btnPrintProduct";
             btnPrintProduct.Size = new Size(56, 56);
             btnPrintProduct.TabIndex = 8;
             btnPrintProduct.Text = "materialFloatingActionButton3";
             btnPrintProduct.UseVisualStyleBackColor = true;
+            btnPrintProduct.Click += btnPrintProduct_Click;
             // 
             // btnAddProduct
             // 
             btnAddProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddProduct.Depth = 0;
             btnAddProduct.Icon = Properties.Resources.add;
-            btnAddProduct.Location = new Point(572, 186);
+            btnAddProduct.Location = new Point(705, 318);
             btnAddProduct.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddProduct.Name = "btnAddProduct";
             btnAddProduct.Size = new Size(56, 56);
@@ -1255,10 +1265,10 @@ namespace GestionAgraria
             panel23.Controls.Add(lblEmptyProducts);
             panel23.Controls.Add(flpProductList);
             panel23.Dock = DockStyle.Fill;
-            panel23.Location = new Point(17, 50);
+            panel23.Location = new Point(20, 20);
+            panel23.Margin = new Padding(0);
             panel23.Name = "panel23";
-            panel23.Padding = new Padding(20);
-            panel23.Size = new Size(614, 195);
+            panel23.Size = new Size(744, 357);
             panel23.TabIndex = 4;
             // 
             // lblEmptyProducts
@@ -1268,11 +1278,11 @@ namespace GestionAgraria
             lblEmptyProducts.FlatStyle = FlatStyle.Flat;
             lblEmptyProducts.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
             lblEmptyProducts.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyProducts.Location = new Point(20, 20);
+            lblEmptyProducts.Location = new Point(0, 0);
             lblEmptyProducts.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblEmptyProducts.Name = "lblEmptyProducts";
             lblEmptyProducts.Padding = new Padding(0, 0, 20, 0);
-            lblEmptyProducts.Size = new Size(574, 155);
+            lblEmptyProducts.Size = new Size(744, 357);
             lblEmptyProducts.TabIndex = 3;
             lblEmptyProducts.Text = "Aún no tienes productos agregados... Comienza por agregar uno.";
             lblEmptyProducts.TextAlign = ContentAlignment.MiddleCenter;
@@ -1280,23 +1290,60 @@ namespace GestionAgraria
             // flpProductList
             // 
             flpProductList.Dock = DockStyle.Fill;
-            flpProductList.Location = new Point(20, 20);
+            flpProductList.Location = new Point(0, 0);
+            flpProductList.Margin = new Padding(0);
             flpProductList.Name = "flpProductList";
-            flpProductList.Size = new Size(574, 155);
+            flpProductList.Padding = new Padding(0, 60, 0, 0);
+            flpProductList.Size = new Size(744, 357);
             flpProductList.TabIndex = 4;
             // 
-            // tabInsumos
+            // tabPurchases
             // 
-            tabInsumos.Controls.Add(btnPrintPurchases);
-            tabInsumos.Controls.Add(btnAddCompras);
-            tabInsumos.Controls.Add(lblEmptyPurchases);
-            tabInsumos.Location = new Point(4, 38);
-            tabInsumos.Name = "tabInsumos";
-            tabInsumos.Padding = new Padding(17);
-            tabInsumos.Size = new Size(648, 262);
-            tabInsumos.TabIndex = 1;
-            tabInsumos.Text = "Insumos";
-            tabInsumos.UseVisualStyleBackColor = true;
+            tabPurchases.Controls.Add(panel28);
+            tabPurchases.Controls.Add(btnPrintPurchases);
+            tabPurchases.Controls.Add(btnAddCompras);
+            tabPurchases.Location = new Point(4, 38);
+            tabPurchases.Name = "tabPurchases";
+            tabPurchases.Padding = new Padding(20);
+            tabPurchases.Size = new Size(784, 397);
+            tabPurchases.TabIndex = 1;
+            tabPurchases.Text = "Insumos";
+            tabPurchases.UseVisualStyleBackColor = true;
+            // 
+            // panel28
+            // 
+            panel28.BackColor = Color.WhiteSmoke;
+            panel28.Controls.Add(lblEmptyPurchases);
+            panel28.Controls.Add(flpPurchaseList);
+            panel28.Dock = DockStyle.Fill;
+            panel28.Location = new Point(20, 20);
+            panel28.Name = "panel28";
+            panel28.Size = new Size(744, 357);
+            panel28.TabIndex = 8;
+            // 
+            // lblEmptyPurchases
+            // 
+            lblEmptyPurchases.Depth = 0;
+            lblEmptyPurchases.Dock = DockStyle.Fill;
+            lblEmptyPurchases.FlatStyle = FlatStyle.Flat;
+            lblEmptyPurchases.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
+            lblEmptyPurchases.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
+            lblEmptyPurchases.Location = new Point(0, 0);
+            lblEmptyPurchases.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblEmptyPurchases.Name = "lblEmptyPurchases";
+            lblEmptyPurchases.Size = new Size(744, 357);
+            lblEmptyPurchases.TabIndex = 5;
+            lblEmptyPurchases.Text = "Aún no tienes compras registradas... Comienza por agregar una.";
+            lblEmptyPurchases.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // flpPurchaseList
+            // 
+            flpPurchaseList.Dock = DockStyle.Fill;
+            flpPurchaseList.Location = new Point(0, 0);
+            flpPurchaseList.Name = "flpPurchaseList";
+            flpPurchaseList.Padding = new Padding(0, 60, 0, 0);
+            flpPurchaseList.Size = new Size(744, 357);
+            flpPurchaseList.TabIndex = 4;
             // 
             // btnPrintPurchases
             // 
@@ -1316,7 +1363,7 @@ namespace GestionAgraria
             btnAddCompras.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddCompras.Depth = 0;
             btnAddCompras.Icon = Properties.Resources.add;
-            btnAddCompras.Location = new Point(572, 186);
+            btnAddCompras.Location = new Point(705, 318);
             btnAddCompras.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddCompras.Name = "btnAddCompras";
             btnAddCompras.Size = new Size(56, 56);
@@ -1325,60 +1372,29 @@ namespace GestionAgraria
             btnAddCompras.UseVisualStyleBackColor = true;
             btnAddCompras.Click += btnAddCompras_Click;
             // 
-            // lblEmptyPurchases
+            // tabSells
             // 
-            lblEmptyPurchases.Depth = 0;
-            lblEmptyPurchases.Dock = DockStyle.Fill;
-            lblEmptyPurchases.FlatStyle = FlatStyle.Flat;
-            lblEmptyPurchases.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
-            lblEmptyPurchases.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptyPurchases.Location = new Point(17, 17);
-            lblEmptyPurchases.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblEmptyPurchases.Name = "lblEmptyPurchases";
-            lblEmptyPurchases.Size = new Size(614, 228);
-            lblEmptyPurchases.TabIndex = 4;
-            lblEmptyPurchases.Text = "Aún no tienes compras registradas... Comienza por agregar una.";
-            lblEmptyPurchases.TextAlign = ContentAlignment.MiddleCenter;
+            tabSells.Controls.Add(btnAddVentas);
+            tabSells.Controls.Add(btnPrintSells);
+            tabSells.Controls.Add(panel29);
+            tabSells.Location = new Point(4, 38);
+            tabSells.Name = "tabSells";
+            tabSells.Padding = new Padding(20);
+            tabSells.Size = new Size(784, 397);
+            tabSells.TabIndex = 2;
+            tabSells.Text = "Ventas";
+            tabSells.UseVisualStyleBackColor = true;
             // 
-            // tabVentas
+            // panel29
             // 
-            tabVentas.Controls.Add(btnPrintSells);
-            tabVentas.Controls.Add(btnAddVentas);
-            tabVentas.Controls.Add(lblEmptySells);
-            tabVentas.Location = new Point(4, 38);
-            tabVentas.Name = "tabVentas";
-            tabVentas.Padding = new Padding(17);
-            tabVentas.Size = new Size(648, 262);
-            tabVentas.TabIndex = 2;
-            tabVentas.Text = "Ventas";
-            tabVentas.UseVisualStyleBackColor = true;
-            // 
-            // btnPrintSells
-            // 
-            btnPrintSells.Depth = 0;
-            btnPrintSells.Enabled = false;
-            btnPrintSells.Icon = Properties.Resources.print;
-            btnPrintSells.Location = new Point(877, 274);
-            btnPrintSells.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnPrintSells.Name = "btnPrintSells";
-            btnPrintSells.Size = new Size(56, 56);
-            btnPrintSells.TabIndex = 6;
-            btnPrintSells.Text = "materialFloatingActionButton1";
-            btnPrintSells.UseVisualStyleBackColor = true;
-            // 
-            // btnAddVentas
-            // 
-            btnAddVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddVentas.Depth = 0;
-            btnAddVentas.Icon = Properties.Resources.add;
-            btnAddVentas.Location = new Point(573, 186);
-            btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddVentas.Name = "btnAddVentas";
-            btnAddVentas.Size = new Size(56, 56);
-            btnAddVentas.TabIndex = 4;
-            btnAddVentas.Text = "Agregar Producto";
-            btnAddVentas.UseVisualStyleBackColor = true;
-            btnAddVentas.Click += btnAddVentas_Click;
+            panel29.BackColor = Color.WhiteSmoke;
+            panel29.Controls.Add(lblEmptySells);
+            panel29.Controls.Add(flpSellList);
+            panel29.Dock = DockStyle.Fill;
+            panel29.Location = new Point(20, 20);
+            panel29.Name = "panel29";
+            panel29.Size = new Size(744, 357);
+            panel29.TabIndex = 9;
             // 
             // lblEmptySells
             // 
@@ -1387,13 +1403,50 @@ namespace GestionAgraria
             lblEmptySells.FlatStyle = FlatStyle.Flat;
             lblEmptySells.Font = new Font("Roboto", 24F, FontStyle.Bold, GraphicsUnit.Pixel);
             lblEmptySells.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.H5;
-            lblEmptySells.Location = new Point(17, 17);
+            lblEmptySells.Location = new Point(0, 0);
             lblEmptySells.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblEmptySells.Name = "lblEmptySells";
-            lblEmptySells.Size = new Size(614, 228);
-            lblEmptySells.TabIndex = 5;
+            lblEmptySells.Size = new Size(744, 357);
+            lblEmptySells.TabIndex = 6;
             lblEmptySells.Text = "Aún no tienes ventas registradas... Comienza por agregar una.";
             lblEmptySells.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // flpSellList
+            // 
+            flpSellList.Dock = DockStyle.Fill;
+            flpSellList.Location = new Point(0, 0);
+            flpSellList.Name = "flpSellList";
+            flpSellList.Padding = new Padding(0, 60, 0, 0);
+            flpSellList.Size = new Size(744, 357);
+            flpSellList.TabIndex = 4;
+            // 
+            // btnPrintSells
+            // 
+            btnPrintSells.Depth = 0;
+            btnPrintSells.Enabled = false;
+            btnPrintSells.Icon = Properties.Resources.print;
+            btnPrintSells.Location = new Point(725, 271);
+            btnPrintSells.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnPrintSells.Name = "btnPrintSells";
+            btnPrintSells.Size = new Size(56, 56);
+            btnPrintSells.TabIndex = 6;
+            btnPrintSells.Text = "materialFloatingActionButton1";
+            btnPrintSells.UseVisualStyleBackColor = true;
+            // 
+            // 
+            // btnAddVentas
+            // 
+            btnAddVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddVentas.Depth = 0;
+            btnAddVentas.Icon = Properties.Resources.add;
+            btnAddVentas.Location = new Point(724, 332);
+            btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddVentas.Name = "btnAddVentas";
+            btnAddVentas.Size = new Size(56, 56);
+            btnAddVentas.TabIndex = 4;
+            btnAddVentas.Text = "Agregar Producto";
+            btnAddVentas.UseVisualStyleBackColor = true;
+            btnAddVentas.Click += btnAddVentas_Click;
             // 
             // materialTabSelector1
             // 
@@ -1407,7 +1460,7 @@ namespace GestionAgraria
             materialTabSelector1.Margin = new Padding(0);
             materialTabSelector1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialTabSelector1.Name = "materialTabSelector1";
-            materialTabSelector1.Size = new Size(656, 35);
+            materialTabSelector1.Size = new Size(792, 35);
             materialTabSelector1.TabIndex = 4;
             materialTabSelector1.TabIndicatorHeight = 3;
             materialTabSelector1.Text = "materialTabSelector1";
@@ -1417,10 +1470,10 @@ namespace GestionAgraria
             tabUsers.Controls.Add(btnAddUser);
             tabUsers.Controls.Add(panel21);
             tabUsers.ImageKey = "user.png";
-            tabUsers.Location = new Point(4, 74);
+            tabUsers.Location = new Point(4, 39);
             tabUsers.Name = "tabUsers";
             tabUsers.Padding = new Padding(20);
-            tabUsers.Size = new Size(656, 339);
+            tabUsers.Size = new Size(792, 474);
             tabUsers.TabIndex = 9;
             tabUsers.Text = "Usuarios";
             tabUsers.UseVisualStyleBackColor = true;
@@ -1430,7 +1483,7 @@ namespace GestionAgraria
             btnAddUser.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btnAddUser.Depth = 0;
             btnAddUser.Icon = Properties.Resources.add;
-            btnAddUser.Location = new Point(885, 416);
+            btnAddUser.Location = new Point(1556, 686);
             btnAddUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnAddUser.Name = "btnAddUser";
             btnAddUser.Size = new Size(56, 56);
@@ -1448,7 +1501,7 @@ namespace GestionAgraria
             panel21.Dock = DockStyle.Fill;
             panel21.Location = new Point(20, 20);
             panel21.Name = "panel21";
-            panel21.Size = new Size(616, 299);
+            panel21.Size = new Size(752, 434);
             panel21.TabIndex = 19;
             // 
             // materialExpansionPanel4
@@ -1468,7 +1521,7 @@ namespace GestionAgraria
             materialExpansionPanel4.Name = "materialExpansionPanel4";
             materialExpansionPanel4.Padding = new Padding(24, 64, 24, 16);
             materialExpansionPanel4.ShowValidationButtons = false;
-            materialExpansionPanel4.Size = new Size(616, 48);
+            materialExpansionPanel4.Size = new Size(752, 48);
             materialExpansionPanel4.TabIndex = 22;
             materialExpansionPanel4.Title = "Filtros";
             // 
@@ -1479,7 +1532,7 @@ namespace GestionAgraria
             panel5.Dock = DockStyle.Top;
             panel5.Location = new Point(24, 64);
             panel5.Name = "panel5";
-            panel5.Size = new Size(568, 112);
+            panel5.Size = new Size(704, 112);
             panel5.TabIndex = 21;
             // 
             // materialLabel4
@@ -1508,7 +1561,7 @@ namespace GestionAgraria
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(568, 79);
+            tableLayoutPanel3.Size = new Size(704, 79);
             tableLayoutPanel3.TabIndex = 0;
             // 
             // panel6
@@ -1516,11 +1569,11 @@ namespace GestionAgraria
             panel6.Controls.Add(cbEstadoUserSearch);
             panel6.Controls.Add(materialLabel5);
             panel6.Dock = DockStyle.Bottom;
-            panel6.Location = new Point(426, 1);
+            panel6.Location = new Point(528, 1);
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
             panel6.Padding = new Padding(20, 0, 20, 0);
-            panel6.Size = new Size(142, 78);
+            panel6.Size = new Size(176, 78);
             panel6.TabIndex = 37;
             // 
             // cbEstadoUserSearch
@@ -1543,7 +1596,7 @@ namespace GestionAgraria
             cbEstadoUserSearch.MaxDropDownItems = 4;
             cbEstadoUserSearch.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbEstadoUserSearch.Name = "cbEstadoUserSearch";
-            cbEstadoUserSearch.Size = new Size(102, 49);
+            cbEstadoUserSearch.Size = new Size(136, 49);
             cbEstadoUserSearch.StartIndex = 0;
             cbEstadoUserSearch.TabIndex = 10;
             // 
@@ -1565,11 +1618,11 @@ namespace GestionAgraria
             panel7.Controls.Add(cbRole);
             panel7.Controls.Add(materialLabel6);
             panel7.Dock = DockStyle.Bottom;
-            panel7.Location = new Point(284, 1);
+            panel7.Location = new Point(352, 1);
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
             panel7.Padding = new Padding(20, 0, 20, 0);
-            panel7.Size = new Size(142, 78);
+            panel7.Size = new Size(176, 78);
             panel7.TabIndex = 36;
             // 
             // cbRole
@@ -1592,7 +1645,7 @@ namespace GestionAgraria
             cbRole.MaxDropDownItems = 4;
             cbRole.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbRole.Name = "cbRole";
-            cbRole.Size = new Size(102, 49);
+            cbRole.Size = new Size(136, 49);
             cbRole.StartIndex = 0;
             cbRole.TabIndex = 10;
             // 
@@ -1618,7 +1671,7 @@ namespace GestionAgraria
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
             panel8.Padding = new Padding(20, 0, 20, 0);
-            panel8.Size = new Size(284, 78);
+            panel8.Size = new Size(352, 78);
             panel8.TabIndex = 22;
             // 
             // tbSearchUsers
@@ -1647,7 +1700,7 @@ namespace GestionAgraria
             tbSearchUsers.SelectionLength = 0;
             tbSearchUsers.SelectionStart = 0;
             tbSearchUsers.ShortcutsEnabled = true;
-            tbSearchUsers.Size = new Size(244, 48);
+            tbSearchUsers.Size = new Size(312, 48);
             tbSearchUsers.TabIndex = 0;
             tbSearchUsers.TabStop = false;
             tbSearchUsers.TextAlign = HorizontalAlignment.Left;
@@ -1678,7 +1731,7 @@ namespace GestionAgraria
             lblEmptyUsers.Location = new Point(0, 0);
             lblEmptyUsers.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblEmptyUsers.Name = "lblEmptyUsers";
-            lblEmptyUsers.Size = new Size(616, 299);
+            lblEmptyUsers.Size = new Size(752, 434);
             lblEmptyUsers.TabIndex = 6;
             lblEmptyUsers.Text = "Aún no tienes usuarios agregados... Comienza por agregar uno.";
             lblEmptyUsers.TextAlign = ContentAlignment.MiddleCenter;
@@ -1689,8 +1742,8 @@ namespace GestionAgraria
             flpUsersList.Dock = DockStyle.Fill;
             flpUsersList.Location = new Point(0, 0);
             flpUsersList.Name = "flpUsersList";
-            flpUsersList.Padding = new Padding(0, 40, 0, 0);
-            flpUsersList.Size = new Size(616, 299);
+            flpUsersList.Padding = new Padding(0, 60, 0, 0);
+            flpUsersList.Size = new Size(752, 434);
             flpUsersList.TabIndex = 2;
             // 
             // tabEntorno
@@ -1953,6 +2006,7 @@ namespace GestionAgraria
             flpFormativeEnvironmentsList.Dock = DockStyle.Fill;
             flpFormativeEnvironmentsList.Location = new Point(0, 0);
             flpFormativeEnvironmentsList.Name = "flpFormativeEnvironmentsList";
+            flpFormativeEnvironmentsList.Padding = new Padding(0, 60, 0, 0);
             flpFormativeEnvironmentsList.Size = new Size(616, 299);
             flpFormativeEnvironmentsList.TabIndex = 16;
             // 
@@ -2020,6 +2074,7 @@ namespace GestionAgraria
             flowLayoutPanel4.Dock = DockStyle.Fill;
             flowLayoutPanel4.Location = new Point(20, 20);
             flowLayoutPanel4.Name = "flowLayoutPanel4";
+            flowLayoutPanel4.Padding = new Padding(0, 60, 0, 0);
             flowLayoutPanel4.Size = new Size(616, 299);
             flowLayoutPanel4.TabIndex = 2;
             // 
@@ -2093,7 +2148,8 @@ namespace GestionAgraria
             panel17.PerformLayout();
             tabIndustryArea.ResumeLayout(false);
             tcIndustrias.ResumeLayout(false);
-            tabProduct.ResumeLayout(false);
+            tabProducts.ResumeLayout(false);
+            tabProducts.PerformLayout();
             materialExpansionPanel2.ResumeLayout(false);
             materialExpansionPanel2.PerformLayout();
             panel24.ResumeLayout(false);
@@ -2106,8 +2162,10 @@ namespace GestionAgraria
             panel27.ResumeLayout(false);
             panel27.PerformLayout();
             panel23.ResumeLayout(false);
-            tabInsumos.ResumeLayout(false);
-            tabVentas.ResumeLayout(false);
+            tabPurchases.ResumeLayout(false);
+            panel28.ResumeLayout(false);
+            tabSells.ResumeLayout(false);
+            panel29.ResumeLayout(false);
             tabUsers.ResumeLayout(false);
             panel21.ResumeLayout(false);
             materialExpansionPanel4.ResumeLayout(false);
@@ -2159,11 +2217,9 @@ namespace GestionAgraria
         //public TabPage tabAnimalArea;
         public TabPage tabEntorno;
         private FlowLayoutPanel flowLayoutPanel4;
-        public TabPage tabProduct;
-        public TabPage tabInsumos;
-        public TabPage tabVentas;
-        private ReaLTaiizor.Controls.MaterialLabel lblEmptyPurchases;
-        private ReaLTaiizor.Controls.MaterialLabel lblEmptySells;
+        public TabPage tabProducts;
+        public TabPage tabPurchases;
+        public TabPage tabSells;
         private ReaLTaiizor.Controls.MaterialFloatingActionButton btnAddBlackBoard;
         private ReaLTaiizor.Controls.MaterialLabel lblEmptyBlackBoards;
         public TabPage tabBlackBoard;
@@ -2264,5 +2320,11 @@ namespace GestionAgraria
         private Panel panel12;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbSearchPlante;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel11;
+        private Panel panel28;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptyPurchases;
+        private FlowLayoutPanel flpPurchaseList;
+        private Panel panel29;
+        private ReaLTaiizor.Controls.MaterialLabel lblEmptySells;
+        private FlowLayoutPanel flpSellList;
     }
 }

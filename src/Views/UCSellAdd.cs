@@ -82,11 +82,12 @@ namespace GestionAgraria.Views
                 
                 if (result == DialogResult.Yes && currentSells != null)
                 {
-                    Utils.PrintSell(currentSells, currentDetailSellsList);
+                    var printController = new PrintController();
+                    printController.PrintSell(currentSells, currentDetailSellsList);
                 }
                 
                 currentDetailSellsList.Clear();
-                formPrincipal?.RestaurarFormularioTab(formPrincipal.tabVentas);
+                formPrincipal?.RestaurarFormularioTab(formPrincipal.tabSells);
             }
             catch (Exception ex) 
             {
@@ -110,7 +111,7 @@ namespace GestionAgraria.Views
                 List<ProductModel> products = productController.GetAllProduct();
                 foreach (ProductModel pro in products)
                 {
-                    cbCodeProduc.Items.Add(pro.code);
+                    cbCodeProduc.Items.Add(pro.Code);
                     cbNameProduct.Items.Add(pro.Name);
                 }
             }
@@ -122,7 +123,7 @@ namespace GestionAgraria.Views
 
         private void mepSellsAdd_CancelClick(object sender, EventArgs e)
         {
-            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabVentas);
+            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabSells);
         }
 
         private void btnProductAddList_Click(object sender, EventArgs e)

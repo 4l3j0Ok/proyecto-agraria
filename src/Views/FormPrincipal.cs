@@ -28,6 +28,7 @@ namespace GestionAgraria
         private Controls.Paginator paginatorAnimals;
         private Controls.Paginator paginatorEnvironments;
         private Controls.Paginator paginatorProducts;
+        private Controls.Paginator paginatorPurchases;
         private Controls.Paginator paginatorBlackBoards;
 
         private System.Windows.Forms.Timer? resizeTimerUsers;
@@ -35,14 +36,18 @@ namespace GestionAgraria
         private System.Windows.Forms.Timer? resizeTimerAnimals;
         private System.Windows.Forms.Timer? resizeTimerEnvironments;
         private System.Windows.Forms.Timer? resizeTimerProducts;
+        private System.Windows.Forms.Timer? resizeTimerPurchases;
         private System.Windows.Forms.Timer? resizeTimerBlackBoards;
+
+        // Lista estática para productos seleccionados
+        public static List<ProductModel> SelectedProducts = new List<ProductModel>();
 
         public FormPrincipal(UserModel currentUser)
         {
             roleController = new RoleController();
             this.currentUser = currentUser;
             UIConfig.GetSkinManager().AddFormToManage(this);
-            InitializeComponent(); ;
+            InitializeComponent();
             InitializeResizeTimers();
         }
 
@@ -51,12 +56,12 @@ namespace GestionAgraria
             SaveOriginalTabContents();
             LoadCards();
 
-
             flpUsersList.ClientSizeChanged += (s, ev) => { resizeTimerUsers?.Stop(); resizeTimerUsers?.Start(); };
             flpVegetalList.ClientSizeChanged += (s, ev) => { resizeTimerVegetables?.Stop(); resizeTimerVegetables?.Start(); };
             flpAnimalsList.ClientSizeChanged += (s, ev) => { resizeTimerAnimals?.Stop(); resizeTimerAnimals?.Start(); };
             flpFormativeEnvironmentsList.ClientSizeChanged += (s, ev) => { resizeTimerEnvironments?.Stop(); resizeTimerEnvironments?.Start(); };
             flpProductList.ClientSizeChanged += (s, ev) => { resizeTimerProducts?.Stop(); resizeTimerProducts?.Start(); };
+            flpPurchaseList.ClientSizeChanged += (s, ev) => { resizeTimerPurchases?.Stop(); resizeTimerPurchases?.Start(); };
             flowLayoutPanel4.ClientSizeChanged += (s, ev) => { resizeTimerBlackBoards?.Stop(); resizeTimerBlackBoards?.Start(); };
 
             PositionFloatingButtons();
@@ -76,7 +81,7 @@ namespace GestionAgraria
             }
             else
             {
-                Debug.WriteLine($"[PAGINATOR] Paginador ya existe para tab: {tabPage.Name}");
+                Debug.WriteLine($"[PAGINATOR] Paginator ya existe para tab: {tabPage.Name}");
             }
             return paginator;
         }
@@ -97,6 +102,9 @@ namespace GestionAgraria
 
             resizeTimerProducts = new System.Windows.Forms.Timer { Interval = 300 };
             resizeTimerProducts.Tick += (s, e) => { resizeTimerProducts.Stop(); flpProductList.Controls.Clear(); LoadProductTable(); };
+
+            resizeTimerPurchases = new System.Windows.Forms.Timer { Interval = 300 };
+            resizeTimerPurchases.Tick += (s, e) => { resizeTimerPurchases.Stop(); flpPurchaseList.Controls.Clear(); LoadPurchasesTable(); };
 
             resizeTimerBlackBoards = new System.Windows.Forms.Timer { Interval = 300 };
             resizeTimerBlackBoards.Tick += (s, e) => { resizeTimerBlackBoards.Stop(); flowLayoutPanel4.Controls.Clear(); LoadBlackBoard(); };
@@ -210,31 +218,24 @@ namespace GestionAgraria
                     }
                 }
             }
-            try
-            {
-                LoadComboBoxesUsersFilter();
-                LoadUsersTable();
+            LoadTables();
+        }
 
-                LoadComboBoxesFiltroVegetal();
-                LoadVegetablesTable();
-
-                LoadComboBoxesFiltroAnimals();
-                LoadAnimalsTable();
-
-                LoadComboBoxesEnvironmentsFilter();
-                LoadFormativeEnvironments();
-
-                LoadComboBoxesFiltroProduct();
-                LoadProductTable();
-
-                LoadBlackBoard();
-                DefautlSelecForComboboxes();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"[LOAD_CARDS] ERROR: {ex.Message}");
-                Debug.WriteLine(ex);
-            }
+        private void LoadTables()
+        {
+            DefautlSelecForComboboxes();
+            LoadComboBoxesUsersFilter();
+            LoadUsersTable();
+            LoadComboBoxesFiltroVegetal();
+            LoadVegetablesTable();
+            LoadComboBoxesFiltroAnimals();
+            LoadAnimalsTable();
+            LoadComboBoxesEnvironmentsFilter();
+            LoadFormativeEnvironments();
+            LoadComboBoxesFiltroProduct();
+            LoadProductTable();
+            LoadPurchasesTable();
+            LoadBlackBoard();
         }
 
         private void DefautlSelecForComboboxes()
@@ -261,42 +262,63 @@ namespace GestionAgraria
             }
 
             int availableWidth = panel.ClientSize.Width - panel.Padding.Horizontal;
-
             int margin = 10;
-            int maxColumns = 3;
             int minCardWidth = 250;
-
-            int maxPossibleColumns = Math.Max(1, (availableWidth + margin) / (minCardWidth + margin));
-            int actualColumns = Math.Min(maxColumns, maxPossibleColumns);
-
-            int standardCardWidth = (availableWidth - (margin * (actualColumns + 1))) / actualColumns;
-            standardCardWidth = Math.Max(standardCardWidth, minCardWidth);
-
-            int totalCards = items.Count;
-            int fullRows = totalCards / actualColumns;
-            int cardsInLastRow = totalCards % actualColumns;
-            bool hasPartialLastRow = cardsInLastRow > 0;
-
-            int lastRowCardWidth = standardCardWidth;
-            if (hasPartialLastRow)
+            
+            // Determinar cuántas columnas podemos tener (máximo 2)
+            int maxColumns = 2;
+            int possibleColumns = Math.Max(1, availableWidth / (minCardWidth + margin));
+            int actualColumns = Math.Min(maxColumns, possibleColumns);
+            
+            // Si solo cabe una columna o solo hay un item, usar el ancho completo
+            if (actualColumns == 1 || items.Count == 1)
             {
-                lastRowCardWidth = (availableWidth - (margin * (cardsInLastRow + 1))) / cardsInLastRow;
-                lastRowCardWidth = Math.Max(lastRowCardWidth, minCardWidth);
+                foreach (var item in items)
+                {
+                    var card = createCard(item);
+                    card.Width = availableWidth;
+                    card.Height = 70;
+                    card.Margin = new Padding(0, margin, 0, 0);
+                    card.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+                    panel.Controls.Add(card);
+                }
             }
-
-            int cardIndex = 0;
-            foreach (var item in items)
+            else
             {
-                bool isInLastRow = hasPartialLastRow && (cardIndex >= fullRows * actualColumns);
-
-                var card = createCard(item);
-                card.Width = isInLastRow ? lastRowCardWidth : standardCardWidth;
-                card.Height = 70;
-                card.Margin = new Padding(margin, margin, 0, 0);
-                card.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                panel.Controls.Add(card);
-
-                cardIndex++;
+                // Calcular el ancho de cada card para que ocupen el 100% en columnas
+                int totalMargins = margin * (actualColumns - 1); // Márgenes entre cards
+                int cardWidth = (availableWidth - totalMargins) / actualColumns;
+                
+                int cardIndex = 0;
+                foreach (var item in items)
+                {
+                    var card = createCard(item);
+                    card.Height = 70;
+                    
+                    // Determinar si es la última card de una fila incompleta
+                    int cardsRemaining = items.Count - cardIndex;
+                    int currentRowPosition = cardIndex % actualColumns;
+                    bool isLastInIncompleteRow = (cardsRemaining == 1 && currentRowPosition > 0);
+                    
+                    if (isLastInIncompleteRow)
+                    {
+                        // Si es la última card y está sola en su posición, que ocupe el espacio restante
+                        int remainingSpace = availableWidth - (currentRowPosition * (cardWidth + margin));
+                        card.Width = remainingSpace;
+                    }
+                    else
+                    {
+                        card.Width = cardWidth;
+                    }
+                    
+                    // Margen solo a la izquierda (excepto la primera de cada fila) y arriba
+                    int leftMargin = (currentRowPosition == 0) ? 0 : margin;
+                    card.Margin = new Padding(leftMargin, margin, 0, 0);
+                    card.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                    
+                    panel.Controls.Add(card);
+                    cardIndex++;
+                }
             }
 
             panel.ResumeLayout();
@@ -318,12 +340,12 @@ namespace GestionAgraria
             }
 
             int currentPage = paginatorUsers?.CurrentPage ?? 1;
-            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
+            int pageSize = Paginator.GetPageSize();
 
             Debug.WriteLine($"[LOAD_USERS] Obteniendo usuarios - Página: {currentPage}, PageSize: {pageSize}");
             users = userController.GetUsersForFilter(estado, role, searchText, currentPage, pageSize);
             int totalCount = userController.GetUsersCountForFilter(estado, role, searchText);
-            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
+            int totalPages = Paginator.CalculateTotalPages(totalCount);
 
             Debug.WriteLine($"[LOAD_USERS] Usuarios obtenidos: {users.Count}, Total: {totalCount}, Páginas: {totalPages}");
             Debug.WriteLine($"[LOAD_USERS] paginatorUsers es null: {paginatorUsers == null}");
@@ -369,11 +391,11 @@ namespace GestionAgraria
             }
 
             int currentPage = paginatorVegetables?.CurrentPage ?? 1;
-            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
+            int pageSize = Paginator.GetPageSize();
 
             List<VegetableModel> vegetables = vegetalController.GetVegetablesForFiltro(estado, entorno, searchText, currentPage, pageSize);
             int totalCount = vegetalController.GetVegetablesCountForFilter(estado, entorno, searchText);
-            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
+            int totalPages = Paginator.CalculateTotalPages(totalCount);
 
             var paginator = EnsurePaginatorExists(ref paginatorVegetables, tabVegetablesArea, (s, page) => LoadVegetablesTable());
             paginator.TotalPages = totalPages;
@@ -419,11 +441,11 @@ namespace GestionAgraria
             }
 
             int currentPage = paginatorAnimals?.CurrentPage ?? 1;
-            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
+            int pageSize = Paginator.GetPageSize();
 
             List<AnimalModel> animals = animalController.GetAnimalsForFiltro(estado, entorno, searchText, animalType, productiveState, currentPage, pageSize);
             int totalCount = animalController.GetAnimalsCountForFilter(estado, entorno, searchText, animalType, productiveState);
-            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
+            int totalPages = Paginator.CalculateTotalPages(totalCount);
 
             var paginator = EnsurePaginatorExists(ref paginatorAnimals, tabAnimalArea, (s, page) => LoadAnimalsTable());
             paginator.TotalPages = totalPages;
@@ -477,11 +499,11 @@ namespace GestionAgraria
             }
 
             int currentPage = paginatorEnvironments?.CurrentPage ?? 1;
-            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
+            int pageSize = Paginator.GetPageSize();
 
             formativeEnvironments = environmentController.GetFormativeEnvironments(estado, area, searchText, currentPage, pageSize);
             int totalCount = environmentController.GetFormativeEnvironmentsCountForFilter(estado, area, searchText);
-            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
+            int totalPages = Paginator.CalculateTotalPages(totalCount);
 
             var paginator = EnsurePaginatorExists(ref paginatorEnvironments, tabEntorno, (s, page) => LoadFormativeEnvironments());
             paginator.TotalPages = totalPages;
@@ -498,9 +520,10 @@ namespace GestionAgraria
         }
 
         public static int currentPage = 1;
+
         private void LoadProductTable()
         {
-            using var ProducController = new ProductController();
+            using var productController = new ProductController();
 
             string? entorno = cbEntornosFiltroProducto.SelectedIndex == 0 ? null : cbEntornosFiltroProducto.SelectedItem?.ToString();
             int estado = cbEstadoFiltroProducto.SelectedIndex;
@@ -512,13 +535,13 @@ namespace GestionAgraria
             }
 
             int currentPage = paginatorProducts?.CurrentPage ?? 1;
-            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
+            int pageSize = Paginator.GetPageSize();
 
-            List<ProductModel> products = ProducController.GetProductsForFiltro(estado, entorno, searchText, currentPage, pageSize);
-            int totalCount = ProducController.GetProductsCountForFilter(estado, entorno, searchText);
-            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
+            List<ProductModel> products = productController.GetProductsForFiltro(estado, entorno, searchText, currentPage, pageSize);
+            int totalCount = productController.GetProductsCountForFilter(estado, entorno, searchText);
+            int totalPages = Paginator.CalculateTotalPages(totalCount);
 
-            var paginator = EnsurePaginatorExists(ref paginatorProducts, tabProduct, (s, page) => LoadProductTable());
+            var paginator = EnsurePaginatorExists(ref paginatorProducts, tabProducts, (s, page) => LoadProductTable());
             paginator.TotalPages = totalPages;
 
             if (products.Count > 0)
@@ -527,14 +550,35 @@ namespace GestionAgraria
             LoadCardsInGrid(flpProductList, products, product => new UCProductCard(product));
         }
 
+        private void LoadPurchasesTable()
+        {
+            using var purchaseController = new PurchaseController();
+
+            // TODO: Agregar filtros
+            int currentPage = paginatorPurchases?.CurrentPage ?? 1;
+            int pageSize = Paginator.GetPageSize();
+
+            List<PurchaseModel> purchases = purchaseController.GetAllPurchases(); // Cambiar próximamente por GetPurchasesForFiltro
+            int totalCount = purchaseController.GetPurchasesCount(); // Cambiar próximamente por GetPurchasesCountForFilter
+            int totalPages = Paginator.CalculateTotalPages(totalCount);
+
+            var paginator = EnsurePaginatorExists(ref paginatorPurchases, tabPurchases, (s, page) => LoadPurchasesTable());
+            paginator.TotalPages = totalPages;
+
+            if (purchases.Count > 0)
+                lblEmptyPurchases.Visible = false;
+
+            LoadCardsInGrid(flpPurchaseList, purchases, purchase => new UCPurchaseCard(purchase));
+        }
+
         private void LoadComboBoxesFiltroProduct()
         {
-            using var ProducController = new ProductController();
+            using var productController = new ProductController();
 
             try
             {
 
-                var formativeEnvironments = ProducController.GetAllActiveFormativeEnvironments();
+                var formativeEnvironments = productController.GetAllActiveFormativeEnvironments();
 
                 foreach (var environment in formativeEnvironments)
                 {
@@ -553,11 +597,11 @@ namespace GestionAgraria
             using var blackBoardController = new BlackBoardController();
 
             int currentPage = paginatorBlackBoards?.CurrentPage ?? 1;
-            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
+            int pageSize = Paginator.GetPageSize();
 
             List<BlackBoardModel> blackboards = blackBoardController.GetAllBlackBoards(currentPage, pageSize);
             int totalCount = blackBoardController.GetBlackBoardsCount();
-            int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
+            int totalPages = Paginator.CalculateTotalPages(totalCount);
 
             var paginator = EnsurePaginatorExists(ref paginatorBlackBoards, tabBlackBoard, (s, page) => LoadBlackBoard());
             paginator.TotalPages = totalPages;
@@ -661,14 +705,14 @@ namespace GestionAgraria
                 flpFormativeEnvironmentsList.Controls.Clear();
                 lblEmptyFormativeEnvironments.Visible = true;
             }
-            else if (tabPage == tabProduct)
+            else if (tabPage == tabProducts)
             {
-                var controlsToRemove = tabProduct.Controls.Cast<Control>()
+                var controlsToRemove = tabProducts.Controls.Cast<Control>()
                 .Where(c => c is UCProductCard)
                 .ToList();
                 foreach (var control in controlsToRemove)
                 {
-                    tabProduct.Controls.Remove(control);
+                    tabProducts.Controls.Remove(control);
                     control.Dispose();
                 }
                 lblEmptyProducts.Visible = true;
@@ -698,9 +742,13 @@ namespace GestionAgraria
             {
                 LoadFormativeEnvironments();
             }
-            else if (tabPage == tabProduct)
+            else if (tabPage == tabProducts)
             {
                 LoadProductTable();
+            }
+            else if (tabPage == tabPurchases)
+            {
+                LoadPurchasesTable();
             }
             else if (tabPage == tabBlackBoard)
             {
@@ -718,19 +766,19 @@ namespace GestionAgraria
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
             UCProductAdd AddControl = new UCProductAdd();
-            this.VerFormularioTab(AddControl, tabProduct);
+            this.VerFormularioTab(AddControl, tabProducts);
         }
 
         private void btnAddCompras_Click(object sender, EventArgs e)
         {
-            UCPurchasesAdd AddControl = new UCPurchasesAdd(currentUser);
-            this.VerFormularioTab(AddControl, tabInsumos);
+            UCPurchaseAdd AddControl = new UCPurchaseAdd(currentUser);
+            this.VerFormularioTab(AddControl, tabPurchases);
         }
 
         private void btnAddVentas_Click(object sender, EventArgs e)
         {
             UCSellAdd AddControl = new UCSellAdd();
-            this.VerFormularioTab(AddControl, tabVentas);
+            this.VerFormularioTab(AddControl, tabSells);
         }
         private void tabCerrarSesion_Click(object sender, EventArgs e)
         {
@@ -776,6 +824,72 @@ namespace GestionAgraria
             paginatorProducts?.Reset();
             flpProductList.Controls.Clear();
             LoadProductTable();
+        }
+
+        /// <summary>
+        /// Manejador para imprimir productos seleccionados
+        /// </summary>
+        private void btnPrintProduct_Click(object sender, EventArgs e)
+        {
+            if (SelectedProducts.Count == 0)
+            {
+                MessageBox.Show("No hay productos seleccionados para imprimir.", "Información", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                var printController = new GestionAgraria.Controllers.PrintController();
+                printController.PrintProducts(SelectedProducts);
+                
+                // Limpiar selección después de imprimir
+                SelectedProducts.Clear();
+                
+                // Desmarcar todos los checkboxes
+                foreach (Control control in flpProductList.Controls)
+                {
+                    if (control is UCProductCard productCard)
+                    {
+                        // Buscar el checkbox dentro de la card
+                        var checkbox = FindCheckBox(productCard);
+                        if (checkbox != null)
+                        {
+                            checkbox.Checked = false;
+                        }
+                    }
+                }
+                
+                // Deshabilitar botón después de imprimir
+                if (btnPrintProduct != null)
+                {
+                    btnPrintProduct.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al imprimir productos: {ex.Message}", "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// Busca recursivamente el checkbox en un control
+        /// </summary>
+        private ReaLTaiizor.Controls.MaterialCheckBox? FindCheckBox(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is ReaLTaiizor.Controls.MaterialCheckBox checkbox)
+                {
+                    return checkbox;
+                }
+                
+                var found = FindCheckBox(control);
+                if (found != null)
+                    return found;
+            }
+            return null;
         }
 
     }

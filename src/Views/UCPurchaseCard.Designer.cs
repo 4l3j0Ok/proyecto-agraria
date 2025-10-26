@@ -43,9 +43,9 @@
             // 
             tableLayoutPanel1.ColumnCount = 4;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
             tableLayoutPanel1.Controls.Add(lblRecordDatetime, 3, 0);
             tableLayoutPanel1.Controls.Add(lblTotal, 2, 0);
@@ -60,13 +60,14 @@
             // 
             // panel1
             // 
+            panel1.AutoSize = true;
             panel1.Controls.Add(lblUserUsername);
             panel1.Controls.Add(lblUserName);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(44, 9);
             panel1.Margin = new Padding(9);
             panel1.Name = "panel1";
-            panel1.Size = new Size(178, 50);
+            panel1.Size = new Size(100, 50);
             panel1.TabIndex = 9;
             // 
             // lblUserUsername
@@ -104,10 +105,10 @@
             lblRecordDatetime.Dock = DockStyle.Fill;
             lblRecordDatetime.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             lblRecordDatetime.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblRecordDatetime.Location = new Point(430, 0);
+            lblRecordDatetime.Location = new Point(306, 0);
             lblRecordDatetime.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblRecordDatetime.Name = "lblRecordDatetime";
-            lblRecordDatetime.Size = new Size(191, 68);
+            lblRecordDatetime.Size = new Size(315, 68);
             lblRecordDatetime.TabIndex = 8;
             lblRecordDatetime.Text = "Fecha de registro";
             lblRecordDatetime.TextAlign = ContentAlignment.MiddleCenter;
@@ -119,10 +120,10 @@
             lblTotal.Dock = DockStyle.Fill;
             lblTotal.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             lblTotal.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblTotal.Location = new Point(234, 0);
+            lblTotal.Location = new Point(156, 0);
             lblTotal.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(190, 68);
+            lblTotal.Size = new Size(144, 68);
             lblTotal.TabIndex = 6;
             lblTotal.Text = "Total";
             lblTotal.TextAlign = ContentAlignment.MiddleCenter;
@@ -149,7 +150,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(tableLayoutPanel1);
+            Margin = new Padding(0);
             Name = "UCPurchaseCard";
             Size = new Size(624, 68);
             tableLayoutPanel1.ResumeLayout(false);

@@ -3,7 +3,7 @@
 
 namespace GestionAgraria.Views
 {
-    partial class UCPurchasesAdd
+    partial class UCPurchaseAdd
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -496,14 +496,14 @@ namespace GestionAgraria.Views
             materialLabel3.TabIndex = 4;
             materialLabel3.Text = "Nombre";
             // 
-            // UCPurchasesAdd
+            // UCPurchaseAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             Controls.Add(MepBuysAdd);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "UCPurchasesAdd";
+            Name = "UCPurchaseAdd";
             Size = new Size(1152, 667);
             MepBuysAdd.ResumeLayout(false);
             MepBuysAdd.PerformLayout();

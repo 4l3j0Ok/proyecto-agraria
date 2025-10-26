@@ -32,7 +32,7 @@ namespace GestionAgraria.Views
         {
             UCSellAdd sellsAdd = new UCSellAdd();
             FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-            formPrincipal?.VerFormularioTab(sellsAdd, formPrincipal.tabVentas);
+            formPrincipal?.VerFormularioTab(sellsAdd, formPrincipal.tabSells);
         }
     }
 }

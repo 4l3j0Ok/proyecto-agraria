@@ -26,8 +26,6 @@ namespace GestionAgraria.Views
             producController = new ProductController();
             InitializeComponent();
 
-            LoadComboBox();
-
             if (product != null)
             {
                 mepProductAdd.Title = "Modificar Producto";
@@ -40,40 +38,14 @@ namespace GestionAgraria.Views
                 currentProduct = new ProductModel();
             }
         }
-        private void LoadComboBox() 
-        {
-
-            //cbProductStock.Items.Add = "1";
-            cbEstado.SelectedIndex = 0; // Por defecto activo
-            try
-            {
-                cbProductFormativeEnvironment.Items.Clear();
-                var formativeEnviroments = producController.GetAllActiveFormativeEnvironments();
-                foreach(var environment in formativeEnviroments)
-                {
-                    cbProductFormativeEnvironment.Items.Add(environment.Name);
-                }
-            }
-            catch (Exception ex) 
-            {
-                MessageBox.Show($"Error al cargar los datos:{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void LoadProductData(ProductModel product) 
         {
-            tbProductCode.Text = product.code;
+            tbProductCode.Text = product.Code;
             tbProductName.Text = product.Name;
-            cbProductStock.Text = product.Quantity.ToString();
-            tbDescription.Text = product.Observations;
-            if (product.FormativeEnvironment != null) 
-            { 
-            cbProductFormativeEnvironment.SelectedIndex = cbProductFormativeEnvironment.Items.IndexOf(product.FormativeEnvironment.Name);
-            }
-            cbEstado.SelectedIndex = 0; // Por defecto activo
-            if (product.IsActive == false)
-                cbEstado.SelectedIndex = 1;
-
+            tbProductStock.Text = product.Stock.ToString();
+            tbProductUnitPrice.Text = product.UnitPrice.ToString();
+            tbDescription.Text = product.Description;
         }
 
         private bool ValidateFields()
@@ -86,8 +58,11 @@ namespace GestionAgraria.Views
             if (string.IsNullOrWhiteSpace(tbProductName.Text))
                 emptyFields.Add("nombre de producto");
 
-            if (string.IsNullOrWhiteSpace(cbProductStock.Text))
+            if (string.IsNullOrWhiteSpace(tbProductStock.Text))
                 emptyFields.Add("Cantidad");
+
+            if (string.IsNullOrWhiteSpace(tbProductUnitPrice.Text))
+                emptyFields.Add("Precio unitario");
 
             if (emptyFields.Count > 0)
             {
@@ -97,7 +72,7 @@ namespace GestionAgraria.Views
             }
 
             // Validar cantidad
-            if (!int.TryParse(cbProductStock.Text, out int quantity) || quantity <= 0)
+            if (!int.TryParse(tbProductStock.Text, out int quantity) || quantity <= 0)
             {
                 MessageBox.Show("La cantidad debe ser un número entero mayor a 0.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -110,39 +85,11 @@ namespace GestionAgraria.Views
         {
             if (!ValidateFields())
                 return;
-            currentProduct.code = tbProductCode.Text;
+            currentProduct.Code = tbProductCode.Text;
             currentProduct.Name = tbProductName.Text;
-            currentProduct.Quantity = int.Parse(cbProductStock.Text);
-            currentProduct.Observations = tbDescription.Text;
-
-            if (!(cbEstado.SelectedIndex == 0))
-                currentProduct.IsActive = false;
-            else
-                currentProduct.IsActive = true;
-
-            var environments = producController.GetAllActiveFormativeEnvironments();
-
-            if (environments.Count == 0)
-            {
-                MessageBox.Show("No hay entornos formativos activos disponibles. Debe crear al menos uno antes de registrar un animal.",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(cbProductFormativeEnvironment.Text))
-            {
-                MessageBox.Show("Debe seleccionar un entorno formativo.", "Campo requerido",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            var selectedEnvironment = environments.FirstOrDefault(env =>
-                env.Name == cbProductFormativeEnvironment.Text);
-
-            currentProduct.FormativeEnvironment = selectedEnvironment;
-            currentProduct.FormativeEnvironmentId = selectedEnvironment.Id;
-
-
+            currentProduct.Stock = int.Parse(tbProductStock.Text);
+            currentProduct.UnitPrice = decimal.TryParse(tbProductUnitPrice.Text, out decimal price) ? price : 0;
+            currentProduct.Description = tbDescription.Text;
             bool success;
             if (currentProduct.Id == 0)
                 success = producController.CreateProduct(currentProduct);
@@ -151,18 +98,8 @@ namespace GestionAgraria.Views
 
             if (success)
             {
-                MessageBox.Show("Vegetal producto correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
-                // Preguntar si desea imprimir
-                var result = MessageBox.Show("¿Desea imprimir el reporte del producto?", "Imprimir", 
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                
-                if (result == DialogResult.Yes && currentProduct.Id > 0)
-                {
-                    Utils.PrintProduct(currentProduct);
-                }
-                
-                formPrincipal?.RestaurarFormularioTab(formPrincipal.tabProduct);
+                MessageBox.Show("Producto agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                formPrincipal?.RestaurarFormularioTab(formPrincipal.tabProducts);
             }
             else
             {
@@ -172,8 +109,7 @@ namespace GestionAgraria.Views
 
         private void mepProductAdd_cancelClick(object sender, EventArgs e)
         {
-            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabProduct);
+            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabProducts);
         }
-
     }
 }

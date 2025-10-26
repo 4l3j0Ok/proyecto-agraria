@@ -112,20 +112,13 @@ namespace GestionAgraria.data
                 .IsUnique();
 
             modelBuilder.Entity<ProductModel>()
-                .HasIndex(u => u.code)
+                .HasIndex(u => u.Code)
                 .IsUnique();
 
             // Configuración de índices únicos para código de animal
             modelBuilder.Entity<AnimalModel>()
                 .HasIndex(a => a.Code)
                 .IsUnique();
-
-            // Configuración de la relación Product-FormativeEnviroment
-            modelBuilder.Entity<ProductModel>()
-                .HasOne(a => a.FormativeEnvironment)
-                .WithMany()
-                .HasForeignKey(a => a.FormativeEnvironmentId)
-                .OnDelete(DeleteBehavior.Restrict);
 
             // Mapeo de nombres de tabla
             modelBuilder.Entity<UserModel>().ToTable("User");

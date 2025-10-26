@@ -53,15 +53,15 @@ namespace GestionAgraria.Controllers
                     return false;
 
                 // Validar que el código no exista (excepto el animal actual)
-                if (_context.Product.Any(a => a.code == product.code && a.Id != product.Id))
+                if (_context.Product.Any(a => a.Code == product.Code && a.Id != product.Id))
                     return false;
 
                 // Actualizar propiedades
                 existingProduct.Id = product.Id;
-                existingProduct.code = product.code;
+                existingProduct.Code = product.Code;
                 existingProduct.Name = product.Name;
-                existingProduct.Quantity = product.Quantity;
-                existingProduct.Observations = product.Observations;
+                existingProduct.Stock = product.Stock;
+                existingProduct.Description = product.Description;
                 existingProduct.IsActive = product.IsActive;
 
                 _context.SaveChanges();
@@ -94,7 +94,6 @@ namespace GestionAgraria.Controllers
         public List<ProductModel> GetAllProduct()
         {
             return _context.Product
-                .Include(a => a.FormativeEnvironment)
                 .Where(a => a.IsActive)
                 .ToList();
         }
@@ -102,21 +101,18 @@ namespace GestionAgraria.Controllers
         {
             return _context.Product
                 .Include(a => a.Name)
-                .Include(a => a.FormativeEnvironment)
                 .FirstOrDefault(a => a.Id == id);
         }
 
         public ProductModel? GetProductByCode(string code)
         {
             return _context.Product
-                .Include(a => a.FormativeEnvironment)
-                .FirstOrDefault(a => a.code == code && a.IsActive);
+                .FirstOrDefault(a => a.Code == code && a.IsActive);
         }
 
         public List<ProductModel> GetProductsForFiltro(int estado, string? entorno = null, string? searchText = null, int page = 1, int pageSize = 20)
         {
             var query = _context.Product
-                .Include(p => p.FormativeEnvironment) // incluimos entorno
                 .AsQueryable();
 
             // 📌 Filtro por estado
@@ -126,16 +122,12 @@ namespace GestionAgraria.Controllers
                 query = query.Where(p => !p.IsActive);
             // estado == 2 → Todos (sin filtro)
 
-            // 📌 Filtro por entorno
-            if (!string.IsNullOrEmpty(entorno))
-                query = query.Where(p => p.FormativeEnvironment.Name == entorno);
-
             // 📌 Filtro por búsqueda (code o name)
             if (!string.IsNullOrEmpty(searchText))
             {
                 string lowerText = searchText.ToLower();
                 query = query.Where(p =>
-                    p.code.ToLower().Contains(lowerText) ||
+                    p.Code.ToLower().Contains(lowerText) ||
                     p.Name.ToLower().Contains(lowerText)
                 );
             }
@@ -157,16 +149,12 @@ namespace GestionAgraria.Controllers
             else if (estado == 1) // Inactivos
                 query = query.Where(p => !p.IsActive);
 
-            // 📌 Filtro por entorno
-            if (!string.IsNullOrEmpty(entorno))
-                query = query.Where(p => p.FormativeEnvironment.Name == entorno);
-
             // 📌 Filtro por búsqueda
             if (!string.IsNullOrEmpty(searchText))
             {
                 string lowerText = searchText.ToLower();
                 query = query.Where(p =>
-                    p.code.ToLower().Contains(lowerText) ||
+                    p.Code.ToLower().Contains(lowerText) ||
                     p.Name.ToLower().Contains(lowerText)
                 );
             }
@@ -186,7 +174,8 @@ namespace GestionAgraria.Controllers
             var product = GetProductById(productId);
             if (product != null)
             {
-                Utils.PrintProduct(product);
+                var printController = new PrintController();
+                printController.PrintProduct(product);
             }
         }
 

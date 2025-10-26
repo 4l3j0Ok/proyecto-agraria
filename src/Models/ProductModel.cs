@@ -14,21 +14,19 @@ namespace GestionAgraria.Models
         public int Id { get; set; }
 
         [Required]
-        public string code { get; set; }
+        public string Code { get; set; }
 
         [Required]
         public string Name { get; set; }
 
         [Required]
-        public int Quantity { get; set; }
+        public int Stock { get; set; }
 
         [Required]
-        public string? Observations { get; set; }
+        public string Description { get; set; }
 
-        [ForeignKey("FormativeEnvironment")]
         [Required]
-        public int FormativeEnvironmentId { get; set; }
-        public FormativeEnvironmentModel FormativeEnvironment { get; set; } = null!;
+        public decimal UnitPrice { get; set; }
         public bool IsActive { get; set; } = true;
     }
 }

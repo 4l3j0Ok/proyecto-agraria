@@ -16,7 +16,7 @@ using GestionAgraria.Core;
 
 namespace GestionAgraria.Views
 {
-    public partial class UCPurchasesAdd : UserControl
+    public partial class UCPurchaseAdd : UserControl
     {
         private PurchaseController purchaseController;
         private PurchaseItemController purchaseItemController;
@@ -25,13 +25,13 @@ namespace GestionAgraria.Views
         private List<PurchaseItemModel> currentPurchaseItems = new List<PurchaseItemModel>();
 
         private PurchaseModel currentPurchase;
-        private UserModel currentUser;
+        private UserModel? currentUser;
 
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
 
-        public UCPurchasesAdd(UserModel? CurrentUser = null, PurchaseModel? purchase = null)
+        public UCPurchaseAdd(UserModel? currentUser = null, PurchaseModel? purchase = null)
         {
-            currentUser = CurrentUser;
+            this.currentUser = currentUser;
             purchaseController = new PurchaseController();
             purchaseItemController = new PurchaseItemController();
 
@@ -264,22 +264,13 @@ namespace GestionAgraria.Views
                 MessageBox.Show("Compra registrada correctamente.", "Éxito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Preguntar si desea imprimir
-                var result = MessageBox.Show("¿Desea imprimir el comprobante de compra?", "Imprimir",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    Utils.PrintPurchase(savedPurchase, currentPurchaseItems);
-                }
-
                 // Limpiar y volver
                 currentPurchaseItems.Clear();
                 dgvProductList.Rows.Clear();
                 tbTotal.Text = "";
                 tbSellsObservations.Text = "";
 
-                formPrincipal?.RestaurarFormularioTab(formPrincipal.tabInsumos);
+                formPrincipal?.RestaurarFormularioTab(formPrincipal.tabPurchases);
             }
             catch (Exception ex)
             {
@@ -291,7 +282,7 @@ namespace GestionAgraria.Views
 
         private void MepBuysAdd_CancelClick(object? sender, EventArgs e)
         {
-            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabInsumos);
+            formPrincipal?.RestaurarFormularioTab(formPrincipal.tabPurchases);
         }
     }
 }

@@ -40,6 +40,11 @@ namespace GestionAgraria.Controllers
                 .FirstOrDefault(p => p.Id == id);
         }
 
+        public int GetPurchasesCount()
+        {
+            return _context.Purchases.Count();
+        }
+
         public PurchaseModel? GetLastPurchase()
         {
             return _context.Purchases
@@ -102,7 +107,8 @@ namespace GestionAgraria.Controllers
                 var items = _context.PurchaseItems
                     .Where(i => i.PurchaseId == purchaseId)
                     .ToList();
-                Utils.PrintPurchase(purchase, items);
+                var printController = new PrintController();
+                printController.PrintPurchase(purchase, items);
             }
         }
 

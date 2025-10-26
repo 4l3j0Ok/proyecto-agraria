@@ -44,7 +44,7 @@
     <Compile Update="Views\UCProductCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCPurchasesAdd.cs">
+    <Compile Update="Views\UCPurchaseAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\UCSellAdd.cs">

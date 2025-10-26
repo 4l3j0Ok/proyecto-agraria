@@ -69,30 +69,5 @@ namespace GestionAgraria.Core
                 return Image.FromStream(ms);
             }
         }
-
-        // Métodos de impresión
-        public static void PrintProduct(ProductModel product)
-        {
-            using (var printService = new PrintService())
-            {
-                printService.PrintProduct(product);
-            }
-        }
-
-        public static void PrintPurchase(PurchaseModel purchase, List<PurchaseItemModel> items)
-        {
-            using (var printService = new PrintService())
-            {
-                printService.PrintPurchase(purchase, items);
-            }
-        }
-
-        public static void PrintSell(SellModel sell, List<SellDetailModel> details)
-        {
-            using (var printService = new PrintService())
-            {
-                printService.PrintSell(sell, details);
-            }
-        }
     }
 }

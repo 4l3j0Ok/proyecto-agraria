@@ -122,7 +122,8 @@ namespace GestionAgraria.Controllers
                         .Include(d => d.Product)
                         .Where(d => d.SellsId == sellId)
                         .ToList();
-                    Utils.PrintSell(sell, details);
+                    var printController = new PrintController();
+                    printController.PrintSell(sell, details);
                 }
             }
         }
