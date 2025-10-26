@@ -41,6 +41,13 @@ namespace GestionAgraria.Core
             "Industria",
             "Mixto"
         };
+        public static List<string> defaultProcesoType = new List<string>
+        {
+            "En proceso",
+            "Actividad",
+            "Finalizado",
+            "En lista"
+        };
     }
     internal class UIConfig
     {
@@ -75,6 +82,13 @@ namespace GestionAgraria.Core
             "Enfermo",
             "Embarazada",
             "Crecimiento"
+        };
+        public static string[] defaultProcesoType = new string[]
+        {
+            "En proceso",
+            "Actividad",
+            "Finalizado",
+            "En lista"
         };
     }
 }

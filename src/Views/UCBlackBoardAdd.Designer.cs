@@ -37,19 +37,19 @@ namespace GestionAgraria.Views
             txtObservaciones = new ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit();
             materialLabel8 = new ReaLTaiizor.Controls.MaterialLabel();
             tableLayoutPanel1 = new TableLayoutPanel();
-            panel2 = new Panel();
-            cbFormativeEnvironment = new ReaLTaiizor.Controls.MaterialComboBox();
-            materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
-            panel1 = new Panel();
-            tbTitle = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel1 = new ReaLTaiizor.Controls.MaterialLabel();
+            tbTitle = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            panel1 = new Panel();
+            materialLabel2 = new ReaLTaiizor.Controls.MaterialLabel();
+            cbFormativeEnvironment = new ReaLTaiizor.Controls.MaterialComboBox();
+            panel2 = new Panel();
             mepBlackBoard.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvData).BeginInit();
             panel8.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
-            panel2.SuspendLayout();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // mepBlackBoard
@@ -176,62 +176,17 @@ namespace GestionAgraria.Views
             tableLayoutPanel1.Size = new Size(841, 71);
             tableLayoutPanel1.TabIndex = 1;
             // 
-            // panel2
+            // materialLabel1
             // 
-            panel2.Controls.Add(cbFormativeEnvironment);
-            panel2.Controls.Add(materialLabel2);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(423, 2);
-            panel2.Margin = new Padding(3, 2, 3, 2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(415, 67);
-            panel2.TabIndex = 1;
-            // 
-            // cbFormativeEnvironment
-            // 
-            cbFormativeEnvironment.AutoResize = false;
-            cbFormativeEnvironment.BackColor = Color.FromArgb(255, 255, 255);
-            cbFormativeEnvironment.Depth = 0;
-            cbFormativeEnvironment.DrawMode = DrawMode.OwnerDrawVariable;
-            cbFormativeEnvironment.DropDownHeight = 174;
-            cbFormativeEnvironment.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbFormativeEnvironment.DropDownWidth = 121;
-            cbFormativeEnvironment.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbFormativeEnvironment.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbFormativeEnvironment.FormattingEnabled = true;
-            cbFormativeEnvironment.IntegralHeight = false;
-            cbFormativeEnvironment.ItemHeight = 43;
-            cbFormativeEnvironment.Location = new Point(3, 18);
-            cbFormativeEnvironment.Margin = new Padding(3, 2, 3, 2);
-            cbFormativeEnvironment.MaxDropDownItems = 4;
-            cbFormativeEnvironment.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbFormativeEnvironment.Name = "cbFormativeEnvironment";
-            cbFormativeEnvironment.Size = new Size(420, 49);
-            cbFormativeEnvironment.StartIndex = 0;
-            cbFormativeEnvironment.TabIndex = 1;
-            // 
-            // materialLabel2
-            // 
-            materialLabel2.AutoSize = true;
-            materialLabel2.Depth = 0;
-            materialLabel2.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel2.Location = new Point(18, 0);
-            materialLabel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel2.Name = "materialLabel2";
-            materialLabel2.Size = new Size(56, 19);
-            materialLabel2.TabIndex = 0;
-            materialLabel2.Text = "Entorno";
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(tbTitle);
-            panel1.Controls.Add(materialLabel1);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 2);
-            panel1.Margin = new Padding(3, 2, 3, 2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(414, 67);
-            panel1.TabIndex = 0;
+            materialLabel1.AutoSize = true;
+            materialLabel1.Depth = 0;
+            materialLabel1.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel1.Location = new Point(18, 0);
+            materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel1.Name = "materialLabel1";
+            materialLabel1.Size = new Size(42, 19);
+            materialLabel1.TabIndex = 0;
+            materialLabel1.Text = "Titulo";
             // 
             // tbTitle
             // 
@@ -264,17 +219,62 @@ namespace GestionAgraria.Views
             tbTitle.TrailingIcon = null;
             tbTitle.UseSystemPasswordChar = false;
             // 
-            // materialLabel1
+            // panel1
             // 
-            materialLabel1.AutoSize = true;
-            materialLabel1.Depth = 0;
-            materialLabel1.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel1.Location = new Point(18, 0);
-            materialLabel1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel1.Name = "materialLabel1";
-            materialLabel1.Size = new Size(42, 19);
-            materialLabel1.TabIndex = 0;
-            materialLabel1.Text = "Titulo";
+            panel1.Controls.Add(tbTitle);
+            panel1.Controls.Add(materialLabel1);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 2);
+            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(414, 67);
+            panel1.TabIndex = 0;
+            // 
+            // materialLabel2
+            // 
+            materialLabel2.AutoSize = true;
+            materialLabel2.Depth = 0;
+            materialLabel2.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel2.Location = new Point(18, 0);
+            materialLabel2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel2.Name = "materialLabel2";
+            materialLabel2.Size = new Size(56, 19);
+            materialLabel2.TabIndex = 0;
+            materialLabel2.Text = "Entorno";
+            // 
+            // cbFormativeEnvironment
+            // 
+            cbFormativeEnvironment.AutoResize = false;
+            cbFormativeEnvironment.BackColor = Color.FromArgb(255, 255, 255);
+            cbFormativeEnvironment.Depth = 0;
+            cbFormativeEnvironment.DrawMode = DrawMode.OwnerDrawVariable;
+            cbFormativeEnvironment.DropDownHeight = 174;
+            cbFormativeEnvironment.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbFormativeEnvironment.DropDownWidth = 121;
+            cbFormativeEnvironment.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbFormativeEnvironment.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbFormativeEnvironment.FormattingEnabled = true;
+            cbFormativeEnvironment.IntegralHeight = false;
+            cbFormativeEnvironment.ItemHeight = 43;
+            cbFormativeEnvironment.Location = new Point(3, 18);
+            cbFormativeEnvironment.Margin = new Padding(3, 2, 3, 2);
+            cbFormativeEnvironment.MaxDropDownItems = 4;
+            cbFormativeEnvironment.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbFormativeEnvironment.Name = "cbFormativeEnvironment";
+            cbFormativeEnvironment.Size = new Size(420, 49);
+            cbFormativeEnvironment.StartIndex = 0;
+            cbFormativeEnvironment.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(cbFormativeEnvironment);
+            panel2.Controls.Add(materialLabel2);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(423, 2);
+            panel2.Margin = new Padding(3, 2, 3, 2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(415, 67);
+            panel2.TabIndex = 1;
             // 
             // UCBlackBoardAdd
             // 
@@ -294,10 +294,10 @@ namespace GestionAgraria.Views
             panel8.ResumeLayout(false);
             panel8.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 

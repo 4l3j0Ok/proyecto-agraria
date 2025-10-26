@@ -13,26 +13,26 @@ namespace GestionAgraria.Views
 {
     public partial class UCPurchaseCard : UserControl
     {
-        private SellModel _sells;
-        public UCPurchaseCard(SellModel sells)
+        private PurchaseModel _purchase;
+        public UCPurchaseCard(PurchaseModel purchase)
         {
             InitializeComponent();
-            _sells = sells;
-            lblUserUsername.Text = sells.User.Name +" "+ sells.User.Surname;
-            lblRecordDatetime.Text = sells.RecordDate.ToString();
-            lblTotal.Text = sells.TotalCost.ToString();
+            _purchase = purchase;
+            lblUserUsername.Text = purchase.User.Name +" "+ purchase.User.Surname;
+            lblRecordDatetime.Text = purchase.RecordDate.ToString();
+            lblTotal.Text = purchase.TotalCost.ToString();
         }
 
         private void OnSellsCardOnClick(object? sender, EventArgs? e)
         {
-            openFormAdd(_sells);
+            openFormAdd(_purchase);
         }
 
-        public static void openFormAdd(SellModel sells)
+        public static void openFormAdd(PurchaseModel purchase)
         {
-            UCSellAdd sellsAdd = new UCSellAdd();
+            UCProductAdd purchaseAdd = new UCProductAdd();
             FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-            formPrincipal?.VerFormularioTab(sellsAdd, formPrincipal.tabVentas);
+            formPrincipal?.VerFormularioTab(purchaseAdd, formPrincipal.tabVentas);
         }
     }
 }

@@ -79,7 +79,7 @@
             lblUserUsername.Location = new Point(0, 19);
             lblUserUsername.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserUsername.Name = "lblUserUsername";
-            lblUserUsername.Size = new Size(100, 14);
+            lblUserUsername.Size = new Size(105, 14);
             lblUserUsername.TabIndex = 8;
             lblUserUsername.Text = "Nombre de usuario";
             // 
