@@ -41,12 +41,6 @@
     <Compile Update="Views\UCFormativeEnvironmentAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\UCBlackBoardAdd.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\UCBlackBoardCard.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Views\UCProductCard.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -19,7 +19,6 @@ namespace GestionAgraria.data
         public DbSet<ProductModel> Product { get; set; }
         public DbSet<SellModel> Sells { get; set; }
         public DbSet<SellDetailModel> SellDetail { get; set; }
-        public DbSet<BlackBoardModel> BlackBoard { get; set; }
         public DbSet<PurchaseModel> Purchases { get; set; }
         public DbSet<PurchaseItemModel> PurchaseItems { get; set; }
         public DbSet<ActivityRecordModel> ActivityRecords { get; set; }
@@ -147,7 +146,6 @@ namespace GestionAgraria.data
             modelBuilder.Entity<SellDetailModel>().ToTable("SellDetail");
             modelBuilder.Entity<PurchaseModel>().ToTable("Purchase");
             modelBuilder.Entity<PurchaseItemModel>().ToTable("PurchaseItem");
-            modelBuilder.Entity<BlackBoardModel>().ToTable("BlackBoard");
             modelBuilder.Entity<ActivityRecordModel>().ToTable("ActivityRecord");
 
             base.OnModelCreating(modelBuilder);

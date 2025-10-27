@@ -917,12 +917,6 @@ namespace GestionAgraria
             Application.Restart();
         }
 
-        private void btnAddBlackBoard_Click(object sender, EventArgs e)
-        {
-            UCBlackBoardAdd AddControl = new UCBlackBoardAdd();
-            this.VerFormularioTab(AddControl, tabBlackBoard);
-        }
-
         private void CargarEnvironmentsSelec(object sender, EventArgs e)
         {
             paginatorEnvironments?.Reset();
