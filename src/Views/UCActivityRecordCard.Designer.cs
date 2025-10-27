@@ -31,12 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCActivityRecordCard));
             tableLayoutPanel1 = new TableLayoutPanel();
             panel2 = new Panel();
+            lblStateRecord = new ReaLTaiizor.Controls.MaterialLabel();
             lblObservation = new ReaLTaiizor.Controls.MaterialLabel();
             panel1 = new Panel();
             lblFecha = new ReaLTaiizor.Controls.MaterialLabel();
             lblTitle = new ReaLTaiizor.Controls.MaterialLabel();
             parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
-            lblStateRecord = new ReaLTaiizor.Controls.MaterialLabel();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -46,8 +46,8 @@
             // 
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 70F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 491F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 44.5054932F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55.4945068F));
             tableLayoutPanel1.Controls.Add(panel2, 2, 0);
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
             tableLayoutPanel1.Controls.Add(parrotPictureBox1, 0, 0);
@@ -58,20 +58,33 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(745, 70);
+            tableLayoutPanel1.Size = new Size(446, 70);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // panel2
             // 
             panel2.Controls.Add(lblStateRecord);
             panel2.Controls.Add(lblObservation);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(264, 10);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(247, 10);
             panel2.Margin = new Padding(10);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(20);
-            panel2.Size = new Size(471, 50);
+            panel2.Size = new Size(188, 50);
             panel2.TabIndex = 10;
+            // 
+            // lblStateRecord
+            // 
+            lblStateRecord.AutoSize = true;
+            lblStateRecord.Depth = 0;
+            lblStateRecord.Font = new Font("Roboto", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            lblStateRecord.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Subtitle1;
+            lblStateRecord.Location = new Point(9, 5);
+            lblStateRecord.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblStateRecord.Name = "lblStateRecord";
+            lblStateRecord.Size = new Size(140, 19);
+            lblStateRecord.TabIndex = 8;
+            lblStateRecord.Text = "Estado de actividad";
             // 
             // lblObservation
             // 
@@ -96,7 +109,7 @@
             panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5);
-            panel1.Size = new Size(164, 50);
+            panel1.Size = new Size(147, 50);
             panel1.TabIndex = 7;
             // 
             // lblFecha
@@ -149,26 +162,14 @@
             parrotPictureBox1.Text = "parrotPictureBox1";
             parrotPictureBox1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
-            // lblStateRecord
-            // 
-            lblStateRecord.AutoSize = true;
-            lblStateRecord.Depth = 0;
-            lblStateRecord.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            lblStateRecord.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.Subtitle1;
-            lblStateRecord.Location = new Point(9, 5);
-            lblStateRecord.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblStateRecord.Name = "lblStateRecord";
-            lblStateRecord.Size = new Size(140, 19);
-            lblStateRecord.TabIndex = 8;
-            lblStateRecord.Text = "Estado de actividad";
-            // 
             // UCActivityRecordCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(tableLayoutPanel1);
             Name = "UCActivityRecordCard";
-            Size = new Size(745, 73);
+            Size = new Size(446, 73);
             tableLayoutPanel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();

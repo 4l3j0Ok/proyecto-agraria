@@ -112,6 +112,15 @@ namespace GestionAgraria
             flpProductList = new FlowLayoutPanel();
             tabPurchases = new TabPage();
             materialExpansionPanel6 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
+            panel29 = new Panel();
+            materialLabel24 = new ReaLTaiizor.Controls.MaterialLabel();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            panel28 = new Panel();
+            cbUserFiltroInsumo = new ReaLTaiizor.Controls.MaterialComboBox();
+            materialLabel26 = new ReaLTaiizor.Controls.MaterialLabel();
+            panel32 = new Panel();
+            tbSeachFiltroInsumo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            materialLabel27 = new ReaLTaiizor.Controls.MaterialLabel();
             btnPrintPurchases = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             btnAddCompras = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             tabSells = new TabPage();
@@ -202,15 +211,6 @@ namespace GestionAgraria
             materialLabel25 = new ReaLTaiizor.Controls.MaterialLabel();
             flpPursecheList = new FlowLayoutPanel();
             flpSellList = new FlowLayoutPanel();
-            panel29 = new Panel();
-            materialLabel24 = new ReaLTaiizor.Controls.MaterialLabel();
-            tableLayoutPanel8 = new TableLayoutPanel();
-            panel28 = new Panel();
-            cbUserFiltroInsumo = new ReaLTaiizor.Controls.MaterialComboBox();
-            materialLabel26 = new ReaLTaiizor.Controls.MaterialLabel();
-            panel32 = new Panel();
-            tbSeachFiltroInsumo = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            materialLabel27 = new ReaLTaiizor.Controls.MaterialLabel();
             tabVegetablesArea.SuspendLayout();
             panel20.SuspendLayout();
             materialExpansionPanel1.SuspendLayout();
@@ -245,6 +245,10 @@ namespace GestionAgraria
             panel23.SuspendLayout();
             tabPurchases.SuspendLayout();
             materialExpansionPanel6.SuspendLayout();
+            panel29.SuspendLayout();
+            tableLayoutPanel8.SuspendLayout();
+            panel28.SuspendLayout();
+            panel32.SuspendLayout();
             tabSells.SuspendLayout();
             materialExpansionPanel9.SuspendLayout();
             panel43.SuspendLayout();
@@ -282,10 +286,6 @@ namespace GestionAgraria
             panel10.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
             panel30.SuspendLayout();
-            panel29.SuspendLayout();
-            tableLayoutPanel8.SuspendLayout();
-            panel28.SuspendLayout();
-            panel32.SuspendLayout();
             SuspendLayout();
             // 
             // imgList
@@ -1427,6 +1427,150 @@ namespace GestionAgraria
             materialExpansionPanel6.TabIndex = 24;
             materialExpansionPanel6.Title = "Filtros";
             // 
+            // panel29
+            // 
+            panel29.Controls.Add(materialLabel24);
+            panel29.Controls.Add(tableLayoutPanel8);
+            panel29.Dock = DockStyle.Top;
+            panel29.Location = new Point(24, 64);
+            panel29.Name = "panel29";
+            panel29.Size = new Size(702, 112);
+            panel29.TabIndex = 23;
+            // 
+            // materialLabel24
+            // 
+            materialLabel24.AutoSize = true;
+            materialLabel24.Depth = 0;
+            materialLabel24.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel24.Location = new Point(3, 3);
+            materialLabel24.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel24.Name = "materialLabel24";
+            materialLabel24.Size = new Size(73, 19);
+            materialLabel24.TabIndex = 5;
+            materialLabel24.Text = "Filtrar por:";
+            // 
+            // tableLayoutPanel8
+            // 
+            tableLayoutPanel8.ColumnCount = 2;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
+            tableLayoutPanel8.Controls.Add(panel28, 1, 0);
+            tableLayoutPanel8.Controls.Add(panel32, 0, 0);
+            tableLayoutPanel8.Dock = DockStyle.Bottom;
+            tableLayoutPanel8.Location = new Point(0, 33);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 1;
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel8.Size = new Size(702, 79);
+            tableLayoutPanel8.TabIndex = 0;
+            // 
+            // panel28
+            // 
+            panel28.Controls.Add(cbUserFiltroInsumo);
+            panel28.Controls.Add(materialLabel26);
+            panel28.Dock = DockStyle.Bottom;
+            panel28.Location = new Point(456, 1);
+            panel28.Margin = new Padding(0);
+            panel28.Name = "panel28";
+            panel28.Padding = new Padding(20, 0, 20, 0);
+            panel28.Size = new Size(246, 78);
+            panel28.TabIndex = 39;
+            // 
+            // cbUserFiltroInsumo
+            // 
+            cbUserFiltroInsumo.AutoResize = false;
+            cbUserFiltroInsumo.BackColor = Color.FromArgb(255, 255, 255);
+            cbUserFiltroInsumo.Depth = 0;
+            cbUserFiltroInsumo.Dock = DockStyle.Top;
+            cbUserFiltroInsumo.DrawMode = DrawMode.OwnerDrawVariable;
+            cbUserFiltroInsumo.DropDownHeight = 174;
+            cbUserFiltroInsumo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbUserFiltroInsumo.DropDownWidth = 121;
+            cbUserFiltroInsumo.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbUserFiltroInsumo.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbUserFiltroInsumo.FormattingEnabled = true;
+            cbUserFiltroInsumo.IntegralHeight = false;
+            cbUserFiltroInsumo.ItemHeight = 43;
+            cbUserFiltroInsumo.Items.AddRange(new object[] { "Todos" });
+            cbUserFiltroInsumo.Location = new Point(20, 19);
+            cbUserFiltroInsumo.MaxDropDownItems = 4;
+            cbUserFiltroInsumo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbUserFiltroInsumo.Name = "cbUserFiltroInsumo";
+            cbUserFiltroInsumo.Size = new Size(206, 49);
+            cbUserFiltroInsumo.StartIndex = 0;
+            cbUserFiltroInsumo.TabIndex = 10;
+            // 
+            // materialLabel26
+            // 
+            materialLabel26.AutoSize = true;
+            materialLabel26.Depth = 0;
+            materialLabel26.Dock = DockStyle.Top;
+            materialLabel26.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel26.Location = new Point(20, 0);
+            materialLabel26.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel26.Name = "materialLabel26";
+            materialLabel26.Size = new Size(108, 19);
+            materialLabel26.TabIndex = 4;
+            materialLabel26.Text = "Registrado por:";
+            // 
+            // panel32
+            // 
+            panel32.Controls.Add(tbSeachFiltroInsumo);
+            panel32.Controls.Add(materialLabel27);
+            panel32.Dock = DockStyle.Bottom;
+            panel32.Location = new Point(0, 1);
+            panel32.Margin = new Padding(0);
+            panel32.Name = "panel32";
+            panel32.Padding = new Padding(20, 0, 20, 0);
+            panel32.Size = new Size(456, 78);
+            panel32.TabIndex = 22;
+            // 
+            // tbSeachFiltroInsumo
+            // 
+            tbSeachFiltroInsumo.AnimateReadOnly = false;
+            tbSeachFiltroInsumo.AutoCompleteMode = AutoCompleteMode.None;
+            tbSeachFiltroInsumo.AutoCompleteSource = AutoCompleteSource.None;
+            tbSeachFiltroInsumo.BackgroundImageLayout = ImageLayout.None;
+            tbSeachFiltroInsumo.CharacterCasing = CharacterCasing.Normal;
+            tbSeachFiltroInsumo.Depth = 0;
+            tbSeachFiltroInsumo.Dock = DockStyle.Fill;
+            tbSeachFiltroInsumo.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbSeachFiltroInsumo.HideSelection = true;
+            tbSeachFiltroInsumo.LeadingIcon = null;
+            tbSeachFiltroInsumo.Location = new Point(20, 19);
+            tbSeachFiltroInsumo.Margin = new Padding(3, 3, 26, 3);
+            tbSeachFiltroInsumo.MaxLength = 32767;
+            tbSeachFiltroInsumo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbSeachFiltroInsumo.Name = "tbSeachFiltroInsumo";
+            tbSeachFiltroInsumo.Padding = new Padding(9, 8, 9, 8);
+            tbSeachFiltroInsumo.PasswordChar = '\0';
+            tbSeachFiltroInsumo.PrefixSuffixText = null;
+            tbSeachFiltroInsumo.ReadOnly = false;
+            tbSeachFiltroInsumo.RightToLeft = RightToLeft.No;
+            tbSeachFiltroInsumo.SelectedText = "";
+            tbSeachFiltroInsumo.SelectionLength = 0;
+            tbSeachFiltroInsumo.SelectionStart = 0;
+            tbSeachFiltroInsumo.ShortcutsEnabled = true;
+            tbSeachFiltroInsumo.Size = new Size(416, 48);
+            tbSeachFiltroInsumo.TabIndex = 0;
+            tbSeachFiltroInsumo.TabStop = false;
+            tbSeachFiltroInsumo.TextAlign = HorizontalAlignment.Left;
+            tbSeachFiltroInsumo.TrailingIcon = null;
+            tbSeachFiltroInsumo.UseSystemPasswordChar = false;
+            // 
+            // materialLabel27
+            // 
+            materialLabel27.AutoSize = true;
+            materialLabel27.Depth = 0;
+            materialLabel27.Dock = DockStyle.Top;
+            materialLabel27.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialLabel27.Location = new Point(20, 0);
+            materialLabel27.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialLabel27.Name = "materialLabel27";
+            materialLabel27.Size = new Size(81, 19);
+            materialLabel27.TabIndex = 4;
+            materialLabel27.Text = "Buscar por:";
+            // 
             // btnPrintPurchases
             // 
             btnPrintPurchases.Depth = 0;
@@ -2292,6 +2436,7 @@ namespace GestionAgraria
             // materialExpansionPanel8
             // 
             materialExpansionPanel8.BackColor = Color.FromArgb(255, 255, 255);
+            materialExpansionPanel8.Collapse = true;
             materialExpansionPanel8.Controls.Add(panel37);
             materialExpansionPanel8.Depth = 0;
             materialExpansionPanel8.Description = "Aplica filtros de búsqueda";
@@ -2300,12 +2445,12 @@ namespace GestionAgraria
             materialExpansionPanel8.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialExpansionPanel8.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialExpansionPanel8.Location = new Point(20, 20);
-            materialExpansionPanel8.Margin = new Padding(16);
+            materialExpansionPanel8.Margin = new Padding(16, 1, 16, 0);
             materialExpansionPanel8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialExpansionPanel8.Name = "materialExpansionPanel8";
             materialExpansionPanel8.Padding = new Padding(24, 64, 24, 16);
             materialExpansionPanel8.ShowValidationButtons = false;
-            materialExpansionPanel8.Size = new Size(752, 239);
+            materialExpansionPanel8.Size = new Size(752, 48);
             materialExpansionPanel8.TabIndex = 19;
             materialExpansionPanel8.Title = "Filtros";
             // 
@@ -2791,150 +2936,6 @@ namespace GestionAgraria
             flpSellList.Size = new Size(744, 357);
             flpSellList.TabIndex = 4;
             // 
-            // panel29
-            // 
-            panel29.Controls.Add(materialLabel24);
-            panel29.Controls.Add(tableLayoutPanel8);
-            panel29.Dock = DockStyle.Top;
-            panel29.Location = new Point(24, 64);
-            panel29.Name = "panel29";
-            panel29.Size = new Size(702, 112);
-            panel29.TabIndex = 23;
-            // 
-            // materialLabel24
-            // 
-            materialLabel24.AutoSize = true;
-            materialLabel24.Depth = 0;
-            materialLabel24.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel24.Location = new Point(3, 3);
-            materialLabel24.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel24.Name = "materialLabel24";
-            materialLabel24.Size = new Size(73, 19);
-            materialLabel24.TabIndex = 5;
-            materialLabel24.Text = "Filtrar por:";
-            // 
-            // tableLayoutPanel8
-            // 
-            tableLayoutPanel8.ColumnCount = 2;
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65F));
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
-            tableLayoutPanel8.Controls.Add(panel28, 1, 0);
-            tableLayoutPanel8.Controls.Add(panel32, 0, 0);
-            tableLayoutPanel8.Dock = DockStyle.Bottom;
-            tableLayoutPanel8.Location = new Point(0, 33);
-            tableLayoutPanel8.Name = "tableLayoutPanel8";
-            tableLayoutPanel8.RowCount = 1;
-            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Size = new Size(702, 79);
-            tableLayoutPanel8.TabIndex = 0;
-            // 
-            // panel28
-            // 
-            panel28.Controls.Add(cbUserFiltroInsumo);
-            panel28.Controls.Add(materialLabel26);
-            panel28.Dock = DockStyle.Bottom;
-            panel28.Location = new Point(456, 1);
-            panel28.Margin = new Padding(0);
-            panel28.Name = "panel28";
-            panel28.Padding = new Padding(20, 0, 20, 0);
-            panel28.Size = new Size(246, 78);
-            panel28.TabIndex = 39;
-            // 
-            // cbUserFiltroInsumo
-            // 
-            cbUserFiltroInsumo.AutoResize = false;
-            cbUserFiltroInsumo.BackColor = Color.FromArgb(255, 255, 255);
-            cbUserFiltroInsumo.Depth = 0;
-            cbUserFiltroInsumo.Dock = DockStyle.Top;
-            cbUserFiltroInsumo.DrawMode = DrawMode.OwnerDrawVariable;
-            cbUserFiltroInsumo.DropDownHeight = 174;
-            cbUserFiltroInsumo.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbUserFiltroInsumo.DropDownWidth = 121;
-            cbUserFiltroInsumo.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbUserFiltroInsumo.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbUserFiltroInsumo.FormattingEnabled = true;
-            cbUserFiltroInsumo.IntegralHeight = false;
-            cbUserFiltroInsumo.ItemHeight = 43;
-            cbUserFiltroInsumo.Items.AddRange(new object[] { "Todos" });
-            cbUserFiltroInsumo.Location = new Point(20, 19);
-            cbUserFiltroInsumo.MaxDropDownItems = 4;
-            cbUserFiltroInsumo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbUserFiltroInsumo.Name = "cbUserFiltroInsumo";
-            cbUserFiltroInsumo.Size = new Size(206, 49);
-            cbUserFiltroInsumo.StartIndex = 0;
-            cbUserFiltroInsumo.TabIndex = 10;
-            // 
-            // materialLabel26
-            // 
-            materialLabel26.AutoSize = true;
-            materialLabel26.Depth = 0;
-            materialLabel26.Dock = DockStyle.Top;
-            materialLabel26.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel26.Location = new Point(20, 0);
-            materialLabel26.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel26.Name = "materialLabel26";
-            materialLabel26.Size = new Size(108, 19);
-            materialLabel26.TabIndex = 4;
-            materialLabel26.Text = "Registrado por:";
-            // 
-            // panel32
-            // 
-            panel32.Controls.Add(tbSeachFiltroInsumo);
-            panel32.Controls.Add(materialLabel27);
-            panel32.Dock = DockStyle.Bottom;
-            panel32.Location = new Point(0, 1);
-            panel32.Margin = new Padding(0);
-            panel32.Name = "panel32";
-            panel32.Padding = new Padding(20, 0, 20, 0);
-            panel32.Size = new Size(456, 78);
-            panel32.TabIndex = 22;
-            // 
-            // tbSeachFiltroInsumo
-            // 
-            tbSeachFiltroInsumo.AnimateReadOnly = false;
-            tbSeachFiltroInsumo.AutoCompleteMode = AutoCompleteMode.None;
-            tbSeachFiltroInsumo.AutoCompleteSource = AutoCompleteSource.None;
-            tbSeachFiltroInsumo.BackgroundImageLayout = ImageLayout.None;
-            tbSeachFiltroInsumo.CharacterCasing = CharacterCasing.Normal;
-            tbSeachFiltroInsumo.Depth = 0;
-            tbSeachFiltroInsumo.Dock = DockStyle.Fill;
-            tbSeachFiltroInsumo.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbSeachFiltroInsumo.HideSelection = true;
-            tbSeachFiltroInsumo.LeadingIcon = null;
-            tbSeachFiltroInsumo.Location = new Point(20, 19);
-            tbSeachFiltroInsumo.Margin = new Padding(3, 3, 26, 3);
-            tbSeachFiltroInsumo.MaxLength = 32767;
-            tbSeachFiltroInsumo.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tbSeachFiltroInsumo.Name = "tbSeachFiltroInsumo";
-            tbSeachFiltroInsumo.Padding = new Padding(9, 8, 9, 8);
-            tbSeachFiltroInsumo.PasswordChar = '\0';
-            tbSeachFiltroInsumo.PrefixSuffixText = null;
-            tbSeachFiltroInsumo.ReadOnly = false;
-            tbSeachFiltroInsumo.RightToLeft = RightToLeft.No;
-            tbSeachFiltroInsumo.SelectedText = "";
-            tbSeachFiltroInsumo.SelectionLength = 0;
-            tbSeachFiltroInsumo.SelectionStart = 0;
-            tbSeachFiltroInsumo.ShortcutsEnabled = true;
-            tbSeachFiltroInsumo.Size = new Size(416, 48);
-            tbSeachFiltroInsumo.TabIndex = 0;
-            tbSeachFiltroInsumo.TabStop = false;
-            tbSeachFiltroInsumo.TextAlign = HorizontalAlignment.Left;
-            tbSeachFiltroInsumo.TrailingIcon = null;
-            tbSeachFiltroInsumo.UseSystemPasswordChar = false;
-            // 
-            // materialLabel27
-            // 
-            materialLabel27.AutoSize = true;
-            materialLabel27.Depth = 0;
-            materialLabel27.Dock = DockStyle.Top;
-            materialLabel27.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialLabel27.Location = new Point(20, 0);
-            materialLabel27.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialLabel27.Name = "materialLabel27";
-            materialLabel27.Size = new Size(81, 19);
-            materialLabel27.TabIndex = 4;
-            materialLabel27.Text = "Buscar por:";
-            // 
             // FormPrincipal
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -3010,6 +3011,13 @@ namespace GestionAgraria
             tabPurchases.ResumeLayout(false);
             materialExpansionPanel6.ResumeLayout(false);
             materialExpansionPanel6.PerformLayout();
+            panel29.ResumeLayout(false);
+            panel29.PerformLayout();
+            tableLayoutPanel8.ResumeLayout(false);
+            panel28.ResumeLayout(false);
+            panel28.PerformLayout();
+            panel32.ResumeLayout(false);
+            panel32.PerformLayout();
             tabSells.ResumeLayout(false);
             materialExpansionPanel9.ResumeLayout(false);
             materialExpansionPanel9.PerformLayout();
@@ -3069,13 +3077,6 @@ namespace GestionAgraria
             tableLayoutPanel7.ResumeLayout(false);
             panel30.ResumeLayout(false);
             panel30.PerformLayout();
-            panel29.ResumeLayout(false);
-            panel29.PerformLayout();
-            tableLayoutPanel8.ResumeLayout(false);
-            panel28.ResumeLayout(false);
-            panel28.PerformLayout();
-            panel32.ResumeLayout(false);
-            panel32.PerformLayout();
             ResumeLayout(false);
         }
 
