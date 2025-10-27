@@ -88,13 +88,12 @@ namespace GestionAgraria.Views
             // 
             // panel2
             // 
-            panel2.AutoSize = true;
             panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.Controls.Add(groupBox1);
-            panel2.Dock = DockStyle.Fill;
+            panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(21, 48);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1110, 536);
+            panel2.Size = new Size(1110, 486);
             panel2.TabIndex = 12;
             // 
             // groupBox1
@@ -189,7 +188,7 @@ namespace GestionAgraria.Views
             // 
             // panel6
             // 
-            tableLayoutPanel2.SetColumnSpan(panel6, 3);
+            tableLayoutPanel2.SetColumnSpan(panel6, 4);
             panel6.Controls.Add(tbDescription);
             panel6.Controls.Add(materialLabel1);
             panel6.Dock = DockStyle.Fill;
@@ -197,7 +196,7 @@ namespace GestionAgraria.Views
             panel6.Margin = new Padding(0);
             panel6.Name = "panel6";
             panel6.Padding = new Padding(20, 0, 20, 0);
-            panel6.Size = new Size(828, 85);
+            panel6.Size = new Size(1104, 85);
             panel6.TabIndex = 48;
             // 
             // tbDescription
@@ -226,7 +225,7 @@ namespace GestionAgraria.Views
             tbDescription.SelectionLength = 0;
             tbDescription.SelectionStart = 0;
             tbDescription.ShortcutsEnabled = true;
-            tbDescription.Size = new Size(788, 48);
+            tbDescription.Size = new Size(1064, 48);
             tbDescription.TabIndex = 0;
             tbDescription.TabStop = false;
             tbDescription.TextAlign = HorizontalAlignment.Left;

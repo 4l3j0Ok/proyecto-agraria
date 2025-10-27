@@ -56,7 +56,6 @@ namespace GestionAgraria.Core
         public static int darkPrimary = 0x234602; // Tono más oscuro del color primario
         public static int accent = 0x7dbd07; // Color de acento
         public static int background = 0xEEEEEE; // Color de fondo
-        public static string fontFamily = "Comic Sans MS"; // Fuente principal
 
         public static MaterialSkinManager GetSkinManager()
         {

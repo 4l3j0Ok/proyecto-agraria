@@ -143,17 +143,17 @@ namespace GestionAgraria.Core
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
     }
-    body { font-family: 'Segoe UI', Arial, sans-serif; padding: 20mm; background: #ffffff; }
-    h1 { text-align: center; color: #27ae60; margin-bottom: 20px; }
-    .date { text-align: center; color: #7f8c8d; margin-bottom: 30px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    thead { background: #27ae60; color: white; }
-    th, td { padding: 10px; text-align: left; border: 1px solid #bdc3c7; font-size: 14px; }
-    tbody tr:nth-child(even) { background: #ecfdf5; }
-    tfoot td { font-weight: bold; background: #d5f4e6; }
-    .footer { text-align: center; margin-top: 40px; color: #95a5a6; font-size: 12px;
+    body { font-family: 'Segoe UI', Arial, sans-serif; padding: 20mm; background: #EEEEEE; }
+    h1 { text-align: center; color: #234602; margin-bottom: 20px; }
+    .date { text-align: center; color: #666; margin-bottom: 30px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; }
+    thead { background: #396f04; color: white; }
+    th, td { padding: 10px; text-align: left; border: 1px solid #ccc; font-size: 14px; }
+    tbody tr:nth-child(even) { background: #f5fbe9; }
+    tfoot td { font-weight: bold; background: #d7f4b0; }
+    .footer { text-align: center; margin-top: 40px; color: #555; font-size: 12px;
               border-top: 1px solid #ccc; padding-top: 15px; }
-    @media print { body { padding: 10mm; } }
+    @media print { body { padding: 10mm; background: white; } }
 </style>
 </head>
 <body>
@@ -199,6 +199,7 @@ namespace GestionAgraria.Core
 </body>
 </html>";
 
+
         public static string SellTemplate => @"
 <!DOCTYPE html>
 <html lang='es'>
@@ -211,17 +212,17 @@ namespace GestionAgraria.Core
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
     }
-    body { font-family: 'Segoe UI', Arial, sans-serif; padding: 20mm; background: #ffffff; }
-    h1 { text-align: center; color: #e74c3c; margin-bottom: 20px; }
-    .date { text-align: center; color: #7f8c8d; margin-bottom: 30px; }
-    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-    thead { background: #e74c3c; color: white; }
-    th, td { padding: 10px; text-align: left; border: 1px solid #bdc3c7; font-size: 14px; }
-    tbody tr:nth-child(even) { background: #fdecea; }
-    tfoot td { font-weight: bold; background: #fadbd8; }
-    .footer { text-align: center; margin-top: 40px; color: #95a5a6; font-size: 12px;
+    body { font-family: 'Segoe UI', Arial, sans-serif; padding: 20mm; background: #EEEEEE; }
+    h1 { text-align: center; color: #234602; margin-bottom: 20px; }
+    .date { text-align: center; color: #666; margin-bottom: 30px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; background: white; }
+    thead { background: #396f04; color: white; }
+    th, td { padding: 10px; text-align: left; border: 1px solid #ccc; font-size: 14px; }
+    tbody tr:nth-child(even) { background: #f5fbe9; }
+    tfoot td { font-weight: bold; background: #d7f4b0; }
+    .footer { text-align: center; margin-top: 40px; color: #555; font-size: 12px;
               border-top: 1px solid #ccc; padding-top: 15px; }
-    @media print { body { padding: 10mm; } }
+    @media print { body { padding: 10mm; background: white; } }
 </style>
 </head>
 <body>
@@ -268,5 +269,6 @@ namespace GestionAgraria.Core
     </div>
 </body>
 </html>";
+
     }
 }

@@ -127,8 +127,6 @@ namespace GestionAgraria
             lblEmptyPurchases = new ReaLTaiizor.Controls.MaterialLabel();
             flpPurchasesList = new FlowLayoutPanel();
             tabSells = new TabPage();
-            btnPrintSells = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
-            btnAddVentas = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             materialExpansionPanel9 = new ReaLTaiizor.Controls.MaterialExpansionPanel();
             panel43 = new Panel();
             materialLabel38 = new ReaLTaiizor.Controls.MaterialLabel();
@@ -139,6 +137,8 @@ namespace GestionAgraria
             panel45 = new Panel();
             tbSearchFiltroVenta = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel40 = new ReaLTaiizor.Controls.MaterialLabel();
+            btnPrintSells = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
+            btnAddVentas = new ReaLTaiizor.Controls.MaterialFloatingActionButton();
             panel46 = new Panel();
             lblEmptySells = new ReaLTaiizor.Controls.MaterialLabel();
             flpSellsList = new FlowLayoutPanel();
@@ -1656,34 +1656,6 @@ namespace GestionAgraria
             tabSells.Text = "Ventas";
             tabSells.UseVisualStyleBackColor = true;
             // 
-            // btnPrintSells
-            // 
-            btnPrintSells.Depth = 0;
-            btnPrintSells.Enabled = false;
-            btnPrintSells.Icon = Properties.Resources.print;
-            btnPrintSells.Location = new Point(710, 257);
-            btnPrintSells.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnPrintSells.Name = "btnPrintSells";
-            btnPrintSells.Size = new Size(56, 56);
-            btnPrintSells.TabIndex = 27;
-            btnPrintSells.Text = "btnPrintSells";
-            btnPrintSells.UseVisualStyleBackColor = true;
-            btnPrintSells.Click += btnPrintSells_Click;
-            // 
-            // btnAddVentas
-            // 
-            btnAddVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnAddVentas.Depth = 0;
-            btnAddVentas.Icon = Properties.Resources.add;
-            btnAddVentas.Location = new Point(710, 321);
-            btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btnAddVentas.Name = "btnAddVentas";
-            btnAddVentas.Size = new Size(56, 56);
-            btnAddVentas.TabIndex = 28;
-            btnAddVentas.Text = "Agregar Producto";
-            btnAddVentas.UseVisualStyleBackColor = true;
-            btnAddVentas.Click += btnAddVentas_Click;
-            // 
             // materialExpansionPanel9
             // 
             materialExpansionPanel9.BackColor = Color.FromArgb(255, 255, 255);
@@ -1850,6 +1822,34 @@ namespace GestionAgraria
             materialLabel40.Size = new Size(81, 19);
             materialLabel40.TabIndex = 4;
             materialLabel40.Text = "Buscar por:";
+            // 
+            // btnPrintSells
+            // 
+            btnPrintSells.Depth = 0;
+            btnPrintSells.Enabled = false;
+            btnPrintSells.Icon = Properties.Resources.print;
+            btnPrintSells.Location = new Point(710, 257);
+            btnPrintSells.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnPrintSells.Name = "btnPrintSells";
+            btnPrintSells.Size = new Size(56, 56);
+            btnPrintSells.TabIndex = 27;
+            btnPrintSells.Text = "btnPrintSells";
+            btnPrintSells.UseVisualStyleBackColor = true;
+            btnPrintSells.Click += btnPrintSells_Click;
+            // 
+            // btnAddVentas
+            // 
+            btnAddVentas.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnAddVentas.Depth = 0;
+            btnAddVentas.Icon = Properties.Resources.add;
+            btnAddVentas.Location = new Point(710, 321);
+            btnAddVentas.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btnAddVentas.Name = "btnAddVentas";
+            btnAddVentas.Size = new Size(56, 56);
+            btnAddVentas.TabIndex = 28;
+            btnAddVentas.Text = "Agregar Producto";
+            btnAddVentas.UseVisualStyleBackColor = true;
+            btnAddVentas.Click += btnAddVentas_Click;
             // 
             // panel46
             // 
