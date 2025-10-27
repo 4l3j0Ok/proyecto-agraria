@@ -31,7 +31,6 @@ namespace GestionAgraria
         private Controls.Paginator paginatorProducts;
         private Controls.Paginator paginatorPurchases;
         private Controls.Paginator paginatorBlackBoards;
-        private Controls.Paginator paginatorPurcheses;
         private Controls.Paginator paginatorSells;
         private Controls.Paginator paginatorActivityRecord;
 
@@ -42,10 +41,12 @@ namespace GestionAgraria
         private System.Windows.Forms.Timer? resizeTimerProducts;
         private System.Windows.Forms.Timer? resizeTimerActivityRecord;
         private System.Windows.Forms.Timer? resizeTimerPurchases;
-        private System.Windows.Forms.Timer? resizeTimerBlackBoards;
+        private System.Windows.Forms.Timer? resizeTimerSells;
 
         // Lista estática para productos seleccionados
         public static List<ProductModel> SelectedProducts = new List<ProductModel>();
+        public static List<PurchaseModel> SelectedPurchases = new List<PurchaseModel>();
+        public static List<SellModel> SelectedSells = new List<SellModel>();
 
         public FormPrincipal(UserModel currentUser)
         {
@@ -68,7 +69,8 @@ namespace GestionAgraria
             flpFormativeEnvironmentsList.ClientSizeChanged += (s, ev) => { resizeTimerEnvironments?.Stop(); resizeTimerEnvironments?.Start(); };
             flpProductList.ClientSizeChanged += (s, ev) => { resizeTimerProducts?.Stop(); resizeTimerProducts?.Start(); };
             flpActivityRecordList.ClientSizeChanged += (s, ev) => { resizeTimerActivityRecord?.Stop(); resizeTimerActivityRecord?.Start(); };
-            flpPurchaseList.ClientSizeChanged += (s, ev) => { resizeTimerPurchases?.Stop(); resizeTimerPurchases?.Start(); };
+            flpPurchasesList.ClientSizeChanged += (s, ev) => { resizeTimerPurchases?.Stop(); resizeTimerPurchases?.Start(); };
+            flpSellsList.ClientSizeChanged += (s, ev) => { resizeTimerSells?.Stop(); resizeTimerSells?.Start(); };
             PositionFloatingButtons();
         }
 
@@ -117,12 +119,10 @@ namespace GestionAgraria
             resizeTimerProducts.Tick += (s, e) => { resizeTimerProducts.Stop(); flpProductList.Controls.Clear(); LoadProductTable(); };
 
             resizeTimerPurchases = new System.Windows.Forms.Timer { Interval = 300 };
-            resizeTimerPurchases.Tick += (s, e) => { resizeTimerPurchases.Stop(); flpPurchaseList.Controls.Clear(); LoadPurchasesTable(); };
+            resizeTimerPurchases.Tick += (s, e) => { resizeTimerPurchases.Stop(); flpPurchasesList.Controls.Clear(); LoadPurchasesTable(); };
 
-            resizeTimerActivityRecord = new System.Windows.Forms.Timer { Interval = 300 };
-            resizeTimerActivityRecord.Tick += (s, e) => { resizeTimerActivityRecord.Stop(); flpActivityRecordList.Controls.Clear(); LoadActivilyRecord(); };
-
-            resizeTimerBlackBoards = new System.Windows.Forms.Timer { Interval = 300 };
+            resizeTimerSells = new System.Windows.Forms.Timer { Interval = 300 };
+            resizeTimerSells.Tick += (s, e) => { resizeTimerSells.Stop(); flpSellsList.Controls.Clear(); LoadSellsTable(); };
             //resizeTimerBlackBoards.Tick += (s, e) => { resizeTimerBlackBoards.Stop(); flowLayoutPanel4.Controls.Clear(); LoadBlackBoard(); };
         }
 
@@ -250,9 +250,9 @@ namespace GestionAgraria
             LoadFormativeEnvironments();
             LoadComboBoxesFiltroProduct();
             LoadProductTable();
+            LoadComboBoxesFiltroPurchase();
             LoadPurchasesTable();
-            LoadComboBoxesFiltroActivity();
-            LoadActivilyRecord();
+            LoadSellsTable();
         }
 
         private void DefautlSelecForComboboxes()
@@ -587,7 +587,8 @@ namespace GestionAgraria
             if (purchases.Count > 0)
                 lblEmptyPurchases.Visible = false;
 
-            LoadCardsInGrid(flpPurchaseList, purchases, purchase => new UCPurchaseCard(purchase));
+            // Use the FlowLayoutPanel that is actually in the designer (flpPurchasesList)
+            LoadCardsInGrid(flpPurchasesList, purchases, purchase => new UCPurchaseCard(purchase));
         }
 
         private void LoadComboBoxesFiltroProduct()
@@ -609,27 +610,6 @@ namespace GestionAgraria
             {
                 MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        private void LoadPurchaseTable()
-        {
-            using var PurchaseController = new PurchaseController();
-
-            int currentPage = paginatorPurcheses?.CurrentPage ?? 1;
-            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
-
-            string? usuario = cbUserFiltroInsumo.SelectedIndex == 0 ? null : cbUserFiltroInsumo.SelectedItem?.ToString();
-            string? searchText = "";
-
-            if (tbSeachFiltroInsumo.Text.Length > 2)
-            {
-                searchText = string.IsNullOrWhiteSpace(tbSeachFiltroInsumo.Text) ? null : tbSeachFiltroInsumo.Text;
-            }
-
-            List<PurchaseModel> Purchase = PurchaseController.GetPurchasesForFiltro(usuario, searchText);
-            if (Purchase.Count > 0)
-                lblEmptyPurchases.Visible = false;
-
-            LoadCardsInGrid(flpPursecheList, Purchase, Purchase => new UCPurchaseCard(Purchase));
         }
 
         private void LoadSellsTable()
@@ -713,7 +693,7 @@ namespace GestionAgraria
                 if (activitys.Count > 0)
                     lblEmptyActivityRecord.Visible = false;
 
-                LoadCardsInGrid(flpActivityRecordList, activitys, activity => new UCActivityRecordCard(activity));
+                LoadCardsInGrid(flpActivityRecordList, activitys, activity => new UCActivityRecordAdd(null, activity));
             }
             catch (Exception ex) { Debug.WriteLine(ex); }
         }
@@ -849,11 +829,6 @@ namespace GestionAgraria
                 }
                 lblEmptyProducts.Visible = true;
             }
-            else if (tabPage == tabBlackBoard)
-            {
-                flowLayoutPanel4.Controls.Clear();
-                lblEmptyBlackBoards.Visible = true;
-            }
         }
 
         private void ReloadTabContent(System.Windows.Forms.TabPage tabPage)
@@ -882,9 +857,9 @@ namespace GestionAgraria
             {
                 LoadPurchasesTable();
             }
-            else if (tabPage == tabBlackBoard)
+            else if (tabPage == tabSells)
             {
-                //LoadBlackBoard();
+                LoadSellsTable();
             }
         }
 
@@ -953,9 +928,9 @@ namespace GestionAgraria
         }
         private void CargarPurcheseCBSelec(object sender, EventArgs e)
         {
-            paginatorPurcheses?.Reset();
-            flpPursecheList.Controls.Clear();
-            LoadPurchaseTable();
+            paginatorPurchases?.Reset();
+            flpPurchasesList.Controls.Clear();
+            LoadPurchasesTable();
         }
         private void CargarSellsCBSelec(object sender, EventArgs e)
         {
@@ -1042,9 +1017,90 @@ namespace GestionAgraria
             return null;
         }
 
-        private void materialTabSelector1_Click(object sender, EventArgs e)
+        private void btnPrintPurchases_Click(object sender, EventArgs e)
         {
+            if (SelectedPurchases.Count == 0)
+            {
+                MessageBox.Show("No hay insumos seleccionados para imprimir.", "Información",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
+            try
+            {
+                var printController = new GestionAgraria.Controllers.PrintController();
+                printController.PrintPurchases(SelectedPurchases);
+
+                // Limpiar selección después de imprimir
+                SelectedPurchases.Clear();
+
+                // Desmarcar todos los checkboxes en el panel de insumos (si los hubiera)
+                foreach (Control control in flpPurchasesList.Controls)
+                {
+                    if (control is UCPurchaseCard purchaseCard)
+                    {
+                        var checkbox = FindCheckBox(purchaseCard);
+                        if (checkbox != null)
+                        {
+                            checkbox.Checked = false;
+                        }
+                    }
+                }
+
+                // Deshabilitar botón después de imprimir
+                if (btnPrintPurchases != null)
+                {
+                    btnPrintPurchases.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al imprimir insumos: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnPrintSells_Click(object sender, EventArgs e)
+        {
+            if (SelectedSells.Count == 0)
+            {
+                MessageBox.Show("No hay ventas seleccionadas para imprimir.", "Información",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                var printController = new GestionAgraria.Controllers.PrintController();
+                printController.PrintSells(SelectedSells);
+
+                // Limpiar selección después de imprimir
+                SelectedSells.Clear();
+
+                // Desmarcar todos los checkboxes en el panel de ventas (si los hubiera)  // Actualizando el comentario
+                foreach (Control control in flpSellsList.Controls)  // Cambiando flpPurchasesList a flpSellsList
+                {
+                    if (control is UCSellCard sellCard)
+                    {
+                        var checkbox = FindCheckBox(sellCard);
+                        if (checkbox != null)
+                        {
+                            checkbox.Checked = false;
+                        }
+                    }
+                }
+
+                // Deshabilitar botón después de imprimir
+                if (btnPrintSells != null)
+                {
+                    btnPrintSells.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al imprimir ventas: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

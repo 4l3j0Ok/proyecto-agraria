@@ -32,11 +32,11 @@
             parrotPictureBox1 = new ReaLTaiizor.Controls.ParrotPictureBox();
             panel1 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
+            lblUnitPrice = new ReaLTaiizor.Controls.MaterialLabel();
             lblCode = new ReaLTaiizor.Controls.MaterialLabel();
             lblStock = new ReaLTaiizor.Controls.MaterialLabel();
             lblNombreProducto = new ReaLTaiizor.Controls.MaterialLabel();
             chbProduct = new ReaLTaiizor.Controls.MaterialCheckBox();
-            lblUnitPrice = new ReaLTaiizor.Controls.MaterialLabel();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -113,6 +113,21 @@
             tableLayoutPanel2.Size = new Size(318, 14);
             tableLayoutPanel2.TabIndex = 1;
             // 
+            // lblUnitPrice
+            // 
+            lblUnitPrice.AutoSize = true;
+            lblUnitPrice.Depth = 0;
+            lblUnitPrice.Dock = DockStyle.Fill;
+            lblUnitPrice.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
+            lblUnitPrice.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
+            lblUnitPrice.Location = new Point(215, 0);
+            lblUnitPrice.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            lblUnitPrice.Name = "lblUnitPrice";
+            lblUnitPrice.Size = new Size(100, 14);
+            lblUnitPrice.TabIndex = 7;
+            lblUnitPrice.Text = "Precio Unitario";
+            lblUnitPrice.TextAlign = ContentAlignment.TopCenter;
+            // 
             // lblCode
             // 
             lblCode.AutoSize = true;
@@ -173,21 +188,6 @@
             chbProduct.UseAccentColor = false;
             chbProduct.UseVisualStyleBackColor = true;
             chbProduct.CheckedChanged += chbProduct_CheckedChanged;
-            // 
-            // lblUnitPrice
-            // 
-            lblUnitPrice.AutoSize = true;
-            lblUnitPrice.Depth = 0;
-            lblUnitPrice.Dock = DockStyle.Fill;
-            lblUnitPrice.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
-            lblUnitPrice.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblUnitPrice.Location = new Point(215, 0);
-            lblUnitPrice.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            lblUnitPrice.Name = "lblUnitPrice";
-            lblUnitPrice.Size = new Size(100, 14);
-            lblUnitPrice.TabIndex = 7;
-            lblUnitPrice.Text = "Precio Unitario";
-            lblUnitPrice.TextAlign = ContentAlignment.TopCenter;
             // 
             // UCProductCard
             // 

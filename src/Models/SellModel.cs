@@ -23,11 +23,12 @@ namespace GestionAgraria.Models
 
         public string? Observation { get; set; } 
 
+        // Cliente al que se le vende
+        public string? ClientName { get; set; }
+
         [ForeignKey("User")]
         [Required]
         public int UserId { get; set; }
         public UserModel? User { get; set; } = null!;
-
-
     }
 }

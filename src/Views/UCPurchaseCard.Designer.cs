@@ -34,7 +34,7 @@
             lblUserName = new ReaLTaiizor.Controls.MaterialLabel();
             lblRecordDatetime = new ReaLTaiizor.Controls.MaterialLabel();
             lblTotal = new ReaLTaiizor.Controls.MaterialLabel();
-            materialCheckBox1 = new ReaLTaiizor.Controls.MaterialCheckBox();
+            chbPurchase = new ReaLTaiizor.Controls.MaterialCheckBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -49,7 +49,7 @@
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
             tableLayoutPanel1.Controls.Add(lblRecordDatetime, 3, 0);
             tableLayoutPanel1.Controls.Add(lblTotal, 2, 0);
-            tableLayoutPanel1.Controls.Add(materialCheckBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(chbPurchase, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -128,23 +128,24 @@
             lblTotal.Text = "Total";
             lblTotal.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // materialCheckBox1
+            // chbPurchase
             // 
-            materialCheckBox1.AutoSize = true;
-            materialCheckBox1.Depth = 0;
-            materialCheckBox1.Dock = DockStyle.Fill;
-            materialCheckBox1.Location = new Point(0, 0);
-            materialCheckBox1.Margin = new Padding(0);
-            materialCheckBox1.MouseLocation = new Point(-1, -1);
-            materialCheckBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialCheckBox1.Name = "materialCheckBox1";
-            materialCheckBox1.ReadOnly = false;
-            materialCheckBox1.Ripple = true;
-            materialCheckBox1.Size = new Size(35, 68);
-            materialCheckBox1.TabIndex = 10;
-            materialCheckBox1.TextAlign = ContentAlignment.MiddleCenter;
-            materialCheckBox1.UseAccentColor = false;
-            materialCheckBox1.UseVisualStyleBackColor = true;
+            chbPurchase.AutoSize = true;
+            chbPurchase.Depth = 0;
+            chbPurchase.Dock = DockStyle.Fill;
+            chbPurchase.Location = new Point(0, 0);
+            chbPurchase.Margin = new Padding(0);
+            chbPurchase.MouseLocation = new Point(-1, -1);
+            chbPurchase.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            chbPurchase.Name = "chbPurchase";
+            chbPurchase.ReadOnly = false;
+            chbPurchase.Ripple = true;
+            chbPurchase.Size = new Size(35, 68);
+            chbPurchase.TabIndex = 10;
+            chbPurchase.TextAlign = ContentAlignment.MiddleCenter;
+            chbPurchase.UseAccentColor = false;
+            chbPurchase.UseVisualStyleBackColor = true;
+            chbPurchase.CheckedChanged += chbPurchase_CheckedChanged;
             // 
             // UCPurchaseCard
             // 
@@ -170,6 +171,6 @@
         public ReaLTaiizor.Controls.MaterialLabel lblUserName;
         public ReaLTaiizor.Controls.MaterialLabel lblRecordDatetime;
         public ReaLTaiizor.Controls.MaterialLabel lblTotal;
-        private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox1;
+        private ReaLTaiizor.Controls.MaterialCheckBox chbPurchase;
     }
 }

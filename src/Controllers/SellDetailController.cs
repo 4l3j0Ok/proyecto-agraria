@@ -32,6 +32,14 @@ namespace GestionAgraria.Controllers
                 .ToList();
         }
 
+        public List<SellDetailModel> GetDetailsBySellId(int sellId)
+        {
+            return _context.SellDetail
+                .Where(d => d.SellsId == sellId)
+                .Include(d => d.Product)
+                .ToList();
+        }
+
         public bool CreateDetailSells(SellDetailModel detailSells)
         {
             try 

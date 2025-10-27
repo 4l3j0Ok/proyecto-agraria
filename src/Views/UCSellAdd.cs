@@ -24,7 +24,9 @@ namespace GestionAgraria.Views
         private SellDetailController detailSellsController;
         private UserController userController;
 
+        // List that stores the details to be saved and avoids re-fetching products by name/id
         private List<SellDetailModel> currentDetailSellsList = new List<SellDetailModel>();
+        private List<ProductModel> availableProducts = new List<ProductModel>();
 
         private SellModel currentSells;
         private SellDetailModel currentDetailSells;
@@ -37,38 +39,76 @@ namespace GestionAgraria.Views
             SellsController = new SellController();
             productController = new ProductController();
             InitializeComponent();
+
             LoadComboBoxes();
+
             if (sells != null)
             {
                 mepSellsAdd.Title = "Modificar Venta";
                 mepSellsAdd.Description = "Edita los datos de la venta seleccionada";
                 currentSells = sells;
 
+                // Preload sell fields
+                tbSellClientName.Text = sells.ClientName ?? string.Empty;
+                tbSellObservations.Text = sells.Observation ?? string.Empty;
+                tbTotal.Text = sells.TotalCost.ToString("0.00");
+
+                // Load sell details and populate grid + detail list
+                try
+                {
+                    detailSellsController = new SellDetailController();
+                    var details = detailSellsController.GetDetailsBySellId(sells.Id);
+                    decimal runningTotal = 0m;
+                    foreach (var d in details)
+                    {
+                        currentDetailSellsList.Add(d);
+                        var prod = d.Product;
+                        string code = prod?.Code ?? "N/A";
+                        string name = prod?.Name ?? "N/A";
+                        string cantidad = d.Quatity.ToString();
+                        string ProductUnitPrice = d.ProductUnitPrice.ToString("0.00");
+                        string totalStr = (d.Quatity * d.ProductUnitPrice).ToString("0.00");
+                        LoadDGVProduct(new List<string> { code, name, cantidad, ProductUnitPrice, totalStr }, updateTotal: false);
+                        runningTotal += d.Quatity * d.ProductUnitPrice;
+                    }
+                    tbTotal.Text = runningTotal.ToString("0.00");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
             else
             {
                 currentSells = new SellModel();
             }
+
+            // subscribe to selection change to update price field
+            cbSellProductName.SelectedIndexChanged += cbSellProductName_SelectedIndexChanged;
         }
 
         private void mepSellsAdd_SaveClick(object sender, EventArgs e)
         {
             try
             {
-                currentSells = new SellModel();
-
-                detailSellsController = new SellDetailController();
-                userController = new UserController();
-
+                // Set current sell data from form
                 currentSells.TotalCost = Convert.ToDecimal(tbTotal.Text);
-                currentSells.Observation = tbSellsObservations.Text;
+                currentSells.Observation = tbSellObservations.Text;
+                currentSells.ClientName = tbSellClientName.Text;
                 currentSells.User = currentUser;
-                currentSells.UserId = currentSells.User.Id;
+                currentSells.UserId = currentSells.User?.Id ?? 0;
 
                 SellsController.CreateSells(currentSells);
 
-                currentSells = SellsController.GetLastSell();
+                // If we just created a new sell, get its id
+                var createdSell = SellsController.GetLastSell();
+                if (createdSell != null)
+                {
+                    currentSells = createdSell;
+                }
 
+                // Save detail lines
+                detailSellsController = new SellDetailController();
                 foreach (SellDetailModel sells in currentDetailSellsList)
                 {
                     sells.SellsId = currentSells.Id;
@@ -76,17 +116,6 @@ namespace GestionAgraria.Views
                 }
 
                 MessageBox.Show("Venta registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Preguntar si desea imprimir
-                var result = MessageBox.Show("¿Desea imprimir el comprobante de venta?", "Imprimir",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes && currentSells != null)
-                {
-                    var printController = new PrintController();
-                    printController.PrintSell(currentSells, currentDetailSellsList);
-                }
-
                 currentDetailSellsList.Clear();
                 formPrincipal?.RestaurarFormularioTab(formPrincipal.tabSells);
             }
@@ -97,24 +126,21 @@ namespace GestionAgraria.Views
             }
         }
 
-        private void UCSellsAdd_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void LoadComboBoxes()
         {
             try
             {
-                ((ComboBox)cbCodeProduc).DropDownStyle = ComboBoxStyle.DropDownList;
-                cbCodeProduc.Items.Clear();
-                cbNameProduct.Items.Clear();
-
-                List<ProductModel> products = productController.GetAllProduct();
-                foreach (ProductModel pro in products)
+                cbSellProductName.Items.Clear();
+                availableProducts = productController.GetAllProduct();
+                foreach (ProductModel pro in availableProducts)
                 {
-                    cbCodeProduc.Items.Add(pro.Code);
-                    cbNameProduct.Items.Add(pro.Name);
+                    cbSellProductName.Items.Add(pro.Name);
+                }
+
+                if (availableProducts.Count > 0)
+                {
+                    cbSellProductName.SelectedIndex = 0;
+                    tbSellPrice.Text = availableProducts[0].UnitPrice.ToString("0.00");
                 }
             }
             catch (Exception ex)
@@ -130,31 +156,43 @@ namespace GestionAgraria.Views
 
         private void btnProductAddList_Click(object sender, EventArgs e)
         {
-
-            currentDetailSells = new SellDetailModel();
-            List<string> listProduct = new List<string>();
             try
             {
+                if (cbSellProductName.SelectedIndex < 0)
+                {
+                    MessageBox.Show("Seleccione un producto.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
 
-                string code = cbCodeProduc.Text;
+                var product = availableProducts[cbSellProductName.SelectedIndex];
 
-                ProductModel product = productController.GetProductByCode(code);
-                currentDetailSells.SellsId = currentSells.Id;
-                currentDetailSells.Quatity = int.Parse(tbQuatity.Text);
-                currentDetailSells.PriceUnit = Convert.ToDecimal(tbPrecio.Text);
-                currentDetailSells.ProductId = product.Id;
+                if (!int.TryParse(tbSellProductQuantity.Text, out int qty) || qty <= 0)
+                {
+                    MessageBox.Show("Ingrese una cantidad válida.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (!decimal.TryParse(tbSellPrice.Text, out decimal price) || price <= 0)
+                {
+                    // fallback to product unit price
+                    price = product.UnitPrice;
+                }
+
+                currentDetailSells = new SellDetailModel
+                {
+                    Quatity = qty,
+                    ProductUnitPrice = price,
+                    ProductId = product.Id
+                };
 
                 currentDetailSellsList.Add(currentDetailSells);
 
+                string code = product.Code;
                 string name = product.Name;
-                string cantidad = Convert.ToString(currentDetailSells.Quatity);
-                string PriceUnit = Convert.ToString(currentDetailSells.PriceUnit);
+                string cantidad = qty.ToString();
+                string ProductUnitPrice = price.ToString("0.00");
 
-                listProduct.Add(code);
-                listProduct.Add(name);
-                listProduct.Add(cantidad);
-                listProduct.Add(PriceUnit);
-                LoadDGVProduct(listProduct);
+                LoadDGVProduct(new List<string> { code, name, cantidad, ProductUnitPrice, (qty * price).ToString("0.00") });
             }
             catch (Exception ex)
             {
@@ -162,31 +200,34 @@ namespace GestionAgraria.Views
             }
 
         }
-        int total = 0;
-        private void LoadDGVProduct(List<string> listProduct)
+
+        decimal total = 0m;
+        private void LoadDGVProduct(List<string> listProduct, bool updateTotal = true)
         {
             int rows = dgvProductList.Rows.Add();
             dgvProductList.Rows[rows].Cells[0].Value = listProduct[0];
             dgvProductList.Rows[rows].Cells[1].Value = listProduct[1];
             dgvProductList.Rows[rows].Cells[2].Value = listProduct[2];
             dgvProductList.Rows[rows].Cells[3].Value = listProduct[3];
+            dgvProductList.Rows[rows].Cells[4].Value = listProduct[4];
 
-            if (int.TryParse(listProduct[3], out int value))
+            if (updateTotal)
             {
-                if (int.TryParse(listProduct[2], out int value1))
-                    dgvProductList.Rows[rows].Cells[4].Value = value * value1;
-                total += value * value1;
-                tbTotal.Text = Convert.ToString(total);
-            }
-            else
-            {
-                dgvProductList.Rows[rows].Cells[4].Value = "Error";
+                if (int.TryParse(listProduct[2], out int qty) && decimal.TryParse(listProduct[3], out decimal unitPrice))
+                {
+                    total += qty * unitPrice;
+                    tbTotal.Text = total.ToString("0.00");
+                }
             }
         }
 
-        private void cbCodeProduc_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbSellProductName_SelectedIndexChanged(object? sender, EventArgs e)
         {
-
+            if (cbSellProductName.SelectedIndex >= 0 && cbSellProductName.SelectedIndex < availableProducts.Count)
+            {
+                var prod = availableProducts[cbSellProductName.SelectedIndex];
+                tbSellPrice.Text = prod.UnitPrice.ToString("0.00");
+            }
         }
     }
 }

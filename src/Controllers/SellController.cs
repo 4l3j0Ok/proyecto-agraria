@@ -104,6 +104,7 @@ namespace GestionAgraria.Controllers
             se.RecordDate = DateTime.Today;
             se.TotalCost = sells.TotalCost;
             se.Observation = sells.Observation;
+            se.ClientName = sells.ClientName;
             se.UserId = sells.UserId;
 
             try
@@ -156,18 +157,11 @@ namespace GestionAgraria.Controllers
 
         public void PrintSellReport(int sellId)
         {
-            using (var detailController = new SellDetailController(_context))
+            var sell = getSellsById(sellId);
+            if (sell != null)
             {
-                var sell = getSellsById(sellId);
-                if (sell != null)
-                {
-                    var details = _context.SellDetail
-                        .Include(d => d.Product)
-                        .Where(d => d.SellsId == sellId)
-                        .ToList();
-                    var printController = new PrintController();
-                    printController.PrintSell(sell, details);
-                }
+                var printController = new PrintController();
+                printController.PrintSells(new List<SellModel> { sell });
             }
         }
 

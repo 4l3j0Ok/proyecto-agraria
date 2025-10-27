@@ -18,11 +18,6 @@ namespace GestionAgraria.Controllers
     {
         private string? htmlContent;
 
-        public void PrintProduct(ProductModel product)
-        {
-            PrintProducts(new List<ProductModel> { product });
-        }
-
         public void PrintProducts(List<ProductModel> products)
         {
             try
@@ -116,28 +111,44 @@ namespace GestionAgraria.Controllers
             return Convert.ToBase64String(ms.ToArray());
         }
 
-        public void PrintPurchase(PurchaseModel purchase, List<PurchaseItemModel> items)
+        public void PrintPurchases(List<PurchaseModel> purchases)
         {
             try
             {
                 var template = Template.Parse(PrintTemplates.PurchaseTemplate);
 
-                var itemsList = items.Select(i => new
+                var rows = new List<object>();
+                decimal totalCost = 0m;
+
+                using (var pic = new PurchaseItemController())
                 {
-                    name = i.Name,
-                    quantity = i.Quantity,
-                    cost = i.Cost,
-                    subtotal = i.Quantity * i.Cost
-                }).ToList();
+                    foreach (var purchase in purchases)
+                    {
+                        var items = pic.GetItemsByPurchaseId(purchase.Id);
+
+                        foreach (var item in items)
+                        {
+                            var subtotal = item.Quantity * item.Cost;
+                            totalCost += subtotal;
+
+                            rows.Add(new
+                            {
+                                purchase_id = purchase.Id,
+                                date = purchase.RecordDate,
+                                user = $"{purchase.User?.Name} {purchase.User?.Surname}".Trim(),
+                                item_name = item.Name,
+                                quantity = item.Quantity,
+                                unit_cost = item.Cost,
+                                subtotal = subtotal
+                            });
+                        }
+                    }
+                }
 
                 var model = new
                 {
-                    id = purchase.Id,
-                    record_date = purchase.RecordDate,
-                    user_name = $"{purchase.User?.Name} {purchase.User?.Surname}",
-                    total_cost = purchase.TotalCost,
-                    observation = purchase.Observation,
-                    items = itemsList
+                    purchases = rows,
+                    total_cost = totalCost
                 };
 
                 htmlContent = template.Render(model);
@@ -151,29 +162,94 @@ namespace GestionAgraria.Controllers
             }
         }
 
-        public void PrintSell(SellModel sell, List<SellDetailModel> details)
+        public void PrintProduct(ProductModel product)
+        {
+            PrintProducts(new List<ProductModel> { product });
+        }
+
+        public void PrintPurchase(PurchaseModel purchase, List<PurchaseItemModel> items)
+        {
+            try
+            {
+                var template = Template.Parse(PrintTemplates.PurchaseTemplate);
+
+                var rows = new List<object>();
+                decimal totalCost = 0m;
+
+                foreach (var item in items)
+                {
+                    var subtotal = item.Quantity * item.Cost;
+                    totalCost += subtotal;
+
+                    rows.Add(new
+                    {
+                        purchase_id = purchase.Id,
+                        date = purchase.RecordDate,
+                        user = $"{purchase.User?.Name} {purchase.User?.Surname}".Trim(),
+                        item_name = item.Name,
+                        quantity = item.Quantity,
+                        unit_cost = item.Cost,
+                        subtotal = subtotal
+                    });
+                }
+
+                var model = new
+                {
+                    purchases = rows,
+                    total_cost = totalCost
+                };
+
+                htmlContent = template.Render(model);
+                OpenHtmlInDefaultBrowserWithAutoPrint(htmlContent);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al generar reporte: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine(ex);
+            }
+        }
+
+        // Updated PrintSells: accepts list of sells and fetches details per sell similar to PrintPurchases
+        public void PrintSells(List<SellModel> sells)
         {
             try
             {
                 var template = Template.Parse(PrintTemplates.SellTemplate);
 
-                var detailsList = details.Select(d => new
+                var rows = new List<object>();
+                decimal totalSales = 0m;
+
+                using (var sdc = new SellDetailController())
                 {
-                    product_code = d.Product?.Code ?? "N/A",
-                    product_name = d.Product?.Name ?? "N/A",
-                    stock = d.Quatity,
-                    price_unit = d.PriceUnit,
-                    subtotal = d.Quatity * d.PriceUnit
-                }).ToList();
+                    foreach (var sell in sells)
+                    {
+                        var details = sdc.GetDetailsBySellId(sell.Id);
+
+                        foreach (var d in details)
+                        {
+                            var subtotal = d.Quatity * d.ProductUnitPrice;
+                            totalSales += subtotal;
+
+                            rows.Add(new
+                            {
+                                id = sell.Id,
+                                date = sell.RecordDate,
+                                user = $"{sell.User?.Name} {sell.User?.Surname}".Trim(),
+                                client = sell.Observation ?? string.Empty,
+                                product_name = d.Product?.Name ?? "N/A",
+                                quantity = d.Quatity,
+                                unit_price = d.ProductUnitPrice,
+                                subtotal = subtotal
+                            });
+                        }
+                    }
+                }
 
                 var model = new
                 {
-                    id = sell.Id,
-                    record_date = sell.RecordDate,
-                    user_name = $"{sell.User?.Name} {sell.User?.Surname}",
-                    total_cost = sell.TotalCost,
-                    observation = sell.Observation,
-                    details = detailsList
+                    sales = rows,
+                    total_sales = totalSales
                 };
 
                 htmlContent = template.Render(model);

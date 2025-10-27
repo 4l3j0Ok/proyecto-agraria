@@ -20,7 +20,7 @@ namespace GestionAgraria.Models
         public int Quatity { get; set; }
 
         [Required]
-        public decimal PriceUnit { get; set; }
+        public decimal ProductUnitPrice { get; set; }
 
         [ForeignKey("Product")]
         [Required]

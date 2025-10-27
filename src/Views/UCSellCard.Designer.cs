@@ -34,7 +34,7 @@
             lblUserName = new ReaLTaiizor.Controls.MaterialLabel();
             lblRecordDatetime = new ReaLTaiizor.Controls.MaterialLabel();
             lblTotal = new ReaLTaiizor.Controls.MaterialLabel();
-            materialCheckBox1 = new ReaLTaiizor.Controls.MaterialCheckBox();
+            chbSell = new ReaLTaiizor.Controls.MaterialCheckBox();
             tableLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -49,7 +49,7 @@
             tableLayoutPanel1.Controls.Add(panel1, 1, 0);
             tableLayoutPanel1.Controls.Add(lblRecordDatetime, 3, 0);
             tableLayoutPanel1.Controls.Add(lblTotal, 2, 0);
-            tableLayoutPanel1.Controls.Add(materialCheckBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(chbSell, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -79,7 +79,7 @@
             lblUserUsername.Location = new Point(0, 19);
             lblUserUsername.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserUsername.Name = "lblUserUsername";
-            lblUserUsername.Size = new Size(105, 14);
+            lblUserUsername.Size = new Size(100, 14);
             lblUserUsername.TabIndex = 8;
             lblUserUsername.Text = "Nombre de usuario";
             // 
@@ -127,28 +127,30 @@
             lblTotal.Text = "Total";
             lblTotal.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // materialCheckBox1
+            // chbSell
             // 
-            materialCheckBox1.AutoSize = true;
-            materialCheckBox1.Depth = 0;
-            materialCheckBox1.Dock = DockStyle.Fill;
-            materialCheckBox1.Location = new Point(0, 0);
-            materialCheckBox1.Margin = new Padding(0);
-            materialCheckBox1.MouseLocation = new Point(-1, -1);
-            materialCheckBox1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialCheckBox1.Name = "materialCheckBox1";
-            materialCheckBox1.ReadOnly = false;
-            materialCheckBox1.Ripple = true;
-            materialCheckBox1.Size = new Size(35, 68);
-            materialCheckBox1.TabIndex = 10;
-            materialCheckBox1.TextAlign = ContentAlignment.MiddleCenter;
-            materialCheckBox1.UseAccentColor = false;
-            materialCheckBox1.UseVisualStyleBackColor = true;
+            chbSell.AutoSize = true;
+            chbSell.Depth = 0;
+            chbSell.Dock = DockStyle.Fill;
+            chbSell.Location = new Point(0, 0);
+            chbSell.Margin = new Padding(0);
+            chbSell.MouseLocation = new Point(-1, -1);
+            chbSell.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            chbSell.Name = "chbSell";
+            chbSell.ReadOnly = false;
+            chbSell.Ripple = true;
+            chbSell.Size = new Size(35, 68);
+            chbSell.TabIndex = 10;
+            chbSell.TextAlign = ContentAlignment.MiddleCenter;
+            chbSell.UseAccentColor = false;
+            chbSell.UseVisualStyleBackColor = true;
+            chbSell.CheckedChanged += chbSell_CheckedChanged;
             // 
             // UCSellCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(tableLayoutPanel1);
             Name = "UCSellCard";
             Size = new Size(624, 68);
@@ -167,6 +169,6 @@
         public ReaLTaiizor.Controls.MaterialLabel lblUserName;
         public ReaLTaiizor.Controls.MaterialLabel lblRecordDatetime;
         public ReaLTaiizor.Controls.MaterialLabel lblTotal;
-        private ReaLTaiizor.Controls.MaterialCheckBox materialCheckBox1;
+        private ReaLTaiizor.Controls.MaterialCheckBox chbSell;
     }
 }
