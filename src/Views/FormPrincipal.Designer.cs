@@ -2573,7 +2573,7 @@ namespace GestionAgraria
             cbEstadoActivityRecord.FormattingEnabled = true;
             cbEstadoActivityRecord.IntegralHeight = false;
             cbEstadoActivityRecord.ItemHeight = 43;
-            cbEstadoActivityRecord.Items.AddRange(new object[] { "Todos" });
+            cbEstadoActivityRecord.Items.AddRange(new object[] { "Activo", "Inactivo", "Todos" });
             cbEstadoActivityRecord.Location = new Point(20, 19);
             cbEstadoActivityRecord.MaxDropDownItems = 4;
             cbEstadoActivityRecord.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;

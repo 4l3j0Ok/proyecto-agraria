@@ -84,6 +84,7 @@ namespace GestionAgraria.Views
         {
             tbTitleActivity.Text = actividad.Titulo;
             tbObservaciones.Text = actividad.Observations;
+            currentUser = actividad.User;
             // Cargar entorno formativo si existe
 
             if (actividad.FormativeEnvironment != null)

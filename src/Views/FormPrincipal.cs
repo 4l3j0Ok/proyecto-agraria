@@ -685,7 +685,7 @@ namespace GestionAgraria
 
                 var activityRecordController = new ActivityRecordController();
 
-                string? usuario = cbRegisteredUserFiltro.SelectedIndex == 0 ? null : cbUserFiltroInsumo.SelectedItem?.ToString();
+                string? usuario = cbRegisteredUserFiltro.SelectedIndex == 0 ? null : cbRegisteredUserFiltro.SelectedItem?.ToString();
                 string? searchText = null;
                 string? estadoActividad = cbStateRecordFiltro.SelectedIndex == 0 ? null : cbStateRecordFiltro.SelectedItem?.ToString();
                 string? entorno = cbEntornosFiltroActividad.SelectedIndex == 0 ? null : cbEntornosFiltroActividad.SelectedItem?.ToString();
@@ -733,7 +733,7 @@ namespace GestionAgraria
 
                 foreach (var user in Users)
                 {
-                    cbRegisteredUserFiltro.Items.Add(user.Name);
+                    cbRegisteredUserFiltro.Items.Add(user.Name+" "+user.Surname);
                 }
                 cbStateRecordFiltro.Items.AddRange(TabConfig.defaultProcesoType.ToArray());
 

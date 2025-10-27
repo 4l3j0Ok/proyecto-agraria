@@ -67,7 +67,7 @@ namespace GestionAgraria.Controllers
 
             // ✅ Filtro por usuario (puede ser por nombre o por ID)
             if (!string.IsNullOrEmpty(usuario))
-                query = query.Where(a => a.User != null && a.User.Username == usuario);
+                query = query.Where(a => a.User != null && (a.User.Username+" "+ a.User.Surname) == usuario);
 
             // Filtro por texto (título u observaciones)
             if (!string.IsNullOrEmpty(searchText))
