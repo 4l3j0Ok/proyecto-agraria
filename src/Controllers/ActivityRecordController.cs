@@ -129,7 +129,13 @@ namespace GestionAgraria.Controllers
                 .Where(fe => fe.IsActive)
                 .ToList();
         }
-
+        public List<UserModel> GetAllUsers()
+        {
+            return _context.Users
+                .Include(u => u.Role)
+                .Where(u => u.IsActive)
+                .ToList();
+        }
 
         // 📌 Crear nueva actividad
         public bool CreateActivity(ActivityRecordModel activity)

@@ -62,13 +62,13 @@ namespace GestionAgraria
             LoadCards();
 
 
-                flpUsersList.ClientSizeChanged += (s, ev) => { resizeTimerUsers?.Stop(); resizeTimerUsers?.Start(); };
-                flpVegetalList.ClientSizeChanged += (s, ev) => { resizeTimerVegetables?.Stop(); resizeTimerVegetables?.Start(); };
-                flpAnimalsList.ClientSizeChanged += (s, ev) => { resizeTimerAnimals?.Stop(); resizeTimerAnimals?.Start(); };
-                flpFormativeEnvironmentsList.ClientSizeChanged += (s, ev) => { resizeTimerEnvironments?.Stop(); resizeTimerEnvironments?.Start(); };
-                flpProductList.ClientSizeChanged += (s, ev) => { resizeTimerProducts?.Stop(); resizeTimerProducts?.Start(); };
-                flpActivityRecordList.ClientSizeChanged += (s, ev) => { resizeTimerActivityRecord?.Stop(); resizeTimerActivityRecord?.Start(); };
-                flpPurchaseList.ClientSizeChanged += (s, ev) => { resizeTimerPurchases?.Stop(); resizeTimerPurchases?.Start(); };
+            flpUsersList.ClientSizeChanged += (s, ev) => { resizeTimerUsers?.Stop(); resizeTimerUsers?.Start(); };
+            flpVegetalList.ClientSizeChanged += (s, ev) => { resizeTimerVegetables?.Stop(); resizeTimerVegetables?.Start(); };
+            flpAnimalsList.ClientSizeChanged += (s, ev) => { resizeTimerAnimals?.Stop(); resizeTimerAnimals?.Start(); };
+            flpFormativeEnvironmentsList.ClientSizeChanged += (s, ev) => { resizeTimerEnvironments?.Stop(); resizeTimerEnvironments?.Start(); };
+            flpProductList.ClientSizeChanged += (s, ev) => { resizeTimerProducts?.Stop(); resizeTimerProducts?.Start(); };
+            flpActivityRecordList.ClientSizeChanged += (s, ev) => { resizeTimerActivityRecord?.Stop(); resizeTimerActivityRecord?.Start(); };
+            flpPurchaseList.ClientSizeChanged += (s, ev) => { resizeTimerPurchases?.Stop(); resizeTimerPurchases?.Start(); };
             PositionFloatingButtons();
         }
 
@@ -256,7 +256,7 @@ namespace GestionAgraria
             cbEstadoFiltroPlantas.SelectedIndex = 0; cbEntornoFiltro.SelectedIndex = 0;
             cbEstadoBusquedaEntonor.SelectedIndex = 0; cbAreasFiltro.SelectedIndex = 0;
             cbEstadoFiltroProducto.SelectedIndex = 0; cbEntornosFiltroProducto.SelectedIndex = 0;
-            //cbUserFiltroInsumo.SelectedIndex = 0; cbUserVentaFiltro.SelectedIndex = 0;
+            cbUserFiltroInsumo.SelectedIndex = 0; cbUserVentaFiltro.SelectedIndex = 0;
             cbRegisteredUserFiltro.SelectedIndex = 0; cbStateRecordFiltro.SelectedIndex = 0; cbEntornosFiltroActividad.SelectedIndex = 0; cbEstadoActivityRecord.SelectedIndex = 0;
         }
 
@@ -278,12 +278,12 @@ namespace GestionAgraria
             int availableWidth = panel.ClientSize.Width - panel.Padding.Horizontal;
             int margin = 10;
             int minCardWidth = 250;
-            
+
             // Determinar cuántas columnas podemos tener (máximo 2)
             int maxColumns = 2;
             int possibleColumns = Math.Max(1, availableWidth / (minCardWidth + margin));
             int actualColumns = Math.Min(maxColumns, possibleColumns);
-            
+
             // Si solo cabe una columna o solo hay un item, usar el ancho completo
             if (actualColumns == 1 || items.Count == 1)
             {
@@ -302,18 +302,18 @@ namespace GestionAgraria
                 // Calcular el ancho de cada card para que ocupen el 100% en columnas
                 int totalMargins = margin * (actualColumns - 1); // Márgenes entre cards
                 int cardWidth = (availableWidth - totalMargins) / actualColumns;
-                
+
                 int cardIndex = 0;
                 foreach (var item in items)
                 {
                     var card = createCard(item);
                     card.Height = 70;
-                    
+
                     // Determinar si es la última card de una fila incompleta
                     int cardsRemaining = items.Count - cardIndex;
                     int currentRowPosition = cardIndex % actualColumns;
                     bool isLastInIncompleteRow = (cardsRemaining == 1 && currentRowPosition > 0);
-                    
+
                     if (isLastInIncompleteRow)
                     {
                         // Si es la última card y está sola en su posición, que ocupe el espacio restante
@@ -324,12 +324,12 @@ namespace GestionAgraria
                     {
                         card.Width = cardWidth;
                     }
-                    
+
                     // Margen solo a la izquierda (excepto la primera de cada fila) y arriba
                     int leftMargin = (currentRowPosition == 0) ? 0 : margin;
                     card.Margin = new Padding(leftMargin, margin, 0, 0);
                     card.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-                    
+
                     panel.Controls.Add(card);
                     cardIndex++;
                 }
@@ -712,6 +712,32 @@ namespace GestionAgraria
             }
             catch (Exception ex) { Debug.WriteLine(ex); }
         }
+        private void LoadComboBoxesFiltroActivity()
+        {
+            var activityRecordController = new ActivityRecordController();
+
+            try
+            {
+                var formativeEnvironments = activityRecordController.GetAllActiveFormativeEnvironments();
+
+                foreach (var environment in formativeEnvironments)
+                {
+                    cbEntornosFiltroActividad.Items.Add(environment.Name);
+                }
+                var Users = activityRecordController.GetAllUsers();
+
+                foreach (var user in Users)
+                {
+                    cbRegisteredUserFiltro.Items.Add(user.Name);
+                }
+                cbStateRecordFiltro.Items.AddRange(TabConfig.defaultProcesoType.ToArray());
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             UCUserAdd userAddControl = new UCUserAdd();
@@ -938,6 +964,12 @@ namespace GestionAgraria
             flpSellsList.Controls.Clear();
             LoadSellsTable();
         }
+        private void CargarActivityCBSelec(object sender, EventArgs e)
+        {
+            paginatorActivityRecord?.Reset();
+            flpActivityRecordList.Controls.Clear();
+            LoadActivilyRecord();
+        }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
         {
@@ -952,7 +984,7 @@ namespace GestionAgraria
         {
             if (SelectedProducts.Count == 0)
             {
-                MessageBox.Show("No hay productos seleccionados para imprimir.", "Información", 
+                MessageBox.Show("No hay productos seleccionados para imprimir.", "Información",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -961,10 +993,10 @@ namespace GestionAgraria
             {
                 var printController = new GestionAgraria.Controllers.PrintController();
                 printController.PrintProducts(SelectedProducts);
-                
+
                 // Limpiar selección después de imprimir
                 SelectedProducts.Clear();
-                
+
                 // Desmarcar todos los checkboxes
                 foreach (Control control in flpProductList.Controls)
                 {
@@ -978,7 +1010,7 @@ namespace GestionAgraria
                         }
                     }
                 }
-                
+
                 // Deshabilitar botón después de imprimir
                 if (btnPrintProduct != null)
                 {
@@ -987,7 +1019,7 @@ namespace GestionAgraria
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al imprimir productos: {ex.Message}", "Error", 
+                MessageBox.Show($"Error al imprimir productos: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -1003,7 +1035,7 @@ namespace GestionAgraria
                 {
                     return checkbox;
                 }
-                
+
                 var found = FindCheckBox(control);
                 if (found != null)
                     return found;
@@ -1011,5 +1043,9 @@ namespace GestionAgraria
             return null;
         }
 
+        private void materialTabSelector1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
