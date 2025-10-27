@@ -13,6 +13,7 @@ using GestionAgraria.Controllers;
 using GestionAgraria.models;
 using GestionAgraria.Models;
 using GestionAgraria.Core;
+using ReaLTaiizor.Controls;
 
 namespace GestionAgraria.Views
 {
@@ -52,7 +53,7 @@ namespace GestionAgraria.Views
 
         private void mepSellsAdd_SaveClick(object sender, EventArgs e)
         {
-            try 
+            try
             {
                 currentSells = new SellModel();
 
@@ -73,23 +74,23 @@ namespace GestionAgraria.Views
                     sells.SellsId = currentSells.Id;
                     detailSellsController.CreateDetailSells(sells);
                 }
-                
+
                 MessageBox.Show("Venta registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
                 // Preguntar si desea imprimir
-                var result = MessageBox.Show("¿Desea imprimir el comprobante de venta?", "Imprimir", 
+                var result = MessageBox.Show("¿Desea imprimir el comprobante de venta?", "Imprimir",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                
+
                 if (result == DialogResult.Yes && currentSells != null)
                 {
                     var printController = new PrintController();
                     printController.PrintSell(currentSells, currentDetailSellsList);
                 }
-                
+
                 currentDetailSellsList.Clear();
                 formPrincipal?.RestaurarFormularioTab(formPrincipal.tabSells);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
                 MessageBox.Show($"Error al registrar la venta: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -105,6 +106,7 @@ namespace GestionAgraria.Views
         {
             try
             {
+                ((ComboBox)cbCodeProduc).DropDownStyle = ComboBoxStyle.DropDownList;
                 cbCodeProduc.Items.Clear();
                 cbNameProduct.Items.Clear();
 
@@ -154,16 +156,16 @@ namespace GestionAgraria.Views
                 listProduct.Add(PriceUnit);
                 LoadDGVProduct(listProduct);
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
-            
+
         }
         int total = 0;
         private void LoadDGVProduct(List<string> listProduct)
         {
-            int rows  = dgvProductList.Rows.Add();
+            int rows = dgvProductList.Rows.Add();
             dgvProductList.Rows[rows].Cells[0].Value = listProduct[0];
             dgvProductList.Rows[rows].Cells[1].Value = listProduct[1];
             dgvProductList.Rows[rows].Cells[2].Value = listProduct[2];
@@ -171,15 +173,20 @@ namespace GestionAgraria.Views
 
             if (int.TryParse(listProduct[3], out int value))
             {
-                if(int.TryParse(listProduct[2], out int value1))
-                dgvProductList.Rows[rows].Cells[4].Value = value * value1;
+                if (int.TryParse(listProduct[2], out int value1))
+                    dgvProductList.Rows[rows].Cells[4].Value = value * value1;
                 total += value * value1;
-                tbTotal.Text = Convert.ToString(total );
+                tbTotal.Text = Convert.ToString(total);
             }
             else
             {
                 dgvProductList.Rows[rows].Cells[4].Value = "Error";
             }
+        }
+
+        private void cbCodeProduc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

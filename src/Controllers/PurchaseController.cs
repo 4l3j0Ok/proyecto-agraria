@@ -33,6 +33,33 @@ namespace GestionAgraria.Controllers
                 .ToList();
         }
 
+        public List<PurchaseModel> GetPurchasesForFiltro(
+        string? usuario = null,
+        string? searchText = null)
+        {
+            var query = _context.Purchases
+                .Include(p => p.User) // Incluimos el usuario relacionado
+                .AsQueryable();
+
+
+            // Filtro por usuario
+            if (!string.IsNullOrEmpty(usuario))
+                query = query.Where(p => p.User.Name == usuario);
+
+            //Filtro por búsqueda (ej: código de compra o algún campo relevante)
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                string lowerText = searchText.ToLower();
+                query = query.Where(p =>
+                    //p..ToLower().Contains(lowerText) ||   // suponiendo que tenés un campo Code
+                    p.Observation.ToLower().Contains(lowerText) // o descripción/observaciones
+                );
+            }
+
+            return query.ToList();
+        }
+
+
         public PurchaseModel? GetPurchaseById(int id)
         {
             return _context.Purchases

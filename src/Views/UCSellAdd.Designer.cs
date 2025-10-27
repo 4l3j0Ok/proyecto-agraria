@@ -97,6 +97,8 @@ namespace GestionAgraria.Views
             mepSellsAdd.Title = "Ventas";
             mepSellsAdd.ValidationButtonEnable = true;
             mepSellsAdd.ValidationButtonText = "GUARDAR";
+            mepSellsAdd.SaveClick += mepSellsAdd_SaveClick;
+            mepSellsAdd.CancelClick += mepSellsAdd_CancelClick;
             // 
             // panel2
             // 
@@ -279,6 +281,7 @@ namespace GestionAgraria.Views
             btnProductAddList.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnProductAddList.UseAccentColor = false;
             btnProductAddList.UseVisualStyleBackColor = true;
+            btnProductAddList.Click += btnProductAddList_Click;
             // 
             // dgvProductList
             // 
@@ -524,6 +527,7 @@ namespace GestionAgraria.Views
             // 
             // cbCodeProduc
             // 
+            cbCodeProduc.AutoCompleteSource = AutoCompleteSource.ListItems;
             cbCodeProduc.AutoResize = false;
             cbCodeProduc.BackColor = Color.FromArgb(255, 255, 255);
             cbCodeProduc.Depth = 0;
@@ -544,6 +548,7 @@ namespace GestionAgraria.Views
             cbCodeProduc.Size = new Size(515, 49);
             cbCodeProduc.StartIndex = 0;
             cbCodeProduc.TabIndex = 10;
+            cbCodeProduc.SelectedIndexChanged += cbCodeProduc_SelectedIndexChanged;
             // 
             // lblCodigoProducto
             // 
@@ -620,7 +625,7 @@ namespace GestionAgraria.Views
         private ReaLTaiizor.Controls.MaterialComboBox cbNameProduct;
         private ReaLTaiizor.Controls.MaterialLabel lblNombreProducto;
         private Panel panel8;
-        private ReaLTaiizor.Controls.MaterialComboBox cbCodeProduc;
         private ReaLTaiizor.Controls.MaterialLabel lblCodigoProducto;
+        private ReaLTaiizor.Controls.MaterialComboBox cbCodeProduc;
     }
 }

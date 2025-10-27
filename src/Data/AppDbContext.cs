@@ -22,6 +22,7 @@ namespace GestionAgraria.data
         public DbSet<BlackBoardModel> BlackBoard { get; set; }
         public DbSet<PurchaseModel> Purchases { get; set; }
         public DbSet<PurchaseItemModel> PurchaseItems { get; set; }
+        public DbSet<ActivityRecordModel> ActivityRecords { get; set; }
 
         // acá agregamos todos los modelos que tengamos
         // public DbSet<ProductModel> Products { get; set; }
@@ -98,6 +99,20 @@ namespace GestionAgraria.data
                 .HasForeignKey(a => a.PurchaseId)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            // Configuracion de la relacion de ActivityRecord-user
+            modelBuilder.Entity<ActivityRecordModel>()
+                .HasOne(a => a.User)
+                .WithMany()
+                .HasForeignKey(a => a.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // Configuracion de la relacion de ActivityRecord-FormativeEnviroment
+            modelBuilder.Entity<ActivityRecordModel>()
+                .HasOne(a => a.FormativeEnvironment)
+                .WithMany()
+                .HasForeignKey(a => a.FormativeEnvironmentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             // Configuración de índices únicos
             modelBuilder.Entity<UserModel>()
                 .HasIndex(u => u.Username)
@@ -133,7 +148,8 @@ namespace GestionAgraria.data
             modelBuilder.Entity<PurchaseModel>().ToTable("Purchase");
             modelBuilder.Entity<PurchaseItemModel>().ToTable("PurchaseItem");
             modelBuilder.Entity<BlackBoardModel>().ToTable("BlackBoard");
-            
+            modelBuilder.Entity<ActivityRecordModel>().ToTable("ActivityRecord");
+
             base.OnModelCreating(modelBuilder);
         }
 

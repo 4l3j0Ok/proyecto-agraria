@@ -7,6 +7,7 @@ using GestionAgraria.Controls;
 using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
@@ -30,12 +31,16 @@ namespace GestionAgraria
         private Controls.Paginator paginatorProducts;
         private Controls.Paginator paginatorPurchases;
         private Controls.Paginator paginatorBlackBoards;
+        private Controls.Paginator paginatorPurcheses;
+        private Controls.Paginator paginatorSells;
+        private Controls.Paginator paginatorActivityRecord;
 
         private System.Windows.Forms.Timer? resizeTimerUsers;
         private System.Windows.Forms.Timer? resizeTimerVegetables;
         private System.Windows.Forms.Timer? resizeTimerAnimals;
         private System.Windows.Forms.Timer? resizeTimerEnvironments;
         private System.Windows.Forms.Timer? resizeTimerProducts;
+        private System.Windows.Forms.Timer? resizeTimerActivityRecord;
         private System.Windows.Forms.Timer? resizeTimerPurchases;
         private System.Windows.Forms.Timer? resizeTimerBlackBoards;
 
@@ -56,32 +61,40 @@ namespace GestionAgraria
             SaveOriginalTabContents();
             LoadCards();
 
-            flpUsersList.ClientSizeChanged += (s, ev) => { resizeTimerUsers?.Stop(); resizeTimerUsers?.Start(); };
-            flpVegetalList.ClientSizeChanged += (s, ev) => { resizeTimerVegetables?.Stop(); resizeTimerVegetables?.Start(); };
-            flpAnimalsList.ClientSizeChanged += (s, ev) => { resizeTimerAnimals?.Stop(); resizeTimerAnimals?.Start(); };
-            flpFormativeEnvironmentsList.ClientSizeChanged += (s, ev) => { resizeTimerEnvironments?.Stop(); resizeTimerEnvironments?.Start(); };
-            flpProductList.ClientSizeChanged += (s, ev) => { resizeTimerProducts?.Stop(); resizeTimerProducts?.Start(); };
-            flpPurchaseList.ClientSizeChanged += (s, ev) => { resizeTimerPurchases?.Stop(); resizeTimerPurchases?.Start(); };
-            flowLayoutPanel4.ClientSizeChanged += (s, ev) => { resizeTimerBlackBoards?.Stop(); resizeTimerBlackBoards?.Start(); };
 
+                flpUsersList.ClientSizeChanged += (s, ev) => { resizeTimerUsers?.Stop(); resizeTimerUsers?.Start(); };
+                flpVegetalList.ClientSizeChanged += (s, ev) => { resizeTimerVegetables?.Stop(); resizeTimerVegetables?.Start(); };
+                flpAnimalsList.ClientSizeChanged += (s, ev) => { resizeTimerAnimals?.Stop(); resizeTimerAnimals?.Start(); };
+                flpFormativeEnvironmentsList.ClientSizeChanged += (s, ev) => { resizeTimerEnvironments?.Stop(); resizeTimerEnvironments?.Start(); };
+                flpProductList.ClientSizeChanged += (s, ev) => { resizeTimerProducts?.Stop(); resizeTimerProducts?.Start(); };
+                flpActivityRecordList.ClientSizeChanged += (s, ev) => { resizeTimerActivityRecord?.Stop(); resizeTimerActivityRecord?.Start(); };
+                flpPurchaseList.ClientSizeChanged += (s, ev) => { resizeTimerPurchases?.Stop(); resizeTimerPurchases?.Start(); };
             PositionFloatingButtons();
         }
 
         private Controls.Paginator EnsurePaginatorExists(ref Controls.Paginator? paginator, System.Windows.Forms.TabPage tabPage, EventHandler<int> pageChangedHandler)
         {
-            if (paginator == null)
+            try
             {
-                Debug.WriteLine($"[PAGINATOR] Creando nuevo paginador para tab: {tabPage.Name}");
-                paginator = new Controls.Paginator();
-                paginator.Dock = DockStyle.Bottom;
-                paginator.PageChanged += pageChangedHandler;
-                tabPage.Controls.Add(paginator);
-                paginator.BringToFront();
-                Debug.WriteLine($"[PAGINATOR] Paginador creado y agregado. Visible: {paginator.Visible}, Dock: {paginator.Dock}");
+
+                if (paginator == null)
+                {
+                    Debug.WriteLine($"[PAGINATOR] Creando nuevo paginador para tab: {tabPage.Name}");
+                    paginator = new Controls.Paginator();
+                    paginator.Dock = DockStyle.Bottom;
+                    paginator.PageChanged += pageChangedHandler;
+                    tabPage.Controls.Add(paginator);
+                    paginator.BringToFront();
+                    Debug.WriteLine($"[PAGINATOR] Paginador creado y agregado. Visible: {paginator.Visible}, Dock: {paginator.Dock}");
+                }
+                else
+                {
+                    Debug.WriteLine($"[PAGINATOR] Paginador ya existe para tab: {tabPage.Name}");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Debug.WriteLine($"[PAGINATOR] Paginator ya existe para tab: {tabPage.Name}");
+                Debug.WriteLine(ex);
             }
             return paginator;
         }
@@ -107,7 +120,7 @@ namespace GestionAgraria
             resizeTimerPurchases.Tick += (s, e) => { resizeTimerPurchases.Stop(); flpPurchaseList.Controls.Clear(); LoadPurchasesTable(); };
 
             resizeTimerBlackBoards = new System.Windows.Forms.Timer { Interval = 300 };
-            resizeTimerBlackBoards.Tick += (s, e) => { resizeTimerBlackBoards.Stop(); flowLayoutPanel4.Controls.Clear(); LoadBlackBoard(); };
+            //resizeTimerBlackBoards.Tick += (s, e) => { resizeTimerBlackBoards.Stop(); flowLayoutPanel4.Controls.Clear(); LoadBlackBoard(); };
         }
 
         private void PositionFloatingButtons()
@@ -150,9 +163,9 @@ namespace GestionAgraria
         private void PositionFloatingButtonsInContainer(Control container, int margin)
         {
             const int BUTTON_SPACING = 10; // Spacing between buttons
-            
+
             var floatingButtons = new List<ReaLTaiizor.Controls.MaterialFloatingActionButton>();
-            
+
             // Collect all floating buttons
             foreach (Control control in container.Controls)
             {
@@ -161,27 +174,27 @@ namespace GestionAgraria
                     floatingButtons.Add(btnFloat);
                 }
             }
-            
+
             if (floatingButtons.Count == 0)
                 return;
-            
+
             // Calculate starting Y position (bottom of container minus margin)
             int currentY = container.ClientSize.Height - margin;
-            
+
             // Position buttons from bottom to top
             for (int i = floatingButtons.Count - 1; i >= 0; i--)
             {
                 var btnFloat = floatingButtons[i];
                 btnFloat.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-                
+
                 // Position button
                 btnFloat.Location = new Point(
                     container.ClientSize.Width - btnFloat.Width - margin,
                     currentY - btnFloat.Height
                 );
-                
+
                 btnFloat.BringToFront();
-                
+
                 // Move up for next button
                 currentY -= (btnFloat.Height + BUTTON_SPACING);
             }
@@ -244,6 +257,8 @@ namespace GestionAgraria
             cbEstadoFiltroPlantas.SelectedIndex = 0; cbEntornoFiltro.SelectedIndex = 0;
             cbEstadoBusquedaEntonor.SelectedIndex = 0; cbAreasFiltro.SelectedIndex = 0;
             cbEstadoFiltroProducto.SelectedIndex = 0; cbEntornosFiltroProducto.SelectedIndex = 0;
+            cbUserFiltroInsumo.SelectedIndex = 0; cbUserVentaFiltro.SelectedIndex = 0;
+            cbRegisteredUserFiltro.SelectedIndex = 0; cbStateRecordFiltro.SelectedIndex = 0; cbEntornosFiltroActividad.SelectedIndex = 0; cbEstadoActivityRecord.SelectedIndex = 0;
         }
 
         private void LoadCardsInGrid<T>(FlowLayoutPanel panel, List<T> items, Func<T, UserControl> createCard)
@@ -591,25 +606,112 @@ namespace GestionAgraria
                 MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void LoadBlackBoard()
+        private void LoadPurchaseTable()
         {
-            using var blackBoardController = new BlackBoardController();
+            using var PurchaseController = new PurchaseController();
 
-            int currentPage = paginatorBlackBoards?.CurrentPage ?? 1;
-            int pageSize = Paginator.GetPageSize();
+            int currentPage = paginatorPurcheses?.CurrentPage ?? 1;
+            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
 
-            List<BlackBoardModel> blackboards = blackBoardController.GetAllBlackBoards(currentPage, pageSize);
-            int totalCount = blackBoardController.GetBlackBoardsCount();
+            string? usuario = cbUserFiltroInsumo.SelectedIndex == 0 ? null : cbUserFiltroInsumo.SelectedItem?.ToString();
+            string? searchText = "";
+
+            if (tbSeachFiltroInsumo.Text.Length > 2)
+            {
+                searchText = string.IsNullOrWhiteSpace(tbSeachFiltroInsumo.Text) ? null : tbSeachFiltroInsumo.Text;
+            }
+
+            List<PurchaseModel> Purchase = PurchaseController.GetPurchasesForFiltro(usuario, searchText);
+            if (Purchase.Count > 0)
+                lblEmptyPurchases.Visible = false;
+
+            LoadCardsInGrid(flpPursecheList, Purchase, Purchase => new UCPurchaseCard(Purchase));
+        }
+
+        private void LoadSellsTable()
+        {
+            using var sellController = new SellController();
+
+            int currentPage = paginatorSells?.CurrentPage ?? 1;
+            int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
+
+            string? usuario = cbUserVentaFiltro.SelectedIndex == 0 ? null : cbUserVentaFiltro.SelectedItem?.ToString();
+            string? searchText = null;
+
+            if (tbSearchFiltroVenta.Text.Length > 2) // <- asegurar que sea el textbox correcto
+            {
+                searchText = string.IsNullOrWhiteSpace(tbSearchFiltroVenta.Text) ? null : tbSearchFiltroVenta.Text;
+            }
+
+            List<SellModel> sells = sellController.GetSellsForFiltro(usuario, searchText, currentPage, pageSize);
+            int totalCount = sellController.GetSellsCountForFiltro(usuario, searchText);
             int totalPages = Paginator.CalculateTotalPages(totalCount);
 
-            var paginator = EnsurePaginatorExists(ref paginatorBlackBoards, tabBlackBoard, (s, page) => LoadBlackBoard());
+            var paginator = EnsurePaginatorExists(ref paginatorSells, tabVentas, (s, page) => LoadSellsTable());
             paginator.TotalPages = totalPages;
 
-            if (blackboards.Count > 0)
-                lblEmptyBlackBoards.Visible = false;
+            lblEmptySells.Visible = sells.Count == 0;
 
-            LoadCardsInGrid(flowLayoutPanel4, blackboards, blackboard => new UCBlackBoardCard(blackboard));
+            LoadCardsInGrid(flpSellsList, sells, sell => new UCSellCard(sell));
+        }
+
+        private void LoadComboBoxesFiltroPurchase()
+        {
+            var userController = new UserController();
+
+            try
+            {
+                var Users = userController.GetAllUsers();
+
+                foreach (var user in Users)
+                {
+                    cbUserFiltroInsumo.Items.Add(user.Name);
+                    cbUserVentaFiltro.Items.Add(user.Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void LoadActivilyRecord()
+        {
+            try
+            {
+
+                var activityRecordController = new ActivityRecordController();
+
+                string? usuario = cbRegisteredUserFiltro.SelectedIndex == 0 ? null : cbUserFiltroInsumo.SelectedItem?.ToString();
+                string? searchText = null;
+                string? estadoActividad = cbStateRecordFiltro.SelectedIndex == 0 ? null : cbStateRecordFiltro.SelectedItem?.ToString();
+                string? entorno = cbEntornosFiltroActividad.SelectedIndex == 0 ? null : cbEntornosFiltroActividad.SelectedItem?.ToString();
+                int estado = cbEstadoActivityRecord.SelectedIndex;
+
+                if (tbSearchFiltroVenta.Text.Length > 2) // <- asegurar que sea el textbox correcto
+                {
+                    searchText = string.IsNullOrWhiteSpace(tbSeachFiltroInsumo.Text) ? null : tbSeachFiltroInsumo.Text;
+                }
+
+                int currentPage = paginatorBlackBoards?.CurrentPage ?? 1;
+                int pageSize = GestionAgraria.Controls.Paginator.GetPageSize();
+
+                List<ActivityRecordModel> activitys = activityRecordController.GetActivitiesForFiltro(
+                estado, entorno, searchText, estadoActividad, usuario, currentPage, pageSize);
+
+                int totalCount = activityRecordController.GetActivitiesCountForFilter(
+                estado, entorno, searchText, estadoActividad, usuario);
+
+                int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
+
+                var paginator = EnsurePaginatorExists(ref paginatorActivityRecord, tabActividad, (s, page) => LoadActivilyRecord());
+                paginator.TotalPages = totalPages;
+
+                if (activitys.Count > 0)
+                    lblEmptyActivityRecord.Visible = false;
+
+                LoadCardsInGrid(flpActivityRecordList, activitys, activity => new UCActivityRecordAdd(null, activity));
+            }
+            catch (Exception ex) { Debug.WriteLine(ex); }
         }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
@@ -752,7 +854,7 @@ namespace GestionAgraria
             }
             else if (tabPage == tabBlackBoard)
             {
-                LoadBlackBoard();
+                //LoadBlackBoard();
             }
         }
 
@@ -777,7 +879,7 @@ namespace GestionAgraria
 
         private void btnAddVentas_Click(object sender, EventArgs e)
         {
-            UCSellAdd AddControl = new UCSellAdd();
+            UCSellAdd AddControl = new UCSellAdd(currentUser);
             this.VerFormularioTab(AddControl, tabSells);
         }
         private void tabCerrarSesion_Click(object sender, EventArgs e)
@@ -824,6 +926,24 @@ namespace GestionAgraria
             paginatorProducts?.Reset();
             flpProductList.Controls.Clear();
             LoadProductTable();
+        }
+        private void CargarPurcheseCBSelec(object sender, EventArgs e)
+        {
+            paginatorPurcheses?.Reset();
+            flpPursecheList.Controls.Clear();
+            LoadPurchaseTable();
+        }
+        private void CargarSellsCBSelec(object sender, EventArgs e)
+        {
+            paginatorSells?.Reset();
+            flpSellsList.Controls.Clear();
+            LoadSellsTable();
+        }
+
+        private void btnAddActivity_Click(object sender, EventArgs e)
+        {
+            UCActivityRecordAdd AddControl = new UCActivityRecordAdd(currentUser);
+            this.VerFormularioTab(AddControl, tabActividad);
         }
 
         /// <summary>

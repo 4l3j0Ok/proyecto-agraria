@@ -32,6 +32,49 @@ namespace GestionAgraria.Controllers
                 .Include(a => a.User)
                 .ToList();        
         }
+        public List<SellModel> GetSellsForFiltro(string? usuario, string? searchText, int page, int pageSize)
+        {
+            var query = _context.Sells
+                .Include(s => s.User)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(usuario))
+                query = query.Where(s => s.User.Name == usuario);
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                string lower = searchText.ToLower();
+                query = query.Where(s =>
+                    s.Observation.ToLower().Contains(lower)
+                );
+            }
+
+            return query
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
+
+        public int GetSellsCountForFiltro(string? usuario, string? searchText)
+        {
+            var query = _context.Sells.AsQueryable();
+
+            if (!string.IsNullOrEmpty(usuario))
+                query = query.Where(s => s.User.Name == usuario);
+
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                string lower = searchText.ToLower();
+                query = query.Where(s =>
+                    s.Observation.ToLower().Contains(lower)
+                );
+            }
+
+            return query.Count();
+        }
+
+
+
 
         public SellModel? getSellsById(int id)
         {

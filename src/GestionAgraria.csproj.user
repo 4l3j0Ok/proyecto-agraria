@@ -17,6 +17,12 @@
     <Compile Update="Views\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Views\UCActivityRecordAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\UCActivityRecordCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UCAnimalCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
