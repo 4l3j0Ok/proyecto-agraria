@@ -152,6 +152,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             Controls.Add(tableLayoutPanel1);
+            Cursor = Cursors.Hand;
             Name = "UCSellCard";
             Size = new Size(624, 68);
             tableLayoutPanel1.ResumeLayout(false);

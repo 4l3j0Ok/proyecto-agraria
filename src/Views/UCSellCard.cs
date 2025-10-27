@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GestionAgraria.Core;
+using GestionAgraria.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestionAgraria.Models;
 
 namespace GestionAgraria.Views
 {
@@ -23,6 +24,7 @@ namespace GestionAgraria.Views
             lblUserUsername.Text = sell.User.Name +" "+ sell.User.Surname;
             lblRecordDatetime.Text = sell.RecordDate.ToString();
             lblTotal.Text = sell.TotalCost.ToString();
+            Utils.CardSetupClickEvent(this, OnSellsCardClick);
         }
 
         private void chbSell_CheckedChanged(object sender, EventArgs e)
@@ -60,14 +62,14 @@ namespace GestionAgraria.Views
             }
         }
 
-        private void OnSellsCardOnClick(object? sender, EventArgs? e)
+        private void OnSellsCardClick(object? sender, EventArgs? e)
         {
             OpenFormAdd(_sell);
         }
 
         public static void OpenFormAdd(SellModel sell)
         {
-            UCSellAdd sellAdd = new UCSellAdd(null, sell);
+            UCSellAdd sellAdd = new UCSellAdd(sell);
             FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
             formPrincipal?.VerFormularioTab(sellAdd, formPrincipal.tabSells);
         }

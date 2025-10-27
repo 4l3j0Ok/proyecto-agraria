@@ -18,7 +18,7 @@ namespace GestionAgraria
 {
     public partial class FormPrincipal : MaterialForm
     {
-        private readonly UserModel currentUser;
+        public readonly UserModel currentUser;
         private readonly Dictionary<System.Windows.Forms.TabPage, List<Control>> originalTabContents = new Dictionary<System.Windows.Forms.TabPage, List<Control>>();
 
         private RoleController roleController;
@@ -61,8 +61,6 @@ namespace GestionAgraria
         {
             SaveOriginalTabContents();
             LoadCards();
-
-
             flpUsersList.ClientSizeChanged += (s, ev) => { resizeTimerUsers?.Stop(); resizeTimerUsers?.Start(); };
             flpVegetalList.ClientSizeChanged += (s, ev) => { resizeTimerVegetables?.Stop(); resizeTimerVegetables?.Start(); };
             flpAnimalsList.ClientSizeChanged += (s, ev) => { resizeTimerAnimals?.Stop(); resizeTimerAnimals?.Start(); };
@@ -72,8 +70,8 @@ namespace GestionAgraria
             flpPurchasesList.ClientSizeChanged += (s, ev) => { resizeTimerPurchases?.Stop(); resizeTimerPurchases?.Start(); };
             flpSellsList.ClientSizeChanged += (s, ev) => { resizeTimerSells?.Stop(); resizeTimerSells?.Start(); };
             PositionFloatingButtons();
+            SetTabPermissions();
         }
-
         private Controls.Paginator EnsurePaginatorExists(ref Controls.Paginator? paginator, System.Windows.Forms.TabPage tabPage, EventHandler<int> pageChangedHandler)
         {
             try
@@ -572,8 +570,6 @@ namespace GestionAgraria
         private void LoadPurchasesTable()
         {
             using var purchaseController = new PurchaseController();
-
-            // TODO: Agregar filtros
             int currentPage = paginatorPurchases?.CurrentPage ?? 1;
             int pageSize = Paginator.GetPageSize();
 
@@ -586,8 +582,6 @@ namespace GestionAgraria
 
             if (purchases.Count > 0)
                 lblEmptyPurchases.Visible = false;
-
-            // Use the FlowLayoutPanel that is actually in the designer (flpPurchasesList)
             LoadCardsInGrid(flpPurchasesList, purchases, purchase => new UCPurchaseCard(purchase));
         }
 
@@ -658,7 +652,7 @@ namespace GestionAgraria
                 MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void LoadActivilyRecord()
+        private void LoadActivityRecord()
         {
             try
             {
@@ -687,7 +681,7 @@ namespace GestionAgraria
 
                 int totalPages = GestionAgraria.Controls.Paginator.CalculateTotalPages(totalCount);
 
-                var paginator = EnsurePaginatorExists(ref paginatorActivityRecord, tabActividad, (s, page) => LoadActivilyRecord());
+                var paginator = EnsurePaginatorExists(ref paginatorActivityRecord, tabActividad, (s, page) => LoadActivityRecord());
                 paginator.TotalPages = totalPages;
 
                 if (activitys.Count > 0)
@@ -696,32 +690,6 @@ namespace GestionAgraria
                 LoadCardsInGrid(flpActivityRecordList, activitys, activity => new UCActivityRecordAdd(null, activity));
             }
             catch (Exception ex) { Debug.WriteLine(ex); }
-        }
-        private void LoadComboBoxesFiltroActivity()
-        {
-            var activityRecordController = new ActivityRecordController();
-
-            try
-            {
-                var formativeEnvironments = activityRecordController.GetAllActiveFormativeEnvironments();
-
-                foreach (var environment in formativeEnvironments)
-                {
-                    cbEntornosFiltroActividad.Items.Add(environment.Name);
-                }
-                var Users = activityRecordController.GetAllUsers();
-
-                foreach (var user in Users)
-                {
-                    cbRegisteredUserFiltro.Items.Add(user.Name+" "+user.Surname);
-                }
-                cbStateRecordFiltro.Items.AddRange(TabConfig.defaultProcesoType.ToArray());
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
         private void btnAddUser_Click(object sender, EventArgs e)
         {
@@ -878,13 +846,13 @@ namespace GestionAgraria
 
         private void btnAddCompras_Click(object sender, EventArgs e)
         {
-            UCPurchaseAdd AddControl = new UCPurchaseAdd(currentUser);
+            UCPurchaseAdd AddControl = new UCPurchaseAdd();
             this.VerFormularioTab(AddControl, tabPurchases);
         }
 
         private void btnAddVentas_Click(object sender, EventArgs e)
         {
-            UCSellAdd AddControl = new UCSellAdd(currentUser);
+            UCSellAdd AddControl = new UCSellAdd();
             this.VerFormularioTab(AddControl, tabSells);
         }
         private void tabCerrarSesion_Click(object sender, EventArgs e)
@@ -942,7 +910,7 @@ namespace GestionAgraria
         {
             paginatorActivityRecord?.Reset();
             flpActivityRecordList.Controls.Clear();
-            LoadActivilyRecord();
+            LoadActivityRecord();
         }
 
         private void btnAddActivity_Click(object sender, EventArgs e)
@@ -1100,6 +1068,30 @@ namespace GestionAgraria
             {
                 MessageBox.Show($"Error al imprimir ventas: {ex.Message}", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void SetTabPermissions()
+        {
+            // Validamos el user logueado. Si el Role.Name == "Invitado", deshabilitamos los botones de agregar
+            if (currentUser.Role.Name == "Invitado")
+            {
+                foreach (System.Windows.Forms.TabPage tabPage in tcPrincipal.TabPages)
+                {
+                    DisableAddActionButtons(tabPage);
+                }
+                foreach (System.Windows.Forms.TabPage tabPage in tcIndustrias.TabPages)
+                {
+                    DisableAddActionButtons(tabPage);
+                }
+            }
+        }
+        private void DisableAddActionButtons(System.Windows.Forms.TabPage tabPage)
+        {
+            foreach (Control control in tabPage.Controls)
+            {
+                if (control is ReaLTaiizor.Controls.MaterialFloatingActionButton)
+                    if (control.Name.Contains("btnAdd"))
+                        control.Enabled = false;
             }
         }
     }

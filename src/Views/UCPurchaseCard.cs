@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GestionAgraria.Core;
+using GestionAgraria.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using GestionAgraria.Models;
 
 namespace GestionAgraria.Views
 {
@@ -20,18 +21,9 @@ namespace GestionAgraria.Views
             InitializeComponent();
             _purchase = purchase;
             _formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-
-            if (purchase.User != null)
-            {
-                lblUserUsername.Text = purchase.User.Name + " " + purchase.User.Surname;
-            }
-            else
-            {
-                lblUserUsername.Text = "Usuario desconocido";
-            }
-            
             lblRecordDatetime.Text = purchase.RecordDate.ToString();
             lblTotal.Text = purchase.TotalCost.ToString();
+            Utils.CardSetupClickEvent(this, OnPurchasesCardClick);
         }
 
         private void chbPurchase_CheckedChanged(object sender, EventArgs e)
@@ -68,16 +60,16 @@ namespace GestionAgraria.Views
                 }
             }
         }
-        private void OnPurchasesCardOnClick(object? sender, EventArgs? e)
+        private void OnPurchasesCardClick(object? sender, EventArgs? e)
         {
             openFormAdd(_purchase);
         }
 
         public static void openFormAdd(PurchaseModel purchase)
         {
-            UCPurchaseAdd purchaseAdd = new UCPurchaseAdd();
+            UCPurchaseAdd purchaseAdd = new UCPurchaseAdd(purchase);
             FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-            formPrincipal?.VerFormularioTab(purchaseAdd, formPrincipal.tabSells);
+            formPrincipal?.VerFormularioTab(purchaseAdd, formPrincipal.tabPurchases);
         }
     }
 }

@@ -38,7 +38,7 @@ namespace GestionAgraria.Views
             btnProductAddList = new ReaLTaiizor.Controls.MaterialButton();
             tableLayoutPanel5 = new TableLayoutPanel();
             panel11 = new Panel();
-            tbSellsObservations = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            tbPurchaseObservation = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel5 = new ReaLTaiizor.Controls.MaterialLabel();
             panel10 = new Panel();
             tbTotal = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -177,7 +177,7 @@ namespace GestionAgraria.Views
             // 
             // panel11
             // 
-            panel11.Controls.Add(tbSellsObservations);
+            panel11.Controls.Add(tbPurchaseObservation);
             panel11.Controls.Add(materialLabel5);
             panel11.Dock = DockStyle.Fill;
             panel11.Location = new Point(247, 3);
@@ -187,38 +187,38 @@ namespace GestionAgraria.Views
             panel11.Size = new Size(854, 79);
             panel11.TabIndex = 24;
             // 
-            // tbSellsObservations
+            // tbPurchaseObservation
             // 
-            tbSellsObservations.AnimateReadOnly = false;
-            tbSellsObservations.AutoCompleteMode = AutoCompleteMode.None;
-            tbSellsObservations.AutoCompleteSource = AutoCompleteSource.None;
-            tbSellsObservations.BackgroundImageLayout = ImageLayout.None;
-            tbSellsObservations.CharacterCasing = CharacterCasing.Normal;
-            tbSellsObservations.Depth = 0;
-            tbSellsObservations.Dock = DockStyle.Fill;
-            tbSellsObservations.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbSellsObservations.HideSelection = true;
-            tbSellsObservations.LeadingIcon = null;
-            tbSellsObservations.Location = new Point(20, 19);
-            tbSellsObservations.Margin = new Padding(3, 3, 26, 3);
-            tbSellsObservations.MaxLength = 32767;
-            tbSellsObservations.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tbSellsObservations.Name = "tbSellsObservations";
-            tbSellsObservations.Padding = new Padding(9, 8, 9, 8);
-            tbSellsObservations.PasswordChar = '\0';
-            tbSellsObservations.PrefixSuffixText = null;
-            tbSellsObservations.ReadOnly = false;
-            tbSellsObservations.RightToLeft = RightToLeft.No;
-            tbSellsObservations.SelectedText = "";
-            tbSellsObservations.SelectionLength = 0;
-            tbSellsObservations.SelectionStart = 0;
-            tbSellsObservations.ShortcutsEnabled = true;
-            tbSellsObservations.Size = new Size(814, 48);
-            tbSellsObservations.TabIndex = 0;
-            tbSellsObservations.TabStop = false;
-            tbSellsObservations.TextAlign = HorizontalAlignment.Left;
-            tbSellsObservations.TrailingIcon = null;
-            tbSellsObservations.UseSystemPasswordChar = false;
+            tbPurchaseObservation.AnimateReadOnly = false;
+            tbPurchaseObservation.AutoCompleteMode = AutoCompleteMode.None;
+            tbPurchaseObservation.AutoCompleteSource = AutoCompleteSource.None;
+            tbPurchaseObservation.BackgroundImageLayout = ImageLayout.None;
+            tbPurchaseObservation.CharacterCasing = CharacterCasing.Normal;
+            tbPurchaseObservation.Depth = 0;
+            tbPurchaseObservation.Dock = DockStyle.Fill;
+            tbPurchaseObservation.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbPurchaseObservation.HideSelection = true;
+            tbPurchaseObservation.LeadingIcon = null;
+            tbPurchaseObservation.Location = new Point(20, 19);
+            tbPurchaseObservation.Margin = new Padding(3, 3, 26, 3);
+            tbPurchaseObservation.MaxLength = 32767;
+            tbPurchaseObservation.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbPurchaseObservation.Name = "tbPurchaseObservation";
+            tbPurchaseObservation.Padding = new Padding(9, 8, 9, 8);
+            tbPurchaseObservation.PasswordChar = '\0';
+            tbPurchaseObservation.PrefixSuffixText = null;
+            tbPurchaseObservation.ReadOnly = false;
+            tbPurchaseObservation.RightToLeft = RightToLeft.No;
+            tbPurchaseObservation.SelectedText = "";
+            tbPurchaseObservation.SelectionLength = 0;
+            tbPurchaseObservation.SelectionStart = 0;
+            tbPurchaseObservation.ShortcutsEnabled = true;
+            tbPurchaseObservation.Size = new Size(814, 48);
+            tbPurchaseObservation.TabIndex = 0;
+            tbPurchaseObservation.TabStop = false;
+            tbPurchaseObservation.TextAlign = HorizontalAlignment.Left;
+            tbPurchaseObservation.TrailingIcon = null;
+            tbPurchaseObservation.UseSystemPasswordChar = false;
             // 
             // materialLabel5
             // 
@@ -533,7 +533,7 @@ namespace GestionAgraria.Views
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel5;
         private Panel panel11;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbSellsObservations;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbPurchaseObservation;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel5;
         private Panel panel10;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbTotal;

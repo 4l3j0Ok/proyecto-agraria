@@ -156,6 +156,7 @@
             Margin = new Padding(0);
             Name = "UCPurchaseCard";
             Size = new Size(624, 68);
+            Click += OnPurchasesCardClick;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             panel1.ResumeLayout(false);

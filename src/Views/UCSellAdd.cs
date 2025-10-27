@@ -30,12 +30,11 @@ namespace GestionAgraria.Views
 
         private SellModel currentSells;
         private SellDetailModel currentDetailSells;
-        private UserModel currentUser;
+        private UserModel currentUser = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault()?.currentUser;
 
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-        public UCSellAdd(UserModel? CurrentUser = null, SellModel? sells = null)
+        public UCSellAdd(SellModel? sells = null)
         {
-            currentUser = CurrentUser;
             SellsController = new SellController();
             productController = new ProductController();
             InitializeComponent();

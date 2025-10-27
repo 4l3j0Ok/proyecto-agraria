@@ -19,7 +19,7 @@ namespace GestionAgraria.Views
         private AnimalController animalController;
         private AnimalModel currentAnimal;
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-
+        
         public UCAnimalAdd(AnimalModel? animal = null)
         {
             animalController = new AnimalController();

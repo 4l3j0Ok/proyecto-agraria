@@ -69,5 +69,12 @@ namespace GestionAgraria.Core
                 return Image.FromStream(ms);
             }
         }
+        public static void SetControlsReadOnly(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                control.Enabled = false;
+            }
+        }
     }
 }

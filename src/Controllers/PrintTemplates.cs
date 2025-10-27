@@ -221,7 +221,7 @@ namespace GestionAgraria.Core
     tbody tr:nth-child(even) { background: #f5fbe9; }
     tfoot td { font-weight: bold; background: #d7f4b0; }
     .footer { text-align: center; margin-top: 40px; color: #555; font-size: 12px;
-              border-top: 1px solid #ccc; padding-top: 15px; }
+            border-top: 1px solid #ccc; padding-top: 15px; }
     @media print { body { padding: 10mm; background: white; } }
 </style>
 </head>

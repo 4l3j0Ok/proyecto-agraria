@@ -25,13 +25,12 @@ namespace GestionAgraria.Views
         private List<PurchaseItemModel> currentPurchaseItems = new List<PurchaseItemModel>();
 
         private PurchaseModel currentPurchase;
-        private UserModel? currentUser;
+        private UserModel? currentUser = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault()?.currentUser;
 
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
 
-        public UCPurchaseAdd(UserModel? currentUser = null, PurchaseModel? purchase = null)
+        public UCPurchaseAdd(PurchaseModel? purchase = null)
         {
-            this.currentUser = currentUser;
             purchaseController = new PurchaseController();
             purchaseItemController = new PurchaseItemController();
 
@@ -50,6 +49,20 @@ namespace GestionAgraria.Views
                 MepBuysAdd.Title = "Modificar Compra";
                 MepBuysAdd.Description = "Edita los datos de la compra seleccionada";
                 currentPurchase = purchase;
+                // Cargar datos de la compra si es necesario
+                foreach (var item in purchaseItemController.GetItemsByPurchaseId(purchase.Id))
+                {
+                    currentPurchaseItems.Add(item);
+                    decimal subtotal = item.Quantity * item.Cost;
+                    int rowIndex = dgvProductList.Rows.Add();
+                    dgvProductList.Rows[rowIndex].Cells["ColName"].Value = item.Name;
+                    dgvProductList.Rows[rowIndex].Cells["ColQuantity"].Value = item.Quantity;
+                    dgvProductList.Rows[rowIndex].Cells["ColCost"].Value = item.Cost;
+                    dgvProductList.Rows[rowIndex].Cells["ColSubtotal"].Value = subtotal;
+                }
+                tbPurchaseObservation.Text = purchase.Observation;
+                UpdateTotal();
+
             }
             else
             {
@@ -58,6 +71,11 @@ namespace GestionAgraria.Views
 
             // Hacer el total readonly
             tbTotal.ReadOnly = true;
+            if (currentUser.Role.Name == "Invitado")
+            {
+                Utils.SetControlsReadOnly(tableLayoutPanel1);
+                MepBuysAdd.ValidationButtonEnable = false;
+            }
         }
 
         private void ConfigureDataGridView()
@@ -232,7 +250,7 @@ namespace GestionAgraria.Views
                 var newPurchase = new PurchaseModel
                 {
                     TotalCost = total,
-                    Observation = tbSellsObservations.Text.Trim(),
+                    Observation = tbPurchaseObservation.Text.Trim(),
                     UserId = currentUser.Id,
                     RecordDate = DateTime.Now
                 };
@@ -268,7 +286,7 @@ namespace GestionAgraria.Views
                 currentPurchaseItems.Clear();
                 dgvProductList.Rows.Clear();
                 tbTotal.Text = "";
-                tbSellsObservations.Text = "";
+                tbPurchaseObservation.Text = "";
 
                 formPrincipal?.RestaurarFormularioTab(formPrincipal.tabPurchases);
             }
