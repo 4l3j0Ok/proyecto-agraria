@@ -119,6 +119,9 @@ namespace GestionAgraria
             resizeTimerPurchases = new System.Windows.Forms.Timer { Interval = 300 };
             resizeTimerPurchases.Tick += (s, e) => { resizeTimerPurchases.Stop(); flpPurchaseList.Controls.Clear(); LoadPurchasesTable(); };
 
+            resizeTimerActivityRecord = new System.Windows.Forms.Timer { Interval = 300 };
+            resizeTimerActivityRecord.Tick += (s, e) => { resizeTimerActivityRecord.Stop(); flpActivityRecordList.Controls.Clear(); LoadActivilyRecord(); };
+
             resizeTimerBlackBoards = new System.Windows.Forms.Timer { Interval = 300 };
             //resizeTimerBlackBoards.Tick += (s, e) => { resizeTimerBlackBoards.Stop(); flowLayoutPanel4.Controls.Clear(); LoadBlackBoard(); };
         }
@@ -248,6 +251,8 @@ namespace GestionAgraria
             LoadComboBoxesFiltroProduct();
             LoadProductTable();
             LoadPurchasesTable();
+            LoadComboBoxesFiltroActivity();
+            LoadActivilyRecord();
         }
 
         private void DefautlSelecForComboboxes()
@@ -708,7 +713,7 @@ namespace GestionAgraria
                 if (activitys.Count > 0)
                     lblEmptyActivityRecord.Visible = false;
 
-                LoadCardsInGrid(flpActivityRecordList, activitys, activity => new UCActivityRecordAdd(null, activity));
+                LoadCardsInGrid(flpActivityRecordList, activitys, activity => new UCActivityRecordCard(activity));
             }
             catch (Exception ex) { Debug.WriteLine(ex); }
         }

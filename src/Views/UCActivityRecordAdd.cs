@@ -26,18 +26,27 @@ namespace GestionAgraria.Views
         public UCActivityRecordAdd(UserModel? CurrentUser = null, ActivityRecordModel? ActivityRecord = null)
         {
             InitializeComponent();
+            LoadComboBoxes();
+            defComboBox();
             currentUser = CurrentUser;
             if (ActivityRecord != null)
             {
-                mepActivityRecord.Title = "Modificar Venta";
-                mepActivityRecord.Description = "Edita los datos de la venta seleccionada";
+                mepActivityRecord.Title = "Modificar actividad";
+                mepActivityRecord.Description = "Edita los datos de la actividad seleccionada";
                 currentActivityRecord = ActivityRecord;
 
+                LoadActivityData(ActivityRecord);
             }
             else
             {
                 currentActivityRecord = ActivityRecord ?? new ActivityRecordModel();
             }
+        }
+        private void defComboBox()
+        {
+            cbEstado.SelectedIndex = 0;
+            cbFormativeEnvironment.SelectedIndex = 0;
+            cbStateRecord.SelectedIndex = 0;
         }
         private void LoadComboBoxes()
         {
@@ -70,6 +79,24 @@ namespace GestionAgraria.Views
                 MessageBox.Show($"Error al cargar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             cbEstado.SelectedIndex = 0; // Por defecto activo
+        }
+        private void LoadActivityData(ActivityRecordModel actividad)
+        {
+            tbTitleActivity.Text = actividad.Titulo;
+            tbObservaciones.Text = actividad.Observations;
+            // Cargar entorno formativo si existe
+
+            if (actividad.FormativeEnvironment != null)
+            {
+                cbFormativeEnvironment.SelectedIndex = cbFormativeEnvironment.Items.IndexOf(actividad.FormativeEnvironment.Name);
+            }
+            if (actividad.StateActivity != null)
+            {
+                cbStateRecord.SelectedIndex = cbStateRecord.Items.IndexOf(actividad.StateActivity);
+            }
+
+            if (actividad.IsActive == false)
+                cbEstado.SelectedIndex = 1;
         }
         private void mepActivityAdd_SaveClick(object sender, EventArgs e)
         {
@@ -162,7 +189,6 @@ namespace GestionAgraria.Views
 
         private void UCActivityRecordAdd_Load(object sender, EventArgs e)
         {
-            LoadComboBoxes();
         }
     }
 }
