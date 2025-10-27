@@ -248,7 +248,6 @@ namespace GestionAgraria
             LoadComboBoxesFiltroProduct();
             LoadProductTable();
             LoadPurchasesTable();
-            LoadBlackBoard();
         }
 
         private void DefautlSelecForComboboxes()
@@ -257,7 +256,7 @@ namespace GestionAgraria
             cbEstadoFiltroPlantas.SelectedIndex = 0; cbEntornoFiltro.SelectedIndex = 0;
             cbEstadoBusquedaEntonor.SelectedIndex = 0; cbAreasFiltro.SelectedIndex = 0;
             cbEstadoFiltroProducto.SelectedIndex = 0; cbEntornosFiltroProducto.SelectedIndex = 0;
-            cbUserFiltroInsumo.SelectedIndex = 0; cbUserVentaFiltro.SelectedIndex = 0;
+            //cbUserFiltroInsumo.SelectedIndex = 0; cbUserVentaFiltro.SelectedIndex = 0;
             cbRegisteredUserFiltro.SelectedIndex = 0; cbStateRecordFiltro.SelectedIndex = 0; cbEntornosFiltroActividad.SelectedIndex = 0; cbEstadoActivityRecord.SelectedIndex = 0;
         }
 
@@ -647,7 +646,7 @@ namespace GestionAgraria
             int totalCount = sellController.GetSellsCountForFiltro(usuario, searchText);
             int totalPages = Paginator.CalculateTotalPages(totalCount);
 
-            var paginator = EnsurePaginatorExists(ref paginatorSells, tabVentas, (s, page) => LoadSellsTable());
+            var paginator = EnsurePaginatorExists(ref paginatorSells, tabSells, (s, page) => LoadSellsTable());
             paginator.TotalPages = totalPages;
 
             lblEmptySells.Visible = sells.Count == 0;
