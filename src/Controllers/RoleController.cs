@@ -25,5 +25,10 @@ namespace GestionAgraria.Controllers
         {
             return _context.Roles.FirstOrDefault(r => r.Name == roleName);
         }
+        public List<RoleModel> GetLowerRoles(int level)
+        {
+            // Mayor número de nivel significa menor privilegio
+            return _context.Roles.Where(r => r.Level > level).ToList();
+        }
     }
 }

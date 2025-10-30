@@ -153,16 +153,16 @@ namespace GestionAgraria.data
 
         public void SeedDefaultRoles()
         {
-            foreach (var roleName in Config.defaultRoles)
+            // creamos los roles por defecto si no existen
+            foreach (var role in Config.defaultRoles)
             {
-                if (!this.Roles.Any(r => r.Name == roleName))
+                if (!this.Roles.Any(r => r.Name == role.Name))
                 {
-                    this.Roles.Add(new RoleModel { Name = roleName });
+                    this.Roles.Add(role);
                 }
             }
-            this.SaveChanges();
         }
-        
+
         public void SeedDefaultAnimalTypes()
         {
             foreach (var typeName in Config.defaultAnimalTypes)

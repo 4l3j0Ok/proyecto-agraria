@@ -60,8 +60,8 @@ namespace GestionAgraria
                 MessageBox.Show("El usuario está inactivo.", "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            FormPrincipal formPrincipal = new FormPrincipal(currentUser: user);
+            Session.CurrentUser = user;
+            FormPrincipal formPrincipal = new FormPrincipal();
             formPrincipal.Show();
             this.Hide();
         }

@@ -19,7 +19,7 @@ namespace GestionAgraria.Views
         private AnimalController animalController;
         private AnimalModel currentAnimal;
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
-        
+
         public UCAnimalAdd(AnimalModel? animal = null)
         {
             animalController = new AnimalController();
@@ -38,6 +38,21 @@ namespace GestionAgraria.Views
             else
             {
                 currentAnimal = new AnimalModel();
+            }
+
+            // Obtener usuario actual desde la sesión
+            var current = Session.CurrentUser;
+            if (current != null && current.Role?.Name == "Invitado")
+            {
+                // Deshabilitar los controles del panel principal
+                try
+                {
+                    Utils.SetControlsReadOnly(this);
+                }
+                catch { }
+
+                // Deshabilitar botón de validación del panel
+                try { mepAnimalAdd.ValidationButtonEnable = false; } catch { }
             }
         }
 

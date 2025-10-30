@@ -37,6 +37,14 @@ namespace GestionAgraria.Views
             {
                 currentProduct = new ProductModel();
             }
+
+            // Usar Session.CurrentUser si es necesario para permisos
+            var current = Session.CurrentUser;
+            if (current != null && current.Role?.Name == "Invitado")
+            {
+                Utils.SetControlsReadOnly(tlpMain);
+                mepProductAdd.ValidationButtonEnable = false;
+            }
         }
 
         private void LoadProductData(ProductModel product) 

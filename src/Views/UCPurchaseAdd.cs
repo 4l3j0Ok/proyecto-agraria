@@ -25,7 +25,8 @@ namespace GestionAgraria.Views
         private List<PurchaseItemModel> currentPurchaseItems = new List<PurchaseItemModel>();
 
         private PurchaseModel currentPurchase;
-        private UserModel? currentUser = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault()?.currentUser;
+        // Obtener usuario actual desde Session en lugar de FormPrincipal
+        private UserModel? currentUser = Session.CurrentUser;
 
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
 
@@ -71,7 +72,8 @@ namespace GestionAgraria.Views
 
             // Hacer el total readonly
             tbTotal.ReadOnly = true;
-            if (currentUser.Role.Name == "Invitado")
+            var current = Session.CurrentUser;
+            if (current != null && current.Role.Name == "Invitado")
             {
                 Utils.SetControlsReadOnly(tableLayoutPanel1);
                 MepBuysAdd.ValidationButtonEnable = false;

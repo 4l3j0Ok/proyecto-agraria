@@ -4,6 +4,7 @@ using ReaLTaiizor.Colors;
 using System.Drawing;
 using ReaLTaiizor.Forms;
 using ReaLTaiizor.Controls;
+using GestionAgraria.models;
 
 
 namespace GestionAgraria.Core
@@ -14,13 +15,13 @@ namespace GestionAgraria.Core
         public static string sql_connection_string = Environment.GetEnvironmentVariable("SQLITE_CONNECTION_STRING") ?? "Data Source=data.db";
         public static string sql_database_name = "GestionAgraria";
         public static string random_password_characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':,.<>?/~`";
-        public static List<string> defaultRoles = new List<string>
+        public static List<RoleModel> defaultRoles = new List<RoleModel>
         {
-            "Administrador",
-            "Director",
-            "Jefe de area",
-            "Docente",
-            "Invitado"
+            new RoleModel { Name = "Administrador", Level = 1 },
+            new RoleModel { Name = "Director", Level = 2 },
+            new RoleModel { Name = "Jefe de área", Level = 3 },
+            new RoleModel { Name = "Profesor", Level = 4 },
+            new RoleModel { Name = "Invitado", Level = 5 }
         };
         public static Bitmap default_profile_picture = Properties.Resources.user_placeholder;
         public static List<string> defaultAnimalTypes = new List<string>

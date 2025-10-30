@@ -34,7 +34,7 @@ namespace GestionAgraria.Views
             mepProductAdd = new NonCollapsibleMaterialExpansionPanel();
             panel2 = new Panel();
             groupBox1 = new GroupBox();
-            tableLayoutPanel2 = new TableLayoutPanel();
+            tlpMain = new TableLayoutPanel();
             panel3 = new Panel();
             tbProductStock = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel3 = new ReaLTaiizor.Controls.MaterialLabel();
@@ -53,7 +53,7 @@ namespace GestionAgraria.Views
             mepProductAdd.SuspendLayout();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
+            tlpMain.SuspendLayout();
             panel3.SuspendLayout();
             panel6.SuspendLayout();
             panel1.SuspendLayout();
@@ -98,7 +98,7 @@ namespace GestionAgraria.Views
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(tableLayoutPanel2);
+            groupBox1.Controls.Add(tlpMain);
             groupBox1.Dock = DockStyle.Top;
             groupBox1.Location = new Point(0, 0);
             groupBox1.Name = "groupBox1";
@@ -109,24 +109,24 @@ namespace GestionAgraria.Views
             // 
             // tableLayoutPanel2
             // 
-            tableLayoutPanel2.ColumnCount = 4;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel2.Controls.Add(panel3, 3, 0);
-            tableLayoutPanel2.Controls.Add(panel6, 0, 1);
-            tableLayoutPanel2.Controls.Add(panel1, 2, 0);
-            tableLayoutPanel2.Controls.Add(panel5, 1, 0);
-            tableLayoutPanel2.Controls.Add(panel4, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 19);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 2;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new Size(1104, 170);
-            tableLayoutPanel2.TabIndex = 37;
+            tlpMain.ColumnCount = 4;
+            tlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tlpMain.Controls.Add(panel3, 3, 0);
+            tlpMain.Controls.Add(panel6, 0, 1);
+            tlpMain.Controls.Add(panel1, 2, 0);
+            tlpMain.Controls.Add(panel5, 1, 0);
+            tlpMain.Controls.Add(panel4, 0, 0);
+            tlpMain.Dock = DockStyle.Fill;
+            tlpMain.Location = new Point(3, 19);
+            tlpMain.Name = "tableLayoutPanel2";
+            tlpMain.RowCount = 2;
+            tlpMain.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpMain.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpMain.Size = new Size(1104, 170);
+            tlpMain.TabIndex = 37;
             // 
             // panel3
             // 
@@ -188,7 +188,7 @@ namespace GestionAgraria.Views
             // 
             // panel6
             // 
-            tableLayoutPanel2.SetColumnSpan(panel6, 4);
+            tlpMain.SetColumnSpan(panel6, 4);
             panel6.Controls.Add(tbDescription);
             panel6.Controls.Add(materialLabel1);
             panel6.Dock = DockStyle.Fill;
@@ -432,7 +432,7 @@ namespace GestionAgraria.Views
             mepProductAdd.PerformLayout();
             panel2.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
+            tlpMain.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel6.ResumeLayout(false);
@@ -452,7 +452,7 @@ namespace GestionAgraria.Views
         private Panel panel2;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit3;
         private GroupBox groupBox1;
-        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel tlpMain;
         private Panel panel6;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbDescription;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel1;

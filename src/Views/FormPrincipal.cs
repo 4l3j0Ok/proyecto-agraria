@@ -18,7 +18,7 @@ namespace GestionAgraria
 {
     public partial class FormPrincipal : MaterialForm
     {
-        public readonly UserModel currentUser;
+        public readonly UserModel currentUser = Session.CurrentUser!;
         private readonly Dictionary<System.Windows.Forms.TabPage, List<Control>> originalTabContents = new Dictionary<System.Windows.Forms.TabPage, List<Control>>();
 
         private RoleController roleController;
@@ -48,10 +48,9 @@ namespace GestionAgraria
         public static List<PurchaseModel> SelectedPurchases = new List<PurchaseModel>();
         public static List<SellModel> SelectedSells = new List<SellModel>();
 
-        public FormPrincipal(UserModel currentUser)
+        public FormPrincipal()
         {
             roleController = new RoleController();
-            this.currentUser = currentUser;
             UIConfig.GetSkinManager().AddFormToManage(this);
             InitializeComponent();
             InitializeResizeTimers();

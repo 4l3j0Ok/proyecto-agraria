@@ -20,35 +20,36 @@ namespace GestionAgraria.Views
     {
         private UserController userController;
         private RoleController roleController;
-        private UserModel currentUser;
+        private UserModel? userModify = new UserModel();
+        private bool isEditMode = false;
         private FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
 
         public UCUserAdd(UserModel? user = null)
         {
             userController = new UserController();
             roleController = new RoleController();
+            if (user != null)
+                userModify = user;
+                isEditMode = true;
             InitializeComponent();
             if (user != null)
             {
                 mepUserAdd.Title = "Modificar Usuario";
                 mepUserAdd.Description = "Edita los datos del usuario seleccionado";
-                currentUser = user;
-                tbUserName.Text = user.Name;
-                tbUserSurname.Text = user.Surname;
-                tbUserUsername.Text = user.Username;
-                tbUserPhone.Text = user.Phone;
-                tbUserEmail.Text = user.Email;
-                tbUserPassword.Text = user.Password;
-                tbUserPasswordConfirm.Text = user.Password;
-                tbUserPersonId.Text = user.PersonId;
-                pbUserProfilePicture.Image = Utils.ByteArrayToImage(user.ProfilePicture);
-                cmbRole.SelectedItem = user.Role?.Name ?? "Sin rol";
-                if (user.IsActive == false)
+                tbUserName.Text = userModify.Name;
+                tbUserSurname.Text = userModify.Surname;
+                tbUserUsername.Text = userModify.Username;
+                tbUserPhone.Text = userModify.Phone;
+                tbUserEmail.Text = userModify.Email;
+                tbUserPassword.Text = userModify.Password;
+                tbUserPasswordConfirm.Text = userModify.Password;
+                tbUserPersonId.Text = userModify.PersonId;
+                pbUserProfilePicture.Image = Utils.ByteArrayToImage(userModify.ProfilePicture);
+                cmbRole.SelectedItem = userModify.Role?.Name ?? "Sin rol";
+                if (userModify.IsActive)
+                    cbEstadoUser.SelectedIndex = 0;
+                else
                     cbEstadoUser.SelectedIndex = 1;
-            }
-            else
-            {
-                currentUser = new UserModel();
             }
         }
 
@@ -67,12 +68,21 @@ namespace GestionAgraria.Views
         private void UCUserAdd_Load(object sender, EventArgs e)
         {
             cbEstadoUser.SelectedIndex = 0;
-
-            List<RoleModel> roles = roleController.GetAllRoles();
-            foreach (RoleModel role in roles)
+            UserModel currentUser = Session.CurrentUser!;
+            List<RoleModel> roles = roleController.GetLowerRoles(currentUser.Role.Level);
+            cmbRole.Items.Clear();
+            foreach (var role in roles)
             {
                 cmbRole.Items.Add(role.Name);
             }
+            if (isEditMode && userModify?.Role?.Level == 1)
+            {
+                // No permitimos modificar el rol de un administrador
+                //Agregamos al indice 0 "Administrador"
+                cmbRole.Items.Insert(0, "Administrador");
+                cmbRole.Enabled = false;
+            }
+            cmbRole.SelectedIndex = 0;
         }
 
         private bool ValidateFields()
@@ -141,31 +151,31 @@ namespace GestionAgraria.Views
                 if (!ValidateFields())
                     return;
 
-                currentUser.Name = tbUserName.Text;
-                currentUser.Surname = tbUserSurname.Text;
-                currentUser.Username = tbUserUsername.Text;
-                currentUser.Phone = tbUserPhone.Text;
-                currentUser.Email = tbUserEmail.Text;
-                currentUser.Password = tbUserPassword.Text;
-                currentUser.PersonId = tbUserPersonId.Text;
+                userModify.Name = tbUserName.Text;
+                userModify.Surname = tbUserSurname.Text;
+                userModify.Username = tbUserUsername.Text;
+                userModify.Phone = tbUserPhone.Text;
+                userModify.Email = tbUserEmail.Text;
+                userModify.Password = tbUserPassword.Text;
+                userModify.PersonId = tbUserPersonId.Text;
 
                 if (!(cbEstadoUser.SelectedIndex == 0))
-                    currentUser.IsActive = false;
+                    userModify.IsActive = false;
                 else
-                    currentUser.IsActive = true;
+                    userModify.IsActive = true;
 
-                currentUser.ProfilePicture = Utils.ImageToByteArray(pbUserProfilePicture.Image);
+                userModify.ProfilePicture = Utils.ImageToByteArray(pbUserProfilePicture.Image);
                 RoleModel? selectedRole = roleController.GetRoleByName(cmbRole.SelectedItem?.ToString() ?? "");
                 if (selectedRole != null)
                 {
-                    currentUser.RoleId = selectedRole.Id;
-                    currentUser.Role = selectedRole;
+                    userModify.RoleId = selectedRole.Id;
+                    userModify.Role = selectedRole;
                 }
 
-                if (currentUser.Id == 0)
-                    success = userController.CreateUser(currentUser);
+                if (userModify.Id == 0)
+                    success = userController.CreateUser(userModify);
                 else
-                    success = userController.UpdateUser(currentUser);
+                    success = userController.UpdateUser(userModify);
                 if (success)
                 {
                     MessageBox.Show("Usuario guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
