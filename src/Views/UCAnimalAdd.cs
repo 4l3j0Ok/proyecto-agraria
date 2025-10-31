@@ -58,6 +58,7 @@ namespace GestionAgraria.Views
 
         private void UCAnimalAdd_Load(object sender, EventArgs e)
         {
+            Utils.DeshabilitarShortcuts(this);
             dtAnimalEntryDate.MaxDate = DateTime.Today;
         }
 

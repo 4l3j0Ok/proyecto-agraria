@@ -58,6 +58,9 @@ namespace GestionAgraria
 
         private void FormPrincipal_Load(object sender, EventArgs e)
         {
+            //Es necessario ? Verlo en clases hoy
+            Utils.DeshabilitarShortcuts(this);
+
             SaveOriginalTabContents();
             LoadCards();
             flpUsersList.ClientSizeChanged += (s, ev) => { resizeTimerUsers?.Stop(); resizeTimerUsers?.Start(); };

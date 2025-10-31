@@ -82,6 +82,8 @@ namespace GestionAgraria.Views
 
         private void ConfigureDataGridView()
         {
+            Utils.DeshabilitarShortcuts(this);
+
             // Limpiar columnas existentes
             dgvProductList.Columns.Clear();
 

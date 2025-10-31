@@ -127,6 +127,7 @@ namespace GestionAgraria.Views
 
         private void LoadComboBoxes()
         {
+            Utils.DeshabilitarShortcuts(this);
             try
             {
                 cbSellProductName.Items.Clear();

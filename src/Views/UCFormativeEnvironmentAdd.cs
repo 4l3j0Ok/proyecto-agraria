@@ -47,6 +47,7 @@ namespace GestionAgraria.Views
 
         private void LoadComboBoxes()
         {
+            Utils.DeshabilitarShortcuts(this);
             // Cargar usuarios responsables
             var users = userController.GetAllUsers();
             cbEnvironmentResponsable.Items.Clear();

@@ -432,6 +432,7 @@ namespace GestionAgraria.Views
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCProductAdd";
             Size = new Size(1152, 604);
+            Load += UCProductAdd_Load;
             mepProductAdd.ResumeLayout(false);
             mepProductAdd.PerformLayout();
             panel2.ResumeLayout(false);

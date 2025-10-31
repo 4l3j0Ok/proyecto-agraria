@@ -42,6 +42,7 @@ namespace GestionAgraria.Views
 
         private void LoadComboBoxes()
         {
+            Utils.DeshabilitarShortcuts(this);
             // No hay ComboBoxes específicos para este formulario
             // Los tipos de plantas se pueden escribir directamente
             vegetalController = new VegetableController();

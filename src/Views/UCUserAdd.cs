@@ -67,6 +67,7 @@ namespace GestionAgraria.Views
 
         private void UCUserAdd_Load(object sender, EventArgs e)
         {
+            Utils.DeshabilitarShortcuts(this);
             cbEstadoUser.SelectedIndex = 0;
             UserModel currentUser = Session.CurrentUser!;
             List<RoleModel> roles = roleController.GetLowerRoles(currentUser.Role.Level);

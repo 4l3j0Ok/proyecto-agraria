@@ -134,5 +134,10 @@ namespace GestionAgraria.Views
         {
             Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 9, Utils.InputValidator.TipoValidacion.SoloNumeros);
         }
+
+        private void UCProductAdd_Load(object sender, EventArgs e)
+        {
+            Utils.DeshabilitarShortcuts(this);
+        }
     }
 }
