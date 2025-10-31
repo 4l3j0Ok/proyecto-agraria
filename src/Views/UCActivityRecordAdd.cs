@@ -44,9 +44,14 @@ namespace GestionAgraria.Views
         }
         private void defComboBox()
         {
-            cbEstado.SelectedIndex = 0;
-            cbFormativeEnvironment.SelectedIndex = 0;
-            cbStateRecord.SelectedIndex = 0;
+            try
+            {
+                cbEstado.SelectedIndex = 0;
+                cbFormativeEnvironment.SelectedIndex = 0;
+                cbStateRecord.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            { Debug.WriteLine(ex); }
         }
         private void LoadComboBoxes()
         {
@@ -190,6 +195,17 @@ namespace GestionAgraria.Views
 
         private void UCActivityRecordAdd_Load(object sender, EventArgs e)
         {
+            Utils.DeshabilitarShortcuts(this);
+        }
+
+        private void tbTitleActivity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+        }
+
+        private void tbObservaciones_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
         }
     }
 }

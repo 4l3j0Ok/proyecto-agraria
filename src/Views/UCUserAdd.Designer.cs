@@ -227,6 +227,7 @@ namespace GestionAgraria.Views
             tbUserPhone.TextAlign = HorizontalAlignment.Left;
             tbUserPhone.TrailingIcon = null;
             tbUserPhone.UseSystemPasswordChar = false;
+            tbUserPhone.KeyPress += tbUserPhone_KeyPress;
             // 
             // materialLabel8
             // 
@@ -285,6 +286,7 @@ namespace GestionAgraria.Views
             tbUserEmail.TextAlign = HorizontalAlignment.Left;
             tbUserEmail.TrailingIcon = null;
             tbUserEmail.UseSystemPasswordChar = false;
+            tbUserEmail.KeyPress += tbUserEmail_KeyPress;
             // 
             // materialLabel9
             // 
@@ -371,6 +373,7 @@ namespace GestionAgraria.Views
             tbUserPersonId.TextAlign = HorizontalAlignment.Left;
             tbUserPersonId.TrailingIcon = null;
             tbUserPersonId.UseSystemPasswordChar = false;
+            tbUserPersonId.KeyPress += tbUserPersonId_KeyPress;
             // 
             // materialLabel6
             // 
@@ -429,6 +432,7 @@ namespace GestionAgraria.Views
             tbUserName.TextAlign = HorizontalAlignment.Left;
             tbUserName.TrailingIcon = null;
             tbUserName.UseSystemPasswordChar = false;
+            tbUserName.KeyPress += tbUserName_KeyPress;
             // 
             // materialLabel5
             // 
@@ -487,6 +491,7 @@ namespace GestionAgraria.Views
             tbUserSurname.TextAlign = HorizontalAlignment.Left;
             tbUserSurname.TrailingIcon = null;
             tbUserSurname.UseSystemPasswordChar = false;
+            tbUserSurname.KeyPress += tbUserName_KeyPress;
             // 
             // materialLabel4
             // 
@@ -626,6 +631,7 @@ namespace GestionAgraria.Views
             tbUserUsername.TextAlign = HorizontalAlignment.Left;
             tbUserUsername.TrailingIcon = null;
             tbUserUsername.UseSystemPasswordChar = false;
+            tbUserUsername.KeyPress += tbUserUsername_KeyPress;
             // 
             // lblUsuario
             // 
@@ -684,6 +690,7 @@ namespace GestionAgraria.Views
             tbUserPasswordConfirm.TextAlign = HorizontalAlignment.Left;
             tbUserPasswordConfirm.TrailingIcon = null;
             tbUserPasswordConfirm.UseSystemPasswordChar = false;
+            tbUserPasswordConfirm.KeyPress += tbUserPassword_KeyPress;
             // 
             // materialLabel3
             // 
@@ -790,6 +797,7 @@ namespace GestionAgraria.Views
             tbUserPassword.TextAlign = HorizontalAlignment.Left;
             tbUserPassword.TrailingIcon = null;
             tbUserPassword.UseSystemPasswordChar = false;
+            tbUserPassword.KeyPress += tbUserPassword_KeyPress;
             // 
             // materialLabel2
             // 

@@ -219,6 +219,7 @@ namespace GestionAgraria.Views
             tbPurchaseObservation.TextAlign = HorizontalAlignment.Left;
             tbPurchaseObservation.TrailingIcon = null;
             tbPurchaseObservation.UseSystemPasswordChar = false;
+            tbPurchaseObservation.KeyPress += tbPurchaseItemName_KeyPress;
             // 
             // materialLabel5
             // 
@@ -254,6 +255,7 @@ namespace GestionAgraria.Views
             tbTotal.CharacterCasing = CharacterCasing.Normal;
             tbTotal.Depth = 0;
             tbTotal.Dock = DockStyle.Fill;
+            tbTotal.Enabled = false;
             tbTotal.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             tbTotal.HideSelection = true;
             tbTotal.LeadingIcon = null;
@@ -355,6 +357,7 @@ namespace GestionAgraria.Views
             tbPurchaseItemCost.TextAlign = HorizontalAlignment.Left;
             tbPurchaseItemCost.TrailingIcon = null;
             tbPurchaseItemCost.UseSystemPasswordChar = false;
+            tbPurchaseItemCost.KeyPress += tbPurchaseItemCost_KeyPress;
             // 
             // materialLabel4
             // 
@@ -413,6 +416,7 @@ namespace GestionAgraria.Views
             tbPurchaseItemQuantity.TextAlign = HorizontalAlignment.Left;
             tbPurchaseItemQuantity.TrailingIcon = null;
             tbPurchaseItemQuantity.UseSystemPasswordChar = false;
+            tbPurchaseItemQuantity.KeyPress += tbPurchaseItemQuantity_KeyPress;
             // 
             // materialLabel2
             // 
@@ -482,6 +486,7 @@ namespace GestionAgraria.Views
             tbPurchaseItemName.TextAlign = HorizontalAlignment.Left;
             tbPurchaseItemName.TrailingIcon = null;
             tbPurchaseItemName.UseSystemPasswordChar = false;
+            tbPurchaseItemName.KeyPress += tbPurchaseItemName_KeyPress;
             // 
             // materialLabel3
             // 

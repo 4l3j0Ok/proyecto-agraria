@@ -196,6 +196,7 @@ namespace GestionAgraria.Views
             materialTextBoxEdit8.TextAlign = HorizontalAlignment.Left;
             materialTextBoxEdit8.TrailingIcon = null;
             materialTextBoxEdit8.UseSystemPasswordChar = false;
+            materialTextBoxEdit8.KeyPress += materialTextBoxEdit8_KeyPress;
             // 
             // materialLabel8
             // 
@@ -429,6 +430,7 @@ namespace GestionAgraria.Views
             tbUsuario.TextAlign = HorizontalAlignment.Left;
             tbUsuario.TrailingIcon = null;
             tbUsuario.UseSystemPasswordChar = false;
+            tbUsuario.KeyPress += tbUsuario_KeyPress;
             // 
             // materialLabel1
             // 

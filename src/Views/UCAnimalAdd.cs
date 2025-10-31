@@ -32,7 +32,7 @@ namespace GestionAgraria.Views
                 mepAnimalAdd.Title = "Modificar Animal";
                 mepAnimalAdd.Description = "Edita los datos del animal seleccionado";
                 currentAnimal = animal;
-                
+
                 LoadAnimalData(animal);
             }
             else
@@ -219,6 +219,16 @@ namespace GestionAgraria.Views
             //{
             //    cbAnimalFormativeEnvironment.Items.Add(environment.Name);
             //}
+        }
+
+        private void tbAnimalCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 15, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+        }
+
+        private void cbAnimalObservations_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
         }
     }
 }

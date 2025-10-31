@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using GestionAgraria.Models;
 using GestionAgraria.controllers;
 using Microsoft.VisualBasic.ApplicationServices;
+using GestionAgraria.Core;
 
 namespace GestionAgraria.Views
 {
@@ -158,6 +159,16 @@ namespace GestionAgraria.Views
         private void mepVegetalAdd_CancelClick(object sender, EventArgs e)
         {
             formPrincipal?.RestaurarFormularioTab(formPrincipal.tabVegetablesArea);
+        }
+        private void tbUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+
+        }
+
+        private void materialTextBoxEdit8_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
         }
     }
 }

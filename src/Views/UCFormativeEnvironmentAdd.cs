@@ -242,5 +242,15 @@ namespace GestionAgraria.Views
                 mepFormativeEnvironmentAdd.PerformLayout();
             }
         }
+
+        private void tbEnvironmentName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+        }
+
+        private void tbEnvironmentObservations_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+        }
     }
 }

@@ -107,7 +107,7 @@ namespace GestionAgraria.Views
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos del producto";
             // 
-            // tableLayoutPanel2
+            // tlpMain
             // 
             tlpMain.ColumnCount = 4;
             tlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
@@ -121,7 +121,7 @@ namespace GestionAgraria.Views
             tlpMain.Controls.Add(panel4, 0, 0);
             tlpMain.Dock = DockStyle.Fill;
             tlpMain.Location = new Point(3, 19);
-            tlpMain.Name = "tableLayoutPanel2";
+            tlpMain.Name = "tlpMain";
             tlpMain.RowCount = 2;
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
@@ -172,6 +172,7 @@ namespace GestionAgraria.Views
             tbProductStock.TextAlign = HorizontalAlignment.Left;
             tbProductStock.TrailingIcon = null;
             tbProductStock.UseSystemPasswordChar = false;
+            tbProductStock.KeyPress += tbProductStock_KeyPress;
             // 
             // materialLabel3
             // 
@@ -290,6 +291,7 @@ namespace GestionAgraria.Views
             tbProductUnitPrice.TextAlign = HorizontalAlignment.Left;
             tbProductUnitPrice.TrailingIcon = null;
             tbProductUnitPrice.UseSystemPasswordChar = false;
+            tbProductUnitPrice.KeyPress += tbProductUnitPrice_KeyPress;
             // 
             // materialLabel2
             // 
@@ -348,6 +350,7 @@ namespace GestionAgraria.Views
             tbProductName.TextAlign = HorizontalAlignment.Left;
             tbProductName.TrailingIcon = null;
             tbProductName.UseSystemPasswordChar = false;
+            tbProductName.KeyPress += tbProductCode_KeyPress;
             // 
             // materialLabel4
             // 
@@ -406,6 +409,7 @@ namespace GestionAgraria.Views
             tbProductCode.TextAlign = HorizontalAlignment.Left;
             tbProductCode.TrailingIcon = null;
             tbProductCode.UseSystemPasswordChar = false;
+            tbProductCode.KeyPress += tbProductCode_KeyPress;
             // 
             // lblTipo
             // 

@@ -228,5 +228,21 @@ namespace GestionAgraria.Views
                 tbSellPrice.Text = prod.UnitPrice.ToString("0.00");
             }
         }
+
+        private void tbSellClientName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+        }
+
+        private void tbSellProductQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.SoloNumeros);
+
+        }
+
+        private void tbSellPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.Decimal);
+        }
     }
 }

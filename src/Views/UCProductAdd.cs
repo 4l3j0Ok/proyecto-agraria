@@ -47,7 +47,7 @@ namespace GestionAgraria.Views
             }
         }
 
-        private void LoadProductData(ProductModel product) 
+        private void LoadProductData(ProductModel product)
         {
             tbProductCode.Text = product.Code;
             tbProductName.Text = product.Name;
@@ -118,6 +118,21 @@ namespace GestionAgraria.Views
         private void mepProductAdd_cancelClick(object sender, EventArgs e)
         {
             formPrincipal?.RestaurarFormularioTab(formPrincipal.tabProducts);
+        }
+
+        private void tbProductUnitPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 9, Utils.InputValidator.TipoValidacion.Decimal);
+        }
+
+        private void tbProductCode_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 9, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+        }
+
+        private void tbProductStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 9, Utils.InputValidator.TipoValidacion.SoloNumeros);
         }
     }
 }

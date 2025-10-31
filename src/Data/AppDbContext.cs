@@ -3,6 +3,7 @@ using GestionAgraria.models;
 using GestionAgraria.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Reflection.Emit;
 
 namespace GestionAgraria.data
@@ -164,15 +165,21 @@ namespace GestionAgraria.data
         }
 
         public void SeedDefaultAnimalTypes()
-        {
-            foreach (var typeName in Config.defaultAnimalTypes)
-            {
-                if (!this.AnimalTypes.Any(t => t.Name == typeName))
+        {   
+            try
                 {
-                    this.AnimalTypes.Add(new AnimalTypeModel { Name = typeName });
+
+                foreach (var typeName in Config.defaultAnimalTypes)
+                {
+                    if (!this.AnimalTypes.Any(t => t.Name == typeName))
+                    {
+                        this.AnimalTypes.Add(new AnimalTypeModel { Name = typeName });
+                    }
                 }
+                this.SaveChanges();
             }
-            this.SaveChanges();
+            catch(Exception ex)
+            { Debug.WriteLine(ex); }
         }
 
         public UserModel? GetUserByUsername(string username)

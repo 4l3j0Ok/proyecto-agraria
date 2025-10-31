@@ -211,6 +211,7 @@ namespace GestionAgraria.Views
             cbAnimalObservations.TextAlign = HorizontalAlignment.Left;
             cbAnimalObservations.TrailingIcon = null;
             cbAnimalObservations.UseSystemPasswordChar = false;
+            cbAnimalObservations.KeyPress += cbAnimalObservations_KeyPress;
             // 
             // materialLabel8
             // 
@@ -608,6 +609,7 @@ namespace GestionAgraria.Views
             tbAnimalCode.TextAlign = HorizontalAlignment.Left;
             tbAnimalCode.TrailingIcon = null;
             tbAnimalCode.UseSystemPasswordChar = false;
+            tbAnimalCode.KeyPress += tbAnimalCode_KeyPress;
             // 
             // lblUsuario
             // 

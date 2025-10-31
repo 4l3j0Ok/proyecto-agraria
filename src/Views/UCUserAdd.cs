@@ -30,7 +30,7 @@ namespace GestionAgraria.Views
             roleController = new RoleController();
             if (user != null)
                 userModify = user;
-                isEditMode = true;
+            isEditMode = true;
             InitializeComponent();
             if (user != null)
             {
@@ -195,6 +195,37 @@ namespace GestionAgraria.Views
         private void mepUserAdd_CancelClick(object sender, EventArgs e)
         {
             formPrincipal?.RestaurarFormularioTab(formPrincipal.tabUsers);
+        }
+
+        private void tbUserUsername_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+        }
+
+        private void tbUserPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 20, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+        }
+
+        private void tbUserPersonId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 11, Utils.InputValidator.TipoValidacion.SoloNumeros);
+
+        }
+
+        private void tbUserName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 20, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+        }
+
+        private void tbUserPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 11, Utils.InputValidator.TipoValidacion.SoloNumeros);
+        }
+
+        private void tbUserEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.SoloMail);
         }
     }
 }

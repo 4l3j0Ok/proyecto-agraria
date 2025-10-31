@@ -36,7 +36,7 @@ namespace GestionAgraria.Views
             purchaseItemController = new PurchaseItemController();
 
             InitializeComponent();
-            
+
             // Configurar el DataGridView dinámicamente
             ConfigureDataGridView();
 
@@ -84,14 +84,14 @@ namespace GestionAgraria.Views
         {
             // Limpiar columnas existentes
             dgvProductList.Columns.Clear();
-            
+
             // Configurar propiedades generales
             dgvProductList.AllowUserToAddRows = false;
             dgvProductList.AllowUserToDeleteRows = false;
             dgvProductList.ReadOnly = true;
             dgvProductList.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProductList.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+
             // Agregar columnas dinámicamente
             dgvProductList.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -100,7 +100,7 @@ namespace GestionAgraria.Views
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
                 FillWeight = 40
             });
-            
+
             dgvProductList.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "ColQuantity",
@@ -108,7 +108,7 @@ namespace GestionAgraria.Views
                 AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill,
                 FillWeight = 20
             });
-            
+
             dgvProductList.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "ColCost",
@@ -117,7 +117,7 @@ namespace GestionAgraria.Views
                 FillWeight = 20,
                 DefaultCellStyle = new DataGridViewCellStyle { Format = "C2" }
             });
-            
+
             dgvProductList.Columns.Add(new DataGridViewTextBoxColumn
             {
                 Name = "ColSubtotal",
@@ -303,6 +303,21 @@ namespace GestionAgraria.Views
         private void MepBuysAdd_CancelClick(object? sender, EventArgs e)
         {
             formPrincipal?.RestaurarFormularioTab(formPrincipal.tabPurchases);
+        }
+
+        private void tbPurchaseItemName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+        }
+
+        private void tbPurchaseItemQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 7, Utils.InputValidator.TipoValidacion.SoloNumeros);
+        }
+
+        private void tbPurchaseItemCost_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.Decimal);
         }
     }
 }

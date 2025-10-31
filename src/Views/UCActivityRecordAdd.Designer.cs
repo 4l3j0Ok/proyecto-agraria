@@ -375,6 +375,7 @@
             tbTitleActivity.TextAlign = HorizontalAlignment.Left;
             tbTitleActivity.TrailingIcon = null;
             tbTitleActivity.UseSystemPasswordChar = false;
+            tbTitleActivity.KeyPress += tbTitleActivity_KeyPress;
             // 
             // lblUsuario
             // 
