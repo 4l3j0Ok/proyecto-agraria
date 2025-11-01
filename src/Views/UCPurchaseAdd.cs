@@ -13,6 +13,7 @@ using GestionAgraria.Controllers;
 using GestionAgraria.models;
 using GestionAgraria.Models;
 using GestionAgraria.Core;
+using GestionAgraria;
 
 namespace GestionAgraria.Views
 {
@@ -72,12 +73,25 @@ namespace GestionAgraria.Views
 
             // Hacer el total readonly
             tbTotal.ReadOnly = true;
-            var current = Session.CurrentUser;
-            if (current != null && current.Role.Name == "Invitado")
+            
+            // Verificar permisos del usuario actual
+            ApplyUserPermissions();
+        }
+
+        private void ApplyUserPermissions()
+        {
+            var currentUser = Session.CurrentUser;
+            if (currentUser?.Role == null) return;
+
+            var accessLevel = currentUser.Role.IndustriesAccess;
+
+            if (accessLevel == AccessLevel.Read)
             {
+                // Solo lectura: deshabilitar edición
                 Utils.SetControlsReadOnly(tableLayoutPanel1);
                 MepBuysAdd.ValidationButtonEnable = false;
             }
+            // Write y Admin tienen acceso completo
         }
 
         private void ConfigureDataGridView()

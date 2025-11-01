@@ -43,6 +43,26 @@ namespace GestionAgraria.Views
                 currentFormativeEnvironment = new FormativeEnvironmentModel();
                 AddDynamicDataRow();
             }
+
+            // Verificar permisos del usuario actual
+            ApplyUserPermissions();
+        }
+
+        private void ApplyUserPermissions()
+        {
+            var currentUser = Session.CurrentUser;
+            if (currentUser?.Role == null) return;
+
+            // Los entornos formativos solo deberían ser editables por Admin
+            // Verificar si el usuario tiene rol de Administrador (Level 1)
+            if (currentUser.Role.Level > 1)
+            {
+                // No es administrador: deshabilitar edición
+                Utils.SetControlsReadOnly(this);
+                mepFormativeEnvironmentAdd.ValidationButtonEnable = false;
+                btnAddFormativeEnvironmentData.Enabled = false;
+            }
+            // Admin (Level 1) tiene acceso completo
         }
 
         private void LoadComboBoxes()

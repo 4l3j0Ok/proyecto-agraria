@@ -41,7 +41,27 @@ namespace GestionAgraria.Views
             {
                 currentActivityRecord = ActivityRecord ?? new ActivityRecordModel();
             }
+
+            // Verificar permisos del usuario actual
+            ApplyUserPermissions();
         }
+
+        private void ApplyUserPermissions()
+        {
+            var currentSessionUser = Session.CurrentUser;
+            if (currentSessionUser?.Role == null) return;
+
+            var accessLevel = currentSessionUser.Role.ActivitiesAccess;
+
+            if (accessLevel == AccessLevel.Read)
+            {
+                // Solo lectura: deshabilitar edición
+                Utils.SetControlsReadOnly(this);
+                mepActivityRecord.ValidationButtonEnable = false;
+            }
+            // Write y Admin tienen acceso completo
+        }
+
         private void defComboBox()
         {
             try

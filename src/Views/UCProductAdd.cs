@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using GestionAgraria.controllers;
 using GestionAgraria.Controllers;
 using GestionAgraria.Models;
+using GestionAgraria.models;
 using GestionAgraria.Core;
 using ReaLTaiizor.Controls;
 
@@ -38,13 +39,24 @@ namespace GestionAgraria.Views
                 currentProduct = new ProductModel();
             }
 
-            // Usar Session.CurrentUser si es necesario para permisos
-            var current = Session.CurrentUser;
-            if (current != null && current.Role?.Name == "Invitado")
+            // Verificar permisos del usuario actual
+            ApplyUserPermissions();
+        }
+
+        private void ApplyUserPermissions()
+        {
+            var currentUser = Session.CurrentUser;
+            if (currentUser?.Role == null) return;
+
+            var accessLevel = currentUser.Role.IndustriesAccess;
+
+            if (accessLevel == AccessLevel.Read)
             {
+                // Solo lectura: deshabilitar edición
                 Utils.SetControlsReadOnly(tlpMain);
                 mepProductAdd.ValidationButtonEnable = false;
             }
+            // Write y Admin tienen acceso completo
         }
 
         private void LoadProductData(ProductModel product)

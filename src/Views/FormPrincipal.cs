@@ -723,6 +723,16 @@ namespace GestionAgraria
                     }
                     originalTabContents[tabPage] = controls;
                 }
+
+                // Verificar si el tab tiene permisos de solo lectura
+                bool isReadOnly = tabPage.Tag?.ToString() == "ReadOnly";
+
+                if (isReadOnly)
+                {
+                    // Configurar el UserControl como readonly
+                    SetUserControlReadOnly(uc);
+                }
+
                 uc.Dock = DockStyle.Fill;
                 tabPage.Controls.Clear();
                 tabPage.Controls.Add(uc);
@@ -730,7 +740,43 @@ namespace GestionAgraria
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                ;
+            }
+        }
+
+        private void SetUserControlReadOnly(UserControl uc)
+        {
+            // Deshabilitar todos los controles de entrada
+            Utils.SetControlsReadOnly(uc);
+
+            // Buscar y deshabilitar botones de guardado en MaterialExpansionPanel
+            foreach (Control control in uc.Controls)
+            {
+                if (control is ReaLTaiizor.Controls.MaterialExpansionPanel mep)
+                {
+                    mep.ValidationButtonEnable = false;
+                }
+
+                // Buscar recursivamente en contenedores
+                if (control.HasChildren)
+                {
+                    SetUserControlReadOnlyRecursive(control);
+                }
+            }
+        }
+
+        private void SetUserControlReadOnlyRecursive(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is ReaLTaiizor.Controls.MaterialExpansionPanel mep)
+                {
+                    mep.ValidationButtonEnable = false;
+                }
+
+                if (control.HasChildren)
+                {
+                    SetUserControlReadOnlyRecursive(control);
+                }
             }
         }
 
@@ -1074,27 +1120,108 @@ namespace GestionAgraria
         }
         private void SetTabPermissions()
         {
-            // Validamos el user logueado. Si el Role.Name == "Invitado", deshabilitamos los botones de agregar
-            if (currentUser.Role.Name == "Invitado")
+            if (currentUser?.Role == null) return;
+
+            var role = currentUser.Role;
+
+            // Aplicar permisos a cada tab según el AccessLevel del rol
+            ApplyTabPermissions(tabUsers, role.UsersAccess);
+            ApplyTabPermissions(tabAnimalArea, role.AnimalsAccess);
+            ApplyTabPermissions(tabVegetablesArea, role.VegetablesAccess);
+            ApplyTabPermissions(tabActividad, role.ActivitiesAccess);
+            ApplyTabPermissions(tabEntorno, role.ActivitiesAccess);
+
+            // Para Industrias (que tiene sub-tabs), aplicar permisos al tab principal
+            ApplyTabPermissions(tabIndustryArea, role.IndustriesAccess);
+              
+            // También aplicar permisos a los sub-tabs de Industrias
+            ApplyTabPermissions(tabProducts, role.IndustriesAccess);
+            ApplyTabPermissions(tabPurchases, role.IndustriesAccess);
+            ApplyTabPermissions(tabSells, role.IndustriesAccess);
+            }
+
+            private void ApplyTabPermissions(System.Windows.Forms.TabPage tabPage, AccessLevel accessLevel)
             {
-                foreach (System.Windows.Forms.TabPage tabPage in tcPrincipal.TabPages)
+                switch (accessLevel)
                 {
-                    DisableAddActionButtons(tabPage);
-                }
-                foreach (System.Windows.Forms.TabPage tabPage in tcIndustrias.TabPages)
-                {
-                    DisableAddActionButtons(tabPage);
+                    case AccessLevel.None:
+                        // Ocultar el tab completamente
+                        if (tcPrincipal.TabPages.Contains(tabPage))
+                        {
+                            tcPrincipal.TabPages.Remove(tabPage);
+                        }
+                        if (tcIndustrias.TabPages.Contains(tabPage))
+                        {
+                            tcIndustrias.TabPages.Remove(tabPage);
+                        }
+                        break;
+
+                    case AccessLevel.Read:
+                        // Solo lectura: deshabilitar botones de agregar y hacer controles readonly
+                        DisableAddActionButtons(tabPage);
+                        DisableEditingInTab(tabPage);
+                        break;
+
+                    case AccessLevel.Write:
+                    case AccessLevel.Admin:
+                        // Acceso completo: no se aplica ninguna restricción
+                        break;
                 }
             }
-        }
-        private void DisableAddActionButtons(System.Windows.Forms.TabPage tabPage)
-        {
-            foreach (Control control in tabPage.Controls)
+
+            private void DisableEditingInTab(System.Windows.Forms.TabPage tabPage)
             {
-                if (control is ReaLTaiizor.Controls.MaterialFloatingActionButton)
-                    if (control.Name.Contains("btnAdd"))
-                        control.Enabled = false;
+                // Esta función se ejecuta cuando el usuario hace clic en una card
+                // Para deshabilitar la edición, necesitamos interceptar los clicks en las cards
+                // y hacer que los formularios Add se abran en modo readonly
+                // Marcar el tab como readonly mediante Tag
+                tabPage.Tag = "ReadOnly";
+            }
+
+            private void DisableAddActionButtons(System.Windows.Forms.TabPage tabPage)
+            {
+                foreach (Control control in tabPage.Controls)
+            {
+            if (control is ReaLTaiizor.Controls.MaterialFloatingActionButton fab)
+            {
+                if (fab.Name.Contains("btnAdd"))
+                {
+                    fab.Enabled = false;
+                    fab.Visible = false;
+                }
+            }
+                
+        // También buscar en controles anidados (como tcIndustrias)
+        if (control.HasChildren)
+        {
+            DisableAddActionButtonsRecursive(control);
+        }
+    }
+}
+
+        private void DisableAddActionButtonsRecursive(Control parent)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is ReaLTaiizor.Controls.MaterialFloatingActionButton fab)
+                {
+                    if (fab.Name.Contains("btnAdd"))
+                    {
+                        fab.Enabled = false;
+                        fab.Visible = false;
+                    }
+                }
+                if (control is System.Windows.Forms.TabPage tabPage)
+                {
+                    DisableAddActionButtons(tabPage);
+                }
+
+                if (control.HasChildren)
+                {
+                    DisableAddActionButtonsRecursive(control);
+                }
             }
         }
     }
 }
+    

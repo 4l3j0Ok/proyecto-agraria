@@ -51,6 +51,28 @@ namespace GestionAgraria.Views
                 else
                     cbEstadoUser.SelectedIndex = 1;
             }
+            ApplyUserPermissions();
+        }
+
+        private void ApplyUserPermissions()
+        {
+            var currentUser = Session.CurrentUser;
+            if (currentUser?.Role == null) return;
+
+            var accessLevel = currentUser.Role.UsersAccess;
+
+            if (accessLevel == AccessLevel.Read)
+            {
+                // Solo lectura: deshabilitar edición
+                Utils.SetControlsReadOnly(this);
+                mepUserAdd.ValidationButtonEnable = false;
+            }
+            else if (accessLevel == AccessLevel.Write)
+            {
+                // Escritura: permitir edición pero no cambios de roles superiores
+                // (ya se maneja en UCUserAdd_Load con roleController.GetLowerRoles)
+            }
+            // Admin tiene acceso completo
         }
 
         private void btnUploadProfilePicture_Click(object sender, EventArgs e)
@@ -84,63 +106,6 @@ namespace GestionAgraria.Views
                 cmbRole.Enabled = false;
             }
             cmbRole.SelectedIndex = 0;
-        }
-
-        private bool ValidateFields()
-        {
-            List<string> emptyFields = new List<string>();
-
-            // Validar campos obligatorios
-            if (string.IsNullOrWhiteSpace(tbUserName.Text))
-                emptyFields.Add("Nombre");
-
-            if (string.IsNullOrWhiteSpace(tbUserSurname.Text))
-                emptyFields.Add("Apellido");
-
-            if (string.IsNullOrWhiteSpace(tbUserUsername.Text))
-                emptyFields.Add("Nombre de usuario");
-
-            if (string.IsNullOrWhiteSpace(tbUserPersonId.Text))
-                emptyFields.Add("Documento");
-
-            if (string.IsNullOrWhiteSpace(tbUserEmail.Text))
-                emptyFields.Add("Correo electrónico");
-
-            if (string.IsNullOrWhiteSpace(tbUserPhone.Text))
-                emptyFields.Add("Número de teléfono");
-
-            if (string.IsNullOrWhiteSpace(tbUserPassword.Text))
-                emptyFields.Add("Contraseña");
-
-            if (string.IsNullOrWhiteSpace(tbUserPasswordConfirm.Text))
-                emptyFields.Add("Confirmación de contraseña");
-
-            if (cmbRole.SelectedItem == null)
-                emptyFields.Add("Rol");
-
-            // Mostrar mensaje de error si hay campos vacíos
-            if (emptyFields.Count > 0)
-            {
-                string message = "Los siguientes campos son obligatorios:\n\n" + string.Join("\n", emptyFields);
-                MessageBox.Show(message, "Campos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            // Validar que las contraseñas coincidan
-            if (tbUserPassword.Text != tbUserPasswordConfirm.Text)
-            {
-                MessageBox.Show("Las contraseñas no coinciden.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            // Validar formato de email básico
-            if (!tbUserEmail.Text.Contains("@") || !tbUserEmail.Text.Contains("."))
-            {
-                MessageBox.Show("El formato del correo electrónico no es válido.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
         }
 
         private void mepUserAdd_SaveClick(object sender, EventArgs e)
@@ -197,7 +162,6 @@ namespace GestionAgraria.Views
         {
             formPrincipal?.RestaurarFormularioTab(formPrincipal.tabUsers);
         }
-
         private void tbUserUsername_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
@@ -227,6 +191,62 @@ namespace GestionAgraria.Views
         private void tbUserEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.SoloMail);
+        }
+
+        private bool ValidateFields()
+        {
+            List<string> emptyFields = new List<string>();
+
+            // Validar campos obligatorios
+            if (string.IsNullOrWhiteSpace(tbUserName.Text))
+                emptyFields.Add("Nombre");
+
+            if (string.IsNullOrWhiteSpace(tbUserSurname.Text))
+                emptyFields.Add("Apellido");
+
+            if (string.IsNullOrWhiteSpace(tbUserUsername.Text))
+                emptyFields.Add("Nombre de usuario");
+
+            if (string.IsNullOrWhiteSpace(tbUserPersonId.Text))
+                emptyFields.Add("Documento");
+
+            if (string.IsNullOrWhiteSpace(tbUserEmail.Text))
+                emptyFields.Add("Correo electrónico");
+
+            if (string.IsNullOrWhiteSpace(tbUserPhone.Text))
+                emptyFields.Add("Número de teléfono");
+
+            if (string.IsNullOrWhiteSpace(tbUserPassword.Text))
+                emptyFields.Add("Contraseña");
+
+            if (string.IsNullOrWhiteSpace(tbUserPasswordConfirm.Text))
+                emptyFields.Add("Confirmación de contraseña");
+
+            if (cmbRole.SelectedItem == null)
+                emptyFields.Add("Rol");
+
+            // Mostrar mensaje de error si hay campos vacíos
+            if (emptyFields.Count > 0)
+            {
+                string message = "Los siguientes campos son obligatorios:\n\n" + string.Join("\n", emptyFields);
+                MessageBox.Show(message, "Campos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Validar que las contraseñas coincidan
+            if (tbUserPassword.Text != tbUserPasswordConfirm.Text)
+            {
+                MessageBox.Show("Las contraseñas no coinciden.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            // Validar formato de email básico
+            if (!tbUserEmail.Text.Contains("@") || !tbUserEmail.Text.Contains("."))
+            {
+                MessageBox.Show("El formato del correo electrónico no es válido.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
         }
     }
 }

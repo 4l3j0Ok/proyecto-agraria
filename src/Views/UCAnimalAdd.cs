@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionAgraria.Models;
 using GestionAgraria.controllers;
+using GestionAgraria.models;
 using Microsoft.VisualBasic.ApplicationServices;
 using GestionAgraria.Core;
 
@@ -40,20 +41,24 @@ namespace GestionAgraria.Views
                 currentAnimal = new AnimalModel();
             }
 
-            // Obtener usuario actual desde la sesión
-            var current = Session.CurrentUser;
-            if (current != null && current.Role?.Name == "Invitado")
-            {
-                // Deshabilitar los controles del panel principal
-                try
-                {
-                    Utils.SetControlsReadOnly(this);
-                }
-                catch { }
+            // Verificar permisos del usuario actual
+            ApplyUserPermissions();
+        }
 
-                // Deshabilitar botón de validación del panel
-                try { mepAnimalAdd.ValidationButtonEnable = false; } catch { }
+        private void ApplyUserPermissions()
+        {
+            var currentUser = Session.CurrentUser;
+            if (currentUser?.Role == null) return;
+
+            var accessLevel = currentUser.Role.AnimalsAccess;
+
+            if (accessLevel == AccessLevel.Read)
+            {
+                // Solo lectura: deshabilitar edición
+                Utils.SetControlsReadOnly(this);
+                mepAnimalAdd.ValidationButtonEnable = false;
             }
+            // Write y Admin tienen acceso completo
         }
 
         private void UCAnimalAdd_Load(object sender, EventArgs e)

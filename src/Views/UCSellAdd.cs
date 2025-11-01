@@ -14,6 +14,7 @@ using GestionAgraria.models;
 using GestionAgraria.Models;
 using GestionAgraria.Core;
 using ReaLTaiizor.Controls;
+using GestionAgraria;
 
 namespace GestionAgraria.Views
 {
@@ -84,6 +85,25 @@ namespace GestionAgraria.Views
 
             // subscribe to selection change to update price field
             cbSellProductName.SelectedIndexChanged += cbSellProductName_SelectedIndexChanged;
+            
+            // Verificar permisos del usuario actual
+            ApplyUserPermissions();
+        }
+
+        private void ApplyUserPermissions()
+        {
+     var currentUser = Session.CurrentUser;
+            if (currentUser?.Role == null) return;
+
+  var accessLevel = currentUser.Role.IndustriesAccess;
+
+   if (accessLevel == AccessLevel.Read)
+   {
+           // Solo lectura: deshabilitar edición
+        Utils.SetControlsReadOnly(this);
+   mepSellsAdd.ValidationButtonEnable = false;
+   }
+            // Write y Admin tienen acceso completo
         }
 
         private void mepSellsAdd_SaveClick(object sender, EventArgs e)

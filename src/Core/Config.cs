@@ -17,11 +17,76 @@ namespace GestionAgraria.Core
         public static string random_password_characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=[]{}|;':,.<>?/~`";
         public static List<RoleModel> defaultRoles = new List<RoleModel>
         {
-            new RoleModel { Name = "Administrador", Level = 1 },
-            new RoleModel { Name = "Director", Level = 2 },
-            new RoleModel { Name = "Jefe de área", Level = 3 },
-            new RoleModel { Name = "Profesor", Level = 4 },
-            new RoleModel { Name = "Invitado", Level = 5 }
+            new RoleModel {
+                Name = "Administrador",
+                Level = 1,
+                ActivitiesAccess = AccessLevel.Admin,
+                AnimalsAccess = AccessLevel.Admin,
+                VegetablesAccess = AccessLevel.Admin,
+                IndustriesAccess = AccessLevel.Admin,
+                UsersAccess = AccessLevel.Admin,
+                FormativeEnvironmentsAccess = AccessLevel.Admin
+            },
+            new RoleModel {
+                Name = "Director",
+                Level = 2,
+                ActivitiesAccess = AccessLevel.Admin,
+                AnimalsAccess = AccessLevel.Admin,
+                VegetablesAccess = AccessLevel.Admin,
+                IndustriesAccess = AccessLevel.Admin,
+                UsersAccess = AccessLevel.Admin,
+                FormativeEnvironmentsAccess = AccessLevel.Admin
+            },
+            new RoleModel {
+                Name = "Jefe de área: Animales",
+                Level = 3,
+                ActivitiesAccess = AccessLevel.Read,
+                AnimalsAccess = AccessLevel.Write,
+                VegetablesAccess = AccessLevel.Read,
+                IndustriesAccess = AccessLevel.Read,
+                UsersAccess = AccessLevel.None,
+                FormativeEnvironmentsAccess = AccessLevel.Write
+            },
+            new RoleModel {
+                Name = "Jefe de área: Vegetales",
+                Level = 3,
+                ActivitiesAccess = AccessLevel.Write,
+                AnimalsAccess = AccessLevel.Read,
+                VegetablesAccess = AccessLevel.Write,
+                IndustriesAccess = AccessLevel.Read,
+                UsersAccess = AccessLevel.None,
+                FormativeEnvironmentsAccess = AccessLevel.Read
+            },
+            new RoleModel {
+                Name = "Jefe de área: Industria",
+                Level = 3,
+                ActivitiesAccess = AccessLevel.Write,
+                AnimalsAccess = AccessLevel.Read,
+                VegetablesAccess = AccessLevel.Read,
+                IndustriesAccess = AccessLevel.Write,
+                UsersAccess = AccessLevel.None,
+                FormativeEnvironmentsAccess = AccessLevel.Read
+            },
+            new RoleModel { 
+                Name = "Profesor",
+                Level = 4,
+                ActivitiesAccess = AccessLevel.Write,
+                AnimalsAccess = AccessLevel.Write,
+                VegetablesAccess = AccessLevel.Write,
+                IndustriesAccess = AccessLevel.Read,
+                UsersAccess = AccessLevel.None,
+                FormativeEnvironmentsAccess = AccessLevel.Read
+            },
+            new RoleModel {
+                Name = "Invitado",
+                Level = 5,
+                ActivitiesAccess = AccessLevel.Read,
+                AnimalsAccess = AccessLevel.Read,
+                VegetablesAccess = AccessLevel.Read,
+                IndustriesAccess = AccessLevel.None,
+                UsersAccess = AccessLevel.None,
+                FormativeEnvironmentsAccess = AccessLevel.Read
+            }
         };
         public static Bitmap default_profile_picture = Properties.Resources.user_placeholder;
         public static List<string> defaultAnimalTypes = new List<string>

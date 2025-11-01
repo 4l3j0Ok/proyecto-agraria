@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GestionAgraria.Models;
 using GestionAgraria.controllers;
+using GestionAgraria.models;
 using Microsoft.VisualBasic.ApplicationServices;
 using GestionAgraria.Core;
 
@@ -38,6 +39,25 @@ namespace GestionAgraria.Views
             {
                 currentVegetal = new VegetableModel();
             }
+
+            // Verificar permisos del usuario actual
+            ApplyUserPermissions();
+        }
+
+        private void ApplyUserPermissions()
+        {
+            var currentUser = Session.CurrentUser;
+            if (currentUser?.Role == null) return;
+
+            var accessLevel = currentUser.Role.VegetablesAccess;
+
+            if (accessLevel == AccessLevel.Read)
+            {
+                // Solo lectura: deshabilitar edición
+                Utils.SetControlsReadOnly(this);
+                mepVegetalAdd.ValidationButtonEnable = false;
+            }
+            // Write y Admin tienen acceso completo
         }
 
         private void LoadComboBoxes()

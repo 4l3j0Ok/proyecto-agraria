@@ -2482,6 +2482,7 @@ namespace GestionAgraria
             // materialExpansionPanel8
             // 
             materialExpansionPanel8.BackColor = Color.FromArgb(255, 255, 255);
+            materialExpansionPanel8.Collapse = true;
             materialExpansionPanel8.Controls.Add(panel37);
             materialExpansionPanel8.Depth = 0;
             materialExpansionPanel8.Description = "Aplica filtros de búsqueda";
@@ -2490,12 +2491,12 @@ namespace GestionAgraria
             materialExpansionPanel8.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialExpansionPanel8.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialExpansionPanel8.Location = new Point(20, 20);
-            materialExpansionPanel8.Margin = new Padding(16);
+            materialExpansionPanel8.Margin = new Padding(16, 1, 16, 0);
             materialExpansionPanel8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialExpansionPanel8.Name = "materialExpansionPanel8";
             materialExpansionPanel8.Padding = new Padding(24, 64, 24, 16);
             materialExpansionPanel8.ShowValidationButtons = false;
-            materialExpansionPanel8.Size = new Size(752, 239);
+            materialExpansionPanel8.Size = new Size(752, 48);
             materialExpansionPanel8.TabIndex = 19;
             materialExpansionPanel8.Title = "Filtros";
             // 

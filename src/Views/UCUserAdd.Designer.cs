@@ -882,6 +882,7 @@ namespace GestionAgraria.Views
             btnUploadProfilePicture.Type = MaterialButton.MaterialButtonType.Outlined;
             btnUploadProfilePicture.UseAccentColor = false;
             btnUploadProfilePicture.UseVisualStyleBackColor = true;
+            btnUploadProfilePicture.Click += btnUploadProfilePicture_Click;
             // 
             // UCUserAdd
             // 
