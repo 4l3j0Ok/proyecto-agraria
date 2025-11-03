@@ -68,11 +68,11 @@ namespace GestionAgraria.Views
             dtAnimalEntryDate = new ReaLTaiizor.Controls.PoisonDateTime();
             materialLabel6 = new ReaLTaiizor.Controls.MaterialLabel();
             panel7 = new Panel();
-            cbAnimalType = new ReaLTaiizor.Controls.MaterialComboBox();
             materialLabel7 = new ReaLTaiizor.Controls.MaterialLabel();
             panel3 = new Panel();
             tbAnimalCode = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblUsuario = new ReaLTaiizor.Controls.MaterialLabel();
+            cbAnimalType = new ReaLTaiizor.Controls.MaterialEditableComboBoxFixed();
             mepAnimalAdd.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
@@ -531,29 +531,6 @@ namespace GestionAgraria.Views
             panel7.Size = new Size(315, 82);
             panel7.TabIndex = 29;
             // 
-            // cbAnimalType
-            // 
-            cbAnimalType.AutoResize = false;
-            cbAnimalType.BackColor = Color.FromArgb(255, 255, 255);
-            cbAnimalType.Depth = 0;
-            cbAnimalType.Dock = DockStyle.Top;
-            cbAnimalType.DrawMode = DrawMode.OwnerDrawVariable;
-            cbAnimalType.DropDownHeight = 174;
-            cbAnimalType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbAnimalType.DropDownWidth = 121;
-            cbAnimalType.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbAnimalType.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbAnimalType.FormattingEnabled = true;
-            cbAnimalType.IntegralHeight = false;
-            cbAnimalType.ItemHeight = 43;
-            cbAnimalType.Location = new Point(20, 19);
-            cbAnimalType.MaxDropDownItems = 4;
-            cbAnimalType.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbAnimalType.Name = "cbAnimalType";
-            cbAnimalType.Size = new Size(275, 49);
-            cbAnimalType.StartIndex = 0;
-            cbAnimalType.TabIndex = 9;
-            // 
             // materialLabel7
             // 
             materialLabel7.AutoSize = true;
@@ -626,6 +603,22 @@ namespace GestionAgraria.Views
             lblUsuario.TabIndex = 4;
             lblUsuario.Text = "Codigo";
             // 
+            // cbAnimalType
+            // 
+            cbAnimalType.AnimateClose = false;
+            cbAnimalType.AnimateOpen = true;
+            cbAnimalType.BackColor = Color.FromArgb(245, 245, 245);
+            cbAnimalType.Dock = DockStyle.Top;
+            cbAnimalType.Hint = "Seleccione o escriba...";
+            cbAnimalType.Location = new Point(20, 19);
+            cbAnimalType.Name = "cbAnimalType";
+            cbAnimalType.OpenOnClick = true;
+            cbAnimalType.OpenOnFocus = false;
+            cbAnimalType.SelectedItem = "";
+            cbAnimalType.Size = new Size(275, 48);
+            cbAnimalType.TabIndex = 5;
+            cbAnimalType.UseAnimation = false;
+            // 
             // UCAnimalAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -692,7 +685,6 @@ namespace GestionAgraria.Views
         private Panel panel6;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel6;
         private Panel panel7;
-        private ReaLTaiizor.Controls.MaterialComboBox cbAnimalType;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel7;
         private Panel panel3;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tbAnimalCode;
@@ -701,5 +693,6 @@ namespace GestionAgraria.Views
         private Panel panel4;
         private ReaLTaiizor.Controls.MaterialComboBox cbEstado;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
+        private ReaLTaiizor.Controls.MaterialEditableComboBoxFixed cbAnimalType;
     }
 }

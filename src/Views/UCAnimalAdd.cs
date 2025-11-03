@@ -23,10 +23,8 @@ namespace GestionAgraria.Views
 
         public UCAnimalAdd(AnimalModel? animal = null)
         {
-            animalController = new AnimalController();
             InitializeComponent();
-
-            LoadComboBoxes();
+            animalController = new AnimalController(); 
 
             if (animal != null)
             {
@@ -41,8 +39,10 @@ namespace GestionAgraria.Views
                 currentAnimal = new AnimalModel();
             }
 
+            LoadComboBoxes();
             // Verificar permisos del usuario actual
             ApplyUserPermissions();
+
         }
 
         private void ApplyUserPermissions()
@@ -79,10 +79,10 @@ namespace GestionAgraria.Views
 
                 // Cargar tipos de animales
                 var animalTypes = animalController.GetAnimalTypes();
-                foreach (var type in animalTypes)
-                {
-                    cbAnimalType.Items.Add(type.Name);
-                }
+
+                cbAnimalType.BindItems(animalTypes.Select(a => a.Name));
+
+
                 var formativeEnvironments = animalController.GetAllActiveFormativeEnvironments();
 
                 foreach (var environment in formativeEnvironments)
@@ -236,5 +236,7 @@ namespace GestionAgraria.Views
         {
             Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
         }
+       
+
     }
 }
