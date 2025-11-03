@@ -68,7 +68,7 @@ namespace GestionAgraria.Views
             mepProductAdd.Controls.Add(panel2);
             mepProductAdd.Depth = 0;
             mepProductAdd.Description = "Registrar un Nuevo Producto";
-            mepProductAdd.Dock = DockStyle.Fill;
+            mepProductAdd.Dock = DockStyle.Top;
             mepProductAdd.ExpandHeight = 604;
             mepProductAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepProductAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
@@ -90,10 +90,10 @@ namespace GestionAgraria.Views
             // 
             panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             panel2.Controls.Add(groupBox1);
-            panel2.Dock = DockStyle.Top;
+            panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(21, 48);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1110, 486);
+            panel2.Size = new Size(1110, 536);
             panel2.TabIndex = 12;
             // 
             // groupBox1
