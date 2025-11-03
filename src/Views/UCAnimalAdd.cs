@@ -129,7 +129,7 @@ namespace GestionAgraria.Views
             if (string.IsNullOrWhiteSpace(tbAnimalCode.Text))
                 emptyFields.Add("Código");
 
-            if (cbAnimalType.SelectedItem == null || string.IsNullOrWhiteSpace(cbAnimalType.Text))
+            if (string.IsNullOrWhiteSpace(cbAnimalType.Text))
                 emptyFields.Add("Tipo de Animal");
 
             if (cbAnimalSex.SelectedItem == null || string.IsNullOrWhiteSpace(cbAnimalSex.Text))
@@ -154,7 +154,22 @@ namespace GestionAgraria.Views
                 return;
 
             currentAnimal.Code = tbAnimalCode.Text;
+            string Typeanimal = cbAnimalType.Text.ToLower();
+
+            Utils.MayusPrimeraLetra(Typeanimal);
+
+            if (!animalController.AnimalTypeExistsByName(Typeanimal))
+            {
+                AnimalTypeModel newType = new AnimalTypeModel
+                {
+                    Name = Typeanimal
+                };
+                animalController.CreateAnimalType(newType);
+            }
+
             currentAnimal.AnimalType = animalController.GetAnimalTypes().FirstOrDefault(at => at.Name == cbAnimalType.Text);
+
+
             currentAnimal.BirthOrEntryDate = dtAnimalEntryDate.Value;
             currentAnimal.Sex = cbAnimalSex.Text;
             currentAnimal.ProductiveState = cbAnimalProductiveState.Text;

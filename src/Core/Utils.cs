@@ -226,6 +226,14 @@ namespace GestionAgraria.Core
                 return Regex.IsMatch(texto, patron);
             }
         }
+        public static string MayusPrimeraLetra(string? s)
+        {
+            if (string.IsNullOrEmpty(s)) return s ?? "";
+            int i = 0;
+            while (i < s.Length && char.IsWhiteSpace(s[i])) i++;
+            if (i == s.Length || !char.IsLetter(s[i])) return s;
+            return s.Substring(0, i) + char.ToUpper(s[i]) + s.Substring(i + 1);
+        }
 
     }
 }

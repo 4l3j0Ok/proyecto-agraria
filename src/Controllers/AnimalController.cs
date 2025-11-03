@@ -189,6 +189,48 @@ namespace GestionAgraria.controllers
             }
         }
 
+        // Por nombre (case-insensitive y trim)
+        public bool AnimalTypeExistsByName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name)) return false;
+
+            string normalized = name.Trim().ToUpper();
+            return _context.AnimalTypes
+                .AsNoTracking()
+                .Any(a => a.Name != null && a.Name.ToUpper() == normalized);
+        }
+        public bool CreateAnimalType(AnimalTypeModel type)
+        {
+            try
+            {
+                // Validación básica
+                if (type == null || string.IsNullOrWhiteSpace(type.Name))
+                    return false;
+
+                // Normalizo el nombre de entrada (ignoro mayúsculas/minúsculas)
+                string normalized = type.Name.Trim().ToUpperInvariant();
+
+                // Verifico existencia previa (solo lectura)
+                bool exists = _context.AnimalTypes
+                    .AsNoTracking()
+                    .Any(t => t.Name != null && t.Name.ToUpper() == normalized);
+
+                if (exists)
+                    return false;
+
+                // Inserto
+                _context.AnimalTypes.Add(type);
+                _context.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return false;
+            }
+        }
+
+
         public bool UpdateAnimal(AnimalModel animal)
         {
             try

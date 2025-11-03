@@ -84,6 +84,37 @@ namespace ReaLTaiizor.Controls
 
         private Form? _hostForm;
 
+        // Exponer el texto real del textbox como Text del control
+        [Browsable(true)]
+        [Bindable(true)]
+        [EditorBrowsable(EditorBrowsableState.Always)]
+        public override string Text
+        {
+            get => textBox?.Text ?? base.Text;
+            set
+            {
+                if (textBox != null)
+                {
+                    textBox.Text = value ?? string.Empty;
+                    textBox.SelectionStart = textBox.TextLength;
+                    textBox.SelectionLength = 0;
+                }
+                else
+                {
+                    base.Text = value;
+                }
+            }
+        }
+
+        // (opcional) una propiedad clara para validaciones
+        [Browsable(false)]
+        public string Value => textBox?.Text ?? string.Empty;
+
+        // (opcional) expone si hay texto no vacío
+        [Browsable(false)]
+        public bool HasText => !string.IsNullOrWhiteSpace(textBox?.Text);
+
+
         // ================== CTOR ==================
         public MaterialEditableComboBoxFixed()
         {
@@ -240,6 +271,8 @@ namespace ReaLTaiizor.Controls
             // Limpiezas
             Disposed += (_, __) => HideDropdown();
             VisibleChanged += (_, __) => { if (!Visible) HideDropdown(); };
+
+
         }
 
         // ================== API ==================
