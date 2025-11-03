@@ -108,17 +108,17 @@ namespace GestionAgraria.Views
             mepUserAdd.Controls.Add(tableLayoutPanel2);
             mepUserAdd.Depth = 0;
             mepUserAdd.Description = "Dar de alta un nuevo usuario para la plataforma";
-            mepUserAdd.Dock = DockStyle.Top;
-            mepUserAdd.ExpandHeight = 3057;
+            mepUserAdd.Dock = DockStyle.Fill;
+            mepUserAdd.ExpandHeight = 657;
             mepUserAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepUserAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepUserAdd.Location = new Point(0, 0);
             mepUserAdd.Margin = new Padding(3, 16, 3, 16);
             mepUserAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepUserAdd.Name = "mepUserAdd";
-            mepUserAdd.Padding = new Padding(24, 64, 24, 20);
+            mepUserAdd.Padding = new Padding(24, 64, 24, 70);
             mepUserAdd.ShowCollapseExpand = false;
-            mepUserAdd.Size = new Size(727, 3057);
+            mepUserAdd.Size = new Size(727, 657);
             mepUserAdd.TabIndex = 1;
             mepUserAdd.Title = "Agregar usuario";
             mepUserAdd.ValidationButtonEnable = true;
@@ -141,7 +141,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
-            tableLayoutPanel2.Size = new Size(679, 2973);
+            tableLayoutPanel2.Size = new Size(679, 523);
             tableLayoutPanel2.TabIndex = 22;
             // 
             // panel2

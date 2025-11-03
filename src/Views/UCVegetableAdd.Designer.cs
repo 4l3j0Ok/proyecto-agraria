@@ -82,6 +82,7 @@ namespace GestionAgraria.Views
             // 
             // mepVegetalAdd
             // 
+            mepVegetalAdd.AutoSize = true;
             mepVegetalAdd.BackColor = Color.FromArgb(255, 255, 255);
             mepVegetalAdd.CancelButtonText = "Cancelar";
             mepVegetalAdd.Controls.Add(tableLayoutPanel2);
@@ -95,7 +96,7 @@ namespace GestionAgraria.Views
             mepVegetalAdd.Margin = new Padding(3, 16, 3, 16);
             mepVegetalAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepVegetalAdd.Name = "mepVegetalAdd";
-            mepVegetalAdd.Padding = new Padding(24, 64, 24, 20);
+            mepVegetalAdd.Padding = new Padding(24, 64, 24, 70);
             mepVegetalAdd.ShowCollapseExpand = false;
             mepVegetalAdd.Size = new Size(1152, 344);
             mepVegetalAdd.TabIndex = 0;
@@ -107,6 +108,8 @@ namespace GestionAgraria.Views
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.AutoScroll = true;
+            tableLayoutPanel2.AutoSize = true;
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(panel2, 0, 0);
@@ -116,7 +119,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 263F));
-            tableLayoutPanel2.Size = new Size(1104, 260);
+            tableLayoutPanel2.Size = new Size(1104, 210);
             tableLayoutPanel2.TabIndex = 23;
             // 
             // panel2
@@ -126,7 +129,7 @@ namespace GestionAgraria.Views
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1098, 254);
+            panel2.Size = new Size(1098, 204);
             panel2.TabIndex = 11;
             // 
             // groupBox3
@@ -449,6 +452,7 @@ namespace GestionAgraria.Views
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             Controls.Add(mepVegetalAdd);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCVegetableAdd";
@@ -472,6 +476,7 @@ namespace GestionAgraria.Views
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

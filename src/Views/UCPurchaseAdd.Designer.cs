@@ -31,7 +31,7 @@ namespace GestionAgraria.Views
         /// </summary>
         private void InitializeComponent()
         {
-            MepBuysAdd = new NonCollapsibleMaterialExpansionPanel();
+            mepPurchaseAdd = new NonCollapsibleMaterialExpansionPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             dgvProductList = new DataGridView();
@@ -54,7 +54,7 @@ namespace GestionAgraria.Views
             panel8 = new Panel();
             tbPurchaseItemName = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             materialLabel3 = new ReaLTaiizor.Controls.MaterialLabel();
-            MepBuysAdd.SuspendLayout();
+            mepPurchaseAdd.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvProductList).BeginInit();
@@ -68,28 +68,28 @@ namespace GestionAgraria.Views
             panel8.SuspendLayout();
             SuspendLayout();
             // 
-            // MepBuysAdd
+            // mepPurchaseAdd
             // 
-            MepBuysAdd.BackColor = Color.FromArgb(255, 255, 255);
-            MepBuysAdd.CancelButtonText = "CANCELAR";
-            MepBuysAdd.Controls.Add(tableLayoutPanel1);
-            MepBuysAdd.Depth = 0;
-            MepBuysAdd.Description = "Registrar nuevo insumo / compra";
-            MepBuysAdd.Dock = DockStyle.Top;
-            MepBuysAdd.ExpandHeight = 667;
-            MepBuysAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
-            MepBuysAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            MepBuysAdd.Location = new Point(0, 0);
-            MepBuysAdd.Margin = new Padding(3, 12, 3, 12);
-            MepBuysAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            MepBuysAdd.Name = "MepBuysAdd";
-            MepBuysAdd.Padding = new Padding(21, 48, 21, 20);
-            MepBuysAdd.ShowCollapseExpand = false;
-            MepBuysAdd.Size = new Size(1152, 667);
-            MepBuysAdd.TabIndex = 4;
-            MepBuysAdd.Title = "Insumos";
-            MepBuysAdd.ValidationButtonEnable = true;
-            MepBuysAdd.ValidationButtonText = "GUARDAR";
+            mepPurchaseAdd.BackColor = Color.FromArgb(255, 255, 255);
+            mepPurchaseAdd.CancelButtonText = "CANCELAR";
+            mepPurchaseAdd.Controls.Add(tableLayoutPanel1);
+            mepPurchaseAdd.Depth = 0;
+            mepPurchaseAdd.Description = "Registrar nuevo insumo / compra";
+            mepPurchaseAdd.Dock = DockStyle.Top;
+            mepPurchaseAdd.ExpandHeight = 667;
+            mepPurchaseAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
+            mepPurchaseAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            mepPurchaseAdd.Location = new Point(0, 0);
+            mepPurchaseAdd.Margin = new Padding(3, 12, 3, 12);
+            mepPurchaseAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            mepPurchaseAdd.Name = "mepPurchaseAdd";
+            mepPurchaseAdd.Padding = new Padding(21, 48, 21, 70);
+            mepPurchaseAdd.ShowCollapseExpand = false;
+            mepPurchaseAdd.Size = new Size(1152, 667);
+            mepPurchaseAdd.TabIndex = 4;
+            mepPurchaseAdd.Title = "Insumos";
+            mepPurchaseAdd.ValidationButtonEnable = true;
+            mepPurchaseAdd.ValidationButtonText = "GUARDAR";
             // 
             // tableLayoutPanel1
             // 
@@ -106,7 +106,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(1110, 599);
+            tableLayoutPanel1.Size = new Size(1110, 549);
             tableLayoutPanel1.TabIndex = 15;
             // 
             // tableLayoutPanel2
@@ -122,7 +122,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(1104, 332);
+            tableLayoutPanel2.Size = new Size(1104, 282);
             tableLayoutPanel2.TabIndex = 50;
             // 
             // dgvProductList
@@ -134,7 +134,7 @@ namespace GestionAgraria.Views
             dgvProductList.Location = new Point(23, 50);
             dgvProductList.Name = "dgvProductList";
             dgvProductList.ReadOnly = true;
-            dgvProductList.Size = new Size(1058, 276);
+            dgvProductList.Size = new Size(1058, 226);
             dgvProductList.TabIndex = 38;
             // 
             // btnProductAddList
@@ -167,7 +167,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel5.Controls.Add(panel11, 1, 0);
             tableLayoutPanel5.Controls.Add(panel10, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(3, 511);
+            tableLayoutPanel5.Location = new Point(3, 461);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.Padding = new Padding(3);
             tableLayoutPanel5.RowCount = 1;
@@ -506,12 +506,12 @@ namespace GestionAgraria.Views
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            Controls.Add(MepBuysAdd);
+            Controls.Add(mepPurchaseAdd);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCPurchaseAdd";
             Size = new Size(1152, 667);
-            MepBuysAdd.ResumeLayout(false);
-            MepBuysAdd.PerformLayout();
+            mepPurchaseAdd.ResumeLayout(false);
+            mepPurchaseAdd.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
@@ -534,7 +534,7 @@ namespace GestionAgraria.Views
         }
 
         #endregion
-        private NonCollapsibleMaterialExpansionPanel MepBuysAdd;
+        private NonCollapsibleMaterialExpansionPanel mepPurchaseAdd;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel5;
         private Panel panel11;

@@ -94,6 +94,7 @@ namespace GestionAgraria.Views
             // 
             // mepAnimalAdd
             // 
+            mepAnimalAdd.AutoSize = true;
             mepAnimalAdd.BackColor = Color.FromArgb(255, 255, 255);
             mepAnimalAdd.CancelButtonText = "Cancelar";
             mepAnimalAdd.Controls.Add(tableLayoutPanel2);
@@ -107,7 +108,7 @@ namespace GestionAgraria.Views
             mepAnimalAdd.Margin = new Padding(3, 16, 3, 16);
             mepAnimalAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepAnimalAdd.Name = "mepAnimalAdd";
-            mepAnimalAdd.Padding = new Padding(24, 64, 24, 20);
+            mepAnimalAdd.Padding = new Padding(24, 64, 24, 70);
             mepAnimalAdd.ShowCollapseExpand = false;
             mepAnimalAdd.Size = new Size(1008, 422);
             mepAnimalAdd.TabIndex = 1;
@@ -119,18 +120,19 @@ namespace GestionAgraria.Views
             // 
             // tableLayoutPanel2
             // 
+            tableLayoutPanel2.AutoScroll = true;
             tableLayoutPanel2.AutoSize = true;
             tableLayoutPanel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(panel2, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Top;
+            tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(24, 64);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 344F));
-            tableLayoutPanel2.Size = new Size(960, 342);
+            tableLayoutPanel2.Size = new Size(960, 288);
             tableLayoutPanel2.TabIndex = 23;
             // 
             // panel2
@@ -141,7 +143,7 @@ namespace GestionAgraria.Views
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(954, 336);
+            panel2.Size = new Size(954, 282);
             panel2.TabIndex = 11;
             // 
             // groupBox3
@@ -628,6 +630,7 @@ namespace GestionAgraria.Views
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
             Controls.Add(mepAnimalAdd);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCAnimalAdd";
@@ -660,6 +663,7 @@ namespace GestionAgraria.Views
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

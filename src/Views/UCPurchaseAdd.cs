@@ -43,13 +43,13 @@ namespace GestionAgraria.Views
 
             // Configurar eventos
             btnProductAddList.Click += btnProductAddList_Click;
-            MepBuysAdd.SaveClick += MepBuysAdd_SaveClick;
-            MepBuysAdd.CancelClick += MepBuysAdd_CancelClick;
+            mepPurchaseAdd.SaveClick += MepBuysAdd_SaveClick;
+            mepPurchaseAdd.CancelClick += MepBuysAdd_CancelClick;
 
             if (purchase != null)
             {
-                MepBuysAdd.Title = "Modificar Compra";
-                MepBuysAdd.Description = "Edita los datos de la compra seleccionada";
+                mepPurchaseAdd.Title = "Modificar Compra";
+                mepPurchaseAdd.Description = "Edita los datos de la compra seleccionada";
                 currentPurchase = purchase;
                 // Cargar datos de la compra si es necesario
                 foreach (var item in purchaseItemController.GetItemsByPurchaseId(purchase.Id))
@@ -89,7 +89,7 @@ namespace GestionAgraria.Views
             {
                 // Solo lectura: deshabilitar edición
                 Utils.SetControlsReadOnly(tableLayoutPanel1);
-                MepBuysAdd.ValidationButtonEnable = false;
+                mepPurchaseAdd.ValidationButtonEnable = false;
             }
             // Write y Admin tienen acceso completo
         }

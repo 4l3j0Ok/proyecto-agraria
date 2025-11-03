@@ -79,6 +79,7 @@ namespace GestionAgraria.Views
             // 
             // mepFormativeEnvironmentAdd
             // 
+            mepFormativeEnvironmentAdd.AutoSize = true;
             mepFormativeEnvironmentAdd.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             mepFormativeEnvironmentAdd.BackColor = Color.FromArgb(255, 255, 255);
             mepFormativeEnvironmentAdd.CancelButtonText = "Cancelar";
@@ -93,7 +94,7 @@ namespace GestionAgraria.Views
             mepFormativeEnvironmentAdd.Margin = new Padding(3, 16, 3, 16);
             mepFormativeEnvironmentAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             mepFormativeEnvironmentAdd.Name = "mepFormativeEnvironmentAdd";
-            mepFormativeEnvironmentAdd.Padding = new Padding(24, 20, 24, 60);
+            mepFormativeEnvironmentAdd.Padding = new Padding(24, 20, 24, 70);
             mepFormativeEnvironmentAdd.ShowCollapseExpand = false;
             mepFormativeEnvironmentAdd.Size = new Size(962, 408);
             mepFormativeEnvironmentAdd.TabIndex = 0;
@@ -106,6 +107,7 @@ namespace GestionAgraria.Views
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.AutoScroll = true;
+            tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
@@ -119,7 +121,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
             tableLayoutPanel1.RowStyles.Add(new RowStyle());
-            tableLayoutPanel1.Size = new Size(914, 328);
+            tableLayoutPanel1.Size = new Size(914, 318);
             tableLayoutPanel1.TabIndex = 24;
             // 
             // groupBox2
@@ -493,6 +495,7 @@ namespace GestionAgraria.Views
             panel3.PerformLayout();
             groupBox4.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
