@@ -68,11 +68,11 @@ namespace GestionAgraria.Views
             dtAnimalEntryDate = new ReaLTaiizor.Controls.PoisonDateTime();
             materialLabel6 = new ReaLTaiizor.Controls.MaterialLabel();
             panel7 = new Panel();
+            cbAnimalType = new ReaLTaiizor.Controls.HopeComboBox();
             materialLabel7 = new ReaLTaiizor.Controls.MaterialLabel();
             panel3 = new Panel();
             tbAnimalCode = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblUsuario = new ReaLTaiizor.Controls.MaterialLabel();
-            cbAnimalType = new ReaLTaiizor.Controls.HopeComboBox();
             mepAnimalAdd.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
@@ -531,6 +531,22 @@ namespace GestionAgraria.Views
             panel7.Size = new Size(315, 82);
             panel7.TabIndex = 29;
             // 
+            // cbAnimalType
+            // 
+            cbAnimalType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbAnimalType.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbAnimalType.BackColor = SystemColors.ButtonFace;
+            cbAnimalType.Dock = DockStyle.Fill;
+            cbAnimalType.DrawMode = DrawMode.OwnerDrawFixed;
+            cbAnimalType.FlatStyle = FlatStyle.Flat;
+            cbAnimalType.Font = new Font("Segoe UI", 15F);
+            cbAnimalType.FormattingEnabled = true;
+            cbAnimalType.ItemHeight = 40;
+            cbAnimalType.Location = new Point(20, 19);
+            cbAnimalType.Name = "cbAnimalType";
+            cbAnimalType.Size = new Size(275, 46);
+            cbAnimalType.TabIndex = 25;
+            // 
             // materialLabel7
             // 
             materialLabel7.AutoSize = true;
@@ -602,21 +618,6 @@ namespace GestionAgraria.Views
             lblUsuario.Size = new Size(51, 19);
             lblUsuario.TabIndex = 4;
             lblUsuario.Text = "Codigo";
-            // 
-            // cbAnimalType
-            // 
-            cbAnimalType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            cbAnimalType.AutoCompleteSource = AutoCompleteSource.ListItems;
-            cbAnimalType.Dock = DockStyle.Fill;
-            cbAnimalType.DrawMode = DrawMode.OwnerDrawFixed;
-            cbAnimalType.FlatStyle = FlatStyle.Flat;
-            cbAnimalType.Font = new Font("Segoe UI", 15F);
-            cbAnimalType.FormattingEnabled = true;
-            cbAnimalType.ItemHeight = 40;
-            cbAnimalType.Location = new Point(20, 19);
-            cbAnimalType.Name = "cbAnimalType";
-            cbAnimalType.Size = new Size(275, 46);
-            cbAnimalType.TabIndex = 25;
             // 
             // UCAnimalAdd
             // 
