@@ -65,8 +65,8 @@ namespace GestionAgraria.controllers
                 string lowerText = searchText.ToLower();
                 query = query.Where(a =>
                     a.AnimalType.Name.ToLower().Contains(lowerText) ||  // nombre del tipo de animal
-                    a.Sex.ToLower().Contains(lowerText) ||              // sexo
-                    a.ProductiveState.ToLower().Contains(lowerText) ||  // estado productivo
+                    //a.Sex.ToLower().Contains(lowerText) ||              // sexo
+                    //a.ProductiveState.ToLower().Contains(lowerText) ||  // estado productivo
                     a.Observations.ToLower().Contains(lowerText)        // observaciones
                 );
             }

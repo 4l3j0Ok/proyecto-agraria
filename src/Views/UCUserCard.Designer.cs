@@ -65,7 +65,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(400, 70);
+            tableLayoutPanel1.Size = new Size(250, 70);
             tableLayoutPanel1.TabIndex = 4;
             // 
             // pbUserProfilePicture
@@ -84,7 +84,7 @@ namespace GestionAgraria.Views
             pbUserProfilePicture.Margin = new Padding(9, 8, 9, 8);
             pbUserProfilePicture.Name = "pbUserProfilePicture";
             pbUserProfilePicture.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            pbUserProfilePicture.Size = new Size(50, 54);
+            pbUserProfilePicture.Size = new Size(54, 54);
             pbUserProfilePicture.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             pbUserProfilePicture.TabIndex = 1;
             pbUserProfilePicture.Text = "parrotPictureBox1";
@@ -95,11 +95,11 @@ namespace GestionAgraria.Views
             panel1.Controls.Add(tableLayoutPanel2);
             panel1.Controls.Add(lblUserName);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(77, 8);
+            panel1.Location = new Point(81, 8);
             panel1.Margin = new Padding(9, 8, 9, 8);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(4);
-            panel1.Size = new Size(314, 54);
+            panel1.Size = new Size(160, 54);
             panel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -117,7 +117,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(306, 14);
+            tableLayoutPanel2.Size = new Size(152, 14);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // lblUserUsername
@@ -130,7 +130,7 @@ namespace GestionAgraria.Views
             lblUserUsername.Location = new Point(3, 0);
             lblUserUsername.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserUsername.Name = "lblUserUsername";
-            lblUserUsername.Size = new Size(96, 14);
+            lblUserUsername.Size = new Size(44, 14);
             lblUserUsername.TabIndex = 6;
             lblUserUsername.Text = "Nombre de usuario";
             // 
@@ -141,10 +141,10 @@ namespace GestionAgraria.Views
             lblUserPhone.Dock = DockStyle.Fill;
             lblUserPhone.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             lblUserPhone.FontType = MaterialSkinManager.FontType.SubtleEmphasis;
-            lblUserPhone.Location = new Point(207, 0);
+            lblUserPhone.Location = new Point(103, 0);
             lblUserPhone.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserPhone.Name = "lblUserPhone";
-            lblUserPhone.Size = new Size(96, 14);
+            lblUserPhone.Size = new Size(46, 14);
             lblUserPhone.TabIndex = 4;
             lblUserPhone.Text = "Teléfono";
             lblUserPhone.TextAlign = ContentAlignment.TopRight;
@@ -156,10 +156,10 @@ namespace GestionAgraria.Views
             lblUserArea.Dock = DockStyle.Fill;
             lblUserArea.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             lblUserArea.FontType = MaterialSkinManager.FontType.SubtleEmphasis;
-            lblUserArea.Location = new Point(105, 0);
+            lblUserArea.Location = new Point(53, 0);
             lblUserArea.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserArea.Name = "lblUserArea";
-            lblUserArea.Size = new Size(96, 14);
+            lblUserArea.Size = new Size(44, 14);
             lblUserArea.TabIndex = 5;
             lblUserArea.Text = "Área";
             lblUserArea.TextAlign = ContentAlignment.TopCenter;

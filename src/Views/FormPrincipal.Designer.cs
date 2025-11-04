@@ -564,9 +564,9 @@ namespace GestionAgraria
             materialLabel11.Location = new Point(20, 0);
             materialLabel11.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel11.Name = "materialLabel11";
-            materialLabel11.Size = new Size(81, 19);
+            materialLabel11.Size = new Size(282, 19);
             materialLabel11.TabIndex = 4;
-            materialLabel11.Text = "Buscar por:";
+            materialLabel11.Text = "Buscar por: Tipo de plata/obsevaciones";
             // 
             // lblEmptyVegetables
             // 
@@ -1014,9 +1014,9 @@ namespace GestionAgraria
             materialLabel15.Location = new Point(20, 0);
             materialLabel15.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel15.Name = "materialLabel15";
-            materialLabel15.Size = new Size(81, 19);
+            materialLabel15.Size = new Size(54, 19);
             materialLabel15.TabIndex = 4;
-            materialLabel15.Text = "Buscar por:";
+            materialLabel15.Text = "Buscar:";
             // 
             // btnAddAnimal
             // 
@@ -1326,9 +1326,9 @@ namespace GestionAgraria
             materialLabel21.Location = new Point(20, 0);
             materialLabel21.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel21.Name = "materialLabel21";
-            materialLabel21.Size = new Size(81, 19);
+            materialLabel21.Size = new Size(196, 19);
             materialLabel21.TabIndex = 4;
-            materialLabel21.Text = "Buscar por:";
+            materialLabel21.Text = "Buscar por: Codigo/nombre";
             // 
             // btnPrintProduct
             // 
@@ -1572,9 +1572,9 @@ namespace GestionAgraria
             materialLabel27.Location = new Point(20, 0);
             materialLabel27.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel27.Name = "materialLabel27";
-            materialLabel27.Size = new Size(81, 19);
+            materialLabel27.Size = new Size(189, 19);
             materialLabel27.TabIndex = 4;
-            materialLabel27.Text = "Buscar por:";
+            materialLabel27.Text = "Buscar por: Observaciones";
             // 
             // btnPrintPurchases
             // 
@@ -1819,9 +1819,9 @@ namespace GestionAgraria
             materialLabel40.Location = new Point(20, 0);
             materialLabel40.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel40.Name = "materialLabel40";
-            materialLabel40.Size = new Size(81, 19);
+            materialLabel40.Size = new Size(331, 19);
             materialLabel40.TabIndex = 4;
-            materialLabel40.Text = "Buscar por:";
+            materialLabel40.Text = "Buscar por: Nombre del cliente/ Observaciones";
             // 
             // btnPrintSells
             // 
@@ -2157,9 +2157,9 @@ namespace GestionAgraria
             materialLabel7.Location = new Point(20, 0);
             materialLabel7.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel7.Name = "materialLabel7";
-            materialLabel7.Size = new Size(81, 19);
+            materialLabel7.Size = new Size(272, 19);
             materialLabel7.TabIndex = 4;
-            materialLabel7.Text = "Buscar por:";
+            materialLabel7.Text = "Buscar por: Nombre/ apellido/ usuario";
             // 
             // lblEmptyUsers
             // 
@@ -2235,6 +2235,7 @@ namespace GestionAgraria
             materialExpansionPanel5.Depth = 0;
             materialExpansionPanel5.Description = "Aplica filtros de búsqueda";
             materialExpansionPanel5.Dock = DockStyle.Top;
+            materialExpansionPanel5.ExpandHeight = 200;
             materialExpansionPanel5.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialExpansionPanel5.ForeColor = Color.FromArgb(222, 0, 0, 0);
             materialExpansionPanel5.Location = new Point(0, 0);
@@ -2438,9 +2439,9 @@ namespace GestionAgraria
             lblUsuario.Location = new Point(20, 0);
             lblUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(81, 19);
+            lblUsuario.Size = new Size(243, 19);
             lblUsuario.TabIndex = 4;
-            lblUsuario.Text = "Buscar por:";
+            lblUsuario.Text = "Buscar por: Nombre/ Responsable";
             // 
             // flpFormativeEnvironmentsList
             // 
@@ -2812,9 +2813,9 @@ namespace GestionAgraria
             materialLabel32.Location = new Point(20, 0);
             materialLabel32.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel32.Name = "materialLabel32";
-            materialLabel32.Size = new Size(81, 19);
+            materialLabel32.Size = new Size(225, 19);
             materialLabel32.TabIndex = 4;
-            materialLabel32.Text = "Buscar por:";
+            materialLabel32.Text = "Buscar por: Titulo/ Observacion";
             // 
             // materialLabel29
             // 

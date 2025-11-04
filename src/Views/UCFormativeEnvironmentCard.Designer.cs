@@ -55,7 +55,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(400, 70);
+            tableLayoutPanel1.Size = new Size(250, 70);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // parrotPictureBox1
@@ -89,7 +89,7 @@
             panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(5);
-            panel1.Size = new Size(310, 50);
+            panel1.Size = new Size(160, 50);
             panel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -107,7 +107,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(300, 14);
+            tableLayoutPanel2.Size = new Size(150, 14);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // lblUserUsername
@@ -120,7 +120,7 @@
             lblUserUsername.Location = new Point(3, 0);
             lblUserUsername.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserUsername.Name = "lblUserUsername";
-            lblUserUsername.Size = new Size(94, 14);
+            lblUserUsername.Size = new Size(44, 14);
             lblUserUsername.TabIndex = 6;
             lblUserUsername.Text = "Tipo Entorno";
             // 
@@ -131,10 +131,10 @@
             lblUserPhone.Dock = DockStyle.Fill;
             lblUserPhone.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             lblUserPhone.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblUserPhone.Location = new Point(203, 0);
+            lblUserPhone.Location = new Point(103, 0);
             lblUserPhone.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserPhone.Name = "lblUserPhone";
-            lblUserPhone.Size = new Size(94, 14);
+            lblUserPhone.Size = new Size(44, 14);
             lblUserPhone.TabIndex = 4;
             lblUserPhone.Text = "Año";
             lblUserPhone.TextAlign = ContentAlignment.TopRight;
@@ -146,10 +146,10 @@
             lblUserArea.Dock = DockStyle.Fill;
             lblUserArea.Font = new Font("Roboto", 12F, FontStyle.Italic, GraphicsUnit.Pixel);
             lblUserArea.FontType = ReaLTaiizor.Manager.MaterialSkinManager.FontType.SubtleEmphasis;
-            lblUserArea.Location = new Point(103, 0);
+            lblUserArea.Location = new Point(53, 0);
             lblUserArea.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             lblUserArea.Name = "lblUserArea";
-            lblUserArea.Size = new Size(94, 14);
+            lblUserArea.Size = new Size(44, 14);
             lblUserArea.TabIndex = 5;
             lblUserArea.Text = "Responsable";
             lblUserArea.TextAlign = ContentAlignment.TopCenter;

@@ -45,7 +45,8 @@ namespace GestionAgraria.Controllers
             {
                 string lower = searchText.ToLower();
                 query = query.Where(s =>
-                    s.Observation.ToLower().Contains(lower)
+                    s.Observation.ToLower().Contains(lower) ||
+                    s.ClientName.ToLower().Contains(lower)
                 );
             }
 

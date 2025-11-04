@@ -116,8 +116,7 @@ namespace GestionAgraria.Controllers
                 string lowerText = searchText.ToLower();
                 query = query.Where(a =>
                     a.Titulo.ToLower().Contains(lowerText) ||
-                    (a.Observations != null && a.Observations.ToLower().Contains(lowerText)) ||
-                    a.StateActivity.ToLower().Contains(lowerText)
+                    (a.Observations != null && a.Observations.ToLower().Contains(lowerText))
                 );
             }
 

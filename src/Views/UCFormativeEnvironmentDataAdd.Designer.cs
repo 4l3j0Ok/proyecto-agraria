@@ -65,7 +65,7 @@
             tlYearData.Name = "tlYearData";
             tlYearData.RowCount = 1;
             tlYearData.RowStyles.Add(new RowStyle());
-            tlYearData.Size = new Size(1119, 99);
+            tlYearData.Size = new Size(656, 99);
             tlYearData.TabIndex = 31;
             // 
             // panel1
@@ -74,11 +74,11 @@
             panel1.Controls.Add(tbFormativeEnvironmentDataGroup);
             panel1.Controls.Add(materialLabel1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(672, 10);
+            panel1.Location = new Point(364, 10);
             panel1.Margin = new Padding(10);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(20, 0, 20, 0);
-            panel1.Size = new Size(311, 79);
+            panel1.Size = new Size(157, 79);
             panel1.TabIndex = 32;
             // 
             // tbFormativeEnvironmentDataGroup
@@ -107,7 +107,7 @@
             tbFormativeEnvironmentDataGroup.SelectionLength = 0;
             tbFormativeEnvironmentDataGroup.SelectionStart = 0;
             tbFormativeEnvironmentDataGroup.ShortcutsEnabled = true;
-            tbFormativeEnvironmentDataGroup.Size = new Size(271, 48);
+            tbFormativeEnvironmentDataGroup.Size = new Size(117, 48);
             tbFormativeEnvironmentDataGroup.TabIndex = 0;
             tbFormativeEnvironmentDataGroup.TabStop = false;
             tbFormativeEnvironmentDataGroup.TextAlign = HorizontalAlignment.Left;
@@ -133,11 +133,11 @@
             panel9.Controls.Add(tbFormativeEnvironmentDataCourse);
             panel9.Controls.Add(materialLabel4);
             panel9.Dock = DockStyle.Fill;
-            panel9.Location = new Point(341, 10);
+            panel9.Location = new Point(187, 10);
             panel9.Margin = new Padding(10);
             panel9.Name = "panel9";
             panel9.Padding = new Padding(20, 0, 20, 0);
-            panel9.Size = new Size(311, 79);
+            panel9.Size = new Size(157, 79);
             panel9.TabIndex = 31;
             // 
             // tbFormativeEnvironmentDataCourse
@@ -166,7 +166,7 @@
             tbFormativeEnvironmentDataCourse.SelectionLength = 0;
             tbFormativeEnvironmentDataCourse.SelectionStart = 0;
             tbFormativeEnvironmentDataCourse.ShortcutsEnabled = true;
-            tbFormativeEnvironmentDataCourse.Size = new Size(271, 48);
+            tbFormativeEnvironmentDataCourse.Size = new Size(117, 48);
             tbFormativeEnvironmentDataCourse.TabIndex = 0;
             tbFormativeEnvironmentDataCourse.TabStop = false;
             tbFormativeEnvironmentDataCourse.TextAlign = HorizontalAlignment.Left;
@@ -196,7 +196,7 @@
             panel5.Margin = new Padding(10);
             panel5.Name = "panel5";
             panel5.Padding = new Padding(20, 0, 20, 0);
-            panel5.Size = new Size(311, 79);
+            panel5.Size = new Size(157, 79);
             panel5.TabIndex = 30;
             // 
             // cbFormativeEnvironmentDataYear
@@ -219,7 +219,7 @@
             cbFormativeEnvironmentDataYear.MaxDropDownItems = 4;
             cbFormativeEnvironmentDataYear.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbFormativeEnvironmentDataYear.Name = "cbFormativeEnvironmentDataYear";
-            cbFormativeEnvironmentDataYear.Size = new Size(271, 49);
+            cbFormativeEnvironmentDataYear.Size = new Size(117, 49);
             cbFormativeEnvironmentDataYear.StartIndex = 0;
             cbFormativeEnvironmentDataYear.TabIndex = 5;
             // 
@@ -245,12 +245,12 @@
             btnDelete.HighEmphasis = true;
             btnDelete.Icon = Properties.Resources.trash;
             btnDelete.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btnDelete.Location = new Point(997, 30);
+            btnDelete.Location = new Point(535, 30);
             btnDelete.Margin = new Padding(4, 30, 4, 30);
             btnDelete.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnDelete.Name = "btnDelete";
             btnDelete.NoAccentTextColor = Color.Empty;
-            btnDelete.Size = new Size(118, 39);
+            btnDelete.Size = new Size(117, 39);
             btnDelete.TabIndex = 34;
             btnDelete.Text = "Eliminar";
             btnDelete.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -263,7 +263,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(tlYearData);
             Name = "UCFormativeEnvironmentDataAdd";
-            Size = new Size(1119, 99);
+            Size = new Size(656, 99);
             tlYearData.ResumeLayout(false);
             tlYearData.PerformLayout();
             panel1.ResumeLayout(false);

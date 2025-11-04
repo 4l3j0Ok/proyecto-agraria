@@ -55,7 +55,8 @@ namespace GestionAgraria.controllers
                 string lowerText = searchText.ToLower();
                 query = query.Where(u =>
                     u.Name.ToLower().Contains(lowerText) ||
-                    u.Email.ToLower().Contains(lowerText)
+                    u.Surname.ToLower().Contains(lowerText) ||
+                    u.Username.ToLower().Contains(lowerText)
                 );
             }
 
