@@ -68,11 +68,11 @@ namespace GestionAgraria.Views
             dtAnimalEntryDate = new ReaLTaiizor.Controls.PoisonDateTime();
             materialLabel6 = new ReaLTaiizor.Controls.MaterialLabel();
             panel7 = new Panel();
-            cbAnimalType = new ReaLTaiizor.Controls.MaterialEditableComboBoxFixed();
             materialLabel7 = new ReaLTaiizor.Controls.MaterialLabel();
             panel3 = new Panel();
             tbAnimalCode = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lblUsuario = new ReaLTaiizor.Controls.MaterialLabel();
+            cbAnimalType = new ReaLTaiizor.Controls.HopeComboBox();
             mepAnimalAdd.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
@@ -101,7 +101,7 @@ namespace GestionAgraria.Views
             mepAnimalAdd.Depth = 0;
             mepAnimalAdd.Description = "Registra un nuevo animal";
             mepAnimalAdd.Dock = DockStyle.Fill;
-            mepAnimalAdd.ExpandHeight = 422;
+            mepAnimalAdd.ExpandHeight = 442;
             mepAnimalAdd.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             mepAnimalAdd.ForeColor = Color.FromArgb(222, 0, 0, 0);
             mepAnimalAdd.Location = new Point(0, 0);
@@ -110,7 +110,7 @@ namespace GestionAgraria.Views
             mepAnimalAdd.Name = "mepAnimalAdd";
             mepAnimalAdd.Padding = new Padding(24, 64, 24, 70);
             mepAnimalAdd.ShowCollapseExpand = false;
-            mepAnimalAdd.Size = new Size(1008, 422);
+            mepAnimalAdd.Size = new Size(1008, 442);
             mepAnimalAdd.TabIndex = 1;
             mepAnimalAdd.Title = "Agregar animal";
             mepAnimalAdd.ValidationButtonEnable = true;
@@ -132,7 +132,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 344F));
-            tableLayoutPanel2.Size = new Size(960, 288);
+            tableLayoutPanel2.Size = new Size(960, 308);
             tableLayoutPanel2.TabIndex = 23;
             // 
             // panel2
@@ -143,7 +143,7 @@ namespace GestionAgraria.Views
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(954, 282);
+            panel2.Size = new Size(954, 302);
             panel2.TabIndex = 11;
             // 
             // groupBox3
@@ -208,7 +208,7 @@ namespace GestionAgraria.Views
             cbAnimalObservations.SelectionStart = 0;
             cbAnimalObservations.ShortcutsEnabled = true;
             cbAnimalObservations.Size = new Size(908, 48);
-            cbAnimalObservations.TabIndex = 0;
+            cbAnimalObservations.TabIndex = 8;
             cbAnimalObservations.TabStop = false;
             cbAnimalObservations.TextAlign = HorizontalAlignment.Left;
             cbAnimalObservations.TrailingIcon = null;
@@ -292,7 +292,7 @@ namespace GestionAgraria.Views
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(197, 49);
             cbEstado.StartIndex = 0;
-            cbEstado.TabIndex = 10;
+            cbEstado.TabIndex = 7;
             // 
             // materialLabel2
             // 
@@ -340,7 +340,7 @@ namespace GestionAgraria.Views
             cbAnimalFormativeEnvironment.Name = "cbAnimalFormativeEnvironment";
             cbAnimalFormativeEnvironment.Size = new Size(197, 49);
             cbAnimalFormativeEnvironment.StartIndex = 0;
-            cbAnimalFormativeEnvironment.TabIndex = 10;
+            cbAnimalFormativeEnvironment.TabIndex = 6;
             cbAnimalFormativeEnvironment.DropDown += cbAnimalFormativeEnvironment_DropDown;
             // 
             // materialLabel1
@@ -390,7 +390,7 @@ namespace GestionAgraria.Views
             cbAnimalProductiveState.Name = "cbAnimalProductiveState";
             cbAnimalProductiveState.Size = new Size(197, 49);
             cbAnimalProductiveState.StartIndex = 0;
-            cbAnimalProductiveState.TabIndex = 10;
+            cbAnimalProductiveState.TabIndex = 5;
             // 
             // materialLabel4
             // 
@@ -439,7 +439,7 @@ namespace GestionAgraria.Views
             cbAnimalSex.Name = "cbAnimalSex";
             cbAnimalSex.Size = new Size(197, 49);
             cbAnimalSex.StartIndex = 0;
-            cbAnimalSex.TabIndex = 10;
+            cbAnimalSex.TabIndex = 4;
             // 
             // materialLabel5
             // 
@@ -504,7 +504,7 @@ namespace GestionAgraria.Views
             dtAnimalEntryDate.Name = "dtAnimalEntryDate";
             dtAnimalEntryDate.Size = new Size(278, 35);
             dtAnimalEntryDate.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Brown;
-            dtAnimalEntryDate.TabIndex = 5;
+            dtAnimalEntryDate.TabIndex = 3;
             // 
             // materialLabel6
             // 
@@ -530,22 +530,6 @@ namespace GestionAgraria.Views
             panel7.Padding = new Padding(20, 0, 20, 0);
             panel7.Size = new Size(315, 82);
             panel7.TabIndex = 29;
-            // 
-            // cbAnimalType
-            // 
-            cbAnimalType.AnimateClose = false;
-            cbAnimalType.AnimateOpen = true;
-            cbAnimalType.BackColor = Color.FromArgb(245, 245, 245);
-            cbAnimalType.Dock = DockStyle.Top;
-            cbAnimalType.Hint = "Seleccione o escriba...";
-            cbAnimalType.Location = new Point(20, 19);
-            cbAnimalType.Name = "cbAnimalType";
-            cbAnimalType.OpenOnClick = true;
-            cbAnimalType.OpenOnFocus = false;
-            cbAnimalType.SelectedItem = "";
-            cbAnimalType.Size = new Size(275, 48);
-            cbAnimalType.TabIndex = 5;
-            cbAnimalType.UseAnimation = false;
             // 
             // materialLabel7
             // 
@@ -599,7 +583,7 @@ namespace GestionAgraria.Views
             tbAnimalCode.SelectionStart = 0;
             tbAnimalCode.ShortcutsEnabled = true;
             tbAnimalCode.Size = new Size(275, 48);
-            tbAnimalCode.TabIndex = 0;
+            tbAnimalCode.TabIndex = 1;
             tbAnimalCode.TabStop = false;
             tbAnimalCode.TextAlign = HorizontalAlignment.Left;
             tbAnimalCode.TrailingIcon = null;
@@ -619,6 +603,21 @@ namespace GestionAgraria.Views
             lblUsuario.TabIndex = 4;
             lblUsuario.Text = "Codigo";
             // 
+            // cbAnimalType
+            // 
+            cbAnimalType.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbAnimalType.AutoCompleteSource = AutoCompleteSource.ListItems;
+            cbAnimalType.Dock = DockStyle.Fill;
+            cbAnimalType.DrawMode = DrawMode.OwnerDrawFixed;
+            cbAnimalType.FlatStyle = FlatStyle.Flat;
+            cbAnimalType.Font = new Font("Segoe UI", 15F);
+            cbAnimalType.FormattingEnabled = true;
+            cbAnimalType.ItemHeight = 40;
+            cbAnimalType.Location = new Point(20, 19);
+            cbAnimalType.Name = "cbAnimalType";
+            cbAnimalType.Size = new Size(275, 46);
+            cbAnimalType.TabIndex = 25;
+            // 
             // UCAnimalAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -627,7 +626,7 @@ namespace GestionAgraria.Views
             Controls.Add(mepAnimalAdd);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCAnimalAdd";
-            Size = new Size(1008, 422);
+            Size = new Size(1008, 442);
             Load += UCAnimalAdd_Load;
             mepAnimalAdd.ResumeLayout(false);
             mepAnimalAdd.PerformLayout();
@@ -693,6 +692,6 @@ namespace GestionAgraria.Views
         private Panel panel4;
         private ReaLTaiizor.Controls.MaterialComboBox cbEstado;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel2;
-        private ReaLTaiizor.Controls.MaterialEditableComboBoxFixed cbAnimalType;
+        private ReaLTaiizor.Controls.HopeComboBox cbAnimalType;
     }
 }

@@ -80,7 +80,7 @@ namespace GestionAgraria.Views
                 // Cargar tipos de animales
                 var animalTypes = animalController.GetAnimalTypes();
 
-                cbAnimalType.BindItems(animalTypes.Select(a => a.Name));
+                cbAnimalType.Items.AddRange(animalTypes.Select(at => at.Name).ToArray());
 
 
                 var formativeEnvironments = animalController.GetAllActiveFormativeEnvironments();
@@ -220,10 +220,6 @@ namespace GestionAgraria.Views
             {
                 MessageBox.Show("Animal guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 formPrincipal?.RestaurarFormularioTab(formPrincipal.tabAnimalArea);
-            }
-            else
-            {
-                MessageBox.Show("Error al guardar el animal. El código ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
