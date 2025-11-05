@@ -69,18 +69,14 @@ namespace GestionAgraria.Views
             try
             {
                 // Limpiar los combos antes de cargar
-                cbEntornos.Items.Clear();
+                cbVegetableEnvironment.Items.Clear();
 
                 // Cargar tipos de animales
                 var formativeEnvironments = vegetalController.GetAllActiveFormativeEnvironments();
 
                 foreach (var environment in formativeEnvironments)
                 {
-                    cbEntornos.Items.Add(environment.Name);
-                }
-                for (int i = 0; i <= 50; i++)
-                {
-                    cbQuatityPlant.Items.Add(i.ToString());
+                    cbVegetableEnvironment.Items.Add(environment.Name);
                 }
             }
             catch (Exception ex)
@@ -91,15 +87,15 @@ namespace GestionAgraria.Views
 
         private void LoadVegetalData(VegetableModel vegetal)
         {
-            tbUsuario.Text = vegetal.PlantType;
-            cbQuatityPlant.Text = vegetal.Quantity.ToString();
+            tbVegetableUser.Text = vegetal.PlantType;
+            tbVegetableQuantity.Text = vegetal.Quantity.ToString();
             if (vegetal.IsActive == false)
-                cbEstado.SelectedIndex = 1;
-            materialTextBoxEdit8.Text = vegetal.Observations;
+                cbVegetableStatus.SelectedIndex = 1;
+            tbVegetableObservations.Text = vegetal.Observations;
 
             if (vegetal.FormativeEnvironment != null)
             {
-                cbEntornos.SelectedIndex = cbEntornos.Items.IndexOf(vegetal.FormativeEnvironment.Name);
+                cbVegetableEnvironment.SelectedIndex = cbVegetableEnvironment.Items.IndexOf(vegetal.FormativeEnvironment.Name);
             }
         }
 
@@ -107,10 +103,10 @@ namespace GestionAgraria.Views
         {
             List<string> emptyFields = new List<string>();
 
-            if (string.IsNullOrWhiteSpace(tbUsuario.Text))
+            if (string.IsNullOrWhiteSpace(tbVegetableUser.Text))
                 emptyFields.Add("Tipo de Planta");
 
-            if (string.IsNullOrWhiteSpace(cbQuatityPlant.Text))
+            if (string.IsNullOrWhiteSpace(tbVegetableQuantity.Text))
                 emptyFields.Add("Cantidad");
 
             if (emptyFields.Count > 0)
@@ -121,7 +117,7 @@ namespace GestionAgraria.Views
             }
 
             // Validar cantidad
-            if (!int.TryParse(cbQuatityPlant.Text, out int quantity) || quantity <= 0)
+            if (!int.TryParse(tbVegetableQuantity.Text, out int quantity) || quantity <= 0)
             {
                 MessageBox.Show("La cantidad debe ser un número entero mayor a 0.", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
@@ -144,13 +140,13 @@ namespace GestionAgraria.Views
             if (!ValidateFields())
                 return;
 
-            currentVegetal.PlantType = tbUsuario.Text;
-            currentVegetal.Quantity = int.Parse(cbQuatityPlant.Text);
-            currentVegetal.Observations = materialTextBoxEdit8.Text;
+            currentVegetal.PlantType = tbVegetableUser.Text;
+            currentVegetal.Quantity = int.Parse(tbVegetableQuantity.Text);
+            currentVegetal.Observations = tbVegetableObservations.Text;
 
 
             var selectedEnvironment = environments.FirstOrDefault(env =>
-                env.Name == cbEntornos.Text);
+                env.Name == cbVegetableEnvironment.Text);
             if (selectedEnvironment == null)
             {
                 MessageBox.Show("No hay entornos formativos seleccionado.",
@@ -190,6 +186,11 @@ namespace GestionAgraria.Views
         private void materialTextBoxEdit8_KeyPress(object sender, KeyPressEventArgs e)
         {
             Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 50, Utils.InputValidator.TipoValidacion.LetrasYNumeros);
+        }
+
+        private void tbVegetableQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Utils.InputValidator.ValidarEntrada(e, ((TextBox)sender).Text, 9, Utils.InputValidator.TipoValidacion.SoloNumeros);
         }
     }
 }

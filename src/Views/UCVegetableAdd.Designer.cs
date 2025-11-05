@@ -50,21 +50,21 @@ namespace GestionAgraria.Views
             groupBox3 = new System.Windows.Forms.GroupBox();
             tableLayoutPanel3 = new TableLayoutPanel();
             panel8 = new System.Windows.Forms.Panel();
-            materialTextBoxEdit8 = new MaterialTextBoxEdit();
+            tbVegetableObservations = new MaterialTextBoxEdit();
             materialLabel8 = new MaterialLabel();
             groupBox1 = new System.Windows.Forms.GroupBox();
             tableLayoutPanel5 = new TableLayoutPanel();
             panel4 = new System.Windows.Forms.Panel();
-            cbEstado = new MaterialComboBox();
+            cbVegetableStatus = new MaterialComboBox();
             materialLabel3 = new MaterialLabel();
             panel1 = new System.Windows.Forms.Panel();
-            cbEntornos = new MaterialComboBox();
+            cbVegetableEnvironment = new MaterialComboBox();
             materialLabel2 = new MaterialLabel();
             panel6 = new System.Windows.Forms.Panel();
-            cbQuatityPlant = new MaterialComboBox();
+            tbVegetableQuantity = new MaterialTextBoxEdit();
             materialLabel6 = new MaterialLabel();
             panel3 = new System.Windows.Forms.Panel();
-            tbUsuario = new MaterialTextBoxEdit();
+            tbVegetableUser = new MaterialTextBoxEdit();
             materialLabel1 = new MaterialLabel();
             mepVegetalAdd.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -157,7 +157,7 @@ namespace GestionAgraria.Views
             // 
             // panel8
             // 
-            panel8.Controls.Add(materialTextBoxEdit8);
+            panel8.Controls.Add(tbVegetableObservations);
             panel8.Controls.Add(materialLabel8);
             panel8.Dock = DockStyle.Fill;
             panel8.Location = new Point(0, 0);
@@ -167,39 +167,39 @@ namespace GestionAgraria.Views
             panel8.Size = new Size(1092, 78);
             panel8.TabIndex = 26;
             // 
-            // materialTextBoxEdit8
+            // tbVegetableObservations
             // 
-            materialTextBoxEdit8.AnimateReadOnly = false;
-            materialTextBoxEdit8.AutoCompleteMode = AutoCompleteMode.None;
-            materialTextBoxEdit8.AutoCompleteSource = AutoCompleteSource.None;
-            materialTextBoxEdit8.BackgroundImageLayout = ImageLayout.None;
-            materialTextBoxEdit8.CharacterCasing = CharacterCasing.Normal;
-            materialTextBoxEdit8.Depth = 0;
-            materialTextBoxEdit8.Dock = DockStyle.Fill;
-            materialTextBoxEdit8.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBoxEdit8.HideSelection = true;
-            materialTextBoxEdit8.LeadingIcon = null;
-            materialTextBoxEdit8.Location = new Point(20, 19);
-            materialTextBoxEdit8.Margin = new Padding(3, 3, 26, 3);
-            materialTextBoxEdit8.MaxLength = 32767;
-            materialTextBoxEdit8.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialTextBoxEdit8.Name = "materialTextBoxEdit8";
-            materialTextBoxEdit8.Padding = new Padding(9, 8, 9, 8);
-            materialTextBoxEdit8.PasswordChar = '\0';
-            materialTextBoxEdit8.PrefixSuffixText = null;
-            materialTextBoxEdit8.ReadOnly = false;
-            materialTextBoxEdit8.RightToLeft = RightToLeft.No;
-            materialTextBoxEdit8.SelectedText = "";
-            materialTextBoxEdit8.SelectionLength = 0;
-            materialTextBoxEdit8.SelectionStart = 0;
-            materialTextBoxEdit8.ShortcutsEnabled = true;
-            materialTextBoxEdit8.Size = new Size(1052, 48);
-            materialTextBoxEdit8.TabIndex = 0;
-            materialTextBoxEdit8.TabStop = false;
-            materialTextBoxEdit8.TextAlign = HorizontalAlignment.Left;
-            materialTextBoxEdit8.TrailingIcon = null;
-            materialTextBoxEdit8.UseSystemPasswordChar = false;
-            materialTextBoxEdit8.KeyPress += materialTextBoxEdit8_KeyPress;
+            tbVegetableObservations.AnimateReadOnly = false;
+            tbVegetableObservations.AutoCompleteMode = AutoCompleteMode.None;
+            tbVegetableObservations.AutoCompleteSource = AutoCompleteSource.None;
+            tbVegetableObservations.BackgroundImageLayout = ImageLayout.None;
+            tbVegetableObservations.CharacterCasing = CharacterCasing.Normal;
+            tbVegetableObservations.Depth = 0;
+            tbVegetableObservations.Dock = DockStyle.Fill;
+            tbVegetableObservations.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbVegetableObservations.HideSelection = true;
+            tbVegetableObservations.LeadingIcon = null;
+            tbVegetableObservations.Location = new Point(20, 19);
+            tbVegetableObservations.Margin = new Padding(3, 3, 26, 3);
+            tbVegetableObservations.MaxLength = 32767;
+            tbVegetableObservations.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbVegetableObservations.Name = "tbVegetableObservations";
+            tbVegetableObservations.Padding = new Padding(9, 8, 9, 8);
+            tbVegetableObservations.PasswordChar = '\0';
+            tbVegetableObservations.PrefixSuffixText = null;
+            tbVegetableObservations.ReadOnly = false;
+            tbVegetableObservations.RightToLeft = RightToLeft.No;
+            tbVegetableObservations.SelectedText = "";
+            tbVegetableObservations.SelectionLength = 0;
+            tbVegetableObservations.SelectionStart = 0;
+            tbVegetableObservations.ShortcutsEnabled = true;
+            tbVegetableObservations.Size = new Size(1052, 48);
+            tbVegetableObservations.TabIndex = 0;
+            tbVegetableObservations.TabStop = false;
+            tbVegetableObservations.TextAlign = HorizontalAlignment.Left;
+            tbVegetableObservations.TrailingIcon = null;
+            tbVegetableObservations.UseSystemPasswordChar = false;
+            tbVegetableObservations.KeyPress += materialTextBoxEdit8_KeyPress;
             // 
             // materialLabel8
             // 
@@ -246,7 +246,7 @@ namespace GestionAgraria.Views
             // 
             // panel4
             // 
-            panel4.Controls.Add(cbEstado);
+            panel4.Controls.Add(cbVegetableStatus);
             panel4.Controls.Add(materialLabel3);
             panel4.Dock = DockStyle.Fill;
             panel4.Location = new Point(818, 0);
@@ -256,29 +256,29 @@ namespace GestionAgraria.Views
             panel4.Size = new Size(274, 82);
             panel4.TabIndex = 34;
             // 
-            // cbEstado
+            // cbVegetableStatus
             // 
-            cbEstado.AutoResize = false;
-            cbEstado.BackColor = Color.FromArgb(255, 255, 255);
-            cbEstado.Depth = 0;
-            cbEstado.Dock = DockStyle.Top;
-            cbEstado.DrawMode = DrawMode.OwnerDrawVariable;
-            cbEstado.DropDownHeight = 174;
-            cbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbEstado.DropDownWidth = 121;
-            cbEstado.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbEstado.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbEstado.FormattingEnabled = true;
-            cbEstado.IntegralHeight = false;
-            cbEstado.ItemHeight = 43;
-            cbEstado.Items.AddRange(new object[] { "Activo", "Inactivo" });
-            cbEstado.Location = new Point(20, 19);
-            cbEstado.MaxDropDownItems = 4;
-            cbEstado.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbEstado.Name = "cbEstado";
-            cbEstado.Size = new Size(234, 49);
-            cbEstado.StartIndex = 0;
-            cbEstado.TabIndex = 10;
+            cbVegetableStatus.AutoResize = false;
+            cbVegetableStatus.BackColor = Color.FromArgb(255, 255, 255);
+            cbVegetableStatus.Depth = 0;
+            cbVegetableStatus.Dock = DockStyle.Top;
+            cbVegetableStatus.DrawMode = DrawMode.OwnerDrawVariable;
+            cbVegetableStatus.DropDownHeight = 174;
+            cbVegetableStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbVegetableStatus.DropDownWidth = 121;
+            cbVegetableStatus.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbVegetableStatus.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbVegetableStatus.FormattingEnabled = true;
+            cbVegetableStatus.IntegralHeight = false;
+            cbVegetableStatus.ItemHeight = 43;
+            cbVegetableStatus.Items.AddRange(new object[] { "Activo", "Inactivo" });
+            cbVegetableStatus.Location = new Point(20, 19);
+            cbVegetableStatus.MaxDropDownItems = 4;
+            cbVegetableStatus.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbVegetableStatus.Name = "cbVegetableStatus";
+            cbVegetableStatus.Size = new Size(234, 49);
+            cbVegetableStatus.StartIndex = 0;
+            cbVegetableStatus.TabIndex = 10;
             // 
             // materialLabel3
             // 
@@ -295,7 +295,7 @@ namespace GestionAgraria.Views
             // 
             // panel1
             // 
-            panel1.Controls.Add(cbEntornos);
+            panel1.Controls.Add(cbVegetableEnvironment);
             panel1.Controls.Add(materialLabel2);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(545, 0);
@@ -305,28 +305,28 @@ namespace GestionAgraria.Views
             panel1.Size = new Size(273, 82);
             panel1.TabIndex = 31;
             // 
-            // cbEntornos
+            // cbVegetableEnvironment
             // 
-            cbEntornos.AutoResize = false;
-            cbEntornos.BackColor = Color.FromArgb(255, 255, 255);
-            cbEntornos.Depth = 0;
-            cbEntornos.Dock = DockStyle.Top;
-            cbEntornos.DrawMode = DrawMode.OwnerDrawVariable;
-            cbEntornos.DropDownHeight = 174;
-            cbEntornos.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbEntornos.DropDownWidth = 121;
-            cbEntornos.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbEntornos.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbEntornos.FormattingEnabled = true;
-            cbEntornos.IntegralHeight = false;
-            cbEntornos.ItemHeight = 43;
-            cbEntornos.Location = new Point(20, 19);
-            cbEntornos.MaxDropDownItems = 4;
-            cbEntornos.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbEntornos.Name = "cbEntornos";
-            cbEntornos.Size = new Size(233, 49);
-            cbEntornos.StartIndex = 0;
-            cbEntornos.TabIndex = 10;
+            cbVegetableEnvironment.AutoResize = false;
+            cbVegetableEnvironment.BackColor = Color.FromArgb(255, 255, 255);
+            cbVegetableEnvironment.Depth = 0;
+            cbVegetableEnvironment.Dock = DockStyle.Top;
+            cbVegetableEnvironment.DrawMode = DrawMode.OwnerDrawVariable;
+            cbVegetableEnvironment.DropDownHeight = 174;
+            cbVegetableEnvironment.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbVegetableEnvironment.DropDownWidth = 121;
+            cbVegetableEnvironment.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
+            cbVegetableEnvironment.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            cbVegetableEnvironment.FormattingEnabled = true;
+            cbVegetableEnvironment.IntegralHeight = false;
+            cbVegetableEnvironment.ItemHeight = 43;
+            cbVegetableEnvironment.Location = new Point(20, 19);
+            cbVegetableEnvironment.MaxDropDownItems = 4;
+            cbVegetableEnvironment.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            cbVegetableEnvironment.Name = "cbVegetableEnvironment";
+            cbVegetableEnvironment.Size = new Size(233, 49);
+            cbVegetableEnvironment.StartIndex = 0;
+            cbVegetableEnvironment.TabIndex = 10;
             // 
             // materialLabel2
             // 
@@ -343,7 +343,7 @@ namespace GestionAgraria.Views
             // 
             // panel6
             // 
-            panel6.Controls.Add(cbQuatityPlant);
+            panel6.Controls.Add(tbVegetableQuantity);
             panel6.Controls.Add(materialLabel6);
             panel6.Dock = DockStyle.Fill;
             panel6.Location = new Point(382, 0);
@@ -353,28 +353,37 @@ namespace GestionAgraria.Views
             panel6.Size = new Size(163, 82);
             panel6.TabIndex = 30;
             // 
-            // cbQuatityPlant
+            // tbVegetableQuantity
             // 
-            cbQuatityPlant.AutoResize = false;
-            cbQuatityPlant.BackColor = Color.FromArgb(255, 255, 255);
-            cbQuatityPlant.Depth = 0;
-            cbQuatityPlant.Dock = DockStyle.Top;
-            cbQuatityPlant.DrawMode = DrawMode.OwnerDrawVariable;
-            cbQuatityPlant.DropDownHeight = 174;
-            cbQuatityPlant.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbQuatityPlant.DropDownWidth = 121;
-            cbQuatityPlant.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold, GraphicsUnit.Pixel);
-            cbQuatityPlant.ForeColor = Color.FromArgb(222, 0, 0, 0);
-            cbQuatityPlant.FormattingEnabled = true;
-            cbQuatityPlant.IntegralHeight = false;
-            cbQuatityPlant.ItemHeight = 43;
-            cbQuatityPlant.Location = new Point(20, 19);
-            cbQuatityPlant.MaxDropDownItems = 4;
-            cbQuatityPlant.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            cbQuatityPlant.Name = "cbQuatityPlant";
-            cbQuatityPlant.Size = new Size(123, 49);
-            cbQuatityPlant.StartIndex = 0;
-            cbQuatityPlant.TabIndex = 10;
+            tbVegetableQuantity.AnimateReadOnly = false;
+            tbVegetableQuantity.AutoCompleteMode = AutoCompleteMode.None;
+            tbVegetableQuantity.AutoCompleteSource = AutoCompleteSource.None;
+            tbVegetableQuantity.BackgroundImageLayout = ImageLayout.None;
+            tbVegetableQuantity.CharacterCasing = CharacterCasing.Normal;
+            tbVegetableQuantity.Depth = 0;
+            tbVegetableQuantity.Dock = DockStyle.Fill;
+            tbVegetableQuantity.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbVegetableQuantity.HideSelection = true;
+            tbVegetableQuantity.LeadingIcon = null;
+            tbVegetableQuantity.Location = new Point(20, 19);
+            tbVegetableQuantity.MaxLength = 3;
+            tbVegetableQuantity.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbVegetableQuantity.Name = "tbVegetableQuantity";
+            tbVegetableQuantity.PasswordChar = '\0';
+            tbVegetableQuantity.PrefixSuffixText = null;
+            tbVegetableQuantity.ReadOnly = false;
+            tbVegetableQuantity.RightToLeft = RightToLeft.No;
+            tbVegetableQuantity.SelectedText = "";
+            tbVegetableQuantity.SelectionLength = 0;
+            tbVegetableQuantity.SelectionStart = 0;
+            tbVegetableQuantity.ShortcutsEnabled = true;
+            tbVegetableQuantity.Size = new Size(123, 48);
+            tbVegetableQuantity.TabIndex = 5;
+            tbVegetableQuantity.TabStop = false;
+            tbVegetableQuantity.TextAlign = HorizontalAlignment.Center;
+            tbVegetableQuantity.TrailingIcon = null;
+            tbVegetableQuantity.UseSystemPasswordChar = false;
+            tbVegetableQuantity.KeyPress += tbVegetableQuantity_KeyPress;
             // 
             // materialLabel6
             // 
@@ -383,6 +392,7 @@ namespace GestionAgraria.Views
             materialLabel6.Dock = DockStyle.Top;
             materialLabel6.Font = new Font("Roboto", 14F, FontStyle.Regular, GraphicsUnit.Pixel);
             materialLabel6.Location = new Point(20, 0);
+            materialLabel6.Margin = new Padding(3, 0, 3, 3);
             materialLabel6.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialLabel6.Name = "materialLabel6";
             materialLabel6.Size = new Size(65, 19);
@@ -391,7 +401,7 @@ namespace GestionAgraria.Views
             // 
             // panel3
             // 
-            panel3.Controls.Add(tbUsuario);
+            panel3.Controls.Add(tbVegetableUser);
             panel3.Controls.Add(materialLabel1);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 0);
@@ -401,39 +411,39 @@ namespace GestionAgraria.Views
             panel3.Size = new Size(382, 82);
             panel3.TabIndex = 21;
             // 
-            // tbUsuario
+            // tbVegetableUser
             // 
-            tbUsuario.AnimateReadOnly = false;
-            tbUsuario.AutoCompleteMode = AutoCompleteMode.None;
-            tbUsuario.AutoCompleteSource = AutoCompleteSource.None;
-            tbUsuario.BackgroundImageLayout = ImageLayout.None;
-            tbUsuario.CharacterCasing = CharacterCasing.Normal;
-            tbUsuario.Depth = 0;
-            tbUsuario.Dock = DockStyle.Top;
-            tbUsuario.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            tbUsuario.HideSelection = true;
-            tbUsuario.LeadingIcon = null;
-            tbUsuario.Location = new Point(20, 19);
-            tbUsuario.Margin = new Padding(3, 3, 26, 3);
-            tbUsuario.MaxLength = 32767;
-            tbUsuario.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tbUsuario.Name = "tbUsuario";
-            tbUsuario.Padding = new Padding(9, 8, 9, 8);
-            tbUsuario.PasswordChar = '\0';
-            tbUsuario.PrefixSuffixText = null;
-            tbUsuario.ReadOnly = false;
-            tbUsuario.RightToLeft = RightToLeft.No;
-            tbUsuario.SelectedText = "";
-            tbUsuario.SelectionLength = 0;
-            tbUsuario.SelectionStart = 0;
-            tbUsuario.ShortcutsEnabled = true;
-            tbUsuario.Size = new Size(342, 48);
-            tbUsuario.TabIndex = 0;
-            tbUsuario.TabStop = false;
-            tbUsuario.TextAlign = HorizontalAlignment.Left;
-            tbUsuario.TrailingIcon = null;
-            tbUsuario.UseSystemPasswordChar = false;
-            tbUsuario.KeyPress += tbUsuario_KeyPress;
+            tbVegetableUser.AnimateReadOnly = false;
+            tbVegetableUser.AutoCompleteMode = AutoCompleteMode.None;
+            tbVegetableUser.AutoCompleteSource = AutoCompleteSource.None;
+            tbVegetableUser.BackgroundImageLayout = ImageLayout.None;
+            tbVegetableUser.CharacterCasing = CharacterCasing.Normal;
+            tbVegetableUser.Depth = 0;
+            tbVegetableUser.Dock = DockStyle.Top;
+            tbVegetableUser.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tbVegetableUser.HideSelection = true;
+            tbVegetableUser.LeadingIcon = null;
+            tbVegetableUser.Location = new Point(20, 19);
+            tbVegetableUser.Margin = new Padding(3, 3, 26, 3);
+            tbVegetableUser.MaxLength = 32767;
+            tbVegetableUser.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tbVegetableUser.Name = "tbVegetableUser";
+            tbVegetableUser.Padding = new Padding(9, 8, 9, 8);
+            tbVegetableUser.PasswordChar = '\0';
+            tbVegetableUser.PrefixSuffixText = null;
+            tbVegetableUser.ReadOnly = false;
+            tbVegetableUser.RightToLeft = RightToLeft.No;
+            tbVegetableUser.SelectedText = "";
+            tbVegetableUser.SelectionLength = 0;
+            tbVegetableUser.SelectionStart = 0;
+            tbVegetableUser.ShortcutsEnabled = true;
+            tbVegetableUser.Size = new Size(342, 48);
+            tbVegetableUser.TabIndex = 0;
+            tbVegetableUser.TabStop = false;
+            tbVegetableUser.TextAlign = HorizontalAlignment.Left;
+            tbVegetableUser.TrailingIcon = null;
+            tbVegetableUser.UseSystemPasswordChar = false;
+            tbVegetableUser.KeyPress += tbUsuario_KeyPress;
             // 
             // materialLabel1
             // 
@@ -497,21 +507,21 @@ namespace GestionAgraria.Views
         private System.Windows.Forms.GroupBox groupBox3;
         private TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Panel panel8;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit8;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbVegetableObservations;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel8;
         private System.Windows.Forms.GroupBox groupBox1;
         private TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel panel6;
-        private ReaLTaiizor.Controls.MaterialComboBox cbQuatityPlant;
         private ReaLTaiizor.Controls.MaterialLabel materialLabel6;
         private System.Windows.Forms.Panel panel3;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbUsuario;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tbVegetableUser;
         private ReaLTaiizor.Controls.MaterialLabel lblTipoPlanta;
         private System.Windows.Forms.Panel panel1;
-        private MaterialComboBox cbEntornos;
+        private MaterialComboBox cbVegetableEnvironment;
         private MaterialLabel materialLabel2;
         private MaterialLabel materialLabel1;
-        private MaterialComboBox cbEstado;
+        private MaterialComboBox cbVegetableStatus;
         private MaterialLabel materialLabel3;
+        private MaterialTextBoxEdit tbVegetableQuantity;
     }
 }
