@@ -208,7 +208,7 @@ namespace GestionAgraria.Views
             cbAnimalObservations.SelectionStart = 0;
             cbAnimalObservations.ShortcutsEnabled = true;
             cbAnimalObservations.Size = new Size(908, 48);
-            cbAnimalObservations.TabIndex = 8;
+            cbAnimalObservations.TabIndex = 7;
             cbAnimalObservations.TabStop = false;
             cbAnimalObservations.TextAlign = HorizontalAlignment.Left;
             cbAnimalObservations.TrailingIcon = null;
@@ -292,7 +292,7 @@ namespace GestionAgraria.Views
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(197, 49);
             cbEstado.StartIndex = 0;
-            cbEstado.TabIndex = 7;
+            cbEstado.TabIndex = 6;
             // 
             // materialLabel2
             // 
@@ -340,7 +340,7 @@ namespace GestionAgraria.Views
             cbAnimalFormativeEnvironment.Name = "cbAnimalFormativeEnvironment";
             cbAnimalFormativeEnvironment.Size = new Size(197, 49);
             cbAnimalFormativeEnvironment.StartIndex = 0;
-            cbAnimalFormativeEnvironment.TabIndex = 6;
+            cbAnimalFormativeEnvironment.TabIndex = 5;
             cbAnimalFormativeEnvironment.DropDown += cbAnimalFormativeEnvironment_DropDown;
             // 
             // materialLabel1
@@ -390,7 +390,7 @@ namespace GestionAgraria.Views
             cbAnimalProductiveState.Name = "cbAnimalProductiveState";
             cbAnimalProductiveState.Size = new Size(197, 49);
             cbAnimalProductiveState.StartIndex = 0;
-            cbAnimalProductiveState.TabIndex = 5;
+            cbAnimalProductiveState.TabIndex = 4;
             // 
             // materialLabel4
             // 
@@ -439,7 +439,7 @@ namespace GestionAgraria.Views
             cbAnimalSex.Name = "cbAnimalSex";
             cbAnimalSex.Size = new Size(197, 49);
             cbAnimalSex.StartIndex = 0;
-            cbAnimalSex.TabIndex = 4;
+            cbAnimalSex.TabIndex = 3;
             // 
             // materialLabel5
             // 
@@ -504,7 +504,7 @@ namespace GestionAgraria.Views
             dtAnimalEntryDate.Name = "dtAnimalEntryDate";
             dtAnimalEntryDate.Size = new Size(278, 35);
             dtAnimalEntryDate.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Brown;
-            dtAnimalEntryDate.TabIndex = 3;
+            dtAnimalEntryDate.TabIndex = 2;
             // 
             // materialLabel6
             // 
@@ -545,7 +545,7 @@ namespace GestionAgraria.Views
             cbAnimalType.Location = new Point(20, 19);
             cbAnimalType.Name = "cbAnimalType";
             cbAnimalType.Size = new Size(275, 46);
-            cbAnimalType.TabIndex = 25;
+            cbAnimalType.TabIndex = 1;
             // 
             // materialLabel7
             // 
@@ -599,7 +599,7 @@ namespace GestionAgraria.Views
             tbAnimalCode.SelectionStart = 0;
             tbAnimalCode.ShortcutsEnabled = true;
             tbAnimalCode.Size = new Size(275, 48);
-            tbAnimalCode.TabIndex = 1;
+            tbAnimalCode.TabIndex = 0;
             tbAnimalCode.TabStop = false;
             tbAnimalCode.TextAlign = HorizontalAlignment.Left;
             tbAnimalCode.TrailingIcon = null;

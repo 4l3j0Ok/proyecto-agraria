@@ -152,7 +152,7 @@ namespace GestionAgraria.Views
             btnProductAddList.Name = "btnProductAddList";
             btnProductAddList.NoAccentTextColor = Color.Empty;
             btnProductAddList.Size = new Size(1056, 36);
-            btnProductAddList.TabIndex = 37;
+            btnProductAddList.TabIndex = 3;
             btnProductAddList.Text = "AGREGAR";
             btnProductAddList.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnProductAddList.UseAccentColor = false;
@@ -214,7 +214,7 @@ namespace GestionAgraria.Views
             tbPurchaseObservation.SelectionStart = 0;
             tbPurchaseObservation.ShortcutsEnabled = true;
             tbPurchaseObservation.Size = new Size(814, 48);
-            tbPurchaseObservation.TabIndex = 0;
+            tbPurchaseObservation.TabIndex = 5;
             tbPurchaseObservation.TabStop = false;
             tbPurchaseObservation.TextAlign = HorizontalAlignment.Left;
             tbPurchaseObservation.TrailingIcon = null;
@@ -274,7 +274,7 @@ namespace GestionAgraria.Views
             tbTotal.SelectionStart = 0;
             tbTotal.ShortcutsEnabled = true;
             tbTotal.Size = new Size(204, 48);
-            tbTotal.TabIndex = 0;
+            tbTotal.TabIndex = 4;
             tbTotal.TabStop = false;
             tbTotal.TextAlign = HorizontalAlignment.Left;
             tbTotal.TrailingIcon = null;
@@ -352,7 +352,7 @@ namespace GestionAgraria.Views
             tbPurchaseItemCost.SelectionStart = 0;
             tbPurchaseItemCost.ShortcutsEnabled = true;
             tbPurchaseItemCost.Size = new Size(509, 48);
-            tbPurchaseItemCost.TabIndex = 0;
+            tbPurchaseItemCost.TabIndex = 2;
             tbPurchaseItemCost.TabStop = false;
             tbPurchaseItemCost.TextAlign = HorizontalAlignment.Left;
             tbPurchaseItemCost.TrailingIcon = null;
@@ -411,7 +411,7 @@ namespace GestionAgraria.Views
             tbPurchaseItemQuantity.SelectionStart = 0;
             tbPurchaseItemQuantity.ShortcutsEnabled = true;
             tbPurchaseItemQuantity.Size = new Size(509, 48);
-            tbPurchaseItemQuantity.TabIndex = 0;
+            tbPurchaseItemQuantity.TabIndex = 1;
             tbPurchaseItemQuantity.TabStop = false;
             tbPurchaseItemQuantity.TextAlign = HorizontalAlignment.Left;
             tbPurchaseItemQuantity.TrailingIcon = null;
@@ -481,7 +481,7 @@ namespace GestionAgraria.Views
             tbPurchaseItemName.SelectionStart = 0;
             tbPurchaseItemName.ShortcutsEnabled = true;
             tbPurchaseItemName.Size = new Size(1058, 48);
-            tbPurchaseItemName.TabIndex = 5;
+            tbPurchaseItemName.TabIndex = 0;
             tbPurchaseItemName.TabStop = false;
             tbPurchaseItemName.TextAlign = HorizontalAlignment.Left;
             tbPurchaseItemName.TrailingIcon = null;

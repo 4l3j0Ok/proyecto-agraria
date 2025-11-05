@@ -213,7 +213,7 @@
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(278, 49);
             cbEstado.StartIndex = 0;
-            cbEstado.TabIndex = 10;
+            cbEstado.TabIndex = 3;
             // 
             // materialLabel2
             // 
@@ -262,7 +262,7 @@
             cbStateRecord.Name = "cbStateRecord";
             cbStateRecord.Size = new Size(277, 49);
             cbStateRecord.StartIndex = 0;
-            cbStateRecord.TabIndex = 10;
+            cbStateRecord.TabIndex = 2;
             // 
             // materialLabel4
             // 
@@ -311,7 +311,7 @@
             cbFormativeEnvironment.Name = "cbFormativeEnvironment";
             cbFormativeEnvironment.Size = new Size(277, 49);
             cbFormativeEnvironment.StartIndex = 0;
-            cbFormativeEnvironment.TabIndex = 10;
+            cbFormativeEnvironment.TabIndex = 1;
             // 
             // materialLabel1
             // 
@@ -360,7 +360,7 @@
             tbObservaciones.SelectionStart = 0;
             tbObservaciones.ShortcutsEnabled = true;
             tbObservaciones.Size = new Size(918, 421);
-            tbObservaciones.TabIndex = 6;
+            tbObservaciones.TabIndex = 5;
             tbObservaciones.TabStop = false;
             tbObservaciones.TextAlign = HorizontalAlignment.Left;
             tbObservaciones.UseSystemPasswordChar = false;

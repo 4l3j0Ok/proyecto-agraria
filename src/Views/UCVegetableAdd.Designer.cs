@@ -194,7 +194,7 @@ namespace GestionAgraria.Views
             tbVegetableObservations.SelectionStart = 0;
             tbVegetableObservations.ShortcutsEnabled = true;
             tbVegetableObservations.Size = new Size(1052, 48);
-            tbVegetableObservations.TabIndex = 0;
+            tbVegetableObservations.TabIndex = 4;
             tbVegetableObservations.TabStop = false;
             tbVegetableObservations.TextAlign = HorizontalAlignment.Left;
             tbVegetableObservations.TrailingIcon = null;
@@ -278,7 +278,7 @@ namespace GestionAgraria.Views
             cbVegetableStatus.Name = "cbVegetableStatus";
             cbVegetableStatus.Size = new Size(234, 49);
             cbVegetableStatus.StartIndex = 0;
-            cbVegetableStatus.TabIndex = 10;
+            cbVegetableStatus.TabIndex = 3;
             // 
             // materialLabel3
             // 
@@ -326,7 +326,7 @@ namespace GestionAgraria.Views
             cbVegetableEnvironment.Name = "cbVegetableEnvironment";
             cbVegetableEnvironment.Size = new Size(233, 49);
             cbVegetableEnvironment.StartIndex = 0;
-            cbVegetableEnvironment.TabIndex = 10;
+            cbVegetableEnvironment.TabIndex = 2;
             // 
             // materialLabel2
             // 
@@ -378,7 +378,7 @@ namespace GestionAgraria.Views
             tbVegetableQuantity.SelectionStart = 0;
             tbVegetableQuantity.ShortcutsEnabled = true;
             tbVegetableQuantity.Size = new Size(123, 48);
-            tbVegetableQuantity.TabIndex = 5;
+            tbVegetableQuantity.TabIndex = 1;
             tbVegetableQuantity.TabStop = false;
             tbVegetableQuantity.TextAlign = HorizontalAlignment.Center;
             tbVegetableQuantity.TrailingIcon = null;

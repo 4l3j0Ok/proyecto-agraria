@@ -170,7 +170,7 @@ namespace GestionAgraria.Views
             tbProductStock.SelectionStart = 0;
             tbProductStock.ShortcutsEnabled = true;
             tbProductStock.Size = new Size(234, 48);
-            tbProductStock.TabIndex = 0;
+            tbProductStock.TabIndex = 3;
             tbProductStock.TabStop = false;
             tbProductStock.TextAlign = HorizontalAlignment.Left;
             tbProductStock.TrailingIcon = null;
@@ -230,7 +230,7 @@ namespace GestionAgraria.Views
             tbDescription.SelectionStart = 0;
             tbDescription.ShortcutsEnabled = true;
             tbDescription.Size = new Size(1047, 48);
-            tbDescription.TabIndex = 0;
+            tbDescription.TabIndex = 4;
             tbDescription.TabStop = false;
             tbDescription.TextAlign = HorizontalAlignment.Left;
             tbDescription.TrailingIcon = null;
@@ -289,7 +289,7 @@ namespace GestionAgraria.Views
             tbProductUnitPrice.SelectionStart = 0;
             tbProductUnitPrice.ShortcutsEnabled = true;
             tbProductUnitPrice.Size = new Size(231, 48);
-            tbProductUnitPrice.TabIndex = 0;
+            tbProductUnitPrice.TabIndex = 2;
             tbProductUnitPrice.TabStop = false;
             tbProductUnitPrice.TextAlign = HorizontalAlignment.Left;
             tbProductUnitPrice.TrailingIcon = null;
@@ -348,7 +348,7 @@ namespace GestionAgraria.Views
             tbProductName.SelectionStart = 0;
             tbProductName.ShortcutsEnabled = true;
             tbProductName.Size = new Size(231, 48);
-            tbProductName.TabIndex = 0;
+            tbProductName.TabIndex = 1;
             tbProductName.TabStop = false;
             tbProductName.TextAlign = HorizontalAlignment.Left;
             tbProductName.TrailingIcon = null;

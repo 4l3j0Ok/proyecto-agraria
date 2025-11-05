@@ -216,6 +216,8 @@ namespace GestionAgraria.Views
 
                 // Limpiar campos
                 ClearItemFields();
+
+                tbPurchaseItemName.Focus();
             }
             catch (Exception ex)
             {

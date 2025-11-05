@@ -213,6 +213,7 @@ namespace GestionAgraria.Views
                 string ProductUnitPrice = price.ToString("0.00");
 
                 LoadDGVProduct(new List<string> { code, name, cantidad, ProductUnitPrice, (qty * price).ToString("0.00") });
+                cbSellProductName.Focus();
             }
             catch (Exception ex)
             {

@@ -179,7 +179,7 @@ namespace GestionAgraria.Views
             btnAddFormativeEnvironmentData.Name = "btnAddFormativeEnvironmentData";
             btnAddFormativeEnvironmentData.NoAccentTextColor = Color.Empty;
             btnAddFormativeEnvironmentData.Size = new Size(468, 36);
-            btnAddFormativeEnvironmentData.TabIndex = 0;
+            btnAddFormativeEnvironmentData.TabIndex = 5;
             btnAddFormativeEnvironmentData.Text = "Agregar";
             btnAddFormativeEnvironmentData.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnAddFormativeEnvironmentData.UseAccentColor = false;
@@ -252,7 +252,7 @@ namespace GestionAgraria.Views
             cbEstado.Name = "cbEstado";
             cbEstado.Size = new Size(74, 49);
             cbEstado.StartIndex = 0;
-            cbEstado.TabIndex = 10;
+            cbEstado.TabIndex = 3;
             // 
             // materialLabel1
             // 
@@ -300,7 +300,7 @@ namespace GestionAgraria.Views
             cbEnvironmentResponsable.Name = "cbEnvironmentResponsable";
             cbEnvironmentResponsable.Size = new Size(102, 49);
             cbEnvironmentResponsable.StartIndex = 0;
-            cbEnvironmentResponsable.TabIndex = 10;
+            cbEnvironmentResponsable.TabIndex = 2;
             // 
             // materialLabel6
             // 
@@ -348,7 +348,7 @@ namespace GestionAgraria.Views
             cbEnvironmentArea.Name = "cbEnvironmentArea";
             cbEnvironmentArea.Size = new Size(102, 49);
             cbEnvironmentArea.StartIndex = 0;
-            cbEnvironmentArea.TabIndex = 9;
+            cbEnvironmentArea.TabIndex = 1;
             // 
             // materialLabel7
             // 
@@ -460,7 +460,7 @@ namespace GestionAgraria.Views
             tbEnvironmentObservations.SelectionStart = 0;
             tbEnvironmentObservations.ShortcutsEnabled = true;
             tbEnvironmentObservations.Size = new Size(568, 48);
-            tbEnvironmentObservations.TabIndex = 1;
+            tbEnvironmentObservations.TabIndex = 6;
             tbEnvironmentObservations.TabStop = false;
             tbEnvironmentObservations.TextAlign = HorizontalAlignment.Left;
             tbEnvironmentObservations.TrailingIcon = null;

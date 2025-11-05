@@ -94,7 +94,7 @@ namespace GestionAgraria.Views
             mepSellsAdd.Name = "mepSellsAdd";
             mepSellsAdd.Padding = new Padding(21, 48, 21, 20);
             mepSellsAdd.ShowCollapseExpand = false;
-            mepSellsAdd.Size = new Size(1050, 662);
+            mepSellsAdd.Size = new Size(965, 662);
             mepSellsAdd.TabIndex = 3;
             mepSellsAdd.Title = "Ventas";
             mepSellsAdd.ValidationButtonEnable = true;
@@ -119,7 +119,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 120F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
-            tableLayoutPanel3.Size = new Size(1008, 594);
+            tableLayoutPanel3.Size = new Size(923, 594);
             tableLayoutPanel3.TabIndex = 13;
             // 
             // panel7
@@ -131,7 +131,7 @@ namespace GestionAgraria.Views
             panel7.Margin = new Padding(0);
             panel7.Name = "panel7";
             panel7.Padding = new Padding(20, 0, 20, 0);
-            panel7.Size = new Size(1008, 100);
+            panel7.Size = new Size(923, 100);
             panel7.TabIndex = 41;
             // 
             // tbTotal
@@ -164,7 +164,7 @@ namespace GestionAgraria.Views
             tbTotal.SelectionStart = 0;
             tbTotal.ShortcutsEnabled = true;
             tbTotal.Size = new Size(240, 48);
-            tbTotal.TabIndex = 0;
+            tbTotal.TabIndex = 7;
             tbTotal.TabStop = false;
             tbTotal.TextAlign = HorizontalAlignment.Left;
             tbTotal.TrailingIcon = null;
@@ -189,7 +189,7 @@ namespace GestionAgraria.Views
             groupBox2.Dock = DockStyle.Fill;
             groupBox2.Location = new Point(3, 3);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(1002, 114);
+            groupBox2.Size = new Size(917, 114);
             groupBox2.TabIndex = 39;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datos de la venta";
@@ -206,7 +206,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.Size = new Size(996, 92);
+            tableLayoutPanel4.Size = new Size(911, 92);
             tableLayoutPanel4.TabIndex = 6;
             // 
             // panel10
@@ -214,10 +214,10 @@ namespace GestionAgraria.Views
             panel10.Controls.Add(tbSellObservations);
             panel10.Controls.Add(materialLabel3);
             panel10.Dock = DockStyle.Fill;
-            panel10.Location = new Point(501, 3);
+            panel10.Location = new Point(458, 3);
             panel10.Name = "panel10";
             panel10.Padding = new Padding(20, 0, 20, 0);
-            panel10.Size = new Size(492, 166);
+            panel10.Size = new Size(450, 166);
             panel10.TabIndex = 45;
             // 
             // tbSellObservations
@@ -246,8 +246,8 @@ namespace GestionAgraria.Views
             tbSellObservations.SelectionLength = 0;
             tbSellObservations.SelectionStart = 0;
             tbSellObservations.ShortcutsEnabled = true;
-            tbSellObservations.Size = new Size(452, 48);
-            tbSellObservations.TabIndex = 0;
+            tbSellObservations.Size = new Size(410, 48);
+            tbSellObservations.TabIndex = 1;
             tbSellObservations.TabStop = false;
             tbSellObservations.TextAlign = HorizontalAlignment.Left;
             tbSellObservations.TrailingIcon = null;
@@ -275,7 +275,7 @@ namespace GestionAgraria.Views
             panel5.Location = new Point(3, 3);
             panel5.Name = "panel5";
             panel5.Padding = new Padding(20, 0, 20, 0);
-            panel5.Size = new Size(492, 166);
+            panel5.Size = new Size(449, 166);
             panel5.TabIndex = 0;
             // 
             // tbSellClientName
@@ -304,8 +304,8 @@ namespace GestionAgraria.Views
             tbSellClientName.SelectionLength = 0;
             tbSellClientName.SelectionStart = 0;
             tbSellClientName.ShortcutsEnabled = true;
-            tbSellClientName.Size = new Size(452, 48);
-            tbSellClientName.TabIndex = 7;
+            tbSellClientName.Size = new Size(409, 48);
+            tbSellClientName.TabIndex = 0;
             tbSellClientName.TabStop = false;
             tbSellClientName.TextAlign = HorizontalAlignment.Left;
             tbSellClientName.TrailingIcon = null;
@@ -331,7 +331,7 @@ namespace GestionAgraria.Views
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Location = new Point(3, 123);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1002, 338);
+            groupBox1.Size = new Size(917, 338);
             groupBox1.TabIndex = 38;
             groupBox1.TabStop = false;
             groupBox1.Text = "Productos de la venta";
@@ -354,7 +354,7 @@ namespace GestionAgraria.Views
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle());
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(996, 316);
+            tableLayoutPanel2.Size = new Size(911, 316);
             tableLayoutPanel2.TabIndex = 0;
             // 
             // dgvProductList
@@ -368,7 +368,7 @@ namespace GestionAgraria.Views
             dgvProductList.Location = new Point(3, 129);
             dgvProductList.Name = "dgvProductList";
             dgvProductList.ReadOnly = true;
-            dgvProductList.Size = new Size(990, 184);
+            dgvProductList.Size = new Size(905, 184);
             dgvProductList.TabIndex = 38;
             // 
             // CodeProduct
@@ -421,8 +421,8 @@ namespace GestionAgraria.Views
             btnProductAddList.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btnProductAddList.Name = "btnProductAddList";
             btnProductAddList.NoAccentTextColor = Color.Empty;
-            btnProductAddList.Size = new Size(988, 36);
-            btnProductAddList.TabIndex = 27;
+            btnProductAddList.Size = new Size(903, 36);
+            btnProductAddList.TabIndex = 6;
             btnProductAddList.Text = "Agregar producto";
             btnProductAddList.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btnProductAddList.UseAccentColor = false;
@@ -434,11 +434,11 @@ namespace GestionAgraria.Views
             panel4.Controls.Add(tbSellProductQuantity);
             panel4.Controls.Add(materialLabel2);
             panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(331, 0);
+            panel4.Location = new Point(303, 0);
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
             panel4.Padding = new Padding(20, 0, 20, 0);
-            panel4.Size = new Size(332, 78);
+            panel4.Size = new Size(303, 78);
             panel4.TabIndex = 25;
             // 
             // tbSellProductQuantity
@@ -467,8 +467,8 @@ namespace GestionAgraria.Views
             tbSellProductQuantity.SelectionLength = 0;
             tbSellProductQuantity.SelectionStart = 0;
             tbSellProductQuantity.ShortcutsEnabled = true;
-            tbSellProductQuantity.Size = new Size(292, 48);
-            tbSellProductQuantity.TabIndex = 0;
+            tbSellProductQuantity.Size = new Size(263, 48);
+            tbSellProductQuantity.TabIndex = 4;
             tbSellProductQuantity.TabStop = false;
             tbSellProductQuantity.TextAlign = HorizontalAlignment.Left;
             tbSellProductQuantity.TrailingIcon = null;
@@ -497,7 +497,7 @@ namespace GestionAgraria.Views
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
             panel8.Padding = new Padding(20, 0, 20, 0);
-            panel8.Size = new Size(331, 78);
+            panel8.Size = new Size(303, 78);
             panel8.TabIndex = 21;
             // 
             // cbSellProductName
@@ -519,9 +519,9 @@ namespace GestionAgraria.Views
             cbSellProductName.MaxDropDownItems = 4;
             cbSellProductName.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             cbSellProductName.Name = "cbSellProductName";
-            cbSellProductName.Size = new Size(291, 49);
+            cbSellProductName.Size = new Size(263, 49);
             cbSellProductName.StartIndex = 0;
-            cbSellProductName.TabIndex = 12;
+            cbSellProductName.TabIndex = 3;
             // 
             // lblNombreProducto
             // 
@@ -541,11 +541,11 @@ namespace GestionAgraria.Views
             panel3.Controls.Add(tbSellPrice);
             panel3.Controls.Add(materialLabel1);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(663, 0);
+            panel3.Location = new Point(606, 0);
             panel3.Margin = new Padding(0);
             panel3.Name = "panel3";
             panel3.Padding = new Padding(20, 0, 20, 0);
-            panel3.Size = new Size(333, 78);
+            panel3.Size = new Size(305, 78);
             panel3.TabIndex = 22;
             // 
             // tbSellPrice
@@ -576,8 +576,8 @@ namespace GestionAgraria.Views
             tbSellPrice.SelectionLength = 0;
             tbSellPrice.SelectionStart = 0;
             tbSellPrice.ShortcutsEnabled = true;
-            tbSellPrice.Size = new Size(293, 48);
-            tbSellPrice.TabIndex = 31;
+            tbSellPrice.Size = new Size(265, 48);
+            tbSellPrice.TabIndex = 5;
             tbSellPrice.TabStop = false;
             tbSellPrice.TextAlign = HorizontalAlignment.Left;
             tbSellPrice.TrailingIcon = null;
@@ -605,7 +605,7 @@ namespace GestionAgraria.Views
             Controls.Add(mepSellsAdd);
             Margin = new Padding(3, 2, 3, 2);
             Name = "UCSellAdd";
-            Size = new Size(1050, 616);
+            Size = new Size(965, 616);
             mepSellsAdd.ResumeLayout(false);
             mepSellsAdd.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
