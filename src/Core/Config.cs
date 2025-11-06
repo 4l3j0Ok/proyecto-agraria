@@ -145,7 +145,7 @@ namespace GestionAgraria.Core
         {
             "Productivo",
             "Enfermo",
-            "Embarazada",
+            "Preñada",
             "Crecimiento"
         };
         public static string[] defaultProcesoType = new string[]

@@ -240,18 +240,25 @@ namespace GestionAgraria
         private void LoadTables()
         {
             DefautlSelecForComboboxes();
+
             LoadComboBoxesUsersFilter();
             LoadUsersTable();
+
             LoadComboBoxesFiltroVegetal();
             LoadVegetablesTable();
+
             LoadComboBoxesFiltroAnimals();
             LoadAnimalsTable();
+
             LoadComboBoxesEnvironmentsFilter();
             LoadFormativeEnvironments();
+
             LoadComboBoxesFiltroProduct();
             LoadProductTable();
+
             LoadComboBoxesFiltroPurchase();
             LoadPurchasesTable();
+
             LoadSellsTable();
         }
 
