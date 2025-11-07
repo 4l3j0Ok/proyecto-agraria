@@ -2040,6 +2040,7 @@ namespace GestionAgraria
             cbEstadoUserSearch.Size = new Size(136, 49);
             cbEstadoUserSearch.StartIndex = 0;
             cbEstadoUserSearch.TabIndex = 10;
+            cbEstadoUserSearch.SelectedIndexChanged += CargarVegetalesSelec;
             // 
             // materialLabel5
             // 
@@ -2089,6 +2090,7 @@ namespace GestionAgraria
             cbRole.Size = new Size(136, 49);
             cbRole.StartIndex = 0;
             cbRole.TabIndex = 10;
+            cbRole.SelectedIndexChanged += CargarUsersSelec;
             // 
             // materialLabel6
             // 
@@ -2147,6 +2149,7 @@ namespace GestionAgraria
             tbSearchUsers.TextAlign = HorizontalAlignment.Left;
             tbSearchUsers.TrailingIcon = null;
             tbSearchUsers.UseSystemPasswordChar = false;
+            tbSearchUsers.TextChanged += CargarUsersSelec;
             // 
             // materialLabel7
             // 
@@ -2322,6 +2325,7 @@ namespace GestionAgraria
             cbEstadoBusquedaEntonor.Size = new Size(136, 49);
             cbEstadoBusquedaEntonor.StartIndex = 0;
             cbEstadoBusquedaEntonor.TabIndex = 10;
+            cbEstadoBusquedaEntonor.SelectedIndexChanged += CargarEnvironmentsSelec;
             // 
             // materialLabel2
             // 
@@ -2371,6 +2375,8 @@ namespace GestionAgraria
             cbAreasFiltro.Size = new Size(136, 49);
             cbAreasFiltro.StartIndex = 0;
             cbAreasFiltro.TabIndex = 10;
+            cbAreasFiltro.SelectedIndexChanged += CargarEnvironmentsSelec;
+            cbAreasFiltro.SelectedValueChanged += CargarEnvironmentsSelec;
             // 
             // materialLabel3
             // 
@@ -2429,6 +2435,7 @@ namespace GestionAgraria
             tbSeachFormativeEnvironments.TextAlign = HorizontalAlignment.Left;
             tbSeachFormativeEnvironments.TrailingIcon = null;
             tbSeachFormativeEnvironments.UseSystemPasswordChar = false;
+            tbSeachFormativeEnvironments.TextChanged += CargarEnvironmentsSelec;
             // 
             // lblUsuario
             // 

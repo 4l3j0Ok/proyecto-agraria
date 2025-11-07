@@ -1140,71 +1140,71 @@ namespace GestionAgraria
 
             // Para Industrias (que tiene sub-tabs), aplicar permisos al tab principal
             ApplyTabPermissions(tabIndustryArea, role.IndustriesAccess);
-              
+
             // También aplicar permisos a los sub-tabs de Industrias
             ApplyTabPermissions(tabProducts, role.IndustriesAccess);
             ApplyTabPermissions(tabPurchases, role.IndustriesAccess);
             ApplyTabPermissions(tabSells, role.IndustriesAccess);
-            }
-
-            private void ApplyTabPermissions(System.Windows.Forms.TabPage tabPage, AccessLevel accessLevel)
-            {
-                switch (accessLevel)
-                {
-                    case AccessLevel.None:
-                        // Ocultar el tab completamente
-                        if (tcPrincipal.TabPages.Contains(tabPage))
-                        {
-                            tcPrincipal.TabPages.Remove(tabPage);
-                        }
-                        if (tcIndustrias.TabPages.Contains(tabPage))
-                        {
-                            tcIndustrias.TabPages.Remove(tabPage);
-                        }
-                        break;
-
-                    case AccessLevel.Read:
-                        // Solo lectura: deshabilitar botones de agregar y hacer controles readonly
-                        DisableAddActionButtons(tabPage);
-                        DisableEditingInTab(tabPage);
-                        break;
-
-                    case AccessLevel.Write:
-                    case AccessLevel.Admin:
-                        // Acceso completo: no se aplica ninguna restricción
-                        break;
-                }
-            }
-
-            private void DisableEditingInTab(System.Windows.Forms.TabPage tabPage)
-            {
-                // Esta función se ejecuta cuando el usuario hace clic en una card
-                // Para deshabilitar la edición, necesitamos interceptar los clicks en las cards
-                // y hacer que los formularios Add se abran en modo readonly
-                // Marcar el tab como readonly mediante Tag
-                tabPage.Tag = "ReadOnly";
-            }
-
-            private void DisableAddActionButtons(System.Windows.Forms.TabPage tabPage)
-            {
-                foreach (Control control in tabPage.Controls)
-            {
-            if (control is ReaLTaiizor.Controls.MaterialFloatingActionButton fab)
-            {
-                if (fab.Name.Contains("btnAdd"))
-                {
-                    fab.Enabled = false;
-                    fab.Visible = false;
-                }
-            }
-                
-        // También buscar en controles anidados (como tcIndustrias)
-        if (control.HasChildren)
-        {
-            DisableAddActionButtonsRecursive(control);
         }
-    }
-}
+
+        private void ApplyTabPermissions(System.Windows.Forms.TabPage tabPage, AccessLevel accessLevel)
+        {
+            switch (accessLevel)
+            {
+                case AccessLevel.None:
+                    // Ocultar el tab completamente
+                    if (tcPrincipal.TabPages.Contains(tabPage))
+                    {
+                        tcPrincipal.TabPages.Remove(tabPage);
+                    }
+                    if (tcIndustrias.TabPages.Contains(tabPage))
+                    {
+                        tcIndustrias.TabPages.Remove(tabPage);
+                    }
+                    break;
+
+                case AccessLevel.Read:
+                    // Solo lectura: deshabilitar botones de agregar y hacer controles readonly
+                    DisableAddActionButtons(tabPage);
+                    DisableEditingInTab(tabPage);
+                    break;
+
+                case AccessLevel.Write:
+                case AccessLevel.Admin:
+                    // Acceso completo: no se aplica ninguna restricción
+                    break;
+            }
+        }
+
+        private void DisableEditingInTab(System.Windows.Forms.TabPage tabPage)
+        {
+            // Esta función se ejecuta cuando el usuario hace clic en una card
+            // Para deshabilitar la edición, necesitamos interceptar los clicks en las cards
+            // y hacer que los formularios Add se abran en modo readonly
+            // Marcar el tab como readonly mediante Tag
+            tabPage.Tag = "ReadOnly";
+        }
+
+        private void DisableAddActionButtons(System.Windows.Forms.TabPage tabPage)
+        {
+            foreach (Control control in tabPage.Controls)
+            {
+                if (control is ReaLTaiizor.Controls.MaterialFloatingActionButton fab)
+                {
+                    if (fab.Name.Contains("btnAdd"))
+                    {
+                        fab.Enabled = false;
+                        fab.Visible = false;
+                    }
+                }
+
+                // También buscar en controles anidados (como tcIndustrias)
+                if (control.HasChildren)
+                {
+                    DisableAddActionButtonsRecursive(control);
+                }
+            }
+        }
 
         private void DisableAddActionButtonsRecursive(Control parent)
         {
