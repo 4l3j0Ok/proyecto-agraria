@@ -907,7 +907,7 @@ namespace GestionAgraria
 
         private void btnAddVentas_Click(object sender, EventArgs e)
         {
-            UCSellAdd AddControl = new UCSellAdd();
+            UCNewSellsAdd AddControl = new UCNewSellsAdd();
             this.VerFormularioTab(AddControl, tabSells);
         }
         private void tabCerrarSesion_Click(object sender, EventArgs e)

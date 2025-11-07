@@ -29,6 +29,9 @@
     <Compile Update="Views\UCFormativeEnvironmentDataAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Views\UCNewSellsAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\UCProductAdd.cs">
       <SubType>UserControl</SubType>
     </Compile>

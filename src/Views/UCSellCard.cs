@@ -69,7 +69,7 @@ namespace GestionAgraria.Views
 
         public static void OpenFormAdd(SellModel sell)
         {
-            UCSellAdd sellAdd = new UCSellAdd(sell);
+            UCNewSellsAdd sellAdd = new UCNewSellsAdd(sell);
             FormPrincipal? formPrincipal = Application.OpenForms.OfType<FormPrincipal>().FirstOrDefault();
             formPrincipal?.VerFormularioTab(sellAdd, formPrincipal.tabSells);
         }
