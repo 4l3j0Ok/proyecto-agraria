@@ -1,0 +1,15 @@
+# Archivos generados por WiX
+*.wixobj
+*.wixpdb
+Product.wxs
+
+# Instaladores generados
+*.msi
+*.cab
+
+# Logs de WiX
+*.log
+
+# Archivos temporales
+*.tmp
+*.temp

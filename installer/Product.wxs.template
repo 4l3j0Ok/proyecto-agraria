@@ -1,20 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="*" Name="__PRODUCT_NAME__" Language="1033" Version="__PRODUCT_VERSION__" Manufacturer="__MANUFACTURER__" UpgradeCode="__UPGRADE_CODE__">
-    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
-    <MediaTemplate />
+  <Product Id="*" 
+           Name="Gestión Agraria" 
+           Language="1033" 
+           Version="{{VERSION}}" 
+           Manufacturer="Gestión Agraria Team" 
+           UpgradeCode="A1B2C3D4-E5F6-7890-ABCD-EF1234567890">
+    
+    <Package InstallerVersion="200" 
+             Compressed="yes" 
+             InstallScope="perMachine" 
+             Description="Sistema de gestión agraria"
+             Comments="Sistema de gestión integral para explotaciones agrarias" />
 
-    <Directory Id="TARGETDIR" Name="SourceDir">
-      <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="__PRODUCT_NAME__" />
-      </Directory>
-    </Directory>
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
 
-    <!-- The harvested files will create a ComponentGroup with Id 'HarvestedFilesGroup'. -->
-    <Feature Id="DefaultFeature" Level="1">
-      <ComponentGroupRef Id="HarvestedFilesGroup" />
+    <Feature Id="ProductFeature" Title="Gestión Agraria" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="DesktopShortcut" />
     </Feature>
 
-    <Property Id="ARPCONTACT" Value="__MANUFACTURER__" />
+    <!-- Icono para Add/Remove Programs -->
+    <Icon Id="AppIcon" SourceFile="{{ICON_PATH}}" />
+    <Property Id="ARPPRODUCTICON" Value="AppIcon" />
+    
+    <!-- Información adicional en Add/Remove Programs -->
+    <Property Id="ARPHELPLINK" Value="https://github.com/4l3j0Ok/proyecto-agraria" />
+    <Property Id="ARPURLINFOABOUT" Value="https://github.com/4l3j0Ok/proyecto-agraria" />
+    
+    <!-- UI personalizada -->
+    <UIRef Id="WixUI_InstallDir" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+    
+    <!-- Licencia (opcional, comentar si no existe) -->
+    <!-- <WixVariable Id="WixUILicenseRtf" Value="License.rtf" /> -->
   </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFiles64Folder">
+        <Directory Id="INSTALLFOLDER" Name="Gestión Agraria" />
+      </Directory>
+      
+      <!-- Start Menu -->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Gestión Agraria"/>
+      </Directory>
+      
+      <!-- Desktop -->
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="MainExecutable" Guid="*">
+        <File Id="GestionAgrariaEXE" 
+              Source="{{PUBLISH_DIR}}\GestionAgraria.exe" 
+              KeyPath="yes" 
+              Checksum="yes">
+          <Shortcut Id="StartMenuShortcut"
+                    Directory="ApplicationProgramsFolder"
+                    Name="Gestión Agraria"
+                    WorkingDirectory="INSTALLFOLDER"
+                    Icon="AppIcon"
+                    IconIndex="0"
+                    Description="Sistema de gestión agraria"
+                    Advertise="yes" />
+        </File>
+      </Component>
+      
+      <!-- Incluir todos los archivos del directorio publish -->
+      <Component Id="AllFiles" Guid="*">
+        <File Id="GestionAgrariaConfig" Source="{{PUBLISH_DIR}}\GestionAgraria.dll" KeyPath="yes" />
+      </Component>
+      
+      <!-- DLLs adicionales -->
+      {{#each DLLS}}
+      <Component Id="DLL_{{@index}}" Guid="*">
+        <File Id="File_{{@index}}" Source="{{PUBLISH_DIR}}\{{this}}" KeyPath="yes" />
+      </Component>
+      {{/each}}
+      
+      <!-- Archivos de configuración -->
+      {{#if HAS_APPSETTINGS}}
+      <Component Id="AppSettings" Guid="*">
+        <File Id="AppSettingsJson" Source="{{PUBLISH_DIR}}\appsettings.json" KeyPath="yes" />
+      </Component>
+      {{/if}}
+      
+      <!-- Runtime files -->
+      <Component Id="RuntimeConfig" Guid="*">
+        <File Id="RuntimeConfigJson" Source="{{PUBLISH_DIR}}\GestionAgraria.runtimeconfig.json" KeyPath="yes" />
+      </Component>
+      
+      <Component Id="DepsJson" Guid="*">
+        <File Id="DepsJsonFile" Source="{{PUBLISH_DIR}}\GestionAgraria.deps.json" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+    <!-- Acceso directo en el menú de inicio -->
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="*">
+        <Shortcut Id="UninstallProduct"
+                  Name="Desinstalar Gestión Agraria"
+                  Description="Desinstala Gestión Agraria"
+                  Target="[SystemFolder]msiexec.exe"
+                  Arguments="/x [ProductCode]"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" 
+                      Key="Software\GestionAgraria" 
+                      Name="installed" 
+                      Type="integer" 
+                      Value="1" 
+                      KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+    
+    <!-- Acceso directo en el escritorio -->
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="DesktopShortcut" Guid="*">
+        <Shortcut Id="DesktopShortcut"
+                  Name="Gestión Agraria"
+                  Description="Sistema de gestión agraria"
+                  Target="[INSTALLFOLDER]GestionAgraria.exe"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Icon="AppIcon"
+                  IconIndex="0"/>
+        <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" 
+                      Key="Software\GestionAgraria" 
+                      Name="desktopShortcut" 
+                      Type="integer" 
+                      Value="1" 
+                      KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
 </Wix>
