@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="__PRODUCT_NAME__" Language="1033" Version="__PRODUCT_VERSION__" Manufacturer="__MANUFACTURER__" UpgradeCode="__UPGRADE_CODE__">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    <MediaTemplate />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="__PRODUCT_NAME__" />
+      </Directory>
+    </Directory>
+
+    <!-- The harvested files will create a ComponentGroup with Id 'HarvestedFilesGroup'. -->
+    <Feature Id="DefaultFeature" Level="1">
+      <ComponentGroupRef Id="HarvestedFilesGroup" />
+    </Feature>
+
+    <Property Id="ARPCONTACT" Value="__MANUFACTURER__" />
+  </Product>
+</Wix>

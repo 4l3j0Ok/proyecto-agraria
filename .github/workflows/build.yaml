@@ -3,34 +3,121 @@ name: Build Windows Application
 on:
   push:
     tags:
-      - '*'
+      - "*"
 
 jobs:
   build:
     runs-on: windows-latest
     permissions:
       contents: read
-    
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.0.x'
-        
-    - name: Restore dependencies
-      run: dotnet restore src/GestionAgraria.sln
-      
-    - name: Build solution
-      run: dotnet build src/GestionAgraria.sln --configuration Release --no-restore
-      
-    - name: Publish application
-      run: dotnet publish src/GestionAgraria.csproj --configuration Release --no-build --output ./publish
-      
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: GestionAgraria-${{ github.ref_name }}
-        path: ./publish/
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore dependencies
+        run: dotnet restore src/GestionAgraria.sln
+
+      - name: Build solution
+        run: dotnet build src/GestionAgraria.sln --configuration Release --no-restore
+
+      - name: Publish application
+        run: dotnet publish src/GestionAgraria.csproj --configuration Release --no-build --output ./publish
+
+      - name: Prepare installer inputs
+        shell: pwsh
+        run: |
+          # Determine values from the current tag and repository
+          $version = '${{ github.ref_name }}'
+          if ([string]::IsNullOrEmpty($version)) { $version = '0.0.0' }
+          if ($version.StartsWith('v')) { $version = $version.Substring(1) }
+          $product = 'GestionAgraria'
+          $manufacturer = '${{ github.repository_owner }}'
+
+          # Prepare output folder for packaging
+          New-Item -ItemType Directory -Path installer-output -Force | Out-Null
+          Copy-Item -Path ./publish/* -Destination installer-output -Recurse -Force
+
+          # Generate stable UpgradeCode for this build (random each run by default)
+          $upgradeGuid = [guid]::NewGuid().ToString()
+
+          # Replace template placeholders to produce a valid Product.wxs
+          (Get-Content installer/Product.wxs.template -Raw) `
+            -replace '__PRODUCT_NAME__', $product `
+            -replace '__PRODUCT_VERSION__', $version `
+            -replace '__MANUFACTURER__', $manufacturer `
+            -replace '__UPGRADE_CODE__', $upgradeGuid `
+          | Set-Content installer/Product.wxs -Encoding UTF8
+
+      - name: Install WiX Toolset
+        run: choco install wixtoolset -y
+
+      - name: Build MSI (WiX)
+        shell: pwsh
+        env:
+          WIX_BIN_3_11: 'C:\Program Files (x86)\WiX Toolset v3.11\bin'
+        run: |
+          # Add WiX to PATH (common path for choco-installed wixtoolset)
+          if (Test-Path $env:WIX_BIN_3_11) { $env:PATH = "$env:WIX_BIN_3_11;" + $env:PATH }
+          Write-Host "Using PATH: $env:PATH"
+
+          # Harvest the installer-output folder so the MSI contains ALL published files
+          & heat.exe dir "installer-output" -cg HarvestedFilesGroup -dr INSTALLFOLDER -srd -gg -sfrag -out installer/harvest.wxs
+
+          # Compile (.wxs -> .wixobj)
+          & candle.exe -out installer/Product.wixobj installer/Product.wxs
+          & candle.exe -out installer/harvest.wixobj installer/harvest.wxs
+
+          # Link (.wixobj -> .msi)
+          & light.exe -out installer-output/setup.msi installer/Product.wixobj installer/harvest.wixobj
+
+      - name: Upload setup.msi artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: setup-msi
+          path: ./installer-output/setup.msi
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: GestionAgraria-${{ github.ref_name }}
+          path: ./publish/
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download MSI artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: setup-msi
+          path: ./release-assets
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+
+      - name: Upload MSI to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./release-assets/setup.msi
+          asset_name: setup.msi
+          asset_content_type: application/octet-stream
