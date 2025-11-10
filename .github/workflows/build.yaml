@@ -3,124 +3,124 @@ name: Build and Release Windows Application
 on:
   push:
     tags:
-      - 'v*.*.*'  # Triggers on version tags like v1.0.0
+      - "v*.*.*" # Triggers on version tags like v1.0.0
 
 jobs:
   build-and-release:
     runs-on: windows-latest
     permissions:
-      contents: write  # Required for creating releases
-    
+      contents: write # Required for creating releases
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Extract version from tag
-      id: get_version
-      shell: pwsh
-      run: |
-        $version = "${{ github.ref_name }}" -replace '^v', ''
-        echo "VERSION=$version" >> $env:GITHUB_OUTPUT
-        echo "Version: $version"
-      
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.0.x'
-        
-    - name: Restore dependencies
-      run: dotnet restore src/GestionAgraria.sln
-      
-    - name: Build solution
-      run: dotnet build src/GestionAgraria.sln --configuration Release --no-restore
-      
-    - name: Publish application
-      run: dotnet publish src/GestionAgraria.csproj --configuration Release --no-build --output ./publish --self-contained false
-      
-    - name: Install WiX Toolset
-      shell: pwsh
-      run: |
-        dotnet tool install --global wix --version 5.0.2
-        wix --version
-      
-    - name: Generate WiX source file
-      shell: pwsh
-      run: |
-        $publishDir = "${{ github.workspace }}\publish"
-        $iconPath = "${{ github.workspace }}\src\Views\Assets\Icons\Icon.ico"
-        $version = "${{ steps.get_version.outputs.VERSION }}"
-        $outputPath = "${{ github.workspace }}\installer\Product.wxs"
-        
-        # Run the generation script
-        & "installer/Generate-WixSource.ps1" `
-          -Version $version `
-          -PublishDir $publishDir `
-          -IconPath $iconPath `
-          -OutputPath $outputPath
-      
-    - name: Build MSI Installer
-      shell: pwsh
-      run: |
-        cd installer
-        
-        # Build with WiX v5
-        wix build Product.wxs `
-          -out GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi `
-          -ext WixToolset.UI.wixext `
-          -arch x64
-        
-        if (Test-Path "GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi") {
-          Write-Host "MSI created successfully"
-          $size = (Get-Item "GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi").Length / 1MB
-          Write-Host "Size: $([math]::Round($size, 2)) MB"
-        } else {
-          Write-Error "MSI creation failed"
-          exit 1
-        }
-      
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: GestionAgraria-${{ steps.get_version.outputs.VERSION }}
-        path: |
-          ./publish/
-          ./installer/*.msi
-        retention-days: 90
-    
-    - name: Create GitHub Release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref_name }}
-        release_name: Gestión Agraria ${{ github.ref_name }}
-        body: |
-          ## 🚀 Release ${{ github.ref_name }}
-          
-          ### 📦 Instalador Windows
-          Descarga el archivo `GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi` para instalar la aplicación.
-          
-          ### 📋 Requisitos
-          - Windows 10 o superior
-          - .NET 8.0 Runtime (se incluye en el instalador)
-          
-          ### 🔧 Instalación
-          1. Descarga el archivo MSI
-          2. Ejecuta el instalador
-          3. Sigue las instrucciones en pantalla
-          
-          ### 📝 Cambios
-          Ver el historial de commits para más detalles.
-        draft: false
-        prerelease: false
-    
-    - name: Upload MSI to Release
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./installer/GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi
-        asset_name: GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi
-        asset_content_type: application/x-msi
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: get_version
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}" -replace '^v', ''
+          echo "VERSION=$version" >> $env:GITHUB_OUTPUT
+          echo "Version: $version"
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore dependencies
+        run: dotnet restore src/GestionAgraria.sln
+
+      - name: Build solution
+        run: dotnet build src/GestionAgraria.sln --configuration Release --no-restore
+
+      - name: Publish application
+        run: dotnet publish src/GestionAgraria.csproj --configuration Release --no-build --output ./publish --self-contained false
+
+      - name: Install WiX Toolset
+        shell: pwsh
+        run: |
+          dotnet tool install --global wix --version 5.0.2
+          wix --version
+
+      - name: Generate WiX source file
+        shell: pwsh
+        run: |
+          $publishDir = "${{ github.workspace }}\publish"
+          $iconPath = "${{ github.workspace }}\src\Views\Assets\Icons\Icon.ico"
+          $version = "${{ steps.get_version.outputs.VERSION }}"
+          $outputPath = "${{ github.workspace }}\installer\Product.wxs"
+
+          # Run the generation script
+          & "installer/Generate-WixSource.ps1" `
+            -Version $version `
+            -PublishDir $publishDir `
+            -IconPath $iconPath `
+            -OutputPath $outputPath
+
+      - name: Build MSI Installer
+        shell: pwsh
+        run: |
+          cd installer
+
+          # Build with WiX v5
+          wix build Product.wxs `
+            -out GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi `
+            -ext WixToolset.UI.wixext `
+            -arch x64
+
+          if (Test-Path "GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi") {
+            Write-Host "MSI created successfully"
+            $size = (Get-Item "GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi").Length / 1MB
+            Write-Host "Size: $([math]::Round($size, 2)) MB"
+          } else {
+            Write-Error "MSI creation failed"
+            exit 1
+          }
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: GestionAgraria-${{ steps.get_version.outputs.VERSION }}
+          path: |
+            ./publish/
+            ./installer/*.msi
+          retention-days: 90
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Gestión Agraria ${{ github.ref_name }}
+          body: |
+            ## 🚀 Release ${{ github.ref_name }}
+
+            ### 📦 Instalador Windows
+            Descarga el archivo `GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi` para instalar la aplicación.
+
+            ### 📋 Requisitos
+            - Windows 10 o superior
+            - .NET 8.0 Runtime (se incluye en el instalador)
+
+            ### 🔧 Instalación
+            1. Descarga el archivo MSI
+            2. Ejecuta el instalador
+            3. Sigue las instrucciones en pantalla
+
+            ### 📝 Cambios
+            Ver el historial de commits para más detalles.
+          draft: false
+          prerelease: false
+
+      - name: Upload MSI to Release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./installer/GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi
+          asset_name: GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi
+          asset_content_type: application/x-msi
