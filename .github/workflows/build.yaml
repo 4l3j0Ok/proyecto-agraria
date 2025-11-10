@@ -58,6 +58,10 @@ jobs:
 
           Write-Host "✓ WiX UI extension downloaded and extracted"
 
+          # List contents to find the actual DLL location
+          Write-Host "Searching for DLL..."
+          Get-ChildItem -Path "$extDir\WixToolset.UI.wixext" -Recurse -Filter "*.dll" | Select-Object FullName
+
       - name: Generate WiX source file
         shell: pwsh
         run: |
@@ -78,13 +82,22 @@ jobs:
         run: |
           cd installer
 
-          # Find the WiX extension DLL
-          $extPath = "${{ github.workspace }}\wixext\WixToolset.UI.wixext\tools\net8.0\any\WixToolset.UI.wixext.dll"
+          # Find the WiX extension DLL dynamically
+          $extDir = "${{ github.workspace }}\wixext\WixToolset.UI.wixext"
+          $extDll = Get-ChildItem -Path $extDir -Recurse -Filter "WixToolset.UI.wixext.dll" | Select-Object -First 1 -ExpandProperty FullName
+
+          if (-not $extDll) {
+            Write-Error "✗ WiX UI extension DLL not found!"
+            Get-ChildItem -Path $extDir -Recurse | Select-Object FullName
+            exit 1
+          }
+
+          Write-Host "Using extension: $extDll"
 
           # Build with WiX v5 - interactive installer with UI
           wix build Product.wxs `
             -out GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi `
-            -ext $extPath `
+            -ext $extDll `
             -arch x64
 
           if (Test-Path "GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi") {
