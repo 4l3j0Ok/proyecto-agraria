@@ -43,10 +43,6 @@ jobs:
           dotnet tool install --global wix --version 5.0.2
           wix --version
 
-          # Install WiX UI extension
-          wix extension add WixToolset.UI.wixext/5.0.2
-          wix extension list
-
       - name: Generate WiX source file
         shell: pwsh
         run: |
@@ -67,17 +63,17 @@ jobs:
         run: |
           cd installer
 
-          # Build with WiX v5
+          # Build with WiX v5 - basic installer without custom UI
           wix build Product.wxs `
             -out GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi `
             -arch x64
 
           if (Test-Path "GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi") {
-            Write-Host "MSI created successfully"
+            Write-Host "✓ MSI created successfully"
             $size = (Get-Item "GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi").Length / 1MB
-            Write-Host "Size: $([math]::Round($size, 2)) MB"
+            Write-Host "✓ Size: $([math]::Round($size, 2)) MB"
           } else {
-            Write-Error "MSI creation failed"
+            Write-Error "✗ MSI creation failed"
             exit 1
           }
 

@@ -29,14 +29,14 @@ $wxs = $wxs -replace '{{PUBLISH_DIR}}', $PublishDir
 # Get all DLL files
 $dllFiles = Get-ChildItem -Path $PublishDir -Filter "*.dll" | Select-Object -ExpandProperty Name
 
-# Generate DLL components (simplified version)
+# Generate DLL components (WiX v5 format - no Guid needed)
 $dllComponents = ""
 $index = 0
 foreach ($dll in $dllFiles) {
     if ($dll -ne "GestionAgraria.dll") {
         $dllComponents += @"
-      <Component Id="DLL_$index" Guid="*">
-        <File Id="File_$index" Source="$PublishDir\$dll" KeyPath="yes" />
+      <Component Id="DLL_$index">
+        <File Id="File_$index" Source="$PublishDir\$dll" />
       </Component>
 
 "@
@@ -51,8 +51,8 @@ $wxs = $wxs -replace '{{#each DLLS}}[\s\S]*?{{/each}}', $dllComponents
 $hasAppSettings = Test-Path "$PublishDir\appsettings.json"
 if ($hasAppSettings) {
     $appSettingsComponent = @"
-      <Component Id="AppSettings" Guid="*">
-        <File Id="AppSettingsJson" Source="$PublishDir\appsettings.json" KeyPath="yes" />
+      <Component Id="AppSettings">
+        <File Id="AppSettingsJson" Source="$PublishDir\appsettings.json" />
       </Component>
 "@
     $wxs = $wxs -replace '{{#if HAS_APPSETTINGS}}[\s\S]*?{{/if}}', $appSettingsComponent

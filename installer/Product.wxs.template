@@ -29,9 +29,6 @@
       <ComponentRef Id="ApplicationShortcut" />
       <ComponentRef Id="DesktopShortcut" />
     </Feature>
-    
-    <UIRef Id="WixUI_Minimal" />
-    <UIRef Id="WixUI_ErrorProgressText" />
 
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
       <Component Id="MainExecutable">
