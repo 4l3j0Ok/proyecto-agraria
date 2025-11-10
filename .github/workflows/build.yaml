@@ -43,9 +43,20 @@ jobs:
           dotnet tool install --global wix --version 5.0.2
           wix --version
 
-          # Install WiX UI extension for interactive installer
-          wix extension add WixToolset.UI.wixext/5.0.2
-          wix extension list
+      - name: Download WiX UI Extension
+        shell: pwsh
+        run: |
+          # Create extensions directory
+          $extDir = "${{ github.workspace }}\wixext"
+          New-Item -ItemType Directory -Force -Path $extDir
+
+          # Download WiX UI extension package
+          Invoke-WebRequest -Uri "https://www.nuget.org/api/v2/package/WixToolset.UI.wixext/5.0.2" -OutFile "$extDir\WixToolset.UI.wixext.nupkg"
+
+          # Extract the package (it's a zip file)
+          Expand-Archive -Path "$extDir\WixToolset.UI.wixext.nupkg" -DestinationPath "$extDir\WixToolset.UI.wixext" -Force
+
+          Write-Host "✓ WiX UI extension downloaded and extracted"
 
       - name: Generate WiX source file
         shell: pwsh
@@ -67,10 +78,13 @@ jobs:
         run: |
           cd installer
 
+          # Find the WiX extension DLL
+          $extPath = "${{ github.workspace }}\wixext\WixToolset.UI.wixext\tools\net8.0\any\WixToolset.UI.wixext.dll"
+
           # Build with WiX v5 - interactive installer with UI
           wix build Product.wxs `
             -out GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi `
-            -ext WixToolset.UI.wixext `
+            -ext $extPath `
             -arch x64
 
           if (Test-Path "GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi") {
