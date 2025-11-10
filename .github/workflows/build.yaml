@@ -43,6 +43,10 @@ jobs:
           dotnet tool install --global wix --version 5.0.2
           wix --version
 
+          # Install WiX UI extension for interactive installer
+          wix extension add WixToolset.UI.wixext/5.0.2
+          wix extension list
+
       - name: Generate WiX source file
         shell: pwsh
         run: |
@@ -63,9 +67,10 @@ jobs:
         run: |
           cd installer
 
-          # Build with WiX v5 - basic installer without custom UI
+          # Build with WiX v5 - interactive installer with UI
           wix build Product.wxs `
             -out GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi `
+            -ext WixToolset.UI.wixext `
             -arch x64
 
           if (Test-Path "GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi") {
