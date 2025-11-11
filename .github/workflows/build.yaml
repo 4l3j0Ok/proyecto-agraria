@@ -3,91 +3,77 @@ name: Build and Release Windows Application
 on:
   push:
     tags:
-      - "*.*.*" # Triggers on version tags like 1.0.0
+      - "*.*.*"
 
 jobs:
   build-and-release:
     runs-on: windows-latest
     permissions:
-      contents: write # Required for creating releases
+      contents: write
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Extract version from tag
-        id: get_version
+      - name: Get version
+        id: version
         shell: pwsh
         run: |
-          $version = "${{ github.ref_name }}" -replace '^v', ''
-          echo "VERSION=$version" >> $env:GITHUB_OUTPUT
-          echo "Version: $version"
+          $v = "${{ github.ref_name }}" -replace '^v',''
+          echo "VERSION=$v" >> $env:GITHUB_OUTPUT
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "8.0.x"
 
-      - name: Restore dependencies
-        run: dotnet restore src/GestionAgraria.sln
+      - run: dotnet restore src/GestionAgraria.sln
+      - run: dotnet publish src/GestionAgraria.csproj -c Release -o publish --self-contained false
 
-      - name: Build solution
-        run: dotnet build src/GestionAgraria.sln --configuration Release --no-restore
+      - name: Install Inno Setup
+        run: choco install innosetup -y
 
-      - name: Publish application
-        run: dotnet publish src/GestionAgraria.csproj --configuration Release --no-build --output ./publish --self-contained false
-
-      - name: Install WiX Toolset
+      - name: Create installer script
         shell: pwsh
         run: |
-          dotnet tool install --global wix --version 5.0.2
-          wix --version
+          $v = "${{ steps.version.outputs.VERSION }}"
+          @"
+          [Setup]
+          AppName=Gestión Agraria
+          AppVersion=$v
+          DefaultDirName={pf}\Gestión Agraria
+          DefaultGroupName=Gestión Agraria
+          OutputBaseFilename=GestionAgraria-$v
+          SetupIconFile=src\Views\Assets\Icons\Icon.ico
+          UninstallDisplayIcon={app}\GestionAgraria.exe
+          Compression=lzma
+          SolidCompression=yes
+          AllowNoIcons=yes
+          PrivilegesRequired=lowest
+          WizardStyle=modern
+          DefaultUserDirName={userpf}\Gestión Agraria
 
-      - name: Generate WiX source file
-        shell: pwsh
-        run: |
-          $publishDir = "${{ github.workspace }}\publish"
-          $iconPath = "${{ github.workspace }}\src\Views\Assets\Icons\Icon.ico"
-          $version = "${{ steps.get_version.outputs.VERSION }}"
-          $outputPath = "${{ github.workspace }}\installer\Product.wxs"
+          [Files]
+          Source: "publish\*"; DestDir: "{app}"; Flags: recursesubdirs
 
-          # Run the generation script
-          & "installer/Generate-WixSource.ps1" `
-            -Version $version `
-            -PublishDir $publishDir `
-            -IconPath $iconPath `
-            -OutputPath $outputPath
+          [Icons]
+          Name: "{group}\Gestión Agraria"; Filename: "{app}\GestionAgraria.exe"
+          Name: "{commondesktop}\Gestión Agraria"; Filename: "{app}\GestionAgraria.exe"
 
-      - name: Build MSI Installer
-        shell: pwsh
-        run: |
-          cd installer
+          [Run]
+          Filename: "{app}\GestionAgraria.exe"; Description: "Iniciar Gestión Agraria"; Flags: nowait postinstall skipifsilent
+          "@ | Set-Content installer.iss
 
-          # Build with WiX v5 - basic installer without custom UI
-          wix build Product.wxs `
-            -out GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi `
-            -arch x64
+      - name: Build installer
+        run: iscc installer.iss
 
-          if (Test-Path "GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi") {
-            Write-Host "✓ MSI created successfully"
-            $size = (Get-Item "GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi").Length / 1MB
-            Write-Host "✓ Size: $([math]::Round($size, 2)) MB"
-          } else {
-            Write-Error "✗ MSI creation failed"
-            exit 1
-          }
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
-          name: GestionAgraria-${{ steps.get_version.outputs.VERSION }}
+          name: GestionAgraria-${{ steps.version.outputs.VERSION }}
           path: |
-            ./publish/
-            ./installer/*.msi
-          retention-days: 90
+            publish/
+            Output/*.exe
 
       - name: Create GitHub Release
-        id: create_release
+        id: release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -96,30 +82,14 @@ jobs:
           release_name: Gestión Agraria ${{ github.ref_name }}
           body: |
             ## 🚀 Release ${{ github.ref_name }}
+            Descargá `GestionAgraria-${{ steps.version.outputs.VERSION }}.exe`.
 
-            ### 📦 Instalador Windows
-            Descarga el archivo `GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi` para instalar la aplicación.
-
-            ### 📋 Requisitos
-            - Windows 10 o superior
-            - .NET 8.0 Runtime (se incluye en el instalador)
-
-            ### 🔧 Instalación
-            1. Descarga el archivo MSI
-            2. Ejecuta el instalador
-            3. Sigue las instrucciones en pantalla
-
-            ### 📝 Cambios
-            Ver el historial de commits para más detalles.
-          draft: false
-          prerelease: false
-
-      - name: Upload MSI to Release
+      - name: Upload installer to Release
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./installer/GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi
-          asset_name: GestionAgraria-${{ steps.get_version.outputs.VERSION }}.msi
-          asset_content_type: application/x-msi
+          upload_url: ${{ steps.release.outputs.upload_url }}
+          asset_path: Output/GestionAgraria-${{ steps.version.outputs.VERSION }}.exe
+          asset_name: GestionAgraria-${{ steps.version.outputs.VERSION }}.exe
+          asset_content_type: application/vnd.microsoft.portable-executable
