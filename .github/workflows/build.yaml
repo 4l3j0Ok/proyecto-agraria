@@ -49,7 +49,7 @@ jobs:
           AllowNoIcons=yes
           PrivilegesRequired=lowest
           WizardStyle=modern
-          DefaultUserDirName={userpf}\Gestión Agraria
+          DefaultDirName={userpf}\Gestión Agraria
 
           [Files]
           Source: "publish\*"; DestDir: "{app}"; Flags: recursesubdirs
